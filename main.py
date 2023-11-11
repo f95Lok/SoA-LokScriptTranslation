@@ -336,7 +336,7 @@ def handle_function(function):
                 if i == 0:
                     handle_texts(extract_from_string(function[i]), force_type=_locations_)
                 else:
-                    if any(ch_punctuation in function[i] for ch_punctuation in ch_punctuation_marks) or "_" not in function[i] and len(re.sub(r"[\"'<>]", "", function[i])) >= 10:
+                    if any(ch_punctuation in function[i] for ch_punctuation in ch_punctuation_marks) or i > 1 and "_" not in function[i] and len(re.sub(r"[\"'<>]", "", function[i])) >= 10:
                         handle_texts(extract_from_string(function[i]))
                     else:
                         handle_texts(extract_from_string(function[i]), force_type=_arguments_)
