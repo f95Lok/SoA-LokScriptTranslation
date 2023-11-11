@@ -3,9 +3,9 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
-$hot_spring_comfort-=1
+hot_spring_comfort-=1
 '<div id="right-column">'
 	gs"energy_judgment"
 	gs'menu_time'
@@ -14,7 +14,7 @@ $hot_spring_comfort-=1
 	gs "bug_prolapse"
 '</div>'
 
-$random_number=rand(0,100)
+random_number=rand(0,100)
 
 
 if $args[0]="fang_liyi":
@@ -22,24 +22,24 @@ if $args[0]="fang_liyi":
 
 	'<div class="button_menu">'
 		if  $times_of_day='night':
-			if $hot_spring_comfort>=60:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''open_a_seam''">Open a seam</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
-			if $random_number>=60:'<div class="buttonS2"><a href="exec:minutes+=60 &  gt ''hot_spring_event'',''peeping''">Panting?</a></div>'
-			if $random_number<60 and $WQ.bad>200 and $wq.photo_destruction>=1:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''wq_fuck_force''">Forced entry</a></div>'
+			if hot_spring_comfort>=60:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''open_a_seam''">Open a seam</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
+			if random_number>=60:'<div class="buttonS2"><a href="exec:minutes+=60 &  gt ''hot_spring_event'',''peeping''">Panting?</a></div>'
+			if random_number<60 and $WQ.bad>200 and $wq.photo_destruction>=1:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''wq_fuck_force''">Forced entry</a></div>'
 		end
 		
 		if  $times_of_day='':
 			if $wq.photo=1 and 		 $wq.photo_destruction!1:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''knock_on_the_door''">Knock on the door</a></div>'
 			if  $wq.photo_destruction=1:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''knock_on_the_door_2''">Knock on the door</a></div>'
-			if $random_number>=70 and $wq_event_chain>=6:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''WQ_Fuck_QJJ''">Group tourists</a></div>'
+			if random_number>=70 and $wq_event_chain>=6:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''WQ_Fuck_QJJ''">Group tourists</a></div>'
 			
 		end
-		'<div class="buttonGn"><a href="exec:minutes+=60 & $my.energy+=30 & gt ''hot_spring'',''suite''">Go back to the room to rest</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=60 & my.energy+=30 & gt ''hot_spring'',''suite''">Go back to the room to rest</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p>·The door is closed</p>'
 		'<p>I: …………</p>'
-		if $random_number>=70 and $wq_event_chain>=6:'<p>？？？: Ok<<$panting>></p>'
+		if random_number>=70 and $wq_event_chain>=6:'<p>？？？: Ok<<$panting>></p>'
 	'</div>'
 
 end
@@ -53,7 +53,7 @@ if $args[0]="peeping":
 
 
             '<div class="button_menu">'
-					if  $wq.photo_destruction=1 and $WQ.BAD>=$my.charm*15:'<div class="buttonS"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_room4''">Go in and satisfy her</a></div>'else:'<div class="buttonGr"><a href="exec: ">Go in?？？</a></div>'
+					if  $wq.photo_destruction=1 and $WQ.BAD>=my.charm*15:'<div class="buttonS"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_room4''">Go in and satisfy her</a></div>'else:'<div class="buttonGr"><a href="exec: ">Go in?？？</a></div>'
 					
                     '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
             '</div>'
@@ -103,7 +103,7 @@ if $args[0]="knock_on_the_door_2":
 
             '<div class="button_menu">'
                     '<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Fuck her here</a></div>'
-                    if $daily_tz_wq=0:'<div class="buttonG3"><a href="exec:$daily_tz_wq=1 & gt ''hot_spring_event'',''talk_about_investment''">Operating hot springs</a></div>'
+                    if daily_tz_wq=0:'<div class="buttonG3"><a href="exec:daily_tz_wq=1 & gt ''hot_spring_event'',''talk_about_investment''">Operating hot springs</a></div>'
                     '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
             '</div>'
 
@@ -127,7 +127,7 @@ if $args[0]="talk_about_investment":
             '<div class="button_menu">'
                     if $wq.shares=0:'<div class="buttonG3"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_2''">Purchase of shares</a></div>'
                     if $wq.shares>=1 and $wq.manpower>=0:'<div class="buttonG2"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_5''">Recruit manpower</a></div>'
-                    if $hot_spring_oil_pressure_hall=1 and $wq_event_chain<=1:'<div class="buttonG1"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_4''">Operating oil pressure hall</a></div>'
+                    if hot_spring_oil_pressure_hall=1 and $wq_event_chain<=1:'<div class="buttonG1"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_4''">Operating oil pressure hall</a></div>'
 					if $wq_event_chain>=2:'<div class="buttonS1"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA0''">Field trip</a></div>'
 					if $wq_event_chain>=3:'<div class="buttonS2"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Oil pressure guidance</a></div>'
 					if $wq_event_chain>=4:'<div class="buttonS3"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">Simulation operation</a></div>'
@@ -352,8 +352,8 @@ if $args[0]="WQ_Fuck_kitchen1":
     end
 
     if a=7:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p>？？？: Honey, are you in the kitchen?I heard that a lot of guests have come, so I came back early to help!</p>'
@@ -584,8 +584,8 @@ if $args[0]="WQ_Fuck_room1":
     end
 
     if a=6:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p>Me: How am I doing?</p>'
@@ -658,8 +658,8 @@ if $args[0]="wq_fuck_force":
     end
 
     if a=9:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p>Me: What?Don`t you like it?</p>'
@@ -749,8 +749,8 @@ if $args[0]="WQ_Fuck_WSPA":
     end
 
     if a=13:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p><<$WQ.name>>:How?Are you satisfied with the private exclusive service?</p>'
@@ -894,8 +894,8 @@ if $args[0]="WQ_Fuck_room3":
     end
 
     if a=10:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 		 $wq.photo_destruction=1
          '<div class="dialog_menu">'
              '<p>Me: You know, I actually don`t want to threaten others.</p>'
@@ -964,8 +964,8 @@ if $args[0]="WQ_Fuck_room4":
     end
 
     if a=7:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p>Me: Don`t you wipe it off?</p>'
@@ -1030,8 +1030,8 @@ if $args[0]="wq_fuck_early_1":
     end
 
     if a=7:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p>Me: What?Looking for me early in the morning?</p>'
@@ -1162,8 +1162,8 @@ if $args[0]="WQ_Fuck_WSPA1":
     end
 
     if a=11:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
          if $wq_event_chain=3:$wq_event_chain=4
          '<div class="dialog_menu">'
              '<p><<$TZ.name>>:How?Have you learned?</p>'
@@ -1804,8 +1804,8 @@ if $args[0]="wq_fuck_home_visit":
     end
 
     if a=7:
-         $WQ.love+=q+$my.charm
-         $WQ.bad+=q+$my.charm
+         $WQ.love+=q+my.charm
+         $WQ.bad+=q+my.charm
 
          '<div class="dialog_menu">'
              '<p><<$WQ.name>>:I`m going back!</p>'
@@ -1902,8 +1902,8 @@ if $args[0]="hot_spring_fuck_wq_collar":
     end
 
     if a=13:
-		 $XY.love+=q+$my.charm
-		 $XY.bad+=q+$my.charm
+		 $XY.love+=q+my.charm
+		 $XY.bad+=q+my.charm
          '<div class="dialog_menu">'
 			 '<p><<$XY.name>>:When will my salary be settled for me?</p>'
              '<p>Me: Today`s reward should have been shot to you❤</p>'

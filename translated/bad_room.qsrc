@@ -87,32 +87,32 @@ End
 if $ARGS[0]="compressed_package":   
 	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
 	 '<div class="button_menu">'
-		if $compressed_package_code <100:
-		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package''">Code deciphering<<$compressed_package_code>>%</a></div>'
+		if compressed_package_code <100:
+		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package''">Code deciphering<<compressed_package_code>>%</a></div>'
 		else:
-		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package_successfully''">Successfully deciphered<<$compressed_package_code>>%</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package_successfully''">Successfully deciphered<<compressed_package_code>>%</a></div>'
 		end
 	 '</div>'
 
 	'<div class="dialog_menu">'
 		'<p> It took a little time to decipher the password of the compressed package, and intelligence played a decisive role.</p>'
-		$compressed_package_code+=$my.intelligence*5
+		compressed_package_code+=my.intelligence*5
 	'</div>'
 End
 
 if $ARGS[0]="folder":   
 	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
 	 '<div class="button_menu">'
-		if $folder_code <100:
-		'<div class="button"><a href="exec: gt ''bad_room'',''folder''">Code deciphering<<$folder_code>>%</a></div>'
+		if folder_code <100:
+		'<div class="button"><a href="exec: gt ''bad_room'',''folder''">Code deciphering<<folder_code>>%</a></div>'
 		else:
-		'<div class="button"><a href="exec: gt ''bad_room'',''folder_success''">Successfully deciphered<<$folder_code>>%</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''folder_success''">Successfully deciphered<<folder_code>>%</a></div>'
 		end
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p> It took a little time to decipher the password of the folder, and intelligence played a decisive role.</p>'
-		$folder_code+=$my.intelligence*5
+		folder_code+=my.intelligence*5
 	'</div>'
 End
 

@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -47,7 +47,7 @@ End
 
 
 if $args[0]="pressure":
-		$qb.pressure+=10
+		qb.pressure+=10
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\QB\vids\围攻.webm" type=''video/webm;''></video></div>'
@@ -137,7 +137,7 @@ if $args[0]="the_manager`s_rental_house":
 		'<p>Me: It`s okay... don`t blame you…</p>'
 		end
 		$qb_event_chain=4
-		$qb.pressure=0
+		qb.pressure=0
 	'</div>'
 End
 
@@ -183,7 +183,7 @@ if $args[0]="toilet":
 		'<p><<$QB.name>>:Um... it feels so good to empty your brain…</p>'
 		'<p>·The pressure has eased slightly…</p>'
 		'<p>Me: (It seems that she secretly took this thing)</p>'
-		$qb.pressure-=10+$qb_event_chain*4
+		qb.pressure-=10+$qb_event_chain*4
 		$QB.bad+=5
 		if $qb_event_chain=4:$qb_event_chain=5
 	'</div>'
@@ -261,7 +261,7 @@ if $args[0]="qb_fuck_inquiry":
     if a=7:
          $QB.love+=q
          $QB.bad+=10
-         $qb.pressure-=10
+         qb.pressure-=10
          if $qb_event_chain=5:$qb_event_chain=6
          '<div class="dialog_menu">'
              '<p>Me: I won`t say anything about this... Everyone has their own way of decompressing.…</p>'
@@ -336,7 +336,7 @@ if $args[0]="qb_fuck_sleep_aid":
     if a=6:
          $QB.love+=q
          $QB.bad+=q
-         $qb.pressure-=5
+         qb.pressure-=5
          '<div class="dialog_menu">'
              '<p>Me: How do you feel…</p>'
              '<p><<$QB.name>>:I feel much more relaxed... I can start shooting…</p>'
@@ -425,7 +425,7 @@ if $args[0]="qb_fuck_support_1":
          '<div class="dialog_menu">'
              '<p>Self-media person: What an all-round idol... I will definitely canvass votes for you!</p>'
              '<p><<$QB.name>>: <<$panting>></p>'
-             '<p>♯ Her pressure value：<<$qb.pressure>></p>'
+             '<p>♯ Her pressure value：<<qb.pressure>></p>'
          '</div>'
     end
 
@@ -435,13 +435,13 @@ if $args[0]="qb_fuck_support_1":
              '<p>Me: Ahem...it`s almost there!</p>'
              '<p><<$QB.name>>:……………</p>'
              '<p>Self-media person: That`s great... The store manager who said you had a plastic surgery must be a disinformation!I`ll write the manuscript right away…</p>'
-             '<p>♯ Her pressure value：<<$qb.pressure>></p>'
+             '<p>♯ Her pressure value：<<qb.pressure>></p>'
          '</div>'
     end
 
 
   q+=1
-  $qb.pressure+=q+3
+  qb.pressure+=q+3
 End
 
 if $args[0]="qb_fuck_support_2":
@@ -493,7 +493,7 @@ if $args[0]="qb_fuck_support_2":
          '<div class="dialog_menu">'
              '<p>Black powder boss: It`s so fragrant... it`s completely different from the strong smell I imagined!</p>'
              '<p><<$QB.name>>: <<$panting>></p>'
-             '<p>♯ Her pressure value：<<$qb.pressure>></p>'
+             '<p>♯ Her pressure value：<<qb.pressure>></p>'
          '</div>'
     end
 
@@ -503,13 +503,13 @@ if $args[0]="qb_fuck_support_2":
              '<p>Me: Ahem...it`s almost there!</p>'
              '<p><<$QB.name>>:……………</p>'
              '<p>Black fan boss: It was completely my prejudice before... Please don`t take it to heart, I will help you promote it when I go back.…</p>'
-             '<p>♯ Her pressure value：<<$qb.pressure>></p>'
+             '<p>♯ Her pressure value：<<qb.pressure>></p>'
          '</div>'
     end
 
 
   q+=1
-  $qb.pressure+=q+4
+  qb.pressure+=q+4
 End
 
 if $args[0]="qb_fuck_support_3":
@@ -558,25 +558,25 @@ if $args[0]="qb_fuck_support_3":
          '<div class="dialog_menu">'
              '<p>Gold Master Dad: What is voting?Is to invest money!You little scamps, all of you are gold swallowing beasts!</p>'
              '<p><<$QB.name>>: <<$panting>></p>'
-             '<p>♯ Her pressure value：<<$qb.pressure>></p>'
+             '<p>♯ Her pressure value：<<qb.pressure>></p>'
          '</div>'
     end
 
     if a=4:
-         $QB.love+=q+$my.charm
+         $QB.love+=q+my.charm
          $QB.bad+=q
          '<div class="dialog_menu">'
              '<p>Me: Ahem... it`s almost there!</p>'
              '<p><<$QB.name>>:……………</p>'
              '<p>Golden Master father: Don`t you want my sponsorship anymore?Pretending to be a righteous man, you are obviously a scum who plays with women just like me!I have seen it a long time ago!</p>'
              '<p>Me: It`s really rude…</p>'
-             '<p>♯ Her pressure value：<<$qb.pressure>></p>'
+             '<p>♯ Her pressure value：<<qb.pressure>></p>'
          '</div>'
     end
 
 
   q+=1
-  $qb.pressure+=q+5
+  qb.pressure+=q+5
 End
 
 if $args[0]="qb_fuck_support_4":
@@ -654,9 +654,9 @@ if $args[0]="qb_fuck_support_4":
     end
 
     if a=9:
-         $QB.love+=q+$my.charm
+         $QB.love+=q+my.charm
          $QB.bad+=q
-         $qb.pressure=0
+         qb.pressure=0
          '<div class="dialog_menu">'
              '<p>·Her pressure is cleared…</p>'
              '<p>Me: You look so beautiful now……</p>'
@@ -734,9 +734,9 @@ if $args[0]="qb_fuck_fuck_decompression":
     end
 
     if a=8:
-         $QB.love+=q+$my.charm
+         $QB.love+=q+my.charm
          $QB.bad+=q
-         $qb.pressure=0
+         qb.pressure=0
          if $pan_decompression=3 and $qb_event_chain=6:$qb_event_chain=7
          '<div class="dialog_menu">'
              '<p><<$QB.name>>:So comfortable... I want more……</p>'
@@ -806,8 +806,8 @@ if $args[0]="qb_fuck_fuck_1":
     end
 
     if a=8:
-         $QB.love+=q+$my.charm
-         $QB.bad+=q+$my.charm
+         $QB.love+=q+my.charm
+         $QB.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$QB.name>>:So comfortable... I want more……</p>'
          '</div>'
@@ -871,7 +871,7 @@ if $args[0]="qb_fuck_tempting":
     end
 
     if a=7:
-         $QB.love+=q+$my.charm
+         $QB.love+=q+my.charm
          $QB.bad+=q
          $hashimoto_is_tempting=1
          '<div class="dialog_menu">'
@@ -947,8 +947,8 @@ if $args[0]="qb_fuck_double":
 
     
     if a=12:
-         $QB.love+=q+$my.charm
-         $SSYY.love+=q+$my.charm
+         $QB.love+=q+my.charm
+         $SSYY.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SSYY.name>>:What`s the matter... is it going to work?Didn`t shoot much…</p>'
              '<p><<$QB.name>>:Because it`s all shot to me❤</p>'
@@ -1085,7 +1085,7 @@ if $args[0]="qb_fuck_massage_advertisement":
 
 
     if a=11:
-         $QB.love+=q+$my.charm
+         $QB.love+=q+my.charm
          $QB.bad+=q
          $qb_pressed=1
          '<div class="dialog_menu">'
@@ -1304,9 +1304,9 @@ if $args[0]="qb_fuck_broom":
     end
 
     if a=7:
-         $QB.love+=q+$my.charm
+         $QB.love+=q+my.charm
          $QB.bad+=q
-         $hashimoto_cd=0
+         hashimoto_cd=0
          '<div class="dialog_menu">'
             if $times_of_day='night':'<p><<$QB.name>>: <<$protagonists_name>>, After the idol retires, I want to live with you❤</p>'else:'<p><<$QB.name>>: <<$protagonists_name>>, I think I can`t leave you anymore❤</p>'
          '</div>'

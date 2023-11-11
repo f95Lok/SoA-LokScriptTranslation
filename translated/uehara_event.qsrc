@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -52,11 +52,11 @@ if $ARGS[0]="learn_to_cook":
 		if a=0:'<p><<$SY.name>>: Why don`t you go to the seat and wait obediently?</p>'
 		if a=1:'<p><<$SY.name>>: The so-called cooking is to perfectly blend the flavors of ingredients!Do you know what is missing from this ham sausage?</p>'& $SY.love+=5
 		if a=2:'<p><<$SY.name>>: Your thoughts...very interesting ❤I like it very much❤</p>'
-		if a=3:'<p><<$SY.name>>：！！！It`s so delicious ❤ Do you want to taste it?</p>' & $exp_cooking+=rand(20,$SY.love*2)
+		if a=3:'<p><<$SY.name>>：！！！It`s so delicious ❤ Do you want to taste it?</p>' & exp_cooking+=rand(20,$SY.love*2)
 		if a=4:
 			'<p><<$SY.name>>: Good idea!Is it delicious?</p>'
 			'<p>·Take a bite→ Cooking skills have improved!</p>'
-			$exp_cooking+=rand(13,$SY.love)
+			exp_cooking+=rand(13,$SY.love)
 		end
 	'</div>'
 end
@@ -323,7 +323,7 @@ if $args[0]="uehara_fuck_night_sleep":
              '<p><<$SY.name>>:Worthy of being my daughter!</p>'
              '<p><<$LJ.name>>:Can I not be fucked by those strange uncles?I just want to be with<<$protagonists_name>>Make love.</p>'
              '<p><<$SY.name>>:Then you can`t be repeated again!</p>'  
-             $SY.BAD+=15+$my.charm
+             $SY.BAD+=15+my.charm
              $LJ.BAD+=15
          '</div>'
     end
@@ -442,7 +442,7 @@ if $ARGS[0]="uehara_family_vertical_painting":
 
 	'<div class="button_menu">'
 		'<div class="buttonS1"><a href="exec:gt ''uehara_event'',''SY_Fuck_JIAWU''">Entrust</a></div>'
-		if $essential_oil>0 and MGF>0:'<div class="buttonS2"><a href="exec:$essential_oil-=1 & MGF-=1 & gt ''uehara_event'',''SY_Fuck_AM1''">Get started with essential oil massage</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of massage materials</a></div>'
+		if essential_oil>0 and MGF>0:'<div class="buttonS2"><a href="exec:essential_oil-=1 & MGF-=1 & gt ''uehara_event'',''SY_Fuck_AM1''">Get started with essential oil massage</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of massage materials</a></div>'
 		if $SY.bad>=50:'<div class="buttonS3"><a href="exec:gt ''uehara_event'',''SY_Fuck_nxkh''">Son-in-law assessment</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
 		if $SY.FUCK>=4:'<div class="buttonS4"><a href="exec:gt ''uehara_event'',''SY_Fuck_nxkh2''">Firm assessment</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
 		if  $sy.unlimited=1 and $SY.SECOND=1:'<div class="buttonS5"><a href="exec:gt ''uehara_event'',''SY_Fuck_nxkh3''">Hundred-person assessment</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
@@ -514,7 +514,7 @@ if $args[0]="SY_Fuck_AM1":
 
     if a=9:
          $SY.love+=q*2
-         $SY.bad+=q*2+$my.charm
+         $SY.bad+=q*2+my.charm
          $sy.massage=1
          '<div class="dialog_menu">'
              '<p><<$SY.name>>:Your technique is really good!You are so good!</p>'
@@ -592,16 +592,16 @@ if $args[0]="SY_Fuck_DKH":
             if 0<=a and a<=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Eligible to continue </a></div>'
 
 
-            if a=6 and $my.cooking<5:'<div class="button"><a href="exec:gt ''subway''">Leave: Cooking level 5 is not enough </a></div>'
+            if a=6 and my.cooking<5:'<div class="button"><a href="exec:gt ''subway''">Leave: Cooking level 5 is not enough </a></div>'
 
 
-            if 6<=a and a<=9 and $my.cooking>=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Eligible to continue </a></div>'
+            if 6<=a and a<=9 and my.cooking>=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Eligible to continue </a></div>'
 
 
-            if a=10 and $my.cooking<8:'<div class="button"><a href="exec:gt ''subway''">Leave: Cooking level 8 is not enough </a></div>'
-            if a=10 and $my.cooking>=8:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Cooking Level 8 </a></div>'
+            if a=10 and my.cooking<8:'<div class="button"><a href="exec:gt ''subway''">Leave: Cooking level 8 is not enough </a></div>'
+            if a=10 and my.cooking>=8:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Cooking Level 8 </a></div>'
             if a=11:
-                if $my.cooking>=10:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''SY_Fuck_DKH2''">Exclusive enjoyment </a></div>'else:'<div class="buttonGr"><a href="exec:gt ''subway''">Insufficient cooking level </a></div>'
+                if my.cooking>=10:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''SY_Fuck_DKH2''">Exclusive enjoyment </a></div>'else:'<div class="buttonGr"><a href="exec:gt ''subway''">Insufficient cooking level </a></div>'
                 '<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''subway''">leave </a></div>'
             end
 
@@ -632,7 +632,7 @@ if $args[0]="SY_Fuck_DKH":
              '<p><<$SY.name>>:After that, only Michelin-level ones can enjoy me exclusively❤</p>'
          '</div>'
     end
-	$exp_cooking+=5
+	exp_cooking+=5
   q+=1
 End
 
@@ -688,7 +688,7 @@ if $args[0]="SY_Fuck_DKH2":
 
     if a=7:
          $SY.love+=q
-         $SY.bad+=q+$my.charm
+         $SY.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SY.name>>Panting…</p>'
          '</div>'
@@ -1069,7 +1069,7 @@ if $args[0]="SY_Fuck_FNN":
 
     if a=8:
          $SY.love+=q
-         $SY.bad+=q+$my.charm
+         $SY.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SY.name>>Can`t stand it anymore…</p>'
          '</div>'
@@ -1151,8 +1151,8 @@ if $args[0]="SY_Fuck_FNN2":
 
 
     if a=15:
-         $SY.love+=q+$my.charm
-         $SY.bad+=q+$my.charm
+         $SY.love+=q+my.charm
+         $SY.bad+=q+my.charm
          $sy.unlimited=1
          '<div class="dialog_menu">'
              '<p><<$SY.name>>:awesome<<$words>></p>'
@@ -1218,8 +1218,8 @@ if $args[0]="SY_Fuck_nxkh3":
 
 
     if a=10:
-         $SY.love+=q+$my.charm
-         $SY.bad+=q+$my.charm
+         $SY.love+=q+my.charm
+         $SY.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SY.name>>:awesome<<$words>></p>'
              '<p><<$SY.name>>:It`s better for us to put aside the son-in-law`s affairs... let`s satisfy my mother first!Hurry up, where is the next meat stick?！</p>'

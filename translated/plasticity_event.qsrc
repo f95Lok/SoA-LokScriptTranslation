@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -48,7 +48,7 @@ if $args[0]="in_front_of_the_plastic_toilet":
 			 '<p>——-Sage Time———</p>'
 			 '<p>Me: Strange, this plastic face in the photo... so familiar... I seem to have seen it before?</p>'
 			 '<p>———Moral decline———</p>'
-			 $my.ethics-=5
+			 my.ethics-=5
 			 if $zx_event_chain=0:$zx_event_chain=1
 		 '</div>'
 	end
@@ -86,8 +86,8 @@ if $args[0]="zx_fuck_strategy":
 			'<div class="button"><a href="exec:a=5 & gt ''plasticity_event'',''zx_fuck_strategy''">dialogue </a></div>'
 			end
 			if a=5:
-			if $bigvillaforthefirsttime>=1:'<div class="buttonR2"><a href="exec:a=6 & gt ''plasticity_event'',''zx_fuck_strategy''">What are you calling? </a></div>'else:'<div class="buttonGr"><a href="exec:">？？Triggered after entering the big villa </a></div>'
-			if $bigvillaforthefirsttime<=0:'<div class="buttonR2"><a href="exec:gt ''park''">escape </a></div>'
+			if bigvillaforthefirsttime>=1:'<div class="buttonR2"><a href="exec:a=6 & gt ''plasticity_event'',''zx_fuck_strategy''">What are you calling? </a></div>'else:'<div class="buttonGr"><a href="exec:">？？Triggered after entering the big villa </a></div>'
+			if bigvillaforthefirsttime<=0:'<div class="buttonR2"><a href="exec:gt ''park''">escape </a></div>'
 			end
 			if a=6:
 			'<div class="buttonR"><a href="exec:a=7 & gt ''plasticity_event'',''zx_fuck_strategy''">Looking back </a></div>'
@@ -157,7 +157,7 @@ if $args[0]="street_encounter":
 	'<div class ="show_menu"><img src="images\NPC\ZX\pics\偶遇 (<<rand(1,2)>>).jpg" height="492"></div>'
 		'<div class="button_menu">'
 			'<div class="buttonS1"><a href="exec:gt ''plasticity_event'',''zx_fuck_shop_0''">Go to the restaurant</a></div>'
-			if $ZX.bad>=$my.charm*10:'<div class="buttonS3"><a href="exec:gt ''plasticity_event'',''zx_fuck_store''">Go to the adult store</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<$my.charm*10>></a></div>'
+			if $ZX.bad>=my.charm*10:'<div class="buttonS3"><a href="exec:gt ''plasticity_event'',''zx_fuck_store''">Go to the adult store</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<my.charm*10>></a></div>'
 			'<div class="buttonR"><a href="exec:$zx_about_residential_area=0 & gt ''residential_area''">Don`t bother me</a></div>'
 			'<div class="button"><a href="exec:gt ''residential_area''">Ignore her</a></div>'
 			
@@ -201,7 +201,7 @@ if $args[0]="zx_home":
 			 <source src="images\NPC\ZX\vids\她家.webm" type=''video/webm;''></video></div>'
 		'</div>'
 		'<div class="button_menu">'
-			if $ZX.love>=$my.charm*12:'<div class="buttonS3"><a href="exec: gt ''plasticity_event'',''zx_fuck_bedroom''">Into the bedroom</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of favorability<<$my.charm*12>></a></div>'
+			if $ZX.love>=my.charm*12:'<div class="buttonS3"><a href="exec: gt ''plasticity_event'',''zx_fuck_bedroom''">Into the bedroom</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of favorability<<my.charm*12>></a></div>'
 			'<div class="buttonPu5"><a href="exec: gt ''plasticity_event'',''zx_fuck_sleep''">Take a nap on the sofa</a></div>'
 
 			if $ZX.love>=200 and $EDM.love>=200:'<div class="buttonS"><a href="exec: gt ''plasticity_event'',''ZX_Fuck_D2''">appointment<<$EDM.name>></a></div>'else:'<div class="buttonGr"><a href="exec: ">And the second generation?？3P</a></div>'
@@ -235,7 +235,7 @@ if $args[0]="zx_fuck_sleep":
 			'<div class="buttonP"><a href="exec:a+=1 & gt ''plasticity_event'',''zx_fuck_sleep''">Lost in a daze</a></div>'
 			end
 			if a=8:
-			'<div class="buttonPu5"><a href="exec:$my.energy+=100 & a=9 & gt ''plasticity_event'',''zx_fuck_sleep''">Sleeping </a></div>'
+			'<div class="buttonPu5"><a href="exec:my.energy+=100 & a=9 & gt ''plasticity_event'',''zx_fuck_sleep''">Sleeping </a></div>'
 			end
 			if a=9:
 			'<div class="buttonGn"><a href="exec:a=10 & gt ''plasticity_event'',''zx_fuck_sleep''">Wake up </a></div>'
@@ -283,7 +283,7 @@ if $args[0]="zx_fuck_magic":
 	if a<22:
 		'<div class="button_menu">'
 			if a=-1:
-			'<div class="buttonP"><a href="exec:a=0 & $zx_struggling=100 &  gt ''plasticity_event'',''zx_fuck_magic''">Wake up </a></div>'
+			'<div class="buttonP"><a href="exec:a=0 & zx_struggling=100 &  gt ''plasticity_event'',''zx_fuck_magic''">Wake up </a></div>'
 			end
 			if a=0:
 			'<div class="buttonP"><a href="exec:a=1 & gt ''plasticity_event'',''zx_fuck_magic''">Look in the mirror </a></div>'
@@ -302,8 +302,8 @@ if $args[0]="zx_fuck_magic":
 			end
 			if 20>=a and a>=5:
 				'<div class="buttonS"><a href="exec:a+=1 & gt ''plasticity_event'',''zx_fuck_magic''">At the mercy of </a></div>'
-				 if $zx_struggling>0:'<div class="buttonR"><a href="exec:a+=1 & $zx_struggling-=$my.physical_strength & gt ''plasticity_event'',''zx_fuck_magic''">struggling </a></div>'
-				 if $zx_struggling<=0:'<div class="buttonR3"><a href="exec:a=23 & gt ''plasticity_event'',''zx_fuck_magic''">Come out </a></div>'
+				 if zx_struggling>0:'<div class="buttonR"><a href="exec:a+=1 & zx_struggling-=my.physical_strength & gt ''plasticity_event'',''zx_fuck_magic''">struggling </a></div>'
+				 if zx_struggling<=0:'<div class="buttonR3"><a href="exec:a=23 & gt ''plasticity_event'',''zx_fuck_magic''">Come out </a></div>'
 			end
 			if a=21:
 			'<div class="buttonR"><a href="exec:a=22 & gt ''plasticity_event'',''zx_fuck_magic''">After a whole day </a></div>'
@@ -311,7 +311,7 @@ if $args[0]="zx_fuck_magic":
 		'</div>'
 		else:
 			'<div class="button_menu">'
-				'<div class="button"><a href="exec:$my.energy=-999 & gt ''plasticity_event'',''zx_fuck_magic''">coma</a></div>'
+				'<div class="button"><a href="exec:my.energy=-999 & gt ''plasticity_event'',''zx_fuck_magic''">coma</a></div>'
 			'</div>'
 	end
 
@@ -336,7 +336,7 @@ if $args[0]="zx_fuck_magic":
 		 		'<p>Me: *Struggling</p>'
 		 		'<p>？？？: You obviously don`t owe much money, and you have the ability to repay it, say!Did you deliberately oppose us [Bounty Hunter]?</p>'	
 		 		'<p>·————————————————</p>'
-		 		'<p>Degree of bondage: <<$zx_struggling>>/100</p>'
+		 		'<p>Degree of bondage: <<zx_struggling>>/100</p>'
 		 '</div>'
 	end
 
@@ -418,8 +418,8 @@ if $args[0]="ZX_Fuck_CJ1":
 
 
 	if a=13:
-		 $ZX.love+=q+$my.charm
-		 $ZX.bad+=a+$my.charm
+		 $ZX.love+=q+my.charm
+		 $ZX.bad+=a+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$ZX.name>>:Can the negatives be kept for me?</p>'
 			 '<p>Me: What do you think?</p>'
@@ -458,11 +458,11 @@ if $args[0]="zx_fuck_strategy_2":
 		else:
 			'<div class="button_menu">'
 				'<div class="buttonS1"><a href="exec:$zx_about_the_park=1 & gt ''park''">Field fight in the park at noon </a></div>'
-				if $zx_toilet_num>0:'<div class="buttonS2"><a href="exec:$zx_about_residential_area=1 & gt ''park''">Weekend afternoon shopping </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
-				if $zx_toilet_num>2:'<div class="buttonS3"><a href="exec:$zx_about_the_club=1 & gt ''park''">Late night club </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+				if zx_toilet_num>0:'<div class="buttonS2"><a href="exec:$zx_about_residential_area=1 & gt ''park''">Weekend afternoon shopping </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+				if zx_toilet_num>2:'<div class="buttonS3"><a href="exec:$zx_about_the_club=1 & gt ''park''">Late night club </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
 				if $zx.massage!1:'<div class="buttonG2"><a href="exec:$zx.massage=1 & gt ''park''">Recommend massage parlor </a></div>'
 				if ZXcos!1:'<div class="buttonG3"><a href="exec:ZXcos=1 & gt ''park''">Recommend COS pavilion </a></div>'
-				if $insemination_room=1 and $ZX.bad>=200 and $zx.insemination=0:'<div class="buttonG4"><a href="exec:$zx.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
+				if insemination_room=1 and $ZX.bad>=200 and $zx.insemination=0:'<div class="buttonG4"><a href="exec:$zx.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
 				'<div class="button"><a href="exec:gt ''park''">leave </a></div>'
 			'</div>'
 	end
@@ -484,8 +484,8 @@ if $args[0]="zx_fuck_strategy_2":
 
 	if a=5:
 		 $ZX.love+=a
-		 $ZX.bad+=a+$my.charm
-		 $zx_toilet_num+=1
+		 $ZX.bad+=a+my.charm
+		 zx_toilet_num+=1
 		 '<div class="dialog_menu">'
 			 '<p><<$ZX.name>>:Do you want to play somewhere else next time?</p>'
 			 '<p>Me: Where do you want to go?</p>'
@@ -511,7 +511,7 @@ if $args[0]="zx_fuck_knock_on_the_glass":
 			'<div class="buttonS1"><a href="exec:a=2 & gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''">Question: Was it just now? </a></div>'
 			if $ZX.love>=50:'<div class="buttonS2"><a href="exec:a=3 & gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''">Question: The secret of the archives? </a></div>'else:'<div class="buttonGr"><a href="exec:">Inquiry:?？？ </a></div>'
 			if $ZX.love>=100:'<div class="buttonS3"><a href="exec:a=4 & gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''">Question: Your true identity? </a></div>'else:'<div class="buttonGr"><a href="exec:">Inquiry:?？？ </a></div>'
-			if $devils_pupil>=1 and $ZX.love>=150:'<div class="buttonR"><a href="exec:a=7 & gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''"> <font color="#FF00FF">Demon King`s Pupil: Appears in its original form</font></a></div>'
+			if devils_pupil>=1 and $ZX.love>=150:'<div class="buttonR"><a href="exec:a=7 & gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''"> <font color="#FF00FF">Demon King`s Pupil: Appears in its original form</font></a></div>'
 			if $i_was_replaced=1:'<div class="buttonS5"><a href="exec:a=5 & gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''">Question: What did you do with my body? </a></div>'else:'<div class="buttonGr"><a href="exec:">Inquiry:?？？ </a></div>'
 			end
 			if q=2:
@@ -553,8 +553,8 @@ if $args[0]="zx_fuck_knock_on_the_glass":
 		 		'<p><<$ZX.name>>:My identity?Why do you want to ask that?Do you think I don`t look like an ordinary person?</p>'
 	 	 		if $MMS.love>=5:'<p>Me: Do you know the Succubus?</p>'
 		 		if $MMS.love>=5:'<p><<$ZX.name>>:Succubus?I haven`t heard of it yet.</p>'
-	 	 		if $devils_pupil>=1:'<p>Me: Then you stared into my eyes, do you think of anything?</p>'
-		 		if $devils_pupil>=1:'<p><<$ZX.name>>:Haha, no wonder you have a feeling that I can`t help but want to get close. I originally thought it was your charisma, but I didn`t expect it to be the devil`s pupil.Hi, Lord Devil, are you watching me through it?To tell you the bad news, I don`t plan to go back!Hee hee!</p>'
+	 	 		if devils_pupil>=1:'<p>Me: Then you stared into my eyes, do you think of anything?</p>'
+		 		if devils_pupil>=1:'<p><<$ZX.name>>:Haha, no wonder you have a feeling that I can`t help but want to get close. I originally thought it was your charisma, but I didn`t expect it to be the devil`s pupil.Hi, Lord Devil, are you watching me through it?To tell you the bad news, I don`t plan to go back!Hee hee!</p>'
 			 end
 		 	 if a=5:
 	 	 		'<p>Me: What did you do with my body that day?</p>'
@@ -912,8 +912,8 @@ if $args[0]="zx_fuck_bedroom":
 	end
 
 	if a=9:
-		 $ZX.love+=a+$my.charm
-		 $ZX.bad+=q+$my.charm
+		 $ZX.love+=a+my.charm
+		 $ZX.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$ZX.name>>:After shooting so much, I can add a lot now❤</p>'
 	 		 '<p>Me: What did you add?</p>'
@@ -1079,7 +1079,7 @@ if $args[0]="zx_fuck_reward":
 
 	if a=5:
 		 $ZX.love+=a
-		 $ZX.bad+=a+$my.charm
+		 $ZX.bad+=a+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$ZX.name>>: I lied to you. I can give you the money for Caesar first. 10,000 ￥ is a lot.</p>'
 			 '<p>Me: Oh?So good?</p>'
@@ -1226,7 +1226,7 @@ if $args[0]="ZX_Fuck_KS1":
 
 		else:
 			'<div class="button_menu">'
-				if $ZX.bad>=$my.charm*20:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''plasticity_event'',''ZX_Fuck_KS2''">Enter 3P </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<$my.charm*20>> </a></div>'
+				if $ZX.bad>=my.charm*20:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''plasticity_event'',''ZX_Fuck_KS2''">Enter 3P </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<my.charm*20>> </a></div>'
 				'<div class="button"><a href="exec:gt ''kabukicho''">leave </a></div>'
 			'</div>'
 	end
@@ -1349,7 +1349,7 @@ if $args[0]="ZX_Fuck_AF1":
 	end
 
 	if a=0:
-		 $zx_internal_volume=0
+		 zx_internal_volume=0
 		 '<div class="dialog_menu">'
 			 '<p><<$ZX.name>>:Oh, there are so many people this time?Are they all girlfriends or fiancees who have applied for medical beauty loans?</p>'
 			 '<p>Men: Who are you looking for if you don`t look for you?You tricked them into applying for a loan, what do you want us to do now?</p>'
@@ -1365,7 +1365,7 @@ if $args[0]="ZX_Fuck_AF1":
 	end
 
 	if 18>=a and a>=2:
-		 $zx_internal_volume+=rand(3,7)
+		 zx_internal_volume+=rand(3,7)
 		 $ZX.bad+=1
 		 $ZX.love+=1
 		 '<div class="dialog_menu">'
@@ -1373,7 +1373,7 @@ if $args[0]="ZX_Fuck_AF1":
 			 '<p>Dear man: Bitch, don`t try to lie to us for a loan anymore!I wouldn`t believe it if I hadn`t experienced it firsthand!</p>'
 			 '<p>The man behind: Yes, yes, yes!Let`s experience it for free first!</p>'
 			 '<p><<$ZX.name>>:Don`t stop one by one<<$words>></p>'
-			 '<p>·❤❤❤In utero❤❤❤Semen volume❤❤❤<<$zx_internal_volume>>ML❤❤❤</p>'
+			 '<p>·❤❤❤In utero❤❤❤Semen volume❤❤❤<<zx_internal_volume>>ML❤❤❤</p>'
 			 if a>=16:'<p><<$ZX.name>>: <<$protagonists_name>>, You shouldn`t be here to defend your rights, right?</p>'
 		 '</div>'
 	end

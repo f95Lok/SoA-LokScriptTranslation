@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -28,11 +28,11 @@ if $args[0]="":
 	end
 	
 	'<div class="button_menu">'
-		 if $act_dissatisfied=0:
-			'<div class="button"><a href="exec:minutes+=45 &$act_dissatisfied=1& gt ''young_woman_event''">comfort</a></div>'
-			if money>=5000:'<div class="button"><a href="exec:minutes+=45 &$act_dissatisfied=2& gt ''young_woman_event''">Financial help 5000￥</a></div>'
+		 if act_dissatisfied=0:
+			'<div class="button"><a href="exec:minutes+=45 &act_dissatisfied=1& gt ''young_woman_event''">comfort</a></div>'
+			if money>=5000:'<div class="button"><a href="exec:minutes+=45 &act_dissatisfied=2& gt ''young_woman_event''">Financial help 5000￥</a></div>'
 			if money<5000:'<div class="buttonGr"><a href="exec:">Financial help 5000￥</a></div>'
-			'<div class="button"><a href="exec:minutes+=45 &$act_dissatisfied=3& gt ''young_woman_event''">Intimidate her husband</a></div>'
+			'<div class="button"><a href="exec:minutes+=45 &act_dissatisfied=3& gt ''young_woman_event''">Intimidate her husband</a></div>'
 		 end
 		 if $SF.love>=25:
 			'<div class="button"><a href="exec:minutes+=45 & gt ''young_woman_event'',''go_out_with_her''">Go out with her</a></div>'
@@ -49,24 +49,24 @@ if $args[0]="":
 		else:
 		'<p><<$SF.name>>:Let`s ignore that idiot.</p>'
 		end
-		if $act_dissatisfied=1:
+		if act_dissatisfied=1:
 		 '<p>Me: It`s okay, forbearance will pass, and if you can`t bear it, you will make a big conspiracy!</p>'
 		 '<p><<$SF.name>>:Ugh...Whispering * It`s so tired to take care of that idiot, so I kicked him when I got the money.</p>'
-		 $SF.love+=1+$my.charm
+		 $SF.love+=1+my.charm
 		end
-		if $act_dissatisfied=2:
+		if act_dissatisfied=2:
 		 '<p>Me: You can spend this money first, and pay it back slowly in the future!</p>'
 		 '<p><<$SF.name>>:Wow..Thank you!Muttering * Oh, my husband is used to big hands and big feet, I`m afraid it won`t take long..</p>'
-		 $SF.love+=RAND(7,12)+$my.charm
+		 $SF.love+=RAND(7,12)+my.charm
 		 money-=5000
 		end
-		if $act_dissatisfied=3:
+		if act_dissatisfied=3:
 		 '<p>Me: Hello!You stinky idiot, try scolding her again!In accordance with the regulations on female leadership, insulting women, with my testimony, she can sue you for bankruptcy at any time!</p>'
 		 '<p>Lu Maonan: What`s the matter with you?！Who are you, stupid thing?I teach my wife, do you still need to take care of it?What is the stinky garbage clamoring for, just go out and make a phone call and you will be abandoned.</p>'
-		  if $my.physical_strength>=4:'<p>Me: Don`t wait until you go out, I will abolish you now, believe it or not?</p>'
-		  if $my.physical_strength<4:'<p>You looked at your weak figure....Silent</p>'
+		  if my.physical_strength>=4:'<p>Me: Don`t wait until you go out, I will abolish you now, believe it or not?</p>'
+		  if my.physical_strength<4:'<p>You looked at your weak figure....Silent</p>'
 		 '<p>Lu Maonan: Cut!</p>'
-		 $SF.love+=$my.physical_strength+$my.charm
+		 $SF.love+=my.physical_strength+my.charm
 		end
 	'</div>'
 	
@@ -216,8 +216,8 @@ if $args[0]="sf_fuck_toilet_conception":
 	end
 
 	if a=9:
-		 $SF.love+=q/2+$my.charm
-		 $SF.bad+=q+q+$my.charm
+		 $SF.love+=q/2+my.charm
+		 $SF.bad+=q+q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$SF.name>>: Next time I shoot into the pussy~ I want to conceive your child.</p>'
 		 '</div>'
@@ -338,7 +338,7 @@ if $args[0]="sf_fuck_ward_conception":
 	end
 
 	if a=12:
-		 $SF.love+=q/2+$my.charm
+		 $SF.love+=q/2+my.charm
 		 $SF.bad+=q*2
 		 '<div class="dialog_menu">'
 			 '<p><<$SF.name>>:Shhh--!Don`t be discovered by him, I`m going to conceive your baby and shoot it into the hole next time.</p>'
@@ -356,7 +356,7 @@ if $args[0]="go_to_her_house":
 
 	if a!3:
 		'<div class="button_menu">'
-			'<div class="button"><a href="exec:a+=1 &$my.ethics-=1 & gt ''young_woman_event'',''go_to_her_house''">Watch it</a></div>'
+			'<div class="button"><a href="exec:a+=1 &my.ethics-=1 & gt ''young_woman_event'',''go_to_her_house''">Watch it</a></div>'
 			'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
 		'</div>'
 
@@ -450,7 +450,7 @@ if $args[0]="sf_fuck_home":
 	end
 
 	if a=6:
-		 $SF.love+=q+$my.charm
+		 $SF.love+=q+my.charm
 		 $SF.bad+=q*2
 		 '<div class="dialog_menu">'
 			 '<p><<$SF.name>>:Why don`t you shoot into the hole?！Woo woo... I want to be pregnant with your baby, woo woo... why woo……</p>'
@@ -602,7 +602,7 @@ if $args[0]="sf_fuck_valentine`s_day":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="button"><a href="exec:$my.energy=0 & gt ''young_woman_event'',''sf_fuck_valentine`s_day''">The next day</a></div>'
+                '<div class="button"><a href="exec:my.energy=0 & gt ''young_woman_event'',''sf_fuck_valentine`s_day''">The next day</a></div>'
             '</div>'
     end
 
@@ -642,8 +642,8 @@ if $args[0]="sf_fuck_valentine`s_day":
 
 
     if a=10:
-         $SF.love+=q+$my.charm*3
-         $SF.bad+=q+$my.charm
+         $SF.love+=q+my.charm*3
+         $SF.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SF.name>>:Big cock husband fucked me to death<<$words>></p>'
              '<p>·So tonight came to an end in crazy sex</p>'
@@ -690,7 +690,7 @@ if $args[0]="sf_fuck_night_attack":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonPu2"><a href="exec:$my.energy=0 & gt ''young_woman_event'',''sf_fuck_night_attack''">Good night</a></div>'
+                '<div class="buttonPu2"><a href="exec:my.energy=0 & gt ''young_woman_event'',''sf_fuck_night_attack''">Good night</a></div>'
             '</div>'
     end
 
@@ -714,9 +714,9 @@ if $args[0]="sf_fuck_night_attack":
 
 
     if a=9:
-         $xunguo_cd=0
-         $SF.love+=q+$my.charm
-         $SF.bad+=q+$my.charm
+         xunguo_cd=0
+         $SF.love+=q+my.charm
+         $SF.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SF.name>>:Is it cool... we haven`t done it for a long time…</p>'
              '<p>Me: It`s cool to have sex with you every time!(It seems that I haven`t looked for her for too long)</p>'
@@ -868,8 +868,8 @@ if $args[0]="sf_fuck_uninvited_guest":
 
 
     if a=9:
-         $SF.love+=q+$my.charm
-         $SF.bad+=q+$my.charm
+         $SF.love+=q+my.charm
+         $SF.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: Why is your husband looking for you?</p>'
              '<p><<$SF.name>>:I don`t think I`m pregnant yet.…</p>'
@@ -954,8 +954,8 @@ if $args[0]="sf_fuck_seaside":
 
 
     if a=10:
-         $SF.love+=q+$my.charm
-         $SF.bad+=q+$my.charm
+         $SF.love+=q+my.charm
+         $SF.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SF.name>>:It took so long!Oops!As soon as I did it, I completely forgot the time!I have to go back right away!</p>'
              '<p>Me: Then go back quickly.</p>'

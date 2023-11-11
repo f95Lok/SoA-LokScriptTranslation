@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -12,9 +12,9 @@ minutes+=15
 	gs'menu_status_show'
 	gs'menu_option_hidden'
 	gs "bug_prolapse"
-		if $camera_ss=0 and $camera>0 and $args[0]="ss_event_kitchen":
+		if $camera_ss=0 and camera>0 and $args[0]="ss_event_kitchen":
 		'<div class="action">
-			<a class="photo" data-title="Install the camera" href="exec:$camera_ss=1 & $camera-=1 & gt ''killer_event'',''ss_event_kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
+			<a class="photo" data-title="Install the camera" href="exec:$camera_ss=1 & camera-=1 & gt ''killer_event'',''ss_event_kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
 		</div>'
 		end
 '</div>'
@@ -263,8 +263,8 @@ End
 if $args[0]="ss_event_kitchen":
 	'<div class ="show_menu"><img src="images\NPC\SS\pics\厨房.jpg" width="854"></div>'
 		'<div class="button_menu">'
-			if $gas_valve>0:'<div class="button"><a href="exec:$ss_event_gas_valve=1 & $gas_valve-=1 &gt ''killer_event'',''ss_event_balcony''">Repair gas valve</a></div>'else:'<div class="buttonGr"><a href="exec:">Need a gas valve</a></div>'
-			if $camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
+			if gas_valve>0:'<div class="button"><a href="exec:$ss_event_gas_valve=1 & gas_valve-=1 &gt ''killer_event'',''ss_event_balcony''">Repair gas valve</a></div>'else:'<div class="buttonGr"><a href="exec:">Need a gas valve</a></div>'
+			if camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
 			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
 		'</div>'
 		 '<div class="dialog_menu">'
@@ -540,10 +540,10 @@ if $args[0]="ss_event_home":
 			if $SS_Event_free>=2:'<div class="buttonPu3"><a href="exec:a=0   & gt ''killer_event'',''ss_fuck_show''">Shooting video</a></div>'
 			if $SS_Event_free>=3:'<div class="buttonPu4"><a href="exec:a=0  &  gt ''killer_event'',''ss_fuck_home_3p''">Temporarily avoid</a></div>'
 			if $SS_Event_free>=4:'<div class="buttonPu5"><a href="exec:a=0  &  gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Entertain guests</a></div>'
-			if $xm_videotape=1:'<div class="buttonPu5"><a href="exec:gt ''killer_event'',''please_follow''">Please follow<<$XM.name>></a></div>'
+			if xm_videotape=1:'<div class="buttonPu5"><a href="exec:gt ''killer_event'',''please_follow''">Please follow<<$XM.name>></a></div>'
 			if $champion_event_chain=12:'<div class="buttonR"><a href="exec:gt ''killer_event'',''lesson_gj''">lesson<<$GJ.name>></a></div>'
             if tuc_level3=1 and SScos=0:'<div class="buttonS3"><a href="exec:SScos=1 &  $m=''SS'' & $ma=$SS.name & gt ''group_performation_event'',''group_performation_fuck_coser_exclusive''">Invite cosplay to shoot </a></div>'
-			if $insemination_room=1 and $SS.bad>=200 and $ss.insemination=0:'<div class="buttonG1"><a href="exec:$ss.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
+			if insemination_room=1 and $SS.bad>=200 and $ss.insemination=0:'<div class="buttonG1"><a href="exec:$ss.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
 			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
 		'</div>'
 
@@ -616,7 +616,7 @@ if $args[0]="ss_fuck_hostel":
 			 '<p><<$SS.name>> : Digging dolls is so dangerous!My marksmanship is not bad, right?！A normal rifle should not have such a large bullet capacity....</p>'
 			 '<p>Me: I think you just want to play, right?</p>'
 			 '<p><<$SS.name>> :I want you to take care of it!</p>'
-			 $SS.love+=$my.charm
+			 $SS.love+=my.charm
 		 '</div>'
 		 end
 		if a=0:
@@ -794,7 +794,7 @@ if $args[0]="ss_fuck_sperm_donation":
 	end
 
 	if a=6:
-		 $SS.love+=q+$my.charm
+		 $SS.love+=q+my.charm
 		 $SS.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p><<$SS.name>>:A total of shots were fired<<q>>Oh, very good!</p>'
@@ -984,7 +984,7 @@ if $args[0]="ss_event_hospital_3":
 			 if medicine!1 and  $peeping_ss_experiment!1:'<p><<$SS.name>>: You go back first, I have a group meeting with several people in charge of the Jingyuan project!！</p>'
 			 '<p>Me:.........</p>'
 			 '<p>Jingyuan Project director: What a show, I lied to your husband to have a group meeting, it was actually group sex!Haha!</p>'
-			 if $can_take_oxidation_equipment=1:'<p>【Antioxidant equipment】<a href="exec:$antioxidant_equipment=1 & a=1 & gt ''killer_event'',''ss_event_hospital_3''">-Take it quietly</a></p>'
+			 if can_take_oxidation_equipment=1:'<p>【Antioxidant equipment】<a href="exec:antioxidant_equipment=1 & a=1 & gt ''killer_event'',''ss_event_hospital_3''">-Take it quietly</a></p>'
 		 '</div>'
 	end
 
@@ -1098,7 +1098,7 @@ if $args[0]="ss_fuck_show":
 
 
 	if a=9:
-		 $SS.love+=q+$my.charm
+		 $SS.love+=q+my.charm
 		 $SS.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p><<$SS.name>>:<<$protagonists_name>>, I love you so much, I will never betray you in my life.</p>'
@@ -1254,8 +1254,8 @@ if $args[0]="ss_fuck_jia_inverse_3p":
 	end
 
 	if a=12:
-		 $SS.love+=(q+$my.charm)*2
-		 $SS.bad+=(q+$my.charm)*2
+		 $SS.love+=(q+my.charm)*2
+		 $SS.bad+=(q+my.charm)*2
 		 '<div class="dialog_menu">'
 			 '<p>008: Your sex doll is awesome!Can I come again?</p>'
 			 '<p><<$SS.name>>:This is not my sex doll，<<$protagonists_name>>It`s mine...husband.</p>'
@@ -1285,7 +1285,7 @@ if $args[0]="please_follow":
 		 '<p><<$SS.name>> :Okay, I see, I really can`t stand you.The investigation will take some time. How do you want me to track it?</p>'
 		 '<p>Me: It`s best to be able to photograph what she is doing with strangers in the deep alley in the middle of the night……</p>'
 		 '<p><<$SS.name>> :I will send you the videotape after the investigation is over, so you have to be mentally prepared when the time comes!</p>'
-		 $xm_videotape=2
+		 xm_videotape=2
 	 '</div>'
 End
 
@@ -1315,7 +1315,7 @@ End
 if $args[0]="phone_1":
 	 '<div class ="show_menu"><img src="images\place\打电话.jpg" width="854"></div>'
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:$xm_videotape+=1 & gt ''home_bedroom''">Got it</a></div>'
+		'<div class="button"><a href="exec:xm_videotape+=1 & gt ''home_bedroom''">Got it</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'	
 		'<p><<$SS.name>>:To make a long story short, there is new progress in what you asked for, and I will send it to you right away.</p>'

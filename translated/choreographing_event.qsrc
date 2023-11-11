@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -68,7 +68,7 @@ if $ARGS[0]="go_out":
 			'<div class="buttonG"><a href="exec:$choose_rice=''自助餐'' & money-=400 & gt ''choreographing_event'',''eat''">Eat buffet 400￥</a></div>'
 		end
 		if $BD.love>=25:'<div class="buttonP"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''her_house''">Go to her house</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
-		if $dailyeditor_and_director=0:
+		if dailyeditor_and_director=0:
 		if $BD.love>=130:'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''parking''">Stop and rest</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
 		if $BD.love>=150 and $BD.bad>=150:'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''hotel''">Go to the hotel</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
 		end
@@ -122,7 +122,7 @@ if $ARGS[0]="her_house":
 		end
 		if a=2:
 		'<p>Me: Are you full?I`ll give you something to eat if you`re not full.</p>'
-		$BD.love+=$my.charm
+		$BD.love+=my.charm
 		$BD.bad+=5
 		end
 	'</div>'
@@ -247,7 +247,7 @@ if $args[0]="choreographing_fuck_after-meal_exercise":
 	end
 
 	if a=9:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p>Me: Have you completely fed you now?</p>'
@@ -352,7 +352,7 @@ if $args[0]="choreographing_fuck_bathroom_entrance":
 		 '</div>'
 	end
 	if a=10:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q+5
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>:？！Huh, but you are so good at it, you actually fucked my mother to beg for mercy... No wonder the director listened to you so much, have you fucked her too?</p>'
@@ -382,7 +382,7 @@ if $ARGS[0]="choreographing_fuck_bathroom_settlement":
 		'<p>Me: Really?Why do I think you are afraid?</p>'
 		'<p><<$BD.name>>:Too lazy to care about you.</p>'
 		$BD.love+=3
-		$BD.bad+=9+a+$my.charm/2
+		$BD.bad+=9+a+my.charm/2
 	'</div>'
 end
 
@@ -457,7 +457,7 @@ if $args[0]="video_conference":
 	end
 
 	if a=8:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p>Conference speaker：<<$BD.name>>, Do you have anything to add?</p>'
@@ -486,7 +486,7 @@ if $ARGS[0]="choreographing_fuck_conference_settlement":
 		'<p><<$BD.name>>:Wait a minute wait a minute wait a minute!Stop it, I`m going to speak.Put your dick away!</p>'
 		'<p>Me: Really?Why do I think you are afraid?</p>'
 		'<p><<$BD.name>>:Crazy you!My job is much more important than your dick!</p>'
-		$BD.love+=8+$my.charm+a/2
+		$BD.love+=8+my.charm+a/2
 		$BD.bad+=3
 	'</div>'
 end
@@ -561,7 +561,7 @@ if $args[0]="video_conference_2":
 
 	if a=7:
 		 $BD.love-=25
-		 $BD.bad+=q+$my.charm
+		 $BD.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>Conference speaker：<<$BD.name>>, are you still there?Why is the camera blocked by clothes?</p>'
 			 '<p><<$BD.name>>:Uh... I have something going on... well, it`s being processed!</p>'
@@ -641,10 +641,10 @@ if $args[0]="parking":
 
 	if a=8:
 		 $BD.love+=q
-		 $BD.bad+=q+$my.charm
+		 $BD.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>:I feel much more relaxed at once, it`s really comfortable.</p>'
-			 $dailyeditor_and_director=1
+			 dailyeditor_and_director=1
 		 '</div>'
 	end
 
@@ -657,7 +657,7 @@ if $args[0]="hotel":
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\BD\vids\旅馆<<a>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
-	$dailyeditor_and_director=1
+	dailyeditor_and_director=1
 	if a<7:
 		'<div class="button_menu">'
 			if a=0:
@@ -720,7 +720,7 @@ if $args[0]="hotel":
 
 	if a=7:
 		 $BD.love-=q
-		 $BD.bad+=q+$my.charm
+		 $BD.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>:It`s so dirty, get out of the bath next time, do you hear me?</p>'
 			 '<p>·The favorability is slightly reduced, but it is more obedient.</p>'
@@ -736,7 +736,7 @@ if $args[0]="medicine":
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\BD\vids\药物<<a>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
-	$dailyeditor_and_director=1
+	dailyeditor_and_director=1
 	if a<8:
 		'<div class="button_menu">'
 			if a!1 and q<=3:
@@ -796,7 +796,7 @@ if $args[0]="medicine":
 	end
 
 	if a=8:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>She was convulsing and trembling... It seems that she can`t attend the meeting today... It will take a long time for her to wake up.</p>'
@@ -923,7 +923,7 @@ if $args[0]="office_night_c":
 	end
 
 	if a=6:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>:Is it cool?I have to work overtime to make up for the time you delayed!！</p>'
@@ -997,7 +997,7 @@ if $args[0]="office_night_a":
 
 	if a=8:
 		 $BD.love+=q
-		 $BD.bad+=q+$my.charm
+		 $BD.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>:Dare to say that to me... who doesn`t have sex?！</p>'
 		 '</div>'
@@ -1066,7 +1066,7 @@ if $args[0]="office_night_b":
 
 	if a=3:
 		 $BD.love+=q
-		 $BD.bad+=q+$my.charm
+		 $BD.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>Staff: Hello!Is it true or false?！Actually it is<<$BD.name>>Having sex in the office?！</p>'
 			 '<p><<$BD.name>>:What`s happened?... Didn`t someone say that my mother has no sex life?！</p>'
@@ -1221,7 +1221,7 @@ if $args[0]="overnight":
 		 '</div>'
 	end
 	if a=9:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p><<$BD.name>>:Don`t underestimate women.</p>'
@@ -1235,7 +1235,7 @@ End
 if $ARGS[0]="the_next_day":
 	 $choreographer_lien_zhan=0
 	 minutes+=1440
-	 $my.energy = mymax[$energy]
+	 my.energy = mymax[energy]
 	 hour=7
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
@@ -1314,7 +1314,7 @@ if $args[0]="soy_milk":
 	end
 
 	if a=6:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
 		 '<div class="dialog_menu">'
 			 '<p>Me: Give me a break.</p>'
@@ -1357,8 +1357,8 @@ if $args[0]="choreographing_fuck_3pl":
 	if a<19:
 		'<div class="button_menu">'
 			if a=0:
-			$bd_attribute_special_requirements=200+$my.charm*20
-			if $BD.love>=200+$my.charm*20 and $BD.bad>=200+$my.charm*20:'<div class="buttonS"><a href="exec:a=1 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Enter the demonstration</a></div>'else:'<div class="buttonGr"><a href="exec:">❤Insufficient relationship<<$bd_attribute_special_requirements>>？？</a></div>'
+			$bd_attribute_special_requirements=200+my.charm*20
+			if $BD.love>=200+my.charm*20 and $BD.bad>=200+my.charm*20:'<div class="buttonS"><a href="exec:a=1 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Enter the demonstration</a></div>'else:'<div class="buttonGr"><a href="exec:">❤Insufficient relationship<<$bd_attribute_special_requirements>>？？</a></div>'
 			'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
 			end
 			if a!2 and 0<q and q<=3:
@@ -1447,9 +1447,9 @@ if $args[0]="choreographing_fuck_3pl":
 
 
 	if a=19:
-		 $BD.love+=q+$my.charm
+		 $BD.love+=q+my.charm
 		 $BD.bad+=q
-		 $LY.love+=q+$my.charm
+		 $LY.love+=q+my.charm
 		 $LY.bad+=q
 		 BDLY+=1
 		 '<div class="dialog_menu">'

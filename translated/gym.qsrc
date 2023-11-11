@@ -35,17 +35,17 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt''gym'',''instructions_for_applying_for_a_coach''">Apply for a coach</a></div>'
 	end
 	if $fitness_coach_qualification=1:
-		'<div class="button"><a href="exec:minutes+=55 & $my.energy-=55 & gt ''gym'',''boutique_private_education''">Private class-1 hour</a></div>'
-		'<div class="button"><a href="exec:minutes+=55 & $my.energy-=55 & gt ''gym'',''group_exercises'',''anti-bug''">Group exercise-1 hour</a></div>'
+		'<div class="button"><a href="exec:minutes+=55 & my.energy-=55 & gt ''gym'',''boutique_private_education''">Private class-1 hour</a></div>'
+		'<div class="button"><a href="exec:minutes+=55 & my.energy-=55 & gt ''gym'',''group_exercises'',''anti-bug''">Group exercise-1 hour</a></div>'
 	end
-	'<div class="button"><a href="exec:minutes+=115 & $my.energy-=35 & gt ''gym'',''exercise_alone'',''anti-bug''">Exercise alone-2 hours</a></div>'
+	'<div class="button"><a href="exec:minutes+=115 & my.energy-=35 & gt ''gym'',''exercise_alone'',''anti-bug''">Exercise alone-2 hours</a></div>'
 	if $gun_hunting_incident_chain=1 and $gym_survey=0:'<div class="button"><a href="exec:minutes+=5 & gt ''police_incident'',''jy_fuck_fitness_person''">✣Ask the fitness person</a></div>'
-	if $DC.available=1 and 20>=hour and hour>=17:'<div class="button"><a href="exec:minutes+=115 & $my.energy-=35 & gt ''inspector_event'',''gym''"><<$DC.name>></a></div>'
+	if $DC.available=1 and 20>=hour and hour>=17:'<div class="button"><a href="exec:minutes+=115 & my.energy-=35 & gt ''inspector_event'',''gym''"><<$DC.name>></a></div>'
 '</div>'
 
 '<div class="dialog_menu">'
 	'<p>An adrenaline-pumping gym.</p>'
-	if $bigvillaforthefirsttime>=1 and $gym_hammer=0:'<p>·There is a [sledgehammer] in the dumbbell area of the gym<a href="exec:$sledgehammer+=1 & $gym_hammer=1 &  gt ''gym''">-Take it away</a></p>'
+	if bigvillaforthefirsttime>=1 and gym_hammer=0:'<p>·There is a [sledgehammer] in the dumbbell area of the gym<a href="exec:sledgehammer+=1 & gym_hammer=1 &  gt ''gym''">-Take it away</a></p>'
 '</div>'
 end
 
@@ -56,7 +56,7 @@ if $ARGS[0]="instructions_for_applying_for_a_coach":
 	'</div>'
 
 	'<div class="button_menu">'
-		if $my.physical_strength >=5:
+		if my.physical_strength >=5:
 			'<div class="button"><a href="exec:$fitness_coach_qualification=1 & $fitness_coach=''【☺Fitness Coach】''  & gt ''gym''">No problem</a></div>'
 		end
 		'<div class="button"><a href="exec:gt ''gym''">Practice again</a></div>'
@@ -83,17 +83,17 @@ if $ARGS[0]="exercise_alone":
 
 	'<div class="dialog_menu">'
 		if $ARGS[1]="anti-bug":
-			$exp_figure += $my.intelligence
-			mymax[$energy] +=RAND(0,$my.physical_strength)
+			exp_figure += my.intelligence
+			mymax[energy] +=RAND(0,my.physical_strength)
 		 end
 		if $num=3:
 		'<p>-[Female coach]: 1,2,1,2!Keep the buttocks muscles pumping!Featured group exercises are expensive to insist on!</p>'
 		end
 		'<p>-Train hard while resisting temptation....</p>'
 		'<p></p>'
-		'<p>-Subject to intelligence【<<$my.intelligence>>]▲The influence of ▲, the ability to control the muscles has increased▲</p>'
+		'<p>-Subject to intelligence【<<my.intelligence>>]▲The influence of ▲, the ability to control the muscles has increased▲</p>'
 		'<p></p>'
-		'<p>-Affected by proficiency, cardiopulmonary function has been improved▲, and the upper limit of energy has been increased to 【<<mymax[$energy]>>】▲</p>'
+		'<p>-Affected by proficiency, cardiopulmonary function has been improved▲, and the upper limit of energy has been increased to 【<<mymax[energy]>>】▲</p>'
 		'<p>-▲▲▲▲▲▲▲▲▲▲▲</p>'
 		
 	'</div>'
@@ -104,7 +104,7 @@ end
 if $ARGS[0]="group_exercises":
 		if $ARGS[1]="anti-bug":
 			$num=RAND(11,15)
-			$loveMoney=$my.charm*20+RAND(0,$my.charm)
+			$loveMoney=my.charm*20+RAND(0,my.charm)
 			money+=300
 			money+=$loveMoney
 		 end
@@ -129,8 +129,8 @@ if $ARGS[0]="group_exercises":
 end
 
 if $ARGS[0]="boutique_private_education":
-	if $private_education_level=0:$private_education_level=1
-	if $private_education_level*7-$have_taken_a_private_class<=0:$private_education_level+=1 & $have_taken_a_private_class=0
+	if private_education_level=0:private_education_level=1
+	if private_education_level*7-have_taken_a_private_class<=0:private_education_level+=1 & have_taken_a_private_class=0
 	'<div class ="show_menu"><img src="images\task\GYM (<<rand(0,8)>>).jpg" width="854"></div>'
 
 	'<div class="button_menu">'
@@ -139,7 +139,7 @@ if $ARGS[0]="boutique_private_education":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>[Female coach]: Your current private education level is<<$private_education_level>>Level, you still need to go up before the next promotion<<$private_education_level*7-$have_taken_a_private_class>>Lesson</p>'
+		'<p>[Female coach]: Your current private education level is<<private_education_level>>Level, you still need to go up before the next promotion<<private_education_level*7-have_taken_a_private_class>>Lesson</p>'
 		'<p>[Female student]: Which coach took me to train today?</p>'
 	'</div>'
 end
@@ -149,7 +149,7 @@ if $ARGS[0]="serious_teaching":
 	'<div class ="show_menu"><img src="images\task\精品私教2.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonG"><a href="exec:money+=200 & $have_taken_a_private_class+=1 & gt ''gym''">Charge 200￥ for class time</a></div>'
+		'<div class="buttonG"><a href="exec:money+=200 & have_taken_a_private_class+=1 & gt ''gym''">Charge 200￥ for class time</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -163,7 +163,7 @@ if $ARGS[0]="1_to_1_private_education":
 	 '<div class ="show_menu"><img src="images\task\level1 (<<rand(1,23)>>).jpg"  height="480"></div>'
 
 	'<div class="button_menu">'
-		if  $private_education_level>=2:'<div class="buttonS2"><a href="exec:gt ''gym'',''1_to_1_private_education_2''">The clothes are wrong!</a></div>'else:'<div class="buttonGr"><a href="exec:">The clothes are wrong!</a></div>'
+		if  private_education_level>=2:'<div class="buttonS2"><a href="exec:gt ''gym'',''1_to_1_private_education_2''">The clothes are wrong!</a></div>'else:'<div class="buttonGr"><a href="exec:">The clothes are wrong!</a></div>'
 		'<div class="buttonB2"><a href="exec:gt ''gym'',''serious_teaching''">Serious teaching</a></div>'
 	'</div>'
 
@@ -180,7 +180,7 @@ if $ARGS[0]="1_to_1_private_education_2":
 	 '<div class ="show_menu"><img src="images\task\level2 (<<rand(1,43)>>).jpg"  height="480"></div>'
 
 	'<div class="button_menu">'
-		if  $private_education_level>=3:'<div class="buttonS4"><a href="exec:gt ''gym'',''1_to_1_private_education_3''">Teach naked!</a></div>'else:'<div class="buttonGr"><a href="exec:">Teach naked!</a></div>'
+		if  private_education_level>=3:'<div class="buttonS4"><a href="exec:gt ''gym'',''1_to_1_private_education_3''">Teach naked!</a></div>'else:'<div class="buttonGr"><a href="exec:">Teach naked!</a></div>'
 		'<div class="buttonB2"><a href="exec:gt ''gym'',''serious_teaching''">Serious teaching</a></div>'
 	'</div>'
 
@@ -198,7 +198,7 @@ if $ARGS[0]="1_to_1_private_education_3":
 	 '<div class ="show_menu"><img src="images\task\level5 (<<rand(1,20)>>).jpg"  height="480"></div>'
 
 	'<div class="button_menu">'
-		if  $private_education_level>=4:'<div class="buttonS5"><a href="exec:gt ''group_performation_event'',''group_performation_fuck_gym_private_education''">Go in and warm up!</a></div>'else:'<div class="buttonGr"><a href="exec:">Go in and warm up!</a></div>'
+		if  private_education_level>=4:'<div class="buttonS5"><a href="exec:gt ''group_performation_event'',''group_performation_fuck_gym_private_education''">Go in and warm up!</a></div>'else:'<div class="buttonGr"><a href="exec:">Go in and warm up!</a></div>'
 		'<div class="buttonB2"><a href="exec:gt ''gym'',''serious_teaching''">Serious teaching</a></div>'
 	'</div>'
 

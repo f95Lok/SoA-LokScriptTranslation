@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -64,7 +64,7 @@ if $args[0]="ys_fuck_kitchen_sleep":
         '</div>'
         else:
             '<div class="button_menu">'
-				if $drawing_repair_degree>=100:'<div class="buttonGn"><a href="exec: gt ''widow_incident'',''floor_plan''">Take a look at the drawings</a></div>'
+				if drawing_repair_degree>=100:'<div class="buttonGn"><a href="exec: gt ''widow_incident'',''floor_plan''">Take a look at the drawings</a></div>'
                 '<div class="buttonGn"><a href="exec: gt ''widows_house''">Don`t watch it anymore</a></div>'
                 
             '</div>'
@@ -72,7 +72,7 @@ if $args[0]="ys_fuck_kitchen_sleep":
 
 
     if 5>=a and a>=0:
-		$drawing_repair_degree+=rand(7,9)
+		drawing_repair_degree+=rand(7,9)
          '<div class="dialog_menu">'
               '<p>Chef: Did I tell you not to come to the restaurant to find me?My wife is starting to doubt us!</p>'
               '<p><<$YS.name>>:Huh huh?！Sorry…</p>'
@@ -90,7 +90,7 @@ if $args[0]="ys_fuck_kitchen_sleep":
               if a>=6:'<p>Chef: What?You found the entrance!？Didn`t it mean that because he had no enemies for more than ten years, he even forgot how to enter?</p>' 
               if a>=6:'<p><<$YS.name>>:Yes, I found the construction drawings, but they are too old and fragmented, and I am trying to repair them.</p>'
               if a>=6:'<p>Chef: What the hell, be happy for nothing, it`s best that you can give me good news next time I come!</p>'
-              if a>=6:'<p><<$YS.name>>:Don`t be angry, it`s been fixed<<$drawing_repair_degree>>% up</p>'
+              if a>=6:'<p><<$YS.name>>:Don`t be angry, it`s been fixed<<drawing_repair_degree>>% up</p>'
          '</div>'
     end
 
@@ -180,24 +180,24 @@ if $args[0]="ys_fuck_warehouse_dialogue_2":
  '<div class ="show_menu"><img src="images\place\暗间1.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-      if $dx_dialogue=0:
-		'<div class="buttonR3"><a href="exec:$dx_dialogue=1 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_2''">Threat: Then I called the police</a></div>'
-		'<div class="buttonS3"><a href="exec:$dx_dialogue=2 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_2''">Lie: I bought it</a></div>'
-		'<div class="buttonG4"><a href="exec:$dx_dialogue=3 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_2''">Sincere: I stole it</a></div>'
+      if dx_dialogue=0:
+		'<div class="buttonR3"><a href="exec:dx_dialogue=1 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_2''">Threat: Then I called the police</a></div>'
+		'<div class="buttonS3"><a href="exec:dx_dialogue=2 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_2''">Lie: I bought it</a></div>'
+		'<div class="buttonG4"><a href="exec:dx_dialogue=3 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_2''">Sincere: I stole it</a></div>'
 	 else:
-		'<div class="buttonGn4"><a href="exec:$dx_dialogue=0 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_3''">Calm down and talk</a></div>'
+		'<div class="buttonGn4"><a href="exec:dx_dialogue=0 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_3''">Calm down and talk</a></div>'
 	 end
 	'</div>'
 	
          '<div class="dialog_menu">'
              '<p>Me: I have what you want, is this it?*Take out the gold AK-47</p>'
              '<p>Ma Dongmao: What?That`s right, it`s it. The badge of the Longkou Group is engraved on it. Where did you get it?！To be honest!Or I will kill you!</p>'
-             if $dx_dialogue=1:'<p>Me: You want to kill me?I advise you to close your mouth, or I will call the police!</p>'
-             if $dx_dialogue=1:'<p>Ma Dongyu: Do you know where this is?This is Kabukicho!Where the sun can`t shine, the cop can`t control it!</p>'
-             if $dx_dialogue=2:'<p>Me: I asked the boss of your Longkou Group to buy it!</p>'
-             if $dx_dialogue=2:'<p>Ma Dongyu: Why would the boss sell you the heirlooms?I don`t believe it.</p>'
-             if $dx_dialogue=3:'<p>Me: Which woman`s house did I steal it from!</p>'
-             if $dx_dialogue=3:'<p>Ma Dongmao: Thief?Sorry, I hate thieves the most.</p>'
+             if dx_dialogue=1:'<p>Me: You want to kill me?I advise you to close your mouth, or I will call the police!</p>'
+             if dx_dialogue=1:'<p>Ma Dongyu: Do you know where this is?This is Kabukicho!Where the sun can`t shine, the cop can`t control it!</p>'
+             if dx_dialogue=2:'<p>Me: I asked the boss of your Longkou Group to buy it!</p>'
+             if dx_dialogue=2:'<p>Ma Dongyu: Why would the boss sell you the heirlooms?I don`t believe it.</p>'
+             if dx_dialogue=3:'<p>Me: Which woman`s house did I steal it from!</p>'
+             if dx_dialogue=3:'<p>Ma Dongmao: Thief?Sorry, I hate thieves the most.</p>'
          '</div>'
 end
 
@@ -206,7 +206,7 @@ if $args[0]="ys_fuck_warehouse_dialogue_3":
   '<div class ="show_menu"><img src="images\NPC\YS\pics\DX7.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonG"><a href="exec:$dx_dialogue=1 & money=0 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_3''">Exchange for ￥15,000,000</a></div>'
+		'<div class="buttonG"><a href="exec:dx_dialogue=1 & money=0 & gt ''widow_incident'',''ys_fuck_warehouse_dialogue_3''">Exchange for ￥15,000,000</a></div>'
 		'<div class="buttonS"><a href="exec:gt ''widow_incident'',''ys_fuck_warehouse_dialogue_4''">change<<$YS.name>></a></div>'
 	'</div>'
 	
@@ -214,8 +214,8 @@ if $args[0]="ys_fuck_warehouse_dialogue_3":
              '<p>*He put the golden AK behind him, rubbing his fingers crackling</p>'
              '<p>Me: Hey, calm down.I am not malicious, why should I give it to you?I`m here to make a deal.</p>'
 			 '<p>Ma Dongmao: Deal?Talk about the deal, what do you want to exchange with me?</p>'
-             if $dx_dialogue=1:'<p>Me: Give me ￥15,000,000!</p>'
-             if $dx_dialogue=1:'<p>Ma Dongmao: Hahahahaha, are you okay?Dare to blackmail me?This in itself is something that belongs to me!！Well, now all the money on you belongs to me!</p>'
+             if dx_dialogue=1:'<p>Me: Give me ￥15,000,000!</p>'
+             if dx_dialogue=1:'<p>Ma Dongmao: Hahahahaha, are you okay?Dare to blackmail me?This in itself is something that belongs to me!！Well, now all the money on you belongs to me!</p>'
          '</div>'
 end
 
@@ -389,8 +389,8 @@ if $args[0]="ys_fuck_comfort":
 
 
     if a=8:
-         $YS.bad+=$my.charm+50
-         $YS.love+=q+$my.charm+50
+         $YS.bad+=my.charm+50
+         $YS.love+=q+my.charm+50
          '<div class="dialog_menu">'
              '<p><<$YS.name>>:You are right... I should adjust my mentality... Although progress is slow, at least I can see a little progress.</p>'
              '<p>Me: Then I`m relieved.</p>'
@@ -459,8 +459,8 @@ if $args[0]="ys_fuck_sofa":
 
 
     if a=9:
-         $YS.bad+=$my.charm+25
-         $YS.love+=q+$my.charm+50
+         $YS.bad+=my.charm+25
+         $YS.love+=q+my.charm+50
          '<div class="dialog_menu">'
              '<p><<$YS.name>>:Promise me, you must make that bastard pay the price.</p>'
              '<p>Me: I will find a way…</p>'
@@ -517,7 +517,7 @@ if $args[0]="ys_fuck_same_sheriff":
 
         else:
             '<div class="button_menu">'
-                if 100<=$ysjz_understanding_value:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''widow_incident'',''ys_fuck_same_sheriff_2''">Let her have fun together </a></div>'else:'<div class="buttonGr"><a href="exec:">Remaining anger<<100-$ysjz_understanding_value>>% </a></div>'
+                if 100<=ysjz_understanding_value:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''widow_incident'',''ys_fuck_same_sheriff_2''">Let her have fun together </a></div>'else:'<div class="buttonGr"><a href="exec:">Remaining anger<<100-ysjz_understanding_value>>% </a></div>'
                 '<div class="button"><a href="exec:gt ''town_house''">leave </a></div>'
             '</div>'
     end
@@ -544,9 +544,9 @@ if $args[0]="ys_fuck_same_sheriff":
 
 
     if a=9:
-         $YS.bad+=q+$my.charm
-         $YS.love+=q+$my.charm
-         $ysjz_understanding_value+=rand(25,40)
+         $YS.bad+=q+my.charm
+         $YS.love+=q+my.charm
+         ysjz_understanding_value+=rand(25,40)
          '<div class="dialog_menu">'
              '<p><<$JZ.name>>:Can you trust me again?On behalf of the Metropolitan Police, I am sorry for what happened to you.…</p>'
              '<p><<$YS.name>>:Am I the kind of person who speaks well?unless…</p>'
@@ -611,8 +611,8 @@ if $args[0]="ys_fuck_same_sheriff_2":
 
 
     if a=13:
-         $YS.bad+=q+$my.charm
-         $YS.love+=q+$my.charm
+         $YS.bad+=q+my.charm
+         $YS.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: It`s almost there... let`s be merciful and let`s be merciful.…</p>'
              '<p><<$YS.name>>:For your sake... forget it!</p>'
@@ -739,8 +739,8 @@ if $args[0]="ys_fuck_divorce":
 
 
     if a=13:
-         $YS.bad+=q+$my.charm
-         $YS.love+=q+$my.charm
+         $YS.bad+=q+my.charm
+         $YS.love+=q+my.charm
          $ys_divorce=1
          $hello,_chef=3
          '<div class="dialog_menu">'
@@ -830,9 +830,9 @@ if $args[0]="ys_fuck_shares":
          '<div class="dialog_menu">'
              '<p><<$YS.name>>: This is a share custody agreement. If you own more than 50%, you can let that soft egg cook get out of here!</p>'
              '<p><span class =''red''>·Acquired 20% of the shares of the red restaurant</p>'
-             if $ys_to_shares=0:
-                $restaurant_shares+=20
-                $ys_to_shares=1
+             if ys_to_shares=0:
+                restaurant_shares+=20
+                ys_to_shares=1
              end
          '</div>'
     end

@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -12,9 +12,9 @@ minutes+=15
 	gs'menu_status_show'
 	gs'menu_option_hidden'
 	gs "bug_prolapse"
-		if $camera_ly=0 and $camera>0 and $args[0]="kitchen":
+		if $camera_ly=0 and camera>0 and $args[0]="kitchen":
 		'<div class="action">
-			<a class="photo" data-title="Install the camera" href="exec:$camera_ly=1 & $camera-=1 & gt ''anchor_event'',''kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
+			<a class="photo" data-title="Install the camera" href="exec:$camera_ly=1 & camera-=1 & gt ''anchor_event'',''kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
 		</div>'
 		end
 '</div>'
@@ -344,7 +344,7 @@ if $args[0]="ly_event_transaction":
 	end
 
 	if a=8:
-		 $LY.love+=q+$my.charm-5
+		 $LY.love+=q+my.charm-5
 		 $LY.bad+=q*2
 		 '<div class="dialog_menu">'
 			 '<p><<$LY.name>>: Bring the money!We can continue to maintain this relationship....</p>'
@@ -428,7 +428,7 @@ if $args[0]="ly_event_transaction_2":
 	end
 
 	if a=9:
-		 $LY.love+=q+$my.charm
+		 $LY.love+=q+my.charm
 		 $LY.bad+=q*5/2
 		 '<div class="dialog_menu">'
 			 '<p><<$LY.name>>: That`s amazing!After shooting so much, it`s much better than my boyfriend..</p>'
@@ -443,8 +443,8 @@ End
 if $args[0]="kitchen":
 	'<div class ="show_menu"><img src="images\NPC\LY\pics\厨房.jpg" width="854"></div>'
 		'<div class="button_menu">'
-			if $gas_valve>0:'<div class="button"><a href="exec:$ly_event_gas_valve=1 & $gas_valve-=1 &gt ''anchor_event'',''kitchen''">Repair gas valve</a></div>'else:'<div class="buttonGr"><a href="exec:">Need a gas valve</a></div>'
-			if $camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
+			if gas_valve>0:'<div class="button"><a href="exec:$ly_event_gas_valve=1 & gas_valve-=1 &gt ''anchor_event'',''kitchen''">Repair gas valve</a></div>'else:'<div class="buttonGr"><a href="exec:">Need a gas valve</a></div>'
+			if camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
 			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
 		'</div>'
 		 '<div class="dialog_menu">'
@@ -683,7 +683,7 @@ if $args[0]="ly_event_custom":
 	end
 
 	if a=10:
-		 $LY.love+=q+$my.charm
+		 $LY.love+=q+my.charm
 		 $LY.bad+=q*2
 		 '<div class="dialog_menu">'
 			 '<p><<$LY.name>>:By the way, don`t tell me about my work here... my roommate.</p>'
@@ -756,7 +756,7 @@ if $args[0]="ly_event_custom_2":
 	end
 
 	if a=7:
-		 $LY.love+=q+$my.charm
+		 $LY.love+=q+my.charm
 		 $LY.bad+=q*5/2
 		 '<div class="dialog_menu">'
 			 '<p>Me: It`s not easy in a big city, is it?</p>'
@@ -932,7 +932,7 @@ End
 if $args[0]="ly_fuck_warehouse":
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\LY\vids\仓库<<$ly_warehouse>>-<<a>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\LY\vids\仓库<<ly_warehouse>>-<<a>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	if a!2:
@@ -1118,9 +1118,9 @@ if $args[0]="ly_event_maid":
 
 
     if a=10:
-         $LY.love+=q+$my.charm
+         $LY.love+=q+my.charm
          $LY.bad+=q*2
-         if $bluetooth_maid=0:$bluetooth_maid=1
+         if bluetooth_maid=0:bluetooth_maid=1
          '<div class="dialog_menu">'
              '<p><<$LY.name>>:By the way, don`t tell me about my work here... my roommate.</p>'
              '<p>Me: Your roommate?I almost forgot that there is such a thing. How long do you plan to hide it from him?</p>'
@@ -1163,7 +1163,7 @@ if $args[0]="ly_event_housing_commission":
 
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:$bluetooth_maid=2 & gt ''big_villa'',''master_bedroom''">Promise her </a></div>'
+                '<div class="buttonGn"><a href="exec:bluetooth_maid=2 & gt ''big_villa'',''master_bedroom''">Promise her </a></div>'
                 '<div class="button"><a href="exec:gt ''big_villa'',''master_bedroom''">Let`s talk about it </a></div>'
             '</div>'
     end
@@ -1189,7 +1189,7 @@ if $args[0]="ly_event_housing_commission":
 
 
     if a=7:
-         $LY.love+=q+$my.charm
+         $LY.love+=q+my.charm
          $LY.bad+=q*2
          '<div class="dialog_menu">'
              '<p>Me: Come on, what`s the matter?</p>'
@@ -1237,7 +1237,7 @@ if $args[0]="ly_event_invitation":
 
 
     if a=2:
-         $LY.love+=q+$my.charm
+         $LY.love+=q+my.charm
          $LY.bad+=q*2
          '<div class="dialog_menu">'
              '<p><<$LY.name>>:In private, I am your meat toilet. You can fuck me anytime, anywhere. From now on, you will be my master... You can do whatever you want me to do, and I will do it with whoever you want me to do!</p>'
@@ -1326,9 +1326,9 @@ if $args[0]="ly_event_n_interview":
 
 
     if a=8:
-         $LY.love+=q+$my.charm
+         $LY.love+=q+my.charm
          $LY.bad+=q*2
-         if $bluetooth_maid=2:$bluetooth_maid=3
+         if bluetooth_maid=2:bluetooth_maid=3
          '<div class="dialog_menu">'
              '<p><<$LY.name>>:The owner shoots so much, the little bitch is so happy!</p>'
              '<p>Me: My mouth is a lot sweeter…</p>'
@@ -1348,7 +1348,7 @@ if $ARGS[0]="sister_loop_0":
     '<div class="button_menu">'
         '<div class="buttonB1"><a href="exec:a=3 & q=3 & gt ''anchor_event'',''ly_event_n_interview''">called<<$LY.name>>Come out</a></div>'
         '<div class="buttonS2"><a href="exec:minutes+=60 & gt ''anchor_event'',''sister_cycle_1''">Peeping at them</a></div>'
-        if $sister_double_complete=1:'<div class="buttonS4"><a href="exec:minutes+=60 & gt ''anchor_event'',''ly_event_sister_engage''">Give them gifts</a></div>'else:'<div class="buttonGr"><a href="exec:">They are not familiar enough</a></div>'
+        if sister_double_complete=1:'<div class="buttonS4"><a href="exec:minutes+=60 & gt ''anchor_event'',''ly_event_sister_engage''">Give them gifts</a></div>'else:'<div class="buttonGr"><a href="exec:">They are not familiar enough</a></div>'
         '<div class="button"><a href="exec:minutes+=60 & gt ''empire_entertainment''">leave</a></div>'
     '</div>'
 
@@ -1360,12 +1360,12 @@ if $ARGS[0]="sister_loop_0":
 end
 
 if $ARGS[0]="sister_cycle_1":
-     $sister_double_num+=1
-     if $sister_double_num>=6:$sister_double_complete=1 & $sister_double_num=1
+     sister_double_num+=1
+     if sister_double_num>=6:sister_double_complete=1 & sister_double_num=1
 
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
-             <source src="images\NPC\LY\vids\妹双1-<<$sister_double_num>>.webm" type=''video/webm;''></video></div>'
+             <source src="images\NPC\LY\vids\妹双1-<<sister_double_num>>.webm" type=''video/webm;''></video></div>'
         '</div>'
     
     '<div class="button_menu">'

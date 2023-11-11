@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -144,7 +144,7 @@ if $args[0]="marketing":
 
 	'<div class="button_menu">'
 		if a=0:'<div class="button"><a href="exec:a=1 & gt ''dealer_event'',''marketing''">Marketing</a></div>'
-		if a=0 and $ch.desire_to_buy_1>=1 and money>=5000:'<div class="buttonG"><a href="exec:Money/=2 & a=1 & $ch.desire_to_buy_1+=2 & gt ''dealer_event'',''marketing''">Smash money marketing<<Money/2>></a></div>'
+		if a=0 and ch.desire_to_buy_1>=1 and money>=5000:'<div class="buttonG"><a href="exec:Money/=2 & a=1 & ch.desire_to_buy_1+=2 & gt ''dealer_event'',''marketing''">Smash money marketing<<Money/2>></a></div>'
 		if a=1:'<div class="button"><a href="exec:gt ''4s_shop''">End work</a></div>'
 	'</div>'
 
@@ -158,17 +158,17 @@ if $args[0]="marketing":
 		'<p>Male employee A:!！！</p>'
 		end
 		if a=1:
-		$ch.desire_to_buy_2+=rand(15,55)
-		if $ch.desire_to_buy_2>=100:
-			$ch.desire_to_buy_2=rand(15,55)
-			$ch.desire_to_buy_1+=1
+		ch.desire_to_buy_2+=rand(15,55)
+		if ch.desire_to_buy_2>=100:
+			ch.desire_to_buy_2=rand(15,55)
+			ch.desire_to_buy_1+=1
 		end
 		'<p><<$CH.name>>:I`m working very hard. Let me see the consumer`s desire to buy and make a visual table for me.</p>'
 		'<p>Me: Uh…</p>'
 		'<p><<$CH.name>>:Is it difficult?Do it to me now.</p>'
 		'<p>Me: OK…</p>'
-		'<p><<$CH.name>>:Potential consumers` desire to buy：<<$ch.desire_to_buy_1>>.<<$ch.desire_to_buy_2>>%……</p>'
-		if $ch.desire_to_buy_1>=15:
+		'<p><<$CH.name>>:Potential consumers` desire to buy：<<ch.desire_to_buy_1>>.<<ch.desire_to_buy_2>>%……</p>'
+		if ch.desire_to_buy_1>=15:
 		'<p>Me: It`s not a way to keep throwing money in.…</p>'
 		'<p><<$CH.name>>:Do you have time recently at night?Accompany me to meet a few important customers…</p>'
 		'<p>Me: When?</p>'
@@ -248,7 +248,7 @@ if $args[0]="raise_your_head_2":
 
 	'<div class="button_menu">'
 		if $ch.rice>=1:
-		if $TS.love>=$my.charm*15:'<div class="buttonS3"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_2''">Negotiate privately</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<$my.charm*15>></a></div>'
+		if $TS.love>=my.charm*15:'<div class="buttonS3"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_2''">Negotiate privately</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<my.charm*15>></a></div>'
 		end
 		if $ch.mouth=1:'<div class="buttonS4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Have dinner together</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
@@ -283,7 +283,7 @@ if $args[0]="raise_your_head_3":
 
 	'<div class="button_menu">'
 		if $ch.rice>=2:
-		if $NY.bad>=$my.charm*17:'<div class="buttonPu4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_3''">Toilet negotiation</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<$my.charm*17>></a></div>'
+		if $NY.bad>=my.charm*17:'<div class="buttonPu4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_3''">Toilet negotiation</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<my.charm*17>></a></div>'
 		end
 		if $ch.mouth=1:'<div class="buttonS4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Have dinner together</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		
@@ -380,7 +380,7 @@ if $args[0]="dealer_fuck_meal_1":
                 '<p>Huang Yuzu (Rich woman): You`re welcome, it`s a trifle, we will cooperate often in the future❤ </p>'
          '</div>'
          end
-		if $ch.rice=0:$ch.rice=1&$ch.desire_to_buy_1+=30 & $CH.love+=15
+		if $ch.rice=0:$ch.rice=1&ch.desire_to_buy_1+=30 & $CH.love+=15
     end
 
 
@@ -450,7 +450,7 @@ if $args[0]="car_dealer_fuck_meal_2":
                 '<p><<$TS.name>>: You still have to think about it, right? </p>'
          '</div>'
 
-        if $ch.rice=1:$ch.rice=2 & $ch.desire_to_buy_1+=30 & $CH.love+=15
+        if $ch.rice=1:$ch.rice=2 & ch.desire_to_buy_1+=30 & $CH.love+=15
     end
 
 
@@ -516,7 +516,7 @@ if $args[0]="car_dealer_fuck_meal_3":
                 '<p><<$NY.name>>：………… </p>'
          '</div>'
 
-        if $ch.rice=2:$ch.rice=3 & $ch.desire_to_buy_1+=30 & $CH.love+=15
+        if $ch.rice=2:$ch.rice=3 & ch.desire_to_buy_1+=30 & $CH.love+=15
     end
 
 
@@ -669,8 +669,8 @@ if $args[0]="dealer_fuck_thank_you_0":
                 '<p><<$CH.name>>: My brother knows you are dead❤ </p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=3+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=3+my.charm
     end
 
 
@@ -765,10 +765,10 @@ if $args[0]="car_dealer_fuck_office_1":
                 '<p>Staff A: Let`s talk while drinking…</p>'
              end
              if a=1:
-                $ch.desire_to_buy_1+=1
+                ch.desire_to_buy_1+=1
                 '<p><<$CH.name>>:I`m working very hard. Let me see the consumer`s desire to buy and make a visual table for me.</p>'
                 '<p>Me: OK…</p>'
-                '<p><<$CH.name>>:Potential consumers` desire to buy：<<$ch.desire_to_buy_1>>.<<$ch.desire_to_buy_2>>%……</p>'
+                '<p><<$CH.name>>:Potential consumers` desire to buy：<<ch.desire_to_buy_1>>.<<ch.desire_to_buy_2>>%……</p>'
                 '<p>Me: The desire to buy has risen a lot compared to before…</p>'
                 '<p><<$CH.name>>:Thanks to you, isn`t it?</p>'
              end
@@ -800,8 +800,8 @@ if $args[0]="car_dealer_fuck_office_1":
                 '<p>·This is the end of the character`s independent plot</p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=3+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=3+my.charm
     end
 
 
@@ -870,8 +870,8 @@ if $args[0]="dealer_fuck_oil1":
                 '<p><<$CH.name>>: Of course❤ </p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
         $ch.pressed=1
     end
 
@@ -921,7 +921,7 @@ if $args[0]="car_dealer_fuck_night_return_1":
         '</div>'
         else:
             '<div class="button_menu">'
-                if $CH.bad>=$my.charm*10+300:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Go take a shower</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity><<$my.charm*10+100>></a></div>'
+                if $CH.bad>=my.charm*10+300:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Go take a shower</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity><<my.charm*10+100>></a></div>'
                 '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
             '</div>'
     end
@@ -950,8 +950,8 @@ if $args[0]="car_dealer_fuck_night_return_1":
                 '<p><<$CH.name>>: He might kill you❤ </p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
     end
 
 
@@ -1015,8 +1015,8 @@ if $args[0]="dealer_fuck_studio_2":
                 '<p><<$CH.name>>: What?！Hurry up and get dressed❤ </p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
     end
 
 
@@ -1156,8 +1156,8 @@ if $args[0]="dealer_fuck_photography_1":
                 '<p>Me: Then I`ll find some other car models.</p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
         $ch.advertising+=rand(3,6)
     end
 
@@ -1225,7 +1225,7 @@ if $args[0]="dealer_fuck_overnight_1":
              if a=0:'<p><<$CH.name>>: It`s finished... I... prepared a set of very sexy underwear today. What do you think?</p>' 
              if 3>=a and a>=1:'<p><<$CH.name>>：<<$panting>></p>' 
              if 6>=a and a>=4:'<p><<$CH.name>>: Slow down<<$words>></p>'
-             if a=7:'<p><<$CH.name>>: Don`t leave tonight, will you stay with me?</p>'& $my.energy+=150 & hour=6 & minutes+=1440
+             if a=7:'<p><<$CH.name>>: Don`t leave tonight, will you stay with me?</p>'& my.energy+=150 & hour=6 & minutes+=1440
              if a=8:'<p>·Early the next morning</p>'
              if a=9:'<p><<$CH.name>>: Are you awake?Did you dream of me at night?</p>'
              if a=10:'<p><<$CH.name>>: It`s great to be full of energy early in the morning❤</p>'  
@@ -1241,8 +1241,8 @@ if $args[0]="dealer_fuck_overnight_1":
                 '<p><<$CH.name>>: Then let`s go to the store together❤ </p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
         $ch.push_brother=1
     end
 
@@ -1315,8 +1315,8 @@ if $args[0]="car_dealer_fuck_hotel_1":
                 '<p><<$CH.name>>: It`s okay❤ </p>'
          '</div>'
 
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
         $ch.can_be_hired=1
     end
 
@@ -1676,7 +1676,7 @@ if $args[0]="car_dealer_fuck_shopcar_a1":
         '<div class="button_menu">'
             if a=0:
             '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Wake up</a></div>'
-            if $debt_collection=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & $debt_collection_number=4 & gt ''group_performation_event'',''general_fuck_debt_collection''">Violent collection</a></div>'
+            if $debt_collection=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & debt_collection_number=4 & gt ''group_performation_event'',''general_fuck_debt_collection''">Violent collection</a></div>'
             end
             if a!2 and 1<=q and q<=4 :
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Serve me</a></div>'
@@ -1863,8 +1863,8 @@ if $args[0]="car_dealer_fuck_home_visit_1":
                 '<p>Me: Huh, what can your brother do if he knows?</p>'     
                 '<p><<$CH.name>>: He might kill you❤ </p>'
          '</div>'
-        $CH.love+=q+$my.charm
-        $CH.bad+=q+$my.charm
+        $CH.love+=q+my.charm
+        $CH.bad+=q+my.charm
     end
 
 

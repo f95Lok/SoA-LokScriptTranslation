@@ -73,7 +73,7 @@ if $args[0]="dialogue_with_student_president":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=5 &a=0& gt ''student_union'',''ask''">ask</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 &ac=0& $ask=0 &gt ''student_union'',''let_them_out''">Let them out</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &ac=0& ask=0 &gt ''student_union'',''let_them_out''">Let them out</a></div>'
 		if $fighting_front=1:'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''student_union'',''fighting_game''">Fighting game</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
 	'</div>'
@@ -91,15 +91,15 @@ if $args[0]="ask":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & $ask=1 & gt ''student_union'',''ask''">Rabbit graffiti in the student union</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & $ask=2 & gt ''student_union'',''ask''">About violent tendencies</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & $ask=3 & gt ''student_union'',''ask''">The super right of the student union</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & ask=1 & gt ''student_union'',''ask''">Rabbit graffiti in the student union</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & ask=2 & gt ''student_union'',''ask''">About violent tendencies</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & ask=3 & gt ''student_union'',''ask''">The super right of the student union</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''dialogue_with_student_president''">return</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p><<$HZ.name>>:...I hate it....What do you want to ask...</p>'
-		if $ask=1:
+		if ask=1:
 		'<p><<$HZ.name>>: Which pink rabbit are you talking about?That is....The logo of the Hot girl Group..</p>'
 		'<p>Me:...Hot girl group?</p>'
 		'<p><<$HZ.name>>: Yes, the Hot Girls Group or the Hot Girls Gang is a female gangster organization entrenched in the suburbs...I am also one of the members..</p>'
@@ -107,11 +107,11 @@ if $args[0]="ask":
 		'<p><<$HZ.name>>:It`s not what you think it is!Although women were usually marginalized in gangs in the past, even the wives and daughters of gang members could only get slightly higher treatment than their subordinates, and sometimes they became tools for gang members to have fun.However, since the introduction of the new policy, the Hot Girl Gang, composed of female members, has been quickly nurtured and has become the only gang to gain legitimacy.The rest of the male gangsters were severely cracked down as criminal groups.</p>'
 		'<p><<$HZ.name>>:(ｷ｀ﾟДﾟ´)!!I won`t tell you more!Everyone is a very good person, this is my door card, when you come to play with me...Introduce them to you!</p>'
 		end
-		if $ask=2:
+		if ask=2:
 		'<p>Me:...Do you have a tendency to violence?</p>'
 		'<p><<$HZ.name>>: Actually I..Still a very gentle person....Those are all what they asked for, this group of grasshoppers..man..They are all shaking M masochists, and they still want to kick them.</p>'
 		end
-		if $ask=3:
+		if ask=3:
 		'<p>Me: What are the super rights of the student union?</p>'
 		'<p><<$HZ.name>>:1. The student union is responsible for planning all school activities.2. The student union can support and match ordinary male students at will.3. The Student union will take care of students` disciplinary violations, including but not limited to punishment, suspension, and withdrawal.</p>'
 		'<p><<$HZ.name>>:Finally and most importantly, the student union also has the right to vote on school personnel.so<<$XZ.name>>Will open up to us.</p>'
@@ -126,33 +126,33 @@ if $args[0]="let_them_out":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonS1"><a href="exec:minutes+=5  & ac=1 & $ask=1 & gt ''student_union'',''let_them_out''">Blowjob for me</a></div>'
-		if ac=1:'<div class="buttonS2"><a href="exec:minutes+=5 & $ask=2 &  ac=2 & gt ''student_union'',''let_them_out''">Come quickly</a></div>'
+		'<div class="buttonS1"><a href="exec:minutes+=5  & ac=1 & ask=1 & gt ''student_union'',''let_them_out''">Blowjob for me</a></div>'
+		if ac=1:'<div class="buttonS2"><a href="exec:minutes+=5 & ask=2 &  ac=2 & gt ''student_union'',''let_them_out''">Come quickly</a></div>'
 		if ac=0:'<div class="buttonS3"><a href="exec:minutes+=5 &  a=0 & gt ''president_event'',''hz_fuck_student_union''">Take off your pants</a></div>'
 		if $HZ.love>=500-$HZ.bad:'<div class="buttonS4"><a href="exec:minutes+=5 &  a=0 & gt ''president_event'',''hz_fuck_exercise''">Hot dog race</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
 		if $hz.hot_dog>0:'<div class="buttonS5"><a href="exec:minutes+=5 &  a=0 & gt ''president_event'',''hz_fuck_exercise_2''">Additional special training</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
 		
-		if ac=1:'<div class="buttonG2"><a href="exec:minutes+=5 & $ask=3 & ac=1 & gt ''student_union'',''let_them_out''">Her commission</a></div>'
-		if $ask=3 and $freshingredients>0:'<div class="buttonG3"><a href="exec:minutes+=5 & $ask=3 & ac=1 & money+=200 & $freshingredients-=1 & gt ''student_union'',''let_them_out''">Give her the goods</a></div>'
-		if HZcos=0:'<div class="buttonS"><a href="exec:minutes+=5  & HZcos=1 & ac=1 & $ask=4 & gt ''student_union'',''let_them_out''">cos appointment</a></div>'
+		if ac=1:'<div class="buttonG2"><a href="exec:minutes+=5 & ask=3 & ac=1 & gt ''student_union'',''let_them_out''">Her commission</a></div>'
+		if ask=3 and freshingredients>0:'<div class="buttonG3"><a href="exec:minutes+=5 & ask=3 & ac=1 & money+=200 & freshingredients-=1 & gt ''student_union'',''let_them_out''">Give her the goods</a></div>'
+		if HZcos=0:'<div class="buttonS"><a href="exec:minutes+=5  & HZcos=1 & ac=1 & ask=4 & gt ''student_union'',''let_them_out''">cos appointment</a></div>'
 
 		
 		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if $ask=0:
+		if ask=0:
 		'<p><<$HZ.name>>: Wear it like this..Is it too ladylike?.Do you like it?This is a benefit that is only for you.</p>'
 		end
-		if $ask=1:
+		if ask=1:
 		'<p><<$HZ.name>>: Now everyone regards you as the vice president..Not only do you not thank me..And I want to serve you all the time...</p>'
 		'<p>Me:...Then how do you want me to serve you?</p>'
 		end
-		if $ask=2:
+		if ask=2:
 		'<p>·A sweet time was spent in a symphony of groans and orgasms.</p>'
 		'<p><<$HZ.name>>: I hate it, you work so hard, your legs will soften after you finish it..</p>'
 		end
-		if $ask=3:
+		if ask=3:
 		'<p><<$HZ.name>>: Actually, it`s not a big deal. A student union M slave was expelled for masturbating in the principal`s office. No one is doing what he was originally responsible for.</p>'
 		'<p>Me: What`s the matter?Were you kicked in the balls?</p>'
 		'<p><<$HZ.name>>:Haha, it is responsible for docking supplies with the Hot Girl Gang located in the suburbs. It is mainly the hot girl Gang that has taken over the supply of school canteen materials.In layman`s terms, it is to ship the goods.</p>'
@@ -161,7 +161,7 @@ if $args[0]="let_them_out":
 		'<p>Me: No problem, it`s not about money or not, it`s mainly about loving you.(There won`t be any contraband in it, right?..）</p>'
 		$hz_event_goods=1
 		end
-		if $ask=4:
+		if ask=4:
 		'<p>Me: I opened a photo studio dedicated to taking private photos for cos. Come and have a show?</p>'
 		'<p><<$HZ.name>>:really!Am I not enough to join in now?</p>'
 		end

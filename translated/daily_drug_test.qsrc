@@ -5,7 +5,7 @@ $loc = $CURLOC
 gs'menu_gif'
 a=0 & q=0
 minutes+=15
-$my.energy-=1
+my.energy-=1
 
 
 
@@ -21,7 +21,7 @@ $my.energy-=1
 if D<=0:
 	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
 		'<div class="button_menu">'
-			'<div class="button"><a href="exec:minutes+=5  &money+=MED & medicine=0 & $exp_figure-=RAND(3,10) & gt ''hospital''">Discharged from the hospital</a></div>'
+			'<div class="button"><a href="exec:minutes+=5  &money+=MED & medicine=0 & exp_figure-=RAND(3,10) & gt ''hospital''">Discharged from the hospital</a></div>'
 		'</div>'
 		'<div class="dialog_menu">'
 			'<p>AI broadcast: Well done, the drug experiment is over, and we have collected enough data.Total commissions received：<<MED>>Yes, but the muscles were damaged.</p>'
@@ -46,7 +46,7 @@ if $args[0]="":
 			if  rand(0,101)>=100 :'<div class="buttonPu2"><a href="exec:minutes+=5 & gt ''andrology_event'',''nk_fuck_ward_inspection''">Random spot check</a></div>'
 			'<div class="button"><a href="exec:minutes+=45 & $note=0 & gt ''daily_drug_test''">In a daze for 1h</a></div>'
 			if hour >=18:
-			'<div class="button"><a href="exec:minutes+=480 &  $my.energy=mymax[$energy] &D-=1 &gt ''daily_drug_test''">Sign in, take medicine and sleep</a></div>'
+			'<div class="button"><a href="exec:minutes+=480 &  my.energy=mymax[energy] &D-=1 &gt ''daily_drug_test''">Sign in, take medicine and sleep</a></div>'
 			end
 		'</div>'
 		'<div class="dialog_menu">'
@@ -54,7 +54,7 @@ if $args[0]="":
 			if $Q="一级" and $note=1:'<p>·If there is no treatment item from 8:00 to 21:00 every day, you can walk around the hospital area at will, but please do not leave the jurisdiction of the hospital.</p>'
 			if $Q="二级" and $note=1:'<p>·1. It is strictly forbidden for experimenters to leave the jurisdiction of the hospital without permission.2. The dean promised that the hospital will be able to treat every patient`s disease well.3. All large-scale and important operations in the hospital were performed by the dean himself, and none of them failed.</p>'
 			if $Q="三级" and $note=1:'<p><font color="#FF0000">·■■8:■0-2■:00■■ cure■■■，■■■■■■ Gone, but■■■■■■■■■■ range.</font></p>'
-			if $my.energy<=0:'<p><font color="#FF0000">I was exhausted and was forcibly summoned back.But when it`s not time to sleep, the electronic bracelet will always emit an electric current to wake me up.</font></p>'
+			if my.energy<=0:'<p><font color="#FF0000">I was exhausted and was forcibly summoned back.But when it`s not time to sleep, the electronic bracelet will always emit an electric current to wake me up.</font></p>'
 		'</div>'
 End
 
@@ -131,7 +131,7 @@ if $args[0]="locker_room":
 		'</div>'
 		'<div class="dialog_menu">'
 			'<p>A few of these doctor`s suits have not been sent for cleaning, so you should be able to pass through the J3 area by putting them on!？Why is it full of the smell of semen?..</p>'
-			if $bigvillaforthefirsttime>=1 and $nurse_hammer=0:'<p>·A bloody sledgehammer was found in someone`s closet.<a href="exec:$sledgehammer+=1 & $nurse_hammer=1 &  gt ''daily_drug_test'',''locker_room''">-Take it away</a></p>'
+			if bigvillaforthefirsttime>=1 and nurse_hammer=0:'<p>·A bloody sledgehammer was found in someone`s closet.<a href="exec:sledgehammer+=1 & nurse_hammer=1 &  gt ''daily_drug_test'',''locker_room''">-Take it away</a></p>'
 		'</div>'
 End
 
@@ -335,7 +335,7 @@ if $args[0]="breast_surgery_2":
 End
 
 if $args[0]="relatives_and_friends_visit":
-	 $random_number=rand(0,100)
+	 random_number=rand(0,100)
 	 '<div class ="show_menu"><img src="images\place\医院场景\访客登记0.jpg" width="854"></div>'
 	 
 		'<div class="button_menu">'

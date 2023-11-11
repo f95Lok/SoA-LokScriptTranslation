@@ -8,33 +8,33 @@
 
 
 
-$sumofattitudes=0
-if $chat="JM":$name_a=$JM.name & $sumofattitudes+=$JM.love & $sumofattitudes+=$JM.bad & $JM.love+= Addlove & $JM.love+= Addbad
-if $chat="JJ":$name_a=$jj.name & $sumofattitudes+=$jj.love & $sumofattitudes+=$jj.bad & $jj.love+= Addlove & $jj.love+= Addbad
-if $chat="MM":$name_a=$mm.name & $sumofattitudes+=$mm.love & $sumofattitudes+=$mm.bad & $mm.love+= Addlove & $mm.love+= Addbad
-if $chat="DZ":$name_a=$DZ.name & $sumofattitudes+=$DZ.love & $sumofattitudes+=$DZ.bad & $DZ.love+= Addlove & $DZ.love+= Addbad
-if $chat="RION":$name_a=$RION.name & $sumofattitudes+=$RION.love & $sumofattitudes+=$RION.bad & $RION.love+= Addlove & $RION.love+= Addbad
+sumofattitudes=0
+if $chat="JM":$name_a=$JM.name & sumofattitudes+=$JM.love & sumofattitudes+=$JM.bad & $JM.love+= Addlove & $JM.love+= Addbad
+if $chat="JJ":$name_a=$jj.name & sumofattitudes+=$jj.love & sumofattitudes+=$jj.bad & $jj.love+= Addlove & $jj.love+= Addbad
+if $chat="MM":$name_a=$mm.name & sumofattitudes+=$mm.love & sumofattitudes+=$mm.bad & $mm.love+= Addlove & $mm.love+= Addbad
+if $chat="DZ":$name_a=$DZ.name & sumofattitudes+=$DZ.love & sumofattitudes+=$DZ.bad & $DZ.love+= Addlove & $DZ.love+= Addbad
+if $chat="RION":$name_a=$RION.name & sumofattitudes+=$RION.love & sumofattitudes+=$RION.bad & $RION.love+= Addlove & $RION.love+= Addbad
 
 $content_a[0]="life" & $content_a[1]="Gourmet" & $content_a[2]="movie" & $content_a[3]="music" & $content_a[4]="travel" & $content_a[5]="philosophy"
 $content_a[6]="New bill"&$content_a[7]="weather" & $content_a[8]="exercise" & $content_a[9]="First_love" & $content_a[10]="childhood"& $content_a[11]="future"
 $content_a[12]="dream" &$content_a[13]="ideal"& $content_a[14]="Epidemic"& $content_a[15]="philosophy"& $content_a[16]="hobby"& $content_a[17]="A crappy QSP game"
 
-if $sumofattitudes<25:
+if sumofattitudes<25:
 	$attitude=1
 	$name_a="I am very busy now, to make a long story short."
-	elseif $sumofattitudes<50:
+	elseif sumofattitudes<50:
 	$attitude=2
 	$name_a="<<$protagonists_name>>, What`s the matter with me?"
-	elseif $sumofattitudes<100:
+	elseif sumofattitudes<100:
 	$attitude=3
 	$name_a="❤Little cutie, did you come to me on purpose?"
-	elseif $sumofattitudes<200:
+	elseif sumofattitudes<200:
 	$attitude=4
 	$name_a="Baby ❤ Miss me?"
-	elseif $sumofattitudes<400:
+	elseif sumofattitudes<400:
 	$attitude=5
 	$name_a="Honey ❤What do you want to do to others?"
-	elseif $sumofattitudes>=400:
+	elseif sumofattitudes>=400:
 	$attitude=6
 	$name_a="Master ❤I am your bitch bitch, ❤do whatever you want to me ❤but ❤❤❤!"
 end
@@ -61,7 +61,7 @@ end
 
 '<div class="button_menu">'
 	if $ARGS[0]!"chatting":
-	'<div class="button"><a href="exec:addlove = RAND(1,$my.charm) & minutes+=30 & gt ''universal_chat'',''chatting''">chat</a></div>'
+	'<div class="button"><a href="exec:addlove = RAND(1,my.charm) & minutes+=30 & gt ''universal_chat'',''chatting''">chat</a></div>'
 	if $chat="RION":
 		if RIONcos=0 and tuc_level3=1:'<div class="buttonPu1"><a href="exec: RIONcos=1 & gt ''company''">Invite cos to shoot</a></div>'
 	end
@@ -78,7 +78,7 @@ end
 if $ARGS[0]="chatting":
 '<div class="dialog_menu">'
 	'<p> Spent a little time and chatted a little about<<$content_a[RAND(0,17)]>>The topic.</p>'
-	'<p> Influenced by one`s own charm.<<$my.charm>>▲, favorability has risen<<addlove>>↑</p>'
+	'<p> Influenced by one`s own charm.<<my.charm>>▲, favorability has risen<<addlove>>↑</p>'
 	'<br>'
 	'<p>*The favorability bonus is floating when chatting, and one`s own charm is the theoretical maximum.'
 '</div>'

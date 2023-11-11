@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=2
+my.energy-=2
 minutes+=10
 
 '<div id="right-column">'
@@ -15,14 +15,14 @@ minutes+=10
 
 if $ARGS[0]="subway_harassment_0":
 !这是一个判断
- $tram_random_number=rand(4,55) 
+ tram_random_number=rand(4,55) 
  if $tram_role='A': 
-	if $tram_a_built_in_num>=$tram_random_number:gt 'subway_event','subway_harassment_2'
-	if $tram_a_built_in_num<=$tram_random_number:gt 'subway_event','subway_harassment_1'
+	if tram_a_built_in_num>=tram_random_number:gt 'subway_event','subway_harassment_2'
+	if tram_a_built_in_num<=tram_random_number:gt 'subway_event','subway_harassment_1'
  end
  if $tram_role='B': 
-	if $tram_b_built_in_num>=$tram_random_number:gt 'subway_event','subway_harassment_2'
-	if $tram_b_built_in_num<=$tram_random_number:gt 'subway_event','subway_harassment_1'
+	if tram_b_built_in_num>=tram_random_number:gt 'subway_event','subway_harassment_2'
+	if tram_b_built_in_num<=tram_random_number:gt 'subway_event','subway_harassment_1'
  end
  
 end
@@ -35,14 +35,14 @@ if $ARGS[0]="subway_harassment_1":
 
 
 	'<div class="button_menu">'
-		if a!4:'<div class="buttonP"><a href="exec:a+=1 & $my.ethics-=3 & gt ''subway_event'',''subway_harassment_1''">It`s my turn</a></div>'
+		if a!4:'<div class="buttonP"><a href="exec:a+=1 & my.ethics-=3 & gt ''subway_event'',''subway_harassment_1''">It`s my turn</a></div>'
 		gs'subway_options'
 	'</div>'
 	
 	'<div class="dialog_menu">'
 		'<p>Me: She seems to be the type who won`t resist……</p>'
-		if $tram_role='A': $tram_a_built_in_num+=1
-		if $tram_role='B': $tram_b_built_in_num+=1
+		if $tram_role='A': tram_a_built_in_num+=1
+		if $tram_role='B': tram_b_built_in_num+=1
 	'</div>'
 end
 

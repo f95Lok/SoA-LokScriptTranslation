@@ -47,7 +47,7 @@ if $ARGS[0]="director`s_office":
 	 	 <source src="images\NPC\JZ\vids\警局局长开场~1.webm" type=''video/webm;''></video></div>'
 	'</div>'
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:$director_dialogue=0 & gt ''police_station'',''director_liyi''">dialogue</a></div>'
+		'<div class="button"><a href="exec:director_dialogue=0 & gt ''police_station'',''director_liyi''">dialogue</a></div>'
 		'<div class="buttonG1"><a href="exec:gt ''police_station'',''part-time_vigilante''">Part-time vigilante</a></div>'
 		'<div class="buttonG2"><a href="exec:gt ''police_station'',''pro_bono_assistance''">Pro bono assistance</a></div>'
 		
@@ -71,7 +71,7 @@ if $ARGS[0]="director_liyi":
 		if $hello,_sheriff=1:
 			if $JZ.love>$my.charm*25:'<div class="buttonGn4"><a href="exec:gt ''widow_incident'',''hello,_sheriff''">Collude in advance</a></div>'else:'<div class="buttonGr"><a href="exec:">Good need><<$my.charm*25>></a></div>'
 		end
-		if $inspector_event_chain=1:'<div class="button"><a href="exec:$director_dialogue=1 & gt ''police_station'',''director_liyi''">Critical medicine</a></div>'
+		if $inspector_event_chain=1:'<div class="button"><a href="exec:director_dialogue=1 & gt ''police_station'',''director_liyi''">Critical medicine</a></div>'
 		if $chief_uncle_x<=1:'<div class="buttonPu2"><a href="exec:gt ''director2_event'',''harassment''">Temporarily avoid</a></div>'
 		if $chief_uncle_x>=3:
 		 '<div class="buttonR4"><a href="exec:gt ''director2_event'',''aunt_visits''">兴Xingshi asks the crime☠</a></div>'
@@ -92,8 +92,8 @@ if $ARGS[0]="director_liyi":
 		'<div class="button"><a href="exec:gt ''police_station''">leave</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
-		if $director_dialogue=0:'<p><<$JZ.name>>:Ahem... what can I do for you?</p>'
-		if $director_dialogue=1:
+		if director_dialogue=0:'<p><<$JZ.name>>:Ahem... what can I do for you?</p>'
+		if director_dialogue=1:
 			'<p><<$JZ.name>>:Sit down, I`ve been waiting for you for a long time.</p>'
 			'<p>Me: Do you really know I`m back?</p>'
 			'<p><<$JZ.name>>:We have investigated you a long time ago, so I hope you can intervene in this case.</p>'
@@ -358,14 +358,14 @@ end
 
 
 if $ARGS[0]="answer_the_call":
-	$call_num=rand(0,5)
+	call_num=rand(0,5)
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
-	 	 <source src="images\NPC\JZ\vids\来电<<$call_num>>.webm" type=''video/webm;''></video></div>'
+	 	 <source src="images\NPC\JZ\vids\来电<<call_num>>.webm" type=''video/webm;''></video></div>'
 	'</div>'
 	
 	'<div class="button_menu">'
-		'<div class="buttonR3"><a href="exec:$call_num+=10 & gt ''police_station'',''answer_the_call_to_judge''">In case of emergency</a></div>'
+		'<div class="buttonR3"><a href="exec:call_num+=10 & gt ''police_station'',''answer_the_call_to_judge''">In case of emergency</a></div>'
 		'<div class="buttonGn"><a href="exec:gt ''police_station'',''answer_the_call_to_judge''">No emergency</a></div>'
 		'<div class="buttonR5"><a href="exec:gt ''city_hall''">High blood pressure</a></div>'
 	'</div>'
@@ -389,7 +389,7 @@ if $ARGS[0]="answer_the_call_to_judge":
 	'<div class="dialog_menu">'
 		'<p>Please judge whether there is an emergency during the call from the public?</p>'		
 		'<p>——————————</p>'
-		if $call_num>=13 or $call_num<=2:
+		if call_num>=13 or call_num<=2:
 		$vigilante_points+=100
 		$JZ.LOVE+=1
 		'<p>Successful judgment, vigilante points +100</p>'		
@@ -407,7 +407,7 @@ if $ARGS[0]="acting_as_a_police_officer":
 	'<div class ="show_menu"><img src="images\place\兼职义警.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $tj_task<=1 and TJQ1>=100:'<div class="button"><a href="exec:gt ''police_station'',''supermarket_danger''">Supermarket danger</a></div>'
+		if tj_task<=1 and TJQ1>=100:'<div class="button"><a href="exec:gt ''police_station'',''supermarket_danger''">Supermarket danger</a></div>'
 		!'<div class="button"><a href="exec:gt ''警察局'',''猫猫走失案''">猫猫走失案</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station'',''late_night_disappearance''">Late night disappearance</a></div>'
 	'</div>'
@@ -418,33 +418,33 @@ if $ARGS[0]="acting_as_a_police_officer":
 end
 
 if $ARGS[0]="late_night_disappearance":
-	$looking_for_someone_num=rand(1,7)
-         if $looking_for_someone_num=1:$m_sz='走失少女'&$reporter='father'
-         if $looking_for_someone_num=2:$m_sz='垫底辣妹'&$reporter='mother'
-         if $looking_for_someone_num=3:$m_sz='巨乳OL'&$reporter='Fiance'
-         if $looking_for_someone_num=4:$m_sz='贫乳妹'&$reporter='husband'
-         if $looking_for_someone_num=5:$m_sz='潮流辣妹'&$reporter='stepfather'
-         if $looking_for_someone_num=6:$m_sz='清纯学妹'&$reporter='boyfriend'
-         if $looking_for_someone_num=7:$m_sz='富家女'&$reporter='uncle'
-	$missing_time_num=rand(12,24)
-	$missing_mission_time_num=rand(17,24)
-	if $missing_mission_time_num=24:$missing_mission_time_num=rand(0,2)
-	$find_time_num=$missing_time_num+$missing_mission_time_num
-	if $find_time_num>24:$find_time_num-=24
-	if $find_time_num>24:$find_time_num-=24
-	if $find_time_num=24:$find_time_num=0
+	looking_for_someone_num=rand(1,7)
+         if looking_for_someone_num=1:$m_sz='走失少女'&$reporter='father'
+         if looking_for_someone_num=2:$m_sz='垫底辣妹'&$reporter='mother'
+         if looking_for_someone_num=3:$m_sz='巨乳OL'&$reporter='Fiance'
+         if looking_for_someone_num=4:$m_sz='贫乳妹'&$reporter='husband'
+         if looking_for_someone_num=5:$m_sz='潮流辣妹'&$reporter='stepfather'
+         if looking_for_someone_num=6:$m_sz='清纯学妹'&$reporter='boyfriend'
+         if looking_for_someone_num=7:$m_sz='富家女'&$reporter='uncle'
+	missing_time_num=rand(12,24)
+	missing_mission_time_num=rand(17,24)
+	if missing_mission_time_num=24:missing_mission_time_num=rand(0,2)
+	find_time_num=missing_time_num+missing_mission_time_num
+	if find_time_num>24:find_time_num-=24
+	if find_time_num>24:find_time_num-=24
+	if find_time_num=24:find_time_num=0
 	
 	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\寻人.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
-		'<div class="buttonR5"><a href="exec:$missing_mission=1 & gt ''city_hall''">Set off to find</a></div>'
+		'<div class="buttonR5"><a href="exec:missing_mission=1 & gt ''city_hall''">Set off to find</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
-		'<p>[Reporter: Her<<$reporter>>】【Description of the missing object：<<$m_sz>>】 【Lost contact time：<<$missing_time_num>>Hours】 </p>'
+		'<p>[Reporter: Her<<$reporter>>】【Description of the missing object：<<$m_sz>>】 【Lost contact time：<<missing_time_num>>Hours】 </p>'
 		'<p>——————————</p>'
 		'<p>[Last meeting place: somewhere in Kabukicho]</p>'		
-		'<p>【Last meeting time：<<$missing_mission_time_num>>:00】</p>'		
+		'<p>【Last meeting time：<<missing_mission_time_num>>:00】</p>'		
 	'</div>'
 end
 
@@ -521,7 +521,7 @@ if $ARGS[0]="tj_vertical_painting":
 		 end
 		end
 		if TJY1>=100:'<div class="buttonR1"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<TJQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		if $tj_task=2:'<div class="buttonR"><a href="exec:$m=''TJ'' & $ma=$TJ.name & $tj_vertical_drawing_number=1 & gt ''police_station'',''tj,_please_consult_your_superiors''">Please consult your superiors</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if tj_task=2:'<div class="buttonR"><a href="exec:$m=''TJ'' & $ma=$TJ.name & tj_vertical_drawing_number=1 & gt ''police_station'',''tj,_please_consult_your_superiors''">Please consult your superiors</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if TJLJ2>=100:'<div class="buttonR5"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_mandatory''">Mandatory punishment</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if TJLJ3>=100:'<div class="buttonGn"><a href="exec:">Punishment & assessment completed</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">return</a></div>'
@@ -534,12 +534,12 @@ end
 if $ARGS[0]="tj,_please_consult_your_superiors":
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
-	 	 <source src="images\NPC\TJ\vids\0<<$tj_vertical_drawing_number>>.webm" type=''video/webm;''></video></div>'
+	 	 <source src="images\NPC\TJ\vids\0<<tj_vertical_drawing_number>>.webm" type=''video/webm;''></video></div>'
 	'</div>'
 	
 	'<div class="button_menu">'
-		if $tj_vertical_drawing_number=1:'<div class="button"><a href="exec:$tj_vertical_drawing_number=2 & gt ''police_station'',''tj,_please_consult_your_superiors''">Violent law enforcement</a></div>'
-		if $tj_vertical_drawing_number=2:'<div class="button"><a href="exec:gt ''executive_officer_event'',''executive_officer_fuck_understanding''">Apply for understanding<<TJLJ1>>%</a></div>'
+		if tj_vertical_drawing_number=1:'<div class="button"><a href="exec:tj_vertical_drawing_number=2 & gt ''police_station'',''tj,_please_consult_your_superiors''">Violent law enforcement</a></div>'
+		if tj_vertical_drawing_number=2:'<div class="button"><a href="exec:gt ''executive_officer_event'',''executive_officer_fuck_understanding''">Apply for understanding<<TJLJ1>>%</a></div>'
 		if TJLJ1>=100:'<div class="button"><a href="exec:gt ''executive_officer_event'',''executive_officer_fuck_corruption''">Corruption incident<<TJLJ2>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">leave</a></div>'
 	'</div>'
@@ -547,7 +547,7 @@ if $ARGS[0]="tj,_please_consult_your_superiors":
 	'<div class="dialog_menu">'
 		'<p>Executive Minister: I heard that you are still investigating internal corruption?You first solve the problem of punishment in the team!</p>'
 		'<p><<$TJ.name>>:My question?</p>'
-		if $tj_vertical_drawing_number=2:
+		if tj_vertical_drawing_number=2:
 		'<p>Executive Minister: Act arbitrarily and ignore orders!A number of suspects suffered casualties of varying degrees.If you can`t get their letter of understanding, you can only be removed from your post!</p>'
 		'<p><<$TJ.name>>:……</p>'
 		end
@@ -615,7 +615,7 @@ if $ARGS[0]="supermarket_danger":
 	'</div>'
 	
 	'<div class="dialog_menu">'
-		$tj_task=1
+		tj_task=1
 		'<p>[Surveillance video: Listen to me!Get ready for an off-road vehicle!Add another 300 million in cash!]</p>'
 		'<p>I: …………</p>'
 	'</div>'
@@ -646,14 +646,14 @@ end
 
 if $ARGS[0]="inspector_liyi":
 	$DC.available=1
-	if $DC.love<=50:$dc_vertical_painting_num=0
-	if 50<=$DC.love and $DC.love<=100:$dc_vertical_painting_num=1
-	if $DC.love>100:$dc_vertical_painting_num=2
-	if $DC.bad>=200:$dc_vertical_painting_num=3
-	if $dc.alien>=1:$dc_vertical_painting_num=4
+	if $DC.love<=50:dc_vertical_painting_num=0
+	if 50<=$DC.love and $DC.love<=100:dc_vertical_painting_num=1
+	if $DC.love>100:dc_vertical_painting_num=2
+	if $DC.bad>=200:dc_vertical_painting_num=3
+	if $dc.alien>=1:dc_vertical_painting_num=4
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
-	 	 <source src="images\NPC\DC\vids\立绘<<$dc_vertical_painting_num>>.webm" type=''video/webm;''></video></div>'
+	 	 <source src="images\NPC\DC\vids\立绘<<dc_vertical_painting_num>>.webm" type=''video/webm;''></video></div>'
 	'</div>'
 
 	'<div class="button_menu">'
@@ -663,8 +663,8 @@ if $ARGS[0]="inspector_liyi":
 		if $inspector_event_chain<7:'<div class="buttonS3"><a href="exec:gt ''inspector_event'',''dc_fuck_get_on_the_car''">Set off to investigate</a></div>'
 		if $inspector_event_chain>=7:'<div class="buttonR2"><a href="exec:gt ''inspector_event'',''dc_fuck_get_on_the_car''">Continue to investigate</a></div>'
 		if $DC.love>=50:'<div class="buttonS2"><a href="exec:hour+=1 & gt ''inspector_event'',''have_a_drink''">Have something to drink</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		if $dailysurvey=0:'<div class="buttonS1"><a href="exec:gt ''inspector_event'',''visit_and_arrange''">Dailysurvey</a></div>'
-		if $dc_vertical_painting_num>=3:'<div class="buttonS3"><a href="exec:gt ''inspector_event'',''dc_fuck_office''">Have a shot</a></div>'
+		if dailysurvey=0:'<div class="buttonS1"><a href="exec:gt ''inspector_event'',''visit_and_arrange''">Dailysurvey</a></div>'
+		if dc_vertical_painting_num>=3:'<div class="buttonS3"><a href="exec:gt ''inspector_event'',''dc_fuck_office''">Have a shot</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">leave</a></div>'
 	'</div>'
 	

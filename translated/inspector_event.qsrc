@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -77,7 +77,7 @@ if $ARGS[0]="visit_and_arrange":
 		'<p>[Surveillance video: After several hours of searching, we have a little bit of clues.]</p>'
 		'<p>Me: So tired…</p>'
 		'<p><<$DC.name>>:Hard work, continue tomorrow.</p>'
-		$dailysurvey=1
+		dailysurvey=1
 		$dc_hidden_progress+=1
 		$DC.love+=rand(4,7)
 	'</div>'
@@ -151,7 +151,7 @@ if $args[0]="dc_fuck_get_on_the_car":
 
 
     if a=7:
-         $DC.bad+=q+$my.charm
+         $DC.bad+=q+my.charm
          $DC.love+=q
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:It`s a lot easier, you have to know how to combine work and rest in handling cases!</p>'
@@ -308,8 +308,8 @@ if $args[0]="dc_fuck_hotel":
 
 
     if a=9:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:It`s okay, I have taken birth control pills.</p>'
@@ -568,7 +568,7 @@ End
 
 if $ARGS[0]="ceiling":
 	 a=0 & q=0 
-	 $my.energy+=100
+	 my.energy+=100
 	'<div class ="show_menu"><img src="images\NPC\DC\pics\天花板.jpg" width="854"></div>'
         
 	'<div class="button_menu">'
@@ -641,8 +641,8 @@ if $args[0]="dc_fuck_take_care_of":
 
 
     if a=6:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:Hmm!It`s fine if people are okay!</p>'
              if $inspector_event_chain=6:$inspector_event_chain=7
@@ -764,8 +764,8 @@ if $args[0]="dc_fuck_home":
 
 
     if a=9:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:Don`t worry, I have been taking birth control pills.</p>'
@@ -910,8 +910,8 @@ if $args[0]="dc_fuck_soak_in_hot_springs":
 
 
     if a=4:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:Hey hey!Don`t stain other people`s hot springs!</p>'
          '</div>'
@@ -1002,10 +1002,10 @@ if $args[0]="dc_fuck_eat_and_play":
     end
 
     if a=11:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
-         $my.energy=mymax[$energy]
+         $my.energy=mymax[energy]
          minutes+=1440
          hour=7
          '<div class="dialog_menu">'
@@ -1085,8 +1085,8 @@ if $args[0]="dc_fuck_tear_down":
 
 
     if a=8:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:fuck!You shoot so much?I will be pregnant by you one day.</p>'
@@ -1156,8 +1156,8 @@ if $args[0]="dc_fuck_bathroom":
 
 
     if a=5:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:What did you say happened to my cunt?</p>'
@@ -1218,7 +1218,7 @@ if $args[0]="dc_fuck_the_next_day":
 
 
     if a=0:
-         $my.energy=mymax[$energy]
+         $my.energy=mymax[energy]
          minutes+=1440
          hour=7
          '<div class="dialog_menu">'
@@ -1245,8 +1245,8 @@ if $args[0]="dc_fuck_the_next_day":
 
 
     if a=9:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:It seems that I have to clean it again before going to work.…</p>'
@@ -1327,8 +1327,8 @@ if $args[0]="dc_fuck_small_inn":
 
 
     if a=8:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          $dc.on_base=1
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:This time it`s an exception... After working hours, we can`t mess around anymore!</p>'
@@ -1343,18 +1343,18 @@ End
 
 
 if $args[0]="gym":
-	 if $DC.love<50-$DC.bad:$dc_exercise_num=1 else:$dc_exercise_num=2
+	 if $DC.love<50-$DC.bad:dc_exercise_num=1 else:dc_exercise_num=2
 	 
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
-             <source src="images\NPC\DC\vids\锻炼<<$dc_exercise_num>>-<<a>>.webm" type=''video/webm;''></video></div>'
+             <source src="images\NPC\DC\vids\锻炼<<dc_exercise_num>>-<<a>>.webm" type=''video/webm;''></video></div>'
         '</div>'
     
 
         '<div class="button_menu">'
             if a=0:'<div class="buttonS1"><a href="exec:a+=1 & gt ''inspector_event'',''gym''">Exercise with her </a></div>'
-            if $dc_exercise_num=2 and a=1 and $dc.on_base=1:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''inspector_event'',''DC_Fuck_GYM''">Touch your ass </a></div>'else:'<div class="buttonGr"><a href="exec:">Touch your ass </a></div>'
-            if $dc_exercise_num=2 and a=1 and $DC.love>=400-$DC.bad and $fitness_coach_qualification=1:'<div class="buttonS5"><a href="exec:a=0 & q=0 & gt ''inspector_event'',''DC_Fuck_GYM2''">Personal trainer </a></div>'else:'<div class="buttonGr"><a href="exec:">Personal trainer </a></div>'
+            if dc_exercise_num=2 and a=1 and $dc.on_base=1:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''inspector_event'',''DC_Fuck_GYM''">Touch your ass </a></div>'else:'<div class="buttonGr"><a href="exec:">Touch your ass </a></div>'
+            if dc_exercise_num=2 and a=1 and $DC.love>=400-$DC.bad and $fitness_coach_qualification=1:'<div class="buttonS5"><a href="exec:a=0 & q=0 & gt ''inspector_event'',''DC_Fuck_GYM2''">Personal trainer </a></div>'else:'<div class="buttonGr"><a href="exec:">Personal trainer </a></div>'
             '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''gym''">leave</a></div>'
         '</div>'
 
@@ -1444,8 +1444,8 @@ if $args[0]="DC_Fuck_GYM":
 
 
     if a=7:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:Don`t do this, someone will come later!</p>'
              '<p>Me: Just say it now?Is it too late?</p>'
@@ -1522,8 +1522,8 @@ if $args[0]="DC_Fuck_GYM2":
 
 
     if a=7:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$DC.name>>:Do you often have sex with other members?</p>'
              '<p>Me: This is called one-on-one aerobic gymnastics, but I have a coaching certificate.</p>'
@@ -1587,8 +1587,8 @@ if $args[0]="dc_fuck_office":
 
 
     if a=5:
-         $DC.bad+=q+$my.charm
-         $DC.love+=q+$my.charm
+         $DC.bad+=q+my.charm
+         $DC.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: You seem to have changed?</p>'
              '<p><<$DC.name>>:It`s because you don`t know me enough, my nature is like this!</p>'
@@ -1750,7 +1750,7 @@ if $args[0]="dc_fuck_thanks_1":
     if a!15:
         '<div class="button_menu">'
             if a=0:
-            if $DC.bad>=$my.charm*25:'<div class="buttonS1"><a href="exec:a=1 & gt ''inspector_event'',''dc_fuck_thanks_1''">Provide thanks</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''kabukicho''">Leaving: insufficient depravity<<$my.charm*25>></a></div>'
+            if $DC.bad>=my.charm*25:'<div class="buttonS1"><a href="exec:a=1 & gt ''inspector_event'',''dc_fuck_thanks_1''">Provide thanks</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''kabukicho''">Leaving: insufficient depravity<<my.charm*25>></a></div>'
             end
             if a=1:
             '<div class="buttonS1"><a href="exec:a=2 & gt ''inspector_event'',''dc_fuck_thanks_1''">Orgasm at the same time</a></div>'
@@ -1787,7 +1787,7 @@ if $args[0]="dc_fuck_thanks_1":
 
         else:
             '<div class="button_menu">'
-                '<div class="button"><a href="exec:minutes+=1440 & hour=7 & $my.energy+=100 & a=0 & q=0 & gt ''inspector_event'',''dc_fuck_thanks_2''">Three people overnight</a></div>'
+                '<div class="button"><a href="exec:minutes+=1440 & hour=7 & my.energy+=100 & a=0 & q=0 & gt ''inspector_event'',''dc_fuck_thanks_2''">Three people overnight</a></div>'
             '</div>'
     end
 

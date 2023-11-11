@@ -50,7 +50,7 @@ $random_number=rand(-2,500)
 
 
 if $ARGS[0]="":
-	if  (75<=$random_number and $random_number<=80) and  (hour>=22 or hour<=4) and $devils_pupil>0:gt 'task_event','succubus_incident'
+	if  (75<=$random_number and $random_number<=80) and  (hour>=22 or hour<=4) and devils_pupil>0:gt 'task_event','succubus_incident'
 	if $caesar_works_part_time=1 and $times_of_day='' and 150<=$random_number and $random_number<=180:gt 'task_event','huntingpassersby'
 
 	if $random_number<=10 and $times_of_day='':
@@ -72,8 +72,8 @@ if $ARGS[0]="":
 		if week_day=6 and hour=16:'<div class="button"><a href="exec:gt ''park'',''in_preparation_for_the_music_festival''">In preparation for the music festival</a></div>'
 		if week_day=6 and hour=21:'<div class="button"><a href="exec:gt ''park'',''music_festival''">Music festival in progress</a></div>'
 		if $times_of_day="" and $random_number>=480:'<div class="buttonS"><a href="exec:gt ''task_event'',''play_tennis''">Tennis sparring</a></div>'
-		if $random_number<=10 and $random_number>0 and $times_of_day='':'<div class="button"><a href="exec:$park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
-		if $random_number=3 and  $times_of_day!'':'<div class="button"><a href="exec:$park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
+		if $random_number<=10 and $random_number>0 and $times_of_day='':'<div class="button"><a href="exec:park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
+		if $random_number=3 and  $times_of_day!'':'<div class="button"><a href="exec:park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
 		if $zx_about_the_park=1 and hour=12:'<div class="button"><a href="exec:gt ''plasticity_event'',''zx_fuck_park_field_battle''"><<$ZX.name>></a></div>'
 		
 	'</div>'
@@ -99,7 +99,7 @@ if $ARGS[0]="music_festival":
 	'</div>'
 
 	'<div class="button_menu">'
-		if hour>=21:'<div class="button"><a href="exec:minutes+=45 & $my.energy+=99 & gt ''park'',''music_festival''">Immersed in music</a></div>'else:'<div class="button"><a href="exec:gt ''park''">leave</a></div>'
+		if hour>=21:'<div class="button"><a href="exec:minutes+=45 & my.energy+=99 & gt ''park'',''music_festival''">Immersed in music</a></div>'else:'<div class="button"><a href="exec:gt ''park''">leave</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·A limited-time music festival that will only open on Saturday night.</p>'
@@ -186,9 +186,9 @@ end
 
 if $ARGS[0]="help_her":
 	 if $times_of_day!'':
-	   '<div class ="show_menu"><img src="images\videos\杂\parkN<<$park_green>>.jpg"  height="480"></div>'
+	   '<div class ="show_menu"><img src="images\videos\杂\parkN<<park_green>>.jpg"  height="480"></div>'
 	 else:
-		'<div class ="show_menu"><img src="images\videos\杂\park<<$park_green>>.jpg"  height="480"></div>'
+		'<div class ="show_menu"><img src="images\videos\杂\park<<park_green>>.jpg"  height="480"></div>'
 	 end
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''park''">。。。</a></div>'
@@ -216,7 +216,7 @@ if $ARGS[0]="public_toilets":
 		'<p>·In our city, where economic civilization is highly developed, urban public toilets are essential facilities to meet people`s physiological needs.</p>'
 		if $random_number>=450 and 8<=hour and hour<=17:'<p>·Violence is happening<a href="exec:gt ''park'',''violent_incident''">-Peek</a></p>'
 		if $random_number>400 and 19<=hour and hour<=20:'<p>·Strong smell of alcohol<a href="exec:gt ''group_performation_event'',''rich_woman_fuck_ck3''">-Peek</a></p>'
-		if $bigvillaforthefirsttime>=1 and $public_toilet_hammer=0:'<p>·Someone abandoned a smelly [sledgehammer] here<a href="exec:$sledgehammer+=1 & $public_toilet_hammer=1 &  gt ''park''">-Take it away</a></p>'
+		if bigvillaforthefirsttime>=1 and public_toilet_hammer=0:'<p>·Someone abandoned a smelly [sledgehammer] here<a href="exec:sledgehammer+=1 & public_toilet_hammer=1 &  gt ''park''">-Take it away</a></p>'
 	'</div>'
 end
 

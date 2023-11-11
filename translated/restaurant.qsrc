@@ -38,9 +38,9 @@ if $ARGS[0] ="":
 		if $yuya_mission=1:'<div class="button"><a href="exec:gt ''yuya_event'',''ssyy_fuck_restaurant''">wait<<$SSYY.name>></a></div>'
 		if $tz_dating=1 and week_day>=6 and hour>=21:'<div class="button"><a href="exec:$tz_dating=0 & gt ''director_event'',''date''">date<<$TZ.name>></a></div>'
 		if $sister_hua_event_chain=1 and hour>=20:'<div class="button"><a href="exec:gt ''judges_event'',''pw_fuck_drink''">Eavesdropping<<$PW.name>></a></div>'
-		if $set_printing_card=1 and hour=12 and week_day =3:'<div class="buttonS"><a href="exec:$set_printing_number=3 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with diners❤</a></div>'
+		if set_printing_card=1 and hour=12 and week_day =3:'<div class="buttonS"><a href="exec:set_printing_number=3 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with diners❤</a></div>'
 		if $angel_event_chain=1 and week_day=6 and hour>=21:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_event_1''">Dinner to celebrate</a></div>'
-		if $bluetooth_maid=2 and hour >=12:'<div class="button"><a href="exec:gt ''anchor_event'',''ly_event_invitation''"><<$LY.name>></a></div>'
+		if bluetooth_maid=2 and hour >=12:'<div class="button"><a href="exec:gt ''anchor_event'',''ly_event_invitation''"><<$LY.name>></a></div>'
 		if $director_xs_house=0 and $JZ.love>=1:'<div class="button"><a href="exec:gt ''director2_event'',''bribery''"><<$JZ.name>></a></div>'
 		if $ch_event_chain>=4 and week_day=5 and hour=18:'<div class="buttonP"><a href="exec:gt ''dealer_event'',''accompany_dinner''">Accompany<<$CH.name>></a></div>'
 		if $xn.trial=1 and week_day=6 and hour=18:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''nun_event'',''xn_fuck_wife''">❐Sneaky table</a></div>'
@@ -48,9 +48,9 @@ if $ARGS[0] ="":
 		
 		if $squad_leader_event_chain_b=1 and hour=17:'<div class="buttonPu3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b3''"><<$BZ.name>></a></div>'
 		if $squad_leader_event_chain_b=3 and hour=17:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''in_front_of_squad_leader_b6''"><<$BZ.name>></a></div>'
-		if $ct_test_2>=1 and $restaurant_management<1:'<div class="buttonG3"><a href="exec:gt ''restaurant'',''restaurant_acquisition''">Talk about acquisitions</a></div>'
-		if $restaurant_management=1:'<div class="buttonG5"><a href="exec:gt ''restaurant'',''run_a_restaurant''">Run a restaurant</a></div>'
-		if $restaurant_management=2:'<div class="buttonG5"><a href="exec:a=0 & q=0 & gt ''empire_event'',''empire_fuck_restaurant_situation''">Run a restaurant</a></div>'
+		if $ct_test_2>=1 and restaurant_management<1:'<div class="buttonG3"><a href="exec:gt ''restaurant'',''restaurant_acquisition''">Talk about acquisitions</a></div>'
+		if restaurant_management=1:'<div class="buttonG5"><a href="exec:gt ''restaurant'',''run_a_restaurant''">Run a restaurant</a></div>'
+		if restaurant_management=2:'<div class="buttonG5"><a href="exec:a=0 & q=0 & gt ''empire_event'',''empire_fuck_restaurant_situation''">Run a restaurant</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
 	'</div>'
 
@@ -90,8 +90,8 @@ if $ARGS[0] ="bartender_liyi":
 	'</div>'
 	
 	'<div class="button_menu">'
-		if $gun_hunting_incident_chain=2:'<div class="button"><a href="exec:$my.energy+=300 &  gt ''police_incident'',''gun-hunting_suspect''">✣Ask about specialty smoothies </a></div>'
-		if $debt_collection=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & $debt_collection_number=1 & gt ''group_performation_event'',''general_fuck_debt_collection''">Violent collection</a></div>'
+		if $gun_hunting_incident_chain=2:'<div class="button"><a href="exec:my.energy+=300 &  gt ''police_incident'',''gun-hunting_suspect''">✣Ask about specialty smoothies </a></div>'
+		if $debt_collection=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & debt_collection_number=1 & gt ''group_performation_event'',''general_fuck_debt_collection''">Violent collection</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
 	'</div>'
 
@@ -120,8 +120,8 @@ if $ARGS[0]="restaurant_acquisition":
 	'<div class="dialog_menu">'
 		'<p>Chef: Didn`t you see me busy?！*Waved his hand</p>'
 		'<p>·——————————</p>'
-		'<p>·Shares I own：<<$restaurant_shares>>%</p>'
-		if $restaurant_shares>=60:'<p>·I already own more than half of the shares!<a href="exec:gt ''restaurant'',''overhead_him''">-Return to life-kill him!</a></p>'
+		'<p>·Shares I own：<<restaurant_shares>>%</p>'
+		if restaurant_shares>=60:'<p>·I already own more than half of the shares!<a href="exec:gt ''restaurant'',''overhead_him''">-Return to life-kill him!</a></p>'
 		'<p>·——————————</p>'
 		if $have_seen_the_floor_plan<3:
 		'<p><<$YS.name>>: Yo，<<$protagonists_name>>, If you don`t accompany my daughter-in-law like a game, what are you doing here?</p>'
@@ -150,14 +150,14 @@ if $ARGS[0]="overhead_him":
 	'<div class ="show_menu"><img src="images\NPC\CT\pics\plane.jpg" width="854"></div>'
 		
 	'<div class="button_menu">'
-		if $restaurant_ct_dialogue=0:'<div class="buttonG"><a href="exec:$restaurant_ct_dialogue=1 & gt ''restaurant'',''overhead_him''">My reward?</a></div>'
-		if $restaurant_ct_dialogue=1:'<div class="buttonG"><a href="exec:$restaurant_ct_dialogue=2 & gt ''restaurant'',''overhead_him''">I`m already tired</a></div>'
-		if $restaurant_ct_dialogue=2:'<div class="buttonS"><a href="exec:$restaurant_ct_dialogue=3 & gt ''restaurant'',''overhead_him''">Thank you President`s mother-in-law!</a></div>'
-		if $restaurant_ct_dialogue=3:'<div class="buttonG"><a href="exec:gt ''restaurant''">Start business!</a></div>'
+		if restaurant_ct_dialogue=0:'<div class="buttonG"><a href="exec:restaurant_ct_dialogue=1 & gt ''restaurant'',''overhead_him''">My reward?</a></div>'
+		if restaurant_ct_dialogue=1:'<div class="buttonG"><a href="exec:restaurant_ct_dialogue=2 & gt ''restaurant'',''overhead_him''">I`m already tired</a></div>'
+		if restaurant_ct_dialogue=2:'<div class="buttonS"><a href="exec:restaurant_ct_dialogue=3 & gt ''restaurant'',''overhead_him''">Thank you President`s mother-in-law!</a></div>'
+		if restaurant_ct_dialogue=3:'<div class="buttonG"><a href="exec:gt ''restaurant''">Start business!</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-	 if $restaurant_ct_dialogue=0:
+	 if restaurant_ct_dialogue=0:
 		'<p><<$CT.name>>: Well done!Actually didn`t even need the Imperial Group to take 60% of the shares?</p>'
 		'<p>Chef: Hello!What do you want to do to my restaurant?！</p>'
 		'<p><<$CT.name>>: <<$protagonists_name>>As the largest shareholder of a restaurant, it usually enjoys decision-making power on major matters in the restaurant.Now, you have been relieved of your position as chef.You can keep your poor shares, but I am willing to invest ￥3,000,000 to acquire the 20% of your shares.</p>'
@@ -168,7 +168,7 @@ if $ARGS[0]="overhead_him":
 		'<p>Chef: Deal!Give me the money!</p>'
 	 end
 		
-	 if $restaurant_ct_dialogue=1:
+	 if restaurant_ct_dialogue=1:
 		'<p>Me: President, what about my reward?</p>'
 		'<p><<$CT.name>>: This is the remaining ￥2,000,000 that was originally planned to be acquired. I called your company account.</p>'
 		Cmoney+=200
@@ -176,14 +176,14 @@ if $ARGS[0]="overhead_him":
 		'<p><<$CT.name>>: <<$protagonists_name>>, Does the restaurant want to take over management?</p>'
 	 end
 	 
-	 if $restaurant_ct_dialogue=2:
+	 if restaurant_ct_dialogue=2:
 		'<p>Me: President, I am already very tired.</p>'
 		'<p><<$CT.name>>:tired?Then I will arrange for my daughter to assist you. She has just finished business management from abroad and needs to practice.</p>'
 		'<p>Me: Auxiliary... how can this be auxiliary?…</p>'
 		'<p><<$CT.name>>: <<$protagonists_name>>, Don`t you want to be my son-in-law?I`m giving you a chance.</p>'
 	 end
-	 if $restaurant_ct_dialogue=3:
-	    if $restaurant_management=0:$restaurant_management=1
+	 if restaurant_ct_dialogue=3:
+	    if restaurant_management=0:restaurant_management=1
 		'<p>Me: Thank you, the president`s mother-in-law!</p>'
 		'<p><<$CT.name>>:Mother-in-law?It`s early, and I won`t agree.</p>'
 		'<p>Me: I won`t still…</p>'

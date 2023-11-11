@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -335,7 +335,7 @@ if $args[0]="boss_fuck_wine_1":
 
         else:
             '<div class="button_menu">'
-                 if $LB.love>=$my.charm*10:'<div class="buttonPu3"><a href="exec:minutes+=1440 & hour=7 & $my.energy = mymax[$energy] & a=0 & q=0 &  gt ''boss_event'',''boss_fuck_overnight''">Spend the night here</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<$my.charm*10>> </a></div>'
+                 if $LB.love>=my.charm*10:'<div class="buttonPu3"><a href="exec:minutes+=1440 & hour=7 & my.energy = mymax[energy] & a=0 & q=0 &  gt ''boss_event'',''boss_fuck_overnight''">Spend the night here</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<my.charm*10>> </a></div>'
                 '<div class="button"><a href="exec:minutes+=60 & gt ''kabukicho''">leave</a></div>'
             '</div>'
     end
@@ -352,8 +352,8 @@ if $args[0]="boss_fuck_wine_1":
          '</div>'
     end
     if a>=8:
-    	 $LB.love+=a+$my.charm
-    	 $LB.bad+=q+$my.charm
+    	 $LB.love+=a+my.charm
+    	 $LB.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: Is it cool?</p>'
              '<p><<$LB.name>>:Do you want to have a one-night stand with my sister or do you want to fuck me?</p>'
@@ -429,8 +429,8 @@ if $args[0]="boss_fuck_appointment_1":
     end
 
     if a>=13:
-    	 $LB.love+=a+$my.charm
-    	 $LB.bad+=q+$my.charm
+    	 $LB.love+=a+my.charm
+    	 $LB.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: Is it cool?</p>'
              '<p><<$LB.name>>:Well, thank you for your hospitality❤</p>'
@@ -469,8 +469,8 @@ if $args[0]="boss_fuck_overnight":
          '</div>'
     end
     if a>=4:
-    	 $LB.love+=a+$my.charm
-    	 $LB.bad+=q+$my.charm
+    	 $LB.love+=a+my.charm
+    	 $LB.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$LB.name>>:Shut up, I just want to... forget my troubles for a short time now.</p>'
          '</div>'
@@ -503,8 +503,8 @@ if $args[0]="boss_fuck_shop_1":
 
         else:
             '<div class="button_menu">'
-                '<div class="buttonS3"><a href="exec:$LB.love+=a+$my.charm & gt ''kabukicho''">I will marry you</a></div>'
-                '<div class="buttonPu4"><a href="exec:$LB.love-=a+$my.charm & gt ''kabukicho''">I`ll talk about it when I`m pregnant</a></div>'
+                '<div class="buttonS3"><a href="exec:$LB.love+=a+my.charm & gt ''kabukicho''">I will marry you</a></div>'
+                '<div class="buttonPu4"><a href="exec:$LB.love-=a+my.charm & gt ''kabukicho''">I`ll talk about it when I`m pregnant</a></div>'
             '</div>'
     end
 
@@ -520,7 +520,7 @@ if $args[0]="boss_fuck_shop_1":
          '</div>'
     end
     if a>=8:
-    	 $LB.bad+=q+$my.charm
+    	 $LB.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$LB.name>>:I`m pregnant with you... will you be responsible?</p>'
          '</div>'
@@ -596,8 +596,8 @@ if $args[0]="boss_fuck_fuck_defeat":
     end
 
     if a>=14:
-    	 $LB.love+=a+$my.charm
-    	 $LB.bad+=q+$my.charm
+    	 $LB.love+=a+my.charm
+    	 $LB.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: Are you satisfied?</p>'
              '<p><<$LB.name>>:Well, then I`ll give you another chance❤</p>'
@@ -715,7 +715,7 @@ if $args[0]="boss_fuck_evil_punishment":
 
         else:
             '<div class="button_menu">'
-                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=8 & a=0 & q=0 & $my.energy+=50 & gt ''boss_event'',''boss_fuck_evil_punishment_2''">Spend the night here</a></div>'
+                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=8 & a=0 & q=0 & my.energy+=50 & gt ''boss_event'',''boss_fuck_evil_punishment_2''">Spend the night here</a></div>'
                 '<div class="button"><a href="exec:minutes+=60 & gt ''residential_area''">leave</a></div>'
             '</div>'
     end
@@ -724,7 +724,7 @@ if $args[0]="boss_fuck_evil_punishment":
 
     if a=0 or a=1:
          '<div class="dialog_menu">'
-             '<p><<$LB.name>>:Come here!Take a look!Now the satisfaction of the citizens is<<$urban_construction_satisfaction>>%！Are you trying to get me dismissed from my post?</p>'
+             '<p><<$LB.name>>:Come here!Take a look!Now the satisfaction of the citizens is<<urban_construction_satisfaction>>%！Are you trying to get me dismissed from my post?</p>'
              '<p>Me: What?</p>'
              if a=1:'<p><<$LB.name>>:Do you still want to mix under me?What I left to you!Clean up combustible garbage!Implement it for me!</p>'
              if a=1:'<p>Me: Finished?</p>'
@@ -739,7 +739,7 @@ if $args[0]="boss_fuck_evil_punishment":
          '</div>'
     end
     if a=8:
-    	 $urban_construction_satisfaction=-50
+    	 urban_construction_satisfaction=-50
          '<div class="dialog_menu">'
              '<p><<$LB.name>>:I will privately use some means to improve the satisfaction of some citizens, don`t have another time!</p>'
              '<p>Me: Understood.</p>'
@@ -804,8 +804,8 @@ if $args[0]="boss_fuck_evil_punishment_2":
     end
 
     if a=9:
-    	 $LB.love+=$my.charm+q
-    	 $LB.bad+=$my.charm+q
+    	 $LB.love+=my.charm+q
+    	 $LB.bad+=my.charm+q
          '<div class="dialog_menu">'
              '<p><<$LB.name>>:Actually shot so many?！It will take a lot of time for me to put on makeup again!</p>'
          '</div>'
@@ -931,8 +931,8 @@ if $args[0]="boss_fuck_next_home_1":
     end
 
     if a=12:
-    	 $LB.love+=$my.charm+q
-    	 $LB.bad+=$my.charm+q
+    	 $LB.love+=my.charm+q
+    	 $LB.bad+=my.charm+q
          '<div class="dialog_menu">'
              '<p><<$LB.name>>:The rest of today... can you accompany me?</p>'
          '</div>'
@@ -993,8 +993,8 @@ if $args[0]="boss_fuck_next_house_2":
     end
 
     if a=9:
-    	 $LB.love+=$my.charm+q
-    	 $LB.bad+=$my.charm+q
+    	 $LB.love+=my.charm+q
+    	 $LB.bad+=my.charm+q
          '<div class="dialog_menu">'
              '<p><<$LB.name>>:Don`t fall in love with me, anyone who falls in love with me... will leave me……</p>'
              '<p>Me: It`s okay, I`m the exception.</p>'

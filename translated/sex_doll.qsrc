@@ -25,7 +25,7 @@ if $args[0]="":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''sex_doll'',''pick_up''">Pick up</a></div>'
-		if $set_printing_card>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''sex_doll'',''set_printing_card''">Set_printing_card</a></div>'
+		if set_printing_card>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''sex_doll'',''set_printing_card''">Set_printing_card</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">Get out</a></div>'
 	'</div>'
 
@@ -50,8 +50,8 @@ if $args[0]="pick_up":
 
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=30 & money+=xopm &$my.energy-=xojl& gt ''sex_doll'',''accept''">accept</a></div>'
-		'<div class="button"><a href="exec:minutes+=15 &$my.energy-=10 & gt ''sex_doll'',''pick_up''">Waiting for the next one</a></div>'
+		'<div class="button"><a href="exec:minutes+=30 & money+=xopm &my.energy-=xojl& gt ''sex_doll'',''accept''">accept</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &my.energy-=10 & gt ''sex_doll'',''pick_up''">Waiting for the next one</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -63,7 +63,7 @@ End
 
 
 if $args[0]="accept":
-	 $my.ethics-=1
+	 my.ethics-=1
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\videos\杂\接客<<xop>>~1.webm" type=''video/webm;''></video></div>'
@@ -98,13 +98,13 @@ End
    if card13=0:$c13show='<span class =''red''>◌</span>'else:$c13show='<span class =''green''>◉</span>'
    if card14=0:$c14show='<span class =''red''>◌</span>'else:$c14show='<span class =''green''>◉</span>'
    if card15=0:$c15show='<span class =''red''>◌</span>'else:$c15show='<span class =''green''>◉</span>'
-   if card1>0 and card2>0 and card3>0 and card4>0 and card5>0 and card6>0 and card7>0 and card8>0 and card9>0 and card10>0 and card11>0 and card12>0 and card13>0 and card14>0 and card15>0 :$set_printing_is_complete=1
+   if card1>0 and card2>0 and card3>0 and card4>0 and card5>0 and card6>0 and card7>0 and card8>0 and card9>0 and card10>0 and card11>0 and card12>0 and card13>0 and card14>0 and card15>0 :set_printing_is_complete=1
 	'<div class ="show_menu"><img src="images\place\集印卡.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''sex_doll''">Got it</a></div>'
-		if $set_printing_is_complete=1 and $duck_king_medal=0:'<div class="buttonG"><a href="exec:$duck_king_medal+=1 & gt ''sex_doll''">Reward: Duck King Medal</a></div>'
-		if  $duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP''">Duck King: SVIP Order</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP Order</a></div>'
+		if set_printing_is_complete=1 and duck_king_medal=0:'<div class="buttonG"><a href="exec:duck_king_medal+=1 & gt ''sex_doll''">Reward: Duck King Medal</a></div>'
+		if  duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP''">Duck King: SVIP Order</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP Order</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -112,7 +112,7 @@ End
 		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩</p>'
 		'<p>✦✩㊛ <<$c1show>>¹  ㊝ <<$c2show>>²  ㊛ <<$c3show>>³  ㊝ <<$c4show>>⁴ ㊛ <<$c5show>>⁵ ㊝<<$c6show>>⁶ ㊛ <<$c7show>>⁷ ㊝ <<$c8show>>⁸ ㊛ <<$c9show>>⁹ ㊝ <<$c10show>>¹⁰</$LB <<$c11show>>¹ ㊕ <<$c12show>>² ㊕ <<$c13show>>³ ㊕ <<$c14show>>⁴ ㊕ <<$c15show>>⁵ ✧✩</p>'
 		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧</p>'
-		if $set_printing_is_complete=1:'<p>·Madam boss: Unbelievable!You actually finished it?！</p>'
+		if set_printing_is_complete=1:'<p>·Madam boss: Unbelievable!You actually finished it?！</p>'
 	'</div>'
 End
 
@@ -126,8 +126,8 @@ if $args[0]="SVIP":
 
 	'<div class="dialog_menu">'
 		'<p>·Madam boss: Listen up, even if you have the qualifications of Duck King.These SVIP orders are also served to the old lady, don`t smash the old lady`s signboard!</p>'
-		if $hundred_days_banquet=0: '<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:$hundred_days_banquet=1 &  gt ''sex_doll'',''SVIP''">-Take orders</a></p>'
-		if $hundred_days_banquet!0:'<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:$hundred_days_banquet=0 &  gt ''sex_doll'',''SVIP''">-Chargeback</a></p>'
+		if hundred_days_banquet=0: '<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:hundred_days_banquet=1 &  gt ''sex_doll'',''SVIP''">-Take orders</a></p>'
+		if hundred_days_banquet!0:'<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:hundred_days_banquet=0 &  gt ''sex_doll'',''SVIP''">-Chargeback</a></p>'
 	'</div>'
 End
 

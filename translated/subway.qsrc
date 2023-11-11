@@ -15,38 +15,38 @@ minutes+=10
 
 
 if hour =17:
-	if $dailytram=0:$tram_random_number=rand(0,100) 
-	if $tram_random_number>=90: $tram_role='A' & $tram_num=$tram_a_num & $dailytram=1
-	if 15<$tram_random_number and $tram_random_number<90: $tram_role='N' & $tram_num=0
-	if $tram_random_number<=15: $tram_role='B' & $tram_num=$tram_b_num & $dailytram=1
+	if dailytram=0:tram_random_number=rand(0,100) 
+	if tram_random_number>=90: $tram_role='A' & tram_num=tram_a_num & dailytram=1
+	if 15<tram_random_number and tram_random_number<90: $tram_role='N' & tram_num=0
+	if tram_random_number<=15: $tram_role='B' & tram_num=tram_b_num & dailytram=1
 	if $tram_role='A':
-		if $tram_a.finish=0:
+		if tram_a.finish=0:
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\videos\underground\电车<<$tram_role>>1-<<$tram_num>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\videos\underground\电车<<$tram_role>>1-<<tram_num>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
-		elseif $tram_a.finish=1:
+		elseif tram_a.finish=1:
 				gt'subway_event','subway_harassment_0'
 		end
 	end
 	
 	if $tram_role='B':
-		if $tram_b.finish=0:
+		if tram_b.finish=0:
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\videos\underground\电车<<$tram_role>>1-<<$tram_num>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\videos\underground\电车<<$tram_role>>1-<<tram_num>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
-		elseif $tram_b.finish=1:
+		elseif tram_b.finish=1:
 				gt'subway_event','subway_harassment_0'
 		end
 	end
-	if $tram_num=6:
-		if $tram_role='A': $tram_a.finish=1 & $tram_a_num=0
-		if $tram_role='B': $tram_b.finish=1 & $tram_b_num=0
+	if tram_num=6:
+		if $tram_role='A': tram_a.finish=1 & tram_a_num=0
+		if $tram_role='B': tram_b.finish=1 & tram_b_num=0
 	end
-	if $tram_num<=5:
-		if $tram_role='A': $tram_a_num+=1
-		if $tram_role='B': $tram_b_num+=1
+	if tram_num<=5:
+		if $tram_role='A': tram_a_num+=1
+		if $tram_role='B': tram_b_num+=1
 	end
 	
 	if $tram_role='N':

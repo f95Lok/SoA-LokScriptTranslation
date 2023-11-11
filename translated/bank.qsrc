@@ -50,21 +50,21 @@ end
 
 if $ARGS[0]="stock_trading":
 	if $stock_start=0:
-		$stock_pharmaceutical_o=430
-		$stock_entertainment_o=5500
-		$stock_health_o=16500
-		$stock_energy_o=32700
-		$stock_wine_company_o=170
+		stock_pharmaceutical_o=430
+		stock_entertainment_o=5500
+		stock_health_o=16500
+		stock_energy_o=32700
+		stock_wine_company_o=170
 	end
 	
-	if $dailystock_price=0:
-		$stock_pharmaceutical_n=$stock_pharmaceutical_o+rand(-5,7)
-		$stock_entertainment_n=$stock_entertainment_o+rand(-15,15)
-		$stock_health_n=$stock_health_o+rand(-25,30)
-		$stock_energy_n=$stock_energy_o+rand(-50,50)
-		$stock_wine_company_n=$stock_wine_company_o+rand(-1,1)
-		$dailystock_price=1
-		if $stock_pharmaceutical_c>0 and $stock_pharmaceutical_n>$stock_pharmaceutical_b:$stock_pharmaceutical_n=$stock_pharmaceutical_b+rand(-1,2)
+	if dailystock_price=0:
+		stock_pharmaceutical_n=stock_pharmaceutical_o+rand(-5,7)
+		stock_entertainment_n=stock_entertainment_o+rand(-15,15)
+		stock_health_n=stock_health_o+rand(-25,30)
+		stock_energy_n=stock_energy_o+rand(-50,50)
+		stock_wine_company_n=stock_wine_company_o+rand(-1,1)
+		dailystock_price=1
+		if stock_pharmaceutical_c>0 and stock_pharmaceutical_n>stock_pharmaceutical_b:stock_pharmaceutical_n=stock_pharmaceutical_b+rand(-1,2)
 	end
 	'<div class ="show_menu"><img src="images\place\银行股票.jpg" width="854"></div>'
 
@@ -75,25 +75,25 @@ if $ARGS[0]="stock_trading":
 	'</div>'
 	
 	'<div class="dialog_menu">'
-		'<p>【Mugou Pharmaceutical】 Current Price：<<$stock_pharmaceutical_n>> Bid price：<<$stock_pharmaceutical_b>> Number of shares held：<<$stock_pharmaceutical_c>>' 
-		if $stock_pharmaceutical_c>0:'·<a href="exec:money+=$stock_pharmaceutical_n*$stock_pharmaceutical_c & $stock_pharmaceutical_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=$stock_pharmaceutical_n: '·<a href="exec:$stock_pharmaceutical_c=money/$stock_pharmaceutical_n & money-=$stock_pharmaceutical_c*$stock_pharmaceutical_n & $stock_pharmaceutical_b=$stock_pharmaceutical_n  & gt ''bank'',''stock_trading''">Full warehouse￥</a>·'
+		'<p>【Mugou Pharmaceutical】 Current Price：<<stock_pharmaceutical_n>> Bid price：<<stock_pharmaceutical_b>> Number of shares held：<<stock_pharmaceutical_c>>' 
+		if stock_pharmaceutical_c>0:'·<a href="exec:money+=stock_pharmaceutical_n*stock_pharmaceutical_c & stock_pharmaceutical_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=stock_pharmaceutical_n: '·<a href="exec:stock_pharmaceutical_c=money/stock_pharmaceutical_n & money-=stock_pharmaceutical_c*stock_pharmaceutical_n & stock_pharmaceutical_b=stock_pharmaceutical_n  & gt ''bank'',''stock_trading''">Full warehouse￥</a>·'
 		'</p>'
-		'<p>【Empire Entertainment】 Current Price：<<$stock_entertainment_n>> Bid price：<<$stock_entertainment_b>> Number of shares held：<<$stock_entertainment_c>>' 
-		if $stock_entertainment_c>0:'·<a href="exec:money+=$stock_entertainment_n*$stock_entertainment_c & $stock_entertainment_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=$stock_entertainment_n*100 and $stock_entertainment_c=0: '·<a href="exec:$stock_entertainment_c=100 & money-=$stock_entertainment_n*100 & $stock_entertainment_b=$stock_entertainment_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		'<p>【Empire Entertainment】 Current Price：<<stock_entertainment_n>> Bid price：<<stock_entertainment_b>> Number of shares held：<<stock_entertainment_c>>' 
+		if stock_entertainment_c>0:'·<a href="exec:money+=stock_entertainment_n*stock_entertainment_c & stock_entertainment_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=stock_entertainment_n*100 and stock_entertainment_c=0: '·<a href="exec:stock_entertainment_c=100 & money-=stock_entertainment_n*100 & stock_entertainment_b=stock_entertainment_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
 		'</p>'
-		'<p>【Imperial Health】 Current Price：<<$stock_health_n>> Bid price：<<$stock_health_b>> Number of shares held：<<$stock_health_c>>' 
-		if $stock_health_c>0:'·<a href="exec:money+=$stock_health_n*$stock_health_c & $stock_health_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=$stock_health_n*100 and $stock_health_c=0: '·<a href="exec:$stock_health_c=100 & money-=$stock_health_n*100 & $stock_health_b=$stock_health_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		'<p>【Imperial Health】 Current Price：<<stock_health_n>> Bid price：<<stock_health_b>> Number of shares held：<<stock_health_c>>' 
+		if stock_health_c>0:'·<a href="exec:money+=stock_health_n*stock_health_c & stock_health_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=stock_health_n*100 and stock_health_c=0: '·<a href="exec:stock_health_c=100 & money-=stock_health_n*100 & stock_health_b=stock_health_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
 		'</p>'
-		'<p>【Imperial Energy】 Current Price：<<$stock_energy_n>> Bid price：<<$stock_energy_b>> Number of shares held：<<$stock_energy_c>>' 
-		if $stock_energy_c>0:'·<a href="exec:money+=$stock_energy_n*$stock_energy_c & $stock_energy_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=$stock_energy_n*100 and $stock_energy_c=0: '·<a href="exec:$stock_energy_c=100 & money-=$stock_energy_n*100 & $stock_energy_b=$stock_energy_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		'<p>【Imperial Energy】 Current Price：<<stock_energy_n>> Bid price：<<stock_energy_b>> Number of shares held：<<stock_energy_c>>' 
+		if stock_energy_c>0:'·<a href="exec:money+=stock_energy_n*stock_energy_c & stock_energy_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=stock_energy_n*100 and stock_energy_c=0: '·<a href="exec:stock_energy_c=100 & money-=stock_energy_n*100 & stock_energy_b=stock_energy_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
 		'</p>'
-        '<p>【Contemplation Wine Company】 Current Price：<<$stock_wine_company_n>> Bid price：<<$stock_wine_company_b>> Number of shares held：<<$stock_wine_company_c>>' 
-        if $stock_wine_company_c>0:'·<a href="exec:money+=$stock_wine_company_n*$stock_wine_company_c & $stock_wine_company_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-        if money>=$stock_wine_company_n*100 and $stock_wine_company_c=0: '·<a href="exec:$stock_wine_company_c=100 & money-=$stock_wine_company_n*100 & $stock_wine_company_b=$stock_wine_company_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+        '<p>【Contemplation Wine Company】 Current Price：<<stock_wine_company_n>> Bid price：<<stock_wine_company_b>> Number of shares held：<<stock_wine_company_c>>' 
+        if stock_wine_company_c>0:'·<a href="exec:money+=stock_wine_company_n*stock_wine_company_c & stock_wine_company_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+        if money>=stock_wine_company_n*100 and stock_wine_company_c=0: '·<a href="exec:stock_wine_company_c=100 & money-=stock_wine_company_n*100 & stock_wine_company_b=stock_wine_company_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
         '</p>'
 	'</div>'
 end

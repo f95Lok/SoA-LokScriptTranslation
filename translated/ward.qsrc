@@ -4,9 +4,9 @@ $metka = $ARGS[0]
 $loc = $CURLOC
 gs'menu_gif'
 a=0 & q=0
-$next_to_the_bed.=rand(0,10)
-$next_bed_early=rand(10,17)
-$next_bed_night=$next_bed_early+3
+next_to_the_bed.=rand(0,10)
+next_bed_early=rand(10,17)
+next_bed_night=next_bed_early+3
 '<div id="right-column">'
 	gs'menu_time'
 	gs'menu_status_show'
@@ -22,11 +22,11 @@ if $args[0]="":
 	'<div class ="show_menu"><img src="images\place\医院场景\病床爸.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 &$my.ethics+=1 &jx_1=1& gt ''ward''">Filial piety</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &my.ethics+=1 &jx_1=1& gt ''ward''">Filial piety</a></div>'
 		if $YS.available=0:'<div class="button"><a href="exec:minutes+=5 & gt ''ward'',''quarrel_1''">Quarrel</a></div>'
 		if $SF.available=1:'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''ward'',''eavesdropping''">Eavesdropping</a></div>'
-		if $dailyneighborbed=0 and $next_bed_early<=hour and hour <=$next_bed_night:'<div class="buttonS2"><a href="exec:minutes+=5 &gt ''group_performation_event'',''group_play_fuck_neighbor_bed''">㊐ Visit the next bed</a></div>'else:'<div class="buttonGr"><a href="exec:">No one visits</a></div>'
-		if $dailyneighborbed=0 and week_day>=6 and $next_to_the_bed.>=6 and hour>=12:'<div class="buttonS3"><a href="exec:minutes+=5 &gt ''group_performation_event'',''group_play_fuck_neighbor_bed_s''">The slut in the bed next to me</a></div>'
+		if dailyneighborbed=0 and next_bed_early<=hour and hour <=next_bed_night:'<div class="buttonS2"><a href="exec:minutes+=5 &gt ''group_performation_event'',''group_play_fuck_neighbor_bed''">㊐ Visit the next bed</a></div>'else:'<div class="buttonGr"><a href="exec:">No one visits</a></div>'
+		if dailyneighborbed=0 and week_day>=6 and next_to_the_bed.>=6 and hour>=12:'<div class="buttonS3"><a href="exec:minutes+=5 &gt ''group_performation_event'',''group_play_fuck_neighbor_bed_s''">The slut in the bed next to me</a></div>'
 		if $SF_Event_gold=10 and $SF.love>=100:'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''ward'',''NTR''"><<$SF.name>></a></div>'
 		if $ZX.bad>100:'<div class="buttonB4"><a href="exec:minutes+=5 & gt ''ward'',''eavesdropping_on_plastic_surgery''">Eavesdropping<<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Eavesdropping<<$ZX.name>></a></div>'
 		'<div class="button"><a href="exec:minutes+=5 &jx_1=0 & gt ''hospital''">leave</a></div>'
@@ -108,7 +108,7 @@ if $args[0]="eavesdropping":
 	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 &$act_dissatisfied=0 & gt ''young_woman_event''">Dissatisfied</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &act_dissatisfied=0 & gt ''young_woman_event''">Dissatisfied</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -154,8 +154,8 @@ if $args[0]="ntr_location":
 		 else:
 		 '<div class="buttonGr"><a href="exec:">Go to her house</a></div>'
 		 end
-		if $electricguitar=1:
-			if $SF.love>=200:'<div class="buttonG"><a href="exec:$electricguitar-=1 & gt ''young_woman_event'',''electric_guitar''">Gift: Electric guitar</a></div>'else:'<div class="buttonGr"><a href="exec:">Gift: Insufficient favorability</a></div>'
+		if electricguitar=1:
+			if $SF.love>=200:'<div class="buttonG"><a href="exec:electricguitar-=1 & gt ''young_woman_event'',''electric_guitar''">Gift: Electric guitar</a></div>'else:'<div class="buttonGr"><a href="exec:">Gift: Insufficient favorability</a></div>'
 		end
 	'</div>'
 
@@ -173,8 +173,8 @@ if $args[0]="eavesdropping_on_plastic_surgery":
 		'</div>'
 	
 	'<div class="button_menu">'
-		if $antioxidant_equipment=0:'<div class="button"><a href="exec:minutes+=5  &gt ''hospital''">Keep it in mind</a></div>'
-		if $antioxidant_equipment=1:'<div class="buttonS"><a href="exec:gt ''plasticity_event'',''ZX_Fuck_SD2''">Come forward to explain</a></div>'
+		if antioxidant_equipment=0:'<div class="button"><a href="exec:minutes+=5  &gt ''hospital''">Keep it in mind</a></div>'
+		if antioxidant_equipment=1:'<div class="buttonS"><a href="exec:gt ''plasticity_event'',''ZX_Fuck_SD2''">Come forward to explain</a></div>'
 		if $ZX.love>=400-$ZX.bad:'<div class="buttonR3"><a href="exec:gt ''plasticity_event'',''zx_fuck_fake_fall''">Pretend to fall</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="buttonS"><a href="exec:minutes+=5  &gt ''hospital''">leave</a></div>'
 	'</div>'
@@ -184,8 +184,8 @@ if $args[0]="eavesdropping_on_plastic_surgery":
 		'<p>Jingyuan Project Director: Wait a minute, you know that the Jingyuan project is now the core project of the entire hospital，<<$YZ.name>>I voted all the budget for our group.</p>'
 		'<p><<$ZX.name>>: Help me, the areola goes black and becomes pink, and the private parts go to melanin and becomes pink. You all need this [antioxidant equipment]. Help me steal one out. You have so many, and you can`t see it if you lack one!</p>'
 		'<p>Jingyuan Project Director: You can spare me, I dare not.</p>'
-		if $antioxidant_equipment=0:'<p>Me: Jingyuan Project?Maybe I can think of a way?</p>' & $can_take_oxidation_equipment=1
-		if $antioxidant_equipment=1:
+		if antioxidant_equipment=0:'<p>Me: Jingyuan Project?Maybe I can think of a way?</p>' & can_take_oxidation_equipment=1
+		if antioxidant_equipment=1:
 		'<p>·————————</p>'
 		'<p>Jingyuan Project Director: Hey, hey, when I counted yesterday, I found that one [antioxidant equipment] was missing. Can you explain?</p>'
 		'<p><<$ZX.name>>: I just came to explain today❤</p>'

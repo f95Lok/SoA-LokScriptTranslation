@@ -32,7 +32,7 @@ if $ARGS[0]="":
 			'<div class="buttonR1"><a href="exec:$chat=''RION''& $where_to_go_out = ''City hall'' & addlove=0 &addbad=0 & gt ''universal_chat''">interaction</a></div>'
 			'<div class="buttonR2"><a href="exec: gt ''rion_event'',''rion_event_observation''">Observation review</a></div>'
 			'<div class="buttonR3"><a href="exec: gt ''second_generation_project_event'',''edm_fuck_threat''">Unconventional audit</a></div>'
-			if $chain_of_lost_hometown_events=0:
+			if chain_of_lost_hometown_events=0:
 				if $audit_level>=5:'<div class="buttonB2"><a href="exec: gt ''lost_hometown_incident'',''girl_in_town''">Sobbing</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient audit level</a></div>'
 			end
 			if $LY.available=1:
@@ -40,12 +40,12 @@ if $ARGS[0]="":
 			 if $ly_event_pre_entry=1:'<div class="buttonB4"><a href="exec:  gt ''anchor_event'',''ly_event_entry''">Re-review</a></div>'
 			end
 			
-			if $LXS.available=1 and $interview_for_international_students=0:
+			if $LXS.available=1 and interview_for_international_students=0:
 				if $audit_level>=5:'<div class="buttonPu3"><a href="exec:  gt ''study_abroad_event'',''study_abroad_fuck_entry_11''">Audit foreigners</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient audit level</a></div>'
 			end
 			
 			
-			if $RION.bad>0:'<div class="buttonB3"><a href="exec: $lock_review=1 & gt ''daily_review''">Start review</a></div>'
+			if $RION.bad>0:'<div class="buttonB3"><a href="exec: lock_review=1 & gt ''daily_review''">Start review</a></div>'
 			if hour>=16 :
 				if $rion.bumped_into=1 and $RION.love>=100 :'<div class="buttonS"><a href="exec: a=-2 & q=0 & gt ''rion_event'',''rion_fuck_dinner''">Family dinner</a></div>'else:'<div class="buttonGr"><a href="exec:">Family dinner</a></div>'
 			end
@@ -89,7 +89,7 @@ if $ARGS[0]="interview":
 	
 	'<div class="button_menu">'
 		if $rion_interview=0:'<div class="button"><a href="exec: gt ''immigration_administration'',''first_round''">First round: Application</a></div>'
-		if $rion_interview=1:'<div class="button"><a href="exec:a=1 & $interview_num=0 & gt ''rion_event'',''second_round''">Second round: Written test</a></div>'
+		if $rion_interview=1:'<div class="button"><a href="exec:a=1 & interview_num=0 & gt ''rion_event'',''second_round''">Second round: Written test</a></div>'
 		if $rion_interview=2:'<div class="button"><a href="exec: gt ''rion_event'',''third_round''">Round 3: Interview</a></div>'
 		'<div class="button"><a href="exec: gt ''city_hall''">leave</a></div>'
 	'</div>'
@@ -107,7 +107,7 @@ if $ARGS[0]="first_round":
 	'</div>'
 	
 	'<div class="button_menu">'
-		if $my.intelligence>=4:'<div class="button"><a href="exec:$rion_interview=1 & gt ''immigration_administration'',''first_round''">The answer is like a stream</a></div>'else:'<div class="buttonGr"><a href="exec: ">Insufficient intelligence<<$my.intelligence>>/4</a></div>'
+		if my.intelligence>=4:'<div class="button"><a href="exec:$rion_interview=1 & gt ''immigration_administration'',''first_round''">The answer is like a stream</a></div>'else:'<div class="buttonGr"><a href="exec: ">Insufficient intelligence<<my.intelligence>>/4</a></div>'
 		'<div class="button"><a href="exec: gt ''city_hall''">leave</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'

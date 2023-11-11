@@ -5,7 +5,7 @@ $loc = $CURLOC
 gs'menu_gif'
 a=0 & q=0
 minutes+=15
-$my.energy-=10
+my.energy-=10
 
 
 
@@ -33,8 +33,8 @@ if jailday>0:
 	end
 end
 
-$prisonrandomnumber=rand(1,10)
-if $soapkey>0 and $prisonrandomnumber>9 and $prison_anal_plug=0:gt'prison_guard_incident','yj_event_punishment_three'
+prisonrandomnumber=rand(1,10)
+if soapkey>0 and prisonrandomnumber>9 and prison_anal_plug=0:gt'prison_guard_incident','yj_event_punishment_three'
 
 if jailday<0:
 	 '<div class ="show_menu"><img src="images\place\监狱大图.jpg" width="854"></div>'
@@ -53,17 +53,17 @@ if $ARGS[0]="":
 	'<div class ="show_menu"><img src="images\place\<<$prison_map>>.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $dailyrollcall=0:'<div class="buttonR4"><a href="exec:$dailyrollcall=1 & jailday-=1 & gt ''daily_life_in_prison''">Dailyrollcall</a></div>'
-		if dogteam>=1:'<div class="buttonR5"><a href="exec:$prison_code=0 & gt ''daily_life_in_prison'',''warden`s_office''">Warden`s Office</a></div>'
-		'<div class="button"><a href="exec:$prison_code=1 & gt ''daily_life_in_prison''">Read the prison code aloud</a></div>'
-		if hour!12 and hour!18:'<div class="buttonR2"><a href="exec:$labor_reform_project=0 &gt ''daily_life_in_prison'',''labor_reform''">Labor reform</a></div>'
+		if dailyrollcall=0:'<div class="buttonR4"><a href="exec:dailyrollcall=1 & jailday-=1 & gt ''daily_life_in_prison''">Dailyrollcall</a></div>'
+		if dogteam>=1:'<div class="buttonR5"><a href="exec:prison_code=0 & gt ''daily_life_in_prison'',''warden`s_office''">Warden`s Office</a></div>'
+		'<div class="button"><a href="exec:prison_code=1 & gt ''daily_life_in_prison''">Read the prison code aloud</a></div>'
+		if hour!12 and hour!18:'<div class="buttonR2"><a href="exec:labor_reform_project=0 &gt ''daily_life_in_prison'',''labor_reform''">Labor reform</a></div>'
 		if hour=12:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''release_time''">Release time</a></div>'
 		if hour=18:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''playground_open''">Playground open</a></div>'
 		if day=1:'<div class="buttonGn"><a href="exec: a=-1 & gt ''andrology_event'',''nk_fuck_monthly''">Monthly health check</a></div>'
-		'<div class="button"><a href="exec:minutes+=165 &$prison_code=0 & $my.energy+=15 &jings+=rand(1,3)& gt ''daily_life_in_prison''">Rest for 3h</a></div>'
-		if hour>=6 and  $YJ.slave=1 and $prisonrandomnumber<4:'<div class="buttonG"><a href="exec:gt ''prison_guard_incident'',''yj_event_tuning''">Bell sound</a></div>'
-		if hour>=19 and $soapkey>0:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''prison_corridor''">Use soap key</a></div>'
-		if hour>=19:'<div class="button"><a href="exec:minutes+=1440 & hour=6 &$prison_code=0 & $my.energy+=45 &jings+=rand(4,6)& gt ''daily_life_in_prison''">Turn off the lights and go to bed</a></div>'
+		'<div class="button"><a href="exec:minutes+=165 &prison_code=0 & my.energy+=15 &jings+=rand(1,3)& gt ''daily_life_in_prison''">Rest for 3h</a></div>'
+		if hour>=6 and  $YJ.slave=1 and prisonrandomnumber<4:'<div class="buttonG"><a href="exec:gt ''prison_guard_incident'',''yj_event_tuning''">Bell sound</a></div>'
+		if hour>=19 and soapkey>0:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''prison_corridor''">Use soap key</a></div>'
+		if hour>=19:'<div class="button"><a href="exec:minutes+=1440 & hour=6 &prison_code=0 & my.energy+=45 &jings+=rand(4,6)& gt ''daily_life_in_prison''">Turn off the lights and go to bed</a></div>'
 		if 10>$YDM_Event_free and $YDM_Event_free>0:
 			if 0<=hour and hour<=3:'<div class="buttonB5"><a href="exec:gt ''daily_life_in_prison'',''connector''">Jailbreak connector</a></div>'
 		end
@@ -73,8 +73,8 @@ if $ARGS[0]="":
 
 	'<div class="dialog_menu">'
 		'<p>·Remaining sentence：<<jailday>>day.Labor certificate：<<coins>>one.Accumulate semen volume：<<jings>>ml.The bad environment exhausts you physically and mentally.</p>'
-		if $prison_anal_plug=1: jings+=rand(1,3 )& '<p>·由于被插着肛塞，随着前列腺的疯狂摩擦，精液不断积蓄着。<a href="exec: gt''prison_guard_incident'',''YJ_Event_ Punishment four''`>*Pull it out</a></p>'
-		if $prison_code=1:
+		if prison_anal_plug=1: jings+=rand(1,3 )& '<p>·由于被插着肛塞，随着前列腺的疯狂摩擦，精液不断积蓄着。<a href="exec: gt''prison_guard_incident'',''YJ_Event_ Punishment four''`>*Pull it out</a></p>'
+		if prison_code=1:
 		'<p>·Prison code: In exchange for labor certificates through different labor, each labor certificate can offset one day`s sentence.</p>'
 		'<p>*Handmade: Make female erotic props according to demand, and you can get 1 labor certificate each time.</p>'
 		'<p>·Squeeze essence: Fill a 10ml measuring cup with your own semen in exchange for 10 labor certificates.</p>'
@@ -98,7 +98,7 @@ if $ARGS[0]="warning":
 
 	'<div class="dialog_menu">'
 		'<p><B><span class =''red''>·Warning: The prison is a powerhouse, and idlers are not allowed to enter!！</p>'
-		if $bigvillaforthefirsttime>=1 and $prison_hammer=0:'<p>·There is a [sledgehammer] covered with dust and dirt at the entrance of the prison.<a href="exec:$sledgehammer+=1 & $prison_hammer=1 &  gt ''daily_life_in_prison'',''warning''">-Take it away</a></p>'
+		if bigvillaforthefirsttime>=1 and prison_hammer=0:'<p>·There is a [sledgehammer] covered with dust and dirt at the entrance of the prison.<a href="exec:sledgehammer+=1 & prison_hammer=1 &  gt ''daily_life_in_prison'',''warning''">-Take it away</a></p>'
 	'</div>'
 
 end
@@ -145,18 +145,18 @@ end
 
 
 if $ARGS[0]="labor_reform":
-		if $labor_reform_project=1: coins+=1
-		if $labor_reform_project=2: jing+=jings & jings=0		
-		if $labor_reform_project=3: jing=0 & coins+=10
-		if $labor_reform_project=4: jailday-=coins & coins=0
+		if labor_reform_project=1: coins+=1
+		if labor_reform_project=2: jing+=jings & jings=0		
+		if labor_reform_project=3: jing=0 & coins+=10
+		if labor_reform_project=4: jailday-=coins & coins=0
 
 	'<div class ="show_menu"><img src="images\place\<<$prison_map>>.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonR1"><a href="exec:$labor_reform_project=1 & minutes+=60 & gt ''daily_life_in_prison'',''labor_reform''">manual</a></div>'
-		'<div class="buttonR2"><a href="exec:$labor_reform_project=2 & minutes+=60 &gt ''daily_life_in_prison'',''labor_reform''">Squeeze essence<<jing>>/10ml</a></div>'
-		if jing>=10:'<div class="buttonR3"><a href="exec:$labor_reform_project=3 &jing_time=year*365+month*30+day & minutes+=15 &gt ''daily_life_in_prison'',''labor_reform''">Turn in the measuring cup</a></div>'
-		if coins>0:'<div class="buttonR4"><a href="exec:$labor_reform_project=4 & minutes+=60 &gt ''daily_life_in_prison'',''labor_reform''">Exchange of labor certificates</a></div>'
+		'<div class="buttonR1"><a href="exec:labor_reform_project=1 & minutes+=60 & gt ''daily_life_in_prison'',''labor_reform''">manual</a></div>'
+		'<div class="buttonR2"><a href="exec:labor_reform_project=2 & minutes+=60 &gt ''daily_life_in_prison'',''labor_reform''">Squeeze essence<<jing>>/10ml</a></div>'
+		if jing>=10:'<div class="buttonR3"><a href="exec:labor_reform_project=3 &jing_time=year*365+month*30+day & minutes+=15 &gt ''daily_life_in_prison'',''labor_reform''">Turn in the measuring cup</a></div>'
+		if coins>0:'<div class="buttonR4"><a href="exec:labor_reform_project=4 & minutes+=60 &gt ''daily_life_in_prison'',''labor_reform''">Exchange of labor certificates</a></div>'
 		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">Return to the cell</a></div>'
 	'</div>'
 
@@ -164,11 +164,11 @@ if $ARGS[0]="labor_reform":
  
 
 	'<div class="dialog_menu">'
-		if $labor_reform_project=0:'<p>·Labor reform, earn labor certificates, and strive to get out of prison as soon as possible!</p>'
-		if $labor_reform_project=1:'<p>·Several dildos were made and labor certificates were obtained.</p>' 
-		if $labor_reform_project=2:'<p>·Jerk off at the measuring cup.</p>' 
-		if $labor_reform_project=3:'<p>·Handed over the measuring cup full of semen<<$YJ.name>>, Obtained a labor certificate.</p>'
-		if $labor_reform_project=4:'<p>·The labor certificate was exchanged and the sentence was shortened.</p>'
+		if labor_reform_project=0:'<p>·Labor reform, earn labor certificates, and strive to get out of prison as soon as possible!</p>'
+		if labor_reform_project=1:'<p>·Several dildos were made and labor certificates were obtained.</p>' 
+		if labor_reform_project=2:'<p>·Jerk off at the measuring cup.</p>' 
+		if labor_reform_project=3:'<p>·Handed over the measuring cup full of semen<<$YJ.name>>, Obtained a labor certificate.</p>'
+		if labor_reform_project=4:'<p>·The labor certificate was exchanged and the sentence was shortened.</p>'
 		'<p>·Remaining sentence：<<jailday>>day.Labor certificate：<<coins>>one.Accumulate semen volume：<<jings>>ml.The bad environment exhausts you physically and mentally.</p>'
 	'</div>'
 
@@ -183,7 +183,7 @@ if $ARGS[0]="release_time":
 	
 	'<div class="button_menu">'
 		if money>=10000:'<div class="buttonG"><a href="exec:money-=10000 & coins+=1 & gt ''daily_life_in_prison'',''release_time''">Purchase labor certificate ￥10000</a></div>'else:'<div class="buttonGr"><a href="exec:">Purchase labor certificate ￥10000</a></div>'
-		if $soapkey<=0 and coins>=10:'<div class="buttonG"><a href="exec:coins-=10 &  $soapkey+=1 & gt ''daily_life_in_prison''">Purchase soap key·10 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">Soap key·10 pieces</a></div>'
+		if soapkey<=0 and coins>=10:'<div class="buttonG"><a href="exec:coins-=10 &  soapkey+=1 & gt ''daily_life_in_prison''">Purchase soap key·10 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">Soap key·10 pieces</a></div>'
 		if dogteam=2 and jings>=10:'<div class="buttonR3"><a href="exec:gt ''group_performation_event'',''prison_fuck_mouth''">For sale*Semen of breeding dogs</a></div>'else:else:'<div class="buttonGr"><a href="exec:">For sale·???</a></div>'
 		if coins>=20:'<div class="buttonS"><a href="exec:coins-=20 & gt ''group_performation_event'',''prison_fuck_lesbian''">Sex service: Girls Love·20 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？20 pieces</a></div>'
 		if coins>=40:'<div class="buttonS"><a href="exec: gt ''group_performation_event'',''jail_fuck_store_3p''">Sexual service: Shuangfei·40 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？40 pieces</a></div>'
@@ -206,9 +206,9 @@ if $ARGS[0]="prison_corridor":
 	'<div class ="show_menu"><img src="images\place\监狱走廊.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonB"><a href="exec:$soapkey-=1 & gt ''prison_guard_incident'',''yj_event_lesbian''"><<$YJ.name>>bedroom</a></div>'
-		'<div class="buttonR5"><a href="exec:$soapkey-=1 & gt ''group_performation_event'',''prison_fuck_interrogation_room''">Anti-social torture room</a></div>'
-		if $the_thief_was_caught=3:'<div class="buttonR5"><a href="exec:$soapkey-=1 & gt ''group_performation_event'',''group_play_fuck_thief_9''">Arsonist torture room</a></div>'
+		'<div class="buttonB"><a href="exec:soapkey-=1 & gt ''prison_guard_incident'',''yj_event_lesbian''"><<$YJ.name>>bedroom</a></div>'
+		'<div class="buttonR5"><a href="exec:soapkey-=1 & gt ''group_performation_event'',''prison_fuck_interrogation_room''">Anti-social torture room</a></div>'
+		if $the_thief_was_caught=3:'<div class="buttonR5"><a href="exec:soapkey-=1 & gt ''group_performation_event'',''group_play_fuck_thief_9''">Arsonist torture room</a></div>'
 		
 		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
 	'</div>'
@@ -276,9 +276,9 @@ if $ARGS[0]="playing_chess_in_the_playground":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if  $ARGS[1]="anti-bug": $exp_intelligence += $my.intelligence*2
+		if  $ARGS[1]="anti-bug": exp_intelligence += my.intelligence*2
 		'<p>After some mutual play on the chessboard, time passed unconsciously!</p>'
-		'<p>·Subject to basic intelligence【<<$my.intelligence>>]▲The influence of ▲ and the pointing of the chess spectators around him, the intelligence has been [doubled▲▲]</p>'
+		'<p>·Subject to basic intelligence【<<my.intelligence>>]▲The influence of ▲ and the pointing of the chess spectators around him, the intelligence has been [doubled▲▲]</p>'
 	'</div>'
 end
 
@@ -291,12 +291,12 @@ if $ARGS[0]="playing_football_in_the_playground":
 
 	'<div class="dialog_menu">'
 		if  $ARGS[1]="anti-bug":
-		$exp_figure += $my.intelligence
-		mymax[$energy] +=RAND(1,$my.physical_strength*2)
+		exp_figure += my.intelligence
+		mymax[energy] +=RAND(1,my.physical_strength*2)
 		end
 		'<p></p>'
-		'<p>·Subject to basic intelligence【<<$my.intelligence>>]▲The influence of ▲, the ability to control the muscles has increased▲</p>'
-		'<p>·Because of the malicious and fierce physical confrontation of the prisoners, cardiopulmonary function has been [doubled▲▲], and the upper limit of energy has been increased to [<<mymax[$energy]>>】▲</p>'
+		'<p>·Subject to basic intelligence【<<my.intelligence>>]▲The influence of ▲, the ability to control the muscles has increased▲</p>'
+		'<p>·Because of the malicious and fierce physical confrontation of the prisoners, cardiopulmonary function has been [doubled▲▲], and the upper limit of energy has been increased to [<<mymax[energy]>>】▲</p>'
 	'</div>'
 end
 
@@ -391,7 +391,7 @@ if $ARGS[0]="whisper":
 		if $YDM_Event_free=1:'<div class="button"><a href="exec:$ydm_dialogue=1 &gt ''daily_life_in_prison'',''whisper''">comfort</a></div>'
 		if $YDM_Event_free=2:'<div class="button"><a href="exec:gt ''daily_life_in_prison'',''lead_away_the_guards''">Lead away the guards</a></div>'
 		if $YDM_Event_free=4:'<div class="button"><a href="exec:gt ''daily_life_in_prison'',''so_the_technique_is_repeated''">So the technique is repeated</a></div>'
-		if $YDM_Event_free=5 and $soapkey>0:'<div class="button"><a href="exec:$ydm_dialogue=4 &gt ''daily_life_in_prison'',''whisper''">Butt up</a></div>'
+		if $YDM_Event_free=5 and soapkey>0:'<div class="button"><a href="exec:$ydm_dialogue=4 &gt ''daily_life_in_prison'',''whisper''">Butt up</a></div>'
 		
 		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
 	'</div>'
@@ -412,7 +412,7 @@ if $ARGS[0]="whisper":
 		 end
 		if $ydm_dialogue=4:
 			'<p>Me: Ahem, that`s rude...This is a master key made of soap.Just keep it with your asshole first....</p>'
-			$soapkey-=1
+			soapkey-=1
 			$YDM_Event_free=6
 		 end
 			'<p><<$YDM.name>>:……</p>'

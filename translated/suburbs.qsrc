@@ -57,17 +57,17 @@ if $args[0]="":
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
 			if hour=22 and $inspector_event_chain=3:'<div class="button"><a href="exec:minutes+=15 & a=1 & gt ''inspector_event'',''dc_fuck_receiving_network''">Abandoned warehouse</a></div>'
-			if $set_printing_card=1 and hour=15 and week_day =1:'<div class="buttonS"><a href="exec:$set_printing_number=8 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with passersby❤</a></div>'
+			if set_printing_card=1 and hour=15 and week_day =1:'<div class="buttonS"><a href="exec:set_printing_number=8 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with passersby❤</a></div>'
 
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p>·Far from the outskirts of the metropolis.</p>'
-			if $bigvillaforthefirsttime>=1 and $suburban_hammer=0:'<p>·Someone abandoned a [sledgehammer] here<a href="exec:$sledgehammer+=1 & $suburban_hammer=1 &  gt ''suburbs''">-Take it away</a></p>'
+			if bigvillaforthefirsttime>=1 and suburban_hammer=0:'<p>·Someone abandoned a [sledgehammer] here<a href="exec:sledgehammer+=1 & suburban_hammer=1 &  gt ''suburbs''">-Take it away</a></p>'
 			if $uniform_follow_up=1:'<p>·The police blocked an area<a href="exec:gt ''suburbs'',''cordon''">-View</a></p>'
 			if $lei_video_event_chain<9:
-				if $bishopschoice=2:'<p>·There was a man sitting dejectedly at the door of the church<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
-				if $bishopschoice=1 and $xn.trial>=1:'<p>·There was a man sitting at the door of the church with his eyes blankly<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
+				if bishopschoice=2:'<p>·There was a man sitting dejectedly at the door of the church<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
+				if bishopschoice=1 and $xn.trial>=1:'<p>·There was a man sitting at the door of the church with his eyes blankly<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
 			end
 	'</div>'
 
@@ -96,17 +96,17 @@ if $args[0]="trainee_male":
 	'<div class ="show_menu"><img src="images\NPC\XN\pics\见习男.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $polaroid=0:'<div class="buttonG2"><a href="exec:$polaroid=1 & gt ''suburbs''">Accept</a></div>'
-		if $polaroid=1:
+		if polaroid=0:'<div class="buttonG2"><a href="exec:polaroid=1 & gt ''suburbs''">Accept</a></div>'
+		if polaroid=1:
 			if $xn.trial=0:
-				if $evidence_one=0:'<div class="buttonGr"><a href="exec:">Provide evidence ①</a></div>'else:'<div class="buttonR"><a href="exec:gt ''suburbs'',''trainee_male_2''">Provide evidence ①</a></div>'
+				if evidence_one=0:'<div class="buttonGr"><a href="exec:">Provide evidence ①</a></div>'else:'<div class="buttonR"><a href="exec:gt ''suburbs'',''trainee_male_2''">Provide evidence ①</a></div>'
 			else:
 			'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence ①-Already in the package</a></div>'
-			if $evidence_two=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence ②-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence ②-Not obtained</a></div>'
-			if $evidence_three=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence③-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence③-Not obtained</a></div>'
-			if $evidence_four=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence④-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence④-Not obtained</a></div>'
-			if $evidence_five=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence⑤-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence⑤-Not obtained</a></div>'
-			if $evidence_one*$evidence_two*$evidence_three*$evidence_four*$evidence_five=1:'<div class="buttonR4"><a href="exec:gt ''suburbs'',''trainee_male_3''">Discuss countermeasures</a></div>'else:'<div class="buttonGr"><a href="exec:">Not collected</a></div>'
+			if evidence_two=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence ②-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence ②-Not obtained</a></div>'
+			if evidence_three=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence③-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence③-Not obtained</a></div>'
+			if evidence_four=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence④-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence④-Not obtained</a></div>'
+			if evidence_five=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">Evidence⑤-Already in the package</a></div>'else:'<div class="buttonGr"><a href="exec:">Evidence⑤-Not obtained</a></div>'
+			if evidence_one*evidence_two*evidence_three*evidence_four*evidence_five=1:'<div class="buttonR4"><a href="exec:gt ''suburbs'',''trainee_male_3''">Discuss countermeasures</a></div>'else:'<div class="buttonGr"><a href="exec:">Not collected</a></div>'
 			end
 		end
 		
@@ -121,7 +121,7 @@ if $args[0]="trainee_male":
 		'<p>Me: Instead of being incompetent and furious here, why don`t you stand up and do something?</p>'
 		'<p>Man: You are right!How about going with me to expose the true face of which bastard bishop?I bet he is by no means a good thing!This is my polaroid, please help me take pictures of his crimes!</p>'
 		else:
-		if $bishopschoice=1 and $polaroid=0:'<p>Man: Damn it!Will you help me?This is my polaroid and the photo I took…</p>'& $evidence_one=1
+		if bishopschoice=1 and polaroid=0:'<p>Man: Damn it!Will you help me?This is my polaroid and the photo I took…</p>'& evidence_one=1
 		'<p>I：………</p>'
 		'<p>Man: Damn it!He actually borrowed a donkey to go downhill... I was hasty... I shouldn`t have acted rashly... I must reveal the true face of which bastard bishop!I bet he is by no means a good thing!</p>'
 		'<p>Me: Since you think so, you must prepare more evidence…</p>'
@@ -179,8 +179,8 @@ if $args[0]="traineemalecompleted":
 		'<p>Man: Obviously, which bastard bishop has been expelled by you and is completely out of here, why does she still refuse to come back to me?…<<$LEI.name>>Is she really willing to be a trainee nun?This is really unbelievable and unreasonable.</p>'
 		'<p>Me: Don`t try to change her, try to understand<<$LEI.name>>What about the real thoughts in your heart?</p>'
 		'<p>man：<<$LEI.name>>The heart...then can you help me to watch her heart?Let her come back to me…</p>'
-		if $return_polaroid=0:
-			'<p>man：<B><span class =''red''>Oh by the way, can you return the polaroid to me?I have lost all my bets. I plan to use it to get some chips and bet one last time!This is definitely the last time!Give me back the polaroid!<a href="exec:$return_polaroid=1 & gt ''suburbs''">-Give it back to him</a></p>'
+		if return_polaroid=0:
+			'<p>man：<B><span class =''red''>Oh by the way, can you return the polaroid to me?I have lost all my bets. I plan to use it to get some chips and bet one last time!This is definitely the last time!Give me back the polaroid!<a href="exec:return_polaroid=1 & gt ''suburbs''">-Give it back to him</a></p>'
 		end
 		if $lei_video_event_chain=4:
 			'<p>man：<B><span class =''red''>You despicable bitch, is this how you watch her heart for me?I want to bet with you again!This is the second video you have never seen before!</p>'
@@ -215,8 +215,8 @@ if $args[0]="traineemalegambling":
 	'<div class ="show_menu"><img src="images\NPC\XN\pics\赌局.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if money>=$trainee_male_chips:'<div class="buttonG"><a href="exec:money-=$trainee_male_chips & $ibetonthetrainee=6 & gt ''suburbs'',''traineemalegamblinggameopen''">Buy [large]￥<<$trainee_male_chips>></a></div>'else:'<div class="buttonGr"><a href="exec:">Buy [large]￥<<$trainee_male_chips>></a></div>'
-		if money>=$trainee_male_chips:'<div class="buttonG"><a href="exec:money-=$trainee_male_chips & $ibetonthetrainee=1 & gt ''suburbs'',''traineemalegamblinggameopen''">Buy [small]￥<<$trainee_male_chips>></a></div>'else:'<div class="buttonGr"><a href="exec:">Buy [small]￥<<$trainee_male_chips>></a></div>'
+		if money>=$trainee_male_chips:'<div class="buttonG"><a href="exec:money-=$trainee_male_chips & ibetonthetrainee=6 & gt ''suburbs'',''traineemalegamblinggameopen''">Buy [large]￥<<$trainee_male_chips>></a></div>'else:'<div class="buttonGr"><a href="exec:">Buy [large]￥<<$trainee_male_chips>></a></div>'
+		if money>=$trainee_male_chips:'<div class="buttonG"><a href="exec:money-=$trainee_male_chips & ibetonthetrainee=1 & gt ''suburbs'',''traineemalegamblinggameopen''">Buy [small]￥<<$trainee_male_chips>></a></div>'else:'<div class="buttonGr"><a href="exec:">Buy [small]￥<<$trainee_male_chips>></a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">leave</a></div>'
 	'</div>'
 
@@ -241,11 +241,11 @@ if $args[0]="traineemalegamblinggameopen":
 		'<p>Man: Of course, I assure you!Absolutely no problem!Hehe.But your bet... at least so much.*He squinted his eyes</p>'
 		'<p>·——————</p>'
 		'<p>·The dice rolled off his fingertips and were thrown<<$trainee_male_points>>point</p>'
-		if $ibetonthetrainee=6:
+		if ibetonthetrainee=6:
 			if  $trainee_male_points=4 or $trainee_male_points=5 or $trainee_male_points=6:'<p>Me: It seems that I won<a href="exec:money+=$trainee_male_chips & gt ''suburbs'',''trainee_male_i_win''">-Bring things</a></p>'else:'<p>Me: Damn it!I lost…<a href="exec:gt ''suburbs'',''traineemalegambling''">-One more</a></p>'
 		end 
 		
-		if $ibetonthetrainee=1:
+		if ibetonthetrainee=1:
 			if  $trainee_male_points=1 or $trainee_male_points=2 or $trainee_male_points=3:'<p>Me: It seems that I won<a href="exec:money+=$trainee_male_chips & gt ''suburbs'',''trainee_male_i_win''">-Bring things</a></p>'else:'<p>Me: Damn it!I lost…<a href="exec:gt ''suburbs'',''traineemalegambling''">-One more</a></p>'
 		end 
 		

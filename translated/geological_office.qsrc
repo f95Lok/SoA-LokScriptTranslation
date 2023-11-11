@@ -56,8 +56,8 @@ if $ARGS[0]="dialogue_with_the_geological_office":
 		if $dz.event_device=1 and soil_a<100:
 		'<div class="button"><a href="exec:soil_b+=Rand(50,70) & soil_a+=100 & gt ''geological_office'',''deal_with''">New type of soil testing<<soil_a>>.<<soil_b>>﹪</a></div>'
 		end
-		if soil_a>=100 and $test_report=0:
-		'<div class="button"><a href="exec:$test_report+=1 &  gt ''geological_office''">Get the soil test report</a></div>'
+		if soil_a>=100 and test_report=0:
+		'<div class="button"><a href="exec:test_report+=1 &  gt ''geological_office''">Get the soil test report</a></div>'
 		end
 		
 		if $DZ_Event_date14.available=1:
@@ -123,9 +123,9 @@ if $ARGS[0]="jealous":
 
 	'<div class="button_menu">'
 	 if $ARGS[1]!"looking_for_you" and $ARGS[1]!"find_sister"and $ARGS[1]!"molesting" :
-		'<div class="button"><a href="exec: $DZ.love+=2 + $my.charm & gt ''geological_office'',''jealous'',''looking_for_you''">Looking for you</a></div>'
+		'<div class="button"><a href="exec: $DZ.love+=2 + my.charm & gt ''geological_office'',''jealous'',''looking_for_you''">Looking for you</a></div>'
 		'<div class="button"><a href="exec: $DZ.love-=10 & gt ''geological_office'',''jealous'',''find_sister''">Find sister</a></div>'
-		if $my.ethics<=-20:
+		if my.ethics<=-20:
 		'<div class="button"><a href="exec: $DZ.love+=2 & gt ''geological_office'',''jealous'',''molesting''">Molesting</a></div>'
 		end
 	 end

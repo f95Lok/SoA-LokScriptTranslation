@@ -20,7 +20,7 @@ if $ARGS[0] ="":
 	'<div class ="show_menu"><img src="images\place\丝袜店.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonP"><a href="exec:$stockingsshopdialogue=0 & gt ''stockings_shop'',''dialogue''">dialogue</a></div>'
+		'<div class="buttonP"><a href="exec:stockingsshopdialogue=0 & gt ''stockings_shop'',''dialogue''">dialogue</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
 	'</div>'
 
@@ -42,25 +42,25 @@ if $ARGS[0] ="dialogue":
 	'<div class ="show_menu"><img src="images\place\丝袜店.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $stockingsshopdialogue=0:
-			if $stockings_event_chain<=1:'<div class="button"><a href="exec:$stockingsshopdialogue=1 & gt ''stockings_shop'',''dialogue''">Sales problem?</a></div>'
-			if $stockings_event_chain=3 or $stockings_event_chain=4:'<div class="button"><a href="exec:$stockingsshopdialogue=2 & gt ''stockings_shop'',''dialogue''">Am I good?</a></div>'
-			if $stockings_event_chain=7 or $stockings_event_chain=8:'<div class="buttonG"><a href="exec:$stockingsshopdialogue=3 & gt ''stockings_shop'',''dialogue''">Limited edition case</a></div>'
+		if stockingsshopdialogue=0:
+			if $stockings_event_chain<=1:'<div class="button"><a href="exec:stockingsshopdialogue=1 & gt ''stockings_shop'',''dialogue''">Sales problem?</a></div>'
+			if $stockings_event_chain=3 or $stockings_event_chain=4:'<div class="button"><a href="exec:stockingsshopdialogue=2 & gt ''stockings_shop'',''dialogue''">Am I good?</a></div>'
+			if $stockings_event_chain=7 or $stockings_event_chain=8:'<div class="buttonG"><a href="exec:stockingsshopdialogue=3 & gt ''stockings_shop'',''dialogue''">Limited edition case</a></div>'
 			if $stockings_event_chain>=6:'<div class="buttonS"><a href="exec:gt ''stockings_shop'',''in_conversation''">Follow her to the back</a></div>'
 		end
 		
-		if $stockingsshopdialogue=2:'<div class="buttonP"><a href="exec:$stockingsshopdialogue=1 & gt ''stockings_shop_event'',''stockings_shop_fuck_office''">Follow her to the back</a></div>'
+		if stockingsshopdialogue=2:'<div class="buttonP"><a href="exec:stockingsshopdialogue=1 & gt ''stockings_shop_event'',''stockings_shop_fuck_office''">Follow her to the back</a></div>'
 		if $stockings_event_chain>=8:'<div class="buttonGn2"><a href="exec:gt ''stockings_shop_event'',''stockings_shop_fuck_go_out''">Go out together</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if $stockingsshopdialogue=0:
+		if stockingsshopdialogue=0:
 		'<p><<$SWD.name>>: Oh, what kind of stockings are you a man buying? Is it a pervert?</p>'
 		'<p>Me: Of course not, can`t I buy it for my girlfriend?</p>'
 		'<p><<$SWD.name>>: Forget it, as long as you can help me in sales, it doesn`t matter if you are a pervert or not.</p>'
 		end
-		if $stockingsshopdialogue=1:
+		if stockingsshopdialogue=1:
 		'<p><<$SWD.name>>: Of course, you really don`t know how difficult it is to do business now, it may be that my ability is insufficient...Alas</p>'
 		'<p>Me: Don`t be discouraged, maybe I can help. To put it bluntly, isn`t it just a lack of popularity and hype now?</p>'
 		'<p><<$SWD.name>>: Yeah, you`re right, it would be great if I could find a star to endorse me, it`s best…<<$SSYY.name>>This kind of…</p>'
@@ -68,7 +68,7 @@ if $ARGS[0] ="dialogue":
 		'<p><<$SWD.name>>: What, can you still know her?</p>'
 		 if $stockings_event_chain=0:$stockings_event_chain=1
 		end
-		if $stockingsshopdialogue=2:
+		if stockingsshopdialogue=2:
 		'<p>Me: Am I good?</p>'
 		'<p><<$SWD.name>>: I really didn`t see it ❤ You actually know the big star, I found out!You are the agent, right!Empire Entertainment!</p>'
 		'<p>Me: Did you recognize it?</p>'
@@ -77,7 +77,7 @@ if $ARGS[0] ="dialogue":
 		'<p><<$SWD.name>>: What?That`s it... you come with me❤</p>'
 		 if $stockings_event_chain=3:$stockings_event_chain=4
 		end
-		if $stockingsshopdialogue=3:
+		if stockingsshopdialogue=3:
 		'<p><<$SWD.name>>: The limited edition is sold super well!Completely exceeded my expectations!</p>'
 		'<p>Me: That`s really congratulations!</p>'
 		'<p><<$SWD.name>>: Yes, and some customers even bought more than 50,000 other stockings in order to buy stockings No. 001, just for more lottery opportunities.</p>'

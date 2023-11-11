@@ -70,10 +70,10 @@ if $args[0]="sister`s_office_conversation":
 			'<div class="button"><a href="exec:minutes+=5 & gt ''sister_event'',''secretly_trading''">Secretly trading</a></div>'
 			end
 			
-			if $insemination_room=1 and $JJ.bad>=200 and $jj.insemination=0:'<div class="buttonS"><a href="exec:$jj.insemination=1 & gt ''sister_office''">Invite artificial insemination</a></div>'
+			if insemination_room=1 and $JJ.bad>=200 and $jj.insemination=0:'<div class="buttonS"><a href="exec:$jj.insemination=1 & gt ''sister_office''">Invite artificial insemination</a></div>'
 			
-			if $heterochromatic_plant_report=0 and $heterochromatic_plants>0 and $heterochromatic_progress=0:'<div class="buttonGn5"><a href="exec:$heterochromatic_plants-=1 & gt ''sister_office'',''detection_of_heterochromatic_plants''">Detection of heterochromatic plants</a></div>'
-			if $heterochromatic_plant_report=0 and $heterochromatic_progress>0:'<div class="buttonGn5"><a href="exec:gt ''sister_office'',''detection_of_heterochromatic_plants_2''">Detection of heterochromatic plants</a></div>'
+			if heterochromatic_plant_report=0 and heterochromatic_plants>0 and heterochromatic_progress=0:'<div class="buttonGn5"><a href="exec:heterochromatic_plants-=1 & gt ''sister_office'',''detection_of_heterochromatic_plants''">Detection of heterochromatic plants</a></div>'
+			if heterochromatic_plant_report=0 and heterochromatic_progress>0:'<div class="buttonGn5"><a href="exec:gt ''sister_office'',''detection_of_heterochromatic_plants_2''">Detection of heterochromatic plants</a></div>'
 			
 			'<div class="button"><a href="exec:minutes+=5 & gt ''sister_office'',''hand_in_plant_fruits''">Hand in plant fruits</a></div>'
 			
@@ -83,14 +83,14 @@ if $args[0]="sister`s_office_conversation":
 			'<div class="buttonP"><a href="exec:minutes+=5 & gt ''sister_office'',''ask_for_mcgovern_extract''">Ask for McGovern extract</a></div>'
 			end
 			
-			if $plant_number_of_studies>=30:
+			if plant_number_of_studies>=30:
 			'<div class="buttonR3"><a href="exec:minutes+=5 & gt ''sister_office'',''human_experiment''">Human experiment</a></div>'
 			end
 			
 			if $jj.bad>=200 and $jj.love>=200 and $jm.love>=200 and $jm.bad>=200:
 			'<div class="buttonS"><a href="exec:minutes+=5 & gt ''sister_office'',''mother-daughter_experiment''">Mother-daughter experiment</a></div>'
 			end
-			if $jj.confession=0 and $bishopschoice=1:'<div class="buttonG2"><a href="exec:$jj.confession=1 & $m=''JJ'' & $ma=$JJ.name & gt ''nun_event'',''xn_fuck_confession''">Invitation to church for baptism</a></div>'
+			if jj.confession=0 and bishopschoice=1:'<div class="buttonG2"><a href="exec:jj.confession=1 & $m=''JJ'' & $ma=$JJ.name & gt ''nun_event'',''xn_fuck_confession''">Invitation to church for baptism</a></div>'
 			'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
 		'</div>'
 
@@ -110,7 +110,7 @@ end
 !ok
 if $args[0]="hand_in_plant_fruits":
 	money+=plant*100
-	$plant_number_of_studies+=plant
+	plant_number_of_studies+=plant
 	$jj.love+=plant
 	$jj.bad+=plant * 2
 	'<div class="show_menu">'
@@ -125,7 +125,7 @@ if $args[0]="hand_in_plant_fruits":
 
 	'<div class="dialog_menu">'
 		'<p>Me: Turned in<<plant>>One, got it<<plant>> X 100 cash!</p>'
-		'<p><<$jj.name>>:Has been handed in cumulatively<<$plant_number_of_studies>>a......Come on!Let`s work hard together!</p>'
+		'<p><<$jj.name>>:Has been handed in cumulatively<<plant_number_of_studies>>a......Come on!Let`s work hard together!</p>'
 	'</div>'
 	plant=0
 	
@@ -139,34 +139,34 @@ if $args[0]="fruit_research_and_development_status":
 	'</div>'
 
 	'<div class="button_menu">'
-		if $plant_number_of_studies>=5:
+		if plant_number_of_studies>=5:
 		'<div class="buttonB1"><a href="exec:minutes+=5 & $filename_reference=''001'' & gt ''sister_office'',''general_research'',''001''">Preliminary study of 5 trees</a></div>'
 		else:
 		'<div class="buttonGr"><a href="exec:">Preliminary study of 5 trees</a></div>'
 		end
-		if $plant_number_of_studies>=15:
+		if plant_number_of_studies>=15:
 		'<div class="buttonB2"><a href="exec:minutes+=5 & $filename_reference=''002'' & gt ''sister_office'',''general_research'',''002''">In-depth study of 15 trees</a></div>'
 		else:
 		'<div class="buttonGr"><a href="exec:">Need to study 15 trees</a></div>'
 		end
-		if $plant_number_of_studies>=30:
+		if plant_number_of_studies>=30:
 		'<div class="buttonB3"><a href="exec:minutes+=5 & $filename_reference=''003'' & gt ''sister_office'',''general_research'',''003''">30 clinical studies</a></div>'
 		else:
 		'<div class="buttonGr"><a href="exec:">Need to study 30 trees</a></div>'
 		end
-		if $plant_number_of_studies>=50:
+		if plant_number_of_studies>=50:
 		'<div class="buttonB4"><a href="exec:minutes+=5 & $filename_reference=''007'' & gt ''sister_office'',''general_research'',''007''">50 clinical trials</a></div>'
 		else:
 		'<div class="buttonGr"><a href="exec:">Need to study 50 trees</a></div>'
 		end
-		if $JJ.love>=30 and $plant_number_of_studies>=5 and $dz.event_meet=0:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''sister_office'',''geological_meeting''">Conjecture</a></div>'
+		if $JJ.love>=30 and plant_number_of_studies>=5 and $dz.event_meet=0:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''sister_office'',''geological_meeting''">Conjecture</a></div>'
 		if $dz.event_meet!0:'<div class="buttonGr"><a href="exec:">Proposed conjecture·proposed</a></div>'
 		
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p><<$jj.name>>:Thanks to you, I have accumulated research<<$plant_number_of_studies>>One piece!You can ask me any questions you have!But let me sort out the information first.</p>'
+		'<p><<$jj.name>>:Thanks to you, I have accumulated research<<plant_number_of_studies>>One piece!You can ask me any questions you have!But let me sort out the information first.</p>'
 	'</div>'
 	
 end
@@ -180,16 +180,16 @@ if $args[0]="general_research":
 	'</div>'
 
 	'<div class="button_menu">'
-		if $plant_number_of_studies>=5:
+		if plant_number_of_studies>=5:
 		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''001'' & gt ''sister_office'',''general_research'',''001''">Preliminary study of 5 trees</a></div>'
 		end
-		if $plant_number_of_studies>=15:
+		if plant_number_of_studies>=15:
 		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''002'' & gt ''sister_office'',''general_research'',''002''">In-depth study of 15 trees</a></div>'
 		end
-		if $plant_number_of_studies>=30:
+		if plant_number_of_studies>=30:
 		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''003'' & gt ''sister_office'',''general_research'',''003''">30 clinical studies</a></div>'
 		end
-		if $plant_number_of_studies>=50:
+		if plant_number_of_studies>=50:
 		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''007'' & gt ''sister_office'',''general_research'',''007''">50 clinical trials</a></div>'
 		end
 		if $args[1]=007:
@@ -329,7 +329,7 @@ if $args[0]="mother-daughter_experiment":
 end
 
 if $args[0]="detection_of_heterochromatic_plants":
-	$heterochromatic_progress+=rand(10,25)
+	heterochromatic_progress+=rand(10,25)
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
 		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
@@ -356,8 +356,8 @@ if $args[0]="detection_of_heterochromatic_plants_2":
 	'</div>'
 
 	'<div class="button_menu">'
-		if $heterochromatic_plants>0:'<div class="buttonGn1"><a href="exec:$heterochromatic_progress+=rand(10,20) & $heterochromatic_plants-=1 & gt ''sister_office'',''detection_of_heterochromatic_plants_2''">Natural heterochromatic plants</a></div>'else:'<div class="buttonGr"><a href="exec:">Natural heterochromatic plants</a></div>'
-		if $heterochromatic_progress>99:'<div class="buttonGn3"><a href="exec:$heterochromatic_plant_report+=1 & gt ''mugou_pharmaceutical''">Receive report</a></div>'
+		if heterochromatic_plants>0:'<div class="buttonGn1"><a href="exec:heterochromatic_progress+=rand(10,20) & heterochromatic_plants-=1 & gt ''sister_office'',''detection_of_heterochromatic_plants_2''">Natural heterochromatic plants</a></div>'else:'<div class="buttonGr"><a href="exec:">Natural heterochromatic plants</a></div>'
+		if heterochromatic_progress>99:'<div class="buttonGn3"><a href="exec:heterochromatic_plant_report+=1 & gt ''mugou_pharmaceutical''">Receive report</a></div>'
 		if $jj.bad>=100:
 		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''sister_office'',''ask_for_mcgovern_extract''">Ask for McGovern extract</a></div>'
 		end
@@ -375,7 +375,7 @@ if $args[0]="detection_of_heterochromatic_plants_2":
 		'<p>Me: Sister, how is the progress of the research on the composition of heterochromatic plants?</p>'
 		'<p><<$jj.name>>:I still need more plant samples and bring more leaves.</p>'
 		'<p>·————·</p>'
-		'<p>Research progress·<<$heterochromatic_progress>>%</p>'
+		'<p>Research progress·<<heterochromatic_progress>>%</p>'
 	'</div>'
 end
 --- sister_office ---------------------------------

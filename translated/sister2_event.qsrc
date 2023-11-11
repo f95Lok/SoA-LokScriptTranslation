@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=10
 
 '<div id="right-column">'
@@ -71,7 +71,7 @@ if $args[0]="pick_you_up_home_2":
 			'</div>'
 			
 			'<div class="button_menu">'
-				'<div class="button"><a href="exec:minutes+=5 & $my.energy+=10 & gt ''sister2_event'',''pick_you_up_home_3''">Doze off</a></div>'
+				'<div class="button"><a href="exec:minutes+=5 & my.energy+=10 & gt ''sister2_event'',''pick_you_up_home_3''">Doze off</a></div>'
 			'</div>'
 			
 			'<div class="dialog_menu">'
@@ -123,11 +123,11 @@ if $args[0]="pick_you_up_home_hero":
 		'<p>·Hey, let go of my sister, you beast!</p>'
 		'<p>· <<$mm.name>>Hugged you gratefully.Favorability has risen!</p>'
 	'</div>'
-	$MM.love+=$my.charm
+	$MM.love+=my.charm
 End
 
 if $args[0]="pick_you_up_home_sex":
-	 $my.ethics-=Rand(1,5)
+	 my.ethics-=Rand(1,5)
 	 if $mm.bad<16:
 		MMsnum=109
 		elseif  $mm.bad<30:
@@ -233,7 +233,7 @@ End
 
 if $args[0]="female_leadership_jokes":
 	 suiji=RAND(0,10)
-	 $mm.love+=$my.charm+1
+	 $mm.love+=my.charm+1
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\MM\vids\翘课0-0~1.webm" type=''video/webm;''></video></div>'
@@ -279,7 +279,7 @@ if $args[0]="eat_sugar":
 End
 
 if $args[0]="copy_homework":
-	 $mm.love+=1+$my.charm
+	 $mm.love+=1+my.charm
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\MM\vids\翘课0-2~1.webm" type=''video/webm;''></video></div>'
@@ -513,7 +513,7 @@ if $args[0]="mm_fuck_skip_school_3":
 		 '<div class="dialog_menu">'
 			 '<p><<$mm.name>>.That`s it for today~ sister loves you~</p>'
 		 '</div>'
-		 $mm.love+=q+$my.charm
+		 $mm.love+=q+my.charm
 		 $mm.bad+=q
 	end
  q+=1
@@ -584,7 +584,7 @@ if $args[0]="mm_fuck_after_class":
 
 	if a=9:
 		 $MM.bad+= q
-		 $MM.love+= q+$my.charm
+		 $MM.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$MM.name>>：...I did it unscrupulously with my brother again~ What happens if my mother or sister knows about it....</p>'
 		 '</div>'
@@ -690,9 +690,9 @@ if $args[0]="mm_fuck_sister":
 
 	if a=17:
 		 $MM.bad+= q
-		 $MM.love+= q+$my.charm
+		 $MM.love+= q+my.charm
 		 $JJ.bad+= q
-		 $JJ.love+= q+$my.charm
+		 $JJ.love+= q+my.charm
 		 MM_JJ+=1
 		 '<div class="dialog_menu">'
 			 '<p><<$JJ.name>>: You have to call me next time!You can`t have sex secretly!My sister`s pussy is still tender, she can`t stand you being so rough......</p>'
@@ -743,7 +743,7 @@ if $args[0]="mm_fuck_counter_night_attack":
 			 '<p>-<<$mm.name>>：..Oh oh oh...It`s in the womb~~It`s so cool~~No matter what, it`s not my brother anyway, besides, aren`t they too?They are all a family, and the fat and water do not flow out of the fields.</p>'
 			 '<p>-So you secretly worked all night in the second half of the night, and the person next to your pillow trembled a few times when she had an orgasm and convulsions, and even there was a strange groan outside the door.</p>'
 			 $mm.bad+=10
-			 $mm.love+=5+$my.charm
+			 $mm.love+=5+my.charm
 			 $MM_JJ+=1
 		 '</div>'
 	end
@@ -774,7 +774,7 @@ if $args[0]="mm_fuck_night_attack":
 			'</div>'
 			else:
 				'<div class="button_menu">'
-					'<div class="button"><a href="exec: minutes+=15 &a=0 &q=0 & $my.energy+=100  & hour=8 & gt ''home_sister2s_room''">Sleep together until dawn</a></div>'
+					'<div class="button"><a href="exec: minutes+=15 &a=0 &q=0 & my.energy+=100  & hour=8 & gt ''home_sister2s_room''">Sleep together until dawn</a></div>'
 				'</div>'
 		 end
 		if a=5:
@@ -791,7 +791,7 @@ if $args[0]="mm_fuck_night_attack":
 		end
 				
 		if a=4:
-			 $MM.love+=2+$my.charm
+			 $MM.love+=2+my.charm
 			 $MM.bad+=5
 			 '<div class="dialog_menu">'
 				 '<p><<$mm.name>>：.....So cool....So cool..You are great..I`m exhausted!Let`s sleep together!。</p>'
@@ -884,7 +884,7 @@ if $args[0]="MM_Fuck_4p":
 
 	if a=15:
 		 $MM.bad+= q
-		 $MM.love+= q+$my.charm
+		 $MM.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>Me: Now that I have experienced it firsthand, I have to decide on the candidate!</p>'
 			 '<p>Member A: Of course it`s me!</p>'
@@ -983,7 +983,7 @@ if $args[0]="mm_fuck_thanksgiving_festival":
 
 	if $args[1]="end":
 		 $MM.bad+= 10
-		 $MM.love+= 10+$my.charm
+		 $MM.love+= 10+my.charm
 		 mm_fans+=q
 		 '<div class="dialog_menu">'
 			 '<p>Fans: This is the best reward for fans!We will continue to support you!</p>'
@@ -1067,7 +1067,7 @@ if $args[0]="mm_fuck_essential_oil":
 
 	if a=11:
 		 $MM.bad+= q
-		 $MM.love+= q+$my.charm
+		 $MM.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$MM.name>>：.Don`t stop!I want more!I want more!My pussy will always be my brother`s airplane cup...</p>'
 		 '</div>'
@@ -1147,9 +1147,9 @@ if $args[0]="mm_fuck_mother_and_sister":
 
 	if a=16:
 		 $MM.bad+= q
-		 $MM.love+= q+$my.charm
+		 $MM.love+= q+my.charm
 		 $JM.bad+= q
-		 $JM.love+= q+$my.charm
+		 $JM.love+= q+my.charm
 		 JM_MM+=1
 		 '<div class="dialog_menu">'
 		 	 '<p>The viscous semen slowly flashed across their delicate faces, and the slightly hot touch made their ravaged and ripe lower bodies numb for a while.</p>'
@@ -1242,7 +1242,7 @@ if $args[0]="mm_fuck_car":
 
 	if a=8:
 		 $MM.bad+= q
-		 $my.ethics-=q
+		 my.ethics-=q
 		 $mm_fans+=q/2
 		 '<div class="dialog_menu">'
 		 	 '<p><<$mm.name>>: Everyone..Hurry up and pay attention to me!→ <a href="https://twitter.com/miruteer_29">twitter.com/miruteer_29</a></p>'
@@ -1286,7 +1286,7 @@ if $args[0]="mm_event_hot_spring_tour":
 	if a=2:
 		 '<div class="dialog_menu">'
 			 '<p><<$mm.name>>: Hehe, this kind of manual labor is regarded as a reward~</p>'
-			 $mm.love+=10+$my.charm
+			 $mm.love+=10+my.charm
 		 '</div>'
 	end
 end
@@ -1330,7 +1330,7 @@ if $args[0]="mm_fuck_hot_spring":
 
 		else:
 			'<div class="button_menu">'
-				'<div class="button"><a href="exec:a=0 & q=0 &hour=5 &minutes+=60 &$my.energy=mymax[$energy] &gt ''sister2_event'',''mm_fuck_hot_spring_2''">The next day</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 &hour=5 &minutes+=60 &my.energy=mymax[energy] &gt ''sister2_event'',''mm_fuck_hot_spring_2''">The next day</a></div>'
 			'</div>'
 	end
 
@@ -1362,7 +1362,7 @@ if $args[0]="mm_fuck_hot_spring":
 
 	if a=8:
 		 $MM.bad+= q
-		 $MM.love+=q+$my.charm
+		 $MM.love+=q+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$MM.name>>:...Brother is not very good today...</p>'
 		 '</div>'
@@ -1395,7 +1395,7 @@ if $args[0]="mm_fuck_hot_spring_2":
 			 '<p><<$MM.name>>: Oh oh oh oh~~~~Sure enough, my brother`s energy is full again....My capable sister can`t lose either!</p>'
 			 '<p>After the rough seas, you reluctantly separated.</p>'
 			 $MM.bad+= 5
-			 $MM.love+=5+$my.charm
+			 $MM.love+=5+my.charm
 			 end
 		 '</div>'
 End
@@ -1466,7 +1466,7 @@ if $args[0]="mm_fuck_bathroom":
 
 	if a=6 or a=7:
 		 $MM.bad+= q
-		 $MM.love+=RAND(1,$my.charm)
+		 $MM.love+=RAND(1,my.charm)
 		 '<div class="dialog_menu">'
 		 	 '<p><<$MM.name>>:..Go out quickly, I have to continue to wash it..</p>'
 		 '</div>'
@@ -1504,7 +1504,7 @@ if $args[0]="mm_fuck_hall":
 
 		else:
 			'<div class="button_menu">'
-				'<div class="button"><a href="exec:$my.energy+=30 & minutes+=60 &gt ''home''">Have some together</a></div>'
+				'<div class="button"><a href="exec:my.energy+=30 & minutes+=60 &gt ''home''">Have some together</a></div>'
 			'</div>'
 	end
 
@@ -1536,7 +1536,7 @@ if $args[0]="mm_fuck_hall":
 
 	if a=3:
 		 $MM.bad+= q
-		 $MM.love+=$my.charm
+		 $MM.love+=my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$MM.name>>: Shot someone in the face...It`s too much...</p>'
 		 '</div>'
@@ -1603,7 +1603,7 @@ if $args[0]="mm_fuck_room_night_attack":
 
 	if a=6:
 		 $MM.bad+= q
-		 $MM.love+=q+$my.charm
+		 $MM.love+=q+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$MM.name>>: So cool..Brother, you are so amazing~ it`s very energetic to shoot so much!(#^.^#) Since you can`t sleep, get up!</p>'
 		 '</div>'
@@ -1675,7 +1675,7 @@ if $args[0]="mm_fuck_hall":
 
 	if a=10:
 		 $MM.bad+= q
-		 $MM.love+= q+$my.charm
+		 $MM.love+= q+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$mm.name>>The one who was inserted was almost unconscious....Constantly clasping his fingers to make himself full of semen...</a></p>'
 		 	 '<p>Me: It seems to have gone too far...</p>'
@@ -1748,8 +1748,8 @@ if $args[0]="mm_fuck_competition":
 
 
     if a=8:
-         $MM.love+=q+$my.charm
-         $MM.bad+=q+$my.charm
+         $MM.love+=q+my.charm
+         $MM.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Female assistant: Did you hear any strange noises?Eh?...Do you want to show you the new promotional materials?</p>'
              '<p><<$MM.name>>:It seems that it can only end here for the time being, perverted brother❤</p>'

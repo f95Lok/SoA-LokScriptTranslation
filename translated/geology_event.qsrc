@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=10
 
 '<div id="right-column">'
@@ -102,7 +102,7 @@ if $ARGS[0]="meal_selection_is_complete":
 	'</div>'
 	end
 	if $ARGS[1]="sister_you":
-	$DZ.LOVE+=10+$my.charm
+	$DZ.LOVE+=10+my.charm
 	'<div class="dialog_menu">'
 		'<p>-Me: Of course it`s your sister~</p>'
 		'<p>-<<$DZ.name>>: Cut, I don`t care about a younger brother like you.I still have something to do, let`s go first.I paid the money.OS: Huh, you have a conscience.</p>'
@@ -119,7 +119,7 @@ if $ARGS[0]="go_to_the_restaurant":
 
 	'<div class="button_menu">'
 	'<div class="button"><a href="exec:minutes+=60 & $filename_reference=''喝酒2'' & gt ''geology_event'',''drinking'',''drink_2''">Drinking</a></div>'
-	if $my.ethics<=-13 and $DZ.BAD>=35:
+	if my.ethics<=-13 and $DZ.BAD>=35:
 	'<div class="button"><a href="exec:minutes+=60 & a=0  & $filename_reference=''sex0开幕'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex0_opening''">Go open a room</a></div>'
 	end
 	'</div>'
@@ -141,7 +141,7 @@ if $ARGS[0]="go_to_the_restaurant":
 end
 
 if $ARGS[0]="drinking":
-	$my.ethics-=5
+	my.ethics-=5
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
 		 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
@@ -149,7 +149,7 @@ if $ARGS[0]="drinking":
 
 	'<div class="button_menu">'
 	'<div class="button"><a href="exec:minutes+=60 & gt ''subway''">She sent home</a></div>'
-	if $my.ethics<=-10:
+	if my.ethics<=-10:
 	'<div class="button"><a href="exec:minutes+=60 & a=0  & $filename_reference=''醉倒'' & gt ''geology_event'',''dz_fuck_drunk'',''drunk''">Pour a few more cups</a></div>'
 	end
 	'</div>'
@@ -164,7 +164,7 @@ if $ARGS[0]="drinking":
 		'<p>-Me: I`ll take you back...</p>'
 		'<p>-<<$DZ.name>>: Don`t I look good?.?..Not as good as your sister...?...To be honest, have you ever committed adultery with your sister?....?....(Hiccup).....(Hiccup).....</p>'
 		$DZ.bad+=1
-		$DZ.love+=$my.charm
+		$DZ.love+=my.charm
 	'</div>'
 end
 
@@ -262,7 +262,7 @@ if $args[0]="dz_fuck_drunk":
 	
 	if a=9:
 		 $DZ.bad+=q+2
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$DZ.name>>fuck....I actually talked to my best friend`s brother.....OS: Forget it...I didn`t plug it in again..Nothing happened anyway...</p>'
 		 '</div>'
@@ -335,7 +335,7 @@ if $args[0]="DZ_Fuck_sex":
 	
 	if a=9:
 		 $DZ.bad+=q
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$DZ.name>>: It`s so hot in the small hole, the uterus is filled......</p>'
 		 '</div>'
@@ -448,7 +448,7 @@ if $args[0]="DZ_Fuck_sex2":
 	
 	if a=9:
 		 $DZ.bad+=q
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$DZ.name>>: Do you want to do it again?I know you can, the meat stick will be hard after a few blows..</p>'
 		 '</div>'
@@ -530,7 +530,7 @@ if $args[0]="dz_fuck_home":
 	
 	if a=9:
 		 $DZ.bad+=q
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$DZ.name>>: (The brain is in the air)...It seems that the file is not in my pussy either...It`s not in my ass either...</p>'
 		 '</div>'
@@ -682,7 +682,7 @@ if $args[0]="dz_fuck_secret":
 	
 	if a=9:
 		 $DZ.bad+=q
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 $RION.bad+=1
 		 '<div class="dialog_menu">'
 			 '<p><<$DZ.name>>: Hehe, it`s so exciting......</p>'
@@ -780,7 +780,7 @@ if $args[0]="dz_fuck_medicine":
 	
 	if a=10:
 		 $DZ.bad+=q
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$DZ.name>>: This is Mei Medicine!Aphrodisiac!No matter how pure a woman is, she will become a degenerate bitch...It`s so dangerous, fortunately, it`s you....</p>'
 		 '</div>'
@@ -860,9 +860,9 @@ if $args[0]="dzjj_fuck_inverse_3p":
 	
 	if a=10:
 		 $DZ.bad+=q
-		 $DZ.love+= q+$my.charm
+		 $DZ.love+= q+my.charm
 		 $JJ.bad+=q
-		 $JJ.love+= q+$my.charm
+		 $JJ.love+= q+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p>It is obvious that they are not satisfied...</p>'
 		 	 '<p>Me: I only have one meat stick, and I can only fuck one bitch at a time. Which of you two is the most lascivious bitch?</p>'

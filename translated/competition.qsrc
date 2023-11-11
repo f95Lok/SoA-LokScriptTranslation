@@ -7,9 +7,9 @@ a=0 & q=0
 minutes+=15
 if $countdown_to_the_competition=0:$remaining_dates_of_the_competition=90&$countdown_to_the_competition=1
 if $sister_hua_event_chain=6 and jailday>0:gt"prison_compulsory_rest"
-if $qb.pressure<0:$qb.pressure=0
-if $qb.pressure>=10 and $qb_event_chain=0:gt'hashimoto_event','pressure'
-if $qb.pressure>=13+$qb_event_chain and $qb_event_chain>=4:gt 'hashimoto_event','pressure_2'
+if qb.pressure<0:qb.pressure=0
+if qb.pressure>=10 and $qb_event_chain=0:gt'hashimoto_event','pressure'
+if qb.pressure>=13+$qb_event_chain and $qb_event_chain>=4:gt 'hashimoto_event','pressure_2'
 '<div id="right-column">'
 	gs'menu_time'
 	gs'menu_status_show'
@@ -258,7 +258,7 @@ if  $args[0]="xunguo_liyi":
 End
 
 if  $args[0]="hashimoto_tachie":
-	$qb.pressure+=1
+	qb.pressure+=1
 	'<div class ="show_menu"><img src="images\NPC\QB\pics\桥本立绘.jpg" width="854"></div>'
 		
 	'<div class="button_menu">'
@@ -270,7 +270,7 @@ if  $args[0]="hashimoto_tachie":
 	'<div class="dialog_menu">'
 		'<p>·You two look at each other</p>'
 		'<p><<$QB.name>>:^^_^# Then what do we perform?</p>'
-		'<p>♯ Her pressure value：<<$qb.pressure>></p>'
+		'<p>♯ Her pressure value：<<qb.pressure>></p>'
 	'</div>'
 End
 
@@ -374,7 +374,7 @@ if $ARGS[0]="close":
 end
 
 if  $args[0]="discuss_countermeasures":
-	$qb.pressure+=1
+	qb.pressure+=1
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\QB\vids\讨论.webm" type=''video/webm;''></video></div>'
@@ -388,12 +388,12 @@ if  $args[0]="discuss_countermeasures":
 	'<div class="dialog_menu">'
 		'<p><<$QB.name>>:I don`t have any good ideas... what do fans like?…</p>'
 		'<p>Me: Let me think about it……</p>'
-		'<p>♯ Her pressure value：<<$qb.pressure>></p>'
+		'<p>♯ Her pressure value：<<qb.pressure>></p>'
 	'</div>'
 End
 
 if  $args[0]="promotional_materials":
-		$qb.pressure+=2+$qb_material
+		qb.pressure+=2+$qb_material
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\QB\vids\宣传物料<<$qb_material>>.webm" type=''video/webm;''></video></div>'
@@ -417,7 +417,7 @@ if  $args[0]="promotional_materials":
 		else:
 		'<p>·Her popularity has risen!</p>'
 		end
-		'<p>♯ Her pressure value：<<$qb.pressure>></p>'
+		'<p>♯ Her pressure value：<<qb.pressure>></p>'
 	'</div>'
 End
 

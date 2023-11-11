@@ -21,8 +21,8 @@ if $ARGS[0]="":
 	'<div class ="show_menu"><img src="images\place\西海岸.jpg" width="854"></div>'
 		
 	'<div class="button_menu">'
-		'<div class="buttonG3"><a href="exec:$security_dialogue=0 & gt ''west_coast'',''entrance_to_the_imperial_mansion''">Visit the Imperial Mansion</a></div>'
-		if $open_coast=1:'<div class="buttonGn1"><a href="exec:minutes+=15 & gt ''west_coast'',''shower''">Go to the shower</a></div>'else:'<div class="buttonGr"><a href="exec:">Not open to the public</a></div>'
+		'<div class="buttonG3"><a href="exec:security_dialogue=0 & gt ''west_coast'',''entrance_to_the_imperial_mansion''">Visit the Imperial Mansion</a></div>'
+		if open_coast=1:'<div class="buttonGn1"><a href="exec:minutes+=15 & gt ''west_coast'',''shower''">Go to the shower</a></div>'else:'<div class="buttonGr"><a href="exec:">Not open to the public</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
 	'</div>'
 
@@ -83,7 +83,7 @@ End
 if $ARGS[0]="hang_out":
 	if rand(0,100)>=92: gt'west_coast','hang_out_2'
 	if rand(0,99)<=7: gt'west_coast','hang_out_3'
-	if rand(0,200)<=4 and $blood_relatives_medal>0: gt'west_coast','hang_out_5'
+	if rand(0,200)<=4 and blood_relatives_medal>0: gt'west_coast','hang_out_5'
 	'<div class ="show_menu"><img src="images\place\海滩闲逛.jpg" width="854"></div>'
 		
 	'<div class="button_menu">'
@@ -120,7 +120,7 @@ if $ARGS[0]="hang_out_3":
 		
 	'<div class="button_menu">'
 		'<div class="buttonGr"><a href="exec:">Keep hanging out</a></div>'
-		if $my.physical_strength >=6:'<div class="button"><a href="exec:gt ''west_coast'',''hang_out_4''">Show off your figure</a></div>'else:'<div class="buttonGr"><a href="exec:">Too bad figure</a></div>'
+		if my.physical_strength >=6:'<div class="button"><a href="exec:gt ''west_coast'',''hang_out_4''">Show off your figure</a></div>'else:'<div class="buttonGr"><a href="exec:">Too bad figure</a></div>'
 		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">return</a></div>'
 	'</div>'
 
@@ -159,16 +159,16 @@ if $ARGS[0]="entrance_to_the_imperial_mansion":
 	'<div class ="show_menu"><img src="images\NPC\CT\pics\入口<<rand(1,3)>>.jpg" width="854"></div>'
 		
 	'<div class="button_menu">'
-		if $ct.home>0 :'<div class="buttonS1"><a href="exec:$security_dialogue=1 & gt ''west_coast'',''entrance_to_the_imperial_mansion''">Show the certificate of Assistant president</a></div>'else:'<div class="buttonGr"><a href="exec:">Show the certificate of Assistant president</a></div>'
-		if $security_dialogue=1:'<div class="button"><a href="exec:gt ''imperial_mansion''">Direct access</a></div>'
-		if $security_dialogue=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''imperial_fuck_guard1''">Introducing privileges</a></div>'
+		if $ct.home>0 :'<div class="buttonS1"><a href="exec:security_dialogue=1 & gt ''west_coast'',''entrance_to_the_imperial_mansion''">Show the certificate of Assistant president</a></div>'else:'<div class="buttonGr"><a href="exec:">Show the certificate of Assistant president</a></div>'
+		if security_dialogue=1:'<div class="button"><a href="exec:gt ''imperial_mansion''">Direct access</a></div>'
+		if security_dialogue=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''imperial_fuck_guard1''">Introducing privileges</a></div>'
 		'<div class="button"><a href="exec:gt ''west_coast''">leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if $security_dialogue=0:'<p>Security: This is the exclusive luxury residence of the president of the Imperial Group. Non-family members of the president and related personnel are requested to leave quickly, otherwise they will bear the corresponding legal consequences!There is no room for negotiation!Get out of here if you understand!Don`t get in the way in front of my mother!</p>'
-		if $security_dialogue=1:'<p>Me: This is the assistant president`s certificate. Do you know what this assistant certificate can do?</p>'
-		if $security_dialogue=1:'<p>Security: Bah bah bah, how can this be an assistant card ❤ Obviously it is<<$protagonists_name>>The vice president`s business card ❤Do you need me to introduce your privileges to you❤</p>'
+		if security_dialogue=0:'<p>Security: This is the exclusive luxury residence of the president of the Imperial Group. Non-family members of the president and related personnel are requested to leave quickly, otherwise they will bear the corresponding legal consequences!There is no room for negotiation!Get out of here if you understand!Don`t get in the way in front of my mother!</p>'
+		if security_dialogue=1:'<p>Me: This is the assistant president`s certificate. Do you know what this assistant certificate can do?</p>'
+		if security_dialogue=1:'<p>Security: Bah bah bah, how can this be an assistant card ❤ Obviously it is<<$protagonists_name>>The vice president`s business card ❤Do you need me to introduce your privileges to you❤</p>'
 	'</div>'
 End
 

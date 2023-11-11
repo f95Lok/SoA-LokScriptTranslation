@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -36,7 +36,7 @@ if $ARGS[0]="accompany_her_off_work":
 		'<p><<$QT.name>>:Are you waiting for me to get off work?You are also free enough. Friendly reminder, now I put my career first.</p>'
 		'<p>Me: Then I just stopped by home.</p>'
 		'<p>·Laughter and laughter on the way back..Favorability rose slightly.</p>'
-		$QT.love+=2+$my.charm
+		$QT.love+=2+my.charm
 		end
 	'</div>'
 end
@@ -86,7 +86,7 @@ if $ARGS[0]="eat":
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p><<$QT.name>>:Then I`m welcome ❤Wow❤ That`s a good time❤</p>'
-		$QT.LOVE+=5+$my.charm
+		$QT.LOVE+=5+my.charm
 		$QT.date=0
 	'</div>'
 end
@@ -103,7 +103,7 @@ if $ARGS[0]="give_her_a_bag":
 		'<p><<$QT.name>>:Wow oh oh oh ❤ This is a limited edition POCHETTE MÉTIS EAST WEST handbag!You are so attractive❤</p>'
 		'<p>Me: You are quite knowledgeable... but I spent a lot of effort.…</p>'
 		'<p><<$QT.name>>:Ahem, thanks!</p>'
-		$QT.LOVE+=25+$my.charm
+		$QT.LOVE+=25+my.charm
 		$QT.date=0
 	'</div>'
 end
@@ -122,14 +122,14 @@ if $ARGS[0]="talk_about_occupation":
 		'<p><<$QT.name>>:Stop pouring chicken soup, everyone`s situation is different after all, and those who can`t solve practical problems are empty talk!Ahem ahem…</p>'
 		'<p>Me: Is your throat okay?</p>'
 		'<p><<$QT.name>>:Ahem...Ahem, ahem, ahem...it`s okay... I`m talking hard now...Ahem.…</p>'
-		$QT.LOVE-=1+$my.charm
+		$QT.LOVE-=1+my.charm
 		$QT.date=0
 		if $front_desk_event_throat=0:$front_desk_event_throat=1
 	'</div>'
 end
 
 if $ARGS[0]="throat_department":
-	if $qt.reply>=1:gt'foreground_event','laryngology_2'
+	if qt.reply>=1:gt'foreground_event','laryngology_2'
 	'<div class ="show_menu"><img src="images\NPC\QT\pics\咽喉科.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
@@ -153,7 +153,7 @@ if $ARGS[0]="intraoperative":
 	'<div class="dialog_menu">'
 		'<p>Doctor: After the operation, the patient usually needs to be hospitalized for a period of time in order to observe and recover.It usually takes 30 days to receive treatment and rehabilitation training to help the voice return to normal.</p>'
 		'<p>Me: 30 days... okay.</p>'
-		$qt.reply=1
+		qt.reply=1
 	'</div>'
 end
 
@@ -161,13 +161,13 @@ if $ARGS[0]="laryngology_2":
 	'<div class ="show_menu"><img src="images\NPC\QT\pics\咽喉科.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
-		if $qt.reply>=30:'<div class="button"><a href="exec:$front_desk_event_throat=5 & QT.love+=50 & gt ''foreground_event'',''front_desk_jia''">Take her home</a></div>'
+		if qt.reply>=30:'<div class="button"><a href="exec:$front_desk_event_throat=5 & QT.love+=50 & gt ''foreground_event'',''front_desk_jia''">Take her home</a></div>'
 		'<div class="button"><a href="exec:minutes+=10 & gt ''hospital''">leave</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p><<$QT.name>>I am practicing coughing, phlegm, exhaling and singing skills with a speech therapist.</p>'
 		'<p>Doctor: After the operation, the patient usually needs to be hospitalized for a period of time in order to observe and recover.It usually takes 30 days to receive treatment and rehabilitation training to help the voice return to normal.</p>'
-		'<p>·This is the first<<$qt.reply>>day</p>'
+		'<p>·This is the first<<qt.reply>>day</p>'
 	'</div>'
 end
 
@@ -187,7 +187,7 @@ if $args[0]="front_desk_jia":
 		'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_eat''">Eat</a></div>'
 		'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_bath''">Take a bath</a></div>'
 		if $QT.BAD>=60:'<div class="buttonS4"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_papa''">Pop pop</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
-		if $essential_oil>0:'<div class="buttonS3"><a href="exec:$essential_oil-=1 & gt ''foreground_event'',''qt_fuck_oiled''">Essential oil massage</a></div>'else:'<div class="buttonGr"><a href="exec:">Essential oil massage</a></div>'
+		if essential_oil>0:'<div class="buttonS3"><a href="exec:essential_oil-=1 & gt ''foreground_event'',''qt_fuck_oiled''">Essential oil massage</a></div>'else:'<div class="buttonGr"><a href="exec:">Essential oil massage</a></div>'
 		'<div class="button"><a href="exec:minutes+=20 & gt ''deep_alley''">leave</a></div>'
 	'</div>'
 	
@@ -243,7 +243,7 @@ if $args[0]="qt_fuck_eat":
 
 	if a=4:
 		 $QT.love+=5
-		 $QT.bad+=5+$my.charm
+		 $QT.bad+=5+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:<<$protagonists_name>>...<<$panting>>...</p>'
 		 '</div>'
@@ -293,7 +293,7 @@ if $args[0]="qt_fuck_this_is_it":
 
 	if a=2:
 		 $QT.love+=5
-		 $QT.bad+=5+$my.charm
+		 $QT.bad+=5+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:Shot a lot!Love like this every day from now on, okay?…</p>'
 		 '</div>'
@@ -344,7 +344,7 @@ if $args[0]="qt_fuck_bath":
 
 	if a=2:
 		 $QT.love+=5
-		 $QT.bad+=5+$my.charm
+		 $QT.bad+=5+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:Shot a lot…</p>'
 		 '</div>'
@@ -413,7 +413,7 @@ if $args[0]="qt_fuck_papa":
 
 	if a=7:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:Shot a lot!Will you love like this every day from now on?</p>'
 		 '</div>'
@@ -434,7 +434,7 @@ end
 
 
 if $ARGS[0]="qt_the_next_day":
-	$my.energy = mymax[$energy]
+	my.energy = mymax[energy]
 	minutes+=1440
 	hour=8
 		'<div class="show_menu">'
@@ -504,7 +504,7 @@ if $args[0]="qt_fuck_powder_room":
 
 	if a=4:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:Fortunately, no one found out... huh…</p>'
 		 '</div>'
@@ -608,7 +608,7 @@ if $args[0]="qt_fuck_hostel":
 
 	if a=7:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:...Let`s go back to the TV station... I`ve been out for too long...I`ll be scolded by the director...Just say help me move things.…</p>'
 		 '</div>'
@@ -702,7 +702,7 @@ if $args[0]="qt_fuck_hot_spring_dinner":
 
 	if a=8:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:...eat delicious food, have sex with people you like... it feels awesome…</p>'
 		 '</div>'
@@ -768,7 +768,7 @@ if $args[0]="qt_fuck_hot_spring_bath":
 
 	if a=3:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>Me: Then I don`t think I heard it?</p>'
 			 '<p><<$QT.name>>:…...don`t pretend you didn`t hear it!</p>'
@@ -823,7 +823,7 @@ if $args[0]="qt_fuck_hot_spring_overnight":
 
 		else:
 			'<div class="button_menu">'
-				if a=9:'<div class="button"><a href="exec:a=10 & minutes+=1440 & hour=8 & $my.energy = mymax[$energy] & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">zzZ-the next day</a></div>'
+				if a=9:'<div class="button"><a href="exec:a=10 & minutes+=1440 & hour=8 & my.energy = mymax[energy] & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">zzZ-the next day</a></div>'
 				if a=10:'<div class="button"><a href="exec:gt ''city_hall''">Leave together</a></div>'
 			'</div>'
 	end
@@ -859,7 +859,7 @@ if $args[0]="qt_fuck_hot_spring_overnight":
 
 	if a=9:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:...so comfortable...let`s sleep together❤</p>'
 		 '</div>'
@@ -936,7 +936,7 @@ if $args[0]="qt_fuck_oiled":
 
 	if a=1:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>Me: How could it be?This is just the most common essential oil……</p>'
 			 '<p><<$QT.name>>:...okay...I`m looking forward to it for nothing❤</p>'
@@ -967,7 +967,7 @@ if $args[0]="qt_fuck_oiled":
 
 	if a=11:
 		 $QT.love+=q
-		 $QT.bad+=q+$my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>·McGovern`s effect is outstanding!</p>'
 			 '<p>·Watching her limp on the floor and squirting like a stall of beautiful meat, you feel great.</p>'
@@ -987,7 +987,7 @@ if $args[0]="qt_fuck_excellent_host":
     if a!10:
         '<div class="button_menu">'
             if a=0:
-            if $TZ.bad>=$my.charm*25 and $QT.bad>=$my.charm*25 :'<div class="buttonG"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_excellent_host''">Want you guys! </a></div>'else:'<div class="buttonGr"><a href="exec:">Someone can`t let it go </a></div>'
+            if $TZ.bad>=my.charm*25 and $QT.bad>=my.charm*25 :'<div class="buttonG"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_excellent_host''">Want you guys! </a></div>'else:'<div class="buttonGr"><a href="exec:">Someone can`t let it go </a></div>'
             '<div class="button"><a href="exec:a=1 & gt ''tv_station''">leave </a></div>'
             end
             if a!0:
@@ -1153,8 +1153,8 @@ if $args[0]="qt_fuck_visit":
 	end
 
 	if a=12:
-		 $QT.love+=q+$my.charm
-		 $QT.bad+=q+$my.charm
+		 $QT.love+=q+my.charm
+		 $QT.bad+=q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p><<$QT.name>>:wait!This one won`t work!</p>'
 			 '<p>Me: What are you doing?I thought you were going to drink it…</p>'

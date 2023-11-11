@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -16,7 +16,7 @@ minutes+=15
 
 
 if $args[0]="international_student_home":
-	  if  $interview_for_international_students=1 and $international_student_school=1:gt'study_abroad_event','home'
+	  if  interview_for_international_students=1 and international_student_school=1:gt'study_abroad_event','home'
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\LXS\vids\家前<<$dialogue_with_international_students>>.webm" type=''video/webm;''></video></div>'
@@ -36,11 +36,11 @@ if $args[0]="international_student_home":
 			'<p>Me: Can I help you?</p>'
 			'<p><<$LXS.name>>:As a foreigner, how can I gain a foothold here?</p>'
 			'<p>Me: You have to do these things ① Pass the immigration review by the Immigration Administration.②Register as an international student at the school.③Find a part-time job</p>'
-			if $interview_for_international_students=0:
+			if interview_for_international_students=0:
 				'<p><<$LXS.name>>:Haha, doesn`t that sound difficult?Then I will go to the Immigration Bureau tomorrow to have a look. It just so happens that I have prepared a set of uniforms for the interview.</p>'
 				'<p>Me: I wish you all the best.(I hope it`s me who interviewed you)</p>'
 			end
-			if $international_student_school=0:
+			if international_student_school=0:
 				'<p><<$LXS.name>>:The school application is somewhat difficult for me, can you help me.</p>'
 				'<p>Me: I can ask<<$XZ.name>>.</p>'
 			end
@@ -62,7 +62,7 @@ if $args[0]="home":
 		   '<div class="buttonR3"><a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_lesson''">Teach her a lesson</a></div>'
 		   if $LXS.love>=100:'<div class="buttonP"><a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_accompany_play''">Play with her</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
 	   end
-	   if $porsche=1:'<div class="buttonG"><a href="exec: $dialogue_with_international_students=0 & gt ''study_abroad_event'',''get_in_the_car''">Take her out to play</a></div>'
+	   if porsche=1:'<div class="buttonG"><a href="exec: $dialogue_with_international_students=0 & gt ''study_abroad_event'',''get_in_the_car''">Take her out to play</a></div>'
 		'<div class="button"><a href="exec:gt ''kabukicho''">leave</a></div>'
 	'</div>'
 
@@ -176,9 +176,9 @@ if $args[0]="study_abroad_fuck_entry_11":
     end
 
     if a>=12:
-    	 $LXS.love+=a+$my.charm
-    	 $LXS.bad+=q+$my.charm
-    	 $interview_for_international_students=1
+    	 $LXS.love+=a+my.charm
+    	 $LXS.bad+=q+my.charm
+    	 interview_for_international_students=1
          '<div class="dialog_menu">'
              '<p>Me: I have already passed the review materials for you.</p>'
              '<p><<$LXS.name>>:Well, thank you for your care❤</p>'
@@ -195,7 +195,7 @@ if $args[0]="study_abroad_fuck_school_application":
 		'</div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonG"><a href="exec:money-=5000  & $international_student_school=1 & gt ''university''">Registration:$5000</a></div>'
+		'<div class="buttonG"><a href="exec:money-=5000  & international_student_school=1 & gt ''university''">Registration:$5000</a></div>'
 		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
 	'</div>'
 
@@ -245,8 +245,8 @@ if $args[0]="study_abroad_fuck_lesson":
     end
 
     if a>=6:
-    	 $LXS.love-= $my.charm
-    	 $LXS.bad+= $my.charm
+    	 $LXS.love-= my.charm
+    	 $LXS.bad+= my.charm
          '<div class="dialog_menu">'
              '<p>Me: Don`t forget, it cost me a lot of money to register for you.</p>'
              '<p><<$LXS.name>>:Cut, really stingy.I don`t want to see you anymore, can you get out of here?！</p>'
@@ -300,8 +300,8 @@ if $args[0]="study_abroad_fuck_accompany_play":
     end
 
     if a>=7:
-    	 $LXS.love+= $my.charm+11
-    	 $LXS.bad+= $my.charm
+    	 $LXS.love+= my.charm+11
+    	 $LXS.bad+= my.charm
          '<div class="dialog_menu">'
              '<p>Me: Huh---you won`t be pregnant, will you?</p>'
              '<p><<$LXS.name>>: Put aside whether you are pregnant or not. Can you give me$648?I... I want to buy a new set of extracurricular books!</p>'
@@ -351,7 +351,7 @@ if $args[0]="check_materials_in_the_library":
 
 	'<div class="button_menu">'
 		if $dialogue_with_international_students=0:'<div class="button"><a href="exec:$dialogue_with_international_students=1 & gt ''study_abroad_event'',''check_materials_in_the_library''">Peek at the bottom of the skirt</a></div>'
-		if $essential_oil>0:'<div class="buttonS"><a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_massage_her''">Massage her</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient essential oils</a></div>'
+		if essential_oil>0:'<div class="buttonS"><a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_massage_her''">Massage her</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient essential oils</a></div>'
 		if $dialogue_with_international_students=1:'<div class="buttonR3"><a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_massage''">Pretend to fall</a></div>'
 		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
 	'</div>'
@@ -416,8 +416,8 @@ if $args[0]="study_abroad_fuck_supplementary_studies":
     end
 
     if a>=9:
-    	 $LXS.love+= $my.charm+q
-    	 $LXS.bad+= $my.charm+q
+    	 $LXS.love+= my.charm+q
+    	 $LXS.bad+= my.charm+q
          '<div class="dialog_menu">'
              '<p><<$LXS.name>>:Will you come to pick me up every day after school, I don`t like to take the tram.</p>'
              '<p>Me: It depends on the situation.</p>'
@@ -560,8 +560,8 @@ if $args[0]="study_abroad_fuck_massage_her":
     end
 
     if a>=8:
-    	 $LXS.love+= $my.charm+q
-    	 $LXS.bad+= $my.charm+q
+    	 $LXS.love+= my.charm+q
+    	 $LXS.bad+= my.charm+q
          '<div class="dialog_menu">'
              '<p>Me: How is it?Do you know how good I am?</p>'
              '<p><<$LXS.name>>:It`s pretty amazing❤</p>'
@@ -594,7 +594,7 @@ if $args[0]="get_in_the_car":
 	       '<div class="button"><a href="exec:gt ''company''">Recommend COS pavilion</a></div>'
 	  end
 	   if $dialogue_with_international_students=4:
-	       if $LXS.bad>=$my.charm*25:'<div class="button"><a href="exec:$lxs_nightclub_work=1 & gt ''the_night_is_fine''">Keep her as a custom girl</a></div>'else:'<div class="buttonGr"><a href="exec:">It takes depravity to be a custom girl><<$my.charm*25>></a></div>'
+	       if $LXS.bad>=my.charm*25:'<div class="button"><a href="exec:lxs_nightclub_work=1 & gt ''the_night_is_fine''">Keep her as a custom girl</a></div>'else:'<div class="buttonGr"><a href="exec:">It takes depravity to be a custom girl><<my.charm*25>></a></div>'
 	  end
 		'<div class="button"><a href="exec:gt ''residential_area''">respectively</a></div>'
 	'</div>'
@@ -608,7 +608,7 @@ if $args[0]="get_in_the_car":
 	   if $dialogue_with_international_students=1:
 			'<p><<$LXS.name>>:This is dangerous driving!<<$protagonists_name>>！stop it!</p>'
 			'<p>Me: OK…</p>'
-			$LXS.love-=$my.charm
+			$LXS.love-=my.charm
 	   end
 	   if $dialogue_with_international_students=2:
 			'<p><<$LXS.name>>:Wow, ramen is simply a bowl full of happiness!That soft noodle, with a rich soup base, is simply a work of art on the tip of the tongue.</p>'
@@ -682,10 +682,10 @@ if $args[0]="hot_spring_start":
 
 	'<div class="button_menu">'
 		'<div class="buttonS1"><a href="exec:$study_abroad_hot_spring_num=3 & gt ''study_abroad_event'',''study_abroad_fuck_hot_spring''">Do it here</a></div>'
-		if $LXS.bad>=$my.charm*6:'<div class="buttonS3"><a href="exec:$study_abroad_hot_spring_num=2 & gt ''study_abroad_event'',''study_abroad_fuck_hot_spring''">Do it in the hot spring</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<$my.charm*6>></a></div>'
-		if $LXS.bad>=$my.charm*13:'<div class="buttonS5"><a href="exec:$study_abroad_hot_spring_num=1 & gt ''study_abroad_event'',''study_abroad_fuck_hot_spring''">Go do it outdoors</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<$my.charm*13>></a></div>'
-		if $hot_spring_oil_pressure_hall=1:
-				if $LXS.bad>=$my.charm*20:'<div class="buttonG"><a href="exec:$lsx_hot_spring=1 & gt ''hot_spring_corridor''">Introduce working in the hydraulic hall</a></div>'else:'<div class="buttonGr"><a href="exec:">Work needs to be depraved><<$my.charm*20>></a></div>'
+		if $LXS.bad>=my.charm*6:'<div class="buttonS3"><a href="exec:$study_abroad_hot_spring_num=2 & gt ''study_abroad_event'',''study_abroad_fuck_hot_spring''">Do it in the hot spring</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<my.charm*6>></a></div>'
+		if $LXS.bad>=my.charm*13:'<div class="buttonS5"><a href="exec:$study_abroad_hot_spring_num=1 & gt ''study_abroad_event'',''study_abroad_fuck_hot_spring''">Go do it outdoors</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<my.charm*13>></a></div>'
+		if hot_spring_oil_pressure_hall=1:
+				if $LXS.bad>=my.charm*20:'<div class="buttonG"><a href="exec:lsx_hot_spring=1 & gt ''hot_spring_corridor''">Introduce working in the hydraulic hall</a></div>'else:'<div class="buttonGr"><a href="exec:">Work needs to be depraved><<my.charm*20>></a></div>'
 		end
 		'<div class="button"><a href="exec:gt ''kabukicho''">leave</a></div>'
 	'</div>'
@@ -695,7 +695,7 @@ if $args[0]="hot_spring_start":
 			q=0
 			'<p>Me: Do you like it here?</p>'
 			'<p><<$LXS.name>>:Of course, the hot spring is really a blessing from heaven. It is like a gentle embrace of nature, washing away all fatigue and worries one by one.Blended into the warm spring water, the body and mind seem to float in the soft clouds, and every drop of water is a warm greeting to the mind.</p>'
-			if $hot_spring_oil_pressure_hall=1:
+			if hot_spring_oil_pressure_hall=1:
 			'<p>Me: I have an oil pressure shop here. You can come here to work, but... I don`t worry that those guests will touch you.…</p>'
 			'<p><<$LXS.name>>:It`s okay... I will tell them fiercely, absolutely not!</p>'
 			end
@@ -793,8 +793,8 @@ if $args[0]="study_abroad_fuck_room":
     end
 
     if a>=8:
-    	 $LXS.love+= $my.charm+11
-    	 $LXS.bad+= $my.charm
+    	 $LXS.love+= my.charm+11
+    	 $LXS.bad+= my.charm
          '<div class="dialog_menu">'
              '<p>Me: Huh--The feeling of traveling in hot springs is not bad, right?This kind of place is very suitable for couples❤</p>'
              '<p><<$LXS.name>>:Hug each other gently in the spring water, listening to the sound of the spring water flowing, as if the soul is also resonating.The warmth of the hot spring not only melts fatigue, but also melts all kinds of troubles in our hearts. We are closer and closer to each other.Hot spring travel has become a beautiful witness to our relationship❤</p>'
@@ -860,8 +860,8 @@ if $args[0]="study_abroad_fuck_pick_up":
 
 
     if a>=9:
-    	 $LXS.love+= $my.charm
-    	 $LXS.bad+= $my.charm
+    	 $LXS.love+= my.charm
+    	 $LXS.bad+= my.charm
          '<div class="dialog_menu">'
              '<p>Me: It doesn`t matter if I don`t have a condom, right?</p>'
              '<p><<$LXS.name>>:It`s okay❤ I got used to it a long time ago, now I take birth control pills as vitamins every day.</p>'
@@ -884,7 +884,7 @@ if $args[0]="tent_dating":
 		if $international_student_tent=1:'<div class="button"><a href="exec:$international_student_tent=3 & gt ''study_abroad_event'',''tent_dating''">Grilled steak</a></div>'
 		if $international_student_tent=3:
 			'<div class="buttonG3"><a href="exec:money-=200 & gt ''study_abroad_event'',''study_abroad_fuck_tentanhua''">Fireworks ￥200</a></div>'
-			if $maotai>0:'<div class="buttonR3"><a href="exec:$maotai-=1 & gt ''study_abroad_event'',''study_abroad_fuck_tent_wine''">Drink red Maotai wine</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of Maotai wine</a></div>'
+			if maotai>0:'<div class="buttonR3"><a href="exec:maotai-=1 & gt ''study_abroad_event'',''study_abroad_fuck_tent_wine''">Drink red Maotai wine</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of Maotai wine</a></div>'
 		end
 		'<div class="button"><a href="exec:gt ''park''">Almost there</a></div>'
 	'</div>'
@@ -951,8 +951,8 @@ if $args[0]="study_abroad_fuck_tent_wine":
 
 
     if a>=6:
-    	 $LXS.love+=$my.charm+q
-    	 $LXS.bad+=$my.charm+q
+    	 $LXS.love+=my.charm+q
+    	 $LXS.bad+=my.charm+q
          '<div class="dialog_menu">'
              '<p>Me: Hello, are you still conscious?</p>'
              '<p><<$LXS.name>>:I am, like, so happy right now, you have no idea.Ohhhh, never drinking again after tonight.</p>'
@@ -1010,8 +1010,8 @@ if $args[0]="study_abroad_fuck_tentanhua":
 
 
     if a>=7:
-    	 $LXS.love+=$my.charm+q
-    	 $LXS.bad+=$my.charm+q
+    	 $LXS.love+=my.charm+q
+    	 $LXS.bad+=my.charm+q
          '<div class="dialog_menu">'
              '<p>Me: Can you teach me a few words of English?</p>'
              '<p><<$LXS.name>>:I am such a goofball.</p>'

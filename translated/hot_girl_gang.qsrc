@@ -269,7 +269,7 @@ End
 if $args[0]="one_generation":
 	$YDM.available=1
 	n=rand(1,2)
-	$random_number=rand(0,3)
+	random_number=rand(0,3)
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
 		 <source src="images\NPC\YDM\vids\对话<<n>>.webm" type=''video/webm;''></video></div>'
@@ -278,15 +278,15 @@ if $args[0]="one_generation":
 		'<div class="buttonR1"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_reward''">Reward</a></div>'
 		if week_day >5:'<div class="buttonR2"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_band''">Heavy metal band</a></div>'else:'<div class="buttonGr"><a href="exec:">Weekend party</a></div>'
 		'<div class="buttonGn"><a href="exec:gt ''one_generation_project_event'',''go_out''">Go out together</a></div>'
-		if $YDM_Event_XZ>0 and $random_number=1:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_he_principal''"><<$XZ.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XZ.name>>visit</a></div>'
-		if $FXZ.bad>=200 and $random_number=2:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_vice_principal''"><<$FXZ.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$FXZ.name>>visit</a></div>'
-		if $XY.bad>=200 and $random_number=3:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_assessment''"><<$XY.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XY.name>>visit</a></div>'
+		if $YDM_Event_XZ>0 and random_number=1:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_he_principal''"><<$XZ.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XZ.name>>visit</a></div>'
+		if $FXZ.bad>=200 and random_number=2:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_vice_principal''"><<$FXZ.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$FXZ.name>>visit</a></div>'
+		if $XY.bad>=200 and random_number=3:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_assessment''"><<$XY.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XY.name>>visit</a></div>'
 		
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p><<$YDM.name>>:Ah, it`s time to reward you for your bravery. I wanted to do it when I was in prison.</p>'
-		if $random_number>0:'<p><<$YDM.name>>:I also made an appointment with someone else, so you don`t want to come and take a peek.</p>'
+		if random_number>0:'<p><<$YDM.name>>:I also made an appointment with someone else, so you don`t want to come and take a peek.</p>'
 	'</div>'
 End
 
@@ -295,7 +295,7 @@ if $args[0]="best_friend_challenge":
 	
 	'<div class="button_menu">'
 		'<div class="buttonS1"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_dating''">Anal challenge</a></div>'
-		if $essential_oil>0:'<div class="buttonS2"><a href="exec:$essential_oil-=1 & m= 0& gt ''second_generation_project_event'',''edm_fuck_massage''">Massage challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Massage challenge</a></div>'
+		if essential_oil>0:'<div class="buttonS2"><a href="exec:essential_oil-=1 & m= 0& gt ''second_generation_project_event'',''edm_fuck_massage''">Massage challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Massage challenge</a></div>'
 		if $EDM.love>=20:'<div class="buttonS3"><a href="exec:a=-1 & gt ''second_generation_project_event'',''edm_fuck_cow_outfit''">Dating challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Dating challenge</a></div>'
 		if $SW.love>=250-$SW.bad:'<div class="buttonS4"><a href="exec:a=-1 & gt ''second_generation_project_event'',''edm_fuck_biotic_pasta''">Cooking challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Cooking challenge</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=0& gt ''hot_girl_gang''">leave</a></div>'

@@ -34,7 +34,7 @@ if $ARGS[0]="":
 		'<p><<$WQ.name>>: Welcome, the price for female guests is 200￥/person, and the price for male guests is 1000￥/person. Due to the introduction of the new policy, the men`s soup has been cancelled and the private soup and mixed bath have been changed.</p>'
 		'<p>·Special regulations: This hot spring prohibits any guests from bringing secret shooting equipment, and it is our only purpose to ensure the privacy and safety of every guest.</p>'
 		'<p>——————————</p>'
-		'<p>·Hot spring comfort：<<$hot_spring_comfort>>/100（MAX）</p>'
+		'<p>·Hot spring comfort：<<hot_spring_comfort>>/100（MAX）</p>'
 	'</div>'
 End
 
@@ -68,9 +68,9 @@ if $ARGS[0]="suite":
 	'<div class ="show_menu"><img src="images\place\温泉双人房.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
-		'<div class="buttonP"><a href="exec:minutes+=60 & $my.energy+=30 & gt ''hot_spring_corridor''">Get around</a></div>'
+		'<div class="buttonP"><a href="exec:minutes+=60 & my.energy+=30 & gt ''hot_spring_corridor''">Get around</a></div>'
 		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''hot_spring'',''appointment''">Appointment</a></div>'
-		'<div class="buttonGn"><a href="exec:minutes+=60 & $my.energy+=30 & gt ''hot_spring'',''suite''">rest</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=60 & my.energy+=30 & gt ''hot_spring'',''suite''">rest</a></div>'
 		if $rion_interview=3 and $RION.bad>0 and  10<=hour and hour<=14 and week_day =7:'<div class="buttonP"><a href="exec:minutes+=60 & gt ''rion_event'',''rion_event_ntr_front''">Peeping next door</a></div>'else:'<div class="buttonGr"><a href="exec:">Peeping?？</a></div>'
 		if $champion_event_chain=1 and hour=22 and week_day =7:'<div class="buttonP"><a href="exec: gt ''champion_event'',''gj_fuck_hot_spring''">Peeping into the VIP private room</a></div>'
 		if $champion_event_chain=3 and hour>=20 :'<div class="buttonP"><a href="exec: gt ''champion_event'',''gj_fuck_hot_spring_2''">Peeping into the VIP private room</a></div>'
@@ -93,15 +93,15 @@ if $ARGS[0]="hot_spring_vertical_painting":
 	'</div>'
 		
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=15 & $hot_spring_comfort+=$my.physical_strength+rand(1,5) & gt ''hot_spring'',''help_her_clean''">Help her clean</a></div>'
-		if $hot_spring_comfort>=33:'<div class="button"><a href="exec:minutes+=15 & $hot_spring_comfort+=$my.physical_strength+rand(10,15) & gt ''hot_spring'',''new_dishes''">Research on new dishes</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & hot_spring_comfort+=my.physical_strength+rand(1,5) & gt ''hot_spring'',''help_her_clean''">Help her clean</a></div>'
+		if hot_spring_comfort>=33:'<div class="button"><a href="exec:minutes+=15 & hot_spring_comfort+=my.physical_strength+rand(10,15) & gt ''hot_spring'',''new_dishes''">Research on new dishes</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p><<$WQ.name>>:Business is not very good, there is no more money to ask someone to clean…</p>'
 		'<p>Me: I can help you.</p>'
-		if $hot_spring_comfort>=33:
+		if hot_spring_comfort>=33:
 		'<p><<$WQ.name>>:Obviously it`s already very clean... the guests are still not coming…</p>'
 		'<p>Me: I noticed that the quality of the dishes has declined…</p>'
 		end
@@ -135,7 +135,7 @@ if $ARGS[0]="new_dishes":
 	 '<div class ="show_menu"><img src="images\NPC\WQ\pics\work<<rand(3,4)>>.jpg" width="854"></div>'
 		
 	'<div class="button_menu">'
-		if  $my.cooking>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_spring'',''show_her_a_hand''">Show her a hand</a></div>'else:'<div class="buttonGr"><a href="exec:">Cooking level requirement 5</a></div>'
+		if  my.cooking>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_spring'',''show_her_a_hand''">Show her a hand</a></div>'else:'<div class="buttonGr"><a href="exec:">Cooking level requirement 5</a></div>'
 		if  $wq.photo_destruction=1 :'<div class="buttonS"><a href="exec:minutes+=15 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Get started</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if WQMMS>0:'<div class="buttonP"><a href="exec:gt ''succubus_event'',''succubus_fuck_cook''"><<$MMS.name>>？</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'

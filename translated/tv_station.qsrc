@@ -45,55 +45,55 @@ minutes+=10
 	'</div>'
 '</div>'
 
- if $QT.job=2:$radio_program_num=7
- $ratings=$fighting_show_num+$no_content_num+$weather_forecast_num+$news_program_num+$reality_show_num+$radio_program_num+$cartoon_num+$tv_series_num+$special_drama_num+$reading_program_num+$paid_channel_num
- if $ratings>75:$ratings=75
- if $ratings<5:$ratings_name="The ratings are less than 5%, which is really worrying"
- if 5<=$ratings and $ratings<20:$ratings_name="The ratings have improved slightly, but they are still not ideal"
- if 20<=$ratings and $ratings<35:$ratings_name="Started to have a fixed audience in prime time"
- if 35<=$ratings and $ratings<50:$ratings_name="There are also good ratings in the late-night hours"
- if 50<=$ratings and $ratings<60:$ratings_name="The ratings of the whole channel are far ahead of their peers, and the ratings account for more than half of the market share."
- if 60<=$ratings :$ratings_name="With ratings beyond the reach of peers, the entire TV station is full of cheerful atmosphere."
+ if $QT.job=2:radio_program_num=7
+ ratings=fighting_show_num+no_content_num+weather_forecast_num+news_program_num+reality_show_num+radio_program_num+cartoon_num+tv_series_num+special_drama_num+reading_program_num+paid_channel_num
+ if ratings>75:ratings=75
+ if ratings<5:$ratings_name="The ratings are less than 5%, which is really worrying"
+ if 5<=ratings and ratings<20:$ratings_name="The ratings have improved slightly, but they are still not ideal"
+ if 20<=ratings and ratings<35:$ratings_name="Started to have a fixed audience in prime time"
+ if 35<=ratings and ratings<50:$ratings_name="There are also good ratings in the late-night hours"
+ if 50<=ratings and ratings<60:$ratings_name="The ratings of the whole channel are far ahead of their peers, and the ratings account for more than half of the market share."
+ if 60<=ratings :$ratings_name="With ratings beyond the reach of peers, the entire TV station is full of cheerful atmosphere."
  
- $ratings_situation='※※Our current ratings are<<$ratings>>%，<<$ratings_name>>'
+ $ratings_situation='※※Our current ratings are<<ratings>>%，<<$ratings_name>>'
 
-if hour>=7:$tz_vertical_painting=1 & $tz_color='B' & $ratings_reward='Ratings pick up rewards'
-if hour>=11:$tz_vertical_painting=2 & $tz_color='Pu'& $ratings_reward='Reward for improved ratings'
-if hour>=13:$tz_vertical_painting=3 & $tz_color='S'& $ratings_reward='Stable ratings reward'
-if hour>=18:$tz_vertical_painting=4 & $tz_color='R'& $ratings_reward='One-time reward'
+if hour>=7:tz_vertical_painting=1 & $tz_color='B' & $ratings_reward='Ratings pick up rewards'
+if hour>=11:tz_vertical_painting=2 & $tz_color='Pu'& $ratings_reward='Reward for improved ratings'
+if hour>=13:tz_vertical_painting=3 & $tz_color='S'& $ratings_reward='Stable ratings reward'
+if hour>=18:tz_vertical_painting=4 & $tz_color='R'& $ratings_reward='One-time reward'
 
 
 if $ARGS[0]="":
-	$tvstationrandomnumber=rand(0,7)
-	if 6>$fighting_show and $fighting_show>1:$tvstationrandomnumber=rand(-1,7)
-	if $special_camera_front=4:$tvstationrandomnumber=rand(0,8)
-	if $front_of_news_program=1 and $special_camera_front=4:$tvstationrandomnumber=rand(1,10)
+	tvstationrandomnumber=rand(0,7)
+	if 6>fighting_show and fighting_show>1:tvstationrandomnumber=rand(-1,7)
+	if $special_camera_front=4:tvstationrandomnumber=rand(0,8)
+	if $front_of_news_program=1 and $special_camera_front=4:tvstationrandomnumber=rand(1,10)
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
-		 <source src="images\videos\news\演播室<<$tvstationrandomnumber>>.webm" type=''video/webm;''></video></div>'
+		 <source src="images\videos\news\演播室<<tvstationrandomnumber>>.webm" type=''video/webm;''></video></div>'
 	'</div>'
 		
 	'<div class="button_menu">'
 		if $front_of_news_program=1 and $XM.bad>=200 and $XM.job=0:'<div class="buttonP"><a href="exec:minutes+=20 & gt ''school_girl_event'',''xm_fuck_interview''">Interview the new host</a></div>'
 		if $XM.job=1 and  week_day >5 and hour =12:'<div class="buttonP"><a href="exec:minutes+=20 & gt ''school_girl_event'',''xm_fuck_tanban''">Visiting class<<$XM.name>></a></div>'
 		if $XM.job=1 and  week_day >5 and hour =15:'<div class="buttonB2"><a href="exec:minutes+=20 & gt ''school_girl_event'',''xm_fuck_tanban_2''">Visiting class<<$XM.name>></a></div>'
-		if $sister_hua_cycle=0 and $the_competition_begins=999:'<div class="buttonR3"><a href="exec:minutes+=20 & gt''judges_event'',''circular_explanation''">Dispute</a></div>'
+		if sister_hua_cycle=0 and $the_competition_begins=999:'<div class="buttonR3"><a href="exec:minutes+=20 & gt''judges_event'',''circular_explanation''">Dispute</a></div>'
 		'<div class="button"><a href="exec:minutes+=20 & gt ''city_hall''">leave</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
-		if $tvstationrandomnumber=0 :
+		if tvstationrandomnumber=0 :
 		'<p>·The host and guests are reviewing the manuscript…</p>'
 		end
-		if $tvstationrandomnumber=1 or $tvstationrandomnumber=2:
+		if tvstationrandomnumber=1 or tvstationrandomnumber=2:
 		'<p>·Weather program is being broadcast…</p>'
 		end
-		if $tvstationrandomnumber=3 :
+		if tvstationrandomnumber=3 :
 		'<p>·It is said that this is the highest-rated reading column…</p>'
 		end
-		if $tvstationrandomnumber=4 or $tvstationrandomnumber=5:
+		if tvstationrandomnumber=4 or tvstationrandomnumber=5:
 		'<p>·Imperial Group is holding a press conference…</p>'
 		end
-		if $tvstationrandomnumber=6 or $tvstationrandomnumber=7:
+		if tvstationrandomnumber=6 or tvstationrandomnumber=7:
 		$tv_talk[0]="Hello everyone!We are committed to providing citizens with renewable energy and energy-saving solutions through the development and application of cutting-edge technologies to help citizens reduce energy costs and reduce their impact on the environment.…"
 		$tv_talk[1]="Hello everyone!As a clean energy company, we value innovation and sustainable development.Our team is composed of professional engineers and technicians who are committed to continuously exploring and developing new energy technologies to meet market needs and meet future challenges.…"
 		$tv_talk[2]="Hello everyone!Our products and services cover renewable energy fields such as solar energy, wind energy, and geothermal energy, and we also provide energy management solutions to help customers optimize energy use and save energy costs.…"
@@ -103,15 +103,15 @@ if $ARGS[0]="":
 		'<p>Moderator: Today we are honored to invite the senior management of Imperial Energy to answer questions for the audience.…</p>'
 		'<p><<$NY.name>>:<<$tv_talk>></p>'
 		end
-		if $tvstationrandomnumber=-1:
+		if tvstationrandomnumber=-1:
 		'<p>·The award ceremony of the first women`s non-violent naked fighting competition is being recorded</p>'
 		'<p>Me: It turned out that it was not a live broadcast... Then didn`t I know who the champion was in advance?</p>'
 		end
-		if $tvstationrandomnumber=8:
+		if tvstationrandomnumber=8:
 		'<p><<$BD.name>> : Very good, use this at the beginning of the second part!Let`s take another one!</p>'
 		'<p>Me: The filming of the special drama is going on in an orderly manner.</p>'
 		end
-		if $tvstationrandomnumber=9 or $tvstationrandomnumber=10:
+		if tvstationrandomnumber=9 or tvstationrandomnumber=10:
 		'<p><<$BD.name>> : Ready to watch the camera!3！2！1！The recording of `News Squirting Endurance Competition` has begun!</p>'
 		'<p>Me: The host who is willing to stay must be a slut.</p>'
 		end
@@ -126,43 +126,43 @@ if $args[0]="director`s_room":
 	 $TZ.available=1
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\TZ\vids\立绘<<$tz_vertical_painting>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\TZ\vids\立绘<<tz_vertical_painting>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	'<div class="button_menu">'
-		if $wq_event_chain=1 and $ratings>=50 and $TZ.love>=500-$TZ.bad:'<div class="button"><a href="exec:gt ''tv_station'',''hydraulic_hall_advertising''">Hydraulic hall advertising</a></div>'
+		if $wq_event_chain=1 and ratings>=50 and $TZ.love>=500-$TZ.bad:'<div class="button"><a href="exec:gt ''tv_station'',''hydraulic_hall_advertising''">Hydraulic hall advertising</a></div>'
 		if 2>=$qb_contract_chain and $qb_contract_chain>=1:'<div class="button"><a href="exec:gt ''tv_station'',''sign_hashimoto''">discuss:<<$QB.name>></a></div>'
 		if $qb_contract_chain>=4 and $front_desk_event_throat>=5 and $QT.job=0:'<div class="button"><a href="exec:gt ''tv_station'',''recommend_the_front_desk''">recommend<<$QT.name>></a></div>'
 		if $watched_tv=1:'<div class="button"><a href="exec:$program_dialogue=0 & gt ''tv_station'',''program_transformation''">Program transformation</a></div>'
-		if $ratings>=50 and $TZ.love>=100:'<div class="buttonP"><a href="exec:gt ''tv_station'',''tz_dating''">Propose an appointment </a></div>'else:'<div class="buttonGr"><a href="exec:">Propose an appointment</a></div>'
+		if ratings>=50 and $TZ.love>=100:'<div class="buttonP"><a href="exec:gt ''tv_station'',''tz_dating''">Propose an appointment </a></div>'else:'<div class="buttonGr"><a href="exec:">Propose an appointment</a></div>'
 		if $pull_sponsorship<=1:'<div class="button"><a href="exec:gt ''tv_station'',''pull_sponsorship''">Pull sponsor</a></div>'
 		if $pull_sponsorship=2:'<div class="button"><a href="exec:gt ''tv_station'',''pull_sponsor_2''">Sponsor contract</a></div>'
-		if $ratings>=10+$tz_vertical_painting*2:'<div class="button<<$tz_color>><<$tz_vertical_painting>>"><a href="exec:$prize_mouth=$tz_vertical_painting & gt ''director_event'',''tz_fuck_universal_prize_mouth''"><<$ratings_reward>> </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings </a></div>'
-		if $tz_vertical_painting=4:
-			if $ratings>=45:'<div class="buttonS3"><a href="exec:$awards=1 & gt ''director_event'',''tz_fuck_pan_reward_event''">Late night treat </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
+		if ratings>=10+tz_vertical_painting*2:'<div class="button<<$tz_color>><<tz_vertical_painting>>"><a href="exec:$prize_mouth=tz_vertical_painting & gt ''director_event'',''tz_fuck_universal_prize_mouth''"><<$ratings_reward>> </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings </a></div>'
+		if tz_vertical_painting=4:
+			if ratings>=45:'<div class="buttonS3"><a href="exec:$awards=1 & gt ''director_event'',''tz_fuck_pan_reward_event''">Late night treat </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
 		end
-		if $tz_vertical_painting=1:
-			if $ratings>=40:'<div class="buttonS2"><a href="exec:$awards=2 & gt ''director_event'',''tz_fuck_pan_reward_event''">Oxygenation </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
+		if tz_vertical_painting=1:
+			if ratings>=40:'<div class="buttonS2"><a href="exec:$awards=2 & gt ''director_event'',''tz_fuck_pan_reward_event''">Oxygenation </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
 		end
-		if $tz_vertical_painting=2:
-			if $ratings>=50:'<div class="buttonS4"><a href="exec:$awards=3 & gt ''director_event'',''tz_fuck_pan_reward_event''">Backstage private meeting </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
-			if $ratings>=50 and $TZ.love>=400-$TZ.bad:'<div class="buttonGn"><a href="exec:gt ''director_event'',''tz_fuck_rest''">Skip work and rest </a></div>'else:'<div class="buttonGr"><a href="exec:">Skip work and rest</a></div>'
+		if tz_vertical_painting=2:
+			if ratings>=50:'<div class="buttonS4"><a href="exec:$awards=3 & gt ''director_event'',''tz_fuck_pan_reward_event''">Backstage private meeting </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
+			if ratings>=50 and $TZ.love>=400-$TZ.bad:'<div class="buttonGn"><a href="exec:gt ''director_event'',''tz_fuck_rest''">Skip work and rest </a></div>'else:'<div class="buttonGr"><a href="exec:">Skip work and rest</a></div>'
 		end
-		if $tz_vertical_painting=3:
-			if $ratings>=35:'<div class="buttonS1"><a href="exec:$awards=4 & gt ''director_event'',''tz_fuck_pan_reward_event''">Ratings awards </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
+		if tz_vertical_painting=3:
+			if ratings>=35:'<div class="buttonS1"><a href="exec:$awards=4 & gt ''director_event'',''tz_fuck_pan_reward_event''">Ratings awards </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient ratings</a></div>'
 		end
 
-		if $ratings>=60 and $TZ.love>=500-$TZ.bad:'<div class="buttonG"><a href="exec:gt ''director_event'',''tz_fuck_celebration_banquet''">Celebration banquet </a></div>'else:'<div class="buttonGr"><a href="exec:">Celebration banquet</a></div>'
+		if ratings>=60 and $TZ.love>=500-$TZ.bad:'<div class="buttonG"><a href="exec:gt ''director_event'',''tz_fuck_celebration_banquet''">Celebration banquet </a></div>'else:'<div class="buttonGr"><a href="exec:">Celebration banquet</a></div>'
 		if $the_competition_begins=999:'<div class="buttonG"><a href="exec:gt ''director_event'',''tz_fuck_xie_shiyan''">蒙Thanks for your care♕ </a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
 		
 		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if $ratings<20:'<p><<$TZ.name>>: Insufficient market share... The quality of the program is worrisome... the ratings are declining... What should I do? = =It`s better to listen to the suggestions of the audience and reform it.</p>'
-		if 50>$ratings and $ratings>=20:'<p><<$TZ.name>>:The market share has begun to increase... We have to make persistent efforts and not relax!</p>'
-		if $ratings>=50:'<p><<$TZ.name>>:Great!The ratings are guaranteed, we have a stable audience, and our finances are also supported!Thanks to you!<<$protagonists_name>>！</p>'
-		if $ratings>=60:'<p><<$TZ.name>>:Now I can relax a lot，<<$protagonists_name>>, You said what should we do when we are free?…</p>'
+		if ratings<20:'<p><<$TZ.name>>: Insufficient market share... The quality of the program is worrisome... the ratings are declining... What should I do? = =It`s better to listen to the suggestions of the audience and reform it.</p>'
+		if 50>ratings and ratings>=20:'<p><<$TZ.name>>:The market share has begun to increase... We have to make persistent efforts and not relax!</p>'
+		if ratings>=50:'<p><<$TZ.name>>:Great!The ratings are guaranteed, we have a stable audience, and our finances are also supported!Thanks to you!<<$protagonists_name>>！</p>'
+		if ratings>=60:'<p><<$TZ.name>>:Now I can relax a lot，<<$protagonists_name>>, You said what should we do when we are free?…</p>'
 		'<p><<$ratings_situation>></p>'
 	'</div>'
 End
@@ -189,7 +189,7 @@ if $args[0]="program_transformation":
 
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\TZ\vids\立绘<<$tz_vertical_painting>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\TZ\vids\立绘<<tz_vertical_painting>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	'<div class="button_menu">'
@@ -203,10 +203,10 @@ if $args[0]="program_transformation":
 		if $pre_reading_program=0:'<div class="buttonP"><a href="exec:$program_dialogue=3 & gt ''tv_station'',''program_transformation''">Reading program suggestions</a></div>'
 		if $paid_program_pre_=0:'<div class="buttonG"><a href="exec:$program_dialogue=4 & gt ''tv_station'',''program_transformation''">Buy out idle channels</a></div>'
 		if $front_of_news_program=0:'<div class="buttonS5"><a href="exec:$program_dialogue=6 & gt ''tv_station'',''program_transformation''">Subvert the style of journalism</a></div>'
-		if $idol_drama_front=0 and $sister_hua_cycle=1:'<div class="buttonS"><a href="exec:$program_dialogue=8 & gt ''tv_station'',''program_transformation''">Pilot idol drama</a></div>'
+		if $idol_drama_front=0 and sister_hua_cycle=1:'<div class="buttonS"><a href="exec:$program_dialogue=8 & gt ''tv_station'',''program_transformation''">Pilot idol drama</a></div>'
 		
 		if $program_dialogue=4:
-			if  $ratings>=35 and money>=150000:'<div class="buttonG"><a href="exec:$program_dialogue=5 & $paid_program_pre_=1& money-=150000 & gt ''tv_station'',''program_transformation''">Buyout 150,000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">Need money and strength</a></div>'
+			if  ratings>=35 and money>=150000:'<div class="buttonG"><a href="exec:$program_dialogue=5 & $paid_program_pre_=1& money-=150000 & gt ''tv_station'',''program_transformation''">Buyout 150,000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">Need money and strength</a></div>'
 		end
 		if $program_dialogue=6:
 			if  $pull_sponsorship =7-$reality_show_front:'<div class="buttonS"><a href="exec:$program_dialogue=7 & $front_of_news_program=1 & gt ''tv_station'',''program_transformation''">&quot;News Squirting Endurance Competition&quot;</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
@@ -253,7 +253,7 @@ if $args[0]="program_transformation":
 		'<p>Me: There is no content during 03:00-07:00 every day?</p>'
 		'<p><<$TZ.name>>:Yes...there is no suitable program... it`s too late at this point in time.</p>'
 		'<p>Me: Can you sell me this time period...?150,000 ￥ is my quotation.</p>'
-		if $ratings>=35:'<p><<$TZ.name>>:Of course you can.</p>'
+		if ratings>=35:'<p><<$TZ.name>>:Of course you can.</p>'
 		end
 		
 		if $program_dialogue=5:
@@ -268,7 +268,7 @@ if $args[0]="program_transformation":
 		'<p><<$TZ.name>>:What should I do?</p>'
 		'<p>Me: Let me think about it…</p>'
 		if $pull_sponsorship=3:'<p>Me: From the perspective of sponsors-we need sponsors to make more appearances.</p>'else:'<p>>Insufficient point of view</p>'
-		if $fighting_show=7 :'<p>Me: The conclusion drawn from naked fighting is that the audience loves to watch content that they don`t usually see.</p>'else:'<p>>Insufficient conclusion</p>'
+		if fighting_show=7 :'<p>Me: The conclusion drawn from naked fighting is that the audience loves to watch content that they don`t usually see.</p>'else:'<p>>Insufficient conclusion</p>'
 		if $reality_show_front=4:'<p>Me: The derivative idea of the popularity of reality shows is that you can add it to the news.</p>'else:'<p>>Lack of ideas</p>'
 		end
 		
@@ -414,7 +414,7 @@ End
 if $args[0]="tz_dating":
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\TZ\vids\立绘<<$tz_vertical_painting>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\TZ\vids\立绘<<tz_vertical_painting>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	'<div class="button_menu">'
@@ -435,7 +435,7 @@ if $args[0]="editorial_department":
 
 	'<div class="button_menu">'
 		'<div class="buttonR2"><a href="exec:$choreographed_dialogue=0 & gt ''tv_station'',''choreographed_and_directed_by_li_yi''"><<$BD.name>></a></div>'
-		if $ly.turn_positive=1 and $times_of_day='':'<div class="buttonB2"><a href="exec:$ly_work_vertical_painting=1 & gt ''tv_station'',''bluetooth_vertical_painting''"><<$LY.name>></a></div>'
+		if $ly.turn_positive=1 and $times_of_day='':'<div class="buttonB2"><a href="exec:ly_work_vertical_painting=1 & gt ''tv_station'',''bluetooth_vertical_painting''"><<$LY.name>></a></div>'
 		'<div class="buttonGn"><a href="exec:$ratings_data=1 & gt ''tv_station'',''editorial_department''">Real-time ratings</a></div>'
 		if $ly.turn_positive=1 and $QT.job=2:'<div class="buttonS3"><a href="exec:gt ''tv_station'',''workers`_home''">(Home of employees)</a></div>'else:'<div class="buttonGr"><a href="exec:">(Home of employees)</a></div>'
 		'<div class="button"><a href="exec:$ratings_data=0 & gt ''city_hall''">leave</a></div>'
@@ -446,17 +446,17 @@ if $args[0]="editorial_department":
 		'<p><<$ratings_situation>></p>'
 		if $ratings_data=1:
 		'<p>——————Ratings data——————</p>'
-		'<p>00:00-03:00: Late night program<<$fighting_show_num>>%</p>'
+		'<p>00:00-03:00: Late night program<<fighting_show_num>>%</p>'
 		if $paid_program_pre_!2:'<p>03:00-07:00: No content 0%</p>'
-		if $paid_program_pre_=2:'<p>03:00-07:00: Paid channels<<$fighting_show_num>>%</p>'
-		'<p>07:00-09:00: Weather forecast<<$weather_forecast_num>>%</p>'
-		'<p>09:00-11:00: News program<<$news_program_num>>%</p>'
-		'<p>11:00-13:00: Reality show<<$reality_show_num>>%</p>'
-		'<p>13:00-15:00: Radio program<<$radio_program_num>>%</p>'
-		'<p>15:00-19:00: Cartoon<<$cartoon_num>>%</p>'
-		'<p>19:00-21:00: TV series<<$tv_series_num>>%</p>'
-		'<p>21:00-23:00: Special filming drama<<$special_drama_num>>%</p>'
-		'<p>22:00-00:00: Reading program<<$reading_program_num>>%</p>'
+		if $paid_program_pre_=2:'<p>03:00-07:00: Paid channels<<fighting_show_num>>%</p>'
+		'<p>07:00-09:00: Weather forecast<<weather_forecast_num>>%</p>'
+		'<p>09:00-11:00: News program<<news_program_num>>%</p>'
+		'<p>11:00-13:00: Reality show<<reality_show_num>>%</p>'
+		'<p>13:00-15:00: Radio program<<radio_program_num>>%</p>'
+		'<p>15:00-19:00: Cartoon<<cartoon_num>>%</p>'
+		'<p>19:00-21:00: TV series<<tv_series_num>>%</p>'
+		'<p>21:00-23:00: Special filming drama<<special_drama_num>>%</p>'
+		'<p>22:00-00:00: Reading program<<reading_program_num>>%</p>'
 		'<p>——————Ratings data——————</p>'
 		end
 	'</div>'
@@ -467,8 +467,8 @@ if $args[0]="choreographed_and_directed_by_li_yi":
 	$BD.available=1
 	if 7<=hour and hour<=20:
 		$choreographed_and_directed_by_li_yi=0
-		$random_number=rand(1,3)
-		if $BD.love>=500-$BD.bad and $random_number>=2:$choreographed_and_directed_by_li_yi=3
+		random_number=rand(1,3)
+		if $BD.love>=500-$BD.bad and random_number>=2:$choreographed_and_directed_by_li_yi=3
 		if hour=12:$choreographed_and_directed_by_li_yi=-1
 		if hour>=18:$choreographed_and_directed_by_li_yi=1
 		
@@ -491,7 +491,7 @@ if $args[0]="choreographed_and_directed_by_li_yi":
 			if $special_camera_front=1 or $special_camera_front=2:'<div class="buttonP"><a href="exec:$choreographed_dialogue=3 & gt ''tv_station'',''choreographed_and_directed_by_li_yi''">Revised special film</a></div>'
 			if $special_camera_front=3:'<div class="buttonP"><a href="exec:$choreographed_dialogue=4 & gt ''tv_station'',''choreographed_and_directed_by_li_yi''">Special filming started</a></div>'
 			if $choreographed_and_directed_by_li_yi=3:'<div class="buttonS"><a href="exec:gt ''choreographing_event'',''office_white''">Exposed meat stick</a></div>'
-			if $reality_show_num>=15 and $ly.turn_positive=0: '<div class="buttonR2"><a href="exec:$choreographed_dialogue=5 & gt ''tv_station'',''choreographed_and_directed_by_li_yi''">Reality show is popular</a></div>'
+			if reality_show_num>=15 and $ly.turn_positive=0: '<div class="buttonR2"><a href="exec:$choreographed_dialogue=5 & gt ''tv_station'',''choreographed_and_directed_by_li_yi''">Reality show is popular</a></div>'
 			if $choreographed_dialogue=5: '<div class="buttonG"><a href="exec:$choreographed_dialogue=5 & gt ''choreographing_event'',''referrals''">Referrals</a></div>'
 			if $paid_program_pre_=1:'<div class="buttonG"><a href="exec:$choreographed_dialogue=6 & gt ''tv_station'',''choreographed_and_directed_by_li_yi''">Paid program assistance</a></div>'
 			if $BD.love>=200-$BD.bad and $choreographed_dialogue=6:'<div class="buttonG"><a href="exec:gt ''choreographing_event'',''thanks''">Thanks</a></div>'
@@ -503,7 +503,7 @@ if $args[0]="choreographed_and_directed_by_li_yi":
 		if $choreographed_and_directed_by_li_yi=2:
 			if $BD.love>=400-$BD.bad:'<div class="buttonS4"><a href="exec:gt ''choreographing_event'',''office_night_c''">Get started directly☾</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？☾</a></div>'
 		end
-		if $BD.love>=500-$BD.bad and $TZ.love>=500-$TZ.bad and $ratings>50:'<div class="buttonG"><a href="exec:gt ''director_event'',''tz_fuck_invite_credit''">❤Take credit together❤</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？❤</a></div>'
+		if $BD.love>=500-$BD.bad and $TZ.love>=500-$TZ.bad and ratings>50:'<div class="buttonG"><a href="exec:gt ''director_event'',''tz_fuck_invite_credit''">❤Take credit together❤</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？❤</a></div>'
 		'<div class="button"><a href="exec:$ratings_data=0 & gt ''city_hall''">It`s okay</a></div>'
 	'</div>'
 
@@ -580,16 +580,16 @@ End
 if $args[0]="bluetooth_vertical_painting":
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\LY\vids\工作1-<<$ly_work_vertical_painting>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\LY\vids\工作1-<<ly_work_vertical_painting>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 		
 	'<div class="button_menu">'
 
-		if $ly_work_vertical_painting=1:'<div class="buttonB1"><a href="exec:$ly_work_vertical_painting=2 & gt ''tv_station'',''bluetooth_vertical_painting''">Come here for a while</a></div>'
-		if $ly_work_vertical_painting=2:
-			$ly_warehouse=rand(1,2)
-			if $ly_warehouse=1:'<div class="buttonR"><a href="exec:$ly_warehouse=1 & gt ''anchor_event'',''ly_fuck_warehouse''">Lift it up and fuck</a></div>'
-			if $ly_warehouse=2:'<div class="buttonB2"><a href="exec:$ly_warehouse=2 & gt ''anchor_event'',''ly_fuck_warehouse''">Go to the warehouse to work</a></div>'
+		if ly_work_vertical_painting=1:'<div class="buttonB1"><a href="exec:ly_work_vertical_painting=2 & gt ''tv_station'',''bluetooth_vertical_painting''">Come here for a while</a></div>'
+		if ly_work_vertical_painting=2:
+			ly_warehouse=rand(1,2)
+			if ly_warehouse=1:'<div class="buttonR"><a href="exec:ly_warehouse=1 & gt ''anchor_event'',''ly_fuck_warehouse''">Lift it up and fuck</a></div>'
+			if ly_warehouse=2:'<div class="buttonB2"><a href="exec:ly_warehouse=2 & gt ''anchor_event'',''ly_fuck_warehouse''">Go to the warehouse to work</a></div>'
 			'<div class="buttonPu3"><a href="exec:gt ''anchor_event'',''ly_fuck_director`s_room''">Go to the director`s room to fuck</a></div>'
 			
 		end
@@ -602,8 +602,8 @@ if $args[0]="bluetooth_vertical_painting":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if $ly_work_vertical_painting=1:'<p><<$LY.name>>:Damn it, why can`t you understand anything?What does this station mean?I`ll ask later<<$BD.name>>Ok……</p>'
-		if $ly_work_vertical_painting=2:
+		if ly_work_vertical_painting=1:'<p><<$LY.name>>:Damn it, why can`t you understand anything?What does this station mean?I`ll ask later<<$BD.name>>Ok……</p>'
+		if ly_work_vertical_painting=2:
 		'<p>·You handed her a wink, and she immediately understood what you meant.</p>'
 		'<p>Me: Is the work going well?</p>'
 		'<p><<$LY.name>>:It`s more troublesome than licking a dick…</p>'
@@ -633,16 +633,16 @@ End
 
 if $args[0]="hashimoto_tachie":
 	 $QB.available=1
-	 if $world_cup=99:gt'tv_station','hashimoto_tachie_2'
+	 if world_cup=99:gt'tv_station','hashimoto_tachie_2'
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
 			 <source src="images\NPC\QB\vids\开幕0.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:$qb_program=1 & gt ''tv_station'',''hashimoto_show''">Host the show</a></div>'
-		'<div class="button"><a href="exec:$qb_program=2 & gt ''tv_station'',''hashimoto_show''">Artist program</a></div>'
-		if $world_cup!99 and $dailyfootball=0:'<div class="button"><a href="exec:$dailyfootball=1 & gt ''tv_station'',''football_baby''">Football baby</a></div>'
+		'<div class="button"><a href="exec:qb_program=1 & gt ''tv_station'',''hashimoto_show''">Host the show</a></div>'
+		'<div class="button"><a href="exec:qb_program=2 & gt ''tv_station'',''hashimoto_show''">Artist program</a></div>'
+		if world_cup!99 and dailyfootball=0:'<div class="button"><a href="exec:dailyfootball=1 & gt ''tv_station'',''football_baby''">Football baby</a></div>'
 		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
 	'</div>'
 
@@ -698,7 +698,7 @@ End
 if $args[0]="hashimoto_show":
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\QB\vids\节目<<$qb_program>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\QB\vids\节目<<qb_program>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	'<div class="button_menu">'
@@ -706,7 +706,7 @@ if $args[0]="hashimoto_show":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		if $qb_program=1:
+		if qb_program=1:
 		'<p>Editor and director: As an intern, you only need to do auxiliary work!As a host, you need to have good language skills and communication skills, and be able to establish a good relationship with the audience.You also need to have high cultural literacy and knowledge reserves in order to have in-depth exchanges with guests in the program.</p>'
 		'<p><<$QB.name>>:Uh...okay... I see…</p>'
 		'<p>Editor and director: You have neither work experience nor backstage. You can`t get involved in TV stations!</p>'
@@ -727,35 +727,35 @@ if $args[0]="football_baby":
 	'<div class ="show_menu"><img src="images\NPC\QB\pics\世界杯0.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $world_cup>=3:'<div class="button"><a href="exec:gt ''tv_station'',''football_baby_2''">Win the championship</a></div>'
+		if world_cup>=3:'<div class="button"><a href="exec:gt ''tv_station'',''football_baby_2''">Win the championship</a></div>'
 		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p>Editor and director: All you have to do is stay aside and make a vase to warm up the field! Don`t do unnecessary things!</p>'
 		'<p><<$QB.name>>:Uh...okay... I see…</p>'
-		if $world_cup=0:
+		if world_cup=0:
 		'<p>Host: Hello, audience friends!The quadrennial World Cup will be staged as scheduled…</p>'
 		'<p><<$QB.name>>:Uh...hello everyone!</p>'
 		'<p>Host: Which team are you optimistic about before the game?</p>'
 		'<p><<$QB.name>>:Uh...I`m optimistic about the Lakers!</p>'
 		'<p>Host: Uh... hahaha, you really like to joke!</p>'
 		end
-		if $world_cup=1:
+		if world_cup=1:
 		'<p>Host: Quarter-finals!The players from both sides have already entered!</p>'
 		'<p><<$QB.name>>:Uh...hello everyone!</p>'
 		'<p>Host: This game can be described as Mars colliding with the earth!</p>'
 		'<p><<$QB.name>>:Excuse me?！Mars collides with the earth!Ah ah ah!Then go and take refuge!</p>'
 		'<p>Host: Uh... uh... hahaha, you really like to joke!</p>'
 		end
-		if $world_cup=2:
+		if world_cup=2:
 		'<p>Host: The much-anticipated semi-finals!The cheers of the fans are already boiling!</p>'
 		'<p><<$QB.name>>:Uh...hello everyone!</p>'
 		'<p>Host: What?！The opponent`s main player did not start!What do you think?</p>'
 		'<p><<$QB.name>>:Look with your eyes…</p>'
 		'<p>Host: Uh... uh... uh... hahaha, you really like to joke!</p>'
 		end
-		if $world_cup=3:
+		if world_cup=3:
 		'<p>Host: The last game of the World Cup!Since you can break into the finals and win the championship, you must pass all the strong teams and defeat all opponents. The gold content of this championship is very worthy of affirmation!</p>'
 		'<p><<$QB.name>>:Uh...hello everyone!</p>'
 		'<p>Host: It`s the last game. To be honest, which team do you support?</p>'
@@ -763,7 +763,7 @@ if $args[0]="football_baby":
 		'<p>Host: Uh... uh... uh... hahaha, you really like to joke!</p>'
 		end
 	'</div>'
-	$world_cup+=1
+	world_cup+=1
 End
 
 
@@ -781,7 +781,7 @@ if $args[0]="football_baby_2":
 		'<p><<$QB.name>>:Huh?Who is Messi?</p>'
 		'<p>Host: ... If you don`t know how to explain, don`t interrupt!Shut your mouth!I have endured you for a long time!</p>'
 		'<p>Editor and director: Interrupt the screen... interrupt the screen!</p>'
-		$world_cup=99
+		world_cup=99
 	'</div>'
 
 End

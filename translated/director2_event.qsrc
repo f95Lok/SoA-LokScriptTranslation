@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -65,7 +65,7 @@ if $args[0]="jz_fuck_rainy_night_1":
              <source src="images\NPC\JZ\vids\SJ2-<<a>>.webm" type=''video/webm;''></video></div>'
         '</div>'
     
-    if $jz_rainy_day_num >= a and a!9:
+    if jz_rainy_day_num >= a and a!9:
         '<div class="button_menu">'
             '<div class="buttonPu2"><a href="exec:a+=1 & gt ''director2_event'',''jz_fuck_rainy_night_1''">Keep quiet </a></div>'
         '</div>'
@@ -89,11 +89,11 @@ if $args[0]="jz_fuck_rainy_night_1":
              if a>=5:'<p>Former Director (Nakata Ichihei): When you asked me to promote you, you didn`t refuse me... Now you regret it?</p>'
              if a>=6:'<p><<$JZ.name>>: <<$panting>></p>'
              if a=9:'<p>Me: It turns out that they still have such a special relationship!</p>'& if $chief_uncle_x=1:$chief_uncle_x=2
-         if $jz_rainy_day_num < a :
+         if jz_rainy_day_num < a :
                 '<p>·Accidentally touched the vase</p>'
                 '<p><<$JZ.name>>:Who is where?！</p>'
                 '<p>Me: I should come again next time!</p>'
-            $jz_rainy_day_num+=a
+            jz_rainy_day_num+=a
          end
          '</div>'
     end
@@ -107,7 +107,7 @@ if $args[0]="jz_fuck_rainy_night_2":
              <source src="images\NPC\JZ\vids\SJ3-<<a>>.webm" type=''video/webm;''></video></div>'
         '</div>'
     
-    if $jz_rainy_day_num >= a+9 and a!8:
+    if jz_rainy_day_num >= a+9 and a!8:
         '<div class="button_menu">'
             '<div class="buttonPu3"><a href="exec:a+=1 & gt ''director2_event'',''jz_fuck_rainy_night_2''">Keep quiet </a></div>'
         '</div>'
@@ -133,11 +133,11 @@ if $args[0]="jz_fuck_rainy_night_2":
              if a=8:'<p>Former Director (Nakata Ichihei): Your aunt can`t know about us.…</p>'  
              
              if a=8:'<p>Me: Should I take pictures and threaten her?Threatening the police chief, let`s forget it.</p>'& if $chief_uncle_x=2:$chief_uncle_x=3
-         if $jz_rainy_day_num < a+9 :
+         if jz_rainy_day_num < a+9 :
                 '<p>·Accidentally touched the vase again</p>'
                 '<p><<$JZ.name>>:Who is where?！</p>'
                 '<p>Me: I should come again next time!</p>'
-            $jz_rainy_day_num+=3
+            jz_rainy_day_num+=3
          end
          '</div>'
     end
@@ -321,7 +321,7 @@ if $args[0]="shower":
     end
 
     if a=7:
-         $GX_love+=q+$my.charm
+         $GX_love+=q+my.charm
          $gx_shower=1
          money+=200
          '<div class="dialog_menu">'
@@ -394,7 +394,7 @@ if $args[0]="corridor":
     end
 
     if a=8:
-         $GX_love+=q+$my.charm
+         $GX_love+=q+my.charm
          $gx_corridor=1
          money+=500
          '<div class="dialog_menu">'
@@ -462,7 +462,7 @@ if $args[0]="inside_the_house":
     end
 
     if a=7:
-         $GX_love+=q+$my.charm
+         $GX_love+=q+my.charm
          $gx_house=1
          money+=500
          '<div class="dialog_menu">'
@@ -531,7 +531,7 @@ if $args[0]="show_video":
     end
 
     if a=7:
-         $JZ.bad+=q+$my.charm
+         $JZ.bad+=q+my.charm
          $jz_video=1
          '<div class="dialog_menu">'
              '<p><<$JZ.name>>:This matter is well done, from now on, you will rot in your stomach about this matter.</p>'
@@ -651,7 +651,7 @@ if $args[0]="jz_fuck_aunt":
     end
 
     if a=8:
-         $GX_love+=q+$my.charm
+         $GX_love+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Gu Zi: Let`s deal with this matter like this in the future. I also want to make a good reputation!</p>'
              '<p>Me: My pleasure.</p>'
@@ -711,8 +711,8 @@ if $args[0]="JZ_Fuck_3P":
     end
 
     if a=6:
-         $JZ.love+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.love+=q+my.charm
+         $JZ.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Former Director (Nakata Ichihei): Little brother, I think you are very promising and have a promising future.</p>'
              '<p><<$JZ.NAME>>:Don`t you thank your uncle for his appreciation?</p>'  
@@ -775,8 +775,8 @@ if $args[0]="JZ_Fuck_3P2":
     end
 
     if a=7:
-         $JZ.love+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.love+=q+my.charm
+         $JZ.bad+=q+my.charm
          $JZ3P=1
          '<div class="dialog_menu">'
              '<p>Gu Zi: ... stop!I can`t watch it anymore!</p>'
@@ -813,28 +813,28 @@ if $args[0]="bribery":
 End
 
 if $args[0]="director`s_house":
-	if $search_location=1: $search_desktop_num+=rand(15,20)
-	if $search_location=2: $search_bedroom_num+=rand(25,30)
-	if $search_location=3: $search_compartment_num+=rand(25,35)
-	$random_number=rand(0,10)
-	if $random_number>=6 and $search_location=1: gt'director2_event','jz_fuck_catch_1'
-	if $random_number>=7 and $search_location=2: gt'director2_event','jz_fuck_catch_2'
-	if $random_number>=8 and $search_location=3: gt'director2_event','jz_fuck_succubus'
+	if search_location=1: search_desktop_num+=rand(15,20)
+	if search_location=2: search_bedroom_num+=rand(25,30)
+	if search_location=3: search_compartment_num+=rand(25,35)
+	random_number=rand(0,10)
+	if random_number>=6 and search_location=1: gt'director2_event','jz_fuck_catch_1'
+	if random_number>=7 and search_location=2: gt'director2_event','jz_fuck_catch_2'
+	if random_number>=8 and search_location=3: gt'director2_event','jz_fuck_succubus'
 	
 	
 	'<div class ="show_menu"><img src="images\NPC\JZ\pics\安全屋.jpg" width="854"></div>'
 
 		'<div class="button_menu">'
-			'<div class="buttonB2"><a href="exec:$search_location=1 & gt ''director2_event'',''director`s_house''">Search desktop<<$search_desktop_num>>% </a></div>'
-			'<div class="buttonP"><a href="exec:$search_location=2 & gt ''director2_event'',''director`s_house''">Search bedroom<<$search_bedroom_num>>% </a></div>'
-			'<div class="buttonR"><a href="exec:$search_location=3 & gt ''director2_event'',''director`s_house''">Search compartment<<$search_compartment_num>>% </a></div>'
-			if $search_desktop_num>=100 and $search_bedroom_num>=100 and $search_compartment_num>=100:'<div class="buttonR"><a href="exec:gt ''director2_event'',''videotape''">Videotape in the mezzanine </a></div>'
+			'<div class="buttonB2"><a href="exec:search_location=1 & gt ''director2_event'',''director`s_house''">Search desktop<<search_desktop_num>>% </a></div>'
+			'<div class="buttonP"><a href="exec:search_location=2 & gt ''director2_event'',''director`s_house''">Search bedroom<<search_bedroom_num>>% </a></div>'
+			'<div class="buttonR"><a href="exec:search_location=3 & gt ''director2_event'',''director`s_house''">Search compartment<<search_compartment_num>>% </a></div>'
+			if search_desktop_num>=100 and search_bedroom_num>=100 and search_compartment_num>=100:'<div class="buttonR"><a href="exec:gt ''director2_event'',''videotape''">Videotape in the mezzanine </a></div>'
 			'<div class="button"><a href="exec:gt ''deep_alley''">leave </a></div>'
 		'</div>'
 
 		 '<div class="dialog_menu">'
 			 '<p>Me: The door is not locked... there seems to be no one?</p>'
-			 if $search_location!0: '<p>Me: Searched this area... it seems that someone is watching me?</p>' & $my.energy-=$my.energy/2+10
+			 if search_location!0: '<p>Me: Searched this area... it seems that someone is watching me?</p>' & my.energy-=my.energy/2+10
 		 '</div>'
 End
 
@@ -884,12 +884,12 @@ if $args[0]="jz_fuck_succubus":
          '<div class="dialog_menu">'
            '<p>Me:?！？！？！My head hurts so much, am I dreaming?</p>'
            '<p>？？？: ……</p>'
-           if a=6: $my.energy=-999
+           if a=6: my.energy=-999
          '</div>'
     end
 
     if a=7:
-         $my.energy=-999
+         my.energy=-999
          '<div class="dialog_menu">'
              '<p>Me: I`m going to lose consciousness……</p>'
          '</div>'
@@ -941,7 +941,7 @@ if $args[0]="jz_fuck_catch_1":
     end
 
     if a=8:
-         $my.energy=-999
+         my.energy=-999
          '<div class="dialog_menu">'
              '<p>Me: I`m going to lose consciousness……</p>'
          '</div>'
@@ -1002,7 +1002,7 @@ if $args[0]="jz_fuck_catch_2":
     end
 
     if a=8:
-         $my.energy=-999
+         my.energy=-999
          '<div class="dialog_menu">'
              '<p>Me: I`m going to lose consciousness……</p>'
          '</div>'
@@ -1088,8 +1088,8 @@ if $args[0]="JZ_Fuck_MGF":
     end
 
     if a=8:
-         $JZ.love+=q+$my.charm
-         $JZ.bad+=q*2+$my.charm
+         $JZ.love+=q+my.charm
+         $JZ.bad+=q*2+my.charm
          $jz.massage=1
          '<div class="dialog_menu">'
              '<p>Me: I know you like this, you can find the same style in my massage parlor…</p>'
@@ -1148,8 +1148,8 @@ if $args[0]="jz_fuck_temptation":
     end
 
     if a=6:
-         $JZ.LOVE+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.LOVE+=q+my.charm
+         $JZ.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$JZ.name>>: <<$panting>></p>'
          '</div>'
@@ -1210,8 +1210,8 @@ if $args[0]="jz_fuck_temptation_2":
     end
 
     if a=7:
-         $JZ.LOVE+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.LOVE+=q+my.charm
+         $JZ.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$JZ.name>>: <<$panting>></p>'
          '</div>'
@@ -1284,8 +1284,8 @@ if $args[0]="jz_fuck_cooperate_with_the_investigation":
     end
 
     if a=9:
-         $JZ.LOVE+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.LOVE+=q+my.charm
+         $JZ.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$JZ.name>>:I like you more and more.</p>'
          '</div>'
@@ -1357,8 +1357,8 @@ if $args[0]="jz_fuck_suspend_investigation":
     end
 
     if a=9:
-         $JZ.LOVE+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.LOVE+=q+my.charm
+         $JZ.bad+=q+my.charm
          $the_boss_suspended_the_investigation=1
          '<div class="dialog_menu">'
              '<p><<$JZ.name>>:Are you going to fish for crazy little brother?This is not an easy task, I heard<<$CJ.name>>and<<$SZ.name>>Very angry.You`d better explore their style first!This is very important!</p>'
@@ -1411,8 +1411,8 @@ if $args[0]="jz_fuck_special_rewards":
     end
 
     if a=5:
-         $JZ.LOVE+=q+$my.charm
-         $JZ.bad+=q+$my.charm
+         $JZ.LOVE+=q+my.charm
+         $JZ.bad+=q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: Do other vigilantes also have this treatment?</p>'
              '<p><<$JZ.name>>:No, only you are the exception.</p>'
@@ -1468,7 +1468,7 @@ if $args[0]="JZ_Fuck_D1":
     end
 
     if a=5:
-         $JZ.LOVE+=q+$my.charm
+         $JZ.LOVE+=q+my.charm
          $JZ.bad+=q
          '<div class="dialog_menu">'
              '<p>Me: So cool.</p>'
@@ -1562,7 +1562,7 @@ if $args[0]="hypnosis_director_2":
 		'</div>'
 
 		'<div class="button_menu">'
-			'<div class="button"><a href="exec:$my.energy=-10 & gt ''director2_event'',''hypnosis_director_2''">Look into her eyes</a></div>'
+			'<div class="button"><a href="exec:my.energy=-10 & gt ''director2_event'',''hypnosis_director_2''">Look into her eyes</a></div>'
 		'</div>'
 
 		 '<div class="dialog_menu">'

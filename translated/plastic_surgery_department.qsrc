@@ -21,21 +21,21 @@ if $args[0]="waiting_before_plastic_surgery":
 	$ZX.available=1
 		'<div class="show_menu">'
 			 '<video preload="metadata" autoplay loop height="480">
-			 <source src="images\NPC\ZX\vids\wait<<$zx_waits_for_num>>.webm" type=''video/webm;''></video></div>'
+			 <source src="images\NPC\ZX\vids\wait<<zx_waits_for_num>>.webm" type=''video/webm;''></video></div>'
 		'</div>'
 
 	'<div class="button_menu">'
-		if $zx_waits_for_num<=3:'<div class="button"><a href="exec:$zx_waits_for_num+=1 & gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Be patient</a></div>'
-		if $zx_waits_for_num=4:'<div class="buttonGn"><a href="exec:$zx_waits_for_num+=1 & gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Waiting for the call</a></div>'
+		if zx_waits_for_num<=3:'<div class="button"><a href="exec:zx_waits_for_num+=1 & gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Be patient</a></div>'
+		if zx_waits_for_num=4:'<div class="buttonGn"><a href="exec:zx_waits_for_num+=1 & gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Waiting for the call</a></div>'
 		if $ZX.love>=50:'<div class="buttonS"><a href="exec:gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''">Knock on the glass</a></div>'
-		if $zx_waits_for_num=5:'<div class="buttonGn"><a href="exec:gt ''plastic_surgery_department''">Sit down</a></div>'
+		if zx_waits_for_num=5:'<div class="buttonGn"><a href="exec:gt ''plastic_surgery_department''">Sit down</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		if $zx_waits_for_num!5:'<p><<$ZX.name>>:Hmm<<$panting>></p>'
-		if $zx_waits_for_num=5:'<p><<$ZX.name>>:Ahem... next one!</p>'
+		if zx_waits_for_num!5:'<p><<$ZX.name>>:Hmm<<$panting>></p>'
+		if zx_waits_for_num=5:'<p><<$ZX.name>>:Ahem... next one!</p>'
 	'</div>'
 End
 
@@ -56,8 +56,8 @@ if $args[0]="":
 		if $zx_event_chain=1 or $zx_event_chain=2:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''photos_of_public_toilets''">Photos of public toilets</a></div>'
 		if $zx_event_chain>=3:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''about_the_public_toilet''">About the public toilet</a></div>'
 		if $caesar_event_chain=5:'<div class="buttonPu4"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''champion_plastic_surgery''">Caesar and<<$GJ.name>></a></div>'
-		if $antioxidant_equipment=1:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''antioxidant_equipment''">Take out the antioxidant equipment</a></div>'
-        if $insemination_room=1 and $ZX.bad>=200 and $zx.insemination=0:'<div class="buttonS"><a href="exec:$zx.insemination=1 & gt ''plastic_surgery_department''">Invite artificial insemination</a></div>'
+		if antioxidant_equipment=1:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''antioxidant_equipment''">Take out the antioxidant equipment</a></div>'
+        if insemination_room=1 and $ZX.bad>=200 and $zx.insemination=0:'<div class="buttonS"><a href="exec:$zx.insemination=1 & gt ''plastic_surgery_department''">Invite artificial insemination</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">It`s okay</a></div>'
 	'</div>'
 
@@ -165,8 +165,8 @@ if $args[0]="about_the_public_toilet":
 
 	'<div class="button_menu">'
 		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''hospital''">Leave bitterly</a></div>'
-		if $public_toilet_negatives=1:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''plasticity_event'',''take_out_the_negatives''">Take out the negatives</a></div>'
-		if $public_toilet_negatives=1 and $ZX.bad>=30:'<div class="buttonR3"><a href="exec:gt ''plastic_surgery_department'',''not_you''">I admit the wrong person</a></div>'else:'<div class="buttonGr"><a href="exec:">I admit the wrong person</a></div>'
+		if public_toilet_negatives=1:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''plasticity_event'',''take_out_the_negatives''">Take out the negatives</a></div>'
+		if public_toilet_negatives=1 and $ZX.bad>=30:'<div class="buttonR3"><a href="exec:gt ''plastic_surgery_department'',''not_you''">I admit the wrong person</a></div>'else:'<div class="buttonGr"><a href="exec:">I admit the wrong person</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'

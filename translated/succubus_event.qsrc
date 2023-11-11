@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -23,10 +23,10 @@ if $args[0]="offer_a_tribute":
 	'</div>'
 
 	'<div class="button_menu">'
-		if $daily_succubus=0:'<div class="buttonPu1"><a href="exec:$number_of_squeezers=2 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Today: Offer yourself ❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Today: Offer yourself</a></div>'
-		if $first_class_squeezer>0:'<div class="buttonPu3"><a href="exec:$number_of_squeezers=1 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Call passersby❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Offer a primary tribute</a></div>'
-		if $second_level_squeezer>0:'<div class="buttonPu4"><a href="exec:$number_of_squeezers=3 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Call a handsome guy❤❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Offer intermediate tribute</a></div>'
-		if $three_level_squeezer>0:'<div class="buttonPu5"><a href="exec:$number_of_squeezers=4 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Call the muscle man ❤❤❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Offer a high-level tribute</a></div>'
+		if daily_succubus=0:'<div class="buttonPu1"><a href="exec:$number_of_squeezers=2 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Today: Offer yourself ❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Today: Offer yourself</a></div>'
+		if first_class_squeezer>0:'<div class="buttonPu3"><a href="exec:$number_of_squeezers=1 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Call passersby❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Offer a primary tribute</a></div>'
+		if second_level_squeezer>0:'<div class="buttonPu4"><a href="exec:$number_of_squeezers=3 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Call a handsome guy❤❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Offer intermediate tribute</a></div>'
+		if three_level_squeezer>0:'<div class="buttonPu5"><a href="exec:$number_of_squeezers=4 & gt ''succubus_event'',''succubus_fuck_squeeze_people''">Call the muscle man ❤❤❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Offer a high-level tribute</a></div>'
 		'<div class="button"><a href="exec:gt ''big_villa''">leave</a></div>'
 	'</div>'
 
@@ -301,13 +301,13 @@ if $args[0]="succubus_fuck_squeeze_people":
 	    else:
 	         '<div class="dialog_menu">'
 	                '<p><<$MMS.name>>: Huhu❤Thank you very much!Let me give you a little bit of energy. </p>'
-	                if $number_of_squeezers=1:$succubus_energy+=1 & $first_class_squeezer=0
-	                if $number_of_squeezers=2:$succubus_energy+=1 & $daily_succubus=1
-	                if $number_of_squeezers=3:$succubus_energy+=2 & $second_level_squeezer=0
-	                if $number_of_squeezers=4:$succubus_energy+=3 & $three_level_squeezer=0
+	                if $number_of_squeezers=1:$succubus_energy+=1 & first_class_squeezer=0
+	                if $number_of_squeezers=2:$succubus_energy+=1 & daily_succubus=1
+	                if $number_of_squeezers=3:$succubus_energy+=2 & second_level_squeezer=0
+	                if $number_of_squeezers=4:$succubus_energy+=3 & three_level_squeezer=0
 	                $MMS.love+=5
 	                $MMS.bad+=5*$number_of_squeezers
-	                $succubus_cd=0
+	                succubus_cd=0
 	         '</div>'
 	    end
     end
@@ -361,7 +361,7 @@ if $args[0]="succubus_fuck_day":
 
 
     if 5>=a and a>=0:
-		 $succubus_cd=0
+		 succubus_cd=0
          '<div class="dialog_menu">'
          	 if a=0:'<p><<$MMS.name>>: You haven`t paid tribute for a long time, and my human form is almost unbearable!</p>' 
              if a=0:'<p>Me: Oh?Then I will make up for you now?</p>' 
@@ -385,7 +385,7 @@ if $args[0]="succubus_fuck_day":
          '</div>'
         $MMS.love+=q
         $MMS.bad+=q
-        $succubus_cd=0
+        succubus_cd=0
         
     end
 
@@ -443,8 +443,8 @@ if $args[0]="succubus_fuck_estrus":
                 '<p>Me: Is it better?</p>'     
                 '<p><<$MMS.name>>: You underestimate succubus too much ❤ I will never be satisfied in estrus❤ </p>'
          '</div>'
-        $MMS.love+=q+5+$my.charm
-        $MMS.bad+=q+5+$my.charm
+        $MMS.love+=q+5+my.charm
+        $MMS.bad+=q+5+my.charm
     end
 
 
@@ -771,12 +771,12 @@ if $args[0]="succubus_assist_in_hypnosis":
     if a<4:
         '<div class="button_menu">'
             if $MMS.love>=100+a*50:'<div class="buttonPu2"><a href="exec:a+=1 & gt ''succubus_event'',''succubus_assist_in_hypnosis''">Continue hypnosis❤</a></div>'else:'<div class="buttonGr"><a href="exec:">Continue ❤Insufficient favorability</a></div>'
-			if $before_chwq>=100:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''succubus_event'',''succubus_fuck_hypnosis_4p''">4P under hypnosis</a></div>'else:'<div class="buttonGr"><a href="exec:">4P under hypnosis</a></div>'
+			if before_chwq>=100:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''succubus_event'',''succubus_fuck_hypnosis_4p''">4P under hypnosis</a></div>'else:'<div class="buttonGr"><a href="exec:">4P under hypnosis</a></div>'
             '<div class="buttonGn"><a href="exec:gt ''big_villa''">leave</a></div>'
         '</div>'
         else:
             '<div class="button_menu">'
-			if $before_chwq>=100:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''succubus_event'',''succubus_fuck_hypnosis_4p''">4P under hypnosis</a></div>'else:'<div class="buttonGr"><a href="exec:">4P under hypnosis</a></div>'
+			if before_chwq>=100:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''succubus_event'',''succubus_fuck_hypnosis_4p''">4P under hypnosis</a></div>'else:'<div class="buttonGr"><a href="exec:">4P under hypnosis</a></div>'
                 '<div class="buttonGn"><a href="exec:gt ''big_villa''">End hypnosis</a></div>'
             '</div>'
     end
@@ -784,7 +784,7 @@ if $args[0]="succubus_assist_in_hypnosis":
 
 
     if 4>=a and a>=0:
-    	 $before_chwq+=1+a*a
+    	 before_chwq+=1+a*a
          '<div class="dialog_menu">'
          	if a=0:
          	 '<p>Me: Help me!Improve their relationship!</p>' 
@@ -808,7 +808,7 @@ if $args[0]="succubus_assist_in_hypnosis":
          	 '<p><<$WQ.name>>: Sister, yours is softer than mine❤</p>' 
          	 '<p><<$MMS.name>>: Wow, three pairs of big tits❤</p>' 
          	 end
-         '<p><<$CH.name>>&<<$WQ.name>>Degree of relationship improvement：<<$before_chwq>>%</p>'  
+         '<p><<$CH.name>>&<<$WQ.name>>Degree of relationship improvement：<<before_chwq>>%</p>'  
          '</div>'
     end
 
@@ -1039,7 +1039,7 @@ if $args[0]="succubus_fuck_cook":
         '</div>'
         else:
             '<div class="button_menu">'
-				if $WQ_MMS!1 and $hot_spring_oil_pressure_hall=1:'<div class="buttonGn"><a href="exec:$WQ_MMS=1 & gt ''hot_spring''">agree</a></div>'
+				if $WQ_MMS!1 and hot_spring_oil_pressure_hall=1:'<div class="buttonGn"><a href="exec:$WQ_MMS=1 & gt ''hot_spring''">agree</a></div>'
                 '<div class="button"><a href="exec:gt ''hot_spring''">leave</a></div>'
             '</div>'
     end
@@ -1061,7 +1061,7 @@ if $args[0]="succubus_fuck_cook":
          '<div class="dialog_menu">'  
 				'<p><<$MMS.name>>: Woohoo❤ </p>'
                 '<p>Me: Swallow it all for me!</p>'     
-                if $WQ_MMS!1 and $hot_spring_oil_pressure_hall=1:'<p><<$MMS.name>>: I heard that the oil pressure hall here often meets energetic guests ❤ Can you let me work part-time here? </p>'
+                if $WQ_MMS!1 and hot_spring_oil_pressure_hall=1:'<p><<$MMS.name>>: I heard that the oil pressure hall here often meets energetic guests ❤ Can you let me work part-time here? </p>'
          '</div>'
         $MMS.love+=q
         $MMS.bad+=q

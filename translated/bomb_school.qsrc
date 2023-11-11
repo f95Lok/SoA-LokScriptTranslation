@@ -4,7 +4,7 @@ $metka = $ARGS[0]
 $loc = $CURLOC
 a=0 & q=0
 !gs'menu_gif'
-$my.energy=999
+my.energy=999
 hour=1
 $random_number=rand(0,100)
 
@@ -121,7 +121,7 @@ if $ARGS[0]="equipment_room_success":
 		'<p>·With a series of beeps, the safe opened, and a video tape fell out of it, which obviously came from this camera.</p>'
 		'<p>[Campus radio]: Oh, it seems that you have completed a challenge.I have to admit that your performance is OK, but I think you need to work harder to challenge my limits!</p>'
 		'<p>I: ………</p>'
-		$ts_video_1=1
+		ts_video_1=1
 	'</div>'
 end
 
@@ -148,7 +148,7 @@ if $ARGS[0]="club":
 	'<div class ="show_menu"><img src="images\NPC\TS\pics\锁.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
-		'<div class="buttonR"><a href="exec:$clown_problem=0 & $clown_statistics_b=0 & $clown_statistics_c=0 & gt ''bomb_school'',''community_decoding''">Try decoding</a></div>'
+		'<div class="buttonR"><a href="exec:clown_problem=0 & clown_statistics_b=0 & clown_statistics_c=0 & gt ''bomb_school'',''community_decoding''">Try decoding</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -158,17 +158,17 @@ if $ARGS[0]="club":
 end
 
 if $ARGS[0]="community_decoding":
-	$clown_problem+=1
-	if $clown_problem=6:
-		if $clown_statistics_b=3 and $clown_statistics_c=2:gt'bomb_school','Club success'else:gt'Bomb school','clown_failed'
+	clown_problem+=1
+	if clown_problem=6:
+		if clown_statistics_b=3 and clown_statistics_c=2:gt'bomb_school','Club success'else:gt'Bomb school','clown_failed'
 	end
 
-	'<div class ="show_menu"><img src="images\NPC\TS\pics\问题<<$clown_problem>>.jpg" width="854"></div>'
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\问题<<clown_problem>>.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
 		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''community_decoding''">A</a></div>'
-		'<div class="buttonR"><a href="exec:$clown_statistics_b+=1 & gt ''bomb_school'',''community_decoding''">B</a></div>'
-		'<div class="buttonR"><a href="exec:$clown_statistics_c+=1 & gt ''bomb_school'',''community_decoding''">C</a></div>'
+		'<div class="buttonR"><a href="exec:clown_statistics_b+=1 & gt ''bomb_school'',''community_decoding''">B</a></div>'
+		'<div class="buttonR"><a href="exec:clown_statistics_c+=1 & gt ''bomb_school'',''community_decoding''">C</a></div>'
 		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''community_decoding''">D</a></div>'
 	'</div>'
 	
@@ -210,7 +210,7 @@ if $ARGS[0]="club_success":
 		'<p>·With a click, the safe opened, and a video tape fell out of it.……</p>'
 		'<p>[Campus radio]: Wow, I can`t believe it!You look smarter than Batman!I have to admit, your IQ is simply criminal!Hahaha!</p>'
 		'<p>I: ………</p>'
-		$ts_video_3=1
+		ts_video_3=1
 	'</div>'
 end
 
@@ -219,10 +219,10 @@ if $ARGS[0]="multimedia_classroom":
 	'<div class ="show_menu"><img src="images\NPC\TS\pics\多媒体教室.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
-		if $ts_video_1+$ts_video_2+$ts_video_3>0:'<div class="button"><a href="exec:gt ''bomb_school'',''watch_alone''">Leave her to watch alone</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">？？？</a></div>'
-		if $ts_video_1=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_1''">Watch the first volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
-		if $ts_video_2=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_2''">Watch the second volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
-		if $ts_video_3=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_3''">Watch the third volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
+		if ts_video_1+ts_video_2+ts_video_3>0:'<div class="button"><a href="exec:gt ''bomb_school'',''watch_alone''">Leave her to watch alone</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">？？？</a></div>'
+		if ts_video_1=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_1''">Watch the first volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
+		if ts_video_2=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_2''">Watch the second volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
+		if ts_video_3=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_3''">Watch the third volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -241,11 +241,11 @@ if $ARGS[0]="watch_alone":
 	
 	'<div class="dialog_menu">'
 		'<p><<$TS.name>>:You didn`t peek, did you?I`ll read it to you…</p>'
-		if $ts_video_1=1:'<p><<$TS.name>>: 第一卷的密码是...CH</p>'
+		if ts_video_1=1:'<p><<$TS.name>>: 第一卷的密码是...CH</p>'
 		'<p><<$TS.name>>:……</p>'
-		if $ts_video_2=1:'<p><<$TS.name>>: 第二卷的密码是...AO</p>'
+		if ts_video_2=1:'<p><<$TS.name>>: 第二卷的密码是...AO</p>'
 		'<p><<$TS.name>>:……</p>'
-		if $ts_video_3=1:'<p><<$TS.name>>: The password for Volume 3 is...S</p>'
+		if ts_video_3=1:'<p><<$TS.name>>: The password for Volume 3 is...S</p>'
 		'<p><<$TS.name>>:……</p>'
 	'</div>'
 end

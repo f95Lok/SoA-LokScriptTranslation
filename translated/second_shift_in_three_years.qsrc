@@ -12,17 +12,17 @@ a=0 & q=0
 		'<div class="action">
 			<a class="photo" data-title="Class roster" href="exec:gt ''menu_charac_student'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
 		</div>'
-		if $new_library=1:
+		if new_library=1:
 		'<div class="action">
 			<a class="photo" data-title="New library" href="exec:gt ''student_group_event'',''tram_library''"><img class="img_stretch" src="images\place\图书馆_<<$times_of_day>>.jpg"></a>
 		</div>'
 		end
-		if $new_stadium=1:
+		if new_stadium=1:
 		'<div class="action">
 			<a class="photo" data-title="new_stadium" href="exec:gt ''student_group_event'',''school_flower_f15''"><img class="img_stretch" src="images\place\体育馆_<<$times_of_day>>.jpg"></a>
 		</div>'
 		end
-		if $new_swimming_pool=1:
+		if new_swimming_pool=1:
 		'<div class="action">
 			<a class="photo" data-title="New swimming pool" href="exec:gt ''gymnasium'',''swimming_pool''"><img class="img_stretch" src="images\place\游泳馆_<<$times_of_day>>.jpg"></a>
 		</div>'
@@ -50,8 +50,8 @@ if $args[0]="":
 		end
 
 		if $DCM.available=1 and $tram_event_chain<10:
-			if $dcm_study=0:'<p>·Unmanned seat against the wall：<a href="exec:$tram_role=''B'' & gt''subway_event'',''subway_harassment_0''">-Go pick her up</a></p>'
-			if $dcm_study=1:'<p>·Sultry seat against the wall：<a href="exec:gt''student_group_event'',''tram_classroom_vertical_painting''">-<<$DCM.name>></a></p>'
+			if dcm_study=0:'<p>·Unmanned seat against the wall：<a href="exec:$tram_role=''B'' & gt''subway_event'',''subway_harassment_0''">-Go pick her up</a></p>'
+			if dcm_study=1:'<p>·Sultry seat against the wall：<a href="exec:gt''student_group_event'',''tram_classroom_vertical_painting''">-<<$DCM.name>></a></p>'
 		end
 		if $XH.available=1 and $school_flower_event_chain<10:
 			if $school_flower_event_chain<=1:'<p>·Last row：<a href="exec:gt ''student_group_event'',''school_flower_opening''">-<<$XH.name>></a></p>'

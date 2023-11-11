@@ -21,7 +21,7 @@ if $args[0]="":
 	'<div class ="show_menu"><img src="images\place\体育馆_<<$times_of_day>>.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:$locker_room_selection=0 & gt ''gymnasium'',''locker_room_aisle''">Locker room aisle</a></div>'
+		'<div class="button"><a href="exec:locker_room_selection=0 & gt ''gymnasium'',''locker_room_aisle''">Locker room aisle</a></div>'
 		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
 	'</div>'
 
@@ -37,15 +37,15 @@ if $args[0]="locker_room_aisle":
 	'<div class ="show_menu"><img src="images\place\体育馆_过道.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonB1"><a href="exec:$locker_room_selection=0 & gt ''gymnasium'',''locker_room_aisle''">On-campus locker room</a></div>'
+		'<div class="buttonB1"><a href="exec:locker_room_selection=0 & gt ''gymnasium'',''locker_room_aisle''">On-campus locker room</a></div>'
 		if $the_gym_passed=1:
-			'<div class="buttonB2"><a href="exec:$locker_room_selection=1 & gt ''gymnasium'',''locker_room_aisle''">Locker room 1</a></div>'
-			if $stadium_reputation>=2:'<div class="buttonB3"><a href="exec:$locker_room_selection=2 & gt ''gymnasium'',''locker_room_aisle''">Locker room 2</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
-			if $stadium_reputation>=6:'<div class="buttonB3"><a href="exec:$locker_room_selection=3 & gt ''gymnasium'',''locker_room_aisle''">Locker room 3</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
-			if $stadium_reputation>=15:'<div class="buttonB4"><a href="exec:$locker_room_selection=4 & gt ''gymnasium'',''locker_room_aisle''">Locker room 4</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
-			if $stadium_reputation>=27:'<div class="buttonB4"><a href="exec:$locker_room_selection=5 & gt ''gymnasium'',''locker_room_aisle''">Locker room 5</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
-			if $stadium_reputation>=37:'<div class="buttonB5"><a href="exec:$locker_room_selection=6 & gt ''gymnasium'',''locker_room_aisle''">Locker room 6</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
-			if $stadium_reputation>=55:'<div class="buttonB5"><a href="exec:$locker_room_selection=7 & gt ''gymnasium'',''locker_room_aisle''">Locker room 7 MAX</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
+			'<div class="buttonB2"><a href="exec:locker_room_selection=1 & gt ''gymnasium'',''locker_room_aisle''">Locker room 1</a></div>'
+			if stadium_reputation>=2:'<div class="buttonB3"><a href="exec:locker_room_selection=2 & gt ''gymnasium'',''locker_room_aisle''">Locker room 2</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
+			if stadium_reputation>=6:'<div class="buttonB3"><a href="exec:locker_room_selection=3 & gt ''gymnasium'',''locker_room_aisle''">Locker room 3</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
+			if stadium_reputation>=15:'<div class="buttonB4"><a href="exec:locker_room_selection=4 & gt ''gymnasium'',''locker_room_aisle''">Locker room 4</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
+			if stadium_reputation>=27:'<div class="buttonB4"><a href="exec:locker_room_selection=5 & gt ''gymnasium'',''locker_room_aisle''">Locker room 5</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
+			if stadium_reputation>=37:'<div class="buttonB5"><a href="exec:locker_room_selection=6 & gt ''gymnasium'',''locker_room_aisle''">Locker room 6</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
+			if stadium_reputation>=55:'<div class="buttonB5"><a href="exec:locker_room_selection=7 & gt ''gymnasium'',''locker_room_aisle''">Locker room 7 MAX</a></div>'else:'<div class="buttonGr"><a href="exec:">?Locker room</a></div>'
 		else:
 		'<div class="buttonGr"><a href="exec:">Idle locker room</a></div>'
 		end
@@ -56,51 +56,51 @@ if $args[0]="locker_room_aisle":
 		if $the_gym_passed=0:
 		'<p>·I think I can go to the fifth regular meeting of the city hall to make comments and make the stadium open to all citizens?</p>'
 		else:
-		'<p>·With the reputation of the stadium (<<$stadium_reputation>>) Rising, the number of locker rooms will continue to expand.</p>'
+		'<p>·With the reputation of the stadium (<<stadium_reputation>>) Rising, the number of locker rooms will continue to expand.</p>'
 		end
 		'<p>·——————</p>'
 		'<p>*I glanced inside, guess what?</p>'
-		if $locker_room_selection=0:
+		if locker_room_selection=0:
 			'<p>*Inside there is：<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$MM.name>></a>
 			、<a href="exec:ma_L=$XZ.love & $m=''XZ'' & $ma=$XZ.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$XZ.name>></a>
 			、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$FXZ.name>></a>'
 			if $tram_event_chain>=12:'、<a href="exec:gt ''student_group_event'',''tram_sister_tgym''"><<$DCM.name>></a>'
 			'</p>'
 		end
-		if $locker_room_selection=1:
+		if locker_room_selection=1:
 			'<p>*Inside there is：<a href="exec:ma_L=$DY.love & $m=''DY'' & $ma=$DY.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$DY.name>></a>
 			、<a href="exec:ma_L=$BGH.love & $m=''BGH'' & $ma=$BGH.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$BGH.name>></a>
 			</p>'
 		end
-		if $locker_room_selection=2:
+		if locker_room_selection=2:
 			'<p>*Inside there is：<a href="exec:ma_L=$WH.love & $m=''WH'' & $ma=$WH.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$WH.name>></a>
 			    、<a href="exec:ma_L=$MMS.love & $m=''MMS'' & $ma=$MMS.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$MMS.name>></a>
 			</p>'
 		end
-		if $locker_room_selection=3:
+		if locker_room_selection=3:
 			'<p>*Inside there is：<a href="exec:ma_L=$SS.love & $m=''SS'' & $ma=$SS.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$SS.name>></a>
 			、<a href="exec:ma_L=$SY.love & $m=''SY'' & $ma=$SY.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$SY.name>></a>
 			、<a href="exec:ma_L=$ZX.love & $m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$ZX.name>></a>
 			</p>'
 		end
-		if $locker_room_selection=4:
+		if locker_room_selection=4:
 			'<p>*Inside there is：<a href="exec:ma_L=$RION.love & $m=''RION'' & $ma=$RION.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$RION.name>></a>
 			、<a href="exec:ma_L=9999 & $m=''ZXG'' & $ma=$ZXG.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$ZXG.name>></a>
 			、<a href="exec:ma_L=$DC.love & $m=''DC'' & $ma=$DC.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$DC.name>></a>
 			</p>'
 		end
-		if $locker_room_selection=5:
+		if locker_room_selection=5:
 			'<p>*Inside there is：<a href="exec:ma_L=$TZ.love & $m=''TZ'' & $ma=$TZ.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$TZ.name>></a>
 			、<a href="exec:ma_L=$BD.love & $m=''BD'' & $ma=$BD.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$BD.name>></a>
 			</p>'
 		end
-		if $locker_room_selection=6:
+		if locker_room_selection=6:
 			'<p>*Inside there is：<a href="exec:ma_L=$CH.love & $m=''CH'' & $ma=$CH.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$CH.name>></a>
 			、<a href="exec:ma_L=$XS.love & $m=''XS'' & $ma=$XS.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$XS.name>></a>
 			、<a href="exec:ma_L=$SWD.love & $m=''SWD'' & $ma=$SWD.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$SWD.name>></a>
 			</p>'
 		end
-		if $locker_room_selection=7:
+		if locker_room_selection=7:
 			'<p>*Inside there is：<a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$TS.name>></a>
 			、<a href="exec:ma_L=$QB.love & $m=''QB'' & $ma=$QB.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$QB.name>></a> 
 			、<a href="exec:ma_L=$SSYY.love & $m=''SSYY'' & $ma=$SSYY.name & gt ''group_performation_event'',''exclusive_fuck_gymnasium''"><<$SSYY.name>></a> 
@@ -114,7 +114,7 @@ if $args[0]="library":
 	'<div class ="show_menu"><img src="images\place\图书馆_<<$times_of_day>>.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:$library_selection=0 & gt ''gymnasium'',''library_aisle''">View book types</a></div>'
+		'<div class="button"><a href="exec:library_selection=0 & gt ''gymnasium'',''library_aisle''">View book types</a></div>'
 		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
 	'</div>'
 
@@ -129,42 +129,42 @@ if $args[0]="library_aisle":
     '<div class ="show_menu"><img src="images\place\图书馆_过道.jpg" width="854"></div>'
 
     '<div class="button_menu">'
-        '<div class="buttonGn"><a href="exec:$library_selection=0 & gt ''gymnasium'',''library_aisle''">Family education</a></div>'
+        '<div class="buttonGn"><a href="exec:library_selection=0 & gt ''gymnasium'',''library_aisle''">Family education</a></div>'
         if $the_library_passed=1:
-		   if $library_1=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=1 & gt ''gymnasium'',''library_aisle''">Business management</a></div>'
+		   if library_1=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=1 & gt ''gymnasium'',''library_aisle''">Business management</a></div>'
 		  else:
-		    if money>=9999+money/5:'<div class="buttonG"><a href="exec:$library_1=1 & money-=9999+money/5 & gt ''gymnasium'',''library_aisle''">？class<<9999+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<9999+money/5>>￥</a></div>'
+		    if money>=9999+money/5:'<div class="buttonG"><a href="exec:library_1=1 & money-=9999+money/5 & gt ''gymnasium'',''library_aisle''">？class<<9999+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<9999+money/5>>￥</a></div>'
 		   end
-		   if $library_2=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=2 & gt ''gymnasium'',''library_aisle''">Idol development class</a></div>'
+		   if library_2=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=2 & gt ''gymnasium'',''library_aisle''">Idol development class</a></div>'
 		  else:
-		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:$library_2=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:library_2=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
 		   end
-		   if $library_3=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=3 & gt ''gymnasium'',''library_aisle''">Pathology Medicine</a></div>'
+		   if library_3=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=3 & gt ''gymnasium'',''library_aisle''">Pathology Medicine</a></div>'
 		  else:
-		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:$library_3=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:library_3=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
 		   end
-		   if $library_4=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=4 & gt ''gymnasium'',''library_aisle''">Home cooking</a></div>'
+		   if library_4=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=4 & gt ''gymnasium'',''library_aisle''">Home cooking</a></div>'
 		  else:
-		    if money>=3000+money/5:'<div class="buttonG"><a href="exec:$library_4=1 & money-=3000+money/5 & gt ''gymnasium'',''library_aisle''">？class<<3000+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<3000+money/5>>￥</a></div>'
+		    if money>=3000+money/5:'<div class="buttonG"><a href="exec:library_4=1 & money-=3000+money/5 & gt ''gymnasium'',''library_aisle''">？class<<3000+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<3000+money/5>>￥</a></div>'
 		   end
-		   if $library_5=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=5 & gt ''gymnasium'',''library_aisle''">Romance Literature</a></div>'
+		   if library_5=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=5 & gt ''gymnasium'',''library_aisle''">Romance Literature</a></div>'
 		  else:
-		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:$library_5=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:library_5=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
 		   end
-		   if $library_6=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=6 & gt ''gymnasium'',''library_aisle''">Fishing for men`s speech skills</a></div>'
+		   if library_6=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=6 & gt ''gymnasium'',''library_aisle''">Fishing for men`s speech skills</a></div>'
 		  else:
-		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:$library_6=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:library_6=1 & money-=TSGMoney & gt ''gymnasium'',''library_aisle''">？class<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<TSGMoney>>￥</a></div>'
 		   end
-		   if $library_7=1:
-		   '<div class="buttonGn"><a href="exec:$library_selection=7 & gt ''gymnasium'',''library_aisle''">Detective reasoning</a></div>'
+		   if library_7=1:
+		   '<div class="buttonGn"><a href="exec:library_selection=7 & gt ''gymnasium'',''library_aisle''">Detective reasoning</a></div>'
 		  else:
-		    if money>=8888+money/5:'<div class="buttonG"><a href="exec:$library_7=1 & money-=8888+money/5 & gt ''gymnasium'',''library_aisle''">？class<<8888+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<8888+money/5>>￥</a></div>'
+		    if money>=8888+money/5:'<div class="buttonG"><a href="exec:library_7=1 & money-=8888+money/5 & gt ''gymnasium'',''library_aisle''">？class<<8888+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？class<<8888+money/5>>￥</a></div>'
 		   end
         else:
           '<div class="buttonGr"><a href="exec:">No permission to purchase books</a></div>'
@@ -180,41 +180,41 @@ if $args[0]="library_aisle":
         end
         '<p>·——————</p>'
         '<p>*I didn`t expect that some people would come to see books on this subject…</p>'
-        if $library_selection=0:
+        if library_selection=0:
             '<p>*Inside there is：<a href="exec:ma_L=$JJ.love & $m=''JJ'' & $ma=$JJ.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$JJ.name>></a>
 		     、<a href="exec:ma_L=$JM.love & $m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$JM.name>></a>
 		     、<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$MM.name>></a>
 		     、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$FXZ.name>></a>
 		    </p>'
         end
-        if $library_selection=1:
+        if library_selection=1:
             '<p>*Inside there is：<a href="exec:ma_L=$SWD.love & $m=''SWD'' & $ma=$SWD.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$SWD.name>></a>
 		     、<a href="exec:ma_L=$XZ.love & $m=''XZ'' & $ma=$XZ.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$XZ.name>></a>
 		     、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$FXZ.name>></a>
 		     、<a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$TS.name>></a>
 		    </p>'
         end
-        if $library_selection=2:
+        if library_selection=2:
             '<p>*Inside there is：<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$MM.name>></a>
 		     、<a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$TS.name>></a>
 		     、<a href="exec:ma_L=$QB.love & $m=''QB'' & $ma=$QB.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$QB.name>></a>
 		     、<a href="exec:ma_L=$SSYY.love & $m=''SSYY'' & $ma=$SSYY.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$SSYY.name>></a>
 		    </p>'
         end
-        if $library_selection=3:
+        if library_selection=3:
             '<p>*Inside there is：<a href="exec:ma_L=$ZX.love & $m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$ZX.name>></a>
 		     、<a href="exec:ma_L=$SS.love & $m=''SS'' & $ma=$SS.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$SS.name>></a>
 		     、<a href="exec:ma_L=$JY.love & $m=''JY'' & $ma=$JY.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$JY.name>></a>
 		    </p>'
         end
-        if $library_selection=4:
+        if library_selection=4:
             '<p>*Inside there is：<a href="exec:ma_L=$BGH.love & $m=''BGH'' & $ma=$BGH.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$BGH.name>></a>
 		     、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$FXZ.name>></a>
 		     、<a href="exec:ma_L=$EDM.love & $m=''EDM'' & $ma=$EDM.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$EDM.name>></a>
 		     、<a href="exec:ma_L=$RION.love & $m=''RION'' & $ma=$RION.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$RION.name>></a>
 		    </p>'
         end
-        if $library_selection=5:
+        if library_selection=5:
             '<p>*Inside there is：<a href="exec:ma_L=$DY.love & $m=''DY'' & $ma=$DY.name & gt ''group_performation_event'',''exclusive_fuck_library_a''"><<$DY.name>></a>
 		     、<a href="exec:ma_L=$DZ.love & $m=''DZ'' & $ma=$DZ.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$DZ.name>></a>
 		     、<a href="exec:ma_L=$JY.love & $m=''JY'' & $ma=$JY.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$JY.name>></a>
@@ -222,13 +222,13 @@ if $args[0]="library_aisle":
 		  if  $xm_event_chain>=2:'、<a href="exec:gt ''school_girl_event'',''xm_fuck_library''"><<$XM.name>></a>'
 	       '</p>'
         end
-        if $library_selection=6:
+        if library_selection=6:
             '<p>*Inside there is：<a href="exec:ma_L=$XS.love & $m=''XS'' & $ma=$XS.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$XS.name>></a>
 		      、<a href="exec:ma_L=$WH.love & $m=''WH'' & $ma=$WH.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$WH.name>></a>'
 		   if $ZL.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad:'、<a href="exec:gt ''repeating_event'',''ljzl_fuck_inverse_3p''"><<$ZL.name>>&<<$LJ.name>></a>'
 		    '</p>'
         end
-        if $library_selection=7:
+        if library_selection=7:
             '<p>*Inside there is：<a href="exec:ma_L=$SS.love & $m=''SS'' & $ma=$SS.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$SS.name>></a>
 		      、<a href="exec:ma_L=$JY.love & $m=''JY'' & $ma=$JY.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$JY.name>></a>
 		      、<a href="exec:ma_L=$DZ.love & $m=''DZ'' & $ma=$DZ.name & gt ''group_performation_event'',''exclusive_fuck_library_b''"><<$DZ.name>></a>
@@ -241,7 +241,7 @@ if $args[0]="swimming_pool":
 	'<div class ="show_menu"><img src="images\place\游泳馆_<<$times_of_day>>.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:$swimming_pool_selection=0 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming pool aisle</a></div>'
+		'<div class="button"><a href="exec:swimming_pool_selection=0 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming pool aisle</a></div>'
 		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
 	'</div>'
 
@@ -258,12 +258,12 @@ if $args[0]="swimming_pool_aisle":
     '<div class ="show_menu"><img src="images\place\游泳馆_过道.jpg" width="854"></div>'
 
     '<div class="button_menu">'
-        '<div class="buttonB1"><a href="exec:$swimming_pool_selection=0 & gt ''gymnasium'',''swimming_pool_aisle''">On-campus swimming pool</a></div>'
+        '<div class="buttonB1"><a href="exec:swimming_pool_selection=0 & gt ''gymnasium'',''swimming_pool_aisle''">On-campus swimming pool</a></div>'
         if $swimming_pool_through=1:
-		'<div class="buttonB2"><a href="exec:$swimming_pool_selection=1 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 1</a></div>'
-		   if $swimming_pool_reputation>=3:'<div class="buttonB3"><a href="exec:$swimming_pool_selection=2 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 2</a></div>'
-		   if $swimming_pool_reputation>=9:'<div class="buttonB4"><a href="exec:$swimming_pool_selection=3 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 3</a></div>'
-		   if $swimming_pool_reputation>=18:'<div class="buttonB5"><a href="exec:$swimming_pool_selection=4 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 4 MAX</a></div>'
+		'<div class="buttonB2"><a href="exec:swimming_pool_selection=1 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 1</a></div>'
+		   if swimming_pool_reputation>=3:'<div class="buttonB3"><a href="exec:swimming_pool_selection=2 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 2</a></div>'
+		   if swimming_pool_reputation>=9:'<div class="buttonB4"><a href="exec:swimming_pool_selection=3 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 3</a></div>'
+		   if swimming_pool_reputation>=18:'<div class="buttonB5"><a href="exec:swimming_pool_selection=4 & gt ''gymnasium'',''swimming_pool_aisle''">Swimming Pool No. 4 MAX</a></div>'
         end
     '</div>'
 
@@ -272,11 +272,11 @@ if $args[0]="swimming_pool_aisle":
         if $swimming_pool_through=0:
         '<p>·I think I can go to the fifth regular meeting of the city hall to make comments and make the swimming pool open to all citizens?</p>'
         else:
-        '<p>·With the reputation of the swimming pool (<<$swimming_pool_reputation>>) Rising, the number of locker rooms will continue to expand.</p>'
+        '<p>·With the reputation of the swimming pool (<<swimming_pool_reputation>>) Rising, the number of locker rooms will continue to expand.</p>'
         end
         '<p>·——————</p>'
         '<p>*I glanced inside, guess what?</p>'
-        if $swimming_pool_selection=0:
+        if swimming_pool_selection=0:
             '<p>*In the locker room：<a href="exec:ma_L=$XY.bad & $m=''XY'' & $ma=$XY.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$XY.name>></a>'
             if $squad_leader_event_chain_b<=2:'、<a href="exec:gt ''student_group_event'',''squad_leader_n2''"><<$BZ.name>></a>'
             if $tram_event_chain>=11:'、<a href="exec:gt ''student_group_event'',''tram_sister_tyyg''"><<$DCM.name>></a></p>'else:'</p>'
@@ -284,25 +284,25 @@ if $args[0]="swimming_pool_aisle":
 		    、<a href="exec:ma_L=$ZL.bad & $m=''ZL'' & $ma=$ZL.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$ZL.name>></a>
 		   </p>'
         end
-        if $swimming_pool_selection=1:
+        if swimming_pool_selection=1:
             '<p>*In the locker room：<a href="exec:ma_L=$JY.bad & $m=''JY'' & $ma=$JY.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_a''"><<$JY.name>></a></p>'
             '<p>*By the pool is：<a href="exec:ma_L=$RION.bad & $m=''RION'' & $ma=$RION.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$RION.name>></a>
 		     、<a href="exec:ma_L=9999 & $m=''ZXG'' & $ma=$ZXG.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$ZXG.name>></a>
 		   </p>'
         end
-        if $swimming_pool_selection=2:
+        if swimming_pool_selection=2:
             '<p>*In the locker room：<a href="exec:ma_L=$WH.bad & $m=''WH'' & $ma=$WH.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$WH.name>></a></p>'
             '<p>*By the pool is：<a href="exec:ma_L=$YH.bad & $m=''YH'' & $ma=$YH.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$YH.name>></a>
 		    、<a href="exec:ma_L=$TZ.bad & $m=''TZ'' & $ma=$TZ.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$TZ.name>></a>
 		    </p>'
         end
-        if $swimming_pool_selection=3:
+        if swimming_pool_selection=3:
             '<p>*In the locker room：<a href="exec:ma_L=$SWD.bad & $m=''SWD'' & $ma=$SWD.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$SWD.name>></a></p>'
             '<p>*By the pool is：<a href="exec:ma_L=$DY.bad & $m=''DY'' & $ma=$DY.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$DY.name>></a>
 		    、<a href="exec:ma_L=$XS.bad & $m=''XS'' & $ma=$XS.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$XS.name>></a>
 		    </p>'
         end
-        if $swimming_pool_selection=4:
+        if swimming_pool_selection=4:
             '<p>*In the locker room：<a href="exec:ma_L=$MMS.bad & $m=''MMS'' & $ma=$MMS.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$MMS.name>></a></p>'
             '<p>*By the pool is：<a href="exec:ma_L=$QB.bad & $m=''QB'' & $ma=$QB.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$QB.name>></a>
 		    、<a href="exec:ma_L=$SSYY.bad & $m=''SSYY'' & $ma=$SSYY.name & gt ''group_performation_event'',''exclusive_fuck_swimming_pool_b''"><<$SSYY.name>></a>

@@ -5,9 +5,9 @@ $loc = $CURLOC
 a=0
 q=0
 $ZL_num=RAND(2,4)
-$my.energy-=1
+my.energy-=1
 $sledgehammer_gang=rand(0,15)
-if $sledgehammer_gang>=14 and $bigvillaforthefirsttime>=3 and $sledgehammer<2:gt'deep_alley','deep_alley_fighting'
+if $sledgehammer_gang>=14 and bigvillaforthefirsttime>=3 and sledgehammer<2:gt'deep_alley','deep_alley_fighting'
 gs'menu_gif'
 '<div id="right-column">'
 	gs'menu_time'
@@ -37,7 +37,7 @@ gs'menu_gif'
 		'</div>'
 
 		'<div class="action">'
-			if $porsche=1:'<a class="photo" data-title="<<$XS.name>>" href="exec:minutes+=5 &   gt ''sales_event'',''sales_fuck_she_home''"><img class="img_stretch" src="images\NPC\ZL\pics\5.jpg"></a>'
+			if porsche=1:'<a class="photo" data-title="<<$XS.name>>" href="exec:minutes+=5 &   gt ''sales_event'',''sales_fuck_she_home''"><img class="img_stretch" src="images\NPC\ZL\pics\5.jpg"></a>'
 		'</div>'
 
 		'<div class="action">'
@@ -53,7 +53,7 @@ gs'menu_gif'
 		'</div>'
 
 		'<div class="action">'
-			if $director_xs_house=1:'<a class="photo" data-title="Safe house" href="exec:minutes+=5 & $search_location=0 &  gt ''director2_event'',''director`s_house''"><img class="img_stretch" src="images\NPC\ZL\pics\9.jpg"></a>'
+			if $director_xs_house=1:'<a class="photo" data-title="Safe house" href="exec:minutes+=5 & search_location=0 &  gt ''director2_event'',''director`s_house''"><img class="img_stretch" src="images\NPC\ZL\pics\9.jpg"></a>'
 		'</div>'
 		
 		'<div class="action">'
@@ -80,9 +80,9 @@ if $args[0] ='':
 		else:
 		'<div class="buttonGr"><a href="exec:">Rent a basement ￥1000/month</a></div>'
 		end
-		if $XM.bad>=300 and $XM.job=1 and 2>hour and hour>=0 and $ZL_num=4 and $xm_videotape<=1:'<div class="buttonPu2"><a href="exec:gt ''school_girl_event'',''familiar_figure''">Familiar figure</a></div>'
+		if $XM.bad>=300 and $XM.job=1 and 2>hour and hour>=0 and $ZL_num=4 and xm_videotape<=1:'<div class="buttonPu2"><a href="exec:gt ''school_girl_event'',''familiar_figure''">Familiar figure</a></div>'
 		if $qb_event_chain=3:'<div class="buttonPu3"><a href="exec:gt ''hashimoto_event'',''the_manager`s_rental_house''">The manager`s rental house</a></div>'
-		if $chain_of_lost_hometown_events=1:'<div class="buttonB1"><a href="exec:gt ''lost_hometown_incident'',''deep_alley''"><<$SX.name>></a></div>'
+		if chain_of_lost_hometown_events=1:'<div class="buttonB1"><a href="exec:gt ''lost_hometown_incident'',''deep_alley''"><<$SX.name>></a></div>'
 		
 		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
 	'</div>'
@@ -105,8 +105,8 @@ if $args[0] ='deep_alley_fighting':
         '<p>·As soon as he entered the deep alley, a group of people surrounded him.</p>'
         '<p>Sledgehammer Gang leader: Hand over all the money on your body!Otherwise, there will be no good fruit to eat!</p>'
         '<p>·——————·</p>'
-        $i_am_fighting_force_1=$my.intelligence+$my.physical_strength
-        '<p>·My intelligence: Lv<<$my.intelligence>>; Physical fitness: Lv<<$my.physical_strength>>;Combat effectiveness=<<$i_am_fighting_force_1>></p>'
+        $i_am_fighting_force_1=my.intelligence+my.physical_strength
+        '<p>·My intelligence: Lv<<my.intelligence>>; Physical fitness: Lv<<my.physical_strength>>;Combat effectiveness=<<$i_am_fighting_force_1>></p>'
         $enemy_combat_power_1=15+rand(3,10)
         '<p>·Number of opponents: 4; comprehensive combat effectiveness=<<$enemy_combat_power_1>></p>'
         $sledgehammer_drop_rate=50/($i_am_fighting_force_1-$enemy_combat_power_1)
@@ -119,7 +119,7 @@ if $args[0] ='deep_alley_fighting_2':
     '<div class ="show_menu"><img src="images\place\大别墅\深巷X.jpg" width="854"></div>'
 
     '<div class="button_menu">'
-        if $number_of_sledgehammers_dropped<=$sledgehammer_drop_rate:'<div class="button"><a href="exec:minutes+=15 & $sledgehammer+=1 & gt ''deep_alley''">Confiscate the hammer</a></div>'
+        if $number_of_sledgehammers_dropped<=$sledgehammer_drop_rate:'<div class="button"><a href="exec:minutes+=15 & sledgehammer+=1 & gt ''deep_alley''">Confiscate the hammer</a></div>'
         '<div class="button"><a href="exec:minutes+=60 & gt ''deep_alley''">leave</a></div>'
     '</div>'
 

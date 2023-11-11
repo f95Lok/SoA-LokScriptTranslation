@@ -153,7 +153,7 @@ end
 
 
 if $ARGS[0]="adjutant`s_office":
-	if $urban_construction_satisfaction<=-100:gt 'boss_event','boss_fuck_evil_punishment'
+	if urban_construction_satisfaction<=-100:gt 'boss_event','boss_fuck_evil_punishment'
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
              <source src="images\NPC\LB\vids\立绘.webm" type=''video/webm;''></video></div>'
@@ -161,9 +161,9 @@ if $ARGS[0]="adjutant`s_office":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:$adjutant_dialogue=1 & gt ''mayors_office'',''adjutant`s_office''">处理Handling complaints from citizens↓</a></div>'
-		if $camping_garbage=2:'<div class="buttonGn"><a href="exec:$urban_construction_satisfaction+=rand(30,40) & gt ''boss_event'',''boss_fuck_garbage_s''">↑I`ve cleaned it all up↑</a></div>'
-		if $camping_garbage=3:'<div class="buttonR4"><a href="exec:$urban_construction_satisfaction-=rand(50,60) & gt ''boss_event'',''boss_fuck_fuck_defeat''">耽误Delayed by the woman↑</a></div>'
-		if $urban_construction_satisfaction>=100:'<div class="buttonGn"><a href="exec:gt ''boss_event'',''boss_fuck_next_home_1''">↑You can get off work early↑</a></div>'
+		if $camping_garbage=2:'<div class="buttonGn"><a href="exec:urban_construction_satisfaction+=rand(30,40) & gt ''boss_event'',''boss_fuck_garbage_s''">↑I`ve cleaned it all up↑</a></div>'
+		if $camping_garbage=3:'<div class="buttonR4"><a href="exec:urban_construction_satisfaction-=rand(50,60) & gt ''boss_event'',''boss_fuck_fuck_defeat''">耽误Delayed by the woman↑</a></div>'
+		if urban_construction_satisfaction>=100:'<div class="buttonGn"><a href="exec:gt ''boss_event'',''boss_fuck_next_home_1''">↑You can get off work early↑</a></div>'
 		
 		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
 	'</div>'
@@ -175,7 +175,7 @@ if $ARGS[0]="adjutant`s_office":
 		'<p><<$LB.name>>: Since the fire in the camping area, the citizens have paid special attention to the problem of cleaning up flammable garbage. Go and see the garbage removal situation in the camping area.</p>'
 		if $camping_garbage=0:$camping_garbage=1
 		end
-		'<p>·Citizens` satisfaction with the Ministry of Urban Construction：<<$urban_construction_satisfaction>>%</p>'
+		'<p>·Citizens` satisfaction with the Ministry of Urban Construction：<<urban_construction_satisfaction>>%</p>'
 	'</div>'
 end
 
@@ -185,12 +185,12 @@ if $ARGS[0]="proposal":
 	'<div class ="show_menu"><img src="images\place\提案.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
-		if $restaurant_management=1 and $the_restaurant_can_propose=1:'<div class="buttonB1"><a href="exec:$proposed_content=''&quot;The restaurant provides sexual services&quot;'' & gt ''mayors_office'',''dark_council''">&quot;The restaurant provides sexual services&quot;</a></div>'
-		if $open_coast!1:'<div class="buttonR1"><a href="exec:$proposed_content=''&quot;Open the coast to the public&quot;'' & $parliament.empire=1  & gt ''mayors_office'',''dark_council''">&quot;Open the coast to the public&quot;</a></div>'
+		if restaurant_management=1 and the_restaurant_can_propose=1:'<div class="buttonB1"><a href="exec:$proposed_content=''&quot;The restaurant provides sexual services&quot;'' & gt ''mayors_office'',''dark_council''">&quot;The restaurant provides sexual services&quot;</a></div>'
+		if open_coast!1:'<div class="buttonR1"><a href="exec:$proposed_content=''&quot;Open the coast to the public&quot;'' & $parliament.empire=1  & gt ''mayors_office'',''dark_council''">&quot;Open the coast to the public&quot;</a></div>'
 		if $airport_progress=2:'<div class="buttonS"><a href="exec:$proposed_content=''&quot;Aerial sex Service&quot;'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">&quot;Aerial sex Service&quot;</a></div>'
-		if $the_gym_passed=0 and $new_stadium=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school gymnasium is open to the public`'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">`Open the gymnasium to the public`</a></div>'
-		if $swimming_pool_through=0 and $new_swimming_pool=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school swimming pool is open to the public`'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">`Open swimming pool to the public`</a></div>'
-          if $the_library_passed=0 and $new_library=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school library is open to the public`'' & $parliament.empire=1  & gt ''mayors_office'',''dark_council''">`Open the library to the public`</a></div>'
+		if $the_gym_passed=0 and new_stadium=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school gymnasium is open to the public`'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">`Open the gymnasium to the public`</a></div>'
+		if $swimming_pool_through=0 and new_swimming_pool=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school swimming pool is open to the public`'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">`Open swimming pool to the public`</a></div>'
+          if $the_library_passed=0 and new_library=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school library is open to the public`'' & $parliament.empire=1  & gt ''mayors_office'',''dark_council''">`Open the library to the public`</a></div>'
 		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
 	'</div>'
 	
@@ -216,7 +216,7 @@ if $ARGS[0]="dark_council":
 		'<p><<$CT.name>>: I will reduce the total amount of semen handed over in prison by 10%.And everyone here can continue to enjoy the one-year Imperial Group SVIP private jet service.</p>'
 		'<p><<$CJ.name>>: It seems that everyone has reached an agreement...Let`s vote by show of hands…</p>'
 		'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
-		$restaurant_management=2
+		restaurant_management=2
 		end
 		
 		if $proposed_content='&quot;Open the coast to the public&quot;':
@@ -227,7 +227,7 @@ if $ARGS[0]="dark_council":
 		if $parliament.empire=1:'<p>【Agree】【Agree】【Reject】【Agree】【Agree】·One vote rejected<a href="exec:gt ''empire_event'',''imperial_fuck_book_book_booking''">-Private conversation</a></p>'
 		if $parliament.empire=0:
 			'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
-			$open_coast=1
+			open_coast=1
 			end
 		end
 		

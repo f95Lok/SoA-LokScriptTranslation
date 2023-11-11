@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -47,7 +47,7 @@ if $args[0]="girl_in_town":
 		'<p><<$SX.name>>:Magic City?No... ah, yes, yes!I came here from the Magic Capital to visit relatives! You, you are such a good person.</p>'
 		'<p>Me: The application is approved!Let`s go before the leader comes to blame me!The word good person is not auspicious.By the way, if you are okay tonight, you can go to Kabukicho to see, where there are usually low-cost rental houses.</p>'
 		'<p><<$SX.name>>:Thank you…</p>'
-		if $chain_of_lost_hometown_events=0:$chain_of_lost_hometown_events=1
+		if chain_of_lost_hometown_events=0:chain_of_lost_hometown_events=1
 	 end
 	 
 	'</div>'
@@ -76,7 +76,7 @@ if $args[0]="deep_alley":
 		'<p><<$SX.name>>:Thank you so much!</p>'
 		'<p>Me: You should go up and see how the environment of the single room is. If you are not satisfied, it is still too late to refund the rent.</p>'
 		'<p><<$SX.name>>:good!</p>'
-		$chain_of_lost_hometown_events=2
+		chain_of_lost_hometown_events=2
 		$SX.room=1
 	 end
 
@@ -220,8 +220,8 @@ if $args[0]="sx_fuck_sofa":
 
 
     if a=10:
-         $SX.bad+=q+$my.charm
-         $SX.love+=q+$my.charm
+         $SX.bad+=q+my.charm
+         $SX.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SX.name>>:Ah❤ah❤so cool...why are you...so amazing❤</p>'
              '<p>Me: My philosophy in life is to live 100%, the one that remains the same is to love you, and the remaining 90% is to do you seriously ❤</p>'
@@ -266,7 +266,7 @@ if $args[0]="sx_fuck_hot_spring":
             '<div class="buttonS5"><a href="exec:a=8 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Ejaculation </a></div>'
             end
             if a=8:
-            '<div class="buttonB1"><a href="exec:a=9 & $my.energy+=999 &  gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Sleep together </a></div>'
+            '<div class="buttonB1"><a href="exec:a=9 & my.energy+=999 &  gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Sleep together </a></div>'
             end
             if a=9:
             '<div class="buttonB1"><a href="exec:a=10 & minutes+=1440 & hour=7 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Early the next morning </a></div>'
@@ -334,8 +334,8 @@ if $args[0]="sx_fuck_hot_spring":
 
 
     if a=14:
-         $SX.bad+=q+q+$my.charm
-         $SX.love+=q+q+$my.charm
+         $SX.bad+=q+q+my.charm
+         $SX.love+=q+q+my.charm
          '<div class="dialog_menu">'
              '<p>Me: How is it ❤ Are you satisfied with the day trip to the hot spring?</p>'
              '<p><<$SX.name>>:The hot springs are great ❤The day trip is also great ❤I look forward to coming again next time!</p>'
@@ -409,8 +409,8 @@ if $args[0]="sx_fuck_hotel":
 
 
     if a=10:
-         $SX.bad+=q+$my.charm
-         $SX.love+=q+$my.charm
+         $SX.bad+=q+my.charm
+         $SX.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SX.name>>:Let`s go back, I`m still used to doing it at home❤</p>'
              '<p>Me: I listen to you ❤</p>'
@@ -479,12 +479,12 @@ if $args[0]="sx_fuck_massage":
 
 
     if a=8:
-         $SX.bad+=q+$my.charm
+         $SX.bad+=q+my.charm
          $SX.love+=q
-         $sx_massage_num+=1
+         sx_massage_num+=1
          '<div class="dialog_menu">'
-             if $sx_massage_num<3:
-             '<p><<$SX.name>>:I think ❤I know what to do ❤This is the first<<$sx_massage_num>>/3 times guidance</p>'
+             if sx_massage_num<3:
+             '<p><<$SX.name>>:I think ❤I know what to do ❤This is the first<<sx_massage_num>>/3 times guidance</p>'
              '<p>Me: Practice a few more times ❤ You will be able to master it soon❤</p>'
              else:
              '<p><<$SX.name>>:Under the guidance of these few times ❤ I have completely mastered it!</p>'
@@ -557,8 +557,8 @@ if $args[0]="sx_fuck_custom":
 
 
     if a=8:
-         $SX.bad+=q+$my.charm
-         $SX.love+=q+$my.charm
+         $SX.bad+=q+my.charm
+         $SX.love+=q+my.charm
          '<div class="dialog_menu">'
              '<p><<$SX.name>>:What I said is true... I`m vegetarian... I only fly at most.…</p>'
              '<p>Me:彳亍. </p>'

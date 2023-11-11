@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=3
+my.energy-=3
 minutes+=15
 
 '<div id="right-column">'
@@ -25,15 +25,15 @@ if $ARGS[0]="feeding_task":
 	'<div class="dialog_menu">'
 		'<p><<$mcat>>:Can you do me a favor?I may not have time to feed those stray cats tonight…</p>'
 		'<p>Me: You are so caring and hardworking.</p>'
-		$cat_feeding_time=rand(0,4)
-		$cat_feeding_task=1
-		'<p><<$mcat>>:Great!They are usually late at night<<$cat_feeding_time>>Appeared near a residential area around one o`clock…</p>'
+		cat_feeding_time=rand(0,4)
+		cat_feeding_task=1
+		'<p><<$mcat>>:Great!They are usually late at night<<cat_feeding_time>>Appeared near a residential area around one o`clock…</p>'
 	'</div>'
 end
 
 
 if $ARGS[0]="feed_the_cat":
-	$cat_feeding_task=0
+	cat_feeding_task=0
 	'<div class ="show_menu"><img src="images\place\喂猫<<a>>.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
@@ -48,8 +48,8 @@ if $ARGS[0]="feed_the_cat":
 		if a=1:
 			'<p>Me: What a poor little guy…</p>'
 			'<p><<$mcat>>The favorability has increased!</p>'
-			if $mcat=$TS.name:$TS.love+=rand(1,$my.charm)
-			if $mcat=$SX.name:$SX.love+=rand(1,$my.charm)
+			if $mcat=$TS.name:$TS.love+=rand(1,my.charm)
+			if $mcat=$SX.name:$SX.love+=rand(1,my.charm)
 		end
 	'</div>'
 end
@@ -124,7 +124,7 @@ if $ARGS[0]="play_tennis":
 end
 
 if $ARGS[0]="play_tennis_2":
-	if $my.physical_strength>=$tennis_girl_number:
+	if my.physical_strength>=$tennis_girl_number:
 		'<div class ="show_menu"><img src="images\task\网球 (11).jpg" height="492"></div>'
 		
 		'<div class="button_menu">'
@@ -133,7 +133,7 @@ if $ARGS[0]="play_tennis_2":
 		'</div>'
 		
 		'<div class="dialog_menu">'
-		'<p>My physique: Lv<<$my.physical_strength>></p>'
+		'<p>My physique: Lv<<my.physical_strength>></p>'
 		'<p>Her physique: Lv<<$tennis_girl_number>></p>'
 		'<p>▶Random event judgment◀</p>'
 		'<p>Me: Easy!Come again!</p>'
@@ -147,7 +147,7 @@ if $ARGS[0]="play_tennis_2":
 		'</div>'
 		
 		'<div class="dialog_menu">'
-		'<p>My physique: Lv<<$my.physical_strength>></p>'
+		'<p>My physique: Lv<<my.physical_strength>></p>'
 		'<p>Her physique: Lv<<$tennis_girl_number>></p>'
 		'<p>▶Random event judgment◀</p>'
 		'<p>Me: Damn it!Why can`t I catch a ball?！</p>'
@@ -232,14 +232,14 @@ end
 
 
 if $ARGS[0]="male_passerby":
-	$male_passerby_num=rand(0,5)
-	'<div class ="show_menu"><img src="images\task\男路人 (<<$male_passerby_num>>).jpg" height="492"></div>'
+	male_passerby_num=rand(0,5)
+	'<div class ="show_menu"><img src="images\task\男路人 (<<male_passerby_num>>).jpg" height="492"></div>'
 	
 	'<div class="button_menu">'
 		if $succubus_contract=1:
-		if $male_passerby_num<=2:'<div class="buttonPu3"><a href="exec:$first_class_squeezer+=1 & gt ''residential_area''">Write down his phone number</a></div>'
-		if $male_passerby_num=3 or $male_passerby_num=4:'<div class="buttonPu4"><a href="exec:$second_level_squeezer+=1 & gt ''residential_area''">Write down his phone number</a></div>'
-		if $male_passerby_num=5:'<div class="buttonPu5"><a href="exec:$three_level_squeezer+=1 & gt ''residential_area''">Write down his phone number</a></div>'
+		if male_passerby_num<=2:'<div class="buttonPu3"><a href="exec:first_class_squeezer+=1 & gt ''residential_area''">Write down his phone number</a></div>'
+		if male_passerby_num=3 or male_passerby_num=4:'<div class="buttonPu4"><a href="exec:second_level_squeezer+=1 & gt ''residential_area''">Write down his phone number</a></div>'
+		if male_passerby_num=5:'<div class="buttonPu5"><a href="exec:three_level_squeezer+=1 & gt ''residential_area''">Write down his phone number</a></div>'
 		end
 		'<div class="button"><a href="exec:gt ''residential_area''">No comment</a></div>'
 	'</div>'
@@ -255,26 +255,26 @@ end
 if $ARGS[0]="huntingpassersby":
 	minutes+=15
 	if q=0:
-		$hunting_num=rand(1,82)
-		$hunting_difficulty=rand(50,200)
+		hunting_num=rand(1,82)
+		hunting_difficulty=rand(50,200)
 		q=1
 	end
-	'<div class ="show_menu"><img src="images\task\女A (<<$hunting_num>>).jpg" height="492"></div>'
+	'<div class ="show_menu"><img src="images\task\女A (<<hunting_num>>).jpg" height="492"></div>'
 	
 	'<div class="button_menu">'
 		if q=1:'<div class="buttonS"><a href="exec:q=2 & gt ''task_event'',''huntingpassersby''">Recommend medical beauty and plastic surgery</a></div>'
-		if q=2 and $hunting_difficulty<=$my.intelligence*10:'<div class="buttonPu5"><a href="exec:q=0 & gt ''plasticity_event'',''zx_fuck_reward''">Take her to plastic surgery</a></div>'
-		if q=2 and $hunting_difficulty>$my.intelligence*10 and $succubus_energy>0:'<div class="buttonPu5"><a href="exec:$succubus_energy-=1 & q=0 & gt ''plasticity_event'',''zx_fuck_reward''"><font color="#FF00FF">Hypnosis: Compulsory plastic surgery❤</font></a></div>'
+		if q=2 and hunting_difficulty<=my.intelligence*10:'<div class="buttonPu5"><a href="exec:q=0 & gt ''plasticity_event'',''zx_fuck_reward''">Take her to plastic surgery</a></div>'
+		if q=2 and hunting_difficulty>my.intelligence*10 and $succubus_energy>0:'<div class="buttonPu5"><a href="exec:$succubus_energy-=1 & q=0 & gt ''plasticity_event'',''zx_fuck_reward''"><font color="#FF00FF">Hypnosis: Compulsory plastic surgery❤</font></a></div>'
 		'<div class="button"><a href="exec:gt ''residential_area''">Pass by</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
 	'<p>▶Random event trigger◀</p>'
 	'<p>Anxious woman: My boyfriend said I was fat again. Oh, should I have liposuction?Strange, the man who came over from the opposite side didn`t even look at me. Am I not sexy enough?</p>'
-	'<p>▶The difficulty of persuading women：<<$hunting_difficulty>>◀</p>'
+	'<p>▶The difficulty of persuading women：<<hunting_difficulty>>◀</p>'
 	if q=2:
 		'<p>Me: The love of beauty is innate to every woman. Even if she is not pleasing to herself, she is also beautiful for herself.Regardless of age, it is a matter of course to have a heart that loves beauty and to pay money and actions for the beauty of one`s own appearance.It just so happens that I know that there is a place where medical beauty and plastic surgery are super awesome…</p>'
-		if $hunting_difficulty>$my.intelligence*10:
+		if hunting_difficulty>my.intelligence*10:
 			'<p>·Persuasion judgment: ▶Complete failure▶</p>'
 		    '<p>Anxious woman: Where are you beeping and what are you beeping? Get up and go, don`t be the way.</p>'
 		else:

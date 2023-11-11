@@ -199,8 +199,6 @@ def translate(text, data_type):
             translation = translation.replace(" ", "_").lower()
             while translation.find("__") != -1:
                 translation = translation.replace("__", "_")
-        if data_type == _variables_ and translation[0] != "$":
-            translation = "$" + translation
 
         translation = translation.replace("'", "`").replace('"', "`")
 

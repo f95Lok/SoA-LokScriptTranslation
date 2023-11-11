@@ -3,7 +3,7 @@ cls
 $metka = $ARGS[0]   
 $loc = $CURLOC
 gs'menu_gif'
-$my.energy-=5
+my.energy-=5
 minutes+=15
 
 '<div id="right-column">'
@@ -30,16 +30,16 @@ if $args[0]="second_round":
 	$interview_options[5]='A-Will never tolerate B-Violations of the law will be investigated C-The behavior of temporary workers D-Accountability to the end '
 	if a!6:
 		'<div class="button_menu">'
-			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=1000& gt ''rion_event'',''second_round''">Choose A</a></div>'
-			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=100& gt ''rion_event'',''second_round''">Choose B</a></div>'
-			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=10& gt ''rion_event'',''second_round''">Choose C</a></div>'
-			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=1& gt ''rion_event'',''second_round''">Choose D</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &interview_num+=1000& gt ''rion_event'',''second_round''">Choose A</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &interview_num+=100& gt ''rion_event'',''second_round''">Choose B</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &interview_num+=10& gt ''rion_event'',''second_round''">Choose C</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &interview_num+=1& gt ''rion_event'',''second_round''">Choose D</a></div>'
 		'</div>'
 
 		else:
 			'<div class="button_menu">'
-				if $interview_num=1013:'<div class="button"><a href="exec:minutes+=30 & $rion_interview=2 & gt ''city_hall''">Passed the written test</a></div>'
-				if $interview_num!1013:'<div class="button"><a href="exec:minutes+=30 & gt ''city_hall''">Failed the written test</a></div>'
+				if interview_num=1013:'<div class="button"><a href="exec:minutes+=30 & $rion_interview=2 & gt ''city_hall''">Passed the written test</a></div>'
+				if interview_num!1013:'<div class="button"><a href="exec:minutes+=30 & gt ''city_hall''">Failed the written test</a></div>'
 			'</div>'
 	end
 
@@ -52,8 +52,8 @@ if $args[0]="second_round":
 
 	if a=6:
 	 '<div class="dialog_menu">'
-	 	 if $interview_num=1013:'<p><<$RION.name>>:emmmmmm...Congratulations...You answered all correctly.The next interview is the most difficult, so go back and prepare well!</p>'
-	 	 if $interview_num!1013:'<p><<$RION.name>>:emmmmmm...sorry...You must answer all five questions correctly.Go back and get ready!</p>'
+	 	 if interview_num=1013:'<p><<$RION.name>>:emmmmmm...Congratulations...You answered all correctly.The next interview is the most difficult, so go back and prepare well!</p>'
+	 	 if interview_num!1013:'<p><<$RION.name>>:emmmmmm...sorry...You must answer all five questions correctly.Go back and get ready!</p>'
 	 '</div>'
 	 end 
 
@@ -278,7 +278,7 @@ if $args[0]="RION_Event_NTR":
 
 	if a=13:
 		 $RION.bad+= q*3/2
-		 $RION.love+= q+$my.charm
+		 $RION.love+= q+my.charm
 		 '<div class="dialog_menu">'
 			 '<p>Me: It is worthy of being an immigration auditor who reviews more than 50 people every day. My physical strength almost can`t keep up.</p>'
 		 	 '<p><<$RION.name>>: Before he finds out, let`s go, we will come every Sunday at noon.Hehe, this kind of excitement of cheating seems to be easier to orgasm...</p>'
@@ -358,7 +358,7 @@ if $args[0]="rion_fuck_hot_spring":
 
 	if a=9:
 		 $RION.bad+= q+3
-		 $RION.love+= q*3/2+$my.charm
+		 $RION.love+= q*3/2+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$RION.name>>:I`ll lick it clean for you... I won`t be as sloppy as I was to the reviewer.…</p>'
 			 '<p>Me: You are so kind.</p>'
@@ -422,7 +422,7 @@ if $args[0]="rion_fuck_dinner":
 
 		else:
 			'<div class="button_menu">'
-				if $RION.bad>=200-$RION.love:'<div class="button"><a href="exec:minutes+=1440& hour=7 &a=0 & q=0& $my.energy=mymax[$energy] & gt ''rion_event'',''rion_fuck_morning_cannon''">Stay overnight</a></div>'else:'<div class="buttonGr"><a href="exec:">stay?？</a></div>'
+				if $RION.bad>=200-$RION.love:'<div class="button"><a href="exec:minutes+=1440& hour=7 &a=0 & q=0& my.energy=mymax[energy] & gt ''rion_event'',''rion_fuck_morning_cannon''">Stay overnight</a></div>'else:'<div class="buttonGr"><a href="exec:">stay?？</a></div>'
 				'<div class="button"><a href="exec:minutes+=15 & a=0 & q=0 & gt ''rion_event'',''rion_fuck_fuck''">Knock on the door</a></div>'
 			'</div>'
 	end
@@ -466,7 +466,7 @@ if $args[0]="rion_fuck_dinner":
 
 	if a=9:
 		 $RION.bad+= q*3/2
-		 $RION.love+= q*3/2+$my.charm
+		 $RION.love+= q*3/2+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p><<$RION.name>>: My sister`s wine is like this...Won`t wake up, don`t worry.But if she finds out, she will suffer, she is not easy to coax.</p>'
 			 '<p>Me: Then we have to be careful.</p>'
@@ -553,7 +553,7 @@ if $args[0]="rion_fuck_morning_cannon":
 
 	if a=11:
 		 $RION.bad+= q*3/2
-		 $RION.love+= q*3/2+$my.charm
+		 $RION.love+= q*3/2+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p>Voice outside the door: Sister!Have you seen my panties?</p>'
 		 	 '<p><<$RION.name>>:.....Shhh----It seems that we can only pause first~</p>'
@@ -639,7 +639,7 @@ if $args[0]="rion_fuck_fuck":
 
 	if a=11:
 		 $RION.bad+= q*2
-		 $RION.love+= q*2+$my.charm
+		 $RION.love+= q*2+my.charm
 		 '<div class="dialog_menu">'
 		 	 '<p>·As the meat stick pulled away from her body, she suddenly limped on the bed.</p>'
 		 	 '<p><<$RION.name>>:So cool... I like it so much…</p>'

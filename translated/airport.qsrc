@@ -68,7 +68,7 @@ if $ARGS[0]="crew_office":
 End
 
 if $ARGS[0]="crew_office_2":
-		$internal_schedule=$internally_determined_captain+$internal_economy_class+$internal_sleeper+$internally_determined_hot_girl+$internal_cleaning
+		internal_schedule=internally_determined_captain+internal_economy_class+internal_sleeper+internally_determined_hot_girl+internal_cleaning
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
              <source src="images\NPC\QJ\vids\机场办公_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
@@ -76,10 +76,10 @@ if $ARGS[0]="crew_office_2":
 		
 	'<div class="button_menu">'
 		'<div class="buttonG3"><a href="exec:minutes+=15 & gt ''empire_event'',''empire_fuck_stewardess_training''">Recruitment & Training<<$training_progress>>/3</a></div>'
-		if $airport_progress>=4 and $training_progress>=3:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_internally_selected_candidates''">Select candidates within the inspection<<$internal_schedule>>/5</a></div>'
-		if $internal_schedule>=5:
+		if $airport_progress>=4 and $training_progress>=3:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_internally_selected_candidates''">Select candidates within the inspection<<internal_schedule>>/5</a></div>'
+		if internal_schedule>=5:
 			if $times_of_day!'':'<div class="buttonS2"><a href="exec:$QJ.love+=1 & gt ''empire_event'',''empire_fuck_send_her_home''">Take her home</a></div>'else:'<div class="buttonGr"><a href="exec:">Wait for her to finish</a></div>'
-			if $QJ.bad>=100+$my.charm*15:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_women`s_office_1''">Close the door and fuck her</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<$my.charm*15+100>></a></div>'
+			if $QJ.bad>=100+my.charm*15:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_women`s_office_1''">Close the door and fuck her</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<my.charm*15+100>></a></div>'
 		end
 		'<div class="button"><a href="exec:minutes+=15 & gt ''airport''">return</a></div>'
 	'</div>'
@@ -90,7 +90,7 @@ if $ARGS[0]="crew_office_2":
 		'<p><<$QJ.NAME>>:The first is to lay off flight attendants who are unwilling to provide sexual services.</p>'
 		'<p><<$QJ.NAME>>:Secondly, recruit and train social women who are willing to work part-time.</p>'
 		'<p><<$QJ.NAME>>:Finally, continuous unannounced visits to optimize the crew configuration, thereby improving passenger satisfaction and airline operating income.Through fine-grained staffing management, we can ensure that crew members can give full play to their advantages in different tasks and scenarios, provide excellent services and solutions, and win more praise and repeat customers for airlines.</p>'
-		if $internal_schedule>=5:'<p>Me: It seems that things are almost done, and the satisfaction of passengers and the enthusiasm of the crew have increased significantly.</p>'
+		if internal_schedule>=5:'<p>Me: It seems that things are almost done, and the satisfaction of passengers and the enthusiasm of the crew have increased significantly.</p>'
 	'</div>'
 End
 

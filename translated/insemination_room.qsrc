@@ -21,9 +21,9 @@ q=0
  if 75<=sheshop and sheshop<100:$sheshop_name="Famous"
  if 100<=sheshop and sheshop<10000:$sheshop_name="Well-known"
  if 10000<=sheshop:$sheshop_name="Become famous"
- $cmoney_insemination+=$cmoney_insemination*sheshop/1000000
+ cmoney_insemination+=cmoney_insemination*sheshop/1000000
 
-$insemination_room=1
+insemination_room=1
 
 if $ARGS[0]="":
 	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
@@ -37,7 +37,7 @@ if $ARGS[0]="":
 	'<div class="dialog_menu">'
 		'<p>·The weight of life is the markings on the abdomen.</p>'
 		'<p>·The current method of artificial insemination is：<<sheshop>> 处于 In<<$sheshop_name>>stage.</p>'
-		'<p>·The cumulative income of the massage parlor is：<<$cmoney_insemination>>￥</p>'
+		'<p>·The cumulative income of the massage parlor is：<<cmoney_insemination>>￥</p>'
 		'·<a href="exec:$m=''FT_1'' & $ma=''Experimenter'' & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">Imperial Group Experimenter</a>'
 	'</div>'
 End
@@ -58,7 +58,7 @@ if $ARGS[0]="insemination_list_1":
 
 	'<div class="dialog_menu">'
 		'<p>·The current method of artificial insemination is：<<sheshop>> 处于 In<<$sheshop_name>>stage.</p>'
-		'<p>·The cumulative income of the massage parlor is：<<$cmoney_insemination>>￥</p>'
+		'<p>·The cumulative income of the massage parlor is：<<cmoney_insemination>>￥</p>'
 	'</div>'
 End
 
@@ -74,7 +74,7 @@ if $ARGS[0]="insemination_list_2":
 
 	'<div class="dialog_menu">'
 		'<p>·The current method of artificial insemination is：<<sheshop>> 处于 In<<$sheshop_name>>stage.</p>'
-		'<p>·The cumulative income of the massage parlor is：<<$cmoney_insemination>>￥</p>'
+		'<p>·The cumulative income of the massage parlor is：<<cmoney_insemination>>￥</p>'
 	'</div>'
 End
 
@@ -85,12 +85,12 @@ if  $args[0]="withdraw":
     '<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
 
     '<div class="button_menu">'
-        '<div class="button"><a href="exec:minutes+=15 & money+=$cmoney_insemination*TXM/100  & Cmoney+=$cmoney_insemination/10000 & $cmoney_insemination=0 &  gt ''insemination_room'',''withdraw''">Withdraw</a></div>'
+        '<div class="button"><a href="exec:minutes+=15 & money+=cmoney_insemination*TXM/100  & Cmoney+=cmoney_insemination/10000 & cmoney_insemination=0 &  gt ''insemination_room'',''withdraw''">Withdraw</a></div>'
         '<div class="button"><a href="exec:minutes+=15 & gt ''company''">leave</a></div>'
     '</div>'
 
     '<div class="dialog_menu">'
-        '<p>·The cumulative benefits of artificial insemination are：<<$cmoney_insemination>>￥</p>'
+        '<p>·The cumulative benefits of artificial insemination are：<<cmoney_insemination>>￥</p>'
         '<p>·Withdrawal rules, each time you withdraw, you can only withdraw an amount of more than 10,000 ￥. The amount below 10,000 ￥ will be used as a corporate tax to support the pensions of female employees in the city hall.</p>'
         '<p>☺Based on the ability of the secretary【<<MS.power>>】 Can legally avoid taxes and transfer<<TXM>>% to personal account.</p>'
     '</div>'
