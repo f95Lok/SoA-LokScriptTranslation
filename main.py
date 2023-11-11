@@ -249,21 +249,32 @@ def handle_array(bracket):
             update_dict(brk, _variables_)
 
 
+def handle_embedded_variable(embedded_variable):
+    for variable in re.split(regex_operators, embedded_variable[2:-2]):
+        if any(bracket in variable for bracket in ["[", "]"]):
+            handle_array(variable)
+        else:
+            update_dict(variable, _variables_)
+
+
 def handle_embedded_variables(text):
     for embedded_variable in re.findall(regex_embedded_variable, text):
-        for variable in re.split(regex_operators, embedded_variable[2:-2]):
-            if any(bracket in variable for bracket in ["[", "]"]):
-                handle_array(variable)
-            else:
-                update_dict(variable, _variables_)
+        handle_embedded_variable(embedded_variable)
 
 
 def handle_text(text, force_type=_text_):
-    handle_embedded_variables(text)
-
+    embedded_variables = re.findall(regex_embedded_variable, text)
     texts = re.split(regex_embedded_variable, text)
-    for text in texts:
-        update_dict(text.replace("</p>", ""), force_type)
+
+    while len(embedded_variables) > 0 or len(texts) > 0:
+        if len(embedded_variables) == 0:
+            update_dict(texts.pop(0).replace("</p>", ""), force_type)
+        elif len(texts) == 0:
+            handle_embedded_variable(embedded_variables.pop(0))
+        elif text.find(texts[0]) < text.find(embedded_variables[0]):
+            update_dict(texts.pop(0).replace("</p>", ""), force_type)
+        else:
+            handle_embedded_variable(embedded_variables.pop(0))
 
 
 def handle_texts(texts, force_type=_text_):
@@ -550,7 +561,7 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 101:
+        if i == 95:
             print("debug")
 
         if re.sub(regex_everything_mostly, "", line).strip() == "":
