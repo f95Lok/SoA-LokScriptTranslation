@@ -1,26 +1,28 @@
 # Hello there! (General Kenobi). If you're reading this then you've really gone off the deep end.
 # To quote a meme: "When I wrote this script, only me and God knew how it works. Now, only God knows."
 # In all seriousness, this was made as an alternative to QSPTools specifically for the game "Son of Asia"
-# While I tried to make it as general as possible. I recognize that the degree of variety in which QSP code can be
-#   written is way too vast and not at all completely covered by this script.
+# I advise against trying to use or adapt this script for another game. While I tried to keep it general at the start,
+#   I did not succeed, and there are many matches and finds that I doubt will be present in other games.
 # My attempts at making general cases also dwindled as my frustration grew.
 # It is a series of regex splits and finds to attempt to get all Chinese text that does not reference a filename
 #   while also categorizing it into variables, locations, arguments and plain text.
+#   It also checks all filename references around the code and reverts all translation for embedded variables
+#   It also creates auxiliary variables for embedded "ARGS" / "args" filename references
+#       This might result in useless arguments in some places but who cares as long as it doesn't break anything.
 # For now, because no translator API I was able to find was truly free, the script works based on detecting clipboard
 #   changes. You will be prompted to translate a text, which will also be automagically added to your clipboard.
 #   When you copy something else into your clipboard, the script will automagically use that as the translation.
 #   So be careful how you CTRL+C around your code. If you fuck up, you can just stop the execution and edit in the xml.
 # If you're reading this paragraph, it means I still didn't find a free API.
 #   If you know of one, or one that allows scraping without any consequences, please do let me know.
+#   There is an auto function now, but it's based on being able to alt tab into yandex and using the keyboard shortcuts.
+#   It's very fragile. Use it at your own discretion
 # This script also requires an editor that has a console capable of handling UTF-8 prints.
 #   I used PyCharm. Sublime doesn't work. Plain old console kinda works, but you won't see the text you're translating
 #   VSCode idk, I don't use VSCode. I hate it.
 # Other than that, it needs 'pyperclip'.
 # It is 5:34 AM for me. I'm going to sleep
 # Have fun :D
-
-# PS: Oh, btw, if you're using this for a different game, you might wanna delete all the "old_xml" uses.
-# Probably not very useful for you.
 
 import pyperclip as clip
 import pyautogui as pgui
