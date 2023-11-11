@@ -1,0 +1,92 @@
+# home_sisters_room
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+	a=0
+	q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'home_map'
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class ="show_menu"><img src="images\place\姐姐房间.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''home_sisters_room''">Kill time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>....</p>'
+	'</div>'
+end
+
+if $ARGS[0] ="sister_sleep":
+	a=0
+	q=0
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐睡觉.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $my.ethics<0:
+		'<div class="button"><a href="exec:gt ''sister_event'',''night_attack''">Night attack</a></div>'
+		end
+		
+		
+		
+		'<div class="button"><a href="exec:gt ''home''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>sleeping....What should I be able to do if I am evil enough....</p>'
+	'</div>'
+end
+
+
+
+if $ARGS[0] ="sister`s_weekend_room":
+	a=0
+	q=0
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐房间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$chat=''JJ''& $where_to_go_out = ''home'' & addlove=0 &addbad=0 & gt ''universal_chat''">interaction</a></div>'
+		if  $jj.bad>=50 and $plant_number_of_studies>=15:'<div class="buttonGn"><a href="exec:  gt ''sister_event'',''jj_fuck_home''">Release pressure</a></div>'else:'<div class="buttonGr"><a href="exec:">release?？</a></div>'
+		if $jj.event_shopping!3:
+		'<div class="button"><a href="exec:minutes+=60 & $jj.event_shopping=1 & gt ''home''">Daily tasks</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>After washing up, she was about to go to the office. She only went to the office an hour later than usual on weekends. It seemed that scientific research work was very important to her.</p>'
+		if $jj.event_shopping!3:
+		'<p>————————————————Daily tasks———————</p>'
+		'<p><<$jj.name>>: Brother!Can you help me go to the mall to buy 1.1 kg of urea, 3.17 kg of calcium, 3.17 kg of potassium sulfate, and 0.45 kg of magnesium sulfate?</p>'
+		'<p><<$jj.name>>:By the way, don`t tell anyone about this.After buying it, secretly go to my office and give it to me.</p>'
+		'<p>————————————————Daily tasks———————</p>'
+		end
+	'</div>'
+end
+
+if $ARGS[0] ="sister`s_room_at_night":
+	$random_number=rand(1,100)
+	 if  $jj.bad>=50 and $random_number<=15:gt'sister_event','jj_fuck_senior'
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐房间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	  if  $jj.bad>=50 and $plant_number_of_studies>=15:'<div class="buttonS"><a href="exec:  gt ''sister_event'',''jj_fuck_home''">Release pressure</a></div>'else:'<div class="buttonGr"><a href="exec:">release?？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''home''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>Reading &quot;Scientific Research&quot; in the bedroom, it seems that work is very important to her.</p>'
+	'</div>'
+end
+
+--- home_sisters_room ---------------------------------
+

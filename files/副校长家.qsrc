@@ -1,0 +1,40 @@
+# 副校长家
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+'<div class ="show_menu"><img src="images\place\副校长家.jpg" width="854"></div>'
+
+'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''作家_事件''"><<$ZJ.name>>房间</a></div>'
+	if hour>=18:'<div class="button"><a href="exec:minutes+=5 & gt ''副校长_事件'',''房间里''"><<$FXZ.name>>房间</a></div>'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">离开</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p><<$FXZ.name>>的家，充满着历史的文化气息。</p>'
+	$FXZhomeEvent=rand(0,10)
+	if hour>=18 or week_day >=6:
+		if  $FXZhomeEvent=0:'<p><<$FXZ.name>>在客厅里。'
+		if  $FXZhomeEvent=1:'<p><<$FXZ.name>>在厕所里。'
+		if  $FXZhomeEvent<=1:'<a href="exec:minutes+=5 & gt ''副校长_事件'',''家随机''">←过去操她！</a></p>'
+	end
+'</div>'
+
+
+
+
+--- 副校长家 ---------------------------------
+

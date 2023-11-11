@@ -1,0 +1,55 @@
+# menu_time
+'<div class="time_menu">'
+	 gs'menu_time_calc'
+	 
+	 
+	 if 每日天气=0:
+	  $天气[0]='☀晴'
+	  $天气[1]='☀晴'
+	  $天气[2]='☀晴'
+	  $天气[3]='☀晴'
+	  $天气[4]='☀晴'
+	  $天气[5]='☁云'
+	  $天气[6]='☁阴'
+	  $天气[7]='☁阴'
+	  $天气[8]='☂雨'
+	  $天气[9]='☂雨'
+	  $天气=$天气[rand(0,9)]
+	  每日天气=1
+	 end
+	 
+
+	 
+	 
+	 
+		'<p> <<$天气>> <<year>>年 <<$month_name[month]>> <<day>>日 <<$week_day[week_day]>>'
+		if  通关奖励领取>0:
+		'✌'
+		else:
+		''
+		end
+		if  魔王之瞳>0:
+		'♕'
+		else:
+		''
+		end
+		'</p>'
+		'<p> </p>'
+
+
+
+
+	if hour < 10 and minutes<10: '<p class ="timer">0<<hour>>:0<<minutes>></p>'
+	if hour >= 10 and minutes<10: '<p class ="timer"><<hour>>:0<<minutes>></p>'
+	if hour < 10 and minutes=>10: '<p class ="timer">0<<hour>>:<<minutes>></p>'
+	if hour => 10 and minutes=>10: '<p class ="timer"><<hour>>:<<minutes>></p>'
+	
+
+'</div>'
+
+
+gs "通用词库"
+gs"多能力判定"
+gs"NPC属性"
+--- menu_time ---------------------------------
+

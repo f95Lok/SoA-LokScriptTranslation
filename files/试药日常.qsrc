@@ -1,0 +1,368 @@
+# 试药日常
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+my.精力-=1
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show一半'
+	gs "BUG脱出"
+'</div>'
+
+
+if D<=0:
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5  &money+=MED & medicine=0 & Exp_身材-=RAND(3,10) & gt ''医院''">出院</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>AI广播：做得好，药物实验结束了，我们已经收集到了足够的数据。收到佣金总计：<<MED>>￥，但是肌肉受到了损伤。</p>'
+		'</div>'
+End
+
+if $args[0]="":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & $须知=1 & gt ''试药日常''">读住院须知</a></div>'
+			if $Q="一级" and  15>=hour  and  hour>=12 :'<div class="buttonQ"><a href="exec:minutes+=5 & gt ''群演_事件'',''医院_Fuck_一级护士''">呼叫护士</a></div>'
+			if $Q="二级" and $HS_Event_trouble=10 and $HS.love>=5:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''护士_事件'',''HS_Fuck_房间口交''">呼叫<<$HS.name>></a></div>'
+			if $Q="三级":
+				if  6>hour  and  hour>=0 :'<div class="buttonR"><a href="exec:minutes+=5 & gt ''群演_事件'',''医院_Fuck_三级护士A''">呼叫护士</a></div>'
+				if  12>hour  and  hour>=6 :'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''群演_事件'',''医院_Fuck_三级护士B''">呼叫护士</a></div>'
+				if  18>hour  and  hour>=12 :'<div class="buttonB"><a href="exec:minutes+=5 & gt ''群演_事件'',''医院_Fuck_三级护士C''">呼叫护士</a></div>'
+				if  24>=hour  and  hour>=18 :'<div class="buttonS"><a href="exec:minutes+=5 & gt ''群演_事件'',''医院_Fuck_三级护士D''">呼叫护士</a></div>'
+			End
+			
+			'<div class="button"><a href="exec:  gt ''试药日常'',''四处走走''">四处走走</a></div>'
+			if  rand(0,101)>=100 :'<div class="buttonPu2"><a href="exec:minutes+=5 & gt ''男科_事件'',''NK_Fuck_病房检查''">随机抽查</a></div>'
+			'<div class="button"><a href="exec:minutes+=45 & $须知=0 & gt ''试药日常''">发呆1h</a></div>'
+			if hour >=18:
+			'<div class="button"><a href="exec:minutes+=480 &  my.精力=mymax[精力] &D-=1 &gt ''试药日常''">签到、服药并睡觉</a></div>'
+			end
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·电子手环: ♦药物等级：<<$Q>>♦剩余试药期：<<D>>天。*请严格遵守住院须知的各项细则，如不签到服药，将视为无效试药。</p>'
+			if $Q="一级" and $须知=1:'<p>·每天8:00-21:00若无治疗项目，可以在医院院区内随意走动，但请不要离开医院管辖范围。</p>'
+			if $Q="二级" and $须知=1:'<p>·一、严禁实验者私自离开医院的管辖范围。二、院长承诺本院一定能够治疗好每位患者的疾病。三、本院所有大型重要手术由院长亲自操刀，无一失败。</p>'
+			if $Q="三级" and $须知=1:'<p><font color="#FF0000">·■■8:■0-2■:00■■治■■■，■■■■■■走■，但■■■■■■■■■■范围。</font></p>'
+			if my.精力<=0:'<p><font color="#FF0000">我精疲力竭了，被强制传唤了回来。但是不是睡觉的时间电子手环会一直发出电流让我清醒。</font></p>'
+		'</div>'
+End
+
+if $args[0]="四处走走":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房通道.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''试药日常'',''左转''">←左转</a></div>'
+			'<div class="button"><a href="exec: gt ''试药日常'',''护士站''">右转→</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·AI广播: ♦警告♦前方右转</p>'
+		'</div>'
+End
+
+
+if $args[0]="左转":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			if uniform>0 and $Q!"三级":'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''J3区域''">穿上医生服</a></div>'
+			if uniform>0 and $Q="三级":'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''J3区域_里''">穿上医生服</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·AI广播: ♦警告♦J3区域检测到在途的非科研人员，请迅速离开该区域。</p>'
+		'</div>'
+End
+
+if $args[0]="护士站":
+		if  hour>=21 or hour<=5:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\护士站2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\护士站~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		End
+		
+		'<div class="button_menu">'
+			if  hour>=21 or hour<=5:
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''更衣室''">更衣室</a></div>'
+			else:
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''更衣室有人''">更衣室</a></div>'
+			end
+			if $Q="二级":
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台''">←前台</a></div>'
+			else:
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''前台''">←前台</a></div>'
+			End
+			if $times_of_day="":'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''门诊部''">门诊部→</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			if 5< hour and hour<21:
+			'<p>护士: 姐妹们，都带上自己的玩伴，今晚我家集合，我们玩个痛快的！</p>'
+			else:
+			'<p>灯都关了，空无一人</p>'
+			end
+		'</div>'
+End
+
+if $args[0]="更衣室":
+	 '<div class ="show_menu"><img src="images\place\医院场景\护士间.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			if  uniform=0:'<div class="button"><a href="exec:uniform=1 & gt ''试药日常'',''更衣室''">拿走■医生的工作服</a></div>'
+			if  uniform!0:'<div class="button"><a href="exec:uniform=0 & gt ''试药日常'',''更衣室''">归还■医生的工作服</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>这些医生服有几件还没有送去清洗，穿上它应该就能穿过J3区域了吧！？怎么上面全是精液的臭味...</p>'
+			if 大别墅初次>=1 and 护士锤子=0:'<p>·在某人的衣柜里发现了一把沾血的【大锤】<a href="exec:大锤+=1 & 护士锤子=1 &  gt ''试药日常'',''更衣室''">-拿走</a></p>'
+		'</div>'
+End
+
+if $args[0]="更衣室有人":
+	 '<div class ="show_menu"><img src="images\place\医院场景\护士间<<$Q>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>有人在里面休息...</p>'
+		'</div>'
+End
+
+if $args[0]="J3区域":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转一级.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''档案室''">档案室</a></div>'
+			'<div class="button"><a href="exec:minutes+=15& gt ''群演_事件'',''医院_Fuck_睡眠前''">睡眠治疗室</a></div>'
+			if $SS_Event_free>=3:'<div class="button"><a href="exec:minutes+=15 & gt ''捐精室'',''偷窥实验''">精源项目室</a></div>'else:'<div class="buttonGr"><a href="exec:">精源项目室</a></div>'
+			if $督察事件链>=8:'<div class="button"><a href="exec:minutes+=15 & gt ''督察_事件'',''DC_Fuck_生物实验室''">生物试验室</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>正在通过安全扫描.....您以进入实验区域。</p>'
+		'</div>'
+End
+
+if $args[0]="J3区域_里":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转三级.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''试药日常'',''档案室_里''">██室</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15& gt ''群演_事件'',''医院_Fuck_睡眠前''">█眠█疗室</a></div>'
+			if $SS_Event_free>=3:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''捐精室'',''偷窥实验''">精█项目室</a></div>'else:'<div class="buttonR"><a href="exec:">██项目室</a></div>'
+			if $督察事件链>=8:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''督察_事件'',''DC_Fuck_生物实验室''">生物█验室</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓█回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p><font color="#FF0000">头好痛██.....好像有什么█不对....</font></p>'
+		'</div>'
+End
+
+if $args[0]="档案室":
+	 $password = $TRIM($LCASE($input('请输入档案室密码')))
+	 '<div class ="show_menu"><img src="images\place\医院场景\医院密码.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''输入密码''">确认密码</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·您已输入密码</p>'
+		'</div>'
+End
+
+if $args[0]="输入密码":
+	 if $password!"935888":
+		 '<div class ="show_menu"><img src="images\place\医院场景\医院密码.jpg" width="854"></div>'
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+			'</div>'
+			'<div class="dialog_menu">'
+				'<p>·密码错误</p>'
+			'</div>'
+	 end 
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转科技.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''输入密码'',''试药选品''">试药选品</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''输入密码'',''实验记录''">实验记录</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''输入密码'',''注册项目''">注册项目</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			if $args[1]="试药选品":
+			'<p>·一级药物:由姆苟制药选送，治疗勃起功能障碍合并良性前列腺增生。通过抑制PDE5 ，使阴茎海绵体内 cGMP 水平提高，导致平滑肌松弛，血液流入阴茎组织，从而产生作用。最多的副反应通常为头痛和消化不良，眼睑肿胀或描述为眼痛和结膜充血是少见的副反应。</p>'
+			'<p>·二级药物:由帝国健康选送，由葉酸、硫酸鋅、L-精氨酸、I-賴氨酸、I-肉碱按1:10:99的比例混合，每次摄入100毫克。显著增加精液量的同时，以平均每秒5,000的數量生產精子。最多的副反应通常为面色苍白、两眼无神、神态憔悴，形体消瘦，并有轻度恶心感。</p>'
+			'<p>·三级药物:由市政府选送，具体成分由███和至少包括六十七个不同的病毒株组成。最多的副反应通常为让人产生幻觉,出现严重的知觉障碍。由于其感受常常逼真生动,可引起愤怒、忧伤、惊恐、逃避乃至产生强烈的性欲或行为反应。</p>'
+			end
+			if $args[1]="实验记录":
+			'<p>·测试者：C-310-01（受雇个体）测试：测试者接受了█ml三级药物注射之后对测试者进行了█个小时的观察。结果：测试者在█小时之后出现了咳嗽，并且在询问时抱怨说“有点疼”，虽然他把这归结为自己睡姿不对。</p>'
+			'<p>·测试者：C-310-02（前神经科博士）测试：测试者在不知情的情况下注射了██ml三级药物。并进行观察。结果：测试者出现了顽固的咳嗽症状，开始对身上不少于5各部位反复抓挠。</p>'
+			'<p>·测试者：C-█?-?? （受雇个体）<数据已被删除></p>'
+			'<p>·测试者：███-99（受雇个体）测试：测试者接受了4.371ml三级药物注射之后对测试者进行不少于576个小时(7天)的观察。全面评估：测试者抱有一个或多个怪诞性的妄想，同时不存在任何其他疾病症状。测试显示其他疾病治愈率达99.997﹪，可通过精液中的███病毒株数量判断是否生效。</p>'
+			'<p>·附录#C-310-999-01：【对话开始】法语）“所以我们该怎么开始呢，自我介绍？俄语）“魔鬼！恶魔......开什么玩笑！你们都是恶魔！”俄语）“让我们回到正题，您身上的癌细胞已经完全消失了。”法语）“医生！开拓你的视野吧！生命与死亡，疾病与健康，都是业余医师的业余用语。人世间只有一种病症！”</p>'
+			'<p>·附录#C-310-999-0█：【对话开始】法语）“院长，您怎么看？”“Peu importe, continue à essayer.”【对话结束】</p>'
+			end
+			if $args[1]="注册项目":
+			'<p>·幸福梦计划：通过拟生物电波技术在实验者进入快速动眼睡眠阶段时首先会无一例外地会体验到一个生动的温馨美梦。因1984-Alpha技术已将脑海中的负面情绪和消极思想抹消。在醒来后，对象会有一种强烈的如释重负的精神愉悦。在此后的三天内，对象会报告称其感到更快乐并更愿意参与到社交活动当中。—— </p>'
+			'<p>·精源计划：由市政府牵头，帝国集团承办的政企项目。旨在通过对全市范围内男性精子大筛选，择优选择Alpha级精子，为具有高社会地位的女性提供可定制化的试管婴儿精子库。劣等精子由于数量庞大，无生产成本，则加工成蛋白质块/蛋白质液/营养补充液/等『高蛋白食品』流入市场，大力倡导市民使用，食用精子。用于改善市民体质，扩大内需。</p>'
+			end
+		'</div>'
+End
+
+
+if $args[0]="档案室_里":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转科技.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''试药日常'',''档案室_里'',''试药选品''">██选品</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''试药日常'',''档案室_里'',''实验记录''">██记录</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''群演_事件'',''ST_Fuck_魅魔''">██？？❤</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''试药日常'',''档案室_里'',''注册项目''">██项目</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''试药日常'',''四处走走''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>████由于条目被高度加密，即使使用小刀或者████也无法划开屏幕上的部分黑幕。</p>'
+			if $args[1]="试药选品":
+			'<p>·一级药█:由姆苟制药选送，治疗██功能障碍██死亡█████。通过抑制████ ，█阴茎██萎缩 █DIE ██提高，导致过敏███，血液██沸腾██，██产生██。最多的███疾病为██和██疯狂，眼睑肿胀█████痛和██充血是少见的███。</p>'
+			'<p>·二█药物:由帝国██选送，█葉酸、硫██、L-精██、I-██酸、I-██按1:10:99██致死率，████444██。██增加██致敏██，哈哈███9,999的數量██精子。████反应通常███苍白、两眼██、██癫痫，██疯狂，并██死亡█感。</p>'
+			'<p>·█级█物:由█████，████由███和██包括六十██不同的病毒株██。██的副反应██为让人产生██,出现严重的████臆想。由██感受██逼真██,可██愤怒、██、恐惧、██乃至产生强██性欲或██幻觉。</p>'
+			end
+			if $args[1]="实验记录":
+			'<p>·手术记录：202█-0█-██，夜晚██:15分。“█博士！我命令你马上停止对一床伤者的救治！优先抢救二床伤者！”“生命是平等的，他不是我的病人！你让█主任去处理二床伤者！”“█主任还在宿醉中。二床伤者是███企业的██！”“他是谁和我没关系”“院长！█主任酒醒得差不多了！患者颅内大出血，需要马上手术！”</p>'
+			'<p>·附录#术后记录:一床伤者：Frank Gallagher（未支付医药费、盗窃处方药、已列入黑名单）〔#由█博士垫付医药费并承担全部责任及相应处罚〕二床伤者：<<$主角姓>>██ （出血性脑卒中术后恢复不理想，已陷入昏迷）</p>'
+			'<p>·测试者：C-█?-?? （受雇个体）<数据已被删除></p>'
+			end
+			if $args[1]="注册项目":
+			'<p>·██梦计划：通过██恐惧██术████进入██窒息██阶段████无一例外██体验████动的噩梦。██1984-Alpha███脑███负面██和消极██抹消。在醒来后，对象会███强烈█濒死███精神愉悦。█此后的█天内，对象会██称█感到更██并在说出关键词『██』后失去意识。——『In█CeP█tIO n精神操控仪』</p>'
+			'<p>·精█计划：██政府牵头，帝国集团█████性项目。██通过██榨██内男性精██筛选，择优██Alpha级精子，█具有高社会地位████提供受孕██的██婴儿精子█。劣等精子███量庞大，无██成本，█加工█蛋白质█/蛋██液/淫██液/█『███食品』流入市场，████市民██，食用精子。████████，扩█性需█求。</p>'
+			end
+		'</div>'
+End
+
+if $args[0]="前台":
+	 '<div class ="show_menu"><img src="images\place\医院场景\前台<<$Q>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="buttonB"><a href="exec:minutes+=15 & gt ''试药日常'',''亲友探视''">↑亲友探视</a></div>'
+			if $Q="一级":'<div class="buttonQ"><a href="exec:minutes+=15 & gt ''群演_事件'',''医院_Fuck_医生检查1级''">←<<$Q>>身体检查</a></div>'
+			if $Q="二级":'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''群演_事件'',''医院_Fuck_医生检查2级''">←<<$Q>>身体检查</a></div>'
+			if $Q="三级":'<div class="buttonR"><a href="exec:minutes+=15 & gt ''群演_事件'',''医院_Fuck_医生检查3级''">←<<$Q>>身体检查</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·前台护士：什么时候才能换班呢...</p>'
+		'</div>'
+End
+
+if $args[0]="门诊部":
+	 mzzl=rand(0,2)
+	 '<div class ="show_menu"><img src="images\place\医院场景\门诊走廊<<mzzl>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''乳腺外科''">J2-乳腺外科</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·AI广播：我们正前往最近的急救室。整个过程从开始到结束只需要四分钟。我们的口号是【七分钟救命，否则退款】</p>'
+		'</div>'
+End
+
+if $args[0]="乳腺外科":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\医院人妻A1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''乳腺外科1''">靠近</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>男人:小翼，我查过了，这个男医生在新政策医改前可是乳腺外科的专家。暂时也找不到别的更出色的男医生了，虽然年级大了点，但技艺毕竟还是老当益壮的。</p>'
+			'<p>女人:老公....我还是有点怕怕的....虽然做过很多次检查了，可真的能有效吗？</p>'
+			'<p>男人:别胡思乱想了，按我说的做就行了。*嘀咕：咱能不能生出个大胖小子就靠他了！</p>'
+		'</div>'
+End
+
+if $args[0]="乳腺外科1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\医院人妻A1-14~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''乳腺外科2''">坐到他边上</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>AI广播:请A0308患者天海翼小姐前往诊疗室。</p>'
+			'<p>女人:那我去了，老公....</p>'
+		'</div>'
+End
+
+if $args[0]="乳腺外科2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\医院人妻A1-1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 &a=2& gt ''群演_事件'',''医院_Fuck_人妻检查''">偷窥他老婆</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>*你坐到了他的身边。他目不转睛地编辑着手机里的视频。</p>'
+			'<p>我:哥们...你在看啥呢？</p>'
+			'<p>男人:嘿嘿......嗯？！你看什么看！滚一边去！这可都是要付费的！</p>'
+		'</div>'
+End
+
+if $args[0]="亲友探视":
+	 随机数=rand(0,100)
+	 '<div class ="show_menu"><img src="images\place\医院场景\访客登记0.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="buttonB"><a href="exec:minutes+=15 & gt ''试药日常'',''亲友探视2''">查看名单</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·护士：患者：<<$主角姓名>>，为了防止交叉传染，每张病床的探视人员不宜超过2人。</p>'
+		'</div>'
+End
+
+if $args[0]="亲友探视2":
+	 '<div class ="show_menu"><img src="images\place\医院场景\访客登记1.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			if $HZ.bad>=250-$HZ.love:'<div class="buttonB"><a href="exec:gt ''会长_事件'',''HZ_Fuck_医院探视''">字迹工整的辣妹</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？的辣妹</a></div>'
+			if $EDM.love>=100:'<div class="buttonB"><a href="exec:gt ''二代目_事件'',''EDM_Fuck_医院探视''">字迹潦草的辣妹</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？的辣妹</a></div>'
+			if $SF.bad>=270-$SF.love:'<div class="buttonB"><a href="exec:gt ''少妇_事件'',''SF_Fuck_病房受孕''"><<$SF.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位少妇</a></div>'
+			if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec:$m=''TZ'' & $ma=$TZ.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位台长</a></div>'
+            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位播音员</a></div>'
+            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位继母</a></div>'
+            if $ZX.bad>=500-$ZX.love:'<div class="buttonB"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位医生</a></div>'
+
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·护士：药物影响视力了？看得清上面的字吗？确认后请在这里签字。*指了指私处。</p>'
+		'</div>'
+End
+--- 试药日常 ---------------------------------
+

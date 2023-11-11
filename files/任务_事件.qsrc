@@ -1,0 +1,293 @@
+# 任务_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $ARGS[0]="喂食任务":
+	'<div class ="show_menu"><img src="images\NPC\<<$m>>\pics\喂食立绘.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''居民区''">包在我身上</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$mcat>>: 能帮我一个忙吗？我今晚可能没有时间去喂那些流浪猫了…</p>'
+		'<p>我: 你真有爱心，举手之劳。</p>'
+		喂猫时间=rand(0,4)
+		喂猫任务=1
+		'<p><<$mcat>>: 太好了！它们一般在深夜<<喂猫时间>>点左右出现在居民区附近…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="喂猫":
+	喂猫任务=0
+	'<div class ="show_menu"><img src="images\place\喂猫<<a>>.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonPu1"><a href="exec:a=1 & gt ''任务_事件'',''喂猫''">喂猫</a></div>'
+		
+		if $天使事件链=2 and a=1 and $炸弹事件!1:'<div class="buttonPu2"><a href="exec:gt ''天使_事件'',''一起喂猫''"><<$TS.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:'<p>·循声而去，发现了很多喵喵叫的小猫咪</p>'
+		if a=1:
+			'<p>我: 真是可怜的小家伙们…</p>'
+			'<p><<$mcat>>的好感度提升了！</p>'
+			if $mcat=$TS.name:$TS.love+=rand(1,my.魅力)
+			if $mcat=$SX.name:$SX.love+=rand(1,my.魅力)
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="送货任务":
+	'<div class ="show_menu"><img src="images\place\快递.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''局长_事件'',''送货上门''">前局长夫人</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>店长: 包裹越来越多了…女性的购买力真是惊人…</p>'
+		'<p>我: 我来送吧！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="女警外套":
+	if $任务_女警外套!2:$女警编号=rand(1,10)
+	'<div class ="show_menu"><img src="images\task\PC (<<$女警编号>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:">被拦下了</a></div>'
+		if $任务_女警外套!2:'<div class="button"><a href="exec:$任务_女警外套=1 & gt ''居民区''">包在我身上</a></div>'
+		if $任务_女警外套=2:'<div class="button"><a href="exec:$任务_女警外套=0 & gt ''任务_事件'',''女警外套2''">给她衣服</a></div>'
+			
+		'<div class="buttonGr"><a href="exec:gt ''居民区''">无视她</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶随机事件触发◀</p>'
+	'<p>女警官：能为我去警察局里拿一件外套吗？虽然我挺喜欢这样的穿着，但我可不想被晒黑！作为奖励，我会给你义警积分。</p>'
+	'<p>我：是义务劳动吗？</p>'
+	'<p>女警官：当然不是，作为奖励，我会给你义警积分。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="女警外套2":
+	'<div class ="show_menu"><img src="images\task\PC (0).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶任务奖励◀</p>'
+	'<p>女警官：太好了，这样我的乳晕就不会被晒黑了。</p>'
+	'<p>·义警积分+10</p>'
+	$义警积分+=10
+	'</div>'
+end
+
+
+
+if $ARGS[0]="打网球":
+	$网球少女编号=rand(1,6)
+	'<div class ="show_menu"><img src="images\task\网球 (<<$网球少女编号>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''任务_事件'',''打网球2''">挑战她</a></div>'
+		'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶随机事件触发◀</p>'
+	'<p>网球少女：小哥哥，今天我的陪练临时有事，你能陪我打一会吗？</p>'
+	'<p>我：穿成这样方便接球吗？</p>'
+	'<p>网球少女：当然方便了❤如果你赢了的话❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="打网球2":
+	if my.体力>=$网球少女编号:
+		'<div class ="show_menu"><img src="images\task\网球 (11).jpg" height="492"></div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=60 & gt ''任务_事件'',''打网球3''">酣战许久</a></div>'
+			!'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+		'</div>'
+		
+		'<div class="dialog_menu">'
+		'<p>我的体格：Lv<<my.体力>></p>'
+		'<p>她的体格：Lv<<$网球少女编号>></p>'
+		'<p>▶随机事件判定◀</p>'
+		'<p>我：轻松！再来！</p>'
+		'<p>网球少女：小哥哥，你真厉害！</p>'
+		'</div>'
+	else:
+		'<div class ="show_menu"><img src="images\task\网球 (10).jpg" height="492"></div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=30 &gt ''公园''">草草结束</a></div>'
+		'</div>'
+		
+		'<div class="dialog_menu">'
+		'<p>我的体格：Lv<<my.体力>></p>'
+		'<p>她的体格：Lv<<$网球少女编号>></p>'
+		'<p>▶随机事件判定◀</p>'
+		'<p>我：该死！我怎么一个球都接不到？！</p>'
+		'<p>网球少女：小哥哥，你行不行啊？</p>'
+		'</div>'
+	end
+end
+
+if $ARGS[0]="打网球3":
+	'<div class ="show_menu"><img src="images\task\网球 (<<$网球少女编号>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''任务_事件'',''打网球4''">操她</a></div>'
+		'<div class="button"><a href="exec:gt ''公园''">我还有事</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶随机事件结算◀</p>'
+	'<p>网球少女：小哥哥，你的下面怎么鼓鼓的呀❤</p>'
+	'<p>我：说明我精力充沛！</p>'
+	'<p>网球少女：其实我呢，最喜欢你这种精力充沛的男生了❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="打网球4":
+	'<div class ="show_menu"><img src="images\task\网球 (<<rand(7,9)>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>·随即她就立刻坐了上来…</p>'
+	'<p>网球少女：小哥哥<<$话>></p>'
+	'<p>一顿抽插后我内射在了她的阴道里……</p>'
+	'<p>网球少女：小哥哥，这件事要对我的陪练保密喔❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="肥臀肛塞":
+	'<div class ="show_menu"><img src="images\task\肥臀 (<<rand(1,8)>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:">被拦下了</a></div>'
+		if Anal_plug=0:'<div class="buttonGn"><a href="exec:$任务_肥臀肛塞=1 & gt ''居民区''">我会去看看的</a></div>'
+		if Anal_plug!0:'<div class="buttonS"><a href="exec:Anal_plug=0 & gt ''群演_事件'',''随机_Fuck_肛塞''">去她家塞入肛塞</a></div>'
+			
+		'<div class="buttonGr"><a href="exec:gt ''居民区''">无视她</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶随机事件触发◀</p>'
+	'<p>肥臀女人：嘿❤帅哥，后面没有被塞满就感觉心里空空的，你能帮帮我吗？*指了指她的屁股</p>'
+	'<p>我：喔？我该怎么帮你呢？</p>'
+	'<p>肥臀女人：我喜欢戴着粉钻的那款❤商店里应该有卖喔❤</p>'
+	if Anal_plug!0:'<p>我：我想我包里正好有呢？</p>'
+	if Anal_plug!0:'<p>肥臀女人：太好了❤能为我戴上吗？</p>'
+	'</div>'
+end
+
+if $ARGS[0]="魅魔事件":
+	'<div class ="show_menu3"><img src="images\task\魅魔 (<<rand(1,104)>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''居民区''">呃，暂时没有</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>·一道人影从天而降，你差点被她撞倒了</p>'
+	'<p>我：谁啊？这…你是…恶魔…还是魅魔？</p>'
+	'<p>魅魔使徒：人类，你居然能看见我？等等，你身上居然有魔王大人的气味。</p>'
+	'<p>我：呃…你是从缝合之地来的吧？魔王大人还好吗？</p>'
+	'<p>魅魔使徒：哈❤原来你就是魔王大人每天念叨的人类❤魔王大人除了每天想念着你，一切太平呢。</p>'
+	'<p>我：那你来这里的目的是什么？</p>'
+	'<p>魅魔使徒：既然你都得到了魔王大人的宠幸，那我也不瞒你了。我们是来抓人的，抓那些贪图留恋在此，不愿回去的上一批魅魔使。她们扮演人类太久了，已经忘记自己的本职了。</p>'
+	'<p>我：扮演人类？</p>'
+	'<p>魅魔使徒：是的，她们可以轻易乔装成人类，几乎和人类无异，除非像我一样刻意展露这个形态。</p>'
+	'<p>我：这样啊…</p>'
+	'<p>魅魔使徒：你为什么这样问？你有什么怀疑的“人选”吗？</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="男路人":
+	男路人num=rand(0,5)
+	'<div class ="show_menu"><img src="images\task\男路人 (<<男路人num>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		if $魅魔契约=1:
+		if 男路人num<=2:'<div class="buttonPu3"><a href="exec:一级榨人+=1 & gt ''居民区''">记下他的电话</a></div>'
+		if 男路人num=3 or 男路人num=4:'<div class="buttonPu4"><a href="exec:二级榨人+=1 & gt ''居民区''">记下他的电话</a></div>'
+		if 男路人num=5:'<div class="buttonPu5"><a href="exec:三级榨人+=1 & gt ''居民区''">记下他的电话</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''居民区''">无可奉告</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶随机事件触发◀</p>'
+	'<p>男路人：嘿伙计，我刚搬来这一带，有啥好玩的地方不。</p>'
+	'<p>我：如果你想吃点好吃的，可以去……</p>'
+	'<p>男路人：咳咳，我是说…那种好玩的地方❤你懂的！哥们正无处发泄！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="狩猎路人":
+	minutes+=15
+	if q=0:
+		狩猎num=rand(1,82)
+		狩猎难度=rand(50,200)
+		q=1
+	end
+	'<div class ="show_menu"><img src="images\task\女A (<<狩猎num>>).jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		if q=1:'<div class="buttonS"><a href="exec:q=2 & gt ''任务_事件'',''狩猎路人''">推荐医美整形</a></div>'
+		if q=2 and 狩猎难度<=my.智力*10:'<div class="buttonPu5"><a href="exec:q=0 & gt ''整形_事件'',''ZX_Fuck_奖励''">带她去整形</a></div>'
+		if q=2 and 狩猎难度>my.智力*10 and $魅魔能量>0:'<div class="buttonPu5"><a href="exec:$魅魔能量-=1 & q=0 & gt ''整形_事件'',''ZX_Fuck_奖励''"><font color="#FF00FF">催眠：强制整形♈❤</font></a></div>'
+		'<div class="button"><a href="exec:gt ''居民区''">擦肩而过</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+	'<p>▶随机事件触发◀</p>'
+	'<p>焦虑的女人：我男朋友又说我胖了，唉，我要不要去做个抽脂手术？奇怪，对面走过来的这个男的看都不看我，是不是我不够骚？</p>'
+	'<p>▶说服女人的难度：<<狩猎难度>>◀</p>'
+	if q=2:
+		'<p>我：爱美之心,是每个女人与生俱来的,即便不为悦己者,也为自己而美。无论年龄几何,拥有一个爱美的心,为自身的容貌之美付出金钱和行动,都是理所当然的。正巧我知道有一处医美整形超牛逼…</p>'
+		if 狩猎难度>my.智力*10:
+			'<p>·说服判定：▶彻底失败◀</p>'
+		    '<p>焦虑的女人：你搁哪哔哔什么呢，起开，别当道。</p>'
+		else:
+			'<p>·说服判定：▶侥幸成功◀</p>'
+		    '<p>焦虑的女人：真的吗？你能带我去嘛？</p>'
+		end
+	end
+	'</div>'
+end
+
+
+
+
+
+--- 任务_事件 ---------------------------------
+

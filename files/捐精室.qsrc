@@ -1,0 +1,94 @@
+# 捐精室
+ cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="私立医院" href="exec:minutes+=5 & gt ''医院''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\医院~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonPu1"><a href="exec:minutes+=5 & $杀手对话=1 & gt ''捐精室''">你怎么在这？</a></div>'
+		'<div class="buttonPu2"><a href="exec:minutes+=5 & gt ''杀手_事件'',''SS_Fuck_捐精''">无偿捐精</a></div>'
+		if hour>=20:'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''杀手_事件'',''SS_Event_医院判断''">接你回家</a></div>'
+		if hour>=21:'<div class="buttonPu4"><a href="exec:minutes+=5 &  gt ''捐精室'',''偷听''">偷听对话</a></div>'
+		if XM录像带=1:'<div class="buttonPu5"><a href="exec:gt ''杀手_事件'',''拜托跟踪''">拜托跟踪<<$XM.name>></a></div>'
+		if $冠军事件链=12:'<div class="buttonR"><a href="exec:gt ''杀手_事件'',''教训GJ''">教训<<$GJ.name>></a></div>'
+		if 授精室=1 and $SS.bad>=200 and $SS.授精=0:'<div class="buttonG1"><a href="exec:$SS.授精=1 & gt ''公司''">邀请人工授精</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">没事</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>护士: 回去好好休息，<<$SS.name>>医生真是厉害呢！居然连阳痿的病人都能治好！下一位！</p>'
+		if hour>=20:'<p><<$SS.name>>: 喔？<<$主角姓名>>老公！你是来接我回家的嘛？</p>'
+		if hour>=20:'<p>护士: <<$SS.name>>医生！那我先下班了！</p>'
+		if $杀手对话=1:
+		'<p><<$SS.name>>: 我可是拥有脑神经博士学位的，在这家以美容整形为首要项目的三流医院当个捐精室的医生还真是屈才了呢。</p>'
+		'<p>我: 真的假的啊。</p>'
+        '<p><<$SS.name>>: 你可别暴露我的身份呐！不然..（做了一个割喉的动作）</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="偷听":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\医院外~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''捐精室'',''偷窥实验''">偷窥实验</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">返回</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·室外一个不起眼的位置</p>'
+		'<p><<$SS.name>>: 是，我已于目标人物接触，请指示。此外，医院的独立密码已经破译了，是院长的三围：935888</p>'
+        '<p>？？？: 居然是院长的三围？....935888...真是出乎意料！</p>'
+		'<p>我: ………</p>'
+		if  $SS_Event_free>=4:'<p><<$SS.name>>: 我已成功潜入精源项目实验组，等待下一步指示。</p><p>？？？: 暂时先按兵不动！</p>'
+	'</div>'
+End
+
+if $args[0]="偷窥实验":
+	$偷窥SS实验=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\实验~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $偷窥SS实验=1 & gt ''杀手_事件'',''SS_Event_医院3''">看下去</a></div>'
+		if medicine=1:'<div class="button"><a href="exec:minutes+=30 & gt ''试药日常''">返回</a></div>'
+		if medicine!1:'<div class="button"><a href="exec:minutes+=30 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>精源项目主任：一切指标还正常吗？加大剂量看看！没听见吗？加大剂量！</p>'
+		'<p><<$SS.name>>: <<$娇喘声>></p>'
+	'</div>'
+End
+
+
+
+
+--- 捐精室 ---------------------------------
+

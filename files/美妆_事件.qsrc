@@ -1,0 +1,771 @@
+# 美妆_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+
+if $args[0]="MZ_Fist":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!1:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''美妆_事件'',''MZ_Fist''">休息时间</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''商场''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>我: 嗨，我…</p>'
+              '<p><<$MZ.name>>: 抱歉，这位先生，我没空搭理你…</p>'
+              '<p>我: 什么态度…</p>'
+              '<p><<$MZ.name>>: 小姐，这支眉笔我向你诚挚地推荐…</p>'
+              '<p>女顾客: 你叫谁小姐呢？这么贵的眉笔我可买不起。</p>'
+              '<p><<$MZ.name>>: 呃…这款眉笔拥有特殊的硬质配方，能够帮助您更准确地勾勒眉形，同时还能够保持眉毛的形状和颜色长时间不变。它还含有滋润成分，能够让您的眉毛看起来更加自然、柔软和亮丽。</p>'
+              '<p>女顾客: 不买！我不喜欢你们那个带货的！</p>'
+         '</div>'
+    end
+
+    if a=1:
+         if $美妆事件链=0:$美妆事件链=1
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>:唉……又是一单都没卖出去……</p>' 
+              '<p>口红销售: 不如过来跟我们一起卖口红？只要你放得开，没有赚不到的钱❤</p>'
+              '<p><<$MZ.name>>:我想想…总部要求这个季度销售额翻倍，这怎么可能达到啊…</p>' 
+              '<p>口红销售: 说是完不成的要被辞退的，分明就是为难你嘛。</p>'
+              '<p><<$MZ.name>>:唉…都怪那个带货的，现在卖都卖不动了…</p>'
+              '<p>口红销售: 实在不行来跟姐干口红呗，姐给你介绍几个客人❤</p>'
+              '<p><<$MZ.name>>:不急…我…我再努努力吧…我只要完成这个季度的指标就能晋升经理了…</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="美妆A0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if q!7:
+        '<div class="button_menu">'
+            if q=0:'<div class="buttonS"><a href="exec:a=1 & gt ''美妆_事件'',''美妆A0''">躺下体验</a></div>'
+            if q=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆A0''">持久不掉色</a></div>'
+            if q=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆A0''">坐式服务</a></div>'
+            if q=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆A0''">准备射了</a></div>'
+
+            if q=4:
+                '<div class="buttonS3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆A0''">就选她</a></div>'  
+                '<div class="buttonP"><a href="exec:a=7 & gt ''美妆_事件'',''美妆A0''">换左边年轻的</a></div>'  
+                '<div class="buttonR3"><a href="exec:a=10 & gt ''美妆_事件'',''美妆A0''">换右边年长的</a></div>'  
+            end
+
+            if q=5:
+                '<div class="buttonS4"><a href="exec:a+=1 & gt ''美妆_事件'',''美妆A0''">射精</a></div>'  
+            end
+            if q=6:
+                '<div class="buttonS5"><a href="exec:a+=1 & gt ''美妆_事件'',''美妆A0''">对话</a></div>'  
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+			 '<div class="buttonP"><a href="exec:minutes+=5 & gt ''美妆店'',''仓库''">顺便看看仓库</a></div>'
+                '<div class="buttonGn3"><a href="exec:gt ''商场''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>口红销售: 外面客人都坐满了，只能安排您在这个员工休息室了❤</p>'
+              '<p>我: 没关系…</p>'
+         '</div>'
+    end
+
+
+    if 7>=q and q>=1:
+         '<div class="dialog_menu">'
+              '<p>口红销售: 客人您的肌肤有点粗糙呢，不考虑用一下我们最新的身体乳吗？</p>' 
+              if q>=2:'<p>我: 不必了，话说你们的口红确实不会掉色呢❤</p>'
+              if q>=3:'<p>口红销售: 是的呢❤不考虑给你女朋友买一支吗？</p>'
+              if q>=7:'<p>口红销售: 对我们的服务还满意吗？感谢您选择我们，我们期待再次为您服务！</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="美妆A2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+                if money>=9999+money/2:'<div class="buttonG4"><a href="exec:money-=9999+money/2 & a=1 & gt ''美妆_事件'',''美妆A2''">支票￥<<9999+money/2>></a></div>'else:'<div class="buttonGr"><a href="exec:gt ''居民区''">没钱</a></div>'
+                '<div class="button"><a href="exec:gt ''居民区''">再想想</a></div>'   
+            end
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆A2''">她很勉强</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆A2''">渐入佳境</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆A2''">就快射了</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''美妆_事件'',''美妆A2''">射她脸上</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn5"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>我: 这个月的销售额还差多少？</p>'
+              '<p><<$MZ.name>>: 差好多呢…差￥<<9999+money/2>></p>'
+              '<p>我: 我可以帮你刷点业绩❤不过嘛…这要看你诚意如何了❤</p>'
+              '<p><<$MZ.name>>: 我…我是那种随便的人*皱眉</p>'
+              '<p>我: 哦？不是再完成这个季度的指标就能晋升经理了吗？</p>'
+              '<p><<$MZ.name>>: 啊…这…那…那你要…你要一次性付清！</p>'
+         '</div>'
+    end
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 您看…嗯.这样可以吗？</p>'
+              if a>=2:'<p>我: 还差点意思❤</p>'
+              if a>=3:'<p><<$MZ.name>>: 吹不了动了已经…唔唔唔</p>'
+              if a>=4:'<p><<$MZ.name>>: 唔…差不多了吧？</p>'
+         '</div>'
+    end
+
+    if a=5:
+         $MZ.love+=q
+         $MZ.bad+=my.魅力+q
+         当月美妆额=1
+         当月美妆完成度+=1
+         if 当月美妆完成度>=2:
+			if $美妆事件链=1:$美妆事件链=2
+         end
+         '<div class="dialog_menu">'
+              '<p>我：很好，我很满意。</p>'
+              '<p><<$MZ.name>>: 谢谢老板，这张支票不会是假的吧？</p>'
+              '<p>我: 当然不是了，我的钱包可是大出血了呢！</p>'
+              '<p><<$MZ.name>>: 老板，下个月…也拜托你了呢❤</p>'
+              '<p>我: 下个月…</p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="美妆A3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''美妆_事件'',''美妆A3''">拿起身体乳</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆A3''">试用一下</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆A3''">可食用级？</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆A3''">继续吹</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''美妆_事件'',''美妆A3''">效果的持久性</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''美妆_事件'',''美妆A3''">确实不错</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''美妆_事件'',''美妆A3''">要射了</a></div>'
+            if a=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''美妆_事件'',''美妆A3''">射精</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">记在心里</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 有一个好消息和一个坏消息…</p>'
+              '<p>我: 说来听听……</p>'
+              '<p><<$MZ.name>>: 好消息是总部对我这两个月能够完成业绩非常满意…已经提名我作为区域经理的候选人了❤</p>'
+              '<p>我: 坏消息呢？</p>'
+              '<p><<$MZ.name>>: 他们要求我在推销化妆品的同时推销身体乳…</p>'
+              '<p>我: 身体乳的业绩指标是多少？</p>'
+              '<p><<$MZ.name>>: 至少也要￥<<money*2>>…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>我: ￥<<money*2>>…这么贵？这里面装的是黄金吗？</p>'
+              '<p><<$MZ.name>>: 唉…虽然我知道老板你有实力，但￥<<money*2>>…您应该一时半会也拿不出来吧……</p>'
+              '<p>我: 确实有点多了…</p>'
+              '<p><<$MZ.name>>: 是啊…但东西是货真价实的好东西，这瓶是样装，我们可以试用一下❤</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=2:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 我可以向您保证，虽然价格较高，但是绝对是物有所值的好东西。我们的产品都经过了严格的筛选和测试，包括可食用级的成分、效果的持久性、安全性等方面，以确保它们的质量和效果都是最好的。</p>'
+              if a>=3:'<p>我: 可食用级？</p>'
+              if a>=4:'<p><<$MZ.name>>: 是的<<$娇喘声>></p>'
+              if a>=5:'<p>我: 效果的持久性？</p>'
+              if a>=6:'<p><<$MZ.name>>: 嗯<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $MZ.love+=q+my.魅力
+         $MZ.bad+=q
+         if $美妆事件链=2:$美妆事件链=3
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 确实是好东西吧…本来想找带货的把价格打下来做薄利多销的亲民路线的，但现在不行了…</p>'
+              '<p>我: 那怎么办？</p>' 
+              '<p><<$MZ.name>>: 现在总部想走高端的路线，比如找<<$SSYY.name>>做代言广告，这样档次一下子就上去了。</p>'
+              '<p>我: 找<<$SSYY.name>>做代言广告？</p>' 
+              '<p><<$MZ.name>>: 是啊，但总部因为带货翻车的事件现在赔了很多钱，应该没有广告预算了吧…</p>'
+              '<p>我: 我想想……</p>' 
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="代言身体乳":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SWD\vids\拟邀.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="button"><a href="exec:$美妆事件链=4 & gt ''大别墅''">嘟嘴答应 </a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 啥身体乳？老娘的肌肤难道不是吹弹可破的，还需要保养？不去不去。</p>'
+             '<p>我: 帮帮忙啦…</p>'
+             '<p><<$SSYY.name>>: 好麻烦，而且啥好处都没，去了干嘛啊。</p>'
+             '<p>我: 我喜欢操身上滑溜溜的小妞。</p>'
+             '<p><<$SSYY.name>>: 我身上不滑是吧？</p>'
+             '<p>我: 你不去的话我找<<$QB.name>></p>'
+              '<p><<$SSYY.name>>: 不许找她！我去还不行吗？她除了腿比我长点，奶子有我大吗！代言身体乳不涂在奶子上难道涂腿上吗？！我比她合适多了！</p>'
+         '</div>'
+
+End
+
+
+if $args[0]="美妆_Fuck_悠亚":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">旁观代言广告</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">旁观代言广告</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">旁观代言广告</a></div>'
+            if a=3:'<div class="buttonR3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">喊停拍摄</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">好像也没错</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">不管那么多了</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">犒劳她</a></div>'
+            if a=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''美妆_事件'',''美妆_Fuck_悠亚''">射精</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">发布代言广告</a></div>'
+            '</div>'
+    end
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+              if a=0: '<p><<$SSYY.name>>: 屏幕前的各位…看到我的样子兴奋了吗？</p>'
+              if a>=1:  
+              '<p><<$SSYY.name>>: 我的乳房可是天然的喔❤你也想像我一样吗？</p>'
+              '<p>我: 居然这么认真代言……</p>'
+              end
+              if a>=2:   
+              '<p><<$SSYY.name>>: 没错，就是因为我从小用到大。这款产品采用小分子成分，使用方法为涂抹在身体任意地方，身体即可自己吸收。</p>'
+              '<p>我: 是不是开始夸大代言了……</p>'
+              end
+              if a>=3:   
+              '<p><<$SSYY.name>>: 不仅能有效改善皮肤质量，缓解肌肉疲劳的功效，而且最主要的功能是丰胸喔❤从A罩变成像我一样的32E只需要…呃…2瓶！ </p>'
+              '<p>我: 坏了，越吹越过头了…</p>'
+              end
+
+         '</div>'
+    end
+
+    if 7>=a and a>=4:
+         '<div class="dialog_menu">'
+              '<p>我: 喂喂，你这可是虚假宣传啊。</p>'
+              '<p><<$SSYY.name>>: 哪有？用上它的身体乳加上你的手法❤奶子怎么可能不被揉得越来越大呢？</p>'
+              if a>=5:'<p>我: 好像也没错，你以前只有D罩对吧？</p>'
+              if a>=5:'<p><<$SSYY.name>>: 哪有？人家的是天生就这么大❤</p>'
+              if a>=6:'<p>我: 算了…不管那么多了…你也辛苦了…</p>'
+              if a>=7:'<p><<$SSYY.name>>: 嗯<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=8:
+         $SSYY.love+=q+my.魅力
+         $SSYY.bad+=q
+         if $美妆事件链=4:$美妆事件链=5
+         '<div class="dialog_menu">'
+              '<p><<$SSYY.name>>: 就这样结束了？</p>'
+              '<p>我: 你还想怎么样？</p>' 
+              '<p><<$SSYY.name>>: 哼。</p>'
+              '<p>我: 嗯？女人的心思真难猜……</p>' 
+         '</div>'
+    end
+    q+=1
+End
+
+
+if $args[0]="美妆D6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\D6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''美妆_事件'',''美妆D6''">想想办法</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆D6''">那也是我说了算</a></div>'
+            if a=2:'<div class="buttonR2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆D6''">好好求我</a></div>'
+            if a=3:'<div class="buttonR3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆D6''">这还不够</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''美妆_事件'',''美妆D6''">这还差不多</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''美妆_事件'',''美妆D6''">加速冲刺</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''美妆_事件'',''美妆D6''">射在她身上</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:$MZ.按摩=1 & gt ''公司''">带她去按摩店</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>我: 咋了？都让<<$SSYY.name>>代言了，还不能博美人一笑？</p>'
+              '<p><<$MZ.name>>：客户的售后反馈普遍是<<$SSYY.name>>在虚假宣传，还有一些激进者爆出了她大学时期私生活糜烂的黑料。</p>'
+              '<p>我: 虚假宣传？</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>我: 怎么会是虚假宣传呢？她的奶子不是我揉大的吗？</p>'
+              '<p><<$MZ.name>>: 你还有家公司对吧？</p>'
+              '<p>我: 你调查我了？</p>'
+              '<p><<$MZ.name>>: 是不是还有家按摩店？</p>'
+              '<p>我: 咋了？</p>'
+              '<p><<$MZ.name>>: 把按摩店的精油全换成身体乳吧❤这样我的业绩就不愁了❤</p>'
+         '</div>'
+    end
+
+    if 6>=a and a>=2:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 把按摩店的精油全换成身体乳吧❤这样我的业绩就不愁了❤</p>'
+              '<p>我: 喂喂，你真以为给我口了几次就可以命令我了？</p>'
+              '<p><<$MZ.name>>: 是我的语气不好…</p>'
+              if a>=3:'<p>我: 好好求我！</p>'
+              if a>=3:'<p><<$MZ.name>>: 对不起嘛❤求求<<$主角姓>>老板了，我每天都给你口❤求你把按摩店的精油全换成身体乳吧❤</p>'
+              if a>=4:'<p>我: 什么？每天都给我口？这可不够…</p>'
+              if a>=4:'<p><<$MZ.name>>: 那请<<$主角姓>>老板插进我的身体里吧❤</p>'
+              if a>=5:'<p>我: 哼…这还差不多</p>'
+              if a>=6:'<p><<$MZ.name>>: 嗯<<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $MZ.love+=q+my.魅力
+         $MZ.bad+=q+my.魅力
+         if $美妆事件链=5:$美妆事件链=6
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: <<$主角姓>>老板❤帮帮我嘛…</p>'
+              '<p>我: ………*穿上裤子</p>' 
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="美妆A8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''美妆_事件'',''美妆A8''">开始抽检</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆A8''">让我当椅子</a></div>'
+            if a=2:'<div class="buttonR2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆A8''">询问感受</a></div>'
+            if a=3:'<div class="buttonR3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆A8''">稍微发力</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''美妆_事件'',''美妆A8''">操爽她</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''美妆_事件'',''美妆A8''">射精</a></div>'
+            if a=6:'<div class="buttonR"><a href="exec:a=7 & gt ''美妆_事件'',''美妆A8''">抽检结果</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & gt ''美妆_事件'',''美妆B4''">送她离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$ZXG.name>>: 你们谁是负责人？</p>'
+              '<p><<$MZ.name>>: 我目前…算是担任区域经理了……</p>' 
+              '<p><<$ZXG.name>>: 有人向射精管理局反馈你们的身体乳中含有催情成分，导致她老婆和按摩师出轨，以至于他无法按时定量射精。</p>'
+              '<p><<$MZ.name>>: 这是她老婆的问题…或者是按摩师的问题，和我们的产品无关！</p>' 
+              '<p>我: 嗯？怎么听上去升职了反而变成背锅的了。</p>'
+         '</div>'
+    end
+
+    if a=1 or a=2:
+         '<div class="dialog_menu">'
+              '<p><<$ZXG.name>>: 你说了不算，以我的抽检结果为准。</p>'
+              '<p>我: 说话真是霸道呢。</p>'
+              if a=2:'<p><<$ZXG.name>>: 你过来，把裤子脱了坐下。</p>'
+         '</div>'
+    end
+
+    if 6>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p><<$ZXG.name>>: 目前看起来只是普通的身体乳…我并没有什么特别的快感❤</p>'
+              if a=4:'<p>我: 没有快感？那真是小瞧我的鸡巴了！</p>'
+              if a=4:'<p><<$ZXG.name>>: 鸡巴怎么掉出来了？给我插回去！</p>'
+              if a>=5:'<p><<$ZXG.name>>: 嘶—好爽<<$话>></p>'
+              if a>=6:'<p><<$ZXG.name>>: 我是职业的射精执行官，怎么可能这么轻易高潮？！</p>'
+         '</div>'
+    end
+
+    if a=7:
+         if $美妆事件链=7:$美妆事件链=8
+         '<div class="dialog_menu">'
+              '<p>我: 呃……是不是把她肏得太狠了…这下一定会断定里面有催情成分了……</p>' 
+              '<p><<$ZXG.name>>: 你想多了…我亲自尝试过的媚药或者催情药不少于100种，除了你的鸡巴很爽以外，我断定就是一款普通的身体乳！</p>'
+              '<p>我: 嗯，正确的，一针见血的。</p>' 
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="美妆B4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\B4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''美妆_事件'',''美妆B4''">犒劳她</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:a=0 & q=0 & gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">陪她去吃饭</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+			'<p>*门刚一推开，<<$SSYY.name>>正在门外等我</p>'
+              '<p><<$SSYY.name>>: 嗨❤<<$主角姓名>>，有空陪人家去吃个饭呗❤</p>'
+              '<p><<$ZXG.name>>: 这么巧啊？那我顺便问问你，有人认为你代言的身体乳中有催情的成分，你觉得呢？</p>'
+              '<p><<$SSYY.name>>: 催啥情？难道我的身材还不够催情吗？</p>'
+              '<p><<$ZXG.name>>: 呃……那没事了，收队吧。</p>'
+         '</div>'
+    end
+
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$SSYY.name>>: 怎么了吗？。</p>'
+              if a>=1:'<p>我: 没什么，你刚刚回答的很好。</p>'
+              if a>=2:'<p><<$SSYY.name>>: 那你还不对人家好点<<$娇喘声>></p>'
+              if a>=3:'<p>我: 我对你还不够好嘛？</p>'
+              if a>=4:'<p><<$SSYY.name>>: 再深点嘛<<$话>></p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="美妆A7":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A7-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''美妆_事件'',''美妆A7''">看看黑丝</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆A7''">看看屁股</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''美妆_事件'',''美妆A7''">插入</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''美妆_事件'',''美妆A7''">缓慢抽插</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''美妆_事件'',''美妆A7''">加速冲刺</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''美妆_事件'',''美妆A7''">大力冲刺</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''美妆_事件'',''美妆A7''">全力冲刺</a></div>'
+            if a=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''美妆_事件'',''美妆A7''">射在腿上</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">约好下次</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 我刚下班就来了衣服还没换呢，我今年的销售额已经全部完成了终于可以放松一下了。 </p>'
+              '<p>我: 嗯？还有呢？</p>'
+              '<p><<$MZ.name>>: 没有你我可走不到现在的位置…</p>' 
+              '<p>我: 我想听的也不是这个……</p>'
+              '<p><<$MZ.name>>: 我想…我已经是你的人了…我还是对你最有感觉呢❤</p>' 
+         '</div>'
+    end
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 啊啊…嗯啊……人家好有感觉……</p>'
+              '<p>我: 真的吗？</p>'
+              '<p><<$MZ.name>>: 真的❤</p>'
+              if a>=3:'<p>*再快一点，再快一点</p>'
+         '</div>'
+    end
+
+    if a=8:
+         if $美妆事件链=8:$美妆事件链=9
+         $MZ.bad+=my.魅力+q
+         $MZ.love+=my.魅力+q
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 啊~~好喜欢这种感觉……</p>'
+              '<p>我: 现在没有指标了可以躺平了吧？</p>' 
+              '<p><<$MZ.name>>: 是啊~~下次你带我去温泉玩吧…我一直想去泡泡澡然后做做爱呢…</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+
+if $args[0]="美妆F8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\F8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!16:
+        '<div class="button_menu">'
+            if a=0:
+                if $天气='☂雨' and $MZD.看过仓库=1:'<div class="buttonPu4"><a href="exec:a=1 & gt ''美妆_事件'',''美妆F8''">下雨了？</a></div>'else:'<div class="buttonS1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆F8''">在车上摸她</a></div>'
+            end
+            if a=1 or a=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''美妆_事件'',''美妆F8''">来到温泉</a></div>'
+            if a=3:'<div class="buttonS2"><a href="exec:a=4 & gt ''美妆_事件'',''美妆F8''">温泉边操</a></div>'
+            if a=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''美妆_事件'',''美妆F8''">加速冲刺</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''美妆_事件'',''美妆F8''">颜射她</a></div>'
+            if a=6:'<div class="buttonB5"><a href="exec:a=7 & gt ''美妆_事件'',''美妆F8''">泡泡温泉</a></div>'
+            if a=7:'<div class="buttonB1"><a href="exec:a=8 & gt ''美妆_事件'',''美妆F8''">换好浴衣</a></div>'
+
+            if a=8:'<div class="buttonB2"><a href="exec:a=9 & gt ''美妆_事件'',''美妆F8''">展示玩具</a></div>'
+            if a=9:'<div class="buttonB3"><a href="exec:a=10 & gt ''美妆_事件'',''美妆F8''">挑逗她</a></div>'
+            if a=10:'<div class="buttonB4"><a href="exec:a=11 & gt ''美妆_事件'',''美妆F8''">回温泉旅馆</a></div>'
+            if a=11:'<div class="buttonB5"><a href="exec:a=12 & gt ''美妆_事件'',''美妆F8''">楼梯上口交</a></div>'
+            if a=12:'<div class="buttonB5"><a href="exec:a=13 & gt ''美妆_事件'',''美妆F8''">回房间里操</a></div>'
+            if a=13:'<div class="buttonB4"><a href="exec:a=14 & gt ''美妆_事件'',''美妆F8''">大力抽插</a></div>'
+            if a=14:'<div class="buttonB5"><a href="exec:a=15 & gt ''美妆_事件'',''美妆F8''">满眼爱意</a></div>'
+            if a=15:'<div class="buttonB1"><a href="exec:a=16 & gt ''美妆_事件'',''美妆F8''">颜射她</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $天气='☂雨' and $MZD.看过仓库=1:'<div class="buttonB5"><a href="exec:a=0 & q=0 & gt ''美妆_事件'',''美妆Z9''">真·结局触发</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''郊外''">完·结局</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 呼，终于可以去温泉放松一下了。 </p>'
+              '<p>我: 是啊，我也好想好想放松一下，不用每天都这样疲惫不堪了。</p>'
+              '<p><<$MZ.name>>: 咦？今天的天气不会要下雨吧？</p>' 
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>*车窗外开始飘起了雨点 </p>'
+              '<p>我: 还好，是毛毛雨，很快就会停的。</p>'
+              '<p><<$MZ.name>>: 但愿吧❤</p>' 
+         '</div>'
+    end
+
+
+    if 7>=a and a>=2:
+         '<div class="dialog_menu">'
+              if a>=2:'<p><<$MZ.name>>: 别闹<<$娇喘声>></p>'
+              if a>=3:'<p>我: 反正周围也没人❤</p>'
+              if a>=4:'<p><<$MZ.name>>: 好吧❤我也想玩点刺激的❤</p>'
+              if a>=5:'<p>*再快一点，再快一点</p>'
+         '</div>'
+    end
+
+    if 15>=a and a>=8:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 刺激吗？我还给你准备了暴击套装喔❤</p>'
+              if a>=9:'<p>我: 再你求饶之前我是不会罢休的❤</p>'
+              if a>=11:'<p><<$MZ.name>>: 谁怕谁啊❤</p>'
+              if a>=10:'<p>我: 还在嘴硬❤</p>'
+              if a>=14:'<p><<$MZ.name>>: 饶了我<<$话>></p>'
+         '</div>'
+    end
+
+
+
+
+    if a=16:
+         if $美妆事件链=9:$美妆事件链=10
+         $MZ.bad+=my.魅力+q
+         $MZ.love+=my.魅力+q
+         $MZ.GE=1
+         '<div class="dialog_menu">'
+              '<p>我: 舒服了吧？</p>' 
+              '<p><<$MZ.name>>: 是呀❤泡完澡然后做爱什么的真的好解压呢❤</p>'
+              if $天气!'☂雨':
+              '<p>*伴随着凉爽的微风，我们相拥进入了梦乡…</p>' 
+              '<p>·———此处为人物故事结局———</p>' 
+              else:
+              '<p>我: 外面下雨了呢？听声音还挺大的。</p>' 
+              '<p><<$MZ.name>>: 噢？真的假的？</p>'
+              end
+         '</div>'
+    end
+    q+=1
+End
+
+
+if $args[0]="美妆Z9":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\Z9-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!18:
+         '<div class="button_menu">'
+            if a=0:'<div class="buttonR3"><a href="exec:a=1 & gt ''美妆_事件'',''美妆Z9''">火速赶回去</a></div>'
+            if a=1:'<div class="buttonB1"><a href="exec:a=2 & gt ''美妆_事件'',''美妆Z9''">看向仓库里</a></div>'
+            if a=2:'<div class="buttonB1"><a href="exec:a=3 & gt ''美妆_事件'',''美妆Z9''">抢救库存</a></div>'
+            if a=3:'<div class="buttonB2"><a href="exec:a=4 & gt ''美妆_事件'',''美妆Z9''">于事无补</a></div>'
+            if a=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''美妆_事件'',''美妆Z9''">强颜欢笑</a></div>'
+            if a=5:'<div class="buttonB4"><a href="exec:a=6 & gt ''美妆_事件'',''美妆Z9''">安慰她</a></div>'
+            if a=6:'<div class="buttonB5"><a href="exec:a=7 & gt ''美妆_事件'',''美妆Z9''">与我拥吻</a></div>'
+            if a=7:'<div class="buttonS1"><a href="exec:a=8 & gt ''美妆_事件'',''美妆Z9''">插入她</a></div>'
+            if a=8:'<div class="buttonS2"><a href="exec:a=9 & gt ''美妆_事件'',''美妆Z9''">纵情忘想</a></div>'
+            if a=9:'<div class="buttonS3"><a href="exec:a=10 & gt ''美妆_事件'',''美妆Z9''">抛下烦恼</a></div>'
+            if a=10:'<div class="buttonS4"><a href="exec:a=11 & gt ''美妆_事件'',''美妆Z9''">大汗淋漓</a></div>'
+            if a=11:'<div class="buttonS5"><a href="exec:a=12 & gt ''美妆_事件'',''美妆Z9''">射精</a></div>'
+            if a=12:'<div class="buttonB1"><a href="exec:a=13 & gt ''美妆_事件'',''美妆Z9''">去旅馆开房</a></div>'
+            if a=13:'<div class="buttonB2"><a href="exec:a=14 & gt ''美妆_事件'',''美妆Z9''">干一整个通宵</a></div>'
+            if a=14:'<div class="buttonB5"><a href="exec:a=15 & gt ''美妆_事件'',''美妆Z9''">操到天亮</a></div>'
+            if a=15:'<div class="buttonS4"><a href="exec:a=16 & gt ''美妆_事件'',''美妆Z9''">最后一发</a></div>'
+            if a=16:'<div class="buttonS2"><a href="exec:a=17 & gt ''美妆_事件'',''美妆Z9''">舔干净</a></div>'
+            if a=17:'<div class="buttonB3"><a href="exec:a=18 & gt ''美妆_事件'',''美妆Z9''">对话</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG3"><a href="exec:">✦✦✦✦✦</a></div>'
+                '<div class="buttonB5"><a href="exec:gt ''居民区''">真·结局·完</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 糟糕！雨居然下这么大？！ </p>'
+              '<p>我: 看来是不回去了呢……</p>'
+              '<p><<$MZ.name>>: 咦？口红部的销售干嘛给我打电话……完了！今天应该是我值班，我忘记和她换班了！！</p>' 
+              '<p>我: 这么大的雨，你要回去干嘛……</p>'
+              '<p><<$MZ.name>>: 我们的仓库！雨这么大！里面的化妆品一定全完了！</p>' 
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>*一路风驰电掣我们赶着暴雨回到了店里… </p>'
+              '<p><<$MZ.name>>: 怎么办……</p>' 
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p>*仓库已经是汪洋一片了… </p>'
+              '<p><<$MZ.name>>: 怎么办…我……我怎么会犯这么严重的错误……</p>' 
+              '<p>我: 现在不是沮丧的时候…我们一起能抢救多少抢救多少吧！先把还没淋湿的搬出来！</p>'
+         '</div>'
+    end
+
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p>我: 窗户我暂时找了把雨伞顶着…但……</p>'
+              '<p><<$MZ.name>>: 我…我把干的都搬出来了…抢救还算及时！应该不会让我赔多少钱吧…</p>' 
+         '</div>'
+    end
+
+    if 12>=a and a>=4:
+         '<div class="dialog_menu">'
+              '<p>我: 放心，会好起来的…</p>'
+              if a>=5:'<p><<$MZ.name>>: 哈哈…干嘛安慰我，我是个很坚强的女生好嘛……</p>' 
+              if a>=6:'<p>我: 这只是人生当中的小小风雨…今后无论是多大的风雨我也愿意和你一起渡过…</p>'
+              if a>=7:'<p><<$MZ.name>>: 你…*眼含泪花</p>' 
+              if a>=8:'<p>我: 暂时就把身心全部交给我吧……</p>' 
+              if a>=9:'<p><<$MZ.name>>: 好…我爱你，<<$主角姓名>>…</p>' 
+              if a=12:'<p>我: 地板上凉，你又淋湿了…我们去旅馆里吧…</p>' 
+         '</div>'
+    end
+
+    if 17>=a and a>=13:
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 别停下❤我想和你就这样永远操下去……</p>'
+              if a>=16:'<p>我: 我…我实在不行了*大口喘气着</p>'
+              if a>=17:'<p><<$MZ.name>>: 结束了嘛…终于要回到现实了……</p>'
+         '</div>'
+    end
+
+
+
+
+    if a=18:
+         if $美妆事件链=10:
+            $美妆事件链=11
+            my.智力+=2
+         end
+         $MZ.bad+=my.魅力+q
+         $MZ.love+=my.魅力*4+q
+         '<div class="dialog_menu">'
+              '<p><<$MZ.name>>: 不知道总部会给我什么样的处罚呢…我真的好讨厌回到现实…我千辛万苦才升职成区域经理……就因为一场雨…</p>'
+              '<p>我: 听我说，我们会是一起走过风风雨雨的伴侣，我会一直陪伴在你身边，直到永远。</p>' 
+              '<p><<$MZ.name>>: 呜呜呜，我真的感到非常温暖和安心。只要有你在我身边，我就不会孤单和无助了，我想我是真的爱上了你……</p>'
+              '<p>·——这是一个隐藏的结局——</p>'  
+              '<p>·——你得到了特别的奖励——</p>'  
+              '<p>·——✦智力+2✦——</p>'  
+         '</div>'
+    end
+    q+=1
+End
+
+--- 美妆_事件 ---------------------------------
+

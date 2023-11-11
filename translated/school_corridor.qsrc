@@ -1,0 +1,156 @@
+# school_corridor
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+swhour=rand(12,16)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+if $args[0]="":
+	$campusrandomnumber=rand(0,100)
+	 '<div class ="show_menu"><img src="images\place\学校走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if hour=17 and $XM.available=0 and week_day <=5:'<div class="button"><a href="exec:gt ''school_girl_event'',''eavesdropping''">Eavesdropping</a></div>'
+		if hour=16 and $XM.available=1 and week_day <=5:'<div class="button"><a href="exec:gt ''school_girl_event'',''through_the_corridor''">Through the corridor</a></div>'
+		if $gun_hunting_incident_chain=1:
+			if $utility_room_investigation=0:'<div class="button"><a href="exec:gt ''police_incident'',''ask_the_teacher''">✣Ask the passing teacher</a></div>'
+			if $utility_room_investigation!0:'<div class="buttonS"><a href="exec:gt ''police_incident'',''jy_fuck_female_teacher_card''">✣Ask the passing teacher</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Quiet and peaceful campus corridor，<a href="exec:minutes+=5 & gt ''school_corridor'',''bulletin_board''">Bulletin board</a>In the most eye-catching position.</p>'
+		if $campusrandomnumber>=94 and $front_of_news_program=1:'<p>Expatriate reporters from the TV station are interviewing<a href="exec:minutes+=5 & gt ''school_corridor'',''news_interview''">Swimming club</a></p>'
+		if $campusrandomnumber<=6 and $front_of_news_program=1:'<p>Expatriate reporters from the TV station are interviewing<a href="exec:minutes+=5 & gt ''school_corridor'',''news_interview''">Basketball club</a></p>'
+		if $campusrandomnumber<=5 and hour<=15 and $school_event_hope<2:'<p>Outside the office of the Education Commission<a href="exec:minutes+=5 & gt ''school_corridor'',''quarrel''">Quarrel</a></p>'
+		if $campusrandomnumber<=5 and hour<=15 and $school_event_hope=2:'<p>On-campus picket team<a href="exec:minutes+=5 & gt ''group_performation_event'',''group_play_fuck_hope_a''">Collective action</a></p>'
+		if $campusrandomnumber<=50 and hour<=15 and $school_event_hope=3:'<p>Summon members of the picket team<a href="exec:minutes+=5 & gt ''group_performation_event'',''group_play_fuck_hope_b''">Correction report</a></p>'
+		if $ZL_Event_face=2 and hour =17:'<p><<$ZL.name>>With her friends<a href="exec:minutes+=5 & gt ''aid_event'',''study_room''">Study room</a>inside.</p>'
+		if $ZL.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad and 13<=hour and hour<=14 :'<p><<$ZL.name>>and<<$LJ.name>>in<a href="exec:minutes+=5 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Reading room</a>inside.</p>'
+		if $HZ.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad and hour=12:'<p><<$LJ.name>>Invited by the student union<a href="exec:minutes+=5 & gt ''president_event'',''tea_warning''">Drink tea</a>already.</p>'
+		if $XZ_classroomB=1and hour =17:'<p>A few boys are being<<$XZ.name>>Punish to clean<a href="exec:minutes+=5 &gt ''principal_event'',''xz_fuck_empty_classroom_b''">Equipment room</a></p>'
+		if $SW.bad>=10 and hour=swhour:'<p><<$SW.name>>Actually went to the first floor<a href="exec:minutes+=5 &gt ''biological_office'',''men`s_toilet''">In the men`s room</a></p>'
+		if FXZ_XY>=3 and 10<=hour and hour<=12 :'<p><<$FXZ.name>>and<<$XY.name>>Being<a href="exec:minutes+=5 & gt ''spanish_event'',''fxz_fuck_henchman''">Staff lounge</a>What is being discussed in it.</p>'
+		if $SW_Event_XZ=2 and hour >=17:'<p><<$SW.name>>and<<$XZ.name>>Being<a href="exec:minutes+=5 & gt ''biology_event'',''sw_fuck_health_room''">Sexual health room</a>What is being discussed in it.</p>'
+		if  $xm_event_chain>=2 and 13>hour and hour>=11:'<p><<$XM.name>>And her friends are<a href="exec:gt ''school_girl_event'',''xm_fuck_library''">In the library</a></p>'
+		if $campusrandomnumber<=20 and hour>=15:'<p>Yayoi Mizuki came from the corridor<a href="exec:minutes+=5 & gt ''police_incident'',''jy_fuck_teacher_encounter''">Sound of high heels</a></p>'
+		if $campusrandomnumber<=25 and hour=10 and $sy.pick_up_the_uniform=1:'<p>From the medical examination room<a href="exec:minutes+=5 & gt ''school_corridor'',''medical_examination_room''">Noise</a></p>'
+		if $campusrandomnumber>=75 and hour>=17 and $sy.uniform>=1:'<p>In the men`s room on the second floor<a href="exec:minutes+=5 & gt ''uehara_event'',''SY_Fuck_WC''">Gathered crowd</a></p>'
+		if $LXS.bad>100 and hour>=17 and $campusrandomnumber<=25:'<p>It came from the health room on the second floor<a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_secretly''">Panting</a></p>'
+		
+	'</div>'
+End
+
+
+if $args[0]="bulletin_board":
+	$approval_rating_difference=RAND(2,6)
+	$other_approval_ratings=16
+	$xz_approval_rating=50+$approval_rating_difference-$other_approval_ratings/2
+	$fxz_approval_rating=50-$approval_rating_difference-$other_approval_ratings/2
+	 '<div class ="show_menu"><img src="images\place\学校走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if FXZ_XY>=10 and SW_XZ>=10:'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''principal_event'',''XZ_Fuck_FXZ''">校园Campus talker✩</a></div>'else:'<div class="buttonGr"><a href="exec:">Achievement:?？？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Real-time approval rating：</p>'
+		'<p>▍<<$XZ.name>>Approval rating：<<$xz_approval_rating>>%▼	▍<<$FXZ.name>>Approval rating：<<$fxz_approval_rating>>%▲	▍$other_approval_ratings：<<其他支持率>>%</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✦✧✩✦✧✩✦✧✩✦✧</p>'
+		'<p>✩ <<$FXZ.name>>❤<<$XY.name>>=<<FXZ_XY>>/10✧</p>'    
+		'<p>✩ <<$XZ.name>>❤<<$SW.name>> =<<SW_XZ>>/10✧</p>'    
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✦✧✩✦✧✩✦✧✩✦✧</p>'
+		
+	'</div>'
+End
+
+if $args[0]="quarrel":
+		if $school_event_hope=1:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\杂\教师投诉2.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>Female teacher: You said you have ideas to communicate with you, right?I can`t tolerate the practice of the school picket team, why can they?……</p>'
+			'<p>Male teacher: Huh?The rights and responsibilities of the picket team depend on the school rules and regulations established by the principal himself, as well as the charter of the city hall.If you think the rights of the picket team are a bit excessive, you can talk to the principal yourself!</p>'
+		'</div>'
+		$school_event_hope=2
+	end
+	
+		if $school_event_hope=0:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\杂\教师投诉1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>Male teacher: Xiaoshi, you just joined the job, if you don`t understand, you can come and ask me if you don`t understand.The female teacher in this school, if you don`t stand in line, it will be very dangerous.…</p>'
+			'<p>Female teacher: I am not worried about certain factional pressures or unfair treatment. I believe that as long as I teach seriously, I can help students improve their interest in learning and grades.</p>'
+			'<p>Male teacher: You... you are still too young... don`t talk too early. If you have any ideas, you can communicate with me!</p>'
+		'</div>'
+		$school_event_hope=1
+	end
+End
+
+if $args[0]="news_interview":
+		 if $campusrandomnumber<=6:a+=1
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\杂\采访<<a>>.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>News anchor：<<$panting>>The following brings you a live report…</p>'
+			'<p>Me: &quot;News Squirting Endurance Race&quot; has actually spread to the location?</p>'
+		'</div>'
+
+End
+
+
+if $args[0]="medical_examination_room":
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\SY\vids\XXNK.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			if $sy.uniform=0:'<div class="button"><a href="exec:$sy.uniform=1 & gt ''university''">Steal a school uniform</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>Male doctor: Pout your ass and break your ass open…</p>'
+		'</div>'
+
+End
+
+
+
+
+--- school_corridor ---------------------------------
+

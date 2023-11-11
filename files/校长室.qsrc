@@ -1,0 +1,257 @@
+# 校长室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+if $XZ.bad<20:$xzbad=0
+if $XZ.bad>=20:$xzbad=1
+if $XZ.bad>=150-$XZ.love:$xzbad=2
+if $XZ.bad>=250-$XZ.love:$xzbad=3
+if $XZ.bad>=350-$XZ.love:$xzbad=4
+if $XZ.bad>=450-$XZ.love:$xzbad=5
+
+$xzbada=rand(0,$xzbad)
+
+if $args[0]="":
+	$XZ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbada>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $XZ_Event_3t<=1:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''校长室'',''旁听证''">申请旁听证</a></div>'
+			if $XZ_Event_3tf=1 and $XZ_Event_3ts=1 and $XZ_Event_3tx=1 :
+			'<div class="buttonR"><a href="exec:minutes+=5 & gt ''校长室'',''回复''">校内纠察队</a></div>'
+			end
+		end
+		if $SW_Event_XZ=1:'<div class="buttonB"><a href="exec:minutes+=5 & gt ''校长室'',''课改提议''">课改提议</a></div>'
+		if $ZL.room=1 and $XZ_Event_ghost=5: '<div class="button"><a href="exec:minutes+=5 & gt ''校长室'',''援交整顿''">援交整顿</a></div>'
+		if $LJ_Event_Steal>=1 and $XZ_Event_ghost=6:'<div class="button"><a href="exec:minutes+=5 & gt ''校长室'',''盗窃投诉''">盗窃投诉</a></div>'
+		if $LJ_Event_Steal=4 and $XZ_Event_ghost=6:'<div class="button"><a href="exec:minutes+=5 & gt ''校长室'',''结束盗窃''">结束盗窃</a></div>'
+		if $XZ_Event_ghost=5:'<div class="button"><a href="exec:minutes+=5 & gt ''校长室'',''处理投诉''">处理投诉</a></div>'
+		if $XZ_Event_ghost.completed=1:'<div class="button"><a href="exec:minutes+=5 & gt ''校长室'', ''提出投诉''">提出投诉</a></div>'
+		if $XZ.bad>=300-$XZ.love:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''校长室'', ''放学别走''">放学别走</a></div>'
+		if $XZ.bad>=75: '<div class="buttonS3"><a href="exec:minutes+=5 &gt ''校长_事件'',''XZ_Fuck_办公室B''">戴上狗链</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $XZ.bad>=150-$XZ.love:'<div class="buttonS4"><a href="exec:minutes+=5 &gt ''校长_事件'',''XZ_Fuck_办公室A''">把屌塞她嘴里</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $XZ.bad>=200-$XZ.love:'<div class="buttonS5"><a href="exec:minutes+=5 &gt ''校长_事件'',''XZ_Fuck_办公室C''">用胶带捆住她</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $XZ.bad>=200 and $LXS.available=1 and 留学生学校=0:'<div class="buttonG3"><a href="exec:gt ''留学_事件'',''留学_Fuck_学校申请''">留学生注册</a></div>'
+        if 授精室=1 and $XZ.bad>=210 and $XZ.授精=0:'<div class="buttonS"><a href="exec:$XZ.授精=1 & gt ''校长室''">邀请人工授精</a></div>'
+
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>：有什么事吗？</p>'
+		if 旁听证=1:
+		'<p><校内纠察队></p>'
+		if $FXZ_Event_辅导>=1 and $纠察队任务=0 :'<p>她正在打算<a href="exec: $纠察队任务=1 & gt ''校长室''">打压<<$FXZ.name>></a></p>'
+		if $学校_Event_希望=2 and $纠察队任务=0 :'<p>一封信关于校内纠察队权利滥用的<a href="exec: $纠察队任务=1 & gt ''校长室'',''举报信''">举报信</a></p>'
+		if $FXZ_Event_辅导>=1 and $纠察队任务=1:'<p><<$XZ.name>>：听说你和<<$FXZ.name>>走的很近？看来再不惩罚她一下，她真以为能靠那种无聊竞赛扳倒我？让她知道校内纠察队的手段！召集队员去她的办公室给她点颜色看看！</p>'
+		if $纠察队任务=99:'<p>你汇报了一遍纠察的结果。<a href="exec: $纠察队任务=0 &$XZ.love+=2 & gt ''校长室''">  <<$XZ.name>>很满意</a></p>'
+		end
+
+	'</div>'
+End
+
+
+if $args[0]="旁听证":
+	$XZ_Event_3t=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">同意</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：我想申请旁听证，要怎么申请？我想学点知识。</p>'
+		'<p><<$XZ.name>>：按照【新法案】，学校已经不再征收男性学生了。不过，校内纠察队还有几个空位，如果你表现的好，我可以给你个机会。</p>'
+		'<p>我：校内纠察队？</p>'
+		'<p><<$XZ.name>>：是的，校内纠察队的主要任务是维护校园稳定，当发现校内存在不稳定因素时，要及时向我进行汇报，并积极采取防范措施，发现对同学的不当行为，及时进行阻止。</p>'
+		'<p>我：听上去好像不难。</p>'
+		'<p><<$XZ.name>>：队伍里不需要废物，你的第一个任务。去调查三位“主要老师”的立场，如果结果满意，我可以让你加入校内纠察队。</p>'
+	'</div>'
+End
+
+if $args[0]="回复":
+	$XZ_Event_3t=2
+	旁听证=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">感谢</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：<<$sw.name>>对学校里男生数量锐减感到不满，<<$XY.name>>表面不置可否，其实已经被<<$fxz.name>>拉拢，<<$fxz.name>>自然是对你心存芥蒂，希望取而代之。</p>'
+		'<p><<$XZ.name>>：和我预想的差不多，我确实需要一个探子时刻给我传递情报。</p>'
+		'<p>我：........</p>'
+		'<p><<$XZ.name>>：这事干的不错，我现在批准你加入校内纠察队。</p>'
+	'</div>'
+End
+
+if $args[0]="处理投诉":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">明白</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>：最近有传言我校有女学生正在从事非法援交活动，这是我最近收到的录像。</p>'
+		'<p>我：从画面上看……确实是像我校的学生。</p>'
+		'<p><<$XZ.name>>：像什么样子？！约束调教？这是对女性领导至上主义赤裸裸的挑衅！绝对要杜绝这种情况！</p>'
+		if $XZ_Event_ZL=0:$XZ_Event_ZL=1
+	'</div>'
+End
+
+if $args[0]="援交整顿":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">感谢</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：该学生是由于受到胁迫才从事援交的，我已经妥善处理好这件事了，她也答应我从此不会再发生校内援交这种行为。</p>'
+		'<p><<$XZ.name>>：做的好！我就是喜欢你这样队员。</p>'
+		$XZ_Event_ghost=6
+		$XZ.love+=1
+	'</div>'
+End
+
+if $args[0]="盗窃投诉":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\盗窃~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">明白</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>：最近商场的安保部门向我反映我校有女学生正在从事盗窃行为，并且在盗窃成功后在社交网站上大肆炫耀。</p>'
+		'<p>我：盗窃行为？为什么不直接报警？</p>'
+		'<p><<$XZ.name>>：所有女性居民拥有10次犯罪豁免权，适用于犯罪情节轻微、包括且不限于：针对男性的凌辱、虐待、监禁、故意伤害。显然你没有认真听过我的课！</p>'
+		'<p>我：那我去商场附近找找她，她的名字是<<$LJ.name>>吧，她居然用的真名做的社交账号？</p>'
+		'<p><<$XZ.name>>：像什么样子？！偷窃？低于2000的直接拿不就好了！这是对女性领导至上主义赤裸裸的挑衅！绝对要杜绝这种情况！</p>'
+		if $LJ_Event_Steal=1:$LJ_Event_Steal=2
+		$LJ.available=1
+	'</div>'
+End
+
+
+if $args[0]="结束盗窃":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\盗窃~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">感谢</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：该学生是由于寻求刺激心理才去偷窃，我已经妥善处理好这件事了，她也答应我从此不会再发生偷窃这种行为。</p>'
+		'<p><<$XZ.name>>：做的好！我越来越喜欢你了。继续努力！</p>'
+		$XZ_Event_ghost=7
+		if $XZ.love<10:$XZ.love+=10
+	'</div>'
+End
+
+if $args[0]="提出投诉":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\事件10~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">晚上见</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：校长大人，你一定能认得出照片里的人吧。</p>'
+		'<p><<$XZ.name>>：你？！你想干什么？！</p>'
+		'<p>我：校长大人，如果把你赤身裸体在学校走廊里自慰的照片公之于众，那这个校园恐怕没有你的容身之地了喔！</p>'
+		'<p><<$XZ.name>>：你？！你想怎么样？</p>'
+		'<p>我：我想尝尝，午夜中的腥味。</p>'
+		if  $XZ_Event_ghost.completed=1: $XZ_Event_ghost.completed=2
+	'</div>'
+End
+
+if $args[0]="放学别走":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">走廊见</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>：放学了先别走，我叫了几个学生去打扫器材室。到时候我们一起去监督他们工作。</p>'
+		'<p>我：嗯？好的</p>'
+		$XZ_classroomB=1
+	'</div>'
+End
+
+if $args[0]="课改提议":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>：有什么事吗？</p>'
+		'<p>我：呃，<<$SW.name>>的课改提议你知道吧？就是那个《特色生物课：课堂性爱体验》，她想放学后让你去看一节她的模拟课……</p>'
+		'<p><<$XZ.name>>：看来她一直念念不忘啊…也好吧，放学了我抽空去看看。</p>'
+		$SW_Event_XZ=2
+	'</div>'
+End
+
+
+if $args[0]="举报信":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">明白</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：这份信是…要求撤销校内纠察队…?</p>'
+		'<p><<$XZ.name>>：看来有人对我的领导很不满呢，这件事交给你去办，没问题吧？</p>'
+		$学校_Event_希望=3
+	'</div>'
+End
+--- 校长室 ---------------------------------
+

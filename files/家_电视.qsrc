@@ -1,0 +1,224 @@
+# 家_电视
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="去大厅" href="exec:minutes+=5 & gt ''家''"><img class="img_stretch" src="images\place\家.jpg"></a>
+		</div>
+		
+		<div class="action">
+			<a class="photo" data-title="电脑" href="exec:minutes+=5 & gt ''家_电脑''"><img class="img_stretch" src="images\place\电脑.jpg"></a>
+		</div>
+		
+		<div class="action">
+			<a class="photo" data-title="等离子电视机" href="exec:minutes+=5 & gt ''家_电视''"><img class="img_stretch" src="images\place\电视.jpg"></a>
+		</div>
+	</div>'
+'</div>'
+
+$看过电视=1
+$付费内容=0
+if 0<=hour and hour<3:
+		$节目='深夜格斗节目'
+		$节目评价='现在谁还要看这种大块头？我们要看辣妹！'
+		if $格斗前置=4:
+			$节目='女子全裸格斗秀'
+			$节目评价='新颖的全裸格斗+可以下注的赌徒心理，吸引了不少人气。'
+			格斗节目num=6
+			if 格斗秀=7 and hour>=2:格斗节目num=7
+			$节目评价='第一届女子非暴力全裸格斗大赛圆满落幕'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\格斗节目<<格斗节目num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 3<=hour and hour<=6:
+		if $付费节目前置=2 :
+		$节目='《全民投稿-我要上电视》'
+		$节目评价='只需要肯花钱，应援视频，MV点播，想你的视频出现在电视上？什么都可以！'
+		$付费内容=1
+		付费频道num=rand (1,7)
+		if 付费频道num=7:$付费内容='由“图文攻略者”投稿…附言：新春到，烟火起~那个水人波是我最后的青春。最后祝福大家春节快乐！'
+		if 付费频道num=6:$付费内容='哇偶…这才是偶像歌手的标准嘛…不知道是谁应援投稿的呢…'
+		if 付费频道num=5:$付费内容='这是什么广告啊…'
+		if 付费频道num=4:$付费内容='观众第二喜欢的付费点歌环节…'
+		if 付费频道num=3:$付费内容='观众第二喜欢的付费点歌环节…'
+		if 付费频道num=2:$付费内容='付费MV点播…这都是啥歌？'
+		if 付费频道num=1:$付费内容='都<<year>>年了，怎么还会有人付费应援这种大叔啊…'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\付费频道<<付费频道num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		$节目='暂无节目'
+		$节目评价='不知道未来会有什么好节目呢…'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\暂无节目0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+end
+if 6<hour and hour<=8:
+		$节目='天气预报'
+		$节目评价='今天的天气是我喜欢的天气…'
+		if $拉赞助=3:
+			$节目='天气预报-帝国健康携优质精牛向您问候'
+			$节目评价='让我们一起来倡导“一天一杯精，越喝越年轻”'
+			天气预报num+=2
+			if 天气预报num>=8:天气预报num=2
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\天气预报<<天气预报num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 8<hour and hour<=10:
+		$节目='新闻节目'
+		$节目评价='沉闷的新闻节目…如果主持人能够更活泼就好了…'
+		if $新闻节目前置=1:
+			$节目='《新闻潮吹忍耐赛》'
+			$节目评价='喂，你下注了吗？这个闷骚主持人肯定坚持不了十分钟…'
+			新闻节目num=rand(7,13)
+			if $XM.job=1:新闻节目num=rand(6,13)
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\新闻节目<<新闻节目num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 10<hour and hour<=12:
+		$节目='真人秀'
+		$节目评价='真无聊…一眼假的真人秀谁要看啊……'
+		if $真人秀前置=4:
+			真人秀num+=1
+			if 真人秀num<10:真人秀num=10
+			if 真人秀num>=19:真人秀num=10
+			$节目='全新真人秀《是男人就坚持10分钟》'
+			$节目评价='卧槽！怎么报名？！我肯定能顶住骚货的勾引！'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\真人秀<<真人秀num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 12<hour and hour<15:
+		if $QT.job=2:
+			$节目='电台节目'
+			$节目评价='看来她表现的不错…'
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\news\TV\电台节目0.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		else:
+			$节目='聚焦世界杯'
+			$节目评价='四年一度的云球迷狂欢日…'
+			'<div class ="show_menu"><img src="images\NPC\QB\pics\世界杯0.jpg" width="854"></div>'
+		end
+
+end
+if 15<=hour and hour<=18:
+		$节目='动画片'
+			$节目评价='这一集我怎么没看过…'
+		 
+		if $动画片前置=3:
+			if 动画片num<2:动画片num=4
+			$节目='《关于我妹妹是淫乱的色情小说家，被我发现后24小时挨肏最后成为母狗性奴这件事》'
+			$节目评价='太劲爆了！这才是我们想看的动漫！假惺惺的阳痿后宫番早就没人要看了！'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\动画片<<动画片num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		动画片num+=1
+		if $动画片前置=3:
+			if 动画片num=8:动画片num=4
+		else:
+			if 动画片num=2:动画片num=0
+		end
+end
+if 18<hour and hour<=20:
+		$节目='电视剧'
+			$节目评价='这一集我怎么没看过…'
+			
+		if $偶像剧前置=1:
+			电视剧num+=1
+			if 电视剧num>=6:电视剧num=1
+			$节目='《落魄千金爱上我》'
+			$节目评价='抛开剧情和演技不谈，光看颜值和乳量果断还是要追更的！'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\电视剧<<电视剧num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 20<hour and hour<=22:
+		$节目='特摄剧'
+		$节目评价='特摄剧拍来拍去都是这个套路…看腻了……'
+		if  $特摄片前置=4 :
+			$节目='《点赞助力为女英雄充能》'
+			$节目评价='什么？女英雄居然被打倒了？这个剧一定有反转！追下去看看！'
+			特摄剧num+=2
+			if 特摄剧num>=15:特摄剧num=2
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\特摄片<<特摄剧num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 22<hour :
+		$节目='读书节目'
+		$节目评价='不愧是支撑起深夜档的节目…'
+		读书节目num=1
+		if $读书节目前置=1:
+			读书节目num=rand(3,4)
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\读书节目<<读书节目num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+'<div class="button_menu">'
+	if hour<12:'<div class="button"><a href="exec:minutes+=90  &  gt ''家_电视''">打个盹</a></div>'
+	if hour>=12:'<div class="button"><a href="exec:minutes+=120  &  gt ''家_电视''">打个盹</a></div>'
+	
+	if $节目='女子全裸格斗秀':
+		if 格斗秀<6:'<div class="buttonR2"><a href="exec:gt ''群演_事件'',''格斗比赛show''">对阵图</a></div>'
+		if 格斗秀=6:'<div class="buttonR3"><a href="exec:gt ''群演_事件'',''格斗比赛show_总决赛''">总决赛</a></div>'
+	end
+	if $节目单=0:'<div class="button"><a href="exec:$节目单=1 & gt ''家_电视''">打开节目单</a></div>'else:'<div class="button"><a href="exec:$节目单=0 & gt ''家_电视''">收起节目单</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p>正在播放：<<$节目>></p>'
+	'<p>锐评: <<$节目评价>></p>'
+	if $付费内容!0:'<p>·我: <<$付费内容>></p>'
+
+	if $节目单=1:
+	'<p>——————电视节目单——————</p>'
+	'<p>00:00—03:00：深夜节目</p>'
+	if $付费节目前置!2:'<p>03:00—07:00：暂无内容</p>'
+	if $付费节目前置=2:'<p>03:00—07:00：付费频道</p>'
+	'<p>07:00—09:00：天气预报</p>'
+	'<p>09:00—11:00：新闻节目</p>'
+	'<p>11:00—13:00：真人秀</p>'
+	'<p>13:00—15:00：电台节目【暂定】</p>'
+	'<p>15:00—19:00：动画片</p>'
+	'<p>19:00—21:00：电视剧</p>'
+	'<p>21:00—23:00：特摄剧</p>'
+	'<p>23:00—00:00：读书节目</p>'
+	'<p>——————电视节目单——————</p>'
+	end
+'</div>'
+--- 家_电视 ---------------------------------
+

@@ -1,0 +1,578 @@
+# 帝国娱乐
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="帝国集团大厅" href="exec:minutes+=15 & gt ''帝国集团''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		if $MM_Event_idol>=3 and ((hour=18)or (week_day >=6 and hour>=13 and hour<19)):
+		'<div class="action">'
+			'<a class="photo" data-title="舞蹈练习室" href="exec:minutes+=15 & gt ''舞蹈房''"><img class="img_stretch" src="images\NPC\MM\pics\舞蹈房2.jpg"></a>'
+		'</div>'
+		else:
+		'<div class="action">'
+			'<a class="photo" data-title="舞蹈练习室" ><img class="img_stretch" src="images\place\舞蹈房.jpg"></a>'
+		'</div>'
+		end 
+		
+		if $OX.job=1:
+		'<div class="action">'
+			'<a class="photo" data-title="写真摄影室" href="exec:minutes+=15 & 偶像摄影随机数=rand(1,4) & gt ''帝国娱乐'',''摄影室''"><img class="img_stretch" src="images\NPC\OX\pics\摄影室.jpg"></a>'
+		'</div>'
+		end
+		
+		if $QB.room=1 and $竞演开始!1 and $竞演开始!999:
+		'<div class="action">'
+			'<a class="photo" data-title="个人宿舍" href="exec:minutes+=15 & gt ''帝国娱乐'',''个人宿舍''"><img class="img_stretch" src="images\place\个人宿舍.jpg"></a>'
+		'</div>'
+		end
+	'</div>'
+'</div>'
+
+
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\帝国娱乐2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''帝国娱乐'',''交谈''">交谈</a></div>'
+		if 天使专辑=1:'<div class="buttonPu5"><a href="exec:$泛用位置=''电梯1'' & fxnum=7 & 
+            $泛选1=''深呼吸'' & $泛选2=''太危险了'' & $泛选3=''直接口我'' & $泛选4=''舔舐睾丸'' &
+            $泛选5=''口交'' & $泛选6=''再快点'' & $泛选7=''射精'' & $泛选8=''对话'' &
+            $泛对话1=''我们一会要直接去帝国的最高层，你作为我的副官可不能掉链子。'' & $泛对话2=''被你这么一说我还有点紧张''& $泛对话3=''紧张的话，我给你放松一下，上升的时间完全充足！''&
+            $泛对话4=''怎么样…没有压力了吧？''& $泛对话5=''压力更大了…''&
+            $泛离开=''居民区'' & gt ''天使_事件'',''TS_Fuck_泛用''">和她上电梯</a></div>'
+            
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐''">消磨时间</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>机械AI声：欢迎来到帝国集团第69层。帝国娱乐。</p>'
+	'</div>'
+End
+
+
+if  $args[0]="交谈":
+	if $炸弹事件=1 and $times_of_day='night':
+         '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\晚办公室.webm" type=''video/webm;''></video></div>'
+         '</div>'
+	else:
+		'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+	end
+	
+	'<div class="button_menu">'
+		if $炸弹事件=1 and $times_of_day='night':'<div class="button"><a href="exec:gt ''天使_事件'',''TS_Fuck_公司口''">专门来操你的！</a></div>'
+		if $炸弹事件=1:'<div class="buttonPu2"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''录音室''">录音室</a></div>'
+		if $TS.available!1:'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''看向墙壁''">看向墙壁</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''星探计划''">星探计划</a></div>'
+		if 帝国level<1:'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''人为刀俎''">人为刀俎</a></div>'
+		if $MM_Event_idol>=2:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''地下偶像''">地下偶像</a></div>'
+		end
+		if 每日杂活=0 and 帝国level>=1:'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''每日杂活''">每日杂活</a></div>'
+		if $选秀事件链=1 or $选秀事件链=2:'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''提议选秀2''">提议：参加选秀</a></div>'
+		if $选秀事件链=4:'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''提议选秀4''">进军：选秀大赛</a></div>'
+		if 大别墅初次>0 and $天使事件链<=1:'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''聚餐庆祝''">聚餐庆祝</a></div>'
+		if $天使事件链>=2:'<div class="buttonPu1"><a href="exec:$m=''TS'' & $mcat=$TS.name & gt ''任务_事件'',''喂食任务''">喂食任务</a></div>'
+		if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''TS'' & $ma=$TS.name & gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $竞演开始!999:'<p>·<<$ts.name>>：您好，有什么事吗？OS：新的男子偶像完全没有市场，还有什么内娱一姐强势入驻抢人，救命啊~~要不我还是辞职算了吧。</p>'
+		if $竞演开始=999:'<p>·<<$ts.name>>：总算是好起来了，居然能拿到优胜，现在成团的三人都是我们旗下的艺人，太棒了。</p>'
+		if $炸弹事件=1 and $times_of_day='night':'<p>·<<$ts.name>>：<<$主角姓名>>，这么晚了还来工作吗？</p>'
+	'</div>'
+End
+
+if  $args[0]="看向墙壁":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使介绍0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''看向墙壁2''">继续看</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·墙壁上挂着现任首席运营官COO的个人履历。</p>'
+		'<p>·她作为帝国娱乐的二代目练习生，在无约状态下，仍如期配合专辑的发行以及个人演唱会的宣传工作，熬走了一批又一批的练习生。</p>'
+		'<p>·经过了三年又三年，现在是帝国娱乐最年轻的首席运营官，她的名字是：天使萌</p>'
+	'</div>'
+End
+
+if  $args[0]="看向墙壁2":
+	$TS.available=1
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使介绍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·然而在【新政策】的打压下，男性收入普遍下降，女性偶像成团产业迅速没落，多位股东相继撤资。帝国娱乐正处于无人可用的尴尬局面。</p>'
+		'<p>·看来这对她是个不小的挑战。</p>'
+	'</div>'
+End
+
+
+if  $args[0]="星探计划":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $MM_Event_idol>=1 and  $MM_Event_idol<3:'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''推妹''">推荐<<$mm.name>></a></div>'
+		if $QB签约链=1:'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''推荐桥本''">推荐<<$QB.name>></a></div>'
+		if $QB签约链=6:'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐'',''召见桥本''">召见<<$QB.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐''">好的</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·我：我注意到门口贴了什么星探计划。</p>'
+		'<p>·<<$ts.name>>：星探，就是挖掘有明星潜质的人。星探的工作简单概括，就是在大街上、人群中根据广告客户的要求寻找适合的【新秀】。</p>'
+		'<p>·我：那我负责找人，您负责将这些具有潜质的普通人送上舞台。</p>'
+		'<p>·<<$ts.name>>：没错！一旦你挖掘到适合的“新秀”。请火速联系我。</p>'
+	'</div>'
+End
+
+if  $args[0]="推妹":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·我：履历：学生时代曾在FamilyMart打工过，曾有体操锻炼的历史.....（这也是为什么她说自己能够在骑乘位保持稳定的原因）</p>'
+		'<p>·<<$ts.name>>：停停停！她不是我要找的人。说实话，偶像界竞争残酷，恕我直言她并不是这块料。</p>'
+		'<p>·我：我妹妹的学校正面临生源不足的废校危机！她想成为偶像只为了使学校的名气增加，吸引更多入读的学生！拯救学校！</p>'
+		'<p>·<<$ts.name>>：(莞尔一笑)你妹妹？原来是这么一回事啊，那可以让她来试试。（反正对我来说也没什么损失....）</p>'
+		'<p>·我：非常感谢，稍后我就把这个好消息告诉她！</p>'
+	'</div>'
+	$MM_Event_idol=2
+End
+
+if  $args[0]="地下偶像":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $oxhbao=0 & gt ''帝国娱乐'',''地下偶像2''">看海报</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ts.name>>：这几个练习生看来都不行....现在的地下偶像也太离谱了，怎么能拍出这种写真呢？！可恶的伴游公司！</p>'
+		'<p>我：地下偶像？伴游公司？</p>'
+		'<p><<$ts.name>>：被你听见了？所谓地下偶像是隶属于伴游公司的。她们明码标价白天陪玩，晚上陪睡。只不过是女性逆向选择客户，钻了【合法卖淫】的空子罢了。</p>'
+		'<p>我：意思是只有高端的优质客户她们才会服务？</p>'
+		'<p><<$ts.name>>：对，瞧瞧这是她们最新推出的地下偶像的海报。</p>'
+	'</div>'
+End
+
+if  $args[0]="地下偶像2":
+
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像<<$oxhbao>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $oxhbao=0:
+		'<div class="button"><a href="exec:minutes+=5 & $oxhbao=1 & gt ''帝国娱乐'',''地下偶像2''">下一张</a></div>'
+		end 
+		if $oxhbao=1:
+		  if $MM_Event_idol=3:
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''色情偶像''">色情偶像</a></div>'
+		  end
+		  if $MM_Event_idol=5:
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''培养妹妹''">培养妹妹</a></div>'
+		  end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">暂时没有</a></div>'
+		end 
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $oxhbao=0:
+		'<p>我：哇偶，尺度不小嘛....（好像依稀能看见乳头了）</p>'
+		'<p><<$ts.name>>：这算什么，你再看看这张。</p>'
+		else:
+		'<p>我：哇偶，我的世界亮起来了！但是...好像质量也不怎么样...一个能与你媲美的都没有。</p>'
+		'<p><<$ts.name>>：哼，那肯定。</p>'
+		'<p>我：有机会我也应该去体验体验......</p>'
+		'<p><<$ts.name>>：你在嘀咕什么？是有什么好主意吗？</p>'
+		end
+	'</div>'
+End
+
+
+if  $args[0]="色情偶像":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $oxhbao=0 & gt ''帝国娱乐''">先别急</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & $MM_Event_idol=4 & $oxhbao=0 & gt ''帝国娱乐''">同意</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：相比之下，地下偶像的优势在于...粉丝可以和她们发生直接的性关系。这对粉丝的诱惑力是无限的。那有没有这样一种可能性...如果我们的艺人也提供性服务呢？</p>'
+		'<p><<$ts.name>>：你疯了？！我们可是正规的偶像公司！</p>'
+		'<p>我：如果是...艺人以感谢祭的形式，邀请粉丝团来...</p>'
+		'<p><<$ts.name>>：握手会是吗？现在的粉丝早不吃这一套了。</p>'
+		'<p>我：来性交，群P！你还是不懂男人！男人就是喜欢这种反差婊！谁不渴望肏女爱豆呢？</p>'
+		'<p><<$ts.name>>：................这.......万一...</p>'
+		'<p>我：再这样犹豫不决，市场就会被瓜分完的！第一个色情爱豆！必须是我们家的！</p>'
+		'<p><<$ts.name>>：..那好！这件事...交给你了！出了问题你负责！！就用新签的四个练习生来做试验品！（反正是无保障合同...出了事也不用担责）</p>'
+		'<p>我：啊？这...（其他三个倒是无所谓，可有一个是我妹妹啊...）</p>'
+		'<p><<$ts.name>>：哼，现在轮到你犹豫不决了是吗？</p>'
+	'</div>'
+End
+
+
+if  $args[0]="培养妹妹":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：我觉得<<$mm.name>>已经完全符合条件了！</p>'
+		'<p><<$ts.name>>：好的，那你好好打造她吧，可以进行一些宣发了！其余的三人我已经遣散了。</p>'
+		'<p>我：交给我吧，我想我可以拥有一台佳能R6单反拍摄一些写真集。</p>'
+	'</div>'
+End
+
+if  $args[0]="摄影室":
+	'<div class ="show_menu"><img src="images\NPC\OX\pics\摄影室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 偶像摄影随机数=1:'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''偶像_事件'',''OX_Fuck_打鼓''">偶像服饰</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		if 偶像摄影随机数=2:'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''偶像_事件'',''OX_Fuck_蕾姆''">COS蕾姆</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		if 偶像摄影随机数=3:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''偶像_事件'',''OX_Fuck_泳装''">穿泳装</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		if 偶像摄影随机数=4:'<div class="buttonS5"><a href="exec:minutes+=15 & gt ''偶像_事件'',''OX_Fuck_胁迫''">陌生人</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		
+		if week_day>=6 and hour=13 and $CH.饭>=2:'<div class="buttonG3"><a href="exec:minutes+=15 & gt ''车行_事件'',''临时摄影棚''">临时摄影棚</a></div>'
+		if $校花事件链>=7:'<div class="buttonG4"><a href="exec:minutes+=15 & gt ''学生群_事件'',''校花工作''"><<$XH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$OX.name>>正在里面摆POSE。</p>'
+	'</div>'
+End
+
+if  $args[0]="人为刀俎":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">申请职位</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：听说帝国集团有特殊的晋升通道，从M1一直到M10？像和牛的品质一样。我很好奇，所以我想申请一个工作职位看看。</p>'
+		'<p><<$ts.name>>：是的，随着你的工作经验的积累，可以不断晋升。从最底层的M1一路升上去，就像游戏中的爬塔一样。</p>'
+		'<p><<$ts.name>>：虽然企业并不缺人，但以兼职为多数的1级员工还是希望越多越好。我可以提供给你一个1级职位，之后就需要你的努力了。</p>'
+		'<p>我：那谢谢了。</p>'
+		'<p><<$ts.name>>：我提醒你一下，最好不要成为M3级....好好在M1,M2做底层的事就行了。（M3以后，你就是完全的射精机器了....楼上的女人一个比一个变态...所以我才只能做这个小小的娱乐部门董事吧...）</p>'
+		if 帝国level<=1: 帝国level=1
+	'</div>'
+End
+
+if  $args[0]="每日杂活":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·做了点杂活，职位经验+1</p>'
+		'<p><<$ts.name>>：我提醒你一下，最好不要成为M3级....好好在M1,M2做底层的事就行了。（M3以后，你就是完全的射精机器了....楼上的女人一个比一个变态...所以我才只能做这个小小的娱乐部门董事吧...）</p>'
+		每日杂活=1
+		xp+=1
+	'</div>'
+End
+
+if  $args[0]="推荐桥本":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''桥本合同''">草拟合同</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：你知道<<$QB.name>>吗?现在是签下她的好时候。</p>'
+		'<p><<$ts.name>>：<<$QB.name>>?她最近搞砸了世界杯，现在谁不认识她？网上铺天盖地对她的谩骂都快把她活剥了。</p>'
+		'<p>我：没错，但是黑红也是红；臭名也是名啊。现在的追风口是唯流量的扭曲市场，签下她会有高得令人咋舌的薪酬收益。</p>'
+		'<p><<$ts.name>>：但是她看上去…平平无奇，成为我司的艺人相貌是重要的考虑因素。</p>'
+		'<p>我：还请您批给我一笔…整形经费…</p>'
+		'<p><<$ts.name>>：这可不符合我的投资理念。我只能为你草拟合同，既然你想签下她，那就得全权由你负责。</p>'
+	'</div>'
+End
+
+if  $args[0]="桥本合同":
+	'<div class ="show_menu"><img src="images\place\医院场景\签订合同.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $QB签约链=2  & gt ''帝国娱乐''">拿走合同</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">拒绝</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【合同正文】</p>'
+		'<p>甲方：帝国娱乐                            乙方：<<$主角姓名>></p>'
+		'<p>第一条： 乙方同意接受甲方的雇佣，并按照甲方的要求执行相关工作。</p>'
+		'<p>第二条： 乙方的工作内容包括但不限于：签下<<$QB.name>>，支付生活费、美容费…</p>'
+		'<p>第三条： 乙方担任<<$QB.name>>经纪人期间，须对其产生的一切后果负全部责任。</p>'
+		'<p>最终解释权归帝国娱乐所有</p>'
+		
+	'</div>'
+End
+
+if  $args[0]="召见桥本":
+	'<div class ="show_menu"><img src="images\NPC\QB\pics\效果2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">收下钥匙</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：这位就是我们的老板，<<$TS.name>>。</p>'
+		'<p><<$QB.name>>：您…您好。感谢您给我机会，我会努力成为一名出色的艺人的！</p>'
+		'<p><<$ts.name>>：不必感谢我，是<<$主角姓名>>极力推荐你的。看来微整一下还是很有必要的，你的眼光不错嘛！</p>'
+		'<p>我：谢谢夸奖…现在还需给她找个地方住。</p>'
+		'<p><<$ts.name>>：之前我担任练习生的时候睡的个人宿舍，让她住那里吧。</p>'
+		$QB.room=1
+		$QB签约链=7
+		$QB.name='桥本有菜(艺人)'
+	'</div>'
+End
+
+
+if  $args[0]="个人宿舍":
+	'<div class ="show_menu"><img src="images\place\个人宿舍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $选秀事件链<=1:'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''提议选秀''">提议：参加选秀</a></div>'
+		if $选秀事件链=3:'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''提议选秀3''">考虑参加吗？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 我不知道我能不能做好，但我一定会尽力哒！</p>'
+	'</div>'
+End
+
+if  $args[0]="提议选秀":
+	'<div class ="show_menu"><img src="images\place\个人宿舍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''提议选秀''">提议：参加选秀</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 诶？！选秀节目嘛，那个我知道！去年的大势角色退赛风波闹得沸沸扬扬，今年她又卷土重来…我怕我的实力不够…</p>'
+		'<p>我: 别担心，黑红也是红…只要有人气和话题度…没事的…</p>'
+		'<p><<$QB.name>>: 我想再修炼一年，如果…<<$TS.name>>要求我去的话…我也没办法…</p>'
+		'<p>我: 那我得和她谈谈了…</p>'
+		$选秀事件链=1
+	'</div>'
+End
+
+if  $args[0]="提议选秀2":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''查看邮件''">查看邮件</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: 这的确是个好主意…是提升曝光度和话题度的好方法，但是…</p>'
+		'<p>我: 但是什么？</p>'
+		'<p><<$TS.name>>: 她现在的舆论环境对她不利…我怕她禁不起舆论的轰炸…</p>'
+		'<p>我: ……</p>'
+		'<p><<$TS.name>>: 对了…我最近收到一封很有意思的自荐邮件…</p>'
+	'</div>'
+End
+
+if  $args[0]="查看邮件":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\旬果大学.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">交给我吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><电子邮件></p>'
+		'<p>？？？: 您好，冒昧打扰，我的丈夫前不久遭遇了车祸…现在住院中…实不相瞒…我受够他了！我本意是想成为少奶奶，却不曾设想现在要轮到我来打工支付他的住院费！</p>'
+		'<p>？？？: 打工洗盘子赚的钱完全不够他的花销，我的信用卡已经被轮番套现殆尽…我在学生时代是校内的乐队主唱，我希望贵司能为我提供一把电吉他…并签下我！</p>'
+		'<p><<$TS.name>>: 你怎么看…？这个人我有所耳闻，她曾经是我的学姐喔！</p>'
+		'<p>我: 我明白你的意思了…</p>'
+	'</div>'
+End
+
+if  $args[0]="提议选秀3":
+	'<div class ="show_menu"><img src="images\place\个人宿舍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 哪个…我决定…去参加！刚刚那个大胸部姐姐说的很对，我再怎么犯错，也不会比世界杯直播出糗更严重了…</p>'
+		'<p>我: 呃…这可难说…</p>'
+		'<p><<$QB.name>>: 而且！万一就是有人喜欢我这种真实的呆呆人设呢…十全十美的偶像太多了…</p>'
+		'<p>我: 这倒是…既然如此，我去向<<$TS.name>>汇报了。</p>'
+		$选秀事件链=4
+	'</div>'
+End
+
+if  $args[0]="提议选秀4":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if  $允许带妹妹=0: 
+			if mm_fans>=50:'<div class="button"><a href="exec:$允许带妹妹=1 & gt ''帝国娱乐'',''提议选秀4''">带上<<$MM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:"><<$MM.name>>粉丝数不足</a></div>'
+		 end
+		if $允许带SF=0: '<div class="button"><a href="exec:$允许带SF=1 & gt ''帝国娱乐'',''提议选秀4''">带上<<$SF.name>></a></div>'
+		if $允许带SF=1 and $允许带妹妹=1: '<div class="buttonG"><a href="exec:gt ''帝国娱乐'',''出发报名''">出发报名！</a></div>'else:'<div class="buttonGr"><a href="exec:">出发报名！</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: 干的好，好久没有这种斗志昂扬的感觉了…</p>'
+		'<p>我: 我有一个请求。</p>'
+		'<p><<$TS.name>>: 什么请求？</p>'
+		'<p>我: ……</p>'
+		if  $允许带妹妹=1:'<p><<$TS.name>>: <<$MM.name>>现在有这么多粉丝，是时候带她去见见大场面了，带她没问题！</p>'
+		if  $允许带SF=1:'<p><<$TS.name>>: <<$SF.name>>…？作为一个新人初出茅庐就要上这种比赛？我担心她成为炮灰，不过…带上她对我也没什么损失。</p>'
+	'</div>'
+End
+
+if  $args[0]="出发报名":
+	$PW.available=1
+	$SSYY.available=1
+	'<div class ="show_menu"><img src="images\place\竞演\出发报名.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $QT.job=2:'<div class="buttonG"><a href="exec:minutes+=5 & $选秀事件链=5 & $竞演开始=1 & gt ''电视台''">90天竞演比赛开始</a></div>'else:'<div class="buttonGr"><a href="exec:">缺少播音主持</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">再等等</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$PW.name>>: 啧啧啧，看来今年的对手很弱呢。你可要好好发挥，我不会再像去年一样给你擦屁股了。</p>'
+		'<p><<$SSYY.name>>: 这次我一定不会辜负老师！我会狠狠地拿下冠军！</p>'
+		'<p><<$PW.name>>: 哼，评委哪边我会保你。我让你做什么就去做什么，明白了？我们的目标只有一个…</p>'
+		'<p><<$SSYY.name>>: 冠军！冠军！冠军！</p>'
+		'<p>我: ………</p>'
+		'<p><<$TS.name>>: 我来说一下选秀大赛的初步规则…一旦我们报名，为期90天的选秀大赛就会马上开始，你决定好了吗？</p>'
+
+		
+		
+	'</div>'
+End
+
+if  $args[0]="聚餐庆祝":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">好的</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: 哇，你真的是太棒了！真没想到我们能拿下C位出道，我也获得了最佳经济公司的殊荣。</p>'
+		'<p>我: 这真的是很不可思议的事情，但我们做到了！</p>'
+		'<p><<$TS.name>>: 这绝对值得庆祝！我想请你去吃最好的，你想吃什么？中餐？西餐？还是其他什么？</p>'
+		'<p>我: 赤色餐厅怎么样，据说菜品很不错，价格也合理。</p>'
+		'<p><<$TS.name>>: 太好了，我也超爱赤色餐厅！听起来我们的品味很像呢！我们这个周末去吧，我已经迫不及待和你共进晚餐了。</p>'
+		'<p>我: 我也是，那就定在这个周六晚上吧。</p>'
+		$天使事件链=1
+	'</div>'
+End
+
+if  $args[0]="录音室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\录音室.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	'<div class="button_menu">'
+		if hour<=5:'<div class="buttonPu5"><a href="exec:$泛用位置=''录音1'' & fxnum=10 & 
+			$泛选1=''摸她'' & $泛选2=''对话'' & $泛选3=''口我'' & $泛选4=''躲进来'' &
+			$泛选5=''舔睾丸'' & $泛选6=''插入'' & $泛选7=''后背位'' & $泛选8=''加速冲刺'' &
+			$泛选9=''射精'' & $泛选10=''射精'' & 
+			$泛对话1=''他们好像都累的睡着了。'' & $泛对话2=''那我们该做什么呢？''& $泛对话3=''再放肆点…不想做点更刺激的事吗？''&
+			$泛对话4=''好刺激呢…''& $泛对话5=''你放开了的样子真色情…''&
+			$泛离开=''地铁'' & gt ''天使_事件'',''TS_Fuck_泛用''">后半夜</a></div>'
+			
+        if 16>=hour and hour>=8:'<div class="buttonPu1"><a href="exec:$泛用位置=''公测1'' & fxnum=8 & 
+            $泛选1=''独处时间'' & $泛选2=''亲吻'' & $泛选3=''手活'' & $泛选4=''吮吸蛋蛋'' &
+            $泛选5=''整根含住'' & $泛选6=''享受口交'' & $泛选7=''射她嘴里'' & $泛选8=''舔干净'' &
+            $泛对话1=''怎么了？你不和他们多聊聊吗？他们都是优秀的音乐制作人…'' & $泛对话2=''他们太吵了…''& $泛对话3=''那这里会不会太安静了呢？越是安静的地方就越会躁动不安❤''&
+            $泛对话4=''好了，舒服完我们一起回去吧❤''& $泛对话5=''一起回去的话，他们会怀疑的吧？''&
+            $泛离开=''帝国集团'' & gt ''天使_事件'',''TS_Fuck_泛用''">去洗手间</a></div>'
+			
+		if hour>=17:'<div class="buttonPu4"><a href="exec:$泛用位置=''录音2'' & fxnum=12 & 
+			$泛选1=''喝趴她们'' & $泛选2=''对话'' & $泛选3=''亲吻'' & $泛选4=''舔舐'' &
+			$泛选5=''舔睾丸'' & $泛选6=''口交'' & $泛选7=''自己自慰'' & $泛选8=''接吻抽插'' &
+			$泛选9=''后背位'' & $泛选10=''加速抽插'' & $泛选11=''颜射'' & $泛选12=''舔干净'' &
+			$泛对话1=''啊哈！工作完来一杯啤酒最爽了！'' & $泛对话2=''干杯！你们也来！''& $泛对话3=''他们真是不经喝呢…喂…我感觉身体有点飘飘的惹❤''&
+			$泛对话4=''没有被他们发现吧❤他们几个其中有我的追求者喔❤''& $泛对话5=''那可真是危险的，我可不想再遇见一个精神病…''&
+			$泛离开=''地铁'' & gt ''天使_事件'',''TS_Fuck_泛用''">喝一杯</a></div>'
+			
+			
+		if 专辑num<100:
+			'<div class="buttonP"><a href="exec:minutes+=5 & gt ''帝国娱乐'',''录制音乐''">录制专辑<<专辑num>>%</a></div>'
+		else:
+			'<div class="buttonPu3"><a href="exec:$泛用位置=''演出1'' & fxnum=8 & 
+			$泛选1=''去幕后'' & $泛选2=''肏她'' & $泛选3=''抬起大腿'' & $泛选4=''加速抽插'' &
+			$泛选5=''大力冲刺'' & $泛选6=''射精'' & $泛选7=''塞入跳蛋'' & $泛选8=''继续演出'' &
+			$泛对话1=''好久不见啦！各位粉丝们！这首歌是即将发行的主打歌喔！'' & $泛对话2=''真是干劲十足呢！''& $泛对话3=''请各位稍事休息，我去换一套演出服…欸？！等等❤你不会是想…''&
+			$泛对话4=''她刚张开嘴，传出去的却是一声呻吟❤嗯❤谢谢你的支持❤天使爱你哟❤''& $泛对话5=''嘿嘿，这种感觉真不错…没想到她的人气这么旺。''&
+			$泛离开=''地铁'' & 天使专辑=1 & gt ''天使_事件'',''TS_Fuck_泛用''">专辑试听会</a></div>'
+			
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: 这里的人声再强化一点，鼓点再弱化一点。这里最后再加一个反拍，不如再加个电音？</p>'
+		'<p>我: 看来她对歌曲的要求很高…</p>'
+	'</div>'
+End
+
+
+if  $args[0]="录制音乐":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\录制音乐.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=420 & gt ''帝国娱乐'',''录制音乐2''">完善专辑<<专辑num>>%</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: 嘿！<<$主角姓名>>！你不来给我提点意见吗？</p>'
+		'<p>我: 让我动动脑筋…</p>'
+	'</div>'
+End
+
+if  $args[0]="录制音乐2":
+	专辑num+=my.智力+15
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:my.精力=0 & gt ''地铁''">交给我吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 和弦的部分我帮你修改一下吧…</p>'
+		'<p><<$TS.name>>: 你还懂这个？那我就静候佳音咯？</p>'
+		'<p>我: 你先回去休息吧，交给我！*指了指自己的大脑…</p>'
+	'</div>'
+End
+--- 帝国娱乐 ---------------------------------
+

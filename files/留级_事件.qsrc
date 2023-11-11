@@ -1,0 +1,707 @@
+# 留级_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $ARGS[0]="抓住":
+	if $LJ.bad<180-$LJ.love:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\LJ\vids\惩罚0~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		else:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\LJ\vids\沉迷0~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+	end
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_调教''">开始调教</a></div>'
+		if $LJ.bad>=30:
+		'<div class="buttonS"><a href="exec:money+=50 & gt ''留级_事件'',''LJ_Fuck_3P''">找人3P调教</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		
+		if $LJ.bad>=180-$LJ.love:
+		'<div class="buttonS"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_沉迷''">来舔我</a></div>'
+		'<div class="buttonB"><a href="exec:a=1 & gt ''留级_事件'',''承诺不再偷窃''">承诺不再偷窃</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		
+		if $LJ.bad>=300-$LJ.love:
+		'<div class="buttonS"><a href="exec: gt ''留级_事件'',''LJ_Fuck_电话''">给家里打电话</a></div>'
+		if $SY.bad>0:'<div class="buttonGn"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_她家''">去她家</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		
+		'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $LJ.bad>=180-$LJ.love:
+		 '<p><<$LJ.name>>：……怎么办…好想和你做爱…我是怎么了…</p>'
+		 '<p>我：是时候放你走了吧……</p>'
+		 '<p><<$LJ.name>>：呜呜…不要嘛…</p>'
+		 else:
+		 '<p><<$LJ.name>>：呜呜……放开我。</p>'
+		 '<p>我：你真是个不听话的婊子，亏我一心照顾你，该让你涨涨记性了！</p>'
+		 '<p><<$LJ.name>>：呜呜…</p>'
+		 end
+	'</div>'
+end
+
+if $ARGS[0]="遇见":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\1开幕~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''留级_事件'',''送她回家''">送她回家</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>正打算回家，路灯下的少女吸引了你的注意。</p>'
+		'<p>我：这么冷的天，你怎么一个人在外面?</p>'
+		'<p><<$LJ.name>>：被赶出来了....不知道该去哪..</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="送她回家":
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if my.basement>0:'<div class="button"><a href="exec:gt ''留级_事件'',''去地下室''">去地下室坐坐？</a></div>'
+		'<div class="button"><a href="exec:gt ''深巷''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$LJ.name>>：到这里就行了，谢谢你。不过我还想在外面呆一会。</p>'
+		'<p>我：看来你是真的不想回家......</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="去地下室":
+	'<div class ="show_menu"><img src="images\place\地下室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''留级_事件'',''去地下室2''">进去</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：你不害怕吗？如果我是坏人的话。</p>'
+		'<p><<$LJ.name>>：有点，但总比家里要好吧。</p>'
+		'<p>我：进去吧，我给你煮点东西吃。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="去地下室2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\1开幕2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''留级_事件'',''去地下室3''">哦，好的</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：好吃吗？她点点头。这么冷的天，你怎么一个人在外面?</p>'
+		'<p><<$LJ.name>>：因为又没有及格...再这样下去要被退学了...不敢回家...</p>'
+		'<p>我：家里人会责怪你是吗？</p>'
+		'<p><<$LJ.name>>：嗯。她点点头。那个，你可以帮我去买一包卫生巾吗？我...我月经来了....</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="去地下室3":
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''留级_事件'',''去地下室4''">回去拿伞</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>刚出门，就突然下起大雨来……</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="去地下室4":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\1开幕3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$LJ_Event_Steal=3 & gt ''留级_事件'',''抓住''">抓住她！</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LJ.name>>：怎么什么值钱的都没有？这个应该值不少钱吧。</p>'
+		'<p>我：你在干嘛？！亏我一心想帮你，你居然想偷我的东西？......</p>'
+		'<p><<$LJ.name>>：啊！不好！*她转身就要跑。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="承诺不再偷窃":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\沉迷3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_沉迷''">好孩子</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：向我保证，以后不会再去偷东西了。</p>'
+		'<p><<$LJ.name>>：好嘛…我发现比偷东西更加刺激的事情了，和你做爱，比偷东西刺激一万倍！</p>'
+		$LJ_Event_Steal=4
+	'</div>'
+
+end
+
+
+if $args[0]="LJ_Fuck_调教":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\惩罚<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_调教''">玩弄小穴</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''留级_事件'',''LJ_Fuck_调教''">肉棒摩擦</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''留级_事件'',''LJ_Fuck_调教''">强制口交</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''留级_事件'',''LJ_Fuck_调教''">抬腿抽插</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''留级_事件'',''LJ_Fuck_调教''">掰臀骑乘</a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''留级_事件'',''LJ_Fuck_调教''">呻吟冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_调教''">内射中出</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & LJ_num=0 & minutes+=105 & gt ''留级_事件'',''LJ_Fuck_调教''">继续操2小时</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=8 & LJ_num=1 & gt ''留级_事件'',''LJ_Fuck_调教''">为什么偷东西？</a></div>'
+				'<div class="button"><a href="exec:a=8 & LJ_num=2 & gt ''留级_事件'',''LJ_Fuck_调教''">你家里人呢？</a></div>'
+				'<div class="button"><a href="exec:a=8 & LJ_num=3 & gt ''留级_事件'',''LJ_Fuck_调教''">不回家的原因</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+	if 3>=a and a>=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>求求你饶了我……</p>'
+		 '</div>'
+	end
+
+
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>…好爽…好喜欢…</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $LJ.love+=q/4+my.魅力
+		 $LJ.bad+=q/4
+		 '<div class="dialog_menu">'
+			 '<p>·随后的两个小时里她依旧保持着高强度的挨肏状态，最后神志都开始混乱了，竟对你百依百顺起来。</p>'
+			 '<p><<$LJ.name>>:我说……我什么都告诉你……</p>'
+			 if LJ_num=1:'<p>·<<$LJ.name>>:因为…我想要攒钱……然后去别的地方玩……偷东西的视频…点击量很高……</p>'
+			 if LJ_num=2:'<p>·<<$LJ.name>>:因为新政策…高管爸爸下放到采石场工作了……妈妈就在家里找了很多叔叔……他们当着我的面在饭桌上做爱，还把精液射进我的饭碗里…</p>'
+			 if LJ_num=3:'<p>·<<$LJ.name>>:因为…妈妈说再考不好，就让我给叔叔操，考低一分就要被操一次……及格之前只能吃精液拌饭…还说是优质蛋白质……</p>'
+			 '<p>我:敢骗我的话，我就肏烂你的逼。</p>'
+		 '</div>'
+	end
+
+ 
+ q+=1
+
+End
+
+if $args[0]="LJ_Fuck_3P":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\3P<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_3P''">舌吻舔逼</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''留级_事件'',''LJ_Fuck_3P''">强制高潮</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''留级_事件'',''LJ_Fuck_3P''">口穴抽插</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''留级_事件'',''LJ_Fuck_3P''">前后贯穿</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''留级_事件'',''LJ_Fuck_3P''">看他肏</a></div>'
+			end
+			if a!6 and q>=5 and q!7:
+			'<div class="button"><a href="exec:a=6 & gt ''留级_事件'',''LJ_Fuck_3P''">自己肏</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_3P''">射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &  gt ''留级_事件'',''LJ_Fuck_3P''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>求求你饶了我……</p>'
+			 '<p>我:喜欢吗？真没想到门口那些游民愿意花钱来操你。</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>><<$话>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $LJ.love+=q+my.魅力
+		 $LJ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p>·她渐渐适应了挨操的强度，心理也发生了变化……</p>'
+			 '<p><<$LJ.name>>:...全都流出来了——暖暖的，被抱着操的感觉真好。</p>'
+			 '<p>她更加淫荡了。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="LJ_Fuck_沉迷":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\沉迷<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_沉迷''">来舔我</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''留级_事件'',''LJ_Fuck_沉迷''">舌吻蹭穴</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''留级_事件'',''LJ_Fuck_沉迷''">69式</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''留级_事件'',''LJ_Fuck_沉迷''">腿架肩上肏</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''留级_事件'',''LJ_Fuck_沉迷''">大力猛肏</a></div>'
+			end
+			if a!6 and q>=5 and q!7:
+			'<div class="button"><a href="exec:a=6 & gt ''留级_事件'',''LJ_Fuck_沉迷''">女上位冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_沉迷''">射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &  gt ''留级_事件'',''LJ_Fuck_沉迷''">舔干净</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>…我想要…求求你给我…</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>…我想要…求求你给我…</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>><<$话>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $LJ.love+=q*2+my.魅力
+		 $LJ.bad+=q*2-5
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:..嗯嗯..嗯..帮你舔干净。*舌头用力搅拌吸吮着你的肉棒</p>'
+			 '<p>她更加淫荡了。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="LJ_Fuck_电话":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\电话1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_电话''">塞她嘴里</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''留级_事件'',''LJ_Fuck_电话''">快点</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''留级_事件'',''LJ_Fuck_电话''">再快点</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''留级_事件'',''LJ_Fuck_电话''">射精</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''留级_事件'',''LJ_Fuck_电话''">报平安</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''留级_事件'',''LJ_Fuck_电话''">让她喝掉</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_电话''">把嘴张开</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $LJ.love>=200 and $LJ.bad>=200:
+				'<div class="buttonS"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_她家''">去她家</a></div>'
+				else:
+				'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+				end
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:妈妈，这几天我一直住在同学家里…</p>'
+			 '<p>电话声:你到底要在外面混多久？你以为妈妈真的不担心你吗？死鬼，轻点，我在给我女儿打电话呢~</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>呜呜呜…</p>'
+		 '</div>'
+	end
+
+	if a=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:我在外面过得很好！不用你操心！ 你好好操心这些叔叔吧！</p>'
+			 '<p>电话声:有空记得回家....叔叔们都想见见你，还给你买了好多....喔~~喔~~要到了~~</p>'
+		 '</div>'
+	end
+
+	if a=6 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:我知道了！你不用管我！</p>'
+			 '<p>电话声:嘟嘟嘟……</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $LJ.love+=q*2+my.魅力
+		 $LJ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:..嗯嗯..没想到还挺好喝的，没有那些叔叔们的臭味。</p>'
+			 '<p>她竟然开始喜欢上这种味道了。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $ARGS[0]="LJ_Fuck_她家":
+	$SY.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\妈口交0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: a=0& q=0 & gt ''留级_事件'',''LJ_Fuck_妈口交''">学习！</a></div>'
+		if $SY.bad>0:'<div class="button"><a href="exec: a=0& q=0 & gt ''上原_事件'',''学习烹饪''">学习烹饪！</a></div>'else:'<div class="buttonGr"><a href="exec:">学习烹饪！</a></div>'
+		'<div class="button"><a href="exec: gt ''深巷''">离开！</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LJ.name>>：妈！我回来了！喏，这就是我家，你满意了？</p>'
+		'<p><<$SY.name>>：你怎么就回来了？！真不巧，叔叔们现在都不在家，厨房里还有点剩菜，你们先去房间里学习一会吧！</p>'
+	'</div>'
+end
+
+if $args[0]="LJ_Fuck_妈口交":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\妈口交1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a!1 and q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJ_Fuck_妈口交''">靠近</a></div>'
+			end
+			if a!2 and q=1:
+			'<div class="button"><a href="exec:a=2 & gt ''留级_事件'',''LJ_Fuck_妈口交''">让她摸你</a></div>'
+			end
+			if 5>=a and a>3 and q>1:
+			'<div class="button"><a href="exec:a-=1 & gt ''留级_事件'',''LJ_Fuck_妈口交''">慢一点</a></div>'
+			end
+			if 2<=a and a<5 and q>1:
+			'<div class="button"><a href="exec:a+=1 & gt ''留级_事件'',''LJ_Fuck_妈口交''">加速</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''留级_事件'',''LJ_Fuck_妈口交''">口内射精</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''留级_事件'',''LJ_Fuck_妈口交''">把嘴张开</a></div>'
+			end
+			if 8>a and a>=6:
+			'<div class="button"><a href="exec:a=8 & gt ''留级_事件'',''LJ_Fuck_妈口交''">让她喝掉</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''留级_事件'',''LJ_Fuck_妈口交''">再来一次</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=3 & gt ''留级_事件'',''LJ_Fuck_妈口交''">含住</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=10 & gt ''留级_事件'',''LJ_Fuck_妈口交''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:一看书就犯困…明明做爱都不会有这么累</p>'
+			 '<p><<$SY.name>>:啊咧？果然不是学习的料呢，一看书就睡着了。</p>'
+		 '</div>'
+	end
+
+	if a=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:我女儿待在你家里，给你添麻烦了。现在的小伙子，身强体壮的精力一定很好吧？</p>'
+		 '</div>'
+	end
+
+	if a=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:啊呀，真是主动呢，阿姨可不挑食喔。快点掏出来吧，我的小乖乖。</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:啊呀看到了吗，一滴都没有漏出来喔~这射精量和那几个死鬼加起来有一拼了~</p>'
+		 '</div>'
+	end
+
+	if a=8 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:每天一杯精，越喝越年轻~还要再来一发嘛？</p>'
+		 '</div>'
+	end
+
+	if a=9 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:一不小心又睡着了.....妈妈，<<$主角姓名>>？你们的表情怎么怪怪的？</p>'
+			 '<p><<$SY.name>>:呃....饭做好了，你们自己吃吧，妈妈还要去和叔叔们做任务了，你们自己玩哈~</p>'
+			 '<p><<$LJ.name>>:吃完饭我还要去<<$主角姓名>>那里住一段时间...</p>'
+			 '<p><<$SY.name>>:随便你！妈妈来不及了！先走了！</p>'
+			 '<p><<$LJ.name>>:唉，再失去爸爸以后妈妈越来越堕落了....</p>'
+			 $SY.bad+=5
+		 '</div>'
+	end
+	
+ 
+ q+=1
+
+End
+
+if $args[0]="LJZL_Fuck_逆3P":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\逆3P<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">白丝足交</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">双人侍奉</a></div>'
+			end
+			if 5>=a and 5>=q and q>=2:
+			'<div class="buttonB"><a href="exec:a=3 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">主口：<<$LJ.name>></a></div>'
+			end
+			if 2<=a and 5>=q and q>=2:
+			'<div class="buttonP"><a href="exec:a=4 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">主口：<<$ZL.name>></a></div>'
+			end
+			if a!5 and 8>q and q>=4:
+			'<div class="buttonB"><a href="exec:a=5 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">操<<$LJ.name>></a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">操<<$ZL.name>></a></div>'
+			end
+			if a=6 or a=5:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">完事</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:盯着我们干什么，是不是想做坏事呀~亲爱的，看来你把她也拿下了嘛~</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:<<$娇喘声>><<$话>></p>'
+		 '</div>'
+	end
+
+	if a=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:<<$话>>啊？！————怎么自说自话就射了，射也应该射我里面...</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 $LJ.love+=q+my.魅力
+		 $LJ.bad+=q*2+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$娇喘声>>喂喂，你要干什么啊？！</p>'
+			 '<p><<$ZL.name>>:这是亲爱的射给我的精液，我当然要舔干净呀。</p>'
+		 '</div>'
+	end
+	
+ 
+ q+=1
+
+End
+--- 留级_事件 ---------------------------------
+

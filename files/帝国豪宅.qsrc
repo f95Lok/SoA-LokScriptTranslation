@@ -1,0 +1,580 @@
+# 帝国豪宅
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+随机数=rand(0,100)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="景色" href="exec:gt''帝国豪宅'',''景色''"><img class="img_stretch" src="images\NPC\CT\pics\景色.jpg"></a>
+			<a class="photo" data-title="主卧" href="exec:gt''帝国豪宅'',''主卧''"><img class="img_stretch" src="images\NPC\CT\pics\主卧.jpg"></a>
+			<a class="photo" data-title="地下安保室" href="exec:gt''帝国豪宅'',''地下安保室''"><img class="img_stretch" src="images\NPC\CT\pics\地下安保室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="办公室" href="exec:gt''帝国豪宅'',''办公室''"><img class="img_stretch" src="images\NPC\CT\pics\办公室.jpg"></a>
+			<a class="photo" data-title="大客厅" href="exec:gt''帝国豪宅'',''大客厅''"><img class="img_stretch" src="images\NPC\CT\pics\大客厅.jpg"></a>
+			<a class="photo" data-title="地下游泳池" href="exec:gt''帝国豪宅'',''地下游泳池''"><img class="img_stretch" src="images\NPC\CT\pics\地下游泳池.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="绿植" href="exec:gt''帝国豪宅'',''绿植''"><img class="img_stretch" src="images\NPC\CT\pics\绿植.jpg"></a>
+			<a class="photo" data-title="分叉楼梯" href="exec:gt''帝国豪宅'',''分叉楼梯''"><img class="img_stretch" src="images\NPC\CT\pics\分叉楼梯.jpg"></a>
+			<a class="photo" data-title="地下健身房" href="exec:gt''帝国豪宅'',''地下健身房''"><img class="img_stretch" src="images\NPC\CT\pics\地下健身房.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="？？？" href="exec:gt''帝国豪宅'',''右通道''"><img class="img_stretch" src="images\NPC\CT\pics\右通道.jpg"></a>
+			<a class="photo" data-title="次卧" href="exec:gt''帝国豪宅'',''次卧''"><img class="img_stretch" src="images\NPC\CT\pics\次卧.jpg"></a>
+			<a class="photo" data-title="地下吧台" href="exec:gt''帝国豪宅'',''地下吧台''"><img class="img_stretch" src="images\NPC\CT\pics\地下吧台.jpg"></a>
+		</div>'
+		
+	'</div>'
+'</div>'
+
+if 异色植物报告>0 and 异色植物种子=0:gt'帝国_事件','CT山峦对话'
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\0-0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''西海岸''">出去</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·穿过豪宅的大门，眼前豁然开朗，仿佛进入了一个全新的世界。</p>'
+		'<p>·豪宅内的水池面积宽阔，清澈透明，宛如一面镜子般平静。太阳的光辉照射下来，在水面上反射出迷人的光芒。这个水池不仅是一个装饰品，更是给整个豪宅增添了一种宁静和优雅的氛围。环绕其间的每一株植物都散发着迷人的气息。这些植被遍布在豪宅的各个角落，使整个空间充满了生机和活力。我凝视着这些植物，仿佛能听到它们在微风中轻轻摇曳的声音。</p>'
+		'<p>·抬头望去，眼前的景象更是让我难以置信。豪宅内的天花板高耸，一直延伸到我视野的尽头。这让我意识到，这个豪宅并不仅仅是一栋豪华别墅，而是一个巨大的建筑物，纵向高度不可估量。</p>'
+	'</div>'
+End
+
+if $args[0] = "景色":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\景色.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if 血亲勋章>0:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_落地窗前''">在这操<<$QJ.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的景色，在这里能直接眺望到帝国大厦。</p>'
+    '</div>'
+End
+
+if $args[0] = "主卧":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\主卧.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonR4"><a href="exec:gt ''帝国豪宅'',''CT立绘''"><<$CT.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的主卧。</p>'
+         if 随机数<=15:'<p>·几位女仆正在打扫卫生<a href="exec:帝国女仆随机数=rand(0,3) & gt ''帝国_事件'',''帝国_Fuck_随机女仆''">➤视察工作</a></p>'
+         if 秘书内推=1: '<p>➤<<$MS.name>>正沉浸在豪华<a href="exec:$帝国内推编号=3 & gt ''帝国_事件'',''帝国_Fuck_内推泛用''">·更衣室里</a></p>'
+    '</div>'
+End
+
+if $args[0] = "CT立绘":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\家卧<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+		if 异色植物种子>0:
+			if 异色植物幼苗>0:'<div class="buttonGn5"><a href="exec:异色植物幼苗-=1 & gt ''帝国_事件'',''帝国_Fuck_异色幼苗''">给她异色植物幼苗</a></div>'else:'<div class="buttonGr"><a href="exec:">没有异色植物幼苗</a></div>'
+		end
+        if hour=18:'<div class="buttonGn2"><a href="exec:gt ''帝国豪宅'',''帮忙配菜''">帮忙配菜</a></div>'
+        if 冲田女仆=1:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_CT女仆''">换上女仆装</a></div>'else:'<div class="buttonGr"><a href="exec:">女仆服务</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$CT.name>>: 我在自己家里穿的比较随意…和你没关系吧？</p>'
+        '<p>我：当然了。</p>'
+        '<p><<$CT.name>>: 每天晚上18:00我亲自下厨，你有时间的话就来替我打下手吧。</p>'
+    '</div>'
+End
+
+if $args[0] = "帮忙配菜":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\配菜0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB2"><a href="exec:gt ''帝国豪宅'',''帮忙配菜1''">用普通料酒</a></div>'
+        if 绿意麦芬酒>0:'<div class="buttonGn4"><a href="exec:绿意麦芬酒-=1 & $m=''CT'' & $ma=$CT.name & $CT.love+=10 &  $m.love=$CT.love & gt ''帝国_事件'',''帝国_Fuck_泛用2喝酒''">使用秘制鸡尾酒</a></div>'else:'<div class="buttonGr"><a href="exec:">没有鸡尾酒</a></div>'
+
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$CT.name>>: 你能帮我腌制一下牛肉吗？料酒就在你右手边。</p>'
+        '<p>我：好的。</p>'
+    '</div>'
+End
+
+if $args[0] = "帮忙配菜1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\配菜1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:gt ''帝国豪宅'',''一起吃饭''">饭后甜点</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$QJ.name>>: 妈，你又偷偷做了什么？怎么这么香？</p>'
+        '<p><<$CT.name>>: 不愧是我，我的厨艺又上一个台阶了呢。</p>'
+        '<p>我：可喜可贺！</p>'
+    '</div>'
+End
+
+if $args[0] = "一起吃饭":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\TE.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        if 帝国母女女仆F=1:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_母女3P''">3P母女丼</a></div>'else:'<div class="buttonGr"><a href="exec:">最终目标·3P母女丼</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$QJ.name>>: 这种红茶要放凉了才好喝。</p>'
+        '<p>我：那你给我吹一吹？</p>'
+        '<p><<$QJ.name>>: 你想我慢一点吹还是快一点吹？</p>'
+        '<p><<$CT.name>>看着你们互开黄腔咳嗽了几声</p>'
+
+    '</div>'
+End
+
+
+
+if $args[0] = "地下安保室":
+	$地下安保室人物=rand(1,10)
+    '<div class="show_menu"><img src="images\NPC\CT\pics\dd<<$地下安保室人物>>.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+     if $地下安保室人物<=2:'<div class="buttonR4"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_警卫1''">再聊聊</a></div>'
+     if 3<=$地下安保室人物 and $地下安保室人物<=5:'<div class="buttonS4"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_警卫2''">没错</a></div>'
+     if 6<=$地下安保室人物 and $地下安保室人物<=9:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_警卫3''">正是</a></div>'
+     if $地下安保室人物=10:'<div class="buttonPu3"><a href="exec:gt ''帝国豪宅'',''地下安保室10''">她睡着了？</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的地下安保室。</p>'
+        if $地下安保室人物=10:'<p>深睡的安保：Zzz~Zzz~要嘛❤</p>'else:'<p>安保：好无聊呐❤每天除了用监控看黄片就是自慰，喔？<<$主角姓名>>小老板❤，你是来操我的嘛？</p>'
+    '</div>'
+End
+
+if $args[0] = "地下安保室10":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\dd10.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅'',''地下安保室10_箱子''">查看箱子</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>我：嘿，醒醒，穿这么少睡觉可别感冒了。</p>'
+        '<p>深睡的安保：Zzz~Zzz~别打扰我❤</p>'
+    '</div>'
+End
+
+if $args[0] = "地下安保室10_箱子":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\dd0.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·箱子里的内容是你自踏入这座宅邸第一秒起的全部监控记录</p>'
+        '<p>'
+		if 吧台双飞num>0:'·吧台双飞次数：<<吧台双飞num>>次'else:'·—未—知—·'
+		if 安保num>0:'·安保性爱次数：<<安保num>>次'else:'·—未—知—·'
+		if  帝国健身num>0:'·侵犯健身教练：<<帝国健身num>>次'else:'·—未—知—·'
+		if 帝国女仆num>0:'·侵犯家政女仆：<<帝国女仆num>>次'else:'·—未—知—·'
+		'</p>'
+        '<p>#任何关于<<$CT.name>>和<<$QJ.name>>的则被抹去了</p>'
+    '</div>'
+End
+
+if $args[0] = "办公室":
+	if 血亲勋章=0:msg'我应该走楼梯上去'  & gt '帝国豪宅','分叉楼梯'
+    '<div class="show_menu"><img src="images\NPC\CT\pics\办公室.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅'',''进办公室''">进入</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的办公室。</p>'
+    '</div>'
+End
+
+if $args[0] = "进办公室":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\进办公室.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:帝国电脑内容=0 & gt ''帝国豪宅'',''看电脑''">浏览电脑文件</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是办公室内部，是一个秘密会议的好地方。</p>'
+    '</div>'
+End
+
+
+if $args[0] = "看电脑":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\电脑信息.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:帝国电脑内容=1 & gt ''帝国豪宅'',''看电脑''">偶像大赛的暗箱操作</a></div>'
+        '<div class="button"><a href="exec:帝国电脑内容=2 & gt ''帝国豪宅'',''看电脑''">与前市长的内幕交易</a></div>'
+        '<div class="button"><a href="exec:帝国电脑内容=3 & gt ''帝国豪宅'',''看电脑''">精源项目的真实目的</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅'',''进办公室''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+		if 帝国电脑内容=0:
+        '<p>·我要看什么？</p>'
+        end
+		if 帝国电脑内容=1:
+        '<p>·真实得票情况：</p>'
+        '<p>·<<$SSYY.name>>543714票；<<$QB.name>>431741票；<<$SF.name>>214560票</p>'
+        end
+        
+		if 帝国电脑内容=2:
+			'<p><快递收据></p>'
+			'<p>物品描述：医用药品     物品重量：10 克</p>'
+			'<p>收件日期：2019年3月1日</p>'
+			'<p>物品描述：建筑材料（黄金）物品重量：50 公斤</p>'
+			'<p>收件日期：2019年4月2日</p>'
+			'<p>物品描述：医用药品     物品重量：20 克</p>'
+			'<p>收件日期：2019年9月9日</p>'
+			'<p>物品描述：医用药品     物品重量：50 克</p>'
+			'<p>收件日期：2019年12月20日</p>'
+			'<p>·————·</p>'
+			'<p><私人邮件></p>'
+			'<p>·敬爱的市长大人，近来睡的可好？我发现【姆苟制药】存在严重的违规情况，她们正计划违规开采山峦R&M区域，如果您还想继续“高枕无忧”的话，请按附件上的指示做，并且记得事后销毁它。</p>'
+			'<p>·邮件日期：2019年4月1日</p>'
+			'<p><附件></p>'
+			'<p>·责令项目负责人<<$JM.name>>马上停工，严查姆苟制药的财报及税收情况。</p>'
+			'<p><回复></p>'
+			'<p>·多谢市长大人的相助，欠您的政治献金已为您奉上。未来我们政企继续合作，实现繁荣共赢！</p>'
+			'<p>·邮件日期：2019年4月2日</p>'
+        end
+        
+		if 帝国电脑内容=3:
+		    '<p>·精源计划：由市政府牵头，帝国集团承办的政企项目。旨在通过对全市范围内男性精子大筛选，择优选择Alpha级精子，为具有高社会地位的女性提供可定制化的试管婴儿精子库。</p>'
+			'<p>一阶段目标：对具备Alpha级精子的男性进行严格控制-已完成</p>'
+			'<p>二阶段目标：进行大量多次受精实验，旨在挑选出具有受孕率最高、活性最强的Alpha级精子的男性-进行中</p>'
+			'<p>三阶段目标：为其颁发授孕执照，可凭授孕执照为全市所有女性进行人工授精-计划中</p>'
+			'<p>最终阶目标：该授孕项目成熟、完善且无风险后，为<<$SZ.name>>进行人工授精-计划中</p>'
+        end
+    '</div>'
+End
+
+if $args[0] = "大客厅":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\大客厅.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的大客厅。</p>'
+        if 随机数<=50:'·有一股刺鼻但又让人感到舒适和放松的气味<a href="exec:gt ''帝国豪宅'',''主体灯''">▲抬头看</a></p>'
+        if 随机数>50:'·女仆们正在打扫卫生<a href="exec:gt ''帝国豪宅'',''家政女仆''">➤观看</a></p>'
+        if 随机数<=15:'·几位女仆正在打扫卫生<a href="exec:帝国女仆随机数=rand(0,3) & gt ''帝国_事件'',''帝国_Fuck_随机女仆''">➤视察工作</a></p>'
+         if 偷窃员2内推=1:'<p>➤三宮椿(傲慢人妻)正在<a href="exec:$帝国内推编号=2 & gt ''帝国_事件'',''帝国_Fuck_内推泛用''">·呻吟偷懒</a></p>'
+    '</div>'
+End
+
+if $args[0] = "地下游泳池":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\地下游泳池.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB4"><a href="exec:gt ''帝国豪宅'',''游泳池对话''">环视四周</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的地下游泳池。</p>'
+    '</div>'
+End
+
+if $args[0] = "游泳池对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YY\vids\swim0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_游泳教练''">偷看更衣室</a></div>'
+        if $YY.同意=1:'<div class="buttonB5"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_女儿游泳池''">与<<$QJ.name>>独处</a></div>'else:'<div class="buttonGr"><a href="exec:">与<<$QJ.name>>独处</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的地下游泳池。</p>'
+        '<p>·<<$QJ.name>>正准备等待游泳教练指导。</p>'
+    '</div>'
+End
+
+if $args[0] = "绿植":
+	if 血亲勋章=0:msg'我应该走楼梯上去'  & gt '帝国豪宅','分叉楼梯'
+    '<div class="show_menu"><img src="images\NPC\CT\pics\绿植.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅内的绿植。</p>'
+    '</div>'
+End
+
+if $args[0] = "分叉楼梯":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\分叉楼梯<<rand(0,2)>>.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_警卫2''">操她一顿</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅内的分叉楼梯。</p>'
+        '<p>安保：不好意思，<<$主角姓>>先生，再你没有<<$CT.NAME>>把你视为一家人的【血亲勋章】之前，我不能让你通过 。</p>'
+        '<p>我：楼上有什么？看起来挺神秘的。</p>'
+        '<p>安保：你觉得我会知道吗？ 真是搞笑。</p>'
+    '</div>'
+End
+
+if $args[0] = "地下健身房":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\地下健身房.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonR1"><a href="exec:gt ''帝国豪宅'',''健身房对话''">环顾四周</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的地下健身房。</p>'
+    '</div>'
+End
+
+
+if $args[0] = "健身房对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\GYMS0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        if $帝国健身教练=0:'<div class="buttonG"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_健身教练''">挑战她</a></div>'
+        if $帝国健身教练=1:
+			'<div class="buttonR"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_健身肉便器''">肉便器过来！</a></div>'
+			'<div class="buttonR2"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_CT健身房''">指导<<$CT.name>></a></div>'
+			'<div class="buttonB2"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_女儿健身房''">指导<<$QJ.name>></a></div>'
+			'<div class="buttonGn2"><a href="exec:简易梯子=1 & gt ''帝国豪宅'',''大客厅''">借走梯子</a></div>'
+        end
+        
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        if $帝国健身教练=0:'<p>若宮葉月(健身教练)：总裁大人，下面请跟我继续做这几个深蹲动作…</p>'
+        if $帝国健身教练=1:'<p>若宮葉月(健身肉便器)：感谢总裁大人能继续给我这个工作，下面请跟我继续做这几个深蹲动作…<<$主角姓名>>…你…我…</p>'
+        '<p><<$CT.name>>：总是提不起劲呢…*哈欠</p>'
+    '</div>'
+End
+
+
+if $args[0] = "右通道":
+	if 血亲勋章=0:msg'我应该走楼梯上去'  & gt '帝国豪宅','分叉楼梯'
+    '<div class="show_menu"><img src="images\NPC\CT\pics\右通道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonGn5"><a href="exec:gt ''帝国豪宅高层''">前进</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的秘密右侧通道。</p>'
+    '</div>'
+End
+
+if $args[0] = "次卧":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\次卧.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_偷窥女儿''"><<$QJ.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的次卧。</p>'
+         if 随机数<=15:'<p>·几位女仆正在打扫卫生<a href="exec:帝国女仆随机数=rand(0,3) & gt ''帝国_事件'',''帝国_Fuck_随机女仆''">➤视察工作</a></p>'
+         if 偷窃员1内推=1:'<p>➤穂高結花(软弱人妻)正在<a href="exec:$帝国内推编号=1 & gt ''帝国_事件'',''帝国_Fuck_内推泛用''">·打扫浴室</a></p>'
+    '</div>'
+End
+
+if $args[0] = "女儿卧室对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\进卧室.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_女儿按摩''">给她按摩</a></div>'
+       if 帝国母女女仆=1:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_母女女仆''">换上女仆装</a></div>'else:'<div class="buttonGr"><a href="exec:">女仆服务</a></div>'
+        if $QJ.相亲=1:'<div class="buttonR"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_局长女3P''"><<$JZ.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$QJ.name>>: 咳咳…怎么了…有什么事吗？</p>'
+    '</div>'
+End
+
+
+
+if $args[0] = "地下吧台":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\地下吧台.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_BAR''">访问吧台</a></div>'
+        '<div class="buttonGn3"><a href="exec:gt ''帝国豪宅'',''制作鸡尾酒''">制作鸡尾酒</a></div>'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·这里是豪宅的地下吧台。</p>'
+    '</div>'
+End
+
+
+if $args[0] = "家政女仆":
+	 a=0 & q=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\CT\vids\家政0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+    '<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国豪宅'',''家政女仆2''">咳嗽两声</a></div>'
+		!'<div class="button"><a href="exec:gt ''帝国豪宅'',''主体灯''">抬头看</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·女佣们各自忙碌着…</p>'
+    '</div>'
+End
+
+if $args[0] = "家政女仆2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\家政1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonR3"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_找几个''">挑几个雏送过来</a></div>'
+		'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_打扫''">行使权力</a></div>'
+		'<div class="buttonGn1"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_餐厅''">我饿了</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>女仆长：<<$主角姓>>先生，请问有什么吩咐？</p>'
+    '</div>'
+End
+
+if $args[0] = "主体灯":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\主体灯.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+		if 简易梯子=0:'<div class="buttonGr"><a href="exec:gt ''帝国豪宅'',''大客厅''">我没有梯子</a></div>'else:'<div class="button"><a href="exec:简易梯子=0 & gt ''帝国豪宅'',''主体灯1''">踩上临时梯子</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·客厅最高处的吊灯有一棵植物腐烂了…</p>'
+        '<p>女仆长：<<$主角姓>>先生！这株植物我们会处理的，不用您亲自费心。 </p>'
+    '</div>'
+End
+
+if $args[0] = "主体灯1":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\主体灯1.jpg" width="854"></div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS5"><a href="exec:异色植物+=2 & gt ''帝国豪宅'',''大客厅''">偷装进包里</a></div>'
+            '<div class="button"><a href="exec:gt ''帝国豪宅''">全部扔掉</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			'<p>我：为吊顶灯修剪时你发现*这些植物都是你从来没见过的。</p>'
+			'<p>女仆长：<<$主角姓>>先生！您赶紧下来！太危险了！这些事交给我们做就行了！您剪下来的植物请扔到【绿植回收&焚毁箱】里，我们会统一销毁的！ </p>'
+			'<p>我：……</p>'
+			'<p>女仆长：以后可别这么做了，<<$主角姓>>先生！搬来的梯子我也会给你放回去的。 </p>'
+         '</div>'
+End
+
+
+if $args[0] = "制作鸡尾酒":
+	if 异色植物<=0:
+		msg'我没有原材料'  & gt '帝国豪宅','地下吧台'
+	else:
+		异色植物-=1
+		绿意麦芬酒+=1
+	end
+    '<div class="show_menu"><img src="images\NPC\CT\pics\制作台.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonGn5"><a href="exec:gt ''帝国豪宅'',''制作鸡尾酒''">再做一瓶</a></div>'
+		'<div class="buttonS"><a href="exec:gt ''帝国豪宅'',''酒吧执事''">酒吧执事来了</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国豪宅'',''地下吧台''">返回吧台</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>我：酷！原创的鸡尾酒！我可以在背包里看看它的效果！</p>'
+    '</div>'
+End
+
+if $args[0] = "酒吧执事":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\bars1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:绿意麦芬酒-=1 & gt ''帝国_事件'',''帝国_Fuck_酒吧执事我喝''">自己喝下</a></div>'
+		'<div class="buttonS"><a href="exec:绿意麦芬酒-=1 & gt ''帝国_事件'',''帝国_Fuck_酒吧执事喝''">给她尝尝</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国豪宅'',''地下吧台''">返回吧台</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>我：酷！原创的鸡尾酒！我可以在背包里看看它的效果！</p>'
+		'<p>栄川乃亜(酒吧执事)：哟❤<<$主角姓>>先生，你在这里偷偷摸摸做什么呀❤ </p>'
+		'<p>一条みお(酒吧执事)：新调了鸡尾酒嘛❤能不能给我尝尝呀❤ </p>' 
+    '</div>'
+End
+
+
+--- 帝国豪宅 ---------------------------------
+

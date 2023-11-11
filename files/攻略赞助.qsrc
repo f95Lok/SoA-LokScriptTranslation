@@ -1,0 +1,59 @@
+# 攻略赞助
+cls
+gs'menu_time_calc'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs'menu_act_hidden'
+'</div>'
+
+
+if $args[0] ='':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\对话1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt $loc,$metka">离开</a></div>'
+		'<div class="buttonG"><a href="exec:gt ''攻略赞助'',''V48''">点击激活攻略</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p><span class="bold"><font color="#2E8B57">首先感谢您一直以来对我的支持和厚爱。我由衷地感谢您的信任和青睐。</p>'
+		'<p><span class="bold"><font color="#808000">在V40版本之后，我直接将新增的人物攻略整合进游戏中：</font></p>'
+		'<p><B><font color="#FF6347">介于之前用图片解锁实在搞得我身心俱疲，少数朋友不懂怎么下载，怎么解压…怎么点图片…因为无法解锁攻略心态就从暖心的赞助者变成冰冷的消费者了o(╥﹏╥)o
+我基本上一有空就要查看邮箱，如果回复不及时有些急性子的朋友会表现地非常吓人，甚至是对我人身攻击，这给我带来了非常大的精神压力…</p>'
+		'<p><font color="#2E8B57">所以现在的模式非常简单，输入10位的CDK密码就能直接解锁了…</p>'
+		'<p><font color="#DAA520">㊟如果您是V44及之前赞助的玩家，请再次邮箱联系我，我将最后再送你两枚CDK，<s>一枚用于V46版本（已送出）</s>，另一枚用于V48版本。这么做是因为不想让你吃亏。</p>'
+	'</div>'
+End
+
+
+
+if $args[0] ='V48':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\对话1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt $loc,$metka">离开</a></div>'
+		'<div class="buttonR3"><a href="exec:gt ''攻略赞助3'',''老司机''">V48新增角色CDK</a></div>'
+		if $V48攻略解锁=48:'<div class="buttonG5"><a href="#" onclick="recordmsgA()">↑已激活V<<$V48攻略解锁>>内置攻略</a></div>'
+		'<div class="buttonGn4"><a href="exec:gt ''攻略赞助3''">全角色攻略CDK</a></div>'
+		if $攻略解锁=48:'<div class="buttonG5"><a href="exec:gt ''攻略赞助3'',''全部解锁''">↑已激活新玩家cdk</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+        '<p><B><font color="#FF6347">问：是不是不买CDK就无法攻略新角色</p>'
+        '<p><font color="#2E8B57">答：当然不是，CDK解锁的是攻略，相当于实时的任务指引。无论您是否购买CDK都不会对游戏剧情产生任何影响。如果您是个不愿意看文字对话信息的玩家，那么购买CDK会是个好主意。诚然，您也可以当成是纯粹的赞助。</p>'
+        '<p><font color="#FF6347">问：CDK卖多少钱？</p>'
+        '<p><font color="#483D8B">答：如果您是<font color="#FF0000">老司机</font>，仅需要当前V_48<font color="#FF0000">新增角色攻略</font>→30￥</p>'
+        '<p><font color="#483D8B">答：如果您是<font color="#3CB371">新玩家</font>，需要角色图鉴中<font color="#3CB371">全部角色攻略</font>→99￥(<font color="#FF0000">包含上述</font>)</p>'
+	'</div>'
+End
+--- 攻略赞助 ---------------------------------
+

@@ -1,0 +1,213 @@
+# department_store
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+if $bigvillaforthefirsttime=2:gt'group_performation_event','open_the_hammer_gang'
+
+if $tj_task=1:gt'executive_officer_event','executive_officer_fuck_supermarket'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+
+	 if $jin_kailuo>=0 and money>=500:
+		'<div class="action">'
+		'<a class="photo" data-title="Golden坷垃 (500￥/10 bags) " href="exec:money-=500 & $jin_kailuo+=10 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\金坷垃.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if $jin_kailuo>=0 and money<500:
+		'<div class="action">'
+		'<a class="photo" data-title="Golden坷垃 (500￥/10 bags) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\金坷垃.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $JM_Event_grandpa=1 and money>=6:
+		'<div class="action">'
+		'<a class="photo" data-title="Light bulb (6￥) " href="exec:money-=6 & $light_bulb+=1 & $JM_Event_grandpa=2 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\灯泡.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $JM_Event_grandpa=1 and money<6:
+		'<div class="action">'
+		'<a class="photo" data-title="Light bulb (6￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\灯泡.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $maotai>=0 and money>=2799:
+		'<div class="action">'
+		'<a class="photo" data-title="Feitian Maotai (2799￥) " href="exec:money-=2799 & $maotai+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\茅台.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if $maotai>=0 and money<2799:
+		'<div class="action">'
+		'<a class="photo" data-title="Feitian Maotai (2799￥)  " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\茅台.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $essential_oil>=0 and money>=198:
+		'<div class="action">'
+		'<a class="photo" data-title="Massage essential oil (198￥) " href="exec:money-=198 & $essential_oil+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\精油.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if $essential_oil>=0 and money<198:
+		'<div class="action">'
+		'<a class="photo" data-title="Massage essential oil (198￥)  " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\精油.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $gas_valve=0 and money>=198:
+		'<div class="action">'
+		'<a class="photo" data-title="Gas valve (198￥) " href="exec:money-=198 & $gas_valve+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\燃气阀.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if $gas_valve=0 and money<198:
+		'<div class="action">'
+		'<a class="photo" data-title="Gas valve (198￥)  " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\燃气阀.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $camera>=0 and money>=1499:
+		'<div class="action">'
+		'<a class="photo" data-title="Invisible camera (1499￥) " href="exec:money-=1499 & $camera+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\摄像头.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if $camera>=0 and money<1499:
+		'<div class="action">'
+		'<a class="photo" data-title="Invisible camera (1499￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\摄像头.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $camera=0 and money>=14999:
+		'<div class="action">'
+		'<a class="photo" data-title="Canon R6 SLR (14999￥) " href="exec:money-=14999 & $camera+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\佳能R6单反.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if $camera=0 and money<14999:
+		'<div class="action">'
+		'<a class="photo" data-title="Canon R6 SLR (14999￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\佳能R6单反.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $tv_set=0:
+		if money>=7999:
+			'<div class="action">'
+			'<a class="photo" data-title="8K TV (7999￥) " href="exec:money-=7999 & $tv_set+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\电视.jpg"></a>'
+			'</div>'
+		else:
+		'<div class="action">'
+		'<a class="photo" data-title="8K TV (7999￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\电视.jpg"></a>'
+		'</div>'
+		end
+	 end
+	 
+     if $electricguitar=0 and $draft_event_chain=1:
+        if money>=7999:
+            '<div class="action">'
+            '<a class="photo" data-title="Electric guitar (7999￥) " href="exec:money-=7999 & $draft_event_chain=2 & $electricguitar+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\电吉他.jpg"></a>'
+            '</div>'
+        else:
+        '<div class="action">'
+        '<a class="photo" data-title="Electric guitar (7999￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\电吉他.jpg"></a>'
+        '</div>'
+        end
+     end
+	 
+	 if $bigvillaforthefirsttime=3:
+        if money>=500:
+            '<div class="action">'
+            '<a class="photo" data-title="Sledgehammer (500￥) " href="exec:money-=500 & $bigvillaforthefirsttime=4 & $sledgehammer+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\大锤.jpg"></a>'
+            '</div>'
+        else:
+        '<div class="action">'
+        '<a class="photo" data-title="Sledgehammer (500￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\大锤.jpg"></a>'
+        '</div>'
+        end
+     end
+     
+     
+	 if Anal_plug=0:
+		if money>=199:
+			'<div class="action">'
+			'<a class="photo" data-title="Pink diamond anal plug (199￥) " href="exec:money-=199 & Anal_plug+=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\Anal_plug.jpg"></a>'
+			'</div>'
+		else:
+		'<div class="action">'
+		'<a class="photo" data-title="Pink diamond anal plug (199￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\Anal_plug.jpg"></a>'
+		'</div>'
+		end
+	 end
+     
+     
+     
+	'</div>'
+'</div>'
+
+if rand(0,100)>2:
+'<div class ="show_menu"><img src="images\place\百货商店.jpg" width="854"></div>'
+else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\彩蛋4.webm" type=''video/webm;''></video></div>'
+        '</div>'
+end
+
+'<div class="button_menu">'
+	if $jj.event_shopping=1:
+	'<div class="button"><a href="exec:minutes+=30 & $jj.event_shopping=2 & gt ''department_store''">Sister`s purchase list</a></div>'
+	end
+	if $SF_Event_gold=1 and money>=8000:
+	 '<div class="button"><a href="exec:minutes+=30 & $SF_Event_gold=2 &money-=8000 & gt ''department_store''">Redemption of antique watch ￥8000</a></div>'
+	 elseif $SF_Event_gold=1 and money<8000:
+	 '<div class="buttonGr"><a href="exec:">Redemption of antique watch ￥8000</a></div>'
+	end
+	if $commissioned_by_director_xs_aunt=1:'<div class="button"><a href="exec:minutes+=30 & gt ''task_event'',''delivery_task''">Home delivery</a></div>'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+'</div>'
+
+
+if $ARGS[0]="":
+'<div class="dialog_menu">'
+	'<p>Department stores, you can buy all goods!(The slogan is too exaggerated...）</p>'
+	'<p>————————————————————————————————</p>'
+	if $jj.event_shopping=2:
+	'<p>It took a lot of time to buy 1.1 kg of urea, 3.17 kg of general calcium, 3.17 kg of potassium sulfate, and 0.45 kg of magnesium sulfate.</p>'
+	'<p>Next, I should go to my sister`s pharmaceutical factory and give it to her.</p>'
+	'<p>————————————————————————————————</p>'
+	end
+	if $XY_Event_bag=1 :
+		bagrand=bagcount*10
+		bagrand1=rand(0,100)
+		'<p>The daily sign-in sweepstakes for the first edition of the limited edition bag is in progress, and you can participate from 13-15 o`clock every day.</p>'
+		if $dailydraw=0 and 13<=hour and hour<=15 :'<p><a href="exec:minutes+=15 & bagcount+=1 &$dailydraw=1& gt ''department_store''">Check in and sign in</a></p>'
+		'<p>Number of sign-ins：<<bagcount>>/∞</p>'
+		if bagrand<bagrand1:'<p>Probability of winning：<<bagrand>>% <a href="exec:minutes+=15 & bagcount=0 & gt ''department_store''">Participate in the lucky draw</a></p>'
+	 if bagrand>=bagrand1:'<p>Probability of winning：<<bagrand>>% <a href="exec:minutes+=15 & bagcount=0 & bagrand2+=1 & gt ''department_store''">Participate in the lucky draw</a></p>'
+		if bagrand2>0:'<p>Purchase eligibility ✔POCHETTE MÉTIS EAST WEST handbag 13700￥ <a href="exec:minutes+=15 & bagrand2-=1 & bag+=1 & money-=13700  & gt ''department_store''">Loan purchase 13700￥</a></p>'
+		if bag>0:'<p>I NOW own ✔POCHETTE MÉTIS EAST WEST handbag 13700￥ <a href="exec:minutes+=15 & bag-=1 & money+=20550  & gt ''department_store''">Sell to scalpers 20550￥</a></p>'
+		'<p>————————————————————————————————</p>'
+	end
+'</div>'
+end
+
+
+if $ARGS[0]!"":
+'<div class="dialog_menu">'
+	'<p>Department stores, you can buy all goods!(The slogan is too exaggerated...）</p>'
+	'<p>————————————————————————————————</p>'
+	'<p>*<<$ARGS[0]>></p>'
+	'<p>————————————————————————————————</p>'
+'</div>'
+end
+
+ 
+--- department_store ---------------------------------
+

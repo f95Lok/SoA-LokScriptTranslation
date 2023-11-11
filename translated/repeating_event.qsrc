@@ -1,0 +1,707 @@
+# repeating_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+if $ARGS[0]="catch":
+	if $LJ.bad<180-$LJ.love:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\LJ\vids\惩罚0~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		else:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\LJ\vids\沉迷0~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+	end
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_tuning''">Start training</a></div>'
+		if $LJ.bad>=30:
+		'<div class="buttonS"><a href="exec:money+=50 & gt ''repeating_event'',''LJ_Fuck_3P''">Find someone 3P tuning</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		
+		if $LJ.bad>=180-$LJ.love:
+		'<div class="buttonS"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_addicted''">Come lick me</a></div>'
+		'<div class="buttonB"><a href="exec:a=1 & gt ''repeating_event'',''promise_not_to_steal_again''">Promise not to steal again</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		
+		if $LJ.bad>=300-$LJ.love:
+		'<div class="buttonS"><a href="exec: gt ''repeating_event'',''lj_fuck_phone''">Call home</a></div>'
+		if $SY.bad>0:'<div class="buttonGn"><a href="exec:a=7 & gt ''repeating_event'',''lj_fuck_her_home''">Go to her house</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		
+		'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $LJ.bad>=180-$LJ.love:
+		 '<p><<$LJ.name>>:...what to do...I really want to have sex with you...what`s wrong with me…</p>'
+		 '<p>Me: It`s time to let you go……</p>'
+		 '<p><<$LJ.name>>: Woohoo... don`t do it…</p>'
+		 else:
+		 '<p><<$LJ.name>>: Woohoo...let me go.</p>'
+		 '<p>Me: You are such an disobedient bitch. I owe it to me to take care of you. It`s time for you to improve your memory!</p>'
+		 '<p><<$LJ.name>>: Woohoo…</p>'
+		 end
+	'</div>'
+end
+
+if $ARGS[0]="meet":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\1开幕~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''repeating_event'',''take_her_home''">Take her home</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Just about to go home, the girl under the street lamp attracted your attention.</p>'
+		'<p>Me: Why are you out alone on such a cold day?</p>'
+		'<p><<$LJ.name>>: I was kicked out....I don`t know where to go..</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="take_her_home":
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if my.basement>0:'<div class="button"><a href="exec:gt ''repeating_event'',''go_to_the_basement''">Go to the basement to sit down?</a></div>'
+		'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$LJ.name>>: Just get here, thank you.But I still want to stay outside for a while.</p>'
+		'<p>Me: It seems that you really don`t want to go home......</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="go_to_the_basement":
+	'<div class ="show_menu"><img src="images\place\地下室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''repeating_event'',''go_to_basement_2''">Go in</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Aren`t you afraid?If I were a bad person.</p>'
+		'<p><<$LJ.name>>: A bit, but it`s better than home.</p>'
+		'<p>Me: Go in, I`ll cook you something to eat.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="go_to_basement_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\1开幕2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''repeating_event'',''go_to_basement_3''">Oh ok</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Is it delicious?She nodded.Why are you out alone on such a cold day?</p>'
+		'<p><<$LJ.name>>: Because I didn`t pass again...If you continue like this, you will be dropped out of school...Dare not go home...</p>'
+		'<p>Me: Will the family blame you?</p>'
+		'<p><<$LJ.name>>: Ok.She nodded.Well, can you help me buy a pack of sanitary napkins?me...I am menstruating....</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="go_to_basement_3":
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''repeating_event'',''go_to_basement_4''">Go back and get the umbrella</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>As soon as I went out, it rained heavily suddenly……</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="go_to_basement_4":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\1开幕3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$LJ_Event_Steal=3 & gt ''repeating_event'',''catch''">Catch her!</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LJ.name>>: Why is there nothing of value?This should be worth a lot of money.</p>'
+		'<p>Me: What are you doing?！I want to help you with all my heart, do you actually want to steal from me?......</p>'
+		'<p><<$LJ.name>>: Ah!Not good!*She turned around and was about to run.</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="promise_not_to_steal_again":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\沉迷3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_addicted''">Good boy</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Promise me that you will never steal again.</p>'
+		'<p><<$LJ.name>>: Okay...I found something more exciting than stealing. Having sex with you is 10,000 times more exciting than stealing!</p>'
+		$LJ_Event_Steal=4
+	'</div>'
+
+end
+
+
+if $args[0]="lj_fuck_tuning":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\惩罚<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_tuning''">Playing with small holes</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''repeating_event'',''lj_fuck_tuning''">Meat stick friction</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''repeating_event'',''lj_fuck_tuning''">Forced oral sex</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''repeating_event'',''lj_fuck_tuning''">Leg lift and thrusting</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''repeating_event'',''lj_fuck_tuning''">Hip-breaking riding</a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''repeating_event'',''lj_fuck_tuning''">Moan sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''repeating_event'',''lj_fuck_tuning''">Inward shot out</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & LJ_num=0 & minutes+=105 & gt ''repeating_event'',''lj_fuck_tuning''">Continue to fuck for 2 hours</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=8 & LJ_num=1 & gt ''repeating_event'',''lj_fuck_tuning''">Why steal?</a></div>'
+				'<div class="button"><a href="exec:a=8 & LJ_num=2 & gt ''repeating_event'',''lj_fuck_tuning''">Where is your family?</a></div>'
+				'<div class="button"><a href="exec:a=8 & LJ_num=3 & gt ''repeating_event'',''lj_fuck_tuning''">The reason for not going home</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if 3>=a and a>=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>Please spare me……</p>'
+		 '</div>'
+	end
+
+
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>...so cool...I like it so much…</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $LJ.love+=q/4+$my.charm
+		 $LJ.bad+=q/4
+		 '<div class="dialog_menu">'
+			 '<p>·For the next two hours, she still maintained a high-intensity state of being fucked, and finally her mind began to be confused, and she became obedient to you.</p>'
+			 '<p><<$LJ.name>>:I said... I`ll tell you everything……</p>'
+			 if LJ_num=1:'<p>· <<$LJ.name>>:Because...I want to save money...and then go somewhere else to play... the video of stealing... the number of clicks is very high.……</p>'
+			 if LJ_num=2:'<p>· <<$LJ.name>>:Because of the new policy...My father went to work in a quarry... My mother found a lot of uncles at home...They had sex at the dinner table in front of me and shot semen into my rice bowl.…</p>'
+			 if LJ_num=3:'<p>· <<$LJ.name>>:Because... my mother said that it was not good to take the exam again, so I asked my uncle to fuck. If I got a low score in the exam, I would be fucked once... I could only eat semen bibimbap before passing... And said it was high-quality protein.……</p>'
+			 '<p>Me: If you dare to lie to me, I will fuck you.</p>'
+		 '</div>'
+	end
+
+ 
+ q+=1
+
+End
+
+if $args[0]="LJ_Fuck_3P":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\3P<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''LJ_Fuck_3P''">Tongue kiss, lick and force</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''repeating_event'',''LJ_Fuck_3P''">Forced orgasm</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''repeating_event'',''LJ_Fuck_3P''">Oral acupuncture</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''repeating_event'',''LJ_Fuck_3P''">Front and rear through</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''repeating_event'',''LJ_Fuck_3P''">Watch him fuck</a></div>'
+			end
+			if a!6 and q>=5 and q!7:
+			'<div class="button"><a href="exec:a=6 & gt ''repeating_event'',''LJ_Fuck_3P''">Fuck yourself</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''repeating_event'',''LJ_Fuck_3P''">Ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &  gt ''repeating_event'',''LJ_Fuck_3P''">dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>Please spare me……</p>'
+			 '<p>Me: Do you like it?I really didn`t expect those vagrants at the door to be willing to spend money to fuck you.</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>><<$words>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $LJ.love+=q+$my.charm
+		 $LJ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p>·She gradually adapted to the intensity of being fucked, and her psychology also changed.……</p>'
+			 '<p><<$LJ.name>>:...It all flowed out-it was warm, and it felt so good to be hugged and fucked.</p>'
+			 '<p>She became more lascivious.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="lj_fuck_addicted":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\沉迷<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_addicted''">Come lick me</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''repeating_event'',''lj_fuck_addicted''">Tongue kiss and acupuncture</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''repeating_event'',''lj_fuck_addicted''">Type 69</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''repeating_event'',''lj_fuck_addicted''">Leg frame, shoulder strap</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''repeating_event'',''lj_fuck_addicted''">Vigorously fuck</a></div>'
+			end
+			if a!6 and q>=5 and q!7:
+			'<div class="button"><a href="exec:a=6 & gt ''repeating_event'',''lj_fuck_addicted''">Female upper sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''repeating_event'',''lj_fuck_addicted''">Ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &  gt ''repeating_event'',''lj_fuck_addicted''">Lick clean</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>...I want...please give it to me…</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>...I want...please give it to me…</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>><<$words>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $LJ.love+=q*2+$my.charm
+		 $LJ.bad+=q*2-5
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:..Hmm..Hmm..Help you lick it clean.*Stir your tongue hard and suck your cock</p>'
+			 '<p>She became more lascivious.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="lj_fuck_phone":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\电话1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_phone''">Stuff her mouth</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''repeating_event'',''lj_fuck_phone''">Hurry up</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''repeating_event'',''lj_fuck_phone''">Hurry up</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''repeating_event'',''lj_fuck_phone''">Ejaculation</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''repeating_event'',''lj_fuck_phone''">Report peace</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''repeating_event'',''lj_fuck_phone''">Let her drink it</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''repeating_event'',''lj_fuck_phone''">Open your mouth</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $LJ.love>=200 and $LJ.bad>=200:
+				'<div class="buttonS"><a href="exec:a=7 & gt ''repeating_event'',''lj_fuck_her_home''">Go to her house</a></div>'
+				else:
+				'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+				end
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:Mom, I have been living at my classmate`s house these days…</p>'
+			 '<p>Voice on the phone: How long are you going to hang out for?Do you think mom is really not worried about you?Damn, lighten up, I`m calling my daughter~</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>Woohoo…</p>'
+		 '</div>'
+	end
+
+	if a=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:I have a good time outside!Don`t worry about it! You can worry about these uncles!</p>'
+			 '<p>Phone sound: Remember to go home when you have time....The uncles all want to meet you and bought you a lot....Oh~~oh~~It`s coming~~</p>'
+		 '</div>'
+	end
+
+	if a=6 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:I see!Don`t worry about me!</p>'
+			 '<p>Phone sound: Beep beep……</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $LJ.love+=q*2+$my.charm
+		 $LJ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:..Hmm..Unexpectedly, it was quite delicious, without the smell of those uncles.</p>'
+			 '<p>She actually started to like this taste.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $ARGS[0]="lj_fuck_her_home":
+	$SY.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\妈口交0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: a=0& q=0 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">learn!</a></div>'
+		if $SY.bad>0:'<div class="button"><a href="exec: a=0& q=0 & gt ''uehara_event'',''learn_to_cook''">Learn to cook!</a></div>'else:'<div class="buttonGr"><a href="exec:">Learn to cook!</a></div>'
+		'<div class="button"><a href="exec: gt ''deep_alley''">leave!</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LJ.name>>: Mom!I`m back!Here, this is my home, are you satisfied?</p>'
+		'<p><<$SY.name>>: Why did you come back?！Unfortunately, the uncles are not at home now, and there are still some leftovers in the kitchen. Let`s go to the room and study for a while!</p>'
+	'</div>'
+end
+
+if $args[0]="lj_fuck_mom_blowjob":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\妈口交1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a!1 and q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Close</a></div>'
+			end
+			if a!2 and q=1:
+			'<div class="button"><a href="exec:a=2 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Let her touch you</a></div>'
+			end
+			if 5>=a and a>3 and q>1:
+			'<div class="button"><a href="exec:a-=1 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Slow down</a></div>'
+			end
+			if 2<=a and a<5 and q>1:
+			'<div class="button"><a href="exec:a+=1 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">accelerate</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Oral ejaculation</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Open your mouth</a></div>'
+			end
+			if 8>a and a>=6:
+			'<div class="button"><a href="exec:a=8 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Let her drink it</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Do it again</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=3 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">Hold on</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=10 & gt ''repeating_event'',''lj_fuck_mom_blowjob''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:I get sleepy when I read a book... Obviously I won`t be so tired when I have sex.</p>'
+			 '<p><<$SY.name>>:Huh?Sure enough, it was not the material for studying, and I fell asleep as soon as I read a book.</p>'
+		 '</div>'
+	end
+
+	if a=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:My daughter stayed at your house and caused you trouble.The young man now must have a good energy to be strong and strong, right?</p>'
+		 '</div>'
+	end
+
+	if a=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:Oh, it`s really proactive, Auntie is not picky eaters.Hurry up and take it out, my little boy.</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+
+	if a=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>: Oh, did you see it? Not a drop leaked out~ This ejaculation volume is a fight with those dead ghosts combined~</p>'
+		 '</div>'
+	end
+
+	if a=8 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>: One glass of essence every day, the more you drink, the younger you get~ Do you want to have another shot?</p>'
+		 '</div>'
+	end
+
+	if a=9 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SY.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:Accidentally fell asleep again.....mom，<<$protagonists_name>>？Why are your expressions weird?</p>'
+			 '<p><<$SY.name>>:Uh....The meal is ready, you can eat it yourself, mom is going to do tasks with your uncles, you can play by yourself~</p>'
+			 '<p><<$LJ.name>>:I have to go after dinner<<$protagonists_name>>Live there for a while...</p>'
+			 '<p><<$SY.name>>:Whatever you want!Mom is too late!Let`s go first!</p>'
+			 '<p><<$LJ.name>>: Oh, after losing my father again, my mother has become more and more depraved....</p>'
+			 $SY.bad+=5
+		 '</div>'
+	end
+	
+ 
+ q+=1
+
+End
+
+if $args[0]="ljzl_fuck_inverse_3p":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LJ\vids\逆3P<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">White silk footjob</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Double service</a></div>'
+			end
+			if 5>=a and 5>=q and q>=2:
+			'<div class="buttonB"><a href="exec:a=3 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Main port：<<$LJ.name>></a></div>'
+			end
+			if 2<=a and 5>=q and q>=2:
+			'<div class="buttonP"><a href="exec:a=4 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Main port：<<$ZL.name>></a></div>'
+			end
+			if a!5 and 8>q and q>=4:
+			'<div class="buttonB"><a href="exec:a=5 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">fuck<<$LJ.name>></a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">fuck<<$ZL.name>></a></div>'
+			end
+			if a=6 or a=5:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Finished</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>: What are you staring at us for, do you want to do bad things~ My dear, it seems that you have taken her down too~</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:<<$panting>><<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>&<<$ZL.name>>:<<$words>>What?！————Why did you shoot when you talked to yourself? You should also shoot inside me...</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 $LJ.love+=q+$my.charm
+		 $LJ.bad+=q*2+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>:<<$panting>>Hey, what are you doing?！</p>'
+			 '<p><<$ZL.name>>:This is the semen my dear shot me, of course I have to lick it clean.</p>'
+		 '</div>'
+	end
+	
+ 
+ q+=1
+
+End
+--- repeating_event ---------------------------------
+

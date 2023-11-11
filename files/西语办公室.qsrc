@@ -1,0 +1,85 @@
+# 西语办公室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+
+if $XY.love<25:
+	$xylove=0
+elseif $XY.love>=75:$xylove=3
+elseif $XY.love>=50:$xylove=2
+elseif $XY.love>=25:$xylove=1
+end
+
+
+if $args[0]="":
+	$XY.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\办公室<<$xylove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if  $XZ_Event_3t=1:'<div class="button"><a href="exec:minutes+=5 & gt ''西语办公室'',''对话''">对话</a></div>'
+		if  $XY_Event_bag=0:'<div class="button"><a href="exec:minutes+=5 & gt ''西语_事件'',''眉头紧锁''">眉头紧锁</a></div>'
+		if $XY.bad>=150-$XY.love:'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''西语_事件'',''XY_Fuck_办公室干''">强吻</a></div>'else:'<div class="buttonGr"><a href="exec:">强？？</a></div>'
+		if $XY.love>=100 and hour>=15:'<div class="buttonS2"><a href="exec:minutes+=5 & a=2 &  gt ''西语_事件'',''XY_Fuck_课后辅导''">课后辅导</a></div>'else:'<div class="buttonGr"><a href="exec:">课后？？</a></div>'
+		if $XY.bad>=275-$XY.love and hour>=15:'<div class="buttonS3"><a href="exec:minutes+=120 &  gt ''西语_事件'',''XY_Fuck_家''">跟她回家</a></div>'else:'<div class="buttonGr"><a href="exec:">？？回家</a></div>'
+		if FXZ_XY>0:'<div class="buttonS4"><a href="exec:minutes+=30 &  gt ''西语_事件'',''FXZ_Fuck_下午茶''">去喝咖啡</a></div>'
+		if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''XY'' & $ma=$XY.name & gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+        if 授精室=1 and $XY.bad>=200 and $XY.授精=0:'<div class="buttonS"><a href="exec:$XY.授精=1 & gt ''西语办公室''">邀请人工授精</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：怎么了，有事吗？*唉...真是烦人...限量款爱马仕的包包果然要配货。</p>'
+		if bag>0:'<p>送她<a href="exec:minutes+=15 & bag-=1 & gt ''西语_事件'',''送包要求''">POCHETTE MÉTIS EAST WEST 手袋 13700￥</a></p>'
+	'</div>'
+End
+
+if $args[0]="对话":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\办公室1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &xydh=1& gt ''西语办公室'',''对话''">你穿黑丝真好看！</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &xydh=2& gt ''西语办公室'',''对话''">您对<<$xz.name>>满意吗？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &xydh=3&$XY.love-=5 &gt ''西语办公室'',''对话''">老师的生日要到了吧！</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：有事说事，别耽误我时间。</p>'
+	 if xydh=1:
+		'<p>我：您穿黑丝真好看！</p>'
+		'<p><<$XY.name>>：呵呵，谢谢。（哼，又是一个色鬼。）</p>'
+	 end
+	 if xydh=2:
+		'<p>我：您对<<$xz.name>>满意吗</p>'
+		'<p><<$XY.name>>：*警觉*  呃....当然满意了。你为什么要问这个？你是校内纠察队的？</p>'
+		'<p>我：不要用问题来回答问题。</p>'
+		'<p><<$XY.name>>：*皱眉* 你算那根葱啊？真想找我谈话就请<<$XZ.name>>自己来！</p>'
+		$XZ_Event_3tx=1
+	 end
+	 if xydh=3:
+		'<p>我：老师的生日要到了吧！</p>'
+		'<p><<$XY.name>>：生日？我的生日早过了，你记错了吧。还有，老师要告诉你，依照规章制度，老师是不能收受学生的赠礼的！</p>'
+		'<p>我：明白了！</p>'
+	 end
+	'</div>'
+End
+
+
+
+
+--- 西语办公室 ---------------------------------
+

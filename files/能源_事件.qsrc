@@ -1,0 +1,687 @@
+# 能源_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="NY_Fuck_按摩":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\按摩0-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_按摩''">按摩 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_按摩''">观摩 </a></div>'
+			if MGF>0 and 精油>0:'<div class="buttonS"><a href="exec:MGF-=1 & 精油-=1 &a=0 & q=0 & gt ''能源_事件'',''NY_Fuck_按摩2''">亲自上阵 </a></div>'else:'<div class="buttonGr"><a href="exec:">缺少按摩精油+麦高芬 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''按摩房''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·<<$NY.name>>轻车熟路地就来了。</p>'
+			 '<p><<$NY.name>>:把你们最好的技师给我叫来！</p>' 
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.name>>:只有这点水平吗？给我上最好的精油！</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>30分钟后，按摩结束了。</p>'
+			 spa+=rand(3,5)
+			 Cmoney_按摩+=spa*100
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+
+if $args[0]="NY_Fuck_按摩2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\按摩1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_按摩2''">揉奶 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_按摩2''">揉穴 </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''能源_事件'',''NY_Fuck_按摩2''">指交 </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''能源_事件'',''NY_Fuck_按摩2''">玩具插入 </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''能源_事件'',''NY_Fuck_按摩2''">口交 </a></div>'
+			end
+			if a!6 and 10>q and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''能源_事件'',''NY_Fuck_按摩2''">性爱 </a></div>'
+			end
+			if a!7 and 11>=q and q>=6:
+			'<div class="button"><a href="exec:a=7 & gt ''能源_事件'',''NY_Fuck_按摩2''">掰开腿插 </a></div>'
+			end
+			if a!8 and 12>=q and q>=6:
+			'<div class="button"><a href="exec:a=8 & gt ''能源_事件'',''NY_Fuck_按摩2''">抬起抽插 </a></div>'
+			end
+			if a!9 and q>=8:
+			'<div class="button"><a href="exec:a=9 & gt ''能源_事件'',''NY_Fuck_按摩2''">冲刺 </a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''能源_事件'',''NY_Fuck_按摩2''">射精 </a></div>'
+			end
+			if a=10:
+			'<div class="buttonR4"><a href="exec:a=11 & gt ''能源_事件'',''NY_Fuck_按摩2''">晾她一小时 </a></div>'
+			end
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''按摩房''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:这是玫瑰植物精油，可以改善月经不调，延缓衰老....当然，其中还有一些我们的独门配方。</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:这个力道还可以吗？</p>'
+			 '<p><<$NY.NAME>>:可以<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p>我:您应该不会介意吧？</p>'
+			 '<p><<$NY.NAME>>:嗯…不…不介意<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $NY.love+=q+my.魅力
+		 $NY.bad+=q*8/10
+		 minutes+=45
+		 spa+=6
+		 Cmoney_按摩+=spa*200
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:哈——哈——哈——哈——</p>'
+			 '<p>·随后的一小时内她娇喘着，大口喘气。她不断感觉着燃烧的热量在她的身体中蔓延，她感觉自己快要崩溃了。她的呼吸急促，意识模糊。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="NY_家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\儿子0-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+			'<div class="button_menu">'
+				'<div class="buttonP"><a href="exec:gt ''能源_事件'',''NY_Fuck_儿子''">驻足：天伦之乐</a></div>'
+				if $NY_Event_监禁=2:'<div class="buttonGn"><a href="exec:gt ''能源_事件'',''NY_Fuck_家''">道歉：于心有愧</a></div>'else:'<div class="buttonGr"><a href="exec:">道歉：于心有愧</a></div>'
+				'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+			'</div>'
+		
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>正在辅导她的两个儿子。</p>'
+		 '</div>'
+End
+
+
+if $args[0]="NY_Fuck_儿子":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\儿子1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_儿子''">玩逼 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_儿子''">舔逼 </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''能源_事件'',''NY_Fuck_儿子''">口交 </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''能源_事件'',''NY_Fuck_儿子''">和儿子们做爱 </a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''能源_事件'',''NY_Fuck_儿子''">母子协力 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''能源_事件'',''NY_Fuck_儿子''">儿子射妈嘴里 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''能源_事件'',''NY_Fuck_儿子''">儿子射妈身上 </a></div>'
+			end
+			if a>=6:
+			'<div class="button"><a href="exec:a=8 & gt ''能源_事件'',''NY_Fuck_儿子''">完事 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·没过多久，眼前上演的不伦剧让你吃惊。</p>'
+			 '<p><<$NY.name>>:好啦！又到了复习女孩生理构造的时间了！我的儿子们可不能便宜了外面那群没轻没重的妖艳贱货。</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$娇喘声>>我的儿子们可要快快长大才行喔。</p>'
+			 '<p>儿子们:妈妈，我们早就成年了！</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p>儿子们:妈妈，我们早就成年了！</p>'
+			 '<p><<$NY.NAME>>:嗯…儿子们果然长大了<<$话>></p>'
+			 if a>=6:'<p><<$NY.NAME>>:<<$娇喘声>>小宝贝们真棒！射了妈妈这么多！</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $NY.love+=q+my.魅力
+		 $NY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:你们都是妈妈的好儿子....如果你们有不懂的地方，妈妈很乐意教你们....</p>'
+			 '<p>.....我还是不要打扰她的天伦之乐了....</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="NY_Fuck_家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\居家1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_家''">挑逗 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_家''">足交 </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''能源_事件'',''NY_Fuck_家''">口交 </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''能源_事件'',''NY_Fuck_家''">慢一点肏 </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''能源_事件'',''NY_Fuck_家''">快一点肏 </a></div>'
+			end
+			if a!6 and q>=6:
+			'<div class="button"><a href="exec:a=6 & gt ''能源_事件'',''NY_Fuck_家''">高潮冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''能源_事件'',''NY_Fuck_家''">射出来 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''能源_事件'',''NY_Fuck_家''">射出来 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:我替我爸威胁你...还有我..把你监禁一事..向你道歉。我知道道歉没用，但我也拿不出什么..</p>'
+			 '<p><<$NY.name>>:哟？我没听错吧？我还以为你是来找我对峙的。</p>'
+			 '<p>我:呃……我知道道歉没用，但我也拿不出什么…</p>'
+			 '<p><<$NY.name>>:你有我老公拿不出手的东西，我也知道你想操我。*她突然眼神迷离，指了指你下面。</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p><<$NY.NAME>>:我问你，为什么想和我这种老女人做？公司里能让你操的年轻女人不是一抓一大把？</p>'
+			 if a=2:'<p>我:首先据我所知，你很寂寞。其次，你的丈夫和你的孩子..嗯..都不能填补你的空虚之处..嗯..再者..</p>'
+			 if a=3:'<p>我:公司里和你做爱是我作为精牛的职责。而在你家，在私下，是因为我想要和你做，这一刻，只和你做...</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:油嘴滑舌，和你爸一个模样。</p>'
+			 '<p>我:那我不说话了。</p>'
+			 '<p><<$NY.NAME>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $NY.love+=q*2+my.魅力
+		 $NY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:差不多了..动静太大他们会出来的..我那些调皮的儿子们肯定想妈妈了...</p>'
+			 '<p>我:那我就告辞了.....</p>'
+		 '</div>'
+	end
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$话>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="NY_Fuck_询问":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\厕所0-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:对话=0 & gt''能源_事件'', ''NY_Fuck_询问2''">询问她</a></div>'
+			'</div>'
+			
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$主角姓>>老板看来还没死透啊。他手上的地块R&M始终是个隐患。</p>'
+		 '</div>'
+End
+
+if $args[0]="NY_Fuck_询问2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\厕所0-1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+			'<div class="button_menu">'
+				if 对话=0:'<div class="button"><a href="exec:对话=1 & gt''能源_事件'', ''NY_Fuck_询问2''">与父亲的关系</a></div>'
+				if 对话=1:'<div class="button"><a href="exec:对话=2 & gt''能源_事件'', ''NY_Fuck_询问2''">父亲的昏迷</a></div>'
+				if 对话=2:'<div class="button"><a href="exec:对话=3 & gt''能源_事件'', ''NY_Fuck_询问2''">地块R&M</a></div>'
+				if 对话=3:'<div class="button"><a href="exec:gt''能源_事件'', ''NY_Fuck_厕所''">给她点教训</a></div>'
+			'</div>'
+			
+		 '<div class="dialog_menu">'
+			if 对话=0:
+			 '<p><<$NY.NAME>>:救命啊！来人啊！</p>'
+			 '<p>我:安静点，我只想问你几个问题。</p>'
+			 '<p><<$NY.NAME>>:好吧…你问吧。</p>'
+			 end
+			if 对话=1:
+			 '<p>我:安静点，你和我父亲是什么关系？</p>'
+			 '<p><<$NY.NAME>>:父亲？！你是他的亲儿子？！果然有其父必有其子！呸！你们都是人渣！</p>'
+			 end
+			if 对话=2:
+			 '<p>我:安静点，父亲的昏迷和你有关吗？</p>'
+			 '<p><<$NY.NAME>>:跟我没关系！完全是他自作自受！</p>'
+			 end
+			if 对话=3:
+			 '<p>我:安静点，地块R&M为什么会是个隐患？</p>'
+			 '<p><<$NY.NAME>>:什么？你为什么问这个？我不知道！无可奉告！</p>'
+			 end
+		 '</div>'
+End
+
+
+if $args[0]="NY_Fuck_厕所":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\厕所1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_厕所''">捏奶头 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_厕所''">扣骚逼 </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''能源_事件'',''NY_Fuck_厕所''">强迫口交 </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''能源_事件'',''NY_Fuck_厕所''">直接插 </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''能源_事件'',''NY_Fuck_厕所''">后背位 </a></div>'
+			end
+			if a!6 and q>=6:
+			'<div class="button"><a href="exec:a=6 & gt ''能源_事件'',''NY_Fuck_厕所''">冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''能源_事件'',''NY_Fuck_厕所''">射精 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonR"><a href="exec:a=8 & gt ''能源_事件'',''NY_Fuck_厕所''">拷问 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 &q=0& gt ''能源_事件'',''NY_Fuck_监禁''">抓回来</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:臭婊子不说实话是吧！</p>'
+			 '<p><<$NY.name>>:你，你要干什么？</p>'
+			 '<p>我:是时候给你点教训了！</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$娇喘声>>救命啊……</p>'
+
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p>我:给我深深地用身体记住！</p>'
+			 '<p><<$NY.NAME>>:呜呜…<<$娇喘声>>救命…救命…啊……</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $NY.love-=q
+		 $NY.bad+=q
+		 $NY_Event_监禁=1
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:唔——唔唔，嘴巴被你的肉棒堵住完全说不出话。</p>'
+			 '<p>我:现在能老实一点了吗？我重新问你一次。</p>'
+			 '<p>·突然她趁你放松的一刹那，夺门而出！</p>'
+			 '<p>我:这里是我的公司，你能逃到哪去？-___,-</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+
+if $args[0]="NY_Fuck_监禁":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\监禁1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_监禁''">检视骚穴 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_监禁''">扣逼 </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''能源_事件'',''NY_Fuck_监禁''">快速拨弄 </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''能源_事件'',''NY_Fuck_监禁''">潮吹 </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''能源_事件'',''NY_Fuck_监禁''">掏出屌 </a></div>'
+			end
+			if a!6 and 10>=q and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''能源_事件'',''NY_Fuck_监禁''">口交 </a></div>'
+			end
+			if a!7 and 12>=q and q>=6:
+			'<div class="buttonR"><a href="exec:a=7 & gt ''能源_事件'',''NY_Fuck_监禁''">重插 </a></div>'
+			end
+			if a!8 and 12>=q and q>=6:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''能源_事件'',''NY_Fuck_监禁''">快速抽插 </a></div>'
+			end
+			if a!8 and q>=8:
+			'<div class="buttonS"><a href="exec:a=9 & gt ''能源_事件'',''NY_Fuck_监禁''">高潮冲刺 </a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''能源_事件'',''NY_Fuck_监禁''">射精 </a></div>'
+			end
+			if a=10:
+			'<div class="buttonR"><a href="exec:a=11 & gt ''能源_事件'',''NY_Fuck_监禁''">持续高潮 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonR"><a href="exec:a=0 &q=0& gt ''能源_事件'',''NY_Fuck_监禁''">连续调教</a></div>'
+				if $NY.obey>=100:'<div class="buttonGn"><a href="exec:a=0 &q=0&对话=0 &gt ''能源_事件'',''NY_Fuck_说实话''">说实话<<$NY.obey>>/100</a></div>'else:'<div class="buttonGr"><a href="exec:">说实话<<$NY.obey>>/100</a></div>'
+				'<div class="button"><a href="exec:a=0 &q=0& gt ''按摩房''">离开</a></div>'
+
+			'</div>'
+	end
+
+  $NY.obey+=q/5+1
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:我会一直调教你，直到你愿意说出真相为止！</p>'
+			 '<p><<$NY.name>>:我*你妈！</p>'
+			 '<p>我:看来你是不见棺材不掉泪。</p>'
+			 '<p>·她的服从度<<$NY.obey>>/100</p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$娇喘声>>救命啊……</p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$娇喘声>><<$话>></p>'
+			 '<p>我>:没想到你其实是个如此软弱的女人呢。</p>'
+			 '<p>·她的服从度<<$NY.obey>>/100</p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $NY.love-=q
+		 $NY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>·调教依然没有结束，手指一张一弛间将她一次又一次送上了高潮的天堂，又跌落至欲望的谷底。</p>'
+			 '<p>·她的服从度<<$NY.obey>>/100</p>'
+		 '</div>'
+	end
+
+  q+=1
+
+End
+
+
+if $args[0]="NY_Fuck_说实话":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\监禁1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+			'<div class="button_menu">'
+				if 对话=0:'<div class="buttonPu1"><a href="exec:对话=1 & a+=1 & gt''能源_事件'', ''NY_Fuck_说实话''">与父亲的关系</a></div>'
+				if 对话=1:'<div class="buttonPu2"><a href="exec:对话=2 & a+=1 & gt''能源_事件'', ''NY_Fuck_说实话''">父亲的昏迷</a></div>'
+				if 对话=2:'<div class="buttonPu3"><a href="exec:对话=3 & a+=1 & gt''能源_事件'', ''NY_Fuck_说实话''">地块R&M</a></div>'
+				if 对话=3:'<div class="buttonPu4"><a href="exec:对话=4 & a=5 & gt''能源_事件'', ''NY_Fuck_说实话''">问完了</a></div>'
+				if 对话=4:'<div class="button"><a href="exec:$NY_Event_监禁=2 & gt''公司''">放她走</a></div>'
+
+			'</div>'
+			
+		 '<div class="dialog_menu">'
+			if 对话=0:
+			 '<p><<$NY.NAME>>:好吧，你想问什么？</p>'
+			 '<p>我:安静点，还是那几个问题。</p>'
+			 '<p><<$NY.NAME>>:好吧…你问吧。</p>'
+			 end
+			if 对话=1:
+			 '<p>我:安静点，你和我父亲是什么关系？</p>'
+			 '<p><<$NY.NAME>>:...你爸是个无耻的混蛋！他用地块R&M中发现的什么鬼金属来威胁我！强迫我成为他的情妇！</p>'
+			 '<p>我:？！？啊这…</p>'
+			 end
+			if 对话=2:
+			 '<p>我:安静点，父亲的昏迷和你有关吗？</p>'
+			 '<p><<$NY.NAME>>:那个人渣本来就情志郁怒、饮食不节、又加上整日整夜还要肏他那个秘书劳累过度，他的昏迷管我什么事？！</p>'
+			 '<p>我:我还以为父亲的昏迷背后有个什么惊天大阴谋呢。</p>'
+			 '<p><<$NY.NAME>>:你小说看多了吧。</p>'
+			 end
+			if 对话=3:
+			 '<p>我:安静点，地块R&M为什么会是个隐患？</p>'
+			 '<p><<$NY.NAME>>:这块地是一块稀土地。你爸拿着租赁地契四处勒索，胁迫了很多人明里暗里进行钱色交易。</p>'
+			 '<p>我:我爸还有这本事？</p>'
+			 '<p><<$NY.NAME>>:…………</p>'
+			 end
+			if 对话=4:
+			 '<p>我:…………</p>'
+			 '<p><<$NY.NAME>>:你想问的我都说了，可以放我走了吗？</p>'
+			 '<p>我:呃，可以。为了保命我把所有的调教过程和刚刚你说的话，全部录了下来。如果我遇到什么危险..</p>'
+			 '<p><<$NY.NAME>>:听着..我不想再和这件事扯上关系了，我可以当做什么事都没发生...</p>'
+			 '<p>我:你觉得我会轻易相信你吗？</p>'
+			 '<p><<$NY.NAME>>:这是我家的钥匙，你可以随时来找我对峙，我说的都是真的!</p>'
+			 $NY.key=1
+			 end
+		 '</div>'
+End
+
+if $args[0]="NY_Fuck_公司":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\公司1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''能源_事件'',''NY_Fuck_公司''">玩弄 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''能源_事件'',''NY_Fuck_公司''">乳交 </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''能源_事件'',''NY_Fuck_公司''">口交 </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''能源_事件'',''NY_Fuck_公司''">骑乘 </a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''能源_事件'',''NY_Fuck_公司''">后入 </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''能源_事件'',''NY_Fuck_公司''">冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''能源_事件'',''NY_Fuck_公司''">射精 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''能源_事件'',''NY_Fuck_公司''">对话 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''帝国健康''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.name>>:既然你是M<<帝国level>>级精牛，为我服务也是你的义务。</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:你的确是我们集团不可或缺的人才…<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$话>></p>'
+			 if a>=6:'<p><<$NY.NAME>>:对对对，就这样射我嘴里</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $NY.love+=q+my.魅力
+		 $NY.bad+=q
+		 xp+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:真是美味....我很乐意提拔你。</p>'
+			 '<p>·工作经验提升了<<q>>！</p>'
+		 '</div>'
+	end
+  q+=1
+End
+--- 能源_事件 ---------------------------------
+

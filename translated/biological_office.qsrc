@@ -1,0 +1,215 @@
+# biological_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+
+if $SW.love<25:
+	$swlove=0
+elseif $SW.love>=50:$swlove=rand(0,2)
+elseif $SW.love>=25:$swlove=rand(0,1)
+end
+
+
+if $args[0]="":
+	$SW.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室00<<$swlove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $swlove=2:'<div class="buttonS1"><a href="exec:minutes+=5 & $swlove2=3 & gt ''biological_office'',''keep_licking''">Keep licking</a></div>'
+		if  $XZ_Event_3t=1:'<div class="button"><a href="exec:minutes+=5 & gt ''biological_office'',''dialogue''">dialogue</a></div>'
+		if  $sw_event_fan>=1:'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''biological_office'',''sex_photos''">Sex photos</a></div>'else:'<div class="buttonGr"><a href="exec:">？？photo</a></div>'
+		if  $SW.bad>=100-$SW.love :'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''biological_office'',''entrust''">Entrust</a></div>'else:'<div class="buttonGr"><a href="exec:">？？</a></div>'
+		if  $SW.love>=100 and hour>=15 :'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''biology_event'',''sw_fuck_go_home''">Go home together</a></div>'else:'<div class="buttonGr"><a href="exec:">together?？</a></div>'
+		if  $SW.bad>=250-$SW.love and hour>=16:'<div class="buttonS5"><a href="exec:minutes+=5 & gt ''biology_event'',''sw_fuck_overtime''">Stay in school and work overtime</a></div>'else:'<div class="buttonGr"><a href="exec:">Stay in school?？</a></div>'
+		if  $SW_Event_XZ!2 and $SW.LOVE>=200 and $SW.BAD>=200:'<div class="buttonB"><a href="exec:minutes+=5 & gt ''biological_office'',''curriculum_reform_proposal''">Curriculum reform proposal</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>: Can I help you?(Hehe, you kid is thinking of my mother~ where can young people stand it!)</p>'
+	'</div>'
+End
+
+if $args[0]="dialogue":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室00<<$swlove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &swdh=1& gt ''biological_office'',''dialogue''">You look so good today!</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &swdh=2& gt ''biological_office'',''dialogue''">You are right<<$XZ.name>>Are you satisfied?</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &swdh=3&gt ''biological_office'',''dialogue''">What type of man do you like</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>: What do you want to tell me?</p>'
+	 if swdh=1:
+		'<p>Me: You look so beautiful today!</p>'
+		'<p><<$SW.name>>: You still have a sweet mouth!Your biological score, sister can help you get it done~</p>'
+		'<p>Me: Then please sister!</p>'
+		'<p><<$SW.name>>: Stop dreaming!One point of hard work and one point of harvest!(It depends on how you work hard for my mother)</p>'
+	 end
+	 if swdh=2:
+		'<p>Me: You are right<<$XZ.name>>Are you satisfied?</p>'
+		'<p><<$SW.name>>: Satisfied, what are you dissatisfied with?Ugh..</p>'
+		'<p>Me: What`s the matter?</p>'
+		'<p><<$SW.name>>: It`s nothing, the principal is fine.It`s just that all the male students have been taken away, so who will serve the old lady?</p>'
+		'<p>Me: It seems that you are not very satisfied....</p>'
+		'<p><<$SW.name>>: The most dissatisfied should be<<$FXZ.name>>right.It should have been her turn to sit in the principal`s seat.I heard she has already won over<<$XY.name>>Canvass for her.A woman of that kind of material has no bottom line as soon as she sees the bag.</p>'
+		$XZ_Event_3ts=1
+	 end
+	 if swdh=3:
+		'<p>Me: What type of man does the teacher like?</p>'
+		'<p><<$SW.name>>: Man?I like young people, sweet mouths, big dicks, and good skills.</p>'
+		'<p>Me: Is it so direct?！</p>'
+		'<p><<$SW.name>>: Teacher, what about me, I can`t walk as soon as I see a handsome guy.</p>'
+	 end
+	'</div>'
+End
+
+if $args[0]="sex_photos":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\迷11.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''biological_office'',''sex_photos_2''">Blackmail her</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·You played the image from the camera to her and took a look.</p>'
+		'<p><<$SW.name>>: You?！？！？Where did you get it?</p>'
+		'<p>Me: Shhh-as long as you listen to me, I will tell you.</p>'
+	'</div>'
+End
+
+if $args[0]="sex_photos_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\200~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:minutes+=5 & swyx=1 & gt ''biological_office'',''sex_photos_2''">Money blackmail</a></div>'
+		'<div class="buttonB"><a href="exec:minutes+=5 & swyx=2 & gt ''biological_office'',''sex_photos_2''">Intelligence blackmail</a></div>'
+		'<div class="buttonP"><a href="exec:minutes+=5 & swyx=3 & gt ''biological_office'',''sex_photos_2''">Sexual blackmail</a></div>'
+		if swyx=3 or $sw_event_fan=2:'<div class="buttonS"><a href="exec:minutes+=5 & swyx=0 & gt ''biology_event'',''sw_fuck_tuning''">Start training</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>: Come on, what do you want?*For some reason, her expression is a little happy.</p>'
+	 if swyx=1:
+		'<p>Me: I`m a little tight these days!</p>'
+		'<p><<$SW.name>>: Want money?Just ask for money?I`m so sorry, my mother, I don`t have a penny.</p>'
+		'<p>Me:.........</p>'
+	 end
+	 if swyx=2:
+		'<p>Me: Tell me some valuable information!</p>'
+		'<p><<$SW.name>>: Well, my height is 154 cm measurements: B88-W60-H98 cup: F cup Number of experience 500+ Hobbies are dating and fishing for Kaizi </p>'
+		'<p>Me:..........What about the information organized by the school...</p>'
+		'<p><<$SW.name>>: What?I thought you were interested in me.The school is currently divided into three factions, with<<$XZ.name>>The open-minded faction that leads the picket team on campus;<<$FXZ.name>>Headed by the old-fashioned faction that gathered a group of party henchmen; the old-fashioned faction with the student union and most students as the main body.</p>'
+		'<p>Me: Then which side are you from?</p>'
+		'<p><<$SW.name>>: Whoever can pass the `Featured Biology Class: Classroom Sex Experience`, I will support whoever I am! </p>'
+	 end
+	 if swyx=3:
+		'<p>Me: Teacher, I have been up a lot recently....If you don`t want the photos to be made public, you just....</p>'
+		'<p><<$SW.name>>: No problem!uh..I mean if...I am willing to do this....Will you delete it?</p>'
+		'<p>Me:.........What kind?</p>'
+		'<p><<$SW.name>>: Be your sex slave, bitch, you be my master, develop me as much as you like, and train me!The teacher listens to you!When do we start?</p>'
+		'<p>Me:.........(Why does it feel a little bit bad?）</p>'
+		if $sw_event_fan=1: $sw_event_fan=2 & $SW.bad+=25
+	 end
+	'</div>'
+End
+
+if $args[0]="entrust":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''biology_event'',''sw_fuck_hotel''">Go out together</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：<<$protagonists_surname>>Classmate, the teacher wants to ask you one thing, let`s go outside the school and talk about it.</p>'
+	'</div>'
+End
+
+if $args[0]="keep_licking":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室00<<$swlove2>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $swlove2!6:'<div class="button"><a href="exec:minutes+=15 & $swlove2+=1 & gt ''biological_office'',''keep_licking''">continue</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''biological_office''">Enough</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		 $SW.love+=3+$my.charm
+		 $SW.bad+=3
+		'<p><<$SW.name>>：<<$protagonists_surname>>Classmates, teachers will never be satisfied.</p>'
+	'</div>'
+End
+
+if $args[0]="men`s_toilet":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\厕所 (<<$swlove>>)~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $SW.bad>=50:'<div class="buttonS"><a href="exec:minutes+=5 & a=3 & gt ''biology_event'',''sw_fuck_outside_the_classroom''">Knock on the door!</a></div>'else:'<div class="buttonGr"><a href="exec:">Knock on the door</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>Masturbating inside, really dissatisfied with desire!</p>'
+	'</div>'
+End
+
+if $args[0]="curriculum_reform_proposal":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Take care of me!</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：<<$protagonists_surname>>Classmate, the teacher wants to ask you one thing. This time it is a serious matter.</p>'
+		'<p><<$SW.name>>: You know, the teacher has always wanted to pass the curriculum reform proposal of &quot;Characteristic Biology Class: Classroom Sex Experience&quot;. I have already planned the teaching process of the simulation class. Can you give it to<<$XZ.name>>Bring a message for her to go to the sex health room after school to listen to it?</p>'
+		'<p>Me: This is what you call `serious business”...?</p>'
+		'<p><<$SW.name>>：<<$protagonists_surname>>Classmates, after the event is completed, the teacher asks you to be an acting teaching assistant, responsible for completing the classroom sex experience for the female students.</p>'
+		$SW_Event_XZ=1
+	'</div>'
+End
+
+
+
+
+
+
+
+
+--- biological_office ---------------------------------
+

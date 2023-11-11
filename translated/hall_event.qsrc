@@ -1,0 +1,279 @@
+# hall_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=10
+$my.energy-=1
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "home_map"
+'</div>'
+
+
+
+if $ARGS[0]="stepmom_going_out_in_the_hall":
+
+	'<div class="show_menu">'
+			'<img src="images\NPC\JM\pics\家1.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		 '<div class="button"><a href="exec:$chat=''JM''& $where_to_go_out = ''home'' & addlove=0 &addbad=0 & gt ''universal_chat''">interaction</a></div>'
+		 '<div class="button"><a href="exec:minutes+=60 & $JM.love+= $my.charm & $my.ethics+=1 & gt ''home''">Throw garbage</a></div>'
+		 if 3>$JM_Event_grandpa:
+		 '<div class="buttonR3"><a href="exec:$JM_Event_grandpa=1 & minutes += 60& gt ''home''">Got it (go clean up the guest room)</a></div>'
+		 end
+		 if $JM_Event_grandpa =3 :
+		 '<div class="button"><a href="exec:$JM_Event_grandpa=4 & gt ''home''">Got it</a></div>'
+		 end
+		 if $BGH.available=0:'<div class="buttonB1"><a href="exec:  gt ''hall_event'',''stepmom_new_out_in_the_hall_new_neighbor''">New neighbor</a></div>'
+		 if $jm.love>=-$jm.bad+300:
+		 '<div class="buttonS"><a href="exec:gt ''stepmom_event'',''go_out_and_have_a_shot''">Go out and have a shot</a></div>'
+		 end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>: Hey, I`m on my way out. If you have time, help me get rid of this garbage.</p>'
+		'<p>-<<$JM.name>>: By the way, your sister didn`t go home on time after school recently. If you have time, go to school to pick her up from school.</p>'
+		if 3>$JM_Event_grandpa :
+		'<p>——</p>'
+		'<p>-<<$JM.name>>: Also, in a few days, your grandfather will come back from abroad to stay for a few days. Go and clean the guest room.</p>'
+		'<p>-*It seems to be an attitude of summoning servants.</p>'
+		end
+		if $JM_Event_grandpa =3 :
+		'<p>——</p>'
+		'<p>-<<$JM.name>>: The guest room is cleaned?It just so happens that your grandfather is almost here.My dad has been at home for the past few days, don`t cause me trouble!</p>'
+		'<p>-*Harsh words.</p>'
+		$JM_Event_grandpa =4
+		end
+		
+	'</div>'
+
+End
+
+
+if $ARGS[0]="stepmom_new_out_in_the_hall_new_neighbor":
+
+	'<div class="show_menu">'
+			'<img src="images\NPC\JM\pics\家1.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		 '<div class="button"><a href="exec:gt ''hall_event'',''stepmom_the_hall_is_out_new_neighbor_2''">Memories of yesterday </a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>: When I went home yesterday, I met the new neighbor couple next door. They seem to have just moved here. If you have time, can you please visit for me?</p>'
+		'<p>-Me: New neighbor?</p>'
+		'<p>-<<$JM.name>>: The hostess also sent a strawberry pie made by herself yesterday. Please help me return the gift.</p>'
+		'<p>-Me: Yesterday?</p>'
+	'</div>'
+
+End
+
+if $ARGS[0]="stepmom_the_hall_is_out_new_neighbor_2":
+
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\1.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		 '<div class="button"><a href="exec:gt ''hall_event'',''stepmom_the_hall_is_out_new_neighbor_3''">。。。 </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>-？？？: Hello, I am newly moved here. This is the strawberry pie I made by myself. Please try it.</p>'
+		'<p>-<<$JM.name>>: Then I`m welcome.</p>'
+		'<p>-？？？: Can you take me around?I want to get acquainted……</p>'
+		'<p>-<<$JM.name>>: Which building do you belong to?</p>'
+		'<p>-？？？: Uh... we live in a talent apartment…</p>'
+		'<p>-<<$JM.name>>: That`s it... (People in the talent apartment have no social value)</p>'
+	'</div>'
+
+End
+
+if $ARGS[0]="stepmom_the_hall_is_out_new_neighbor_3":
+
+	'<div class="show_menu">'
+			'<img src="images\NPC\JM\pics\家1.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		 '<div class="button"><a href="exec:gt ''residential_area''">Got it </a></div>'
+		 if $jm.love>=-$jm.bad+300:
+		 '<div class="buttonS"><a href="exec:gt ''stepmom_event'',''go_out_and_have_a_shot''">Go out and have a shot</a></div>'
+		 end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>: She originally made an appointment with me to take her to the store to pick up furniture at four o`clock in the afternoon, but my work meeting is much more important, so you can return this favor for me.</p>'
+		'<p>-Me: Uh...is it four o`clock in the afternoon?</p>'
+		'<p>-<<$JM.name>>: Then I will go out first.</p>'
+		if  $bgh_event_chain=0:$bgh_event_chain=1
+	'</div>'
+
+End
+
+
+if $args[0]="fuck_family_portrait":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NP\vids\全家福1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!16:
+		'<div class="button_menu">'
+			if  a=0: 
+			'<div class="button"><a href="exec:a=rand(1,3) & gt ''hall_event'',''fuck_family_portrait''">Tongue kiss</a></div>'
+			end
+			if  1<=a and a<3:  
+			'<div class="button"><a href="exec:a+=1 & gt ''hall_event'',''fuck_family_portrait''">Substitution tongue kiss</a></div>'
+			end
+			if  a=3:  
+			'<div class="button"><a href="exec:a=1 & gt ''hall_event'',''fuck_family_portrait''">Substitution tongue kiss</a></div>'
+			end
+			if  1<=a and a<=3 and q>=2: 
+			'<div class="button"><a href="exec:a+=3 & gt ''hall_event'',''fuck_family_portrait''">Blowjob for me</a></div>'
+			end
+			if  4<=a and a<=6 and q>=2: 
+			'<div class="button"><a href="exec:a-=3 & gt ''hall_event'',''fuck_family_portrait''">Kiss my tongue</a></div>'
+			end
+			if  4<=a and a<6 and q>=3: 
+			'<div class="button"><a href="exec:a+=1 & gt ''hall_event'',''fuck_family_portrait''">Population exchange</a></div>'
+			end
+			if  a=6: 
+			'<div class="button"><a href="exec:a=4 & gt ''hall_event'',''fuck_family_portrait''">Population exchange</a></div>'
+			end
+			if  4<=a and a<=6:  
+			'<div class="button"><a href="exec:a=7 & gt ''hall_event'',''fuck_family_portrait''">Shot her in the face</a></div>'
+			end
+			if  a=7:     
+			'<div class="button"><a href="exec:a=8 & gt ''hall_event'',''fuck_family_portrait''">Look at their looks</a></div>'
+			end
+			if  a=8:     
+			'<div class="button"><a href="exec:a=9 & gt ''hall_event'',''fuck_family_portrait_2''">Open operation</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$protagonists_name>>Son, have you been looking forward to this day for a long time?</p>'
+			 '<p><<$JJ.name>>: Is it my sister who wants to be the first one to plug in?<<$protagonists_name>>brother!</p>'
+			 '<p><<$MM.name>>: Humph...<<$protagonists_name>>brother!The first one must be me!</p>'
+		 '</div>'
+	end
+
+	if 1<=a :
+		 '<div class="dialog_menu">'
+			 '<p><<$panting>>...<<$panting>>..</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="fuck_family_portrait_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NP\vids\全家福1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!21:
+		'<div class="button_menu">'
+			if  10<=a and a<=18:
+			'<div class="button"><a href="exec:a+=1 & gt ''hall_event'',''fuck_family_portrait_2''">Close your eyes and fuck</a></div>'
+			end
+			if a!10 and a!13 and a!16:  
+			'<div class="button"><a href="exec:a=10 & gt ''hall_event'',''fuck_family_portrait_2''">Fuck<<$jm.name>></a></div>'
+			end
+			if a!11 and a!14 and a!17:
+			'<div class="button"><a href="exec:a=11 & gt ''hall_event'',''fuck_family_portrait_2''">Fuck<<$jj.name>></a></div>'
+			end
+			if a!12 and a!15 and a!18:
+			'<div class="button"><a href="exec:a=12 & gt ''hall_event'',''fuck_family_portrait_2''">Fuck<<$mm.name>></a></div>'
+			end
+			if 10<=a and a <=15:
+			'<div class="button"><a href="exec:a+=3 &  gt ''hall_event'',''fuck_family_portrait_2''">Keep fucking</a></div>'
+			end
+			if 16<=a and a <=18:
+			'<div class="button"><a href="exec:a-=6 &  gt ''hall_event'',''fuck_family_portrait_2''">Change posture</a></div>'
+			end
+			if  16<=a and a <=18:
+			'<div class="button"><a href="exec:a=19 & gt ''hall_event'',''fuck_family_portrait_2''">Ejaculation</a></div>'
+			end
+			if  a=19:     
+			'<div class="button"><a href="exec:a=20 & gt ''hall_event'',''fuck_family_portrait_2''">Clean up</a></div>'
+			end
+			if  a=20:     
+			'<div class="button"><a href="exec:a=21 & gt ''hall_event'',''fuck_family_portrait_2''">tired</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''home''">disbanded</a></div>'
+			'</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: Who do you want to taste first?</p>'
+			 '<p><<$JM.name>>: Mom`s baby son!<<$protagonists_name>>Son, of course it`s your Sao mother!</p>'
+			 '<p><<$JJ.name>>：<<$protagonists_name>>brother!Does my sister usually treat you badly?</p>'
+			 '<p><<$MM.name>>: Humph...<<$protagonists_name>>brother!If you don`t choose me, you are dead!</p>'
+		 '</div>'
+	end
+
+
+
+	if 10<=a and a<=19:
+		 '<div class="dialog_menu">'
+			 '<p>...<<$panting>>......<<$panting>>..</p>'
+		 '</div>'
+	end
+
+	if a=20:
+		 '<div class="dialog_menu">'
+			 '<p><<$panting>><<$panting>>Even so, they still suck your cock greedily, as if to empty all the semen from the vas deferens....</p>'
+		 '</div>'
+	end
+
+	if a=21:
+		 $MM.bad+= q
+		 $MM.love+= q+$my.charm
+		 $JM.bad+= q
+		 $JM.love+= q+$my.charm
+		 $JJ.bad+= q
+		 $JJ.love+= q+$my.charm
+		 JM_MM+=1
+		 JM_JJ+=1
+		 MM_JJ+=1
+		 '<div class="dialog_menu">'
+		 	 '<p>They contentedly exchanged the semen squeezed from each other....</p>'
+		 	 '<p>What a happy family.</p>'
+		 	 '<p>Achievement achieved [head of the family]</p>'
+		 	 $head_of_the_family="【✭Head of the family】"
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+ 
+--- hall_event ---------------------------------
+

@@ -1,0 +1,185 @@
+# west_coast
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\西海岸.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:$security_dialogue=0 & gt ''west_coast'',''entrance_to_the_imperial_mansion''">Visit the Imperial Mansion</a></div>'
+		if $open_coast=1:'<div class="buttonGn1"><a href="exec:minutes+=15 & gt ''west_coast'',''shower''">Go to the shower</a></div>'else:'<div class="buttonGr"><a href="exec:">Not open to the public</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·This Gold Coast is located in the westernmost part of the suburbs. The beaches stretch for several kilometers. The sand is delicate and white, and the water is clear and blue. It is one of the world-famous resorts.On the coastline stands a magnificent private mansion, which is the exclusive luxury residence of the president of the Imperial Group.The mansion covers an area of thousands of square meters and is towering into the clouds. The designer cleverly combines modern and traditional elements to create a stunning and beautiful building.</p>'
+		'<p>——————————</p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="shower":
+	'<div class ="show_menu"><img src="images\place\冲淋.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''west_coast'',''beach_locker_room''">Peeping into the women`s locker room</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">Go to the Gold Coast</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·West Coast Rule Two: Anyone who sets foot on the Gold Coast must first clean their bodies.</p>'
+	'</div>'
+End
+
+if $ARGS[0]="beach_locker_room":
+		 '<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\beach_droom<<rand(0,27)>>.webm" type=''video/webm;''></video></div>'
+		 '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">Go to the Gold Coast</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Watching the woman next door through a crack.</p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="gold_coast":
+	'<div class ="show_menu"><img src="images\place\海滩_<<$times_of_day>>.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $times_of_day='':'<div class="button"><a href="exec:gt ''west_coast'',''hang_out''">Hang out</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·There are three theories about the name of the Gold Coast. One theory is that the sand is as brilliant as gold under the sun; the other is that this private coast has created golden benefits for the imperial group; the last theory is that there is a big treasure called Homonym [Naughty Four] buried under this beach.</p>'
+		'<p>——————————</p>'
+		if $times_of_day='night':
+		'<p>·West Coast Rule One: When night falls, the Gold Coast will not be open to the public and everyone must leave.</p>'
+		end
+	'</div>'
+End
+
+
+if $ARGS[0]="hang_out":
+	if rand(0,100)>=92: gt'west_coast','hang_out_2'
+	if rand(0,99)<=7: gt'west_coast','hang_out_3'
+	if rand(0,200)<=4 and $blood_relatives_medal>0: gt'west_coast','hang_out_5'
+	'<div class ="show_menu"><img src="images\place\海滩闲逛.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $times_of_day='':'<div class="button"><a href="exec:gt ''west_coast'',''hang_out''">Keep hanging out</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·There is a rumor that when night falls, the Imperial Group will transport stowaways ashore and make huge profits from it.</p>'
+	'</div>'
+End
+
+if $ARGS[0]="hang_out_2":
+		 '<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\beach_r<<rand(0,3)>>.webm" type=''video/webm;''></video></div>'
+		 '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">Keep hanging out</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·West Coast Rule Three: All forms of field warfare are allowed, but the battlefield must be cleaned afterwards.</p>'
+		'<p>——————————</p>'
+		'<p>Girl: Ah<<$panting>></p>'
+		'<p>Me: I still don`t bother them.</p>'
+	'</div>'
+End
+
+if $ARGS[0]="hang_out_3":
+	'<div class ="show_menu"><img src="images\task\沙滩女 (<<rand(0,15)>>).jpg" height="492"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">Keep hanging out</a></div>'
+		if $my.physical_strength >=6:'<div class="button"><a href="exec:gt ''west_coast'',''hang_out_4''">Show off your figure</a></div>'else:'<div class="buttonGr"><a href="exec:">Too bad figure</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Beauty: Hi ❤ Handsome guy, do you have abdominal muscles?I like strong❤</p>'
+	'</div>'
+End
+
+if $ARGS[0]="hang_out_4":
+	'<div class ="show_menu"><img src="images\task\沙滩男.jpg"  height="492"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''group_performation_event'',''random_fuck_beach''">Insert her</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">refuse</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Beauty: Wow?！？！Can you take off your pants ❤People want to know if your dick is harder than your abs❤</p>'
+	'</div>'
+End
+
+if $ARGS[0]="hang_out_5":
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\bc.jpg" height="492"></div>'
+		
+	'<div class="button_menu">'
+		if $times_of_day='':'<div class="button"><a href="exec:gt ''west_coast'',''hang_out''">Keep hanging out</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast'',''gold_coast''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: It`s not bad to blow the sea breeze occasionally…</p>'
+	'</div>'
+End
+
+if $ARGS[0]="entrance_to_the_imperial_mansion":
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\入口<<rand(1,3)>>.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $ct.home>0 :'<div class="buttonS1"><a href="exec:$security_dialogue=1 & gt ''west_coast'',''entrance_to_the_imperial_mansion''">Show the certificate of Assistant president</a></div>'else:'<div class="buttonGr"><a href="exec:">Show the certificate of Assistant president</a></div>'
+		if $security_dialogue=1:'<div class="button"><a href="exec:gt ''imperial_mansion''">Direct access</a></div>'
+		if $security_dialogue=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''imperial_fuck_guard1''">Introducing privileges</a></div>'
+		'<div class="button"><a href="exec:gt ''west_coast''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $security_dialogue=0:'<p>Security: This is the exclusive luxury residence of the president of the Imperial Group. Non-family members of the president and related personnel are requested to leave quickly, otherwise they will bear the corresponding legal consequences!There is no room for negotiation!Get out of here if you understand!Don`t get in the way in front of my mother!</p>'
+		if $security_dialogue=1:'<p>Me: This is the assistant president`s certificate. Do you know what this assistant certificate can do?</p>'
+		if $security_dialogue=1:'<p>Security: Bah bah bah, how can this be an assistant card ❤ Obviously it is<<$protagonists_name>>The vice president`s business card ❤Do you need me to introduce your privileges to you❤</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+
+
+--- west_coast ---------------------------------
+

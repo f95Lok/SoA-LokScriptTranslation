@@ -1,0 +1,369 @@
+# 夜色精巢
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+gs'menu_gif'
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="主舞台" href="exec:minutes+=5 & gt ''夜色精巢'',''主舞台''"><img class="img_stretch" src="images\place\主舞台.gif"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="脱衣舞区" href="exec:minutes+=5 & gt ''夜色精巢'',''脱衣舞区''"><img class="img_stretch" src="images\place\脱衣舞区.gif"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="风俗区" href="exec:minutes+=5 & gt ''夜色精巢'',''风俗区''"><img class="img_stretch" src="images\place\VIP包间.gif"></a>
+		</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="歌舞伎町" href="exec:minutes+=5 & gt ''歌舞伎町''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+		
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\夜色精巢开幕~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+	'<div class="button_menu">'
+	
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''夜色精巢'',''主舞台''">看向主舞台</a></div>'
+		if $OX.available=1 and $JZ_Event_rape=0: '<div class="button"><a href="exec:minutes+=15 & gt ''杀手_事件'',''SS_Event_酒吧''">调查：失踪案 <<$JZ_Event_rape>>﹪</a></div>'
+		if  $JZ_Event_rape=15: '<div class="button"><a href="exec:minutes+=15 & gt ''杀手_事件'',''SS_Event_车牌''">调查：车牌 <<$JZ_Event_rape>>﹪</a></div>'
+		if  $JZ_Event_gun=10: '<div class="button"><a href="exec:minutes+=15 &a=-1& gt ''警员_事件'',''JY_Event_酒吧''">等<<$JY.name>></a></div>'
+		if 集印卡=0: '<div class="buttonS"><a href="exec:minutes+=15 & 集印卡+=1 & gt ''夜色精巢''">拾起集印卡</a></div>'
+		if 集印卡=1 and hour=2 and week_day =6:'<div class="buttonR3"><a href="exec:集印编号S=3 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤搭讪熟人❤</a></div>'
+		if $BGH.夜色>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''夜色精巢'',''找BGH''">找<<$BGH.name>></a></div>'
+		if rand(0,100)>=90 and $魅魔风俗=1:'<div class="buttonPu3"><a href="exec:gt ''魅魔_事件'',''魅魔_Fuck_夜店''"><<$MMS.name>>的身影</a></div>'
+		if $LB.available>0:'<div class="buttonR"><a href="exec:gt ''夜色精巢'',''私人办公室''">『私人办公室』</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">消磨时间</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·震耳欲聋的淫靡之音让你的血脉喷张！</p>'
+	'</div>'
+End
+
+	
+	
+	
+if $ARGS[0]="风俗区":
+	'<div class ="show_menu"><img src="images\place\VIP包间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $LY.风俗>=1:'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''主播_事件'',''风俗''"><<$LY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">风俗娘招募中</a></div>'
+		if SX_按摩num>=3: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''失乡_事件'',''SX_Fuck_风俗''"><<$SX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">风俗娘招募中</a></div>'
+		if $魅魔风俗=1:'<div class="buttonPu3"><a href="exec:minutes+=15 &  gt ''魅魔_事件'',''魅魔_Fuck_风俗''"><<$MMS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">风俗娘招募中</a></div>'
+		if week_day=1 or week_day=3 or week_day=5:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''上原_事件'',''SY_Fuck_work2''"><<$SY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">正在上钟</a></div>'
+		if week_day=6:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''上原_事件'',''SY_Fuck_FNN''">周六❤畅啪</a></div>'else:'<div class="buttonGr"><a href="exec:">周六❤畅啪</a></div>'
+		if LXS夜店工作=1:'<div class="buttonS4"><a href="exec:minutes+=15 & gt ''留学_事件'',''留学_Fuck_接客''"><<$LXS.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·夜店能把所有人的社会行为放大一万倍，无论是美德还是恶习，除了酒店的床上，没有哪里比夜店更适合剖析人类的内心。</p>'
+	'</div>'
+End
+
+if $args[0] ='脱衣舞区':
+	$WN.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WN\vids\开幕1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if money>=2888:'<div class="buttonG"><a href="exec:money-=2888 & gt ''舞娘_事件'',''黑桃A''">黑桃A黄金版￥2888</a></div>'else:'<div class="buttonGr"><a href="exec:">黑桃A黄金版￥2888</a></div>'
+		if money>=888:'<div class="buttonS1"><a href="exec:money-=888 & a=1 & gt ''舞娘_事件'',''甩奶舞''">甩奶舞￥888</a></div>'else:'<div class="buttonGr"><a href="exec:">甩奶舞￥888</a></div>'
+		if money>=1688:'<div class="buttonS2"><a href="exec:money-=1688 & gt ''舞娘_事件'',''贴面舞''">贴面舞￥1688</a></div>'else:'<div class="buttonGr"><a href="exec:">贴面舞￥1688</a></div>'
+		if money>=3288:'<div class="buttonS3"><a href="exec:money-=3288 & gt ''舞娘_事件'',''WN_Fuck_双人舞''">双人舞￥3288</a></div>'else:'<div class="buttonGr"><a href="exec:">双人舞￥3288</a></div>'
+		if $特摄片前置=2:'<div class="buttonP"><a href="exec:gt ''夜色精巢'',''特摄剧邀演''">特摄剧邀演</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		'<p><<$WN.name>>:点一支贴面舞还是喝酒？</p>'
+	'</div>'
+End
+
+
+if $args[0] ='特摄剧邀演':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WN\vids\喝酒.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if money>=10000:'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">邀请出演10000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">邀请出演10000￥</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		'<p>我: 我正在筹备一部特摄剧，有兴趣做主演吗？是女英雄被坏蛋打败的特殊……</p>'
+		'<p><<$WN.name>>: 啥？特摄剧？我没演过诶！不过应该要比脱衣舞简单吧！</p>'
+		if $特摄片前置=3:
+		'<p>我: 这样能打动你了吗？</p>'
+		'<p><<$WN.name>>: 老板大气！我们电视台不见不散咯！</p>'
+		end
+	'</div>'
+End
+
+
+if $ARGS[0]="找BGH":
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\3.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $BGH.夜色>=1 :'<div class="buttonS3"><a href="exec:gt ''邻家_事件'',''邻家_Fuck_夜''">去包厢</a></div>'
+		if $BGH.调教>=1 :'<div class="buttonS4"><a href="exec:gt ''邻家_事件'',''邻家_Fuck_夜2''">换身衣服去</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$BGH.name>>： 这里可真嗨！我已经好就没有这样爽过了！在这里我要重新激起对生活的热情！</p>'
+	'</div>'
+End
+
+
+
+if $ARGS[0]="主舞台":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\主舞台 (<<rand(0,24)>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if 集印卡=1 and hour=2 and week_day =6:'<div class="buttonR3"><a href="exec:集印编号S=3 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤搭讪熟人❤</a></div>'
+		if $BGH.夜色>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''夜色精巢'',''找BGH''">找<<$BGH.name>></a></div>'
+		if rand(0,100)>=90 and $魅魔风俗=1:'<div class="buttonPu3"><a href="exec:gt ''魅魔_事件'',''魅魔_Fuck_夜店''"><<$MMS.name>>的身影</a></div>'
+		if $ZX约俱乐部=1 and (hour>=22 or hour<=3):'<div class="buttonS"><a href="exec:minutes+=15 & gt ''整形_事件'',''俱乐部''"><<$ZX.name>></a></div>'
+		if $XN.服务生=1:'<div class="buttonS"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_夜色2''">找<<$XN.name>></a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·主舞台的演出速效地让情绪高涨，把手机调成飞行模式，身体不断地在颠簸。</p>'
+		if rand(0,101)>=50:'<p>·随着荷尔蒙被调动，善男信女们手拉着手去了一边<a href="exec:gt ''夜色精巢'',''一边''">-看向那边</a></p>'
+		if rand(0,200)>=150 and $XN.服务生=1:'<p>·<<$XN.name>>被一位醉酒的客人缠住了<a href="exec:gt ''修女_事件'',''XN_Fuck_夜服务''">-看向那边</a></p>'
+		
+		
+	'</div>'
+End
+
+if $ARGS[0]="一边":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\侧 (<<rand(1,8)>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''主舞台''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：年轻真好，可以想做什么就做什么。</p>'
+	'</div>'
+End
+
+
+
+
+if $ARGS[0]="私人办公室":
+	if $催债=0:gt'老板_事件','催债对话'
+	if $老板事件链=6  and $老板上位!999:gt'夜色精巢','善后处理'
+	if $老板上位=999 and $LB.love>=200 and rand(0,50)>=40:gt'夜色精巢','随机办公室'
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office<<rand(0,2)>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $老板上位=999:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''老板立绘''">与她独处↑</a></div>'
+		if $催债=1:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''小弟催债''">私聊小弟→</a></div>'
+		if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''LB'' & $ma=$LB.name & gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+		if $老板事件链=2:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''露营区情况''">露营区情况</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+
+		if $老板上位!999:
+		'<p>狂小弟：姐，你就不想做强做大？</p>'
+		'<p><<$LB.name>>：做强做大？你先把你的账给我收齐了再说吧。</p>'
+		'<p>狂小弟：你可别把我当成小孩，我受够了，我已经成年了。</p>'
+		else:
+		'<p><<$LB.name>>：听好了，现在没有我的允许，你哪里也不能去，如果我不在，没有<<$主角姓名>>的允许，你哪里也不能去。你现在居然连放火这种事都做的出来，真是太令我失望了！</p>'
+		'<p>狂小弟：姐，你现在这么信任他了？还有，火真的不是我放的啊！警察马上就相信我了，你们干嘛非要把我捞出来啊？！</p>'
+		end
+	'</div>'
+End
+
+if $ARGS[0]="老板立绘":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\酒1-0~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_酒1''">不止是喝一杯</a></div>'
+		if 老板对话!1: '<div class="button"><a href="exec:老板对话=1 & gt ''夜色精巢'',''老板立绘''">周末下午去逛街？</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LB.name>>：我弟的烂摊子多亏了你，怎么样？喝一杯吗？</p>'
+		if 老板对话=1:
+		'<p>我：我知道有个更好的地方，周末下午我在商场约你。</p>'
+		end
+	'</div>'
+End
+
+
+if $ARGS[0]="小弟催债":
+	$催债=1
+	催债Num=催债1完成+催债2完成+催债3完成+催债4完成+催债5完成+催债6完成
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 催债Num>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''老板_事件'',''老板_Fuck_奖1''">向姐姐邀功</a></div>'else:'<div class="buttonGr"><a href="exec:">至少完成5个</a></div>'
+		if $老板事件链=3 or $老板事件链=4:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''暴力计划''">暴力计划</a></div>'
+		if $老板上位=999:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''小弟催债2''">那天发生什么了</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>狂小弟：帮我把群老鼠们找到！！冤有头债有主！！</p>'
+		'<p>㊕逾期欠款：15000￥；性别：女；职业：整形医生；情况：锁定住址</p>'
+		'<p>①逾期欠款：1017100￥；性别：女；职业：调酒师；情况：'
+		 if 催债1完成=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>②逾期欠款：121<<rand(1115,9999)>>￥；性别：女；职业：美发师；情况：'
+		 if 催债2完成=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>③逾期欠款：1<<rand(331115,449999)>>￥；性别：女；职业：保洁员；情况：'
+		 if 催债3完成=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>④逾期欠款：2<<rand(131115,449999)>>￥；性别：女；职业：车模；情况：'
+		 if 催债4完成=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>⑤逾期欠款：2<<rand(531115,949999)>>￥；性别：男；职业：罪犯；情况：'
+		 if 催债5完成=1:'锁定住址</p>'else:'下落不明</p>'
+		 '<p>㊕逾期欠款：1<<rand(131115,949999)>>￥；性别：女；职业：惯偷；情况：'
+		 if 催债6完成=1:'锁定住址</p>'else:'下落不明</p>'
+	'</div>'
+End
+
+if $ARGS[0]="小弟催债2":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">将信将疑</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：那天发生什么了？火是不是你放的？</p>'
+		'<p>狂小弟：我靠…我还要说多少次啊，真的不是我放的！那天晚上我正准备启动推土机，结果发现油箱是空的，我就去买了一桶柴油，等到我回来的时候就已经是一片火海了。</p>'
+		'<p>我：那<<$JY.name>>不是亲手逮捕的你吗？</p>'
+		'<p>狂小弟：那个笨女人懂啥啊，她看着我抱着一桶柴油，二话没说就把我按在地上了。</p>'
+		'<p>我：那这个计划你有告诉过谁吗？</p>'
+		'<p>狂小弟：只有…你！</p>'
+		'<p>我：…………</p>'
+	'</div>'
+End
+
+
+
+
+if $ARGS[0]="露营区情况":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office<<rand(0,2)>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">不可置否</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：给露营区里那些流浪汉撑腰的是<<$FP.name>>，你应该知道吧？</p>'
+		'<p><<$LB.name>>：我当然知道是<<$FP.name>>，但这件事我不能出面。</p>'
+		'<p>狂小弟：姐，按我说的我们找人把她绑了再把那群流浪汉打一顿就完事了，何必搞这么复杂。</p>'
+		'<p><<$LB.name>>：你猜猜城建部的巨额亏损是谁垫资的？在<<$CJ.name>>眼里<<$FP.name>>可比我们有价值多了。</p>'
+		'<p>狂小弟：姐，你说她哪来的这么多钱？她在几年前不还是个淫乱的脱衣舞娘吗？难道真和传闻一样…</p>'
+		'<p>我：传闻怎么说？</p>'
+		'<p>狂小弟：她是前首富的情妇！而且分到了一大笔遗产！</p>'
+		'<p><<$LB.name>>：总而言之，再想想办法和平地处理这件事吧。你能解决的对吧？</p>'
+		if $老板事件链=2:$老板事件链=3
+	'</div>'
+End
+
+if $ARGS[0]="暴力计划":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">这个简单</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>狂小弟：嘿，你就听我的，我们俩分工合作，一起把那群逼流浪汉解决了！</p>'
+		'<p>我：你有什么计划？</p>'
+		'<p>狂小弟：真男人只玩狠的！你去支开她，想方设法拖延住她，我去找几辆推土机。</p>'
+		'<p>我：这？</p>'
+		'<p>狂小弟：你就说你敢不敢干吧！我有消息，她会在周六分完午饭后直接去温泉泡澡，而我需要你把她至少留到天黑！</p>'
+		'<p>我：留到天黑？</p>'
+		'<p>狂小弟：在这段时间里，推土机就会工作！哈哈哈哈！怎么样？</p>'
+		
+		if $老板事件链=3:$老板事件链=4
+	'</div>'
+End
+
+if $ARGS[0]="善后处理":
+	 if $老板上位=1:gt '老板_事件','老板_Fuck_剧3'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\000.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $老板暂缓调查=0:'<div class="buttonGr"><a href="exec:">延缓调查：未批准</a></div>'else:'<div class="buttonR3"><a href="exec:">延缓调查：已批准</a></div>'
+		if $老板上位<=2:'<div class="buttonGr"><a href="exec:">谅解书：未完成</a></div>'else:'<div class="buttonR3"><a href="exec:">谅解书：已获得</a></div>'
+		if  $贼被抓<2:'<div class="buttonGr"><a href="exec:">替罪羊：未找到</a></div>'else:'<div class="buttonR3"><a href="exec:">替罪羊：希咲エマ（惯偷）</a></div>'
+		if $老板上位=2:'<div class="buttonP"><a href="exec:gt ''老板_事件'',''老板_Fuck_剧4''">邀请：<<$FP.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LB.name>>：你就不能让我静静吗……</p>'
+		'<p>我：抱歉………我不该…</p>'
+		'<p><<$LB.name>>：你为什么就没有拦着他？我只有这一个弟弟！我…</p>'
+		'<p>我：都怪我…他明明和我说的是推土机…</p>'
+		'<p><<$LB.name>>：这件事反响非常恶劣…听着，首先要拖延警方的调查时间，你在警局有熟人吗？我的身份不方便露面。除此之外，我们还要争取到<<$FP.name>>的谅解书，最后给<<$CJ.name>>一个替罪羊。</p>'
+		'<p>我：好…我知道了。</p>'
+	'</div>'
+End
+
+if $ARGS[0]="随机办公室":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office4.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''老板_事件'',''老板_Fuck_店1''">扒了她</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：你弟去哪了？</p>'
+		'<p><<$LB.name>>：唉，我哪管得住他啊，估计又去喝酒了之类的，真担心他再做出不理智的事来。</p>'
+		'<p>我：你还挺关心他的嘛？毕竟血浓于水，可以理解。</p>'
+		'<p><<$LB.name>>：他其实…是我前男友的弟弟……但我一直视他为亲弟弟。</p>'
+		'<p>我：喔？前男友？</p>'
+		'<p><<$LB.name>>：他在十五年前出车祸死了，他还说过会娶我。</p>'
+		'<p>我：…………</p>'
+	'</div>'
+End
+
+
+
+--- 夜色精巢 ---------------------------------
+

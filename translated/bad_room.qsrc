@@ -1,0 +1,178 @@
+# bad_room
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=30
+'<div id="right-column">'
+	gs"energy_judgment"
+	if hour>=7: gt"subway"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Rental room" href="exec:gt ''bad_room''"><img class="img_stretch" src="images\place\陋室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="subway" href="exec:gt ''subway''"><img class="img_stretch" src="images\place\地铁.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+	
+
+
+if $ARGS[0]="":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''bad_room'',''drawer''">Search drawer</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''cabinet''">Search cabinet</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''computer''">Search computer</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>  Following all the way, turning around and around, he finally stopped in a remote urban village.</p>'
+		'<p>  As soon as he entered the room, he fell asleep, not realizing that there was still a person behind him.</p>'
+		'<p>  Where to search?I must leave before dawn....</p>'
+	'</div>'
+End
+
+if $ARGS[0]="drawer":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''bad_room'',''white_envelope''">White envelope</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''red_envelope''">Red envelope</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> There are two envelopes in the drawer</p>'
+	'</div>'
+End
+
+if $ARGS[0]="white_envelope":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 【Suicide Note】</p>'
+		'<p>   When you see this letter, your mother may not be able to hold on anymore. Your mother has never blamed you. Don`t be sad, son. You will always be my pride.Continue your scientific research bravely!Mom will always support you!Save more people like mom!</p>'
+	'</div>'
+End
+
+if $ARGS[0]="red_envelope":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 【Letter without postmark】</p>'
+		'<p> 	Honey, are you okay?I finally want money!We can live a good life.In the past, you always said that I didn`t have time to accompany you. Now that the research results have been announced, we have successfully extracted MacGuffin!I`ll tell you myself when I get you back!More exciting than you think!</p>'
+	'</div>'
+End
+
+if $ARGS[0]="computer":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package''">Encrypted compressed package</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''folder''">Encrypted folder</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> There are two suspicious files in the computer</p>'
+	'</div>'
+End
+
+if $ARGS[0]="compressed_package":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		if $compressed_package_code <100:
+		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package''">Code deciphering<<$compressed_package_code>>%</a></div>'
+		else:
+		'<div class="button"><a href="exec: gt ''bad_room'',''compressed_package_successfully''">Successfully deciphered<<$compressed_package_code>>%</a></div>'
+		end
+	 '</div>'
+
+	'<div class="dialog_menu">'
+		'<p> It took a little time to decipher the password of the compressed package, and intelligence played a decisive role.</p>'
+		$compressed_package_code+=$my.intelligence*5
+	'</div>'
+End
+
+if $ARGS[0]="folder":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		if $folder_code <100:
+		'<div class="button"><a href="exec: gt ''bad_room'',''folder''">Code deciphering<<$folder_code>>%</a></div>'
+		else:
+		'<div class="button"><a href="exec: gt ''bad_room'',''folder_success''">Successfully deciphered<<$folder_code>>%</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> It took a little time to decipher the password of the folder, and intelligence played a decisive role.</p>'
+		$folder_code+=$my.intelligence*5
+	'</div>'
+End
+
+if $ARGS[0]="compressed_package_successfully":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>  Inside is a QSP game with more than 200GB......</p>'
+	'</div>'
+End
+
+if $ARGS[0]="folder_success":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> Successfully entered the host computer, clicked on a folder called `Very Important: Remember not to Delete`, and sure enough found the `B-137 Project Responsibility Book` in it. This is what you are looking for. You just took the hard drive down!</p>'
+		'<p> It`s time to take credit.</p>'
+		$JM_Event_store=3
+	'</div>'
+End
+
+if $ARGS[0]="cabinet":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''bad_room'',''glass''">Glass box</a></div>'
+		'<div class="button"><a href="exec: gt ''bad_room'',''wooden''">Wooden box</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> There are two boxes of different materials on the cabinet.</p>'
+	'</div>'
+End
+
+if $ARGS[0]="glass":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> Picking it up, I realized that it was an upside-down photo frame covered with dust and cobwebs.</p>'
+		'<p> The woman in the photo is smiling like a flower, wearing a long wedding dress, and the other half she is holding in her hand has been torn off.</p>'
+	'</div>'
+End
+
+if $ARGS[0]="wooden":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> It was incompatible with the surrounding dust and cobwebs, and it was wiped clean and shiny.You roughly guessed what it was, and put it back respectfully.</p>'
+	'</div>'
+End
+
+
+
+ 
+--- bad_room ---------------------------------
+

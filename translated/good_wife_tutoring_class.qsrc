@@ -1,0 +1,128 @@
+# good_wife_tutoring_class
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'company_map'
+'</div>'
+
+ if tut<10:$tut_name="Few people know"
+ if 10<=tut and tut<25:$tut_name="Little famous"
+ if 25<=tut and tut<50:$tut_name="Fame"
+ if 50<=tut and tut<75:$tut_name="Famous"
+ if 75<=tut and tut<100:$tut_name="Famous for a while"
+ if 100<=tut and tut<10000:$tut_name="One in a hundred"
+ if 10000<=tut:$tut_name="Become famous"
+ m1=rand(1,7)
+ m2=rand(1,7)
+ m3=rand(1,7)
+ if tut_lv=1:
+		m4=rand(9,14)
+		if $TZ.bad>=100:m4=rand(8,13)
+ end
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\place\好妻子辅导班.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if tut_lv=0:'<div class="buttonG"><a href="exec:money-=5000 & gt ''good_wife_tutoring_class'',''upgrade''">Expand the scale 5000￥</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''good_wife_tutoring_class'',''withdraw''">Withdraw</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''company''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Good wife counseling class: By providing sexual guidance and sexual training for wives, help them better understand their bodies and libido, so as to improve the quality of sex and promote harmony between husband and wife.</p>'
+		'<p>·The current reputation of the tutoring class is：<<tut>> 处于 In<<$tut_name>>stage.</p>'
+		'<p>·The cumulative income of the tutoring class is：<<$cmoney_toring>>￥</p>'
+		'<p>————Appointment list————</p>'
+		 if m1=1:$m='新婚少妇'
+		 if m1=2:$m='火辣人妻'
+		 if m1=3:$m='成熟人妻'
+		 if m1=4:$m='离异少妇'
+		 if m1=5:$m='未婚妻'
+		 if m1=6:$m='寂寞少妇'
+		 if m1=7:$m='来玩的婊子'
+		 '<p>'
+			'♀<a href="exec: m=m1 & gt ''group_performation_event'',''group_performation_fuck_tutoring_class''"><<$m>></a>'
+			if hour>=m2*3 and m2!1:
+			 m2-=1
+			 if m2=1:$m='新婚少妇'
+			 if m2=2:$m='火辣人妻'
+			 if m2=3:$m='成熟人妻'
+			 if m2=4:$m='离异少妇'
+			 if m2=5:$m='未婚妻'
+			 if m2=6:$m='寂寞少妇'
+			 if m2=7:$m='来玩的婊子'
+			'♀<a href="exec:  m=m2 & gt ''group_performation_event'',''group_performation_fuck_tutoring_class''"><<$m>></a>'
+			end
+			if tut>=50 and m1+m2!14:
+			 if m3=m1 or m3 =m2:m3=7
+			 if m3=1:$m='新婚少妇'
+			 if m3=2:$m='火辣人妻'
+			 if m3=3:$m='成熟人妻'
+			 if m3=4:$m='离异少妇'
+			 if m3=5:$m='未婚妻'
+			 if m3=6:$m='寂寞少妇'
+			 if m3=7:$m='来玩的婊子'
+			'♀<a href="exec:  m=m3 & gt ''group_performation_event'',''group_performation_fuck_tutoring_class''"><<$m>></a>'
+			end
+		'</p>'
+		if tut_lv=1:
+		'<p>————Expanded list————</p>'
+		 '<p>'
+			 if m4=8:$m='<<$TZ.name>>'
+			 if m4=9:$m='家庭主妇'
+			 if m4=10:$m='邻家少妻'
+			 if m4=11:$m='现充妹'
+			 if m4=12:$m='新手人妻'
+			 if m4=13:$m='骨感美人'
+			 if m4=14:$m='羞涩少女'
+			'♀<a href="exec:  m=m4 & gt ''group_performation_event'',''group_performation_fuck_tutoring_class''"><<$m>></a>'
+		'</p>'
+		end
+	'</div>'
+
+end
+
+if  $args[0]="withdraw":
+	TXM=MS.power*100/(100+MS.power)
+	'<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & money+=TXM*$cmoney_toring/100  & Cmoney+=$cmoney_toring/10000 & $cmoney_toring=0& gt ''good_wife_tutoring_class'',''withdraw''">Withdraw</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''company''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The cumulative income of the massage parlor is：<<$cmoney_toring>>￥</p>'
+		'<p>·Withdrawal rules, each time you withdraw, you can only withdraw an amount of more than 10,000 ￥. The amount below 10,000 ￥ will be used as a corporate tax to support the pensions of female employees in the city hall.</p>'
+		'<p>☺Based on the ability of the secretary【<<MS.power>>】 Can legally avoid taxes and transfer<<TXM>>% to personal account.</p>'
+	'</div>'
+
+end
+
+if  $args[0]="upgrade":
+	'<div class ="show_menu"><img src="images\place\升级.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''company''">Got it</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The upgrade plan is provided by the players in the group, and 6 new visiting wives have been added.</p>'
+		'<p>————</p>'
+		'<p>·If you also have a good idea, you can realize it by adding a group. Brainstorm.</p>'
+		tut_lv=1
+	'</div>'
+
+end
+
+--- good_wife_tutoring_class ---------------------------------
+

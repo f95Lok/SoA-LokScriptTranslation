@@ -1,0 +1,111 @@
+# midnight_corridor
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=30
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+
+if $args[0]="":
+	 $corridor_num=rand (0,4)
+	 if $yuya_event_chain>=2:$corridor_num=rand (0,3)
+	  '<div class ="show_menu"><img src="images\place\午夜走廊.jpg" width="854"></div>'
+
+	  
+	'<div class="button_menu">'
+		if $XZ_Event_ghost<=1:
+		'<div class="button"><a href="exec:minutes+=25 &$XZ_Event_ghost+=1& gt ''midnight_corridor'',''ghost''">Ghosts in the distance</a></div>'
+		elseif $XZ_Event_ghost<=4:'<div class="button"><a href="exec:minutes+=25 &$XZ_Event_ghost+=1& gt ''midnight_corridor'',''ghost''">Hide in the men`s room</a></div>'
+		elseif $XZ_Event_ghost=6:'<div class="button"><a href="exec:minutes+=25 & $XZ_Event_ghost=6  & gt ''midnight_corridor'',''ghost_2''">Slim shadow</a></div>'
+		elseif $XZ_Event_ghost>=7:'<div class="button"><a href="exec:minutes+=25 & $XZ_Event_ghost+=1& gt ''midnight_corridor'',''ghost_2''">Naked ketone body</a></div>'
+		end
+		if $secretarial_school_candid_shot=1:'<div class="buttonPu3"><a href="exec:gt ''secretary_event'',''ms_fuck_school''">wait<<$MS.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>(There seems to be an eye staring at you at the end of the darkness)</p>'
+		if  $corridor_num>=4 or $yuya_event_chain=1:'<p>From upstairs<a href="exec:minutes+=5 &gt ''midnight_corridor'',''groan''">Groan</a></p>'
+	'</div>'
+End
+
+
+if $args[0]="ghost":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\事件<<$XZ_Event_ghost>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &$XZ.bad+=2& gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $XZ_Event_ghost=1:'<p>...Who will it be...It`s not really a ghost, is it?....In front is the men`s toilet...Do ghosts have to go to the toilet too?I have to see the true face of TA.</p>'
+		if $XZ_Event_ghost=2:'<p>？！Actually it is<<$XZ.name>>？！What is she doing in the school`s men`s room so late?It seems that I have to investigate it well.</p>'
+		if $XZ_Event_ghost>=3:'<p>You hid behind the door, a pair of eyes appeared in the dark.....You observe<<$XZ.name>>Gradually took off his coat and showed a naked posture.You are both excited and scared.</p><p><<$XZ.name>>:Huh----Finally able to relax----this school belongs to me----now I can do whatever I want————</p>'
+		if $XZ_Event_ghost>=4:'<p><<$XZ.name>>: This kind of pleasure cannot be made by those sex doll toys....This is really cool.</p>'
+		if $XZ_Event_ghost>=5:
+			'<p><<$XZ.name>>:When those complaints are resolved, reward yourself for a bolder disclosure.</p>'
+		 $XZ_Event_ghost=5
+		 end 
+	'</div>'
+End
+
+if $args[0]="ghost_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\事件<<$XZ_Event_ghost>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $XZ_Event_ghost.completed<2:
+			if  $XZ_Event_ghost>=9 and $camera>0 and $XZ_Event_ghost.completed=0 :
+				'<div class="button"><a href="exec:minutes+=5 & $XZ_Event_ghost.completed=1 & gt ''university''">Take it down</a></div>'
+			 else:
+				'<div class="buttonGr"><a href="exec:">Need a camera + handle new complaints</a></div>'
+			 end
+		 end
+		 
+		if  $XZ_Event_ghost.completed=2:
+			'<div class="buttonS"><a href="exec:minutes+=5 &  gt ''principal_event'',''xz_fuck_early_morning_tuning''">Show up</a></div>'
+		 else:
+			'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		 end
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $XZ_Event_ghost=6:
+			'<p><<$XZ.name>>:<<$protagonists_name>>This guy is a bit reliable, so leave it to him next time.Ah-then reward yourself for masturbating here.</p>'
+			if  $LJ_Event_Steal=0: $LJ_Event_Steal=1
+		end
+		if $XZ_Event_ghost>=8:'<p><<$XZ.name>>:Huh---freely exposed freely in my school-the cold air makes my pussy shrink more intensely....</p>'
+		if $XZ_Event_ghost>=9:'<p>What she didn`t know was that there was an eye looking at her in the dark.I don`t know anything about her fate that is about to be at the mercy of others.</p>'& $XZ_Event_ghost=8
+	'</div>'
+End
+
+if $args[0]="groan":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\走廊4~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			if $yuya_event_chain=1:'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''yuya_event'',''peek_in_the_hallway''">Peek</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'</div>'
+	'<div class="dialog_menu">'
+		'<p>(Someone is actually fighting in the field in the safe passage, who will it be?..)</p>'
+	'</div>'
+End
+--- midnight_corridor ---------------------------------
+

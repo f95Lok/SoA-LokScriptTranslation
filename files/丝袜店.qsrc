@@ -1,0 +1,135 @@
+# 丝袜店
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "商场_地图"
+'</div>'
+
+
+if $ARGS[0] ="":
+	$SWD.available=1
+	'<div class ="show_menu"><img src="images\place\丝袜店.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:丝袜店对话=0 & gt ''丝袜店'',''对话''">对话</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SWD.name>>：你好，要看看最新款的超薄丝袜吗？现在正在火热促销中！</p>'
+		'<p>⁂——丝袜店人气:<<$丝袜事件链>>级——⁂——累积营业额:<<SWDmoney>>฿——⁂</p>'
+		if $丝袜事件链>=2:'<p>✮<<$SSYY.name>>正在后台发脾气<a href="exec:gt ''丝袜店_事件'',''丝袜店_Fuck_悠亚''">-过去看看</a></p>'
+		if $丝袜事件链>=5:'<p>✮<<$QB.name>>正在拍丝袜代言海报<a href="exec:gt ''丝袜店_事件'',''丝袜店_Fuck_QB''">-过去看看</a></p>'
+		if $丝袜事件链>=3:'<p>『职业秘书』<a href="exec:$丝客=1 & gt ''丝袜店_事件'',''丝袜店_Fuck_客人''">-过去接待</a></p>'
+		if $丝袜事件链>=6:'<p>『少妇人妻』<a href="exec:$丝客=2 & gt ''丝袜店_事件'',''丝袜店_Fuck_客人''">-过去接待</a></p>'
+		if $丝袜事件链>=7:'<p>『女大学生』<a href="exec:$丝客=3 & gt ''丝袜店_事件'',''丝袜店_Fuck_客人''">-过去接待</a></p>'
+		if $丝袜事件链>=9:'<p>『肥臀教师』<a href="exec:$丝客=4 & gt ''丝袜店_事件'',''丝袜店_Fuck_客人''">-过去接待</a></p>'
+		if $丝袜事件链>=12:'<p>『闷骚眼镜』<a href="exec:$丝客=5 & gt ''丝袜店_事件'',''丝袜店_Fuck_客人''">-过去接待</a></p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="对话":
+	'<div class ="show_menu"><img src="images\place\丝袜店.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 丝袜店对话=0:
+			if $丝袜事件链<=1:'<div class="button"><a href="exec:丝袜店对话=1 & gt ''丝袜店'',''对话''">销量问题？</a></div>'
+			if $丝袜事件链=3 or $丝袜事件链=4:'<div class="button"><a href="exec:丝袜店对话=2 & gt ''丝袜店'',''对话''">我厉害吗？</a></div>'
+			if $丝袜事件链=7 or $丝袜事件链=8:'<div class="buttonG"><a href="exec:丝袜店对话=3 & gt ''丝袜店'',''对话''">限量版情况</a></div>'
+			if $丝袜事件链>=6:'<div class="buttonS"><a href="exec:gt ''丝袜店'',''对话中''">跟她去后面</a></div>'
+		end
+		
+		if 丝袜店对话=2:'<div class="buttonP"><a href="exec:丝袜店对话=1 & gt ''丝袜店_事件'',''丝袜店_Fuck_办公室''">跟她去后面</a></div>'
+		if $丝袜事件链>=8:'<div class="buttonGn2"><a href="exec:gt ''丝袜店_事件'',''丝袜店_Fuck_外出''">一起外出</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 丝袜店对话=0:
+		'<p><<$SWD.name>>：唉，你个男人来买什么丝袜啊，是变态吗？</p>'
+		'<p>我：当然不是了，我就不能给我女朋友买吗？</p>'
+		'<p><<$SWD.name>>：算了，只要你能在销量上帮帮我，管你是不是变态呢。</p>'
+		end
+		if 丝袜店对话=1:
+		'<p><<$SWD.name>>：当然了，你真不知道现在的生意有多难做，也可能是我的能力不足吧…唉</p>'
+		'<p>我：别气馁，可能我能够帮上忙，说白了现在不就是缺少人气炒作嘛？</p>'
+		'<p><<$SWD.name>>：是啊，你说的对，如果我能找到个明星帮我代言就好了，最好是…<<$SSYY.name>>这种的…</p>'
+		'<p>我：呃…你是说…<<$SSYY.name>>？</p>'
+		'<p><<$SWD.name>>：怎么，你还能认识她吗？</p>'
+		 if $丝袜事件链=0:$丝袜事件链=1
+		end
+		if 丝袜店对话=2:
+		'<p>我：我厉害吗？</p>'
+		'<p><<$SWD.name>>：真没看出来呀❤你居然还认识大明星，我发现了！你就是那个经纪人对吧！帝国娱乐的！</p>'
+		'<p>我：被你认出来了？</p>'
+		'<p><<$SWD.name>>：嘿嘿，那我想……能不能让<<$QB.name>>给我做代言人呀❤</p>'
+		'<p>我：她很忙的，你不给我点好处，我怎么帮她推掉别的工作呢？</p>'
+		'<p><<$SWD.name>>：啊？那这样吧…你跟我过来一下❤</p>'
+		 if $丝袜事件链=3:$丝袜事件链=4
+		end
+		if 丝袜店对话=3:
+		'<p><<$SWD.name>>：限量款卖的超好的！完全超出了我的预期值！</p>'
+		'<p>我：那真是恭喜了！</p>'
+		'<p><<$SWD.name>>：是啊，而且有客户为了抢购第001号丝袜，甚至购买了超过5万的其他丝袜，就为了更多的抽奖机会。</p>'
+		'<p>我：这种客人就得上门致谢增强品牌粘性。</p>'
+		'<p><<$SWD.name>>：你说的对！我看看…拥有限量款的客户…她叫<<$XY.name>>。</p>'
+		'<p>我：喔？</p>'
+		'<p><<$SWD.name>>：怎么，你还能认识她吗？</p>'
+		if $丝袜事件链=7:$丝袜事件链=8
+		end
+		
+		
+		
+	'</div>'
+end
+
+
+if $ARGS[0] ="对话中":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SWD\vids\对话中.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS3"><a href="exec:gt ''丝袜店_事件'',''丝袜店_Fuck_办公室''">看你的表现❤</a></div>'
+		'<div class="buttonG2"><a href="exec:gt ''丝袜店_事件'',''丝袜店_Fuck_研发''">测试最新产品</a></div>'
+		if MGF>0:'<div class="buttonPu5"><a href="exec:MGF-=1 & gt ''丝袜店'',''下药''">给她下麦高芬</a></div>'else:'<div class="buttonGr"><a href="exec:">没有麦高芬</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SWD.name>>：你真是帮了我不少忙呢❤还愿意帮我更多嘛❤</p>'
+		'<p>⁂——丝袜店人气:<<$丝袜事件链>>级——⁂——累积营业额:<<SWDmoney>>฿——⁂</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="下药":
+     '<div class ="show_menu"><img src="images\NPC\SWD\pics\169.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$SWD.MGF+=1 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SWD.name>>：这种红茶味道还不错嘛❤</p>'
+		'<p>我：你有没有觉得身体很燥热之类的？</p>'
+		'<p><<$SWD.name>>：没有呀❤我一点感觉都没❤</p>'
+		'<p>我：可能是……她有特殊的耐药性？</p>'
+	'</div>'
+end
+
+
+
+--- 丝袜店 ---------------------------------
+

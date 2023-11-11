@@ -1,0 +1,1105 @@
+# 秘书_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $args[0]="招募秘书":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\面试1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">没能力PASS</a></div>'
+		if a=1:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">太贵了PASS</a></div>'
+		if a=2:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">没经验PASS</a></div>'
+		if a=3:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">免费工作？</a></div>'
+		if a=4:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">谈谈贡献</a></div>'
+		if a=5:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">审视她</a></div>'
+		if a=6:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">谈谈忠诚</a></div>'
+		if a=7:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">简单体检</a></div>'
+		if a=8:'<div class="button"><a href="exec:gt ''秘书_事件'',''招募秘书''">录取了</a></div>'
+		if a=9:'<div class="buttonGn"><a href="exec:gt ''秘书室''">开始工作吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=0:'<p>·职位需求刚一发出，就收到了不少简历。</p>'
+		if a=0:'<p>面试者A:您好，我曾担任过销售，业务员，客服，前台，保洁员等岗位，期望薪资是14k/月。</p>'
+		if a=1:'<p>面试者B:你就是老板？我目前在帝国健康工作，如果贵公司能提供超过40k/月的薪资……我就会考虑。</p>'
+		if a=2:'<p>面试者C:嗨！你好！我我我是刚毕业的大学生！呃………我没有工作经验…</p>'
+		if a=3:'<p>面试者D:您好！我知道这是一个不寻常的请求，但我真的非常需要这份工作。我愿意免费工作，以换取一个机会，证明我能胜任这份工作。</p>'
+		if a=4:
+		'<p>我:免费工作？你知道作为秘书可能会要求您提供一些个人服务，以帮助我们的客户满足他们的需求吧。</p>'
+		'<p>面试者D:是的，我明白。我相信我能为您的公司做出贡献，并且我也会努力学习，提高自己的能力。</p>'
+		end
+		if a=5:
+		'<p>我:你能做出什么贡献？</p>'
+		'<p>面试者D:我愿意为了获得这份工作而做出任何牺牲，包括脱下我的衣服。我相信我能够胜任这份工作。我希望您能够考虑给我一个机会。</p>'
+		end
+		if a=6:
+		'<p>我:秘书是一个非常重要的岗位，我原本想给一个非常有实力，有资历，业内经验丰富的女性……</p>'
+		'<p>面试者D:我会非常忠诚地工作，并且我也会尽我所能，为您的公司做出贡献。我相信忠诚是一种重要的价值观，并且我也会努力展现这一点。</p>'
+		end
+		if a=7:
+		'<p>我:忠诚可不是嘴上说说。</p>'
+		'<p>面试者D:我会尽心尽力地为您和客户服务…始终保持清醒、专注和专业，并且尽快响应雇主的需求，以提供最好的服务。</p>'
+		end
+		if a=8:
+		'<p>面试者D:这样做您满意了吗?</p>'
+		end
+		if a=9:
+		'<p>我:我很高兴你对这份工作感到兴奋。我相信你会为我们的公司做出贡献，并且我也期待着与你一起工作。</p>'
+		'<p><<$MS.name>>:我会努力工作，以满足您的期望。</p>'
+		$MS.available=1
+		end
+	'</div>'
+	a+=1
+End
+
+if $args[0]="秘书_Fuck_按摩":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\桌上1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $MS.bad>=a*4 and a<=12: '<div class="buttonP"><a href="exec:gt ''秘书_事件'',''秘书_Fuck_按摩''">继续按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">继续按摩</a></div>'
+		if $MS.bad>=70 and a=13: '<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''秘书_事件'',''秘书_Fuck_状态''">趴到桌上</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		
+		'<div class="button"><a href="exec:$MS.bad+=2 & gt ''公司''">结束</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:你的奉献，公司都会记得的。</p>'
+		'<p><<$MS.name>>:谢谢您的夸奖，<<$主角姓>>老板…我的职责就是为您和公司效劳。如果我的工作能为公司做出贡献，我会感到非常荣幸。</p>'
+		if a>=7:'<p><<$MS.name>>:如果您有任何其他的需要，请随时告诉我，我会尽力满足您的要求。</p>'
+	'</div>'
+	a+=1
+	q+=1
+End
+
+
+if $args[0]="外出":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\外出<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:gt ''秘书_事件'',''外出''">上车</a></div>'
+		if 保时捷=1:'<div class="button"><a href="exec:gt ''秘书_事件'',''我的车''">上我的车</a></div>'
+		if a=1:
+		'<div class="button"><a href="exec:MS.power+=1 & hour+=6 & gt ''秘书_事件'',''让她去跑客户''">让她去跑客户</a></div>'
+		if $MS.love>=1:'<div class="button"><a href="exec:MS.power+=1 & a=0 & q=0 & gt ''秘书_事件'',''秘书_Fuck_访客''">尾随她</a></div>'
+		if $MS.bad>=100:'<div class="button"><a href="exec:MS.power+=1 & a=0 & q=0 & gt ''秘书_事件'',''秘书_Fuck_业务''">一起见客户</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+		'<div class="button"><a href="exec:a=0&q=0& gt ''秘书_事件'',''秘书_Fuck_车上''">摸她</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=0:'<p><<$MS.name>>:<<$主角姓>>老板，出租车已经为您准备好了，租车费用可以从我的工资里扣，具体的行程安排我们车里聊。</p>'
+		if a=1:'<p><<$MS.name>>:<<$主角姓>>老板，我使用了我们公司过去的市场营销数据库，对这些客户进行了详细的分析。我已经准备好了一份报告，供您查阅。这些是几个可能的潜在客户。</p>'
+	'</div>'
+	a+=1
+End
+
+
+if $args[0]="让她去跑客户":
+	a=0
+	q=0
+	'<div class ="show_menu"><img src="images\place\下班.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''秘书_事件'',''秘书_Fuck_下班''">接<<$MS.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''公司''">回公司</a></div>'
+		'<div class="button"><a href="exec:gt ''家''">回家</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·你沿着城市的边际开了一圈。</p>'
+	'</div>'
+End
+
+
+if $args[0]="秘书_Fuck_下班":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\下班1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:gt ''公司''">送她回公司 </a></div>'
+			'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_下班''">为她开一间旅馆 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_下班''">离开 </a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_下班''">好吧 </a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_下班''">射精 </a></div>'
+			end
+			if a=4:
+			if $MS.bad>=10:'<div class="button"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_下班''">真的吗？ </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			'<div class="buttonGn"><a href="exec:a=5 & $MS.love+=10 & gt ''居民区''">好好休息吧 </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''秘书_事件'',''秘书_Fuck_下班''">玩弄她 </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''秘书_事件'',''秘书_Fuck_下班''">操她 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''秘书_事件'',''秘书_Fuck_下班''">换姿势 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''秘书_事件'',''秘书_Fuck_下班''">加速冲刺 </a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''秘书_事件'',''秘书_Fuck_下班''">射精 </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''秘书_事件'',''秘书_Fuck_下班''">对话 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:怎么了？怎么表现得很委屈的样子？ </p>'
+			 '<p><<$MS.name>>:没，没有。我只是累了……想要好好休息一下。 </p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:公司里好像没有24小时热水吧？你在这里能休息得更好。 </p>'
+			 '<p><<$MS.name>>:好久没有这样享受过了，谢谢你，老板。 现在是下班时间，我想我可以喝点酒来放松一下，如果您不希望我喝酒，我会立刻改正。</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我:那我先走了，房费我已经付过了。 </p>'
+			 '<p><<$MS.name>>:<<$主角姓>>老板，无以为报，我的职责是为您提供优质的秘书服务，那就让我用这个作为房费吧。</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>·她看上去很疲惫，动作非常地缓慢和迟钝。</p>'
+			 '<p>我:你很累吗？我不是在责怪你。 </p>'
+			 '<p><<$MS.name>>:…………</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:…………</p>'
+			 '<p>我:累的话就早点休息吧。 </p>'
+			 '<p><<$MS.name>>:…抱歉…我刚刚没有回话…是因为我在认真思考如何为您提供更好的服务…并不是累了。</p>'
+			 $MS.bad+=4
+		 '</div>'
+	end
+
+	if 9>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p>我:真的不累吗？ </p>'
+			 '<p><<$MS.name>>:<<$娇喘声2>>…是的，我非常有精神呢！</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p>我:我不管你现在是不是装出来的，给我好好休息。这是命令，听到没有？</p>'
+		 '</div>'
+	end
+	if a=11:
+		 $MS.bad+=4
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:遵命，<<$主角姓>>老板。我会好好休息……如果您有任何需要，请随时告诉我。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_车上":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\车上1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $MS.bad>=a*10 and a<=8: '<div class="buttonP"><a href="exec:gt ''秘书_事件'',''秘书_Fuck_车上''">摸下去</a></div>'else:'<div class="buttonGr"><a href="exec:">摸下去</a></div>'
+		'<div class="button"><a href="exec:$MS.bad+=2 & a=1 & q=0 & gt ''秘书_事件'',''外出''">结束</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:你对我的举动不反感吗？</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板，作为一个秘书，我的工作就是帮助您，并尽我所能提供最好的服务。</p>'
+		if a>=2:'<p><<$MS.name>>:<<$娇喘声>></p>'
+	'</div>'
+	a+=1
+	q+=1
+End
+
+if $args[0]="秘书_Fuck_办公室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\办公室1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''秘书_事件'',''秘书_Fuck_办公室''">继续口交 </a></div>'
+			end
+			if a!1 and 0<q<=4:
+			'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_办公室''">骑上来 </a></div>'
+			end
+			if a!2 and 2<=q and q<=5:
+			'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_办公室''">后背位 </a></div>'
+			end
+			if a!3 and 3<=q and q<=8:
+			'<div class="button"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_办公室''">把腿打开 </a></div>'
+			end
+			if a!4 and 4<=q:
+			'<div class="button"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_办公室''">冲刺 </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_办公室''">射精 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''秘书_事件'',''秘书_Fuck_状态''">趴到桌上</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if 4>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$话>>…</p>'
+		 '</div>'
+	end
+
+
+	if a=5:
+		 $MS.bad+=4
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板……您能在我身上射精，是我的荣幸。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_状态":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\状态1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_状态''">扒开内裤 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_状态''">装上振动棒 </a></div>'
+			end
+			if 2<=q :
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_状态''">慢速抽插 </a></div>'
+			end
+			if 2<=q :
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_状态''">快速抽插 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_状态''">把她插高潮 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:秘书状态=1 & $MS.bad+=4 & gt ''公司''">保持这个姿势</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS5"><a href="exec:秘书状态=1 & $MS.bad+=4 & gt ''公司''">保持这个姿势</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:还有…什么吩咐吗？</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:没有我的允许，不许把它拔出来，听到没？</p>'
+			 '<p><<$MS.name>>:<<$娇喘声>>是，<<$主角姓>>老板。</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_客人":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\客人1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''秘书_事件'',''秘书_Fuck_客人''">继续 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:$MS.bad+=4 & hour+=5 & gt ''居民区''">送他离开</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我 :这位是..？</p>'
+			 '<p><<$MS.name>>:这位是银行来要债的职员，我们的债务情况可能不是很乐观。</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>银行职员:呃……拖了很久了，贵公司如果不能…呃，银行的可能也要联系法院进行强制…清算了。</p>'
+			 '<p><<$MS.name>>:您好像…有点心不在焉…我想知道，如何才能将我们的债务放缓。</p>'
+			 '<p>银行职员:原则上来说……这不好办。</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:…这不着急……我想您工作了一天，应该需要放松了。</p>'
+			 '<p>银行职员:………………</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:…<<$娇喘声>></p>'
+			 '<p>银行职员:………………</p>'
+		 '</div>'
+	end
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:…如果您能一直来催款的话，我愿意一直为您缓解压力。</p>'
+			 '<p>银行职员:……我想我有……办法了……</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>银行职员:…这样吧…我给你们时间进行债务融资…或者进行资产重组，将不良资产出售或转让。</p>'
+			 '<p><<$MS.name>>:非常感谢，能被您使用是我的荣幸。</p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>银行职员:既然这样，那我下个月的十五号再来。</p>'
+			 '<p>我:做的不错!</p>'	 
+			 '<p><<$MS.name>>:非常感谢您的信任和支持。作为您的秘书，我会不断努力，为您和公司做出贡献。感谢您对我的信任和支持。</p>'
+			 $MS.love+=5
+			 MS.power+=5
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_上楼":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\上楼1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_上楼''">上楼 </a></div>'
+			'<div class="button"><a href="exec:$MS.love+=2 & gt ''居民区''">好好休息 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_上楼''">推倒她 </a></div>'
+			end
+			if a!4 and 2<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_上楼''">揉奶 </a></div>'
+			end
+			if a!5 and 3<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_上楼''">骑上来 </a></div>'
+			end
+			if a!6 and 4<=q and q<=9:
+			'<div class="button"><a href="exec:a=6 & gt ''秘书_事件'',''秘书_Fuck_上楼''">掐她 </a></div>'
+			end
+			if a!7 and 6<=q and q<=11:
+			'<div class="button"><a href="exec:a=7 & gt ''秘书_事件'',''秘书_Fuck_上楼''">打开腿 </a></div>'
+			end
+			if a!8 and 7<=q:
+			'<div class="button"><a href="exec:a=8 & gt ''秘书_事件'',''秘书_Fuck_上楼''">大力抽插 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''秘书_事件'',''秘书_Fuck_上楼''">内射 </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''秘书_事件'',''秘书_Fuck_上楼''">玩喷她 </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''秘书_事件'',''秘书_Fuck_上楼''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & minutes+=1440 & hour=7 & my.精力=mymax[精力] & gt ''秘书_事件'',''秘书_Fuck_翌日''">一起睡觉</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:你睡在公司里是吗？</p>'
+			 '<p><<$MS.name>>:是的。我在您的允许范围内…将闲置的储物间改成了一个阁楼，用做休息。如果您不满意，我可以随时将它拆除还原。</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:……</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板……</p>'
+		 '</div>'
+	end
+	if 10>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板……<<$娇喘声>></p>'
+			 if a=6:'<p>·你掐住她的一瞬间，她阴道内的水突然涌了出来</p>'
+			 if a=10:'<p><<$MS.name>>:<<$主角姓>>老板……<<$话>></p>'
+		 '</div>'
+	end
+	if a=11:
+		 $MS.love+=5
+		 $MS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板……您真是一个非常优秀的老板，性方面也能让女性臣服。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_翌日":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\翌日1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''秘书_事件'',''秘书_Fuck_翌日''">继续 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''公司''">开始工作！</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·第二天</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…希望我没有打扰到您的睡眠…</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板，如果能让您感到放松……那作为秘书的我…会以负责任和专业的态度工作</p>'
+		 '</div>'
+	end
+	if a=3 or a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板……<<$娇喘声>></p>'
+		 '</div>'
+	end
+	if a=5:
+		 $MS.love+=5+my.魅力
+		 $MS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板，真没想到您愿意与我共度一夜……我…感到…非常荣幸。我将一如既往地为您效劳。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_业务":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\业务1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_业务''">满足他 </a></div>'
+			'<div class="button"><a href="exec:a=0 & q=0 & $MS.love+=5 & gt ''秘书_事件'',''秘书_Fuck_下班''">没必要 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_业务''">狠狠捏奶头 </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_业务''">摸下体 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_业务''">口交 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonR"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_业务''">深喉 </a></div>'
+			end
+			if a!6 and 4<=q and q<=9:
+			'<div class="button"><a href="exec:a=6 & gt ''秘书_事件'',''秘书_Fuck_业务''">后入她 </a></div>'
+			end
+			if a!7 and 6<=q and q<=11:
+			'<div class="button"><a href="exec:a=7 & gt ''秘书_事件'',''秘书_Fuck_业务''">女上位 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''秘书_事件'',''秘书_Fuck_业务''">被操喷 </a></div>'
+			end
+			if a!9 and 8<=q:
+			'<div class="buttonR"><a href="exec:a=9 & gt ''秘书_事件'',''秘书_Fuck_业务''">接受肛交 </a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''秘书_事件'',''秘书_Fuck_业务''">颜射 </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''秘书_事件'',''秘书_Fuck_业务''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+			  if a=11:
+				'<div class="buttonS"><a href="exec:a=12 & gt ''秘书_事件'',''秘书_Fuck_业务''">扣喷她 </a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & $MS.love+=5 & gt ''秘书_事件'',''秘书_Fuck_下班''">没必要 </a></div>'
+			  end
+			  if a=12:'<div class="button"><a href="exec:a=0 & q=0 &  gt ''秘书_事件'',''秘书_Fuck_下班''">拿钱走人 </a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板，我很高兴为您介绍一位潜在的合伙人。这位合伙人是一名业务融资专家，在他的行业中拥有丰富的经验。他擅长制定战略计划并有效地实施。此外，他拥有优秀的人际交往能力，能够建立良好的商业关系。我相信，与他合作将会是一次非常有益的经验。</p>'
+			 '<p>我:…公司并没有聘请他的预算…</p>'
+			 '<p><<$MS.name>>:这点我也考虑了…他说只要我能满足他的要求…愿意为我们公司提供融资。</p>'
+			 '<p>·你看了一眼他勃起的内裤，就懂了所谓的要求是什么。</p>'
+		 '</div>'
+	end
+
+
+	if 10>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:我做的这一切都是为了<<$主角姓>>老板…和公司的发展…<<$娇喘声>></p>'
+			 '<p>我:……</p>'
+			 if a>=6:'<p><<$MS.name>>:<<$话>></p>'
+		 '</div>'
+	end
+	if a=11:
+		 $MS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>潜在合伙人:<<$主角姓>>老板，你真是有个好秘书。平时没少肏她吧？如果你愿意用手指试探一下她的骚逼被我插得有多松垮，我就对你的公司投资…10000￥</p>'
+			 '<p>我:……10000￥?</p>'
+			 '<p>潜在合伙人:对，就只有10000￥，如果你不愿意，那就算了。那就是你的好秘书自愿被我白白地操了。</p>'
+		 '</div>'
+	end
+	if a=12:
+		 Cmoney+=1
+		 MS.power+=3
+		 '<div class="dialog_menu">'
+			 '<p>潜在合伙人:<<$主角姓>>老板，这才像话嘛！你那个公司还有这样的妞不？再推荐我几个！</p>'
+			 '<p>我:……</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_访客":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\访客1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!15:
+		'<div class="button_menu">'
+			if $MS.love>=a*10+10 and a<=13:'<div class="button"><a href="exec:a+=1 & gt ''秘书_事件'',''秘书_Fuck_访客''">继续偷窥 </a></div>'else:'<div class="buttonGr"><a href="exec:">继续偷窥 </a></div>'
+			'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:$MS.bad+=4 & hour+=5 & gt ''居民区''">送他离开</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·你怀着好奇的心态，想看看她走访客户的过程…</p>'
+			 '<p><<$MS.name>>:尊敬的客户，我司正在积极寻求投资者……</p>'
+			 '<p>·没有什么异样</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>？？？:喂，有按我说的做吗？</p>'
+			 '<p><<$MS.name>>:债务问题和破产重组是绝对不会被<<$主角姓>>老板认可的。</p>'
+			 '<p>？？？:那就难办了啊。</p>'
+			 '<p>？？？:行了，别玩那一套了，快过来，主人想你了。</p>' 
+		 '</div>'
+	end
+	if 13>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:…是…主人…</p>'
+			 '<p>？？？:真乖…你知道忤逆我的后果吧。</p>'
+			 '<p><<$MS.name>>:<<$娇喘声>>…是的…主人…</p>'
+			 if a>=10:'<p><<$MS.name>>:主人…我…我受不了了…<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=14:
+		 '<div class="dialog_menu">'
+			 '<p>？？？:开心点，难道你不开心吗？想想你的老家…</p>'
+			 $MS.bad+=5
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_访客2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\访客2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+		'<div class="button_menu">'
+			if a<=12:'<div class="button"><a href="exec:a+=1 & gt ''秘书_事件'',''秘书_Fuck_访客2''">快进 </a></div>'
+			if a!0:'<div class="button"><a href="exec:a-=1 & gt ''秘书_事件'',''秘书_Fuck_访客2''">后退 </a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>？？？:怎么来这么晚啊？</p>'
+			 '<p><<$MS.name>>:抱歉…主人…</p>'
+			 '<p>？？？:那应该怎么办呢？</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:狠狠地惩罚我…主人…</p>'
+			 '<p>？？？:主人可下不去手呢…但是主人的朋友们对惩罚你很有兴趣呢…</p>'
+			 '<p><<$MS.name>>:那请主人的朋友们惩罚我吧…</p>'
+			 '<p>？？？:来吧…我早就等不及来玩你这条贱母狗了…</p>'
+		 '</div>'
+	end
+	if 12>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$娇喘声>>…是的…主人…是我自愿被惩罚的…</p>'
+			 '<p>？？？:没有我的命令可不准高潮…否则……</p>'
+			 if a>=3:'<p><<$MS.name>>:主人…我…我受不了了…<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 '<div class="dialog_menu">'
+			 '<p>？？？:可以高潮了，在我们面前高潮吧！</p>'
+			 '<p><<$MS.name>>:<<$娇喘声>>…是的…主人…我可以高潮了…太…太好了…谢谢主人…</p>'
+			 '<p>？？？:如果你不听话的话，这卷录像带会寄给每一个你认识的人！</p>'
+		 '</div>'
+		 $摄像_MS=2
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_椅子":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\椅子1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+		'<div class="button_menu">'
+			if a=0:'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_椅子''">掐住喉咙 </a></div>'
+			if a=1:'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_椅子''">插喷她 </a></div>'
+			if a=2:'<div class="button"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_椅子''">戴上这个 </a></div>'
+			if a=3:'<div class="button"><a href="exec:a=3 & gt ''公司''">戴着吧 </a></div>'
+		'</div>'
+
+
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:你喜欢这样对吧！</p>'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…你…怎么会…</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:怪不得掐你喉咙的时候会痉挛！</p>'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…我……<<$娇喘声>>…</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我:这对你来说不算什么吧！</p>'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…不…要…不要辞退我…我什么都可以做…</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>我:我怎么舍得辞退你呢，我是一个明事理的好老板！</p>'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…<<$娇喘声>>…</p>'
+			 秘书状态=2
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_新车":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\新车1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!12:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_新车''">勃起了 </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="button"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_新车''">接吻 </a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_新车''">玩奶头 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_新车''">玩逼 </a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_新车''">口交 </a></div>'
+			end
+			if a!6 and 5<=q and q<=9:
+			'<div class="button"><a href="exec:a=6 & gt ''秘书_事件'',''秘书_Fuck_新车''">骑上来 </a></div>'
+			end
+			if a!7 and 6<=q and q<=11:
+			'<div class="button"><a href="exec:a=7 & gt ''秘书_事件'',''秘书_Fuck_新车''">后背位 </a></div>'
+			end
+			if a!8 and 7<=q:
+			'<div class="button"><a href="exec:a=8 & gt ''秘书_事件'',''秘书_Fuck_新车''">捏住奶头 </a></div>'
+			end
+			if a!9 and 8<=q:
+			'<div class="button"><a href="exec:a=9 & gt ''秘书_事件'',''秘书_Fuck_新车''">打开腿 </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''秘书_事件'',''秘书_Fuck_新车''">冲刺 </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''秘书_事件'',''秘书_Fuck_新车''">射精 </a></div>'
+			end
+			if a=11:
+			'<div class="button"><a href="exec:a=12 & gt ''秘书_事件'',''秘书_Fuck_新车''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''驾车''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:这车看上去还不错，<<$主角姓>>老板你的眼光真好。</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:如果是这种情况…开车的时候会分心的吧…</p>'
+		 '</div>'
+	end
+	if 5>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…<<$娇喘声>>…</p>'
+		 '</div>'
+	end
+	if 11>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板……<<$话>></p>'
+		 '</div>'
+	end
+	if a=12:
+		 $MS.love+=5
+		 $MS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$MS.name>>:<<$主角姓>>老板…感觉好点了吗？刚刚您射得我浑身都是…我想今天不宜出访…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="我的车":
+	'<div class ="show_menu"><img src="images\NPC\MS\pics\车库.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=0 & gt ''秘书_事件'',''秘书_Fuck_新车''">上车</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MS.name>>:<<$主角姓>>老板，你买了新车嘛，真是年少有为！</p>'
+	'</div>'
+	a+=1
+End
+
+if $args[0]="MS_Fuck_学校":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MS\vids\学校1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!4:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''秘书_事件'',''MS_Fuck_学校''">开始偷拍 </a></div>'
+            end
+            if a=1 or a=2:
+            '<div class="buttonS2"><a href="exec:a+=1 & gt ''秘书_事件'',''MS_Fuck_学校''">发布指令 </a></div>'
+            end
+            if a=3:
+            '<div class="button"><a href="exec:a=4 & gt ''秘书_事件'',''MS_Fuck_学校''">偷拍结束 </a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>我: 她怎么约了一个男学生还穿着学生制服…和我设想的不太一样…算了…</p>'
+             '<p><<$MS.name>>: 弟弟！好久不见，有没有想姐姐？</p>'
+             if a>=1:'<p><<$MS.name>>: <<$娇喘声>>❤</p>'
+             if a>=2:'<p>我: 咳咳…改换动作了…</p>'
+             if a>=3:'<p><<$MS.name>>: <<$娇喘声2>>❤</p>'
+         '</div>'
+    end
+
+
+
+    if a=4:
+         $MS.love+=q+my.魅力
+         $MS.bad+=q+my.魅力
+         $秘书学校偷拍=2
+         '<div class="dialog_menu">'
+			 '<p>我: 差不多了…该收工了…我故意拍的超模糊…应该看不出来吧…</p>'
+             '<p><<$MS.name>>: 弟弟！老板打电话叫我回去工作了，你好好复习，明白了吗？</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="秘书_Fuck_山里搞":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MS\vids\MSWZ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<16:
+        '<div class="button_menu">'
+            if a=0:
+                '<div class="button"><a href="exec:a=1 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">上前呵斥</a></div>'
+            end
+            if a=1:
+                '<div class="buttonR"><a href="exec:a=2 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">私人领地！</a></div>'
+            end
+
+            if a=2:
+                '<div class="button"><a href="exec:a=3 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">诶？！！</a></div>'
+            end
+
+
+            if a=3:'<div class="buttonR3"><a href="exec:a=4 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">假装不认识</a></div>'
+            if a=4:'<div class="buttonR3"><a href="exec:a=5 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">去他家做客</a></div>'
+            if a=5:'<div class="buttonS1"><a href="exec:a=6 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">招待茶水</a></div>'
+            if a=6:'<div class="buttonS2"><a href="exec:a=7 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">她是你的谁？</a></div>'
+            if a=7:'<div class="buttonB2"><a href="exec:a=8 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">明白了</a></div>'
+
+            if 13>=a and a>=8:
+                '<div class="buttonB1"><a href="exec:a=9 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">招待我</a></div>'
+                if a=9:'<div class="buttonB2"><a href="exec:a=10 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">为我口交</a></div>'
+                if a=10:'<div class="buttonB3"><a href="exec:a=11 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">明显不开心</a></div>'
+                if a=11:'<div class="buttonB4"><a href="exec:a=12 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">怎么了</a></div>'
+                if a=12:'<div class="buttonB5"><a href="exec:a=13 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">不会！</a></div>'
+            end
+
+
+            if a=13:'<div class="buttonS"><a href="exec:a=14 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">她的眼神变了</a></div>'
+            if a=14:'<div class="buttonS"><a href="exec:a=15 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">娇喘连连</a></div>'
+            if a=15:'<div class="buttonS"><a href="exec:a=16 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">看她被灌满</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''山峦R&M''">当然可以</a></div>'
+            '</div>'
+    end
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+                if a=0:'<p>·不远处有两个人正搞在一起，他们明显是偷偷溜进来的。 </p>'
+                if a=1:'<p>我逐渐靠近了他们，看清了他们的模样。</p>'
+                if a>=2:'<p>我：私人领地！请勿入内！</p>'
+                if a>=2:'<p><<$MS.name>>：嗯❤操我❤亲爱……嗯？哦哦，知道………了…… </p>'
+                if a>=3:'<p>我：诶？！！</p>'
+                if a>=3:'<p><<$MS.name>>：呀？<<$主角姓>>……老板…… </p>'
+                if a>=3:'<p>男人：不好意思，一时上头进来了…给你看看她被操开的骚逼就当赔罪了… </p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+                '<p>男人：啥？你们俩认识吗？ </p>'
+                '<p>我：不认识。</p>'
+                '<p><<$MS.name>>：嗯嗯，我认错人了……</p>' 
+                '<p>男人：你吃饭了没？这荒郊野地的要不要跟我们一起吃饭？ </p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=5:
+         '<div class="dialog_menu">'
+                '<p>男人：没什么好招待的…别嫌弃。 </p>'
+                if a=6:'<p>我：已经很好了。</p>'
+                if a=7:'<p>我：咳咳，你们俩什么关系？</p>'
+                if a=7:'<p>男人：我老板众多女奴中的一个…我最近表现不错，他赏给我玩几个礼拜。来！给大爷跳一个！ </p>'
+                if a=8:'<p>我：明白了，女奴是吧。</p>'
+                if a=8:'<p><<$MS.name>>：<<$主角姓>>……老板…不是你想的那样… </p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=9:
+         '<div class="dialog_menu">'
+                '<p>男人：来者是客，只要进了这个屋子，待客之道我老板还是教了我的！ </p>'
+                if a>=9:'<p><<$MS.name>>：<<$主角姓>>…老板<<$娇喘声>> </p>'
+                if a>=12:'<p>我：怎么了？</p>'
+                if a>=12:'<p><<$MS.name>>：<<$主角姓>>…老板……你不会开除我吧… </p>'
+                if a>=13:'<p>我：你想多了！让我看清楚你的真实面目可以更好地发挥你的专长！ </p>'
+         '</div>'
+    end
+
+    if 15>=a and a>=14:
+         '<div class="dialog_menu">'
+                '<p>男人：你们俩偷偷讲什么悄悄话呢？！ </p>'
+                '<p><<$MS.name>>：嘿嘿…秘密❤</p>'
+                if a>=15:'<p>男人：居然敢违抗我的命令？！看我怎么操死你！ </p>'
+                if a>=15:'<p><<$MS.name>>：啊啊啊<<$话2>> </p>'
+         '</div>'
+    end
+
+    if a=16:
+         $MS.bad+=a+q
+         $MS.love+=a+q
+         '<div class="dialog_menu">'
+                '<p><<$MS.name>>：<<$主角姓>>老板，今天的事……能不能当做没发生过？</p>' 
+         '</div>'
+    end
+
+  q+=1
+End
+--- 秘书_事件 ---------------------------------
+

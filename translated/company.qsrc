@@ -1,0 +1,62 @@
+# company
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'company_map'
+'</div>'
+
+
+
+
+if  $args[0]="":
+	if $company_opening=0:gt'company','opening'
+	'<div class ="show_menu"><img src="images\place\公司.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The company founded by my father in the past...will rise again in my hands!</p>'
+		if $MS.LOVE>=150 and $camera_ms=0 :'<p>There is a roll of [anonymous videotape] on the floor of the company<a href="exec:$camera_ms=1">-Pick it up</a></p>'
+		if $bigvillaforthefirsttime>=1 and $company_hammer=0:'<p>·There is a [sledgehammer] in the construction waste in the corner of the company<a href="exec:$sledgehammer+=1 & $company_hammer=1 &  gt ''company''">-Take it away</a></p>'
+	'</div>'
+
+end
+
+
+if  $args[0]="opening":
+	'<div class ="show_menu"><img src="images\place\公司开始.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $secretary_dialogue=0:'<div class="button"><a href="exec:minutes+=15 & $secretary_dialogue=1 & gt ''company'',''opening''">Company profile</a></div>'
+		if $secretary_dialogue=1:'<div class="button"><a href="exec:minutes+=15 & $secretary_dialogue=2 & gt ''company'',''opening''">Bad news</a></div>'
+		if $secretary_dialogue=2:'<div class="button"><a href="exec:minutes+=15 & $secretary_dialogue=3 & gt ''company'',''opening''">Good news</a></div>'
+		if $secretary_dialogue=3:'<div class="button"><a href="exec:minutes+=15 & $secretary_dialogue=4 & gt ''company'',''opening''">Sign</a></div>'
+		if $secretary_dialogue=4:'<div class="button"><a href="exec:minutes+=15 & $company_opening=1 & gt ''company''">See you</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $secretary_dialogue=0:'<p>Secretary: You are<<$protagonists_surname>>The president`s son?Quite young.What do you want to know?</p>'
+		if $secretary_dialogue=1:'<p>Secretary: You still don`t know what your father runs?I have two things to inform you here, one is good news and the other is bad news.</p>'
+		if $secretary_dialogue=2:'<p>Secretary: The bad news is [Due to the president`s accidental stroke and the capital chain is broken, our company has stopped all business and is waiting for bankruptcy liquidation].</p>'
+		if $secretary_dialogue=3:'<p>Secretary: The good news is that [My mother quit too!】 I have had enough of dealing with this mess!You came just in time.After signing here, the company will be in your charge!</p>'
+		if $secretary_dialogue=4:'<p>Secretary: Hoo, now my old lady is also free.By the way, although everything has been taken to repay the debt, there is still a total of 700 square meters of usable area, you can think of ways to use it.This is my kind suggestion to you.</p>'
+	'</div>'
+
+end
+
+
+
+--- company ---------------------------------
+

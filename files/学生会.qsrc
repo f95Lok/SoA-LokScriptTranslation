@@ -1,0 +1,193 @@
+# 学生会
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=55
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+if $args[0]="":
+	 '<div class ="show_menu"><img src="images\place\学生会1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $HZ.available=0:'<div class="button"><a href="exec:minutes+=5 & gt ''学生会'',''寻声偷看''">寻声偷看</a></div>'
+		if $HZ_Event_coser=1 and $HZ.available=1 and week_day >5:'<div class="button"><a href="exec:minutes+=5 & gt ''学生会'',''学生会长''">前来拍照</a></div>'
+		if $HZ_Event_coser>=8 :'<div class="button"><a href="exec:minutes+=5 & gt ''学生会'',''学生会长对话''">笔直进去</a></div>'
+		if $HZ_Event_coser=4:'<div class="button"><a href="exec:minutes+=5 & gt ''会长_事件'',''再次拍照''">再次拍照</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>学生会干部:没有学生会资格，别搁这东张西望。</p>'
+		if $XZ_Event_ZL=1:'<p>学生会干部:咳咳，如果你想<a href="exec:gt ''援交_事件''">找点乐子</a>就跟我来。</p>'
+	'</div>'
+End
+
+if $args[0]="寻声偷看":
+	$HZ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\打脸~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>学生会干部:喂喂！你不能进去！</p>'
+		'<p><<$HZ.name>>:啪——啪——我的命令是什么？！啪——啪——你是不是男人啊？废物蝈蝻！……嗯？</p>'
+		'<p>学生会干部:不好意思！<<$HZ.name>>大人！我马上带他出去！</p>'
+	'</div>'
+End
+
+if $args[0]="学生会长":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\踢裆~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=1& gt ''会长_事件'',''接她拍照''">接她拍照</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:啪——啪——臭傻逼，被我踢废了还这么开心。果然是个废物蝈蝻！你这头死肥猪看我不把你的屌踢烂！</p>'
+		'<p>男学生:啊！啊！痛痛！痛————！好爽啊，会长大人继续用力得踢我吧！唉！如果会长没病...就好了...</p>'
+	'</div>'
+End
+
+
+if $args[0]="学生会长对话":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\舔脚~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=0& gt ''学生会'',''询问''">询问</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &ac=0& 询问=0 &gt ''学生会'',''让他们出去''">让他们出去</a></div>'
+		if $格斗前置=1:'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''学生会'',''格斗比赛''">格斗比赛</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:啪——啪——你来啦！等你好久咧。看我最近收的两个傻逼，跟你比起来他们给你舔鞋都不配。今天有一点想你..其实不止一点..也不止今天..</p>'
+	'</div>'
+End
+
+
+if $args[0]="询问":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\询问~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & 询问=1 & gt ''学生会'',''询问''">学生会的兔子涂鸦</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & 询问=2 & gt ''学生会'',''询问''">关于暴力倾向</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & 询问=3 & gt ''学生会'',''询问''">学生会的超级权利</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''学生会'',''学生会长对话''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:...讨厌啦....你想问什么咧...</p>'
+		if 询问=1:
+		'<p><<$HZ.name>>:你是说哪个粉色的兔子吗？那是....辣妹团的标志..</p>'
+		'<p>我:...辣妹团？</p>'
+		'<p><<$HZ.name>>:对，辣妹团或者辣妹帮，是一个盘踞在郊外的女性黑帮组织...我也是其中成员之一..</p>'
+		'<p>我:不会有危险吧？</p>'
+		'<p><<$HZ.name>>:不是你想象的那样子啦！虽然过去在黑帮中女性通常被边缘化，甚至连黑帮成员的妻女也只能得到比下人稍高一点的待遇，有时她们还会成为黑帮成员淫乐的工具。但自从新政策出台后，由女性成员组成的辣妹帮被迅速扶植，成为唯一取得合法性的黑帮。其余的男性黑帮被当做犯罪团体严厉打击干净了。</p>'
+		'<p><<$HZ.name>>:(ｷ｀ﾟДﾟ´)!!不跟你多说了！大家都是很好的人，这是我的门卡，来找我玩的时候...把她们介绍给你哈！</p>'
+		end
+		if 询问=2:
+		'<p>我:...你是不是有暴力倾向？</p>'
+		'<p><<$HZ.name>>:其实我..还是个很温柔的人吧....那些都是他们要求的，这群蝈蝻..男人..都是抖M受虐狂，踢他们还求之不得呢。</p>'
+		end
+		if 询问=3:
+		'<p>我:学生会的超级权利是什么？</p>'
+		'<p><<$HZ.name>>:1、学生会负责策划学校所有的活♀动。2、学生会可以随意支♀配普通男性学生。3、学生会包揽学生的违纪工作，包括并不限于惩♀罚、停课、退学。</p>'
+		'<p><<$HZ.name>>:最后也是最重要的一点，学生会也拥有学校人事投票权。所以<<$XZ.name>>会对我们网开一面。</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="让他们出去":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\学生会<<ac>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=5  & ac=1 & 询问=1 & gt ''学生会'',''让他们出去''">为我口交</a></div>'
+		if ac=1:'<div class="buttonS2"><a href="exec:minutes+=5 & 询问=2 &  ac=2 & gt ''学生会'',''让他们出去''">火速来一发</a></div>'
+		if ac=0:'<div class="buttonS3"><a href="exec:minutes+=5 &  a=0 & gt ''会长_事件'',''HZ_Fuck_学生会''">脱裤子</a></div>'
+		if $HZ.love>=500-$HZ.bad:'<div class="buttonS4"><a href="exec:minutes+=5 &  a=0 & gt ''会长_事件'',''HZ_Fuck_练习''">热狗比赛</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足</a></div>'
+		if $HZ.热狗>0:'<div class="buttonS5"><a href="exec:minutes+=5 &  a=0 & gt ''会长_事件'',''HZ_Fuck_练习2''">附加特训</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足</a></div>'
+		
+		if ac=1:'<div class="buttonG2"><a href="exec:minutes+=5 & 询问=3 & ac=1 & gt ''学生会'',''让他们出去''">她的委托</a></div>'
+		if 询问=3 and 新鲜食材>0:'<div class="buttonG3"><a href="exec:minutes+=5 & 询问=3 & ac=1 & money+=200 & 新鲜食材-=1 & gt ''学生会'',''让他们出去''">给她货物</a></div>'
+		if HZcos=0:'<div class="buttonS"><a href="exec:minutes+=5  & HZcos=1 & ac=1 & 询问=4 & gt ''学生会'',''让他们出去''">cos约拍</a></div>'
+
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 询问=0:
+		'<p><<$HZ.name>>:这样穿..会不会太淑女了..你喜欢嘛？这是只给你一个人看的福利喔。</p>'
+		end
+		if 询问=1:
+		'<p><<$HZ.name>>:现在大家都把你当作副会长了..你不光不谢谢我..还要我一直为你服务...</p>'
+		'<p>我:...那你要我怎么为你服务呀？</p>'
+		end
+		if 询问=2:
+		'<p>·在呻吟和高潮的交响乐中度过了甜蜜的时光。</p>'
+		'<p><<$HZ.name>>:讨厌，你这么大力，跟你做完腿都会发软呐..</p>'
+		end
+		if 询问=3:
+		'<p><<$HZ.name>>:其实也不是什么大事啦，有个学生会M奴因为在校长室打手枪被开除了，原本由他负责的事现在没人干了。</p>'
+		'<p>我:什么事？被你踢蛋蛋吗？</p>'
+		'<p><<$HZ.name>>:哈哈，是负责和位于郊外的辣妹帮对接物资，主要是辣妹帮包揽了学校食堂物料的供应。通俗来说就是去运货。</p>'
+		'<p>我:不能直接送货上门吗？都什么年代了。</p>'
+		'<p><<$HZ.name>>:当然不会让你白干活的啦！我可以以奖学金的名义犒劳你喔~我想想，一次200￥！如果想用身体犒劳随时都可以..</p>'
+		'<p>我:没问题，也不是钱不钱的事，主要是爱你。（不会里面有什么违禁品吧...）</p>'
+		$HZ_Event_货=1
+		end
+		if 询问=4:
+		'<p>我: 我开了一间专门为cos拍私房照的照相馆，来捧个场呗？</p>'
+		'<p><<$HZ.name>>:真是的！难道我现在还不够捧场吗？</p>'
+		end
+		
+	'</div>'
+End
+
+if $args[0]="格斗比赛":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\踢裆~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>: 啪——啪——格斗比赛？这是我的强项呀！</p>'
+		'<p>我: 那太好了，我计划举办一届女子格斗比赛…</p>'
+		'<p><<$HZ.name>>: 啊？女子格斗比赛…？我只对殴打男人有兴趣……</p>'
+		'<p>我: 呃……</p>'
+		'<p><<$HZ.name>>: 别担心…我在学生会里帮你问问。对了，辣妹帮的成员应该会有兴趣参加的，你去问问看二代目吧。</p>'
+		$格斗前置=2
+	'</div>'
+End
+
+--- 学生会 ---------------------------------
+

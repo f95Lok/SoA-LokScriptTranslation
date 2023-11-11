@@ -1,0 +1,311 @@
+# bomb_school
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+!gs'menu_gif'
+$my.energy=999
+hour=1
+$random_number=rand(0,100)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+				'<a class="photo" data-title="Principal`s Office"><img class="img_stretch" src="images\place\校长室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="Vice Principal`s Office"><img class="img_stretch" src="images\place\副校长室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="Spanish office"><img class="img_stretch" src="images\place\西语办公室2.jpg"></a>'
+			'</div>'
+				
+			'<div class="action">'
+				'<a class="photo" data-title="Biological office"><img class="img_stretch" src="images\place\生物办公室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="Student Union"><img class="img_stretch" src="images\place\学生会2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="classroom" ><img class="img_stretch" src="images\place\教室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="Midnight Corridor" href="exec:gt ''bomb_school''"><img class="img_stretch" src="images\place\午夜走廊.jpg"></a>'
+			'</div>'
+			
+		'<div class="action">
+			<a class="photo" data-title="Underground traffic [out of service]" ><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+			
+		'<div class="action">'
+			'<a class="photo" data-title="Equipment room" href="exec:gt ''bomb_school'',''equipment_room''"><img class="img_stretch" src="images\NPC\TS\pics\器材室.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="Swimming pool" href="exec:gt ''bomb_school'',''swimming_pool''"><img class="img_stretch" src="images\NPC\TS\pics\游泳池.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="Student club" href="exec:gt ''bomb_school'',''club''"><img class="img_stretch" src="images\NPC\TS\pics\社团.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="Multimedia classroom" href="exec:gt ''bomb_school'',''multimedia_classroom''"><img class="img_stretch" src="images\NPC\TS\pics\多媒体教室.jpg"></a>'
+		'</div>'
+     '</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\午夜走廊.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''defuse_the_bomb''">炸弹Bomb炸弹</a></div>'
+		'<div class="buttonGr"><a href="exec:">Escape</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus radio]: Hush, keep your voice down, this is absolutely confidential.There is a bomb in your school, and you are the only one who can dismantle it.If you don`t want to see your loved one hurt, then feel...pain!</p>'
+		'<p>Me: Damn bastard!</p>'
+	'</div>'
+end
+
+if $ARGS[0]="equipment_room":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''equipment_room_decoding''">Try decoding</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus radio]: Shhh, keep your voice down, do you hear me?Could it be that this bomb is inside?！I remember!This is where we happened for the first time…</p>'
+		'<p>Me: Damn bastard!</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="equipment_room_decoding":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\不同.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''clown_failed''">2 places</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''equipment_room_success''">3 places</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''clown_failed''">4 places</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''clown_failed''">5 places</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus Radio]: Hey!Look at these two cameras, one of them is mine and the other is fake.There are several differences between them, I hope you can find out the differences between them, and then tell me which one is my camera.My angel!You should remember it!</p>'
+		'<p><<$TS.name>>:The one on the right is his…</p>'
+		'<p>[Campus Radio]: Oh my god!My angel!You actually recognized it at a glance!Well, if your little boyfriend can find a few differences, I will let you move on and look for that ozone-smelling bomb!</p>'
+		'<p>I: ………</p>'
+	'</div>'
+end
+
+if $ARGS[0]="equipment_room_success":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\开锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''bomb_school''">return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·With a series of beeps, the safe opened, and a video tape fell out of it, which obviously came from this camera.</p>'
+		'<p>[Campus radio]: Oh, it seems that you have completed a challenge.I have to admit that your performance is OK, but I think you need to work harder to challenge my limits!</p>'
+		'<p>I: ………</p>'
+		$ts_video_1=1
+	'</div>'
+end
+
+
+if $ARGS[0]="swimming_pool":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\学校1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''angel_event'',''ts_fuck_school''">promise</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school''">refuse</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+             '<p><<$TS.name>>:That guy must be hiding in the broadcasting room to spy on us, we have to lead him out.</p>'
+             '<p>Me: How to quote?</p>' 
+             '<p><<$TS.name>>:Just do as I say……</p>'
+	'</div>'
+end
+
+if $ARGS[0]="club":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:$clown_problem=0 & $clown_statistics_b=0 & $clown_statistics_c=0 & gt ''bomb_school'',''community_decoding''">Try decoding</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus radio]: Hush, tick-tock...Tick-tock...Countdown to death…</p>'
+		'<p>Me: Damn bastard!</p>'
+	'</div>'
+end
+
+if $ARGS[0]="community_decoding":
+	$clown_problem+=1
+	if $clown_problem=6:
+		if $clown_statistics_b=3 and $clown_statistics_c=2:gt'bomb_school','Club success'else:gt'Bomb school','clown_failed'
+	end
+
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\问题<<$clown_problem>>.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''community_decoding''">A</a></div>'
+		'<div class="buttonR"><a href="exec:$clown_statistics_b+=1 & gt ''bomb_school'',''community_decoding''">B</a></div>'
+		'<div class="buttonR"><a href="exec:$clown_statistics_c+=1 & gt ''bomb_school'',''community_decoding''">C</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''bomb_school'',''community_decoding''">D</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus radio]: I may be a lunatic or a psychopath in your eyes, but I am a genius, a genius full of creativity and imagination!So, don`t rush to laugh at me, let`s see if you can do it yourself, hehehe……</p>'
+		'<p><<$TS.name>>:……</p>'
+		'<p>[Campus Radio]: Ah!My angel!Let`s be blown up together!</p>'
+		'<p>I: ………</p>'
+		
+	'</div>'
+end
+
+
+if $ARGS[0]="clown_failed":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\TS\vids\游戏开始.webm" type=''video/webm;''></video></div>'
+	'</div>'
+        
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''bomb_school''">Break free from bondage</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus Radio]: Hehehehehe, you look like a clown when you keep trying!Listen...tick-tock...the countdown to death has begun again.…</p>'
+		'<p>I: ………</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="club_success":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\开锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''bomb_school''">return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·With a click, the safe opened, and a video tape fell out of it.……</p>'
+		'<p>[Campus radio]: Wow, I can`t believe it!You look smarter than Batman!I have to admit, your IQ is simply criminal!Hahaha!</p>'
+		'<p>I: ………</p>'
+		$ts_video_3=1
+	'</div>'
+end
+
+
+if $ARGS[0]="multimedia_classroom":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\多媒体教室.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $ts_video_1+$ts_video_2+$ts_video_3>0:'<div class="button"><a href="exec:gt ''bomb_school'',''watch_alone''">Leave her to watch alone</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">？？？</a></div>'
+		if $ts_video_1=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_1''">Watch the first volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
+		if $ts_video_2=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_2''">Watch the second volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
+		if $ts_video_3=1:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_video_3''">Watch the third volume</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">Not inserted</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus Radio]: Friendly reminder!I put the password to disarm the bomb at the end of the movie!With such a big screen, you can see it more carefully!</p>'
+		'<p>Me: Damn bastard!</p>'
+		'<p><<$TS.name>>: <<$protagonists_name>>...I want to watch the videotape by myself, and I promise you I will tell you the password.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="watch_alone":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\独自.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''bomb_school''">Keep it in mind</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>:You didn`t peek, did you?I`ll read it to you…</p>'
+		if $ts_video_1=1:'<p><<$TS.name>>: 第一卷的密码是...CH</p>'
+		'<p><<$TS.name>>:……</p>'
+		if $ts_video_2=1:'<p><<$TS.name>>: 第二卷的密码是...AO</p>'
+		'<p><<$TS.name>>:……</p>'
+		if $ts_video_3=1:'<p><<$TS.name>>: The password for Volume 3 is...S</p>'
+		'<p><<$TS.name>>:……</p>'
+	'</div>'
+end
+
+if $ARGS[0]="defuse_the_bomb":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\炸弹.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''bomb_school'',''defuse_the_bomb_2''">Try to dismantle</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[Campus radio]: Do you feel...my...pain?You`ve never listened to what I said, have you?The saddest thing about suffering from mental illness is that others always expect you to pretend that you are not sick.</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="defuse_the_bomb_2":
+	$bomb_disposal_code = $TRIM($LCASE($input('Bomb disposal code')))
+	if $bomb_disposal_code!'chaos':gt'bomb_school','clown_failed'
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\炸弹2.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''bomb_school'',''successful_demolition''">Wait until dawn</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>☠☠☠☠☠☠</p>'
+		'<p><font size="50">Boom--!</font></p>'
+		'<p>Jerome: Ahhahahahahaha!Have you been taken aback by me?This is a fake bomb from start to finish!You don`t really think I`m crazy enough to blow up the school, do you?</p>'
+		'<p>Me: Let us go soon…</p>'
+		'<p>Jerome: Let you go?I didn`t imprison you again. The door of the school will automatically open at dawn. Have you been deceived by me?Hee hee hee!</p>'
+		'<p><<$TS.name>>: Qingshui Jun...I…</p>'
+		'<p>Jerome: Oh?！Oops!If I don`t go back, I will be discovered, my angel!Don`t feel sorry for me!Hahahahaha Ahhahahahahahahahahahahahahahaha!Let`s see you next time, my angel!</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="successful_demolition":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\拆除成功.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:$bomb_incident=1 & hour=8 & gt ''university''">It`s dawn</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>I：………</p>'
+		'<p><<$TS.name>>：………</p>'
+		'<p>Me: Then...now...what is our relationship?</p>'
+		'<p><<$TS.name>>: Can I entrust you, trust you, and rely on you?</p>'
+		'<p>Me: People can`t make mistakes twice, right?</p>'
+	'</div>'
+end
+
+
+
+
+
+--- bomb_school ---------------------------------
+

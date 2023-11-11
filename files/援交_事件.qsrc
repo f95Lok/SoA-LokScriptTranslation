@@ -1,0 +1,862 @@
+# 援交_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $ARGS[0]="":
+	$ZL.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:money-=299 &a=1& gt ''援交_事件'',''ZL_Fuck_brohome''">加入！299￥</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>学生会干部:喏，蹲在墙边上的那个乡巴佬就是了，你懂的。</p>'
+		'<p>另一男子:哟，学生会的干部同志！别来无恙啊，这是给我带生意了吖！老样子299一小时！满4人开车！随便搞，无限制内射！</p>'
+		'<p>学生会干部:老子给你介绍客人，不得给我打个八折？</p>'
+		'<p>我:万一被校内纠察队逮住了怎么办？</p>'
+		'<p>另一男子:校内纠察队？我们在学校对面的出租房里搞，纠察队还能管校外的事？哈哈哈！</p>'
+	'</div>'
+
+end
+
+
+if $args[0]="ZL_Fuck_brohome":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\卖<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!2  and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''ZL_Fuck_brohome''">振动棒</a></div>'
+			end
+			if a!3 and 1<=q and q<=5:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''ZL_Fuck_brohome''">多人玩弄</a></div>'
+			end
+			if a!4 and 3<=q and q<=8:
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''ZL_Fuck_brohome''">扣弄小穴</a></div>'
+			end
+			if a!5 and 4<=q and q<=9:
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''ZL_Fuck_brohome''">看他们做</a></div>'
+			end
+			if a!6 and a>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''ZL_Fuck_brohome''">休息一会</a></div>'
+			end
+			if a!7 and a>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''援交_事件'',''ZL_Fuck_brohome''">自己上</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''援交_事件'',''ZL_Fuck_brohome''">射精</a></div>'
+			end
+			if a>=4 and q>=3:
+			'<div class="button"><a href="exec:a=9 & gt ''援交_事件'',''ZL_Fuck_brohome''">最后一发</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 &a=0 &q=0&$ZL.love+=5 & gt ''援交_事件'',''对话''">稍作休息</a></div>'
+			'</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>男人：人都来齐了，开始搞她吧！大家都要玩的开心！从现在起的一小时内<<$ZL.name>>就是各位的玩具了。</p>'
+		 '</div>'
+	end
+
+
+
+	if 8>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p>随着最后一发精液射到她的脸上，嫖客们哼着小曲一个个离开了。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $ARGS[0]="对话":
+	my.精力+=15
+	$ZL.bad+=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖10~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $ARGS[1]="":'<div class="buttonG"><a href="exec: gt ''援交_事件'',''对话'',''原因''">摸摸她的头</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZL.name>>你怎么还不走...?</p>'
+		if $ARGS[1]="原因":
+			if $ZL.love>=5:'<p>我:为什么援交？</p><p><<$ZL.name>>:因为我需要钱……</p><p>我:为什么需要钱？</p>'
+			if $ZL.love>=10:'<p><<$ZL.name>>:.我欠了表哥很多钱..…</p><p>我:你表哥是谁？..为什么会欠钱呢？</p>'
+			if $ZL.love>=15:'<p><<$ZL.name>>:...就是那个收钱的人....办特色身份证和办理入学花了很多钱...</p><p>我:所以你表哥让你通过援交来还钱？</p>'
+			if $ZL.love>=20:'<p><<$ZL.name>>:..嗯..扣掉房租钱，伙食费...每次能剩500多比在乡下打工强多了..…</p><p>我:还差多少钱？</p>'
+			if $ZL.love>=30:'<p><<$ZL.name>>:..大概5万吧....</p><p>我:你想摆脱你表哥的控制吗？</p><p><<$ZL.name>>:想，但我一个人不敢...</p>'
+			if $ZL.love>=35:
+				'<p><<$ZL.name>>:..帮帮我...</p><p>我:<a href="exec:gt ''援交_事件'',''表哥''">我去和你表哥交涉</a></p>'
+				'<p>我:别害怕</p>'
+				'<p><<$ZL.name>>:嗯嗯</p>'
+			end
+		    if $ZL.love<=30:'<p><<$ZL.name>>:（话到嘴边又咽下了）..下次再说吧</p>'
+		End
+	'</div>'
+end
+
+if $ARGS[0]="表哥":
+	 
+	 '<div class ="show_menu"><img src="images\NPC\ZL\pics\表哥对话.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if money>=250000:
+		'<div class="buttonG"><a href="exec:money-=50000 &$XZ_Event_ZL=2 & gt ''援交_事件'',''表哥'',''赎身''">赎身！250000￥</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">赎身！250000￥</a></div>'
+		end
+		if my.体力>=4:
+		'<div class="buttonR"><a href="exec:$XZ_Event_ZL=2& gt ''援交_事件'',''表哥'',''开打''">开打</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">开打</a></div>'
+		end
+		if $XZ_Event_ZL=2:
+		'<div class="buttonGn"><a href="exec:minutes+=120 & gt ''援交_事件'',''找房子''">带她找房子</a></div>'
+		else:
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>表哥:咋了，还想再来一炮？一对一可是要加钱的！喂喂，你小子该不会对我这个妓女妹妹动真感情了吧？</p>'
+		'<p>我:我刚刚跟你表妹交流了一下，她说她不愿意做了！我要带她走。</p>'
+		'<p>表哥:带她走？她还欠我好多钱呢。要么你付钱，要么你打赢我。不然就给我憋着！</p>'
+		if $ARGS[1]="赎身":'<p>表哥:嚯？还是您爽快！我妹你就带走吧！</p>' 
+		if $ARGS[1]="开打":'<p>表哥:操你妈！一拳向你打来！</p><p>我:砰——今天我就要带她走，我看哪个敢挡我！</p><p>表哥:唉哟唉哟，大哥我错了，是我有眼不识泰山。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="找房子":
+	 '<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>花了几个小时，终于找到了合适的房子。付租金时她甚至不敢相信只要1000/月就可以住这么棒的房间。她提起的心终于放下了，同时坠入了你的心间。</p>'
+		'<p><<$ZL.name>>:好像打点普通的零工就可以支付房租诶！哪个……谢谢你…</p>'
+		$ZL.room=1
+		$ZL.love+=35
+	'</div>'
+
+end
+
+
+if $args[0]="ZL_Fuck_home":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1  and q<=7:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''ZL_Fuck_home''">抱腰猛肏</a></div>'
+			end
+			if a!2  and 1<=q and q<=8:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''ZL_Fuck_home''">抬腿猛操</a></div>'
+			end
+			if a!3 and 2<=q and q<=9:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''ZL_Fuck_home''">提踵猛插</a></div>'
+			end
+			if a!4 and 3<=q and q<=10:
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''ZL_Fuck_home''">摆腰猛顶</a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''ZL_Fuck_home''">极限冲刺</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''ZL_Fuck_home''">内射中出</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 &gt ''援交_事件'',''ZL_Fuck_home''">事后对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：能住这么好的房间真是好开心~难得有我们独处的空间呢...</p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$娇喘声>><<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:虽然我的小穴已经被整日整夜的乱交玩弄得很松烂了，但也经不起你这样猛烈的抽插啊，会受伤的！</p>'
+			 '<p>我:那我下次温柔一点！</p>'
+			 '<p><<$ZL.name>>:...我想做处女膜修复手术...还有阴唇保养...再把小穴弄紧一点...但是我的钱不够...如果还能微整一下开个眼角就更好了..</p>'
+			 '<p>我:为什么？你那么在意你的外表吗？</p>'
+			 '<p><<$ZL.name>>:想让你肏我的时候更爽。而且...还是希望自己变得更好一点，能好到可以理直气壮地接受别人的喜欢，好到永远不用担心这份喜欢的期限...o(╥﹏╥)o</p>'
+			 '<p>我:我会考虑的，改天去医院问问吧。</p>'
+			 '<p><<$ZL.name>>:真哒？她开心地跳了起来！</p>'
+			 $ZL_Event_face=1
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+
+if $args[0]="买单":
+	'<div class ="show_menu"><img src="images\NPC\ZL\pics\手术.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & minutes+=4320 & gt ''援交_事件'',''整形完成''">三天后</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:emmmmmmm...你这种男人可真难得。</p>'
+		'<p>·你打了个电话，不久<<$ZL.name>>就蹦蹦跳跳过来了。</p>'
+		'<p>·手术进行得很顺利，不愧是整形界的一姐。三天后，她顺利拆线出院了，速度之快，堪比奇迹。</p>'
+	'</div>'
+End
+
+if $args[0]="整形完成":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\整形完成~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & minutes+=20 & gt ''援交_事件'',''ZL_Fuck_home3''">去她家</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZL.name>>:..怎么样好看吗？..</p>'
+		'<p>我:眼睛更大，皮肤更白，鼻子更挺，下巴更尖，更骚了。</p>'
+		'<p><<$ZL.name>>:讨厌！你坏死了！我们回家吧！好感度飙升中..</p>'
+		if $ZL.love<=150:$ZL.love=150
+		if $ZL.bad<=75:$ZL.bad=75
+		$ZL_Event_face=2
+	'</div>'
+End
+
+
+if $args[0]="ZL_Fuck_home2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\整形完成家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''ZL_Fuck_home2''">玩奶头</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''ZL_Fuck_home2''">口活</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''ZL_Fuck_home2''">女上位</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''ZL_Fuck_home2''">骑乘</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''ZL_Fuck_home2''">后入</a></div>'
+			end
+			if a!6 and 5<=q and a!6:
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''ZL_Fuck_home2''">冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''援交_事件'',''ZL_Fuck_home2''">内射中出</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''援交_事件'',''ZL_Fuck_home2''">把精液抠出来</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=60 &my.精力+=30 &a=0& q=0& gt ''援交_事件'',''ZL_Fuck_home3''">休息一会再来一炮</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">吻别</a></div>'
+				if ZLcos=0 and tuc_level3=1:'<div class="buttonS3"><a href="exec: ZLcos=1 & gt ''公司''">邀请cos拍摄</a></div>'
+				if 授精室=1 and $ZL.授精=0:'<div class="buttonS"><a href="exec:$ZL.授精=1 & gt ''公司''">邀请人工授精</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：人家好喜欢你，快点来肏我嘛~</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$话>><<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:小穴里被亲爱的灌了这么多....没事，我会吃药的。</p>'
+			 '<p>我:像你这种骚逼，果然整完容更骚了！</p>'
+			 '<p><<$ZL.name>>:真哒？老公喜欢我的骚样就好！</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="ZL_Fuck_home3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\整形家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''ZL_Fuck_home3''">用振动棒</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''ZL_Fuck_home3''">互相玩弄</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''ZL_Fuck_home3''">口交</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''ZL_Fuck_home3''">正常位</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''ZL_Fuck_home3''">后入</a></div>'
+			end
+			if a!6 and 4<=q:
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''ZL_Fuck_home3''">侧身冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''援交_事件'',''ZL_Fuck_home3''">内射中出</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''援交_事件'',''ZL_Fuck_home3''">事后对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=60 &my.精力+=30 &a=0& q=0 & gt ''援交_事件'',''ZL_Fuck_home2''">休息一会再干一炮</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''深巷''">吻别</a></div>'
+				if ZLcos=0 and tuc_level3=1:'<div class="buttonS3"><a href="exec: ZLcos=1 & gt ''公司''">邀请cos拍摄</a></div>'
+				if 授精室=1 and $ZL.授精=0:'<div class="buttonS"><a href="exec:$ZL.授精=1 & gt ''公司''">邀请人工授精</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：人家小穴好痒呀，快点来帮我插一插嘛~</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$话>><<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:我好看吗？喜欢这样每天干我嘛？</p>'
+			 '<p>我:好看！</p>'
+			 '<p><<$ZL.name>>:真哒？老公喜欢我的骚样就好！</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $ARGS[0]="ZL_Fuck_home4":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\电话0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''援交_事件'',''ZL_Fuck_home5''">注意安全</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>她不在家，你拨通了她的电话。</p>'
+		'<p><<$ZL.name>>:喂？<<$主角姓名>>？我晚点就回来，我现在有点事<<$娇喘声>></p>'
+	'</div>'
+end
+
+if $ARGS[0]="ZL_Fuck_home5":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\电话1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''深巷''">。。。</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>？？？:这么久没光顾你生意了，有没有想爸爸的肉棒呀？</p>'
+		'<p><<$ZL.name>>:我最爱爸爸的肉棒了，果然还是老本行来钱快啊。</p>'
+		'<p>？？？:快点，后面还有二十几个人在排队呢！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="自习室":
+	$ZLclass=rand(1,2)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\教室 (<<$ZLclass>>).webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec: gt ''援交_事件'',''友人SEX前''">去<<$ZL.name>>家</a></div>'
+		if $ZL.friend>=5:'<div class="buttonS"><a href="exec: gt ''援交_事件'',''教室SEX''">在这3P</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>友人:我们是好朋友对吧...?</p>'
+		'<p><<$ZL.name>>:是啊，你一直给我辅导功课，我们是最好的好朋友。</p>'
+		'<p>友人:我...我...我的家教很严...我想知道...性交是什么样子的...</p>'
+		'<p><<$ZL.name>>:性....性交?</p>'
+		'<p>友人:是的！我对性交一直很好奇，妈妈因为女性领导法案对我的视听读物严格审查....听说你很有经验....还有固定炮友...所以我....拜托你了！</p>'
+		'<p><<$ZL.name>>:好吧，那就由我来给你辅导性知识吧！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="友人SEX前":
+	a=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\双家开始.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''援交_事件'',''ZL_Fuck_Outside''">去外面做</a></div>'
+		if $ZL.friend>=1:'<div class="button"><a href="exec:gt ''援交_事件'',''ZL_Fuck_Inside''">当她面做</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZL.name>>:你就用这个解决吧，我会和我男朋友在外面做，如果你想的话，也可以当着你的面。</p>'
+		'<p>友人:随...随便你们！</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="ZL_Fuck_Outside":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\A (<<a>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''ZL_Fuck_Outside''">侍奉</a></div>'
+			end
+			if a!2  and 0<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''ZL_Fuck_Outside''">舔脚</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''ZL_Fuck_Outside''">舔屁眼</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''ZL_Fuck_Outside''">骑乘位</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''ZL_Fuck_Outside''">转身</a></div>'
+			end
+			if a!6 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''ZL_Fuck_Outside''">后入</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 &gt ''援交_事件'',''ZL_Fuck_Outside''">冲刺</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''援交_事件'',''ZL_Fuck_Outside''">射精</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 &gt ''援交_事件'',''ZL_Fuck_Outside''">事后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">回家</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：人家小穴好痒呀，快点来帮我插一插嘛~</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$话>><<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=9:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 $ZL.friend+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:看到没，这就是男人的精液。</p>'
+			 '<p>友人:嗯嗯！感觉好奇怪……心跳的好快啊……</p>'
+			 '<p><<$ZL.name>>:下次，你要一边看着我们，一边自慰。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="ZL_Fuck_Inside":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\B (<<a>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''ZL_Fuck_Inside''">慢点</a></div>'
+			end
+			if a!2  and 0<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''ZL_Fuck_Inside''">撸一会</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''ZL_Fuck_Inside''">加速</a></div>'
+			end
+			if a!4 and 3<=q :
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''ZL_Fuck_Inside''">再快点</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''ZL_Fuck_Inside''">射精</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''ZL_Fuck_Inside''">事后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">回家</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：人家小穴好痒呀，快点来帮我插一插嘛~</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:原来当着别人的面你也会害羞啊，但是你应该不会介意吧？</p>'
+			 '<p>友人:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=6:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 $ZL.friend+=4
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:是不是看远没有自己实践爽？下次，嘿嘿。</p>'
+			 '<p>友人:嗯！请……请…给我一次实践的机会…</p>'
+			 '<p>·<<$ZL.name>>冲着你眨眨眼。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="教室SEX":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\教室SEX<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''教室SEX''">看她自慰</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''援交_事件'',''教室SEX''">舔湿鸡巴</a></div>'
+			end
+			if a!3 and 2<=q and a<8:
+			'<div class="button"><a href="exec:a=3 & gt ''援交_事件'',''教室SEX''">插她朋友</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''援交_事件'',''教室SEX''">把她朋友操高潮</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=5 & gt ''援交_事件'',''教室SEX''">转过去</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''援交_事件'',''教室SEX''">让<<$ZL.name>>坐上来</a></div>'
+			end
+			if a!7 and 7<=q and a<8:
+			'<div class="button"><a href="exec:a=7 & gt ''援交_事件'',''教室SEX''">换个姿势</a></div>'
+			end
+			if a=7 and a<8:
+			'<div class="button"><a href="exec:a=8 & gt ''援交_事件'',''教室SEX''">加速抽插</a></div>'
+			end
+			if a=8 and a<9:
+			'<div class="button"><a href="exec:a=9 & gt ''援交_事件'',''教室SEX''">射精</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''援交_事件'',''教室SEX''">舔干净</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''援交_事件'',''教室SEX''">对话</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：亲爱的，上次你看着她射了我一脸~今天终于可以操她了。</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>友人：这么大的鸡巴，这么近的距离。光是看着就有感觉了啊啊啊啊！！</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：瞧你着急的样子，我再帮你舔湿一点，一会直接滑进去。</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p>友人:<<$娇喘声>><<$话>></p>'
+			 '<p><<$ZL.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：老公~你真好~（哼，看到没。叫这么响有屁用，最后还不是射我脸上？）</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>：人家给你舔干净，上面全是她骚水的味道。</p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q*2+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:怎么样？满意了没？</p>'
+			 '<p>友人:好舒服...我还想要.....下次射我逼里好嘛？</p>'
+			 '<p><<$ZL.name>>:喂喂！这可是我的男人！</p>'
+			 '<p>·你微微一笑。</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="ZL_Fuck_家访":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\LLI1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''援交_事件'',''ZL_Fuck_家访''">摸屁股</a></div>'
+			end
+			if q=1:
+			'<div class="button"><a href="exec:$ma=$LJ.name & a=2 & gt ''援交_事件'',''ZL_Fuck_家访''">插<<$LJ.name>></a></div>'
+			'<div class="button"><a href="exec:$ma=$ZL.name & a=6 & gt ''援交_事件'',''ZL_Fuck_家访''">插<<$ZL.name>></a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a+=1 & gt ''援交_事件'',''ZL_Fuck_家访''">女上位</a></div>'
+			end
+			if q=3:
+			'<div class="button"><a href="exec:a+=1 & gt ''援交_事件'',''ZL_Fuck_家访''">拔出来插嘴里</a></div>'
+			end
+			if q=4:
+			'<div class="button"><a href="exec:a+=1 & gt ''援交_事件'',''ZL_Fuck_家访''">口爆</a></div>'
+			end
+			if q=5:
+			'<div class="button"><a href="exec:a=10 & gt ''援交_事件'',''ZL_Fuck_家访''">舔干净</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">送她们离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>：怎么了嘛❤不欢迎我们吗？</p>'
+			 '<p><<$ZL.name>>：人家小穴好痒呀，快点来帮我插一插嘛~</p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=q and q>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ma>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=10 :
+		 $ZL.love+=q+my.魅力
+		 $ZL.bad+=q+my.魅力
+		 $LJ.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:我们明天还来好不好？</p>'
+			 '<p><<$LJ.name>>:或者你来学校找我们吧❤</p>'
+		 '</div>'
+	end
+
+
+ 
+ q+=1
+
+End
+--- 援交_事件 ---------------------------------
+

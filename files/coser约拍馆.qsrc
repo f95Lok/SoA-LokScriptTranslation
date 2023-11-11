@@ -1,0 +1,159 @@
+# coser约拍馆
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'公司_地图'
+'</div>'
+
+
+ if tuc<10:$tuc_name="鲜有人知"
+ if 10<=tuc and tuc<25:$tuc_name="小有名气"
+ if 25<=tuc and tuc<50:$tuc_name="名声鹊起"
+ if 50<=tuc and tuc<75:$tuc_name="声名大噪"
+ if 75<=tuc and tuc<100:$tuc_name="名震一时"
+ if 100<=tuc and tuc<10000:$tuc_name="百里挑一"
+ if 10000<=tuc:$tuc_name="扬名立万"
+ m1_1=rand(0,1)
+ m1_2=rand(2,3)
+ m2_1=rand(10,11)
+ m2_2=rand(12,13)
+ m3_1=rand(20,23)
+ 
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\place\私房照<<rand(1,7)>>.jpg" width="854"></div>'
+
+ if 约拍馆页数=1:
+	'<div class="button_menu">'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+		if 秘书cos=1: '<div class="button"><a href="exec:$m=''MS'' & $ma=$MS.name & gt ''群演_事件'',''群演_Fuck_coser专属''">㊙<<$MS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">㊙？？？</a></div>'
+        if ZJcos=1   : '<div class="button"><a href="exec:$m=''ZJ'' & $ma=$ZJ.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①<<$ZJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①？？？</a></div>'
+        if ZLcos=1 : '<div class="button"><a href="exec:$m=''ZL'' & $ma=$ZL.name & gt ''群演_事件'',''群演_Fuck_coser专属''">②<<$ZL.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②？？？</a></div>'
+        if HZcos=1 : '<div class="button"><a href="exec:$m=''HZ'' & $ma=$HZ.name & gt ''群演_事件'',''群演_Fuck_coser专属''">③<<$HZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">③？？？</a></div>'
+        if WNcos=1: '<div class="button"><a href="exec:$m=''WN'' & $ma=$WN.name & gt ''群演_事件'',''群演_Fuck_coser专属''">④<<$WN.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">④？？？</a></div>'
+        if OXcos=1 : '<div class="button"><a href="exec:$m=''OX'' & $ma=$OX.name & gt ''群演_事件'',''群演_Fuck_coser专属''">⑤<<$OX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑤？？？</a></div>'
+ 
+		'<div class="button"><a href="exec:约拍馆页数=2 & gt ''coser约拍馆''">▶下一页</a></div>'
+	'</div>'
+ end
+
+ if 约拍馆页数=2:
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:约拍馆页数=1 & gt ''coser约拍馆''">▶上一页</a></div>'
+        if RIONcos=1 : '<div class="button"><a href="exec:$m=''RION'' & $ma=$RION.name & gt ''群演_事件'',''群演_Fuck_coser专属''">⑥<<$RION.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑥？？？</a></div>'
+        if SSYYcos=1 : '<div class="button"><a href="exec:$m=''SSYY'' & $ma=$SSYY.name & gt ''群演_事件'',''群演_Fuck_coser专属''">⑦<<$SSYY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑦？？？</a></div>'
+        if DYZcos=1 : '<div class="button"><a href="exec:$m=''DYZ'' & $ma=$DYZ.name & gt ''群演_事件'',''群演_Fuck_coser专属''">⑧<<$DYZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑧？？？</a></div>'
+        if PWcos=1 : '<div class="button"><a href="exec:$m=''PW'' & $ma=$PW.name & gt ''群演_事件'',''群演_Fuck_coser专属''">⑨<<$PW.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑨？？？</a></div>'
+        if SScos=1 : '<div class="button"><a href="exec:$m=''SS'' & $ma=$SS.name & gt ''群演_事件'',''群演_Fuck_coser专属''">⑩<<$SS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑩？？？</a></div>'
+		'<div class="button"><a href="exec:约拍馆页数=3 & gt ''coser约拍馆''">▶下一页</a></div>'
+	'</div>'
+ end
+
+ if 约拍馆页数=3:
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:约拍馆页数=2 & gt ''coser约拍馆''">▶上一页</a></div>'
+        if SXcos=1 : '<div class="button"><a href="exec:$m=''SX'' & $ma=$SX.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①⓪<<$SX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⓪？？？</a></div>'
+        if JZcos=1 : '<div class="button"><a href="exec:$m=''JZ'' & $ma=$JZ.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①①<<$JZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①①？？？</a></div>'
+        if ZXGcos=1 : '<div class="button"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①②<<$ZXG.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①②？？？</a></div>'
+        if DDcos=1 : '<div class="button"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①③<<$DD.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①③？？？</a></div>'
+        if SYcos=1 : '<div class="button"><a href="exec:$m=''SY'' & $ma=$SY.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①④<<$SY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①④？？？</a></div>'
+		'<div class="button"><a href="exec:约拍馆页数=4 & gt ''coser约拍馆''">▶下一页</a></div>'
+	'</div>'
+ end
+
+ if 约拍馆页数=4:
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:约拍馆页数=3 & gt ''coser约拍馆''">▶上一页</a></div>'
+        if ZXcos=1 : '<div class="button"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①⑤<<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑤？？？</a></div>'
+        if LXScos=1 : '<div class="button"><a href="exec:$m=''LXS'' & $ma=$LXS.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①⑥<<$LXS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑥？？？</a></div>'
+        if YScos=1 : '<div class="button"><a href="exec:$m=''YS'' & $ma=$YS.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①⑦<<$YS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑦？？？</a></div>'
+        if YYcos=1 : '<div class="button"><a href="exec:$m=''YY'' & $ma=$YY.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①⑧<<$YY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑧？？？</a></div>'
+        if CTcos=1 : '<div class="button"><a href="exec:$m=''CT'' & $ma=$CT.name & gt ''群演_事件'',''群演_Fuck_coser专属''">①⑨<<$CT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑨？？？</a></div>'
+        if XNcos=1 : '<div class="button"><a href="exec:$m=''XN'' & $ma=$XN.name & gt ''群演_事件'',''群演_Fuck_coser专属''">②⓪<<$XN.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②⓪？？？</a></div>'
+		'<div class="button"><a href="exec:约拍馆页数=5 & gt ''coser约拍馆''">▶下一页</a></div>'
+	'</div>'
+ end
+ 
+ if 约拍馆页数=5:
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:约拍馆页数=4 & gt ''coser约拍馆''">▶上一页</a></div>'
+		if DYcos=1 : '<div class="button"><a href="exec:$m=''DY'' & $ma=$DY.name & gt ''群演_事件'',''群演_Fuck_coser专属''">②①<<$DY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②①？？？</a></div>'
+	'</div>'
+ end
+
+
+	'<div class="dialog_menu">'
+		'<p>·coser约拍馆: 谈及私人摄影师和coser的约拍，总会让人们产生误会和联想。</p>'
+		'<p>·目前约拍馆的声望为：<<tuc>> ➤ 处于<<$tuc_name>>阶段。</p>'
+		'<p>·约拍馆的累计收益为：<<Cmoney_约拍>>￥➤<a href="exec: gt ''coser约拍馆'',''提现''">提现</a></p>'
+		'<p>———预约名单———</p>'
+         if m1_1=0:$m='乖乖女'
+         if m1_1=1:$m='短发cos娘'
+		'<p>
+		♀<a href="exec: m=m1_1 & gt ''群演_事件'',''群演_Fuck_coser''"><<$m>></a>'
+         if m1_2=2:$m='cos爱好者'
+         if m1_2=3:$m='DC粉'
+		'♀<a href="exec: m=m1_2 & gt ''群演_事件'',''群演_Fuck_coser''"><<$m>></a>'
+		'</p>'
+		
+		if tuc_level2=0 and tuc<25:'<p>————扩大规模</a><<tuc>>/25————</p>'
+		if tuc_level2=0 and tuc>=25:'<p>————<a href="exec: tuc_level2=1 & gt ''coser约拍馆''">扩大规模</a><<tuc>>/25————</p>'
+		
+		
+		if tuc_level2=1:
+			'<p>———高级约拍———</p>'
+			 if m2_1=10:$m='制服控'
+			 if m2_1=11:$m='新闻主持'
+			'<p>
+			♀<a href="exec: m=m2_1 & gt ''群演_事件'',''群演_Fuck_coser''"><<$m>></a>'
+			 if m2_2=12:$m='体育生'
+			 if m2_2=13:$m='假小子'
+			'♀<a href="exec: m=m2_2 & gt ''群演_事件'',''群演_Fuck_coser''"><<$m>></a>'
+			'</p>'
+		end
+		
+		if tuc_level3=0 and tuc<100:'<p>————邀请私拍</a><<tuc>>/100————</p>'
+		if tuc_level3=0 and tuc>=100:'<p>————<a href="exec: tuc_level3=1 & gt ''coser约拍馆''">邀请私拍</a><<tuc>>/100————</p>'
+		
+		if tuc_level3=1:
+			'<p>———特邀私拍———</p>'
+			 if m3_1=20:$m='金发留学生'
+			 if m3_1=21:$m='胶衣女仆'
+			 if m3_1=22:$m='S级辣妹'
+			 if m3_1=23:$m='异域舞娘'
+			'<p>
+			♀<a href="exec: m=m3_1 & gt ''群演_事件'',''群演_Fuck_coser''"><<$m>></a>'
+			'</p>'
+		end
+	'</div>'
+
+end
+
+if  $args[0]="提现":
+    TXM=MS.power*100/(100+MS.power)
+    '<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:minutes+=15 & money+=TXM*Cmoney_约拍/100  & Cmoney+=Cmoney_约拍/10000 & Cmoney_约拍=0 & gt ''coser约拍馆'',''提现''">提现</a></div>'
+        '<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·约拍馆的累计收益为：<<Cmoney_约拍>>￥</p>'
+        '<p>·提现规则，每次提现，只能提现超过1万￥的数额，低于1万￥的数额将作为企业税，支援给市政厅中女性职员的养老金。</p>'
+        '<p>☺基于秘书的能力【<<MS.power>>】可以进行合法避税，并转移<<TXM>>%至个人账户。</p>'
+    '</div>'
+
+end
+
+
+--- coser约拍馆 ---------------------------------
+

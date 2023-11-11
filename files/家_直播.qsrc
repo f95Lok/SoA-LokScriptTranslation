@@ -1,0 +1,230 @@
+# 家_直播
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=60
+my.精力-=5
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "精力判定"
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if hour>=21 and $LY.available=0:'<a class="photo" href="exec:gt ''家_直播'',''ASMR''"><img class="img_stretch" src="images\items\ly1.png"></a>'else:'<a class="photo" data-title="主播不在"  href="exec:"><img class="img_stretch" src="images\items\ly0.png"></a>'
+		'</div>'
+		!'<div class="action">'
+		!	if hour>=18:'<a class="photo" href="exec:gt ''家_直播'',''mina''"><img class="img_stretch" src="images\items\minad1.png"></a>'else:'<a class="photo"data-title="主播不在"  href="exec:"><img class="img_stretch" src="images\items\minad0.png"></a>'
+		!'</div>'
+		'<div class="action">'
+			if 17>=hour and hour>=12:'<a class="photo" href="exec:gt ''家_直播'',''国内''"><img class="img_stretch" src="images\items\cnd1.png"></a>'else:'<a class="photo"data-title="主播不在"  href="exec:"><img class="img_stretch" src="images\items\cnd0.png"></a>'
+		'</div>'
+		'<div class="action">'
+			if hour>=22 or hour<=5:'<a class="photo" href="exec:gt ''家_直播'',''韩国''"><img class="img_stretch" src="images\items\krd1.png"></a>'else:'<a class="photo" data-title="主播不在" href="exec:"><img class="img_stretch" src="images\items\krd0.png"></a>'
+		'</div>'
+		
+
+	'</div>'
+'</div>'
+
+if $args[0] = '':
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>看会儿直播吧，也不是所有时间点都有直播的。</p>'
+	'</div>'
+End
+
+if $args[0] ='mina':
+	a=rand(0,7)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\直播\直播-MINA-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺</p>'
+		'<p>我：我靠( ‵o′)凸，音乐这么响，吓了我一跳...</p>'
+	'</div>'
+End
+
+if $args[0] ='国内':
+	a=rand(0,9)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\直播\直播-国-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺</p>'
+		'<p>我：哇哦！(๑´ڡ`๑)</p>'
+		if a=9:'<p>女主播: 哥哥们还有更多在18禁频道喔☺</p>'
+	'</div>'
+End
+
+if $args[0] ='韩国':
+	a=rand(0,17)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\直播\直播-韩-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=0 and money>=100:'<div class="buttonG"><a href="exec: minutes+=30 & money-=100& gt ''家_直播'',''韩国打赏''">打赏100￥</a></div>'
+		if (a=11 or a=12 or a=14) and money>=100:'<div class="buttonG"><a href="exec: minutes+=30 & money-=100& gt ''家_直播'',''韩国打赏2''">打赏100￥</a></div>'
+		if (17>=a and a>=15) and money>=100:'<div class="buttonG"><a href="exec: minutes+=30 & money-=100& gt ''家_直播'',''韩国打赏2''">启动炮机100￥</a></div>'
+		
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺</p>'
+		'<p>我：国外的直播间尺度真大！</p>'
+		if a=0:'<p>女主播：欧巴❤，想看主播大秀吗？</p>'
+	'</div>'
+End
+
+if $args[0] ='韩国打赏':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\直播\直播-韩-0-1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>女主播：❤…谢谢…❤…感谢欧巴的礼物!!</p>'
+		'<p>女主播：❤欧巴❤…请对着我们的骚奶头打飞机吧❤!</p>'
+	'</div>'
+End
+
+if $args[0] ='韩国打赏2':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\直播\直播-韩-<<a>>-1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>女主播：❤…谢谢…❤…感谢哥哥的礼物!!</p>'
+	'</div>'
+End
+
+if $args[0] ='ASMR':
+
+	a=rand(0,2)
+ 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\正常<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+ 
+	'<div class="button_menu">'
+		if top1<100:'<div class="buttonR2"><a href="exec: ">成为榜一 <<top1>>﹪</a></div>'else:'<div class="buttonG"><a href="exec:& gt ''家_直播'',''榜一私信''">✈榜一私信￥</a></div>'
+		if money>=500:'<div class="buttonG"><a href="exec: money-=500 & top1+=rand(4,5) & gt ''家_直播'',''感谢''">✈刷火箭500￥</a></div>'
+		'<div class="buttonB1"><a href="exec: gt ''家_直播'',''打瞌睡''">打瞌睡</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺☺</p>'
+		'<p>女主播：这里是ASMR助眠直播喔，请大家在我的助眠声中渐渐沉睡吧。</p>'
+		if top1>=100:'<p>女主播：榜一大哥！看一下私信。</p>'
+	'</div>'
+End
+
+if $args[0] ='感谢':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\感谢礼物~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if top1<100:'<div class="buttonR2"><a href="exec: ">成为榜一 <<top1>>﹪</a></div>'else:'<div class="buttonG"><a href="exec:& gt ''家_直播'',''榜一私信''">✈榜一私信￥</a></div>'
+		if money>=500:'<div class="buttonG"><a href="exec: money-=500 & top1+=rand(2,5) & gt ''家_直播'',''感谢''">✈刷火箭500￥</a></div>'
+		'<div class="buttonB1"><a href="exec: gt ''家_直播'',''打瞌睡''">打瞌睡</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>✈✈✈<<$主角姓名>>送出了一架火箭。</p>'
+		'<p>女主播：哇偶！！！谢谢哥哥的一发大火箭！主播爱你哟~</p>'
+		'<p>·好感度上升！</p>'
+	'</div>'
+End
+
+
+if $args[0] ='榜一私信':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\求礼物~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if money>=50000:'<div class="buttonG"><a href="exec: money-=50000 & gt ''家_直播'',''感谢2''">刷她丫的！</a></div>'else:'<div class="buttonGr"><a href="exec:">刷100个！50000￥</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">滚犊子( ‵o′)凸</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++ 
+	'<div class="dialog_menu">'
+		'<p>《私信》：哥哥！妹妹想搬去那个实施《新法案》的大城市发展，能不能再刷100个火箭帮助一下T_T</p>'
+	'</div>'
+End
+
+
+if $args[0] ='感谢2':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\感谢礼物~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">退出</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>女主播：哇！榜一哥哥的100连发大大大火箭！么么哒！</p>'
+		'<p>《私信》：榜一哥哥，最近一段时间妹妹可能不能直播了，等我搬完家安顿好就会继续直播的！这是我的私人联系方式！我们有缘再见！</p>'
+		$LY.available=1
+		$LY.love=99
+	'</div>'
+End
+
+if $args[0] ='打瞌睡':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\才艺~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''睡觉''">Zzzz</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>我：好像还真有点作用呢…Zzzz……</p>'
+	'</div>'
+End
+--- 家_直播 ---------------------------------
+

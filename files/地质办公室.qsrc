@@ -1,0 +1,274 @@
+# 地质办公室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+minutes+=5
+
+A_time=year*365+month*30+day
+if DZ_time=0:DZ_time=year*365+month*30+day
+ if A_time - DZ_time>=7:
+     $DZ_Event_date14.available=1
+ else:
+     $DZ_Event_date14.available=0
+ end
+DZ_time=year*365+month*30+day
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "姆苟制药_地图"
+'</div>'
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\地质办公室.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>地质办公室，随处可见大量的精密仪器和土壤样本。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="地质办公室对话":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		if soil_b>=100: soil_b-=100 & soil_a+=1
+		!'<div class="button"><a href="exec:$聊天=''DZ''& $出去的位置 = ''姆苟制药'' & addlove=0 &addbad=0 & gt ''通用聊天''">互动</a></div>'
+		if soil_a<100:
+		'<div class="button"><a href="exec:soil_b+=Rand(1,10) & gt ''地质办公室'',''处理''">普通土壤检测<<soil_a>>.<<soil_b>>﹪</a></div>'
+		end
+		if $DZ.event_设备=1 and soil_a<100:
+		'<div class="button"><a href="exec:soil_b+=Rand(50,70) & soil_a+=100 & gt ''地质办公室'',''处理''">新型土壤检测<<soil_a>>.<<soil_b>>﹪</a></div>'
+		end
+		if soil_a>=100 and 检测报告=0:
+		'<div class="button"><a href="exec:检测报告+=1 &  gt ''地质办公室''">拿取土壤检测报告</a></div>'
+		end
+		
+		if $DZ_Event_date14.available=1:
+		'<div class="button"><a href="exec: gt ''地质办公室'',''嫉妒心''">嫉妒心</a></div>'
+		end
+		if $DZ.love>=30 and hour >=16:
+		'<div class="button"><a href="exec: gt ''地质办公室'',''共邀晚餐''">共邀晚餐</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">共邀晚餐</a></div>'
+		end
+		if $DZ.love>=100 or $DZ.bad>=100:
+		'<div class="button"><a href="exec: gt ''地质办公室'',''周末约会''">周末约会</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">周末约会</a></div>'
+		end
+		if $DZ.love>=100 and $DZ.bad>=100:
+		'<div class="button"><a href="exec: gt ''地质办公室'',''文件失踪''">文件失踪</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">？？？？</a></div>'
+		end
+		if $DZ.love>=150 and $DZ.bad>=150 and MGF>0:
+		'<div class="buttonB3"><a href="exec: gt ''地质办公室'',''麦高芬研究''">麦高芬研究</a></div>'
+		end
+		if $DZ.love>=200 and $DZ.bad>=200 and $JJ.love>=200 and $JJ.bad>=200:
+		'<div class="buttonS"><a href="exec: gt ''地质办公室'',''找姐姐3P对话''">❤找姐姐3P</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">❤？？？</a></div>'
+		end
+		
+		'<div class="button"><a href="exec: gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>：<<$主角姓>>...<<$主角名>>，有事吗？OS：有些关系只要我不主动就已经代表结束了，那些舔狗怎么都不懂呢。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="处理":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>：抱歉，上头有好几件加急项目需要分析，现在的进度很慢...没有空闲设备分给你。OS：如果<<$jm.name>>老板能批准项目资金多购入几台设备就好了..</p>'
+	'</div>'
+end
+
+if $ARGS[0]="嫉妒心":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\处理~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 if $ARGS[1]!"找你" and $ARGS[1]!"找姐姐"and $ARGS[1]!"调戏" :
+		'<div class="button"><a href="exec: $DZ.love+=2 + my.魅力 & gt ''地质办公室'',''嫉妒心'',''找你''">找你</a></div>'
+		'<div class="button"><a href="exec: $DZ.love-=10 & gt ''地质办公室'',''嫉妒心'',''找姐姐''">找姐姐</a></div>'
+		if my.道德<=-20:
+		'<div class="button"><a href="exec: $DZ.love+=2 & gt ''地质办公室'',''嫉妒心'',''调戏''">调戏</a></div>'
+		end
+	 end
+	 if $ARGS[1]="调戏":
+		'<div class="button"><a href="exec: gt ''地质_事件'',''吃饭''">好耶</a></div>'
+	 end
+	 '<div class="button"><a href="exec: gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+	if $ARGS[1]="":
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>：喂，你最近在忙什么？有一段时间没看见你了。OS：别的男人巴不得天天赖着不走，你都超过一个礼拜没来了，都去你姐姐办公室了吧....</p>'
+		'<p> 我：没有没有。OS：看来冰冷女神被舔狗舔习惯了...还没试过被冷落。</p>'
+		'<p><<$DZ.name>>：哼！没有？那我问你，假如我和你姐姐同时找你，你先去谁办公室？</p>'
+	'</div>'
+	END
+	if $ARGS[1]="找你":
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>：呵呵，我才不信。说谎的人可是要吞一千根针的！OS：就算是骗人的，也是我赢了。</p>'
+	'</div>'
+	END
+	if $ARGS[1]="找姐姐":
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>：也是，毕竟你心里就只有你姐姐。OS：呵呵，继续摇着尾巴围着你姐姐转吧。</p>'
+	'</div>'
+	END
+	if $ARGS[1]="调戏":
+	'<div class="dialog_menu">'
+		'<p> 我：这不好说，哪边的事情重要先去哪边咯？</p>'
+		'<p><<$DZ.name>>：一样重要！我和你姐姐，你先去哪边？</p>'
+		'<p> 我：呃，看谁离我近就先去哪边咯？</p>'
+		'<p><<$DZ.name>>：都一样近！我和你姐姐，你先去哪边？</p>'
+		'<p> 我：那就要看，哪边对我更好就先去哪边了！</p>'
+		'<p><<$DZ.name>>：对你一样好！</p>'
+		'<p> 我：真的吗？姐姐对我可好了，她又给我买东西，又请我吃饭。</p>'
+		'<p><<$DZ.name>>：@！￥！@巧了，我正好饿了，走吧，我们一起去吃饭。OS：....嗯？....等等..我是不是上套了？</p>'
+		'<p><<$DZ.name>>：算了，看在你是她弟弟的份上就惯你一次吧，我还想有个弟弟呢。OS：不过能让我请客的男人，你还是第一个...</p>'
+	'</div>'
+	END
+end
+
+if $ARGS[0]="共邀晚餐":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\处理~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		if $RION.available=1 and  $DZ.love>=100 and $DZ.bad>=100:
+		'<div class="button"><a href="exec: gt ''地质_事件'',''邀请回家''">回家吃</a></div>'
+		end
+		'<div class="button"><a href="exec: gt ''地质_事件'',''去餐厅'',''喝酒1''">去餐厅</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> 我：每次来你都在工作，真是辛苦啊，不如先放松一下吃个饭？..</p>'
+		'<p><<$DZ.name>>：.....行吧..忙了这么久是该喝点酒放松一下神经了。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="周末约会":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''姆苟制药''">不见不散</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> 我：这周什么时候有空~我们一起去吃顿好的，顺便再做点什么~</p>'
+		'<p><<$DZ.name>>：<<$主角姓名>>，终于想起来约我了？我可是很忙的。</p>'
+		'<p> 我：那我去问问<<$jj.name>>，她应该有空~</p>'
+		'<p><<$DZ.name>>：<<$主角姓名>>！周末晚上餐厅见！</p>'
+		$DZ.event_餐厅约会=1
+	'</div>'
+end
+
+if $ARGS[0]="文件失踪":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\文件~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''地质_事件'',''DZ_Fuck_家'',''家0开幕''">去她家</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$DZ.name>>正在翻箱倒柜找着什么东西.....</p>'
+		'<p><<$DZ.name>>：<<$主角姓名>>！！正好你陪我去一趟我家吧，我有文件忘在家里了。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="麦高芬研究":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\按摩~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''地质_事件'',''DZ_Fuck_药'',''药0开幕''">放轻松</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> 我：工作辛苦了，想不想体验一下姐姐研究出来的麦高芬精华液？据说是一种被转化的、强烈的天然中枢兴奋剂喔。</p>'
+		'<p><<$DZ.name>>：可以啊，既然是科学工作者，为科学献身也是应该的。那我该怎么做呢？</p>'
+	'</div>'
+end
+
+if $ARGS[0]="找姐姐3P对话":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P0开幕''">开操</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> 我：电话）姐姐，来地质办公室一趟。（没等她应答就挂断了。）</p>'
+		'<p><<$DZ.name>>：可以啊，你姐姐已经对你唯命是从啦？</p>'
+		'<p> 我：如果我想和你还有姐姐一起3P，你会介意吗？</p>'
+		'<p><<$DZ.name>>：我是无所谓...我怕她会尴尬......</p>'
+		'<p><<$JJ.name>>：嘻嘻，你说谁会尴尬呀~ （这时姐姐到了）</p>'
+		'<p><<$JJ.name>>：我知道一个闲置的地下室，有床有沙发，我们可以好好尝尝你的厉害~</p>'
+	'</div>'
+end
+
+
+
+ 
+--- 地质办公室 ---------------------------------
+

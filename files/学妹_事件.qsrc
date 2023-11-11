@@ -1,0 +1,1145 @@
+# 学妹_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="偷听":
+	 $XM.available=1
+	 $XM事件链=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\偷听.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XM.name>>: 我做的新发色好看吧？</p>'
+		'<p>女同学: 我和你说个秘密……我其实昨天和哥哥做爱了…</p>'
+		'<p><<$XM.name>>: 啊？哥哥？？</p>'
+		'<p>女同学: 嗯，虽然最开始有点痛或者奇怪，但是越来越舒服，你第一次的时候也是这个感觉吗？</p>'
+		'<p>·<<$XM.name>>支支吾吾答不出</p>'
+		'<p>女同学: 你不会还是处女吧？！</p>'
+		'<p><<$XM.name>>: 才不是咧！我今天还有事就先回去了！</p>'
+	'</div>'
+End
+
+if $args[0]="穿过走廊":
+
+	 '<div class ="show_menu"><img src="images\NPC\XM\pics\被抓住1.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''学妹_事件'',''XM_Fuck_家1''">跟她走</a></div>'
+		if $XM.bad>=50:'<div class="buttonS2"><a href="exec:gt ''学妹_事件'',''XM_Fuck_保健室''">去保健室</a></div>'else:'<div class="buttonGr"><a href="exec:">去？？❤</a></div>'
+		if $XM.love>=150 and $XM.bad>=150:'<div class="buttonS3"><a href="exec: gt ''学妹_事件'',''XM_Fuck_温泉''">❤去温泉❤</a></div>'else:'<div class="buttonGr"><a href="exec:">去？？？❤</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">摆脱她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $XM.love<=50:
+		'<p><<$XM.name>>: 喂！你给我过来！</p>'
+		'<p>我: ？！！啊？</p>'
+		'<p><<$XM.name>>: 少啰嗦！跟我来！</p>'
+		'<p>我: 等等啊？</p>'
+		'<p><<$XM.name>>: 给我过来！</p>'
+		else:
+		'<p><<$XM.name>>: 宝贝，你想去哪？装作没看见我吗？！</p>'
+		'<p>我: 找我干嘛？</p>'
+		'<p><<$XM.name>>: 你不是也没什么事嘛！跟我去好玩的地方呗！</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="XM_Fuck_家1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\事件1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if  a!13:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_家1''">性爱练习 </a></div>'
+			if $XM.bad>=150-$XM.LOVE:'<div class="buttonR3"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_家2''">性爱考试 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？考试 </a></div>'
+			'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">拒绝</a></div>'
+			end
+			if a=1:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_家1''">揉胸 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_家1''">玩奶头 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_家1''">引导她 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_家1''">互摸 </a></div>'
+			end
+			if a=5:
+				if $XM.bad>=10:'<div class="buttonS3"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_家1''">尝试口交 </a></div>'else:'<div class="buttonGr"><a href="exec:">尝试口交 </a></div>'
+				if $XM.bad<10:'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">到此为止</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_家1''">射精 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''学妹_事件'',''XM_Fuck_家1''">对话 </a></div>'
+			end
+			if a=8:
+				if $XM.bad>=20:'<div class="buttonS3"><a href="exec:a=9 & gt ''学妹_事件'',''XM_Fuck_家1''">尝试插入 </a></div>'else:'<div class="buttonGr"><a href="exec:">尝试插入 </a></div>'
+				if $XM.bad<20:'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">到此为止</a></div>'
+			end
+			if a=9 or a=11:
+			'<div class="buttonS4"><a href="exec:a=10 & gt ''学妹_事件'',''XM_Fuck_家1''">温柔点 </a></div>'
+			end
+			if a=9 or a=10:
+			'<div class="buttonS4"><a href="exec:a=11 & gt ''学妹_事件'',''XM_Fuck_家1''">粗暴点 </a></div>'
+			end
+			if a=11:
+			'<div class="buttonR4"><a href="exec:a=12 & gt ''学妹_事件'',''XM_Fuck_家1''">内射 </a></div>'
+			end
+			if a=12:
+			if $XM.bad>=50:'<div class="buttonR4"><a href="exec:a=13 & gt ''学妹_事件'',''XM_Fuck_家1''">教训她 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			if $XM.bad<50:'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">到此为止</a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 我在学校里观察你很久了！我有个请求，请和我开展性爱练习！</p>'
+			 '<p>我: 这么突然吗？不从约会开始吗？</p>'
+			 '<p><<$XM.name>>: 少啰嗦！！你知道该怎么做爱吧？！</p>'
+			 '<p>我: 为什么是我？！</p>'
+			 '<p><<$XM.name>>: 别废话了！如果把我弄疼了，我会杀了你的！</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:<<$娇喘声>>…别…别太过分了…温柔点…</p>'
+			 if a=4:$XM.bad+=7 & $XM.LOVE+5
+		 '</div>'
+	end
+
+	if 8>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 if a!8:'<p><<$XM.name>>:<<$娇喘声>>…唔呜…顶到喉咙里面了…</p>'
+			 if a=8:'<p><<$XM.name>>:略略略…难吃死了！她们怎么会喜欢这种味道……</p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=9:
+
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: ……我不是处女！你可以不用在意我……</p>'
+			 if a>=10: '<p><<$话>></p>'
+			 if a>=11:'<p><<$XM.name>>: …笨蛋！轻点啊！我错啦！人家骑自行车的时候处女膜意外破了…从来没有…被这样搞过❤…啊啊啊❤</p>'
+		 '</div>'
+	end
+
+	if a=12:
+		 $XM.love+=4+my.魅力
+		 $XM.bad+=4
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 你内射了？看来我有理由明天找她们要避孕药吃了…</p>'
+			 '<p>我: 你这都什么朋友？</p>'
+			 '<p><<$XM.name>>: 不准你说我朋友！小心我打你！</p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 '<div class="dialog_menu">'
+			 '<p>我: 现在是谁在挨打？！</p>'
+			 '<p><<$XM.name>>: <<$娇喘声>>…唔呜…错了…我错了❤</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_保健室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\事件2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_保健室''">爱抚 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_保健室''">坐上来 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_保健室''">抱住操 </a></div>'
+			end
+			if a!4 and 3<=q and a!6:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_保健室''">后背位 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_保健室''">加速抽插 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_保健室''">内射 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_保健室''">对话 </a></div>'
+			end
+	
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 你好像已经很熟练了？！</p>'
+			 '<p><<$XM.name>>: 那当然！我可是一学就会的类型！</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:<<$娇喘声>>…好舒服…</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 我好喜欢你内射我的感觉！果然和我的朋友们说的一样…</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $XM.love+=q+my.魅力
+		 $XM.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我: 话说你现在姿势水平这么棒，你的朋友们知道吗？</p>'
+			 '<p><<$XM.name>>: 改天我带你去见见她们不就行了？</p>'
+			 if $XM事件链>=2:
+			 '<p>我: 我今天就想见！</p>'
+			 '<p><<$XM.name>>: 你急什么嘛，那我就帮你约在明天中午的11:00-13:00吧…</p>'
+			 end
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+if $args[0]="XM_Fuck_家2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\事件3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!2 and 1<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_家2''">会舔吗？ </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_家2''">很好 </a></div>'
+			end
+			if a!4 and 3<=q and a!6:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_家2''">骑上来 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_家2''">会扭吗？ </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & minutes+=15 & gt ''学妹_事件'',''XM_Fuck_家2''">三十分钟后 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_家2''">射精</a></div>'
+			end
+	
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 现在轮到验收成果的时间了！</p>'
+			 '<p><<$XM.name>>: 如果成功的话！我就带你去见我的朋友们！</p>'
+		 '</div>'
+	end
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:<<$娇喘声>>…是这样嘛…</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $XM.love+=q+my.魅力
+		 $XM.bad+=q
+		 if $XM事件链=1:$XM事件链=2
+		 '<div class="dialog_menu">'
+			 '<p>我: 你真是太棒了，轻轻松松就把我榨干了！</p>'
+			 '<p><<$XM.name>>: 我怎么觉得你是为了见我的朋友们故意让我的？</p>'
+		 '</div>'
+		 
+	end
+
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_图书馆":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\事件4-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!14:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_图书馆''">一起上吧 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_图书馆''">青空光口交 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_图书馆''">宫岛芽衣口交 </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_图书馆''">夏目响口交 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS3"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_图书馆''">三人口交 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonR3"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_图书馆''">点名夏目响 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonR"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_图书馆''">射她嘴巴里</a></div>'
+			end
+			if a!8 and 7<=q and q<=10:
+			'<div class="buttonS1"><a href="exec:a=8 & gt ''学妹_事件'',''XM_Fuck_图书馆''">一操三 </a></div>'
+			end
+			if a!9 and 8<=q and q<=11:
+			'<div class="buttonS2"><a href="exec:a=9 & gt ''学妹_事件'',''XM_Fuck_图书馆''">夏目响骑乘 </a></div>'
+			end
+			if a!10 and 9<=q and q<=12:
+			'<div class="buttonS2"><a href="exec:a=10 & gt ''学妹_事件'',''XM_Fuck_图书馆''">宫岛芽衣骑乘 </a></div>'
+			end
+			if a!11 and 10<=q and q<=13:
+			'<div class="buttonS2"><a href="exec:a=11 & gt ''学妹_事件'',''XM_Fuck_图书馆''">青空光骑乘 </a></div>'
+			end
+			if a!12 and 11<=q:
+			'<div class="buttonR3"><a href="exec:a=12 & gt ''学妹_事件'',''XM_Fuck_图书馆''">再次点名夏目响</a></div>'
+			end
+			if a=12:
+			'<div class="buttonR4"><a href="exec:a=13 & gt ''学妹_事件'',''XM_Fuck_图书馆''">加速抽插 </a></div>'
+			end
+			if a=13:
+			'<div class="buttonR5"><a href="exec:a=14 & gt ''学妹_事件'',''XM_Fuck_图书馆''">射精</a></div>'
+			end
+
+	
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·图书馆里青空光和两名女生一拥而上把你团团围住</p>'
+			 '<p><<$XM.name>>: 瞧见没，我可是找了一个校外的喔！</p>'
+			 '<p>宫岛芽衣: 学校里都没人可以教我们真正的性爱…</p>'
+			 '<p>夏目响: 没错…校外的话…经验应该很丰富吧！你可以辅导我吗？</p>'
+
+
+		 '</div>'
+	end
+
+
+	if 8>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$娇喘声>></p>'
+			 '<p>宫岛芽衣: <<$娇喘声2>></p>'
+			 '<p>夏目响: <<$话>></p>'
+		 '</div>'
+	end
+
+
+	if 13>=a and a>=9:
+		 '<div class="dialog_menu">'
+		 	if a=9:'<p>夏目响: <<$话>></p>'
+		 	if a=10:'<p>宫岛芽衣: <<$话>></p>'
+		 	if a=11:'<p><<$XM.name>>: <<$娇喘声>></p>'
+		 	if a=12:
+		 		'<p>夏目响: <<$话>></p>'
+			 	'<p><<$XM.name>>:怎么又是你啊？不公平！不公平！明明是我带来的男人！</p>'
+			 end
+		 	if a=13:
+		 		'<p>夏目响: <<$话>></p>'
+			 	'<p><<$XM.name>>:快停下来！你是我带来的！你要当着她们的面操我才对！</p>'
+			 end
+
+		 '</div>'
+	end
+
+
+	if a=14:
+		 $XM.love+=q+my.魅力
+		 $XM.bad+=q
+		 '<div class="dialog_menu">'
+		 	'<p>夏目响: <<$娇喘声>></p>'
+			 '<p><<$XM.name>>: 这样的话…还算勉强公平！</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_温泉":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\温泉1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!13:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_温泉''">安装礼物 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_温泉''">负重前行 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_温泉''">挑逗乳头 </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_温泉''">揉奶 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_温泉''">插入玩具 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_温泉''">口交 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_温泉''">扣到喷水</a></div>'
+			end
+			if a!8 and 7<=q and q<=10:
+			'<div class="buttonS1"><a href="exec:a=8 & gt ''学妹_事件'',''XM_Fuck_温泉''">开操 </a></div>'
+			end
+			if a!9 and 8<=q and q<=11:
+			'<div class="buttonS2"><a href="exec:a=9 & gt ''学妹_事件'',''XM_Fuck_温泉''">后背位 </a></div>'
+			end
+			if a!10 and 9<=q and q<=12:
+			'<div class="buttonS2"><a href="exec:a=10 & gt ''学妹_事件'',''XM_Fuck_温泉''">抬起大腿 </a></div>'
+			end
+			if a!11 and 10<=q and q<=13:
+			'<div class="buttonS2"><a href="exec:a=11 & gt ''学妹_事件'',''XM_Fuck_温泉''">加速冲刺 </a></div>'
+			end
+			if a!12 and 11<=q:
+			'<div class="buttonS3"><a href="exec:a=12 & gt ''学妹_事件'',''XM_Fuck_温泉''">射精</a></div>'
+			end
+			if a=12:
+			'<div class="buttonS2"><a href="exec:a=13 & gt ''学妹_事件'',''XM_Fuck_温泉''">对话 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''学妹_事件'',''共进晚餐''">共进晚餐</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''郊外''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·她带着你来到温泉店</p>'
+			 '<p><<$XM.name>>: 这里不错吧！我还为你准备了一个礼物喔！</p>'
+			 '<p>我: 什么礼物？</p>'
+		 '</div>'
+	end
+
+
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>我: 居然是这种礼物，你好骚啊。</p>'
+			 '<p><<$XM.name>>: <<$娇喘声>></p>'
+			 if a=2:'<p>我: 下次要不要戴着去上学？</p>'
+		 '</div>'
+	end
+
+
+	if 12>=a and a>=3:
+		 '<div class="dialog_menu">'
+		 	'<p><<$XM.name>>: <<$娇喘声2>></p>'
+		 	if a>=9:'<p><<$XM.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=13:
+		 $XM.love+=q+my.魅力
+		 $XM.bad+=q
+		 '<div class="dialog_menu">'
+		 	'<p><<$XM.name>>: 这次的温泉之旅还满意嘛？我可是精心准备了的呢！</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="共进晚餐":
+	 a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\吃饭.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if MGF>0 and 精油>0:'<div class="buttonS"><a href="exec:MGF-=1 & 精油-=1 & gt ''学妹_事件'',''XM_Fuck_按摩''">色情按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">色情按摩</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''学妹_事件'',''过夜''">过夜休息</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XM.name>>: 这个好好次喔！你也来尝尝看！</p>'
+	'</div>'
+End
+
+if $args[0]="过夜":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\过夜1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:a=1 & gt ''学妹_事件'',''过夜''">射出来</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''学妹_事件'',''翌日''">休息zzZ</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XM.name>>: 睡觉前…还是想再做一次的对吧！</p>'
+		if a=1:'<p><<$XM.name>>: 啊？好可惜，人家还想再来一次的说…</p>'
+	'</div>'
+End
+
+if $args[0]="翌日":
+		minutes+=1440
+		hour=7
+		my.精力=mymax[精力]
+		
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\翌日.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''大学''">一起去学校</a></div>'
+		if 保时捷=1:'<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''学妹_事件'',''XM_Fuck_车''">开车送她</a></div>'else:'<div class="buttonGr"><a href="exec:">没车可不行</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>>翌日</p>'
+		'<p><<$XM.name>>: Mua！昨天睡的还好吗！我们一起去学校吧！</p>'
+	'</div>'
+End
+
+if $args[0]="XM_Fuck_按摩":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\温泉2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_按摩''">使用她的礼物 </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_按摩''">放置 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_按摩''">口交 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_按摩''">口爆 </a></div>'
+			end
+			if a!5 and 4<=q and q<=7:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_按摩''">后背位 </a></div>'
+			end
+			if a!6 and 5<=q and q<=8:
+			'<div class="buttonS3"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_按摩''">自己动 </a></div>'
+			end
+			if a!7 and 6<=q :
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_按摩''">大力抽插</a></div>'
+			end
+			if a=7:
+			'<div class="buttonPu2"><a href="exec:a=8 & gt ''学妹_事件'',''XM_Fuck_按摩''">室外情况 </a></div>'
+			'<div class="buttonS"><a href="exec:a=9 & gt ''学妹_事件'',''XM_Fuck_按摩''">射精 </a></div>'
+			end
+
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & gt ''学妹_事件'',''过夜''">过夜休息</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 这个精油里面有什么？感觉好热……好想要…</p>'
+			 '<p>我: 秘密。</p>'
+		 '</div>'
+	end
+
+
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>我: 你的礼物派上用处了呢！</p>'
+			 '<p><<$XM.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if 8>=a and a>=3:
+		 '<div class="dialog_menu">'
+		 	'<p><<$XM.name>>: <<$娇喘声2>></p>'
+		 	if a>=5:'<p><<$XM.name>>: <<$话>></p>'
+		 	if a=8:'<p>？？？: 再用力点…快…</p>' & $WQ.bad+=1
+		 '</div>'
+	end
+
+
+	if a=9:
+		 $XM.love+=q+my.魅力
+		 $XM.bad+=q*2
+		 $XM.按摩=1
+		 '<div class="dialog_menu">'
+		 	'<p><<$XM.name>>: 太太太…舒服了…意识都要模糊了…</p>'
+		 	'<p>我: 当然了…这可没有一个女人可以忍受得住。</p>'
+		 	'<p><<$XM.name>>: 为什么我总感觉有人在偷看我…</p>'
+		 	'<p>我: 那下一次你去我的公司里找我，我给你特别的“私人服务”。</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_面试":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\台1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!5:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_面试''">抗干扰测试 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_面试''">主持能力测试 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_面试''">潮喷测试 </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_面试''">开启炮机 </a></div>'
+			end
+			if a!5 and 4<=q:
+			'<div class="buttonR"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_面试''">极限测试 </a></div>'
+			end
+
+
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonGn"><a href="exec:$XM.JOB=1 & gt ''电视台''">暗示通过</a></div>'
+				'<div class="buttonR4"><a href="exec:$XM.JOB=0 & gt ''电视台''">一票否决</a></div>'
+			'</div>'
+	end
+
+
+
+
+	if 5>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: 面试编号：20230121,面试开始！</p>'
+			 '<p><<$XM.name>>: <<$娇喘声2>>我是面试编号：20230121……</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_探班2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\台3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_探班2''">热身运动 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_探班2''">拉伸运动 </a></div>'
+			end
+			if a!3 and 2<=q :
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_探班2''">臀部收紧 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_探班2''">跟上节奏！ </a></div>'
+			end
+			if a=4:
+			'<div class="buttonR3"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_探班2''">5秒燃脂操！ </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_探班2''">再来一次！ </a></div>'
+			end
+			if a=6:
+			'<div class="buttonR3"><a href="exec:a=7 & gt ''学妹_事件'',''XM_Fuck_探班2''">热身完毕 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''学妹_事件'',''XM_Fuck_探班2''">有氧运动 </a></div>'
+			end
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonGn"><a href="exec:gt ''电视台''">离开</a></div>'
+				if 保时捷=1:'<div class="buttonGn"><a href="exec:a=0 & q=0 &  gt ''学妹_事件'',''XM_Fuck_车''">开车送她</a></div>'else:'<div class="buttonGr"><a href="exec:">我没有车</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 欢迎各位收看《健身操节目》，今天我们有幸请到了健身专家为我们做动作指导！我是你们的实习主持人！如果各位喜欢我的话，可以为我点赞助力！前五名可以进入潮吹转正赛！</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p>健身专家: 在运动开始前，有效的热身可以防止受伤。</p>'
+			 if a=2:'<p>健身专家: 众所周知，韧带的拉伸是非常值得在运动开始前去做的。</p>'
+			 if a=3:'<p>健身专家: 我来检查一下，你是否有把臀部收紧！</p>'
+			 if a=4:'<p>健身专家: 跟上我的节奏！1！2！1！2！</p>'
+			 if a=5:'<p>健身专家: 这是经过健身房有氧操得出的《最新5秒燃脂操》。</p>'
+			 if a=6:'<p>健身专家: 再来一次！这次要用腹部核心的力量！</p>'
+			 if a=7:'<p>健身专家: 热身完毕之后，我们将进入有氧运动环节！</p>'
+			 '<p><<$XM.name>>: <<$娇喘声2>>…没错…</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 有氧核心在于每次30分钟以上，有氧运动尤其能使心脏及肺得到锻炼,同时还能使部分肌肉也得到程度的锻炼。</p>'
+			 '<p>健身专家: 没错！欢迎各位市民前来健身房体验！</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_探班":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\台2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!3:
+		'<div class="button_menu">'
+
+			'<div class="buttonS1"><a href="exec:a+=1 & gt ''学妹_事件'',''XM_Fuck_探班''">开始比赛 </a></div>'
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonGn"><a href="exec:gt ''电视台''">不看了</a></div>'
+				if 保时捷=1:'<div class="buttonGn"><a href="exec:a=0 & q=0 &  gt ''学妹_事件'',''XM_Fuck_车''">开车送她</a></div>'else:'<div class="buttonGr"><a href="exec:">我没有车</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 欢迎各位收看《新闻潮吹忍耐赛》，如果各位喜欢我的话，可以为我点赞助力！前五名可以进入潮吹转正赛！</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 关于前段时间歌舞伎町出现的犯罪情况…警方表示执法权仍在划分之中…</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_车":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\车1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!6:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_车''">交车费 </a></div>'
+			if $XM.job=1:
+			'<div class="buttonGn"><a href="exec:a=1 & gt ''学妹_事件'',''XM_Fuck_车''">回应：无所谓 </a></div>'
+			'<div class="buttonR4"><a href="exec:gt ''居民区''">冷漠：下车吧 </a></div>'
+			end
+			end
+			if a=1:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''学妹_事件'',''XM_Fuck_车''">吻住她 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''学妹_事件'',''XM_Fuck_车''">脱裤子 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''学妹_事件'',''XM_Fuck_车''">口我 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonR3"><a href="exec:a=5 & gt ''学妹_事件'',''XM_Fuck_车''">射嘴里 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''学妹_事件'',''XM_Fuck_车''">舒服了 </a></div>'
+			end
+
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonGn"><a href="exec:gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 有车真好啊！谢谢你送我！</p>'
+			 if $XM.job=1:
+			 '<p><<$XM.name>>: 我在电视台干的那些事…你都知道了啊…</p>'
+			 '<p>我: 嗯…</p>'
+			 '<p><<$XM.name>>: 你会不会对我有意见了…毕竟我给别的男人操了…</p>'
+			 end
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: Mua！谢谢你啦！你真好！我好爱你！</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$娇喘声2>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 啊！糟糕！滴到你车上了！</p>'
+			 '<p>我: ……</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="熟悉的身影":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\偶遇.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''深巷''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XM.name>>: ……</p>'
+		'<p>？？？: 我们走吧，酒店我订好了</p>'
+		'<p><<$XM.name>>: …嗯…</p>'
+		'<p>（我: ……这是怎么回事？看来我得找人去跟踪她了…有谁擅长的隐蔽侦查和秘密作战呢…）</p>'
+		if XM录像带=0:XM录像带=1
+	'</div>'
+End
+
+if $args[0] = '录像带选择':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\监控~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	 '<div class="button_menu">'
+
+		if XM录像带>=2 :'<div class="buttonR1"><a href="exec: a=0 &gt ''学妹_事件'',''XM_Fuck_录像2''">第①卷录影</a></div>'
+		if XM录像带>=3 :'<div class="buttonR2"><a href="exec: a=0 &gt ''学妹_事件'',''XM_Fuck_录像3''">第②卷录影</a></div>'
+		if XM录像带>=4 :'<div class="buttonR3"><a href="exec: a=0 &gt ''学妹_事件'',''XM_Fuck_录像4''">第③卷录影</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & a=0 &gt ''家_电脑''">关闭</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SS.NAME>> 留言： 看之前做好心理准备，别怪我没提醒你哈！想我了…就来找我…</p>'
+	'</div>'
+
+End
+
+if $args[0]="XM_Fuck_录像2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\录像1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!9:'<div class="buttonS1"><a href="exec:a+=1 & gt ''学妹_事件'',''XM_Fuck_录像2''">快进▶▶▶ </a></div>'
+			if a!0:'<div class="buttonGn"><a href="exec:a-=1 & gt ''学妹_事件'',''XM_Fuck_录像2''">◀◀◀后退 </a></div>'
+			'<div class="buttonGn"><a href="exec:gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+	else:
+		'<div class="button_menu">'
+			'<div class="buttonGn"><a href="exec:gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>？？？: 你是通过走后门进的电视台吧？我看了你的面试成绩单，明明是不及格，在最后却被录取了，好奇怪呢…</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>？？？: 如果这件事被公开的话…你猜猜会怎么样？</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$娇喘声2>></p>'
+			 if a>=3:'<p>？？？: 不光是你，你走后门的哪个人也会完蛋！</p>'
+			 if a>=5:'<p>？？？: 今晚，就让我来走你的后门吧！哈哈哈哈！</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: 你上次保证过会销毁我的面试成绩单的……！</p>'
+			 '<p>？？？: 面试成绩单可不好找，我们下次再见，小宝贝！</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_录像3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\录像2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!9:'<div class="buttonS1"><a href="exec:a+=1 & gt ''学妹_事件'',''XM_Fuck_录像3''">快进▶▶▶ </a></div>'
+			if a!0:'<div class="buttonGn"><a href="exec:a-=1 & gt ''学妹_事件'',''XM_Fuck_录像3''">◀◀◀后退 </a></div>'
+			'<div class="button"><a href="exec:gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+	else:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:  他又是谁…?你上次保证过会销毁我的面试成绩单的……！</p>'
+			 '<p>？？？: 太不巧了！你面试作弊的事…也被他发现了！唉！你说怎么办吧！</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>？？？: 小姑娘，别害怕，哥哥只要舒服了，就什么事都想不起来了！</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$娇喘声2>></p>'
+			 '<p>？？？: 来应聘这种主持人的，有一个算一个都是骚货！少给我装纯了！</p>'
+			 if a>=3:'<p>？？？: 你心里其实很想要吧！哈哈哈哈！</p>'
+			 if a>=4:'<p>？？？: 喂喂喂！该换我了！你还要肏多久？</p>'
+			 if a>=5:'<p>？？？: 急什么？还怕这条母狗被我肏坏了不成？哈哈哈哈！</p>'
+			 if a>=6:'<p><<$XM.name>>: <<$话>></p>'
+			 if a>=7:'<p>？？？: 哈哈哈哈！你瞧我说什么来着？！本性暴露了吧！骚逼！</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$话>></p>'
+			 '<p>？？？: 哈哈哈哈！精液都被你搞出来了！真恶心！</p>'
+			 '<p>？？？: 下次我们叫上老王，他应该很久没开过荤了！</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="XM_Fuck_录像4":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XM\vids\录像3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!14:
+		'<div class="button_menu">'
+			if a!14:'<div class="buttonS1"><a href="exec:a+=1 & gt ''学妹_事件'',''XM_Fuck_录像4''">快进▶▶▶ </a></div>'
+			if a!0:'<div class="buttonGn"><a href="exec:a-=1 & gt ''学妹_事件'',''XM_Fuck_录像4''">◀◀◀后退 </a></div>'
+			'<div class="button"><a href="exec:gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+	else:
+		'<div class="button_menu">'
+			'<div class="buttonGr"><a href="exec:">未来剧情？</a></div>'
+			'<div class="button"><a href="exec:gt ''家_电脑''">关闭</a></div>'
+		'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>:怎么这么多人……</p>'
+			 '<p>？？？: 啊呀啊呀！你面试舞弊的事…他们也都发现了！你应该清楚该用什么堵住他们的嘴吧？</p>'
+		 '</div>'
+	end
+
+
+	if 6>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$娇喘声2>></p>'
+			 '<p>？？？: 喂喂喂！怎么一上来就湿了啊？小浪货！</p>'
+			 if a>=3:'<p>？？？: 要射了！</p>'
+			 if a>=4:'<p>？？？: 你真垃圾，快来给我舔！</p>'
+			 if a>=5:'<p>？？？: 艹，我也要射了！</p>'
+			 if a>=6:'<p>？？？: 哈哈哈！这边还有一根，快过来！</p>'
+		 '</div>'
+	end
+
+	if 13>=a and a>=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$XM.name>>: <<$话>></p>'
+			 if a=7:'<p>？？？: 卧槽？！骚逼居然这么紧？！</p>'
+			 if a=8:'<p>？？？: 看这骚货，已经意乱情迷了！</p>'
+			 if a>=9:'<p>？？？: 啊啊啊啊要射了！</p>'
+			 if a>=10:'<p>？？？: 给我好好接住这一发！！</p>'
+			 if a>=11:'<p>？？？: 精液都被你搞出来了！真恶心！</p>'
+			 if a>=12:'<p>？？？: 这样沾满精液的臭逼你也要插？你不是更恶心？*大笑</p>'
+			 if a>=13:'<p>？？？: 我来给大家清理一下，卧槽，多的都溢出来了！</p>'
+
+		 '</div>'
+	end
+
+	if a=14:
+		 '<div class="dialog_menu">'
+			 '<p>·随后的三小时都是类似的画面…她的心态已经产生了不可逆的改变…</p>'
+			 '<p>·此处为当前版本最终故事线</p>'
+			 '<p>✌【此剧本由群友提供，若有创作热情，可加群投稿】</p>'
+			 $XM.bad+=q*2
+		 '</div>'
+	end
+
+  q+=1
+End
+--- 学妹_事件 ---------------------------------
+

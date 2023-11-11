@@ -1,0 +1,1783 @@
+# 继母_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $ARGS[0]="偷听":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\电话~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>：我也想你。</p>'
+		'<p>-？？？：什么时候可以做？</p>'
+		'<p>-<<$JM.name>>：好啦，别闹，我还在经期呢，你也早点睡吧。</p>'
+		'<p>-<<$JM.name>>：（真是个烦死了，稍微表示一下就得寸进尺....）</p>'
+		'<p>-看来<<$JM.name>>有个麻烦的情人...?</p>'
+	'</div>'
+
+end
+
+if $args[0]="外公强暴":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q=0 :
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''外公强暴'',''强奸2''">...</a></div>'
+			end
+			if a!2 and q=1 :
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''外公强暴'',''强奸3''">...</a></div>'
+			end
+			if a!3 and q=2 :
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''外公强暴'',''强奸4''">...</a></div>'
+			end
+			if a!4 and q=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''外公强暴'',''强奸5''">...</a></div>'
+			end
+			if a!5 and q=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''外公强暴'',''强奸6'',''结束''">...</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:$JM_Event_grandpa=5 & gt ''家''">哇偶，信息量真大...</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>外公:我一个人辛辛苦苦把你养大，花钱送你去国外最好的大学念书，手把手教你运营公司，结果你就是这样报答我的？！</p>'
+			 '<p><<$JM.name>>:爸，你听我解释，不是你想象的那样的..啊？！不可以...爸爸，快住手....不可以！你这是强奸！强奸犯是要被物理阉割的！</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>外公:强奸犯？！那些董事会成员也是强奸犯吗？我的生意伙伴也是强奸犯吗？！你真是把我的脸丢光了！</p>'
+			 '<p><<$JM.name>>:什..什么....</p>'
+			 '<p>外公:别装了！口口声声说自己性冷淡，结果为了一片破矿脉，被人捆起来当个沙包操得失禁？</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>外公:你这个下贱的肉便器，不配做我女儿，既然你放弃做人了，谁肏你不是一样？！</p>'
+			 '<p><<$JM.name>>:爸，我错了....快住手....听我说....</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>外公:我没你这种女儿！</p>'
+			 '<p><<$JM.name>>:爸爸，绝对不可以，绝对不可以插进来，我是你的女儿啊....</p>'
+		 '</div>'
+	end
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>:不行，爸爸的鸡巴好奇怪啊，我要被爸爸的鸡巴操得高潮了...我要被爸爸的鸡巴操得高潮了...</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>:为什么要射在里面？我们...是一家人啊!!</p>'
+			 '<p>外公:谁是你的家人，我要去法院断绝父女关系！我要收回药厂的经营权！你休想再从我这里拿走一分一厘！</p>'
+		 '</div>'
+	end
+
+		
+ q+=1
+
+end
+
+
+if $args[0]="仓库监控":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$B>><<C>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		if C ! 6 :
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:C+=1 & gt ''继母_事件'',''仓库监控''">...</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''家_电脑''">离开</a></div>'
+			'</div>'
+		end
+	end
+
+
+	if C=1:
+		 '<div class="dialog_menu">'
+			 '<p>-男人:快给我含住你个婊子，如果你不想事情曝光的话，你最好识相一点。 </p>'
+		 '</div>'
+	end
+	if C=2:
+		 '<div class="dialog_menu">'
+			 '<p>男人:装什么可怜.....你的嘴巴应该已经品尝过很多的肉屌了！    </p>'
+		 '</div>'
+	end
+	if C=3:
+		 '<div class="dialog_menu">'
+			 '<p>男人:....什么声音？....算了，赶紧给我含湿了马上就要肏你了！    </p>'
+		 '</div>'
+	end
+	if C=4:
+		 '<div class="dialog_menu">'
+			 '<p>男人:  对，给我好好含，往你的喉咙里塞！对，含得再深一点..  </p>'
+		 '</div>'
+	end
+	if C=5:
+		 '<div class="dialog_menu">'
+			 '<p>男人:  明明都被肏过这么多次了...如果被你的下属知道你是一条任人奸淫的母狗，他们会怎么想？  </p>'
+		 '</div>'
+	end
+	if C=6:
+		 '<div class="dialog_menu">'
+			 '<p>男人:  给我一滴不剩地统统喝下去，你这个臭婊子！  </p>'
+			 '<p>哇偶，信息量真大..<<$jm.name>>居然被胁迫...做这种事？！  </p>'
+			 $JM_Event_store=1
+		 '</div>'
+	end
+		
+end
+
+if $ARGS[0]="周六仓库":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\仓库0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $JM_Event_store=2 :
+			'<div class="button"><a href="exec:minutes += 60 & gt ''继母_事件'',''仓库等待''">耐心等待</a></div>'
+		 end
+		'<div class="button"><a href="exec:minutes += 30 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- <<$娇喘声>></p>'
+		'<p>- 男人： 每周这个时间你都要过来满足我！如果你不想事情曝光的话....</p>'
+		'<p>- 看来有什么人正在做爱..我还是不要进去了..监控摄像里应该能录到....</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="仓库等待":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\仓库6~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes += 60 & gt ''陋室''">跟踪他</a></div>'
+		'<div class="button"><a href="exec:minutes += 30 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- 躲在一旁，静静地看着....</p>'
+		'<p>- <<$娇喘声>></p>'
+		'<p>- 男人：你这个臭婊子，今天怎么这么湿？下面是不是被插了根水管啊？...说，你是不是骚货？</p>'
+		'<p>- <<$jm.name>>：是....我是骚货...只要你把【B-137】项目的原文件...还给我..</p>'
+		'<p>- 男人：哈？当初可是你亲手给我的！现在想要回去？别做梦了！只要它还在，你就永远是我的奴隶！</p>'
+	'</div>'
+
+end
+
+if $args[0]="临时工":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$B>><<C>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		if C ! 1 :
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:C+=1 & gt ''继母_事件'',''临时工'',''结束''">...</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes +=60  & gt ''姆苟制药''">离开</a></div>'
+			'</div>'
+		end
+	end
+
+	if C=0:
+		 '<div class="dialog_menu">'
+			 '<p>-临时工：  老板，从我第一次第一面见到你开始，我的脑袋就空的就像一张白纸，我想要给你许下海誓山盟，你的每句话我都会绝对听从。 </p>'
+			 '<p>-<<$jm.name>>： 我是有老公的人....不可以...  </p>'
+			 '<p>-临时工： 他多半是挺不过来了，再说一妻多夫制就要实行了，没关系的！  </p>'
+			 '<p>-  不顾一切地吻了上去！ </p>'
+			 '<p>-<<$jm.name>>：不可以..就到此为止吧...   </p>'
+		 '</div>'
+	end
+	
+	if C=1:
+		 '<div class="dialog_menu">'
+			 '<p>-临时工：   老板，如果你不答应我！我就死给你看！我就从这里跳下去！</p>'
+			 '<p>-<<$jm.name>>：  好吧好吧....但是在我正式离婚前....我们的关系只能到此为止......（先勉强答应他吧，听说他是个冲动的人..在上一家公司就一怒之下把数据库全删了....真怕做出什么极端的事..） </p>'
+			 '<p>-临时工：  真的吗？太好了，我愿意为你付出我的全部！就算是死我也愿意！ </p>'
+			 '<p>-  看来有个麻烦的临时工需要解决... </p>'
+			 $JM_Event_new=1
+		 '</div>'
+	end
+		
+end
+
+if $ARGS[0]="处理麻烦":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\公司开场~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes += 15 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- 我： 想必您有不少烦心事吧？一朝中阴谋，二桃杀三士！谁能为此者？你幽幽道。</p>'
+		'<p>- <<$jm.name>>： 你神神叨叨地说什么呢？关你什么事？！</p>'
+		'<p>- 我：  我知道因为一些原因你正被三个男人纠缠，我是来谈报酬的。我需要在事成之后，你无条件答应我3个要求。</p>'
+		'<p>- <<$jm.name>>：做梦！我自己的事自己能搞定，不需要你来教我做事！ （难道这些破事都被这小子发现了？不可能啊...）</p>'
+		'<p>- 我： 你确定？我有办法让这三个人永远离开你的生活，你好好考虑吧。</p>'
+		'<p>- <<$jm.name>>：我的事不需要你来操心，管好你自己吧。 </p>'
+		'<p>-<b><font color="#FF0000"> 看来我得先独自解决掉一个麻烦，才能让她信服。</font> </b></p>'
+		$JM_Event_store=2
+	'</div>'
+	
+
+
+end
+
+if $ARGS[0]="邀功":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\HM交谈~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- 你在她面前晃了晃一块硬盘。</p>'
+		'<p>-<<$JM.name>>： 你这是要干嘛...难道说..？ </p>'
+		'<p>-你熟练地点开了那个文件夹，她的眼睛不自觉地瞪大了。</p>'
+		'<p>-<<$JM.name>>： 这....还有没有别的备份？ （她压低了声音）</p>'
+		'<p>-我： 你很快就会知道了...</p>'
+		'<p>————————</p>'
+		'<p>*吵杂声 ——先生！先生您不能进去！</p>'
+		'<p>男声：你敢拦我？你进公司还是我面试的你！<<$jm.name>>！好！你这个臭婊子！玩这手！！你给我等着！你给我等着！我要告诉所有人！我这辈子都不会放过你的！</p>'
+		'<p>-我： 如果他还有底牌的话，至于这么生气吗？接下来只要想个办法把他踢出这座城市，您从今往后就能高枕无忧了。</p>'
+		'<p>-<<$JM.name>>： 哼，做的还不错。我在出入境管理局哪里有人照应，这件事我自己办就行了！ </p>'
+		'<p>-我： 按照约定，三个要求......</p>'
+		'<p>-<<$JM.name>>：知道了知道了，我还有个视频会议要开，等会再聊！</p>'
+		$JM.LOVE+=10
+		$JM_Event_store=4
+	'</div>'
+
+end
+
+if $args[0]="第一个要求":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$B>><<C>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		if C ! 3 :
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:C+=1 & gt ''继母_事件'',''第一个要求''">...</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''姆苟制药''">离开</a></div>'
+			'</div>'
+		end
+	end
+
+	if C=0:
+		 '<div class="dialog_menu">'
+			 '<p>-<<$jm.name>>：（惊讶）....啊？我们可是母子！你换一个别的！ </p>'
+			 '<p>-我:  可你也没把我当儿子不是吗？ 你真是言而无信。明明答应了我.....那帮我撸出来总行了吧？  </p>'
+			 '<p>-<<$jm.name>>：（沉默）...那...好....OS：男人果然都是一个样的...快点射出来吧。</p>'
+			 '<p>-我:  刺激还不够呢。（你伸出手按住她的头）  </p>'
+		 '</div>'
+	end
+	if C=1:
+		 '<div class="dialog_menu">'
+			 '<p>-<<$jm.name>>：（惊讶）....呜..呜...OS：有这么长吗?都顶到喉咙了外面还有这么多.... </p>'
+		 '</div>'
+	end
+	if C=2:
+		 '<div class="dialog_menu">'
+			 '<p>-我:  天哪，你的口活可真厉害！我快要缴械了！    </p>'
+		 '</div>'
+	end
+	if C=3:
+		 '<div class="dialog_menu">'
+			 '<p>-<<$jm.name>>：...呜..这样就可以了吧..... </p>'
+			 '<p>-我:  嘿嘿，是的。妈妈你真厉害~    </p>'
+			 '<p>-<<$jm.name>>害羞了一下....一种莫名的情感在她心中悸动.... </p>'
+			 $jm.bad+=3
+		 '</div>'
+	end
+End
+
+if $ARGS[0]="继母_浴室":
+	$继母_浴室NUM=RAND(0,2)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\浴室<<$继母_浴室NUM>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $JM.BAD>=100:
+			if $继母_浴室NUM=0:
+			'<div class="buttonS"><a href="exec:minutes+=15 & a=1 & gt ''继母_事件'',''快速浴室''">强插她</a></div>'
+			else:
+			'<div class="buttonS"><a href="exec:minutes+=15 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴0''">进去</a></div>'
+			end
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- <<$jm.name>>在浴室里....</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="快速浴室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\快速洗澡1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if a=1:'<div class="button"><a href="exec:minutes+=15 & $JM.BAD+=5 & a+=1 & gt ''继母_事件'',''快速浴室''">干完就走</a></div>'
+		if a=2:'<div class="button"><a href="exec:minutes+=15 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- <<$jm.name>>:<<$娇喘声>></p>'
+	'</div>'
+
+end
+
+if $args[0]="JM_Fuck_电话时":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\电话时1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			if a!1  and q<=2 and $JM.love>=100:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_电话时''">调戏她</a></div>'
+			end
+			if a!2  and 1<=q :
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_电话时''">插入</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_电话时''">大力抽插</a></div>'
+			end
+			if a!4 and 3<=q :
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_电话时''">后入</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS1"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_电话时''">冲刺</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_电话时''">射精</a></div>'
+			end
+			'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>正躺在床上，拿着手机打电话。她的脸上带着关切的表情，嘴里不停地说着什么。听起来她似乎在和电话里的人讨论某件重要的事情。</p>'
+			 '<p><<$JM.name>>：好的，接下来的对接工作我会安排人去…</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$娇喘声>></p>'
+			 '<p><<$JM.name>>：没…没事，我…我只是在做运动…</p>'
+		 '</div>'
+	end
+	if 5>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$话>></p>'
+		 '</div>'
+	end
+	if a=6:
+		 $JM.love+=q+my.魅力
+		 $JM.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="卧室内":
+	$卧室num=rand(1,2)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\卧室内<<$卧室num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $JM.bad>=110:'<div class="buttonS"><a href="exec:gt ''继母_事件'',''JM_Fuck_卧室内''">进去干她</a></div>'else:'<div class="buttonGr"><a href="exec:">进去干她</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- <<$jm.name>>在卧室里换衣服。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="吃饭":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\吃饭1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $JM.bad>=110 and a!3:'<div class="buttonS"><a href="exec:a+=1 &gt ''继母_事件'',''吃饭''">我也要吃</a></div>'else:'<div class="buttonGr"><a href="exec:">没事了</a></div>'
+		'<div class="button"><a href="exec:minutes+=45 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if a=0:'<p>- <<$jm.name>>正在吃午餐。</p>'
+		if a>0:'<p>- <<$jm.name>>:<<$娇喘声>></p>'
+	'</div>'
+
+end
+
+if $args[0]="JM_Fuck_卧室内":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\房间内1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<9:
+		'<div class="button_menu">'
+			if a!1  and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_卧室内''">抠逼</a></div>'
+			end
+			if a!2  and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_卧室内''">口交</a></div>'
+			end
+			if a!3  and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_卧室内''">开操</a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_卧室内''">抬腿</a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_卧室内''">后入冲刺</a></div>'
+			end
+			if a=5:
+			'<div class="buttonR1"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_卧室内''">操喷她</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS4"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_卧室内''">继续干她</a></div>'
+			end
+			if a=7:
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''继母_事件'',''JM_Fuck_卧室内''">射精</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''继母_事件'',''JM_Fuck_卧室内''">事后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：等等啊，妈妈正在换衣服！</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$娇喘声>></p>'
+		 '</div>'
+	end
+	if 8>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$话>></p>'
+		 '</div>'
+	end
+	if a=9:
+		 $JM.love+=q+my.魅力
+		 $JM.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：又被儿子肏烂了……我真是个婊子后妈……</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+if $args[0]="继母_房间抱":
+	if $JM.bad>= a*8+25:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''继母_房间抱'',''吻''">接吻</a></div>'
+			end
+			if a!2 and q<=2:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''继母_房间抱'',''床上1挑逗''">揉胸</a></div>'
+			end
+			if a!3 and q<=3:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''继母_房间抱'',''床上2舔她''">舔她</a></div>'
+			end
+			if a!3 and 1<=q and q<=3 :
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''继母_房间抱'',''床上3挑逗2''">舔我</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''继母_房间抱'',''床上4口交''">口交</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''继母_房间抱'',''床上5sex''">坐上来</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''继母_房间抱'',''床上6冲刺sex''">往死里操她</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''继母_房间抱'',''床上7射''">颜射</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''继母_房间抱'',''床上8结束'',''结束''">陪她一会</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>你抱住她并把你的脸埋进她的胸里...</p>'
+			 '<p><<$JM.name>>：这么大的人了，还在胡闹什么....</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q+2
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： 不行....不行...我们是母子...<<$娇喘声>></p>'
+			  '<p>我并没有停下的打算，相反，<<$JM.name>>的娇喘令我兴奋极了....</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>></p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：我到底在做什么...儿子美味的精子全在我的嘴巴里.....(我真是个婊子妈，居然和儿子做了这种事，又不是亲儿子应该没关系吧！)</p>'
+		 	 '<p>我：真拿你们没办法~</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $args[0]="继母_公司_日常":
+	if $JM.bad>= a*8+35:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=1:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''继母_公司_日常'',''公司日常1''">加速</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''继母_公司_日常'',''公司日常2''">射在她嘴里</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''继母_公司_日常'',''公司日常3''">让她吃掉</a></div>'
+			end
+			if a=3 and 2<=q and q<7:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''继母_公司_日常'',''公司日常4''">直接后入</a></div>'
+			end
+			if a!5 and 3<=q and q<8:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''继母_公司_日常'',''公司日常5''">正面骑乘</a></div>'
+			end
+			if a!6 and 4<=q and q<9:
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''继母_公司_日常'',''公司日常6''">背面骑乘</a></div>'
+			end
+			if a<7 and q>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''继母_公司_日常'',''HM菊花''">掰开屁眼</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''继母_事件'',''继母_公司_日常'',''公司日常7''">肛交冲刺</a></div>'
+			end
+			if a=8 :
+			'<div class="button"><a href="exec:a=9 & gt ''继母_事件'',''继母_公司_日常'',''公司日常8''">射精</a></div>'
+			end
+			if a=9: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''继母_公司_日常'',''公司日常9'',''结束''">清理干净</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''姆苟制药''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>你给了她一个眼神，她立马关上了门。</p>'
+			 '<p><<$JM.name>>她非常自然地开始为你服侍.....</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！被人发现了可不好！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>骚穴都被插出白浆了，换个洞吧..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：我到底在做什么...儿子美味的精子全在我的嘴巴里.....(我真是个婊子妈，居然和儿子做了这种事，又不是亲儿子应该没关系吧！)</p>'
+		 	 '<p>我：真拿你们没办法~</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $args[0]="JM_Fuck_酒后":
+	if $JM.bad>= a*1+25:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后0开幕''">诱惑</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后2挑逗2''">吮吸蛋蛋</a></div>'
+			end
+			if a!3 and 2<=q and q<5:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后3口交''">口交</a></div>'
+			end
+			if a!4 and 3<=q and q<8:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后4sex''">后背位</a></div>'
+			end
+			if a!5 and 4<=q and q<9:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后5sex''">正常位</a></div>'
+			end
+			if a!6 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后6冲刺sex''">抬腿冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后7射''">射精</a></div>'
+			end
+
+			if a=7: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_酒后'',''酒后8结束'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>你们四目相对时，发觉她的眼神迷离了起来。</p>'
+			 '<p>突然...<<$JM.name>>故意把酒泼在了你的身上......然后开始舔起来.....</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q+5
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！被人发现了可不好！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q+10
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：真美味，果然儿子的骚臭精液是最好的酒后甜点了~~啊咧？~酒劲上来了...我要眯一会了。</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $args[0]="JM_Fuck_精油":
+	if $JM.bad>= a*10+33:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_精油'',''精油1挑逗''">上下挑逗</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_精油'',''精油2挑逗2''">扣逼</a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_精油'',''精油3喷水''">强制喷水</a></div>'
+			end
+			if a!4 and 3<=q and q<8:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_精油'',''精油4sex''">后背位高潮</a></div>'
+			end
+			if a!5 and 4<=q and q<9:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_精油'',''精油5sex''">正常位高潮</a></div>'
+			end
+			if a!6 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_精油'',''精油6冲刺sex''">加速冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_精油'',''精油7射''">射精</a></div>'
+			end
+
+			if a=7: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_精油'',''精油8结束'',''结束''">让她舔干净</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我：妈，工作一天了，放松一下吧。你晃了晃手中的精油。</p>'
+			 '<p><<$JM.name>>她暧昧地看了你一眼....就懂了你的心思...</p>'
+			 '<p><<$JM.name>>：好热...好痒....你这是什么精油...OS：被儿子摸的我心跳好快，想做爱了....</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q+2
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！被人发现了可不好！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q+5
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：我真是个淫荡的女人，被自己的继子肏得喷了一地....</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $ARGS[0]="出门前来一发":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\出门前~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=60 & $JM.LOVE+=10 & gt ''姆苟制药''">送她去公司</a></div>'
+		'<div class="button"><a href="exec: minutes+=60 & gt ''家''">送她出门</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>： 别这样....我会迟到了啦~！ </p>'
+		'<p>-虽然她嘴上这么说，还是熟练地骑到了你的身上。</p>'
+		'<p>-<<$JM.name>>： <<$话>></p>'
+		'<p>-<<$JM.name>>： <<$娇喘声>></p>'
+		$JM.BAD+=10
+	'</div>'
+
+end
+
+if $args[0]="JM_Fuck_首药":
+	$JM_Event_mgf=0
+	if $JM.bad>= a*10+20:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_首药'',''首药1''">强吻</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_首药'',''首药2''">往下摸</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_首药'',''首药3''">强制喷水</a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_首药'',''首药4''">强制口交</a></div>'
+			end
+			if a!5 and 4<=q and q<=6:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_首药'',''首药5''">强制插入</a></div>'
+			end
+			if a!6 and 5<=q and q<=8:
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_首药'',''首药6''">后背位高潮</a></div>'
+			end
+			if a!7 and 6<=q and q<=10:
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_首药'',''首药7''">骑乘位高潮</a></div>'
+			end
+			if a!8 and q>=8:
+			'<div class="button"><a href="exec:a=8 & gt ''继母_事件'',''JM_Fuck_首药'',''首药8''">再次冲刺</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''继母_事件'',''JM_Fuck_首药'',''首药9''">颜射</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=10 & gt ''继母_事件'',''JM_Fuck_首药'',''首药10''">外射</a></div>'
+			end
+			if a>=9: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_首药'',''首药11'',''结束''">欣赏她的骚样</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">带她回家休息</a></div>'
+
+			'</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>你把她带进了一家旅馆里。</p>'
+			 '<p><<$JM.name>>唔——唔唔，..嘴巴被堵住完全发不出声音..</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q+5
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：不行....快住手.....她突然清醒过来~</p>'
+		 '</div>'
+	end
+	if 5>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=6 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q+5
+		 $JM.love+= q+my.魅力
+		 $JM_Event_mgfs+=1
+		 $JM_MGF=1
+		 '<div class="dialog_menu">'
+			 '<p><<$娇喘声>>由于麦高芬的影响，她双眼迷离地倒在地上...残留的高潮一次又一次地洗刷着她的意识...</p>'
+			 '<p><<$娇喘声2>>我还要.....这下你开始猜测董事会上发生什么了....</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+
+if $ARGS[0]="首药遇":
+	'<div class ="show_menu"><img src="images\NPC\JM\pics\下班.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	    '<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_首药'',''首药1''">带她去休息</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''家''">独自回家</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>- <<$jm.name>>迷迷糊糊地走在路边.....应该是麦高芬的作用....</p>'
+	'</div>'
+
+end
+
+if $args[0]="JM_Fuck_浴室":
+	if $JM.bad>= a*10+35:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴1''">挑逗</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴2''">玩弄她</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴3''">跪下口交</a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴4''">操她</a></div>'
+			end
+			if a!5 and 4<=q and q<=6:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴5''">颜射</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_浴室'',''淋浴6'',''结束''">离开</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家_卧室''">回房间</a></div>'
+				if $JM_Event_mgfs>=3:
+				'<div class="button"><a href="exec:minutes+=60 & q=0 &a=2& gt ''继母_事件'',''JM_Fuck_麦高芬'',''浴室袭''">让她跟着你</a></div>'
+				end
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><她愣愣地看着你进来，却没有发出任何声音....</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！被人发现了可不好！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>..她看着你离开的样子，仿佛有些落寞....</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $args[0]="JM_Fuck_麦高芬":
+	if $JM.bad>= a*10+35:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=1:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬1''">抠她的逼</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬2''">开始操她</a></div>'
+			end
+			if a!3 and 2<=q and q<=8:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬3''">把她操高潮</a></div>'
+			end
+			if a!4 and 3<=q and q<=9:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬4''">把她操失神</a></div>'
+			end
+			if a!5 and a!6 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬5''">疯狂抽插</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬6''">颜射</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬8''">内射</a></div>'
+			end
+			if a=6 or a=8: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬7'',''结束''">一小时后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$jm.name>>...我要..我要..快给我....她欲求不满的样子让你一下子勃起了......</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！被人发现了可不好！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 2>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q
+		 $JM.love+= q+5+my.魅力
+		 $JM_Event_mgfs+=1
+		 
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ...大鸡巴好棒......我还要...操死我..<<$娇喘声>>.操死我.....把你妈妈操烂.......</p>'
+			 '<p>....她在你的身体上不断抽搐、扭动、痉挛着...高潮的快感占据了她的意识........</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $ARGS[0]="出发约会":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\约会1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes += 180 & gt ''继母_事件'',''JM_Fuck_温泉'',''约会2''">出发</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>- 没过多久，一道靓丽的身影出现在了你的面前。</p>'
+		'<p>- 我：你真好看！怪不得爸爸会喜欢你！</p>'
+		'<p>- <<$jm.name>>：咳咳....快走吧！（工作人员会以为我们是情侣的吧！）</p>'
+	'</div>'
+
+end
+
+if $args[0]="JM_Fuck_温泉":
+	$JM_Event_date=0
+	if $JM.bad>= a*10+35:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉0开幕''">挑逗</a></div>'
+			end
+			if a!2 and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉1挑逗''">玩小穴</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉3口交''">深喉</a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉4sex''">女上位</a></div>'
+			end
+			if a!5 and 4<=q and q<=6:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉5sex''">接吻骑乘</a></div>'
+			end
+			if a!6 and a!7 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉6冲刺sex''">肛交冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_温泉'',''温泉7射''">射精</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=8 & gt ''继母_事件'',''JM_Fuck_温泉'',''偷窥后入''">室外情况</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_温泉'',''床上8结束'',''结束''">一小时后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">回家</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$jm.name>>：好的，好的....你给我一个新方案就行了....'
+			 '<p>我：怎么还不结束......'
+			 '<p><<$jm.name>>...对....旧方案已经被否决了....好的..你尽快给我一个答复.....</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$jm.name>>...不好意思...刚刚有个紧急会议....儿子等久了吧..妈妈这就补偿你...</p>'
+		 '</div>'
+	end
+	
+	if 3>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+			 if a=8:
+			 '<p>???： 好棒...我也想要大鸡巴肏我.....</p>'
+			 end
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q+5
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：..好开心.....好久没这么开心过了......放下工作拼命做爱的感觉真好.....时候不早了..我们该回家了...</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $args[0]="JM_Fuck_3P":
+	if $JM.bad>= a*10+35:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_3P'',''3P1挑逗''">舔屌自慰</a></div>'
+			end
+			if a!2 and 0<q and  q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_3P'',''3P2挑逗2''">强制高潮</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_3P'',''3P3口交1''">给我口交</a></div>'
+			end
+			if a!4 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_3P'',''3P4口交2''">给他口交</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_3P'',''3P5sex''">换我肏</a></div>'
+			end
+			if a!6 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_3P'',''3P6sex''">换他肏</a></div>'
+			end
+			if a!7 and  5<=q and q<=11:
+			'<div class="button"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_3P'',''3P7冲刺sex''">温柔抽插</a></div>'
+			end
+			if a!8 and 5<=q and q<=12:
+			'<div class="button"><a href="exec:a=8 & gt ''继母_事件'',''JM_Fuck_3P'',''3P8冲刺2sex''">暴力冲刺</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''继母_事件'',''JM_Fuck_3P'',''3P9射''">颜射吞精</a></div>'
+			end
+
+			if a=9: 
+			'<div class="button"><a href="exec:a=-1 & gt ''继母_事件'',''JM_Fuck_3P'',''3P10结束'',''结束''">一小时后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''姆苟制药''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$jm.name>>...既然之前发生的悲痛已经无法改变了，那就狠狠地向我复仇吧，怎样都可以。..</p>'
+		 '</div>'
+	end
+	if $args[1]="停止":
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：好了，好了，到此为止！！！</p>'
+		 	 '<p>我：真是扫兴~</p>'
+		 '</div>'
+	end
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： ..<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>： <<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=-1:
+		 $JM.bad+= q
+		 $JM.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：..张开的骚穴被你们肏的发出黏腻的水声，在一次又一次高潮中，第二第三波浓浆也急急的灌进了她的花穴深处。..</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+
+if $args[0]="JM_Fuck_夜袭":
+	if $JM.bad>= a*10+35:
+		else:
+		$args[1]="停止"
+		$args[2]="结束"
+	end
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\夜袭1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_夜袭''">摸嘴巴</a></div>'
+			end
+			if a!2 and 1<=q and q<=3:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_夜袭''">看内裤</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_夜袭''">揉奶</a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_夜袭''">摸奶头</a></div>'
+			end
+			if 4<=q and $JM.bad>=100:
+			'<div class="buttonS5"><a href="exec:a=0 & q=0 & gt ''继母_事件'',''JM_Fuck_夜袭2''">叫醒做爱</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=60 & gt ''家''">离开</a></div>'
+
+			'</div>'
+	end
+
+	if $args[2]!"结束":
+		 '<div class="dialog_menu">'
+			 '<p><<$jm.name>>：zzZ'
+			 '<p>我：......'
+		 '</div>'
+	end
+	if $args[2]="结束":
+		 '<div class="dialog_menu">'
+		 	 '<p>我：太危险了，我可不想吵醒她....</p>'
+		 	 $my.道德-=1
+		 '</div>'
+	end
+
+ q+=1
+
+end
+
+if $args[0]="JM_Fuck_夜袭2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\夜袭2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a!1  and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_夜袭2''">揉逼</a></div>'
+			end
+			if a!2  and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_夜袭2''">口交</a></div>'
+			end
+			if a!3 and 2<=q and q<=7:
+			'<div class="button"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_夜袭2''">插入</a></div>'
+			end
+			if a!4 and 3<=q and q<=8:
+			'<div class="button"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_夜袭2''">女上位</a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="buttonS1"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_夜袭2''">冲刺</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_夜袭2''">操喷她</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_夜袭2''">射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''继母_事件'',''JM_Fuck_夜袭2''">事后</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：我就知道是你这个小坏蛋！</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：<<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		$JM.love+=q+my.魅力
+		$JM.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我： 我看你乐在其中嘛。</p>'
+			 '<p><<$JM.name>>:真是的，别打扰我睡觉。快出去！</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="别墅进门":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\来访N.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $JM.love>=500:'<div class="buttonS"><a href="exec:gt ''继母_事件'',''JM_Fuck_别墅卧室''">直奔卧室</a></div>'else:'<div class="buttonGr"><a href="exec:">亲密不足</a></div>'
+		if $JM.bad>=500:'<div class="buttonPu4"><a href="exec:gt ''继母_事件'',''JM_Fuck_地下室''">去地下室</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足</a></div>'
+		'<div class="button"><a href="exec:gt ''大别墅''">今天没空</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>- 门一打开，一道靓丽的身影出现在了你的面前。</p>'
+		'<p>- <<$jm.name>>：这里比家里气派不少嘛，真是宽敞。</p>'
+		'<p>- <<$QB.name>>：伯母好。</p>'
+		'<p>- <<$SSYY.name>>：阿姨好。</p>'
+		'<p>- <<$jm.name>>：哟，有这么多小娇妻？这么热闹怪不得儿子不愿意待在家里了。妈妈在家可是寂寞的要死呢…</p>'
+		'<p>- 我：妈，你这说的哪的话？家里妹妹和姐姐不也是陪着…</p>'
+		'<p>- <<$jm.name>>：不劳烦你们了，我的宝贝儿子会带我参观的，是吧❤*暧昧地瞥了你一眼</p>'
+	'</div>'
+
+end
+
+ 
+ 
+if $args[0]="JM_Fuck_别墅卧室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\进卧室1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<12:
+		'<div class="button_menu">'
+			if a!1  and q<=2:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">主动侍奉</a></div>'
+			end
+			if a!2  and 1<=q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">舔睾丸</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">玩弄龟头</a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">高速口交</a></div>'
+			end
+			if a=4:
+			'<div class="buttonR2"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">舌上射精</a></div>'
+			'<div class="buttonS4"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">去床上肏</a></div>'
+			end
+
+			if a=6:
+			'<div class="buttonS2"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">背对我</a></div>'
+			'<div class="buttonS3"><a href="exec:a=8 &gt ''继母_事件'',''JM_Fuck_别墅卧室''">正常位</a></div>'
+			end
+
+			if a=7 or a=8:
+			'<div class="buttonS3"><a href="exec:a=9 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">后入冲刺</a></div>'
+			end
+			if a=9:
+			'<div class="buttonS4"><a href="exec:a=10 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">口爆</a></div>'
+			'<div class="buttonR4"><a href="exec:a=11 & gt ''继母_事件'',''JM_Fuck_别墅卧室''">内射</a></div>'
+			end
+			if a=10 or a=11 or a=5:
+			'<div class="buttonP"><a href="exec:a=12 &gt ''继母_事件'',''JM_Fuck_别墅卧室''">温存</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">送她离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：跟妈妈说说，现在在门口偷听的那几个骚货你都上过了没？</p>'
+			 '<p>我： 妈，这样称呼女性可是不礼貌的。</p>'
+			 '<p><<$JM.name>>：没关系的，妈就是个骚货，我这样称呼她们是公平的。</p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：不愿意说是嘛？还听保护她们的嘛？</p>'
+			 if a>=2:'<p><<$JM.name>>：能忍多久呢<<$娇喘声>></p>'
+			 if a>=5:'<p>我：等等等等等等！</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=6:
+		 '<div class="dialog_menu">'
+		 	 '<p>我：我看是你先忍不住吧！</p>'
+			 '<p><<$JM.name>>：<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=10 or a=11:
+		 '<div class="dialog_menu">'
+			 '<p>我： 给我每一滴都接住了！</p>'
+			 '<p><<$JM.name>>: 没问题！宝贝儿子的精液妈妈每一滴都会好好享用❤</p>'
+		 '</div>'
+	end
+	if a=12:
+		$JM.love+=q+my.魅力
+		$JM.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>我： 妈妈，儿子永远爱你。</p>'
+			 '<p><<$JM.name>>: 真是的，说这种甜言蜜语干嘛❤算了，反正妈妈也不可能给你生孩子，你争取早点让门外那几个骚逼怀上，让妈抱个孙子！</p>'
+			 '<p>我： 好嘞，这可是你儿子的强项呢。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="JM_Fuck_地下室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\地下室1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<11:
+		'<div class="button_menu">'
+			if a<4  and q=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_地下室''">抽插玩具</a></div>'
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''继母_事件'',''JM_Fuck_地下室''">振动棒塞入</a></div>'
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''继母_事件'',''JM_Fuck_地下室''">指尖潮吹</a></div>'
+			end
+			if a!4 and q=1:
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''继母_事件'',''JM_Fuck_地下室''">接个电话</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_地下室''">挂断电话</a></div>'
+			'<div class="buttonGn"><a href="exec:a=5 & gt ''继母_事件'',''JM_Fuck_地下室''">等十分钟</a></div>'
+			end
+
+			if q=3:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''继母_事件'',''JM_Fuck_地下室''">屁股撅起来肏</a></div>'
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''继母_事件'',''JM_Fuck_地下室''">按在楼梯上肏</a></div>'
+			'<div class="buttonR4"><a href="exec:a=8 & gt ''继母_事件'',''JM_Fuck_地下室''">掐住喉咙肏</a></div>'
+			end
+
+			if q=4:
+			'<div class="buttonS5"><a href="exec:a=9 & gt ''继母_事件'',''JM_Fuck_地下室''">高速冲刺</a></div>'
+			end
+			if a=9:
+			'<div class="buttonR4"><a href="exec:a=10 & gt ''继母_事件'',''JM_Fuck_地下室''">颜射</a></div>'
+			end
+			if a=10:
+			'<div class="buttonP"><a href="exec:a=11 & gt ''继母_事件'',''JM_Fuck_地下室''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">带她回家休息</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：你的地下室，怎么是这样的？</p>'
+			 '<p>我： 是你说要参观的❤</p>'
+			 '<p><<$JM.name>>：放开妈妈<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JM.name>>：太爽了<<$娇喘声2>>哦哦哦❤</p>'
+			 if a>=4:'<p>【电话】<<$TS.name>>：<<$主角姓名>>，有时间开个短会吗？</p>'
+			 if a>=4:'<p>我：这里可能有点吵，我去阳台上和你聊！</p>'
+			 if a>=4:'<p><<$JM.name>>：喂喂喂！你要去哪？别丢下妈妈一个人哦哦哦哦哦❤妈妈会爽死的❤妈妈求你了啊啊啊啊❤</p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=5:
+		 '<div class="dialog_menu">'
+		 	 '<p>我：真是的，等十分钟都等不了吗？！</p>'
+			 '<p><<$JM.name>>：妈妈错了<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		$JM.love+=q+my.魅力
+		$JM.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>·<<$JM.name>>被肏得完全失去了意识，在地上痉挛着。</p>'
+			 '<p>我： 妈？你没事吧？</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+--- 继母_事件 ---------------------------------
+

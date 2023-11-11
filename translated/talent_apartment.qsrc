@@ -1,0 +1,209 @@
+# talent_apartment
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			if $ct_test_2>=1:
+				if $ys_divorce!1:'<a class="photo" data-title="Lianmei Yuxiang (Voting Supervisor)" href="exec:gt ''empire_event'',''empire_fuck_goal_1''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+				if $ys_divorce=1:'<a class="photo" data-title="Lianmei Yuxiang (Voting Supervisor)" href="exec:gt ''empire_event'',''empire_fuck_service_co.,_ltd.''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+			else:
+				'<a class="photo" data-title="【Lock】" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A202" href="exec:gt ''talent_apartment'',''swimming_coach`s_house''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A201" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			if $BGH.room=1:'<a class="photo" data-title="<<$BGH.name>>" href="exec:gt ''talent_apartment'',''eight_hanging_haijia`s_house''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+			if $BGH.room!1:'<a class="photo" data-title="【Lock】" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A102" href="exec:$thief_number=1 & gt ''talent_apartment'',''supermarket_wife_judgment''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A101" href="exec:$thief_number=2 & gt ''talent_apartment'',''supermarket_wife_judgment''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="Residential area" href="exec:minutes+=15 & gt ''residential_area''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Apartment manager`s room" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (7).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $convenience_store=0:'<a class="photo" data-title="Community convenience store" href="exec:gt ''talent_apartment'',''apartment_convenience_store''"><img class="img_stretch" src="images\place\公寓便利店小图.jpg"></a>'
+			if $convenience_store=1:'<a class="photo" data-title="Community convenience store" href="exec:gt ''convenience_store''"><img class="img_stretch" src="images\place\公寓便利店小图.jpg"></a>'
+		'</div>'
+
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\人才公寓入口.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·In order to attract talented people to join, the Imperial Group transformed the private villa under its name into an exclusive family apartment for employees.This move caused dissatisfaction among surrounding owners, who believed that it would reduce the overall quality of the community and cause house prices in the villa area to fall.</p>'
+	'</div>'
+end
+
+if $args[0]="eight_hanging_haijia`s_house":
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (1).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''house_next_door_event'',''jia_liyi''">Knock on the door</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I don`t know if there is anyone in the house?</p>'
+	'</div>'
+end
+
+if $args[0]="apartment_convenience_store":
+	'<div class ="show_menu"><img src="images\place\公寓便利店_.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The residential-to-commercial convenience store located on the first floor has also caused dissatisfaction among surrounding owners, who believe that cheap convenience stores will cause house prices in the villa area to fall.</p>'
+	'</div>'
+end
+
+if $args[0]="supermarket_wife_judgment":
+        if $thief_number=1:$thiefs_name='Hodaka Yuhua (Weak Wife)'
+        if $thief_number=2:$thiefs_name='Sannomiya Tsubaki (arrogant Wife)'
+        
+        if $thief_number=1 and $thief_1_enters_the_room_2<=-100:gt 'group_performation_event','convenience_store_fuck_main_door-to-door'
+        if $thief_number=2 and $thief_2_enters_the_room_2<=-100:gt 'group_performation_event','convenience_store_fuck_main_door_2'
+        
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFJ<<$thief_number>>-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment'',''supermarket_wife_2''">Talk to her</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if $thief_number=1:
+		'<p><<$thiefs_name>>:Honey, be careful on the road, you have to refuel at work!</p>'
+		'<p>Man: No matter how hard or tired you are at work, I will be satisfied as long as I can see your smiling face when I go home!</p>'
+		else:
+		'<p>Man: Why are you here again?Didn`t you ask you to wait for me in the company?</p>'
+		'<p><<$thiefs_name>>:Husband, your little assistant is so obedient and will come to pick you up every day!Saved a lot of gasoline bills!</p>'
+		'<p>Assistant: Master, isn`t this a good way... or is the teacher`s mother empathetic❤</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="supermarket_wife_2":
+        if $thief_number=1:$thiefs_name='Hodaka Yuhua (Weak Wife)'
+        if $thief_number=2:$thiefs_name='Sannomiya Tsubaki (arrogant Wife)'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFJ<<$thief_number>>-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $thief_1_enters_the_room>0 and $thief_number=1:'<div class="buttonR"><a href="exec:gt ''group_performation_event'',''convenience_store_fuck_go_home_rape''">Break into the room and rape her</a></div>'
+		if $thief_2_enters_the_room>0 and $thief_number=2:'<div class="buttonR"><a href="exec:gt ''group_performation_event'',''convenience_store_fuck_go_home_rape''">Break into the room and rape her</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Nothing</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if $thief_number=1:
+		'<p><<$thiefs_name>>:Are you... can I help you?</p>'
+		else:
+		'<p><<$thiefs_name>>:Shhh-my husband and his assistant haven`t gone far yet, I can tell them to turn around at any time.</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="swimming_coach`s_house":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YY\vids\家门口.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $yy.home_can_be_entered=1:'<div class="button"><a href="exec:$swimming_dialogue=0 & gt ''talent_apartment'',''swimming_coach`s_house''">Knock on the door and go in</a></div>'else:'<div class="buttonGr"><a href="exec:">Knock on the door and go in</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The wife is cleaning.</p>'
+	'</div>'
+end
+
+if $args[0]="swimming_coach`s_house":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YY\vids\家<<$swimming_dialogue>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $swimming_dialogue=0:
+			'<div class="button"><a href="exec:$swimming_dialogue=1 & gt ''talent_apartment'',''swimming_coach`s_house''">Wait for him to go far</a></div>'
+		else:
+			'<div class="buttonS3"><a href="exec:$swimming_dialogue=1 & gt ''empire_event'',''empire_fuck_swimming_coach_home_1''">Masturbate to me</a></div>'
+			if $YY.love>=$my.charm*10:'<div class="buttonS4"><a href="exec:$swimming_dialogue=1 & gt ''empire_event'',''empire_fuck_swimming_coach_home_2''">Discuss a drink</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<$my.charm*10>></a></div>'
+			if $yy.agree=1:'<div class="buttonS5"><a href="exec:$swimming_dialogue=1 & gt ''empire_event'',''empire_fuck_swimming_coach_big''">Take her out to play</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $swimming_dialogue=0:
+		'<p><<$YY.name>>:Didn`t you forget to take anything this time?Have you brought all your resumes?</p>'
+		'<p>Her husband: I am fully prepared this time!I will definitely find a new job!</p>'
+		'<p><<$YY.name>>:Little on the road!</p>'
+		else:
+		'<p><<$YY.name>>:My husband walked on the front foot and you came on the back foot, are you not at ease❤</p>'
+		'<p>Me: I`m very sad when you say that.</p>'
+		end
+	'</div>'
+end
+
+
+
+
+
+--- talent_apartment ---------------------------------
+

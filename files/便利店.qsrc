@@ -1,0 +1,357 @@
+# 便利店
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=30
+$随机数=rand(0,100)
+
+if $初次进便利店=0:
+	$FW.积极性=20
+	便利店商品种类=20
+	便利店内环境=20
+	$初次进便利店=1
+	地板A肮脏度=rand(0,6)
+	地板B肮脏度=rand(0,6)
+	$FW.内环境上限=100
+	$FW.积极性上限=50
+	夜班.积极性=25
+	
+	$店评价a[0]="☹"
+	$店评价a[1]="☹"
+	$店评价a[2]="☹"
+	$店评价a[3]="☹"
+	$店评价a[4]="☹"
+	$店评价a[5]="☹"
+	$店评价a[6]="☹"
+    end
+
+
+便利店内环境+=rand(-5,0)
+$盗窃概率+=rand(3,5)
+
+
+if 地板A肮脏度>0:地板A肮脏度-=1
+if 地板B肮脏度>0:地板B肮脏度-=1
+
+
+便利店内环境-=(5-地板A肮脏度)*2
+便利店内环境-=(5-地板B肮脏度)*2
+
+
+
+if $偷窃员2入室2>0:便利店内环境+=25
+!#↑这个是扫地机器人
+
+
+
+if 便利店内环境<=-20:便利店内环境=-20
+if 便利店内环境>=$FW.内环境上限:便利店内环境=$FW.内环境上限
+
+
+出入境饮料剩余-=rand(2,4)
+电视台饮料剩余-=rand(2,5)
+if 出入境饮料剩余<=0:出入境独家=0
+if 电视台饮料剩余<=0:电视台独家=0
+
+
+商品利润率=10+学校独家+医院独家+出入境独家+电视台独家
+
+
+if $FW.积极性>=1+$FW.积极性上限:$FW.积极性=$FW.积极性上限
+
+if 夜班.积极性>=$FW.积极性上限:夜班.积极性=$FW.积极性上限
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+if hour>=22 or hour <=5:
+	$times_of_便利店='night'
+	夜班.积极性+=rand(-5,0)
+	顾客耐心值-=(50-夜班.积极性)
+	if $QB店长>0:夜班.积极性+=6
+else:
+	$times_of_便利店=''
+	$FW.积极性+=rand(-5,0)
+	顾客耐心值-=(50-$FW.积极性)
+	if $QB店长>0:$FW.积极性+=6
+end
+
+
+if 顾客耐心值>=350:顾客耐心值=300
+
+
+	if 学校独家=2 and day=11 and ($校长夜店!2 and $校长夜店!3):msg'校长对你很失望，合作结束'  & 学校独家=0 & gt '便利店'
+	if 医院独家=2 and day=21 and ($院长夜店!2 and $院长夜店!3):msg'院长对你很失望，合作结束'  & 医院独家=0 & gt '便利店'
+
+
+
+	if $FW.积极性<=-20:$FW.积极性=-20
+
+if  $times_of_便利店='':
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''便利店'',''后台''"><img class="img_stretch" src="images\place\market\仓库.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			if $FW.积极性>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\收银台.jpg"></a>'
+			if $FW.积极性<=0:'<a class="photo"  href="exec:gt ''群演_事件'',''便利店_Fuck_整顿''"><img class="img_stretch" src="images\place\market\收银台99.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+				if 顾客耐心值>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客0.jpg"></a>'
+				if -50<=顾客耐心值 and 顾客耐心值<=0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客1.jpg"></a>'
+				if  -100<=顾客耐心值 and 顾客耐心值 <-50:'<a class="photo"  href="exec:$店顾客编号=rand(1,6) & gt ''群演_事件'',''便利店_Fuck_便利店顾客''"><img class="img_stretch" src="images\place\market\顾客2.jpg"></a>'
+				if  -300<=顾客耐心值 and 顾客耐心值 <-100:'<a class="photo"  href="exec:$店顾客编号=rand(1,6) & gt ''群演_事件'',''便利店_Fuck_便利店顾客''"><img class="img_stretch" src="images\place\market\顾客3.jpg"></a>'
+				if 顾客耐心值<-300:msg'顾客无人理睬，给了差评'  & 顾客耐心值=250 & gt '好差评','差评'
+		'</div>'
+		'<div class="action">'
+			if $随机数<$盗窃概率: 
+					if $偷窃员1入室2>0:额外盈亏+=1000
+					!#↑这个是保险自动消费
+				if $偷窃员1入室>100 and $随机数>=50:
+				'<a class="photo"  href="exec:$偷窃员编号=1 & gt ''群演_事件'',''便利店_Fuck_来店做''"> <img class="img_stretch" src="images\place\market\顾客95.jpg"></a>'
+				else:
+				额外盈亏-=250
+				'<a class="photo"  href="exec:$偷窃员编号=rand(1,2) & gt ''群演_事件'',''便利店_Fuck_偷窃''"> <img class="img_stretch" src="images\place\market\顾客96.jpg"></a>'
+				end
+			    elseif $FW.积极性>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客1.jpg"></a>'
+				elseif $FW.积极性<=0:'<a class="photo"  href="exec:$消极店编号=rand(3,6) &gt ''群演_事件'',''便利店_消极服务''"> <img class="img_stretch" src="images\place\market\顾客99.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if day=7 or day=14 or day=21 or day=28:
+				'<a class="photo"  href="exec:$检查员编号=day/7 & gt ''群演_事件'',''便利店_Fuck_检查员''"> <img class="img_stretch" src="images\place\market\顾客98.jpg"></a>'
+				elseif $FW.积极性>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客0.jpg"></a>'
+				
+				elseif $FW.积极性<=0:'<a class="photo"  href="exec:$消极店编号=rand(0,2) &gt ''群演_事件'',''便利店_消极服务''"> <img class="img_stretch" src="images\place\market\顾客99.jpg"></a>'
+			
+			end
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''便利店''"><img class="img_stretch" src="images\place\公寓便利店_<<$times_of_便利店>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 地板A肮脏度=0 or 地板A肮脏度>=3:'<a class="photo"  data-title="清理地板" " href="exec:地板A肮脏度=9 & gt ''便利店''"><img class="img_stretch" src="images\place\market\地板<<地板A肮脏度>>.jpg"></a>'
+			if 地板A肮脏度=2:'<a class="photo"  data-title="麻烦的客人" " href="exec:$地板编号=''A'' & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板A肮脏度>>.jpg"></a>'
+			if 地板A肮脏度=1:'<a class="photo"  data-title="麻烦的客人" " href="exec:a=4 & $地板编号=''A'' & $地板角色编号=rand(1,3) & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板A肮脏度>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+            if 地板B肮脏度=0 or 地板B肮脏度>=3:'<a class="photo"  data-title="清理地板" " href="exec:地板B肮脏度=9 & gt ''便利店''"><img class="img_stretch" src="images\place\market\地板<<地板B肮脏度>>.jpg"></a>'
+            if 地板B肮脏度=2:'<a class="photo"  data-title="麻烦的客人" " href="exec:$地板编号=''B'' & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板B肮脏度>>.jpg"></a>'
+            if 地板B肮脏度=1:'<a class="photo"  data-title="麻烦的客人" " href="exec:a=4 & $地板编号=''B'' & $地板角色编号=rand(1,3) & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板B肮脏度>>.jpg"></a>'
+        '</div>'
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''人才公寓''"><img class="img_stretch" src="images\place\market\离开.jpg"></a>'
+		'</div>'
+		! ###############################################################
+	'</div>'
+'</div>'
+
+else:
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''便利店'',''后台''"><img class="img_stretch" src="images\place\market\仓库.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		! ##################晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上###
+		'<div class="action">'
+			if 夜班.积极性>0:'<a class="photo"  href="exec:gt ''便利店'',''正常夜班''"><img class="img_stretch" src="images\place\market\收银台98.jpg"></a>'
+			if 夜班.积极性<=0:'<a class="photo"  href="exec:gt ''群演_事件'',''便利店_Fuck_夜班sex''"><img class="img_stretch" src="images\place\market\收银台97.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+				if 顾客耐心值>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客0.jpg"></a>'
+				if -50<=顾客耐心值 and 顾客耐心值<=0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客1.jpg"></a>'
+				if  -100<=顾客耐心值 and 顾客耐心值 <-50:'<a class="photo"  href="exec:$店顾客编号=rand(1,6) & gt ''群演_事件'',''便利店_Fuck_便利店顾客''"><img class="img_stretch" src="images\place\market\顾客2.jpg"></a>'
+				if  -300<=顾客耐心值 and 顾客耐心值 <-100:'<a class="photo"  href="exec:$店顾客编号=rand(1,6) & gt ''群演_事件'',''便利店_Fuck_便利店顾客''"><img class="img_stretch" src="images\place\market\顾客3.jpg"></a>'
+				if 顾客耐心值<-300:msg'顾客无人理睬，给了差评'  & 顾客耐心值=250 & gt '好差评','差评'
+		'</div>'
+		'<div class="action">'
+			if $随机数<$盗窃概率 and  $偷窃员2入室>100 and $随机数<=50:
+				'<a class="photo"  href="exec:$偷窃员编号=2 & gt ''群演_事件'',''便利店_Fuck_来店做''"> <img class="img_stretch" src="images\place\market\顾客95.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if (day=8 and $检查员n1=1) or (day=15 and $检查员n2=1)or (day=22 and $检查员n3=1)or (day=29 and $检查员n4=1):
+				'<a class="photo"  href="exec:$检查员编号=day/7 & gt ''群演_事件'',''便利店_Fuck_检查员2''"> <img class="img_stretch" src="images\place\market\顾客97.jpg"></a>'
+				elseif 学校独家=2 and day=10: '<a class="photo"  href="exec:gt ''群演_事件'',''便利店_Fuck_校长2''"> <img class="img_stretch" src="images\place\market\顾客94.jpg"></a>'
+				elseif 医院独家=2 and day=20: '<a class="photo"  href="exec:gt ''群演_事件'',''便利店_Fuck_院长2''"> <img class="img_stretch" src="images\place\market\顾客94.jpg"></a>'
+				else:'<a class="photo"  ><img class="img_stretch" src="images\place\market\空白.jpg"></a>'
+			end
+		'</div>'
+		! ##################晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上###
+	
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''便利店''"><img class="img_stretch" src="images\place\公寓便利店_<<$times_of_便利店>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 地板A肮脏度=0 or 地板A肮脏度>=3:'<a class="photo"  data-title="清理地板" " href="exec:地板A肮脏度=9 & gt ''便利店''"><img class="img_stretch" src="images\place\market\地板<<地板A肮脏度>>.jpg"></a>'
+			if 地板A肮脏度=2:'<a class="photo"  data-title="麻烦的客人" " href="exec:$地板编号=''A'' & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板A肮脏度>>.jpg"></a>'
+			if 地板A肮脏度=1:'<a class="photo"  data-title="麻烦的客人" " href="exec:a=4 & $地板编号=''A'' & $地板角色编号=rand(1,3) & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板A肮脏度>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+            if 地板B肮脏度=0 or 地板B肮脏度>=3:'<a class="photo"  data-title="清理地板" " href="exec:地板B肮脏度=9 & gt ''便利店''"><img class="img_stretch" src="images\place\market\地板<<地板B肮脏度>>.jpg"></a>'
+            if 地板B肮脏度=2:'<a class="photo"  data-title="麻烦的客人" " href="exec:$地板编号=''B'' & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板B肮脏度>>.jpg"></a>'
+            if 地板B肮脏度=1:'<a class="photo"  data-title="麻烦的客人" " href="exec:a=4 & $地板编号=''B'' & $地板角色编号=rand(1,3) & gt ''群演_事件'',''便利店_Fuck_地板''"><img class="img_stretch" src="images\place\market\地板<<地板B肮脏度>>.jpg"></a>'
+        '</div>'
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''人才公寓''"><img class="img_stretch" src="images\place\market\离开.jpg"></a>'
+		'</div>'
+		! ###############################################################
+	'</div>'
+'</div>'
+
+end
+
+
+
+if $args[0]="":
+
+	'<div class ="show_menu"><img src="images\place\公寓便利店_<<$times_of_便利店>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	 if BD广告>0:'<div class="buttonGn"><a href="exec:BD广告-=1 & gt ''群演_事件'',''便利店_Fuck_BD1''">拍摄广告宣传<<BD广告>>次</a></div>'
+	 if $CT考验2>=1 and $DY.available=0:'<div class="buttonP"><a href="exec:gt ''便利店'',''初识店员''">呀哈喽❤</a></div>'
+	 if $DY.available>0:'<div class="buttonP"><a href="exec:gt ''店员_事件'',''笨手笨脚''"><<$DY.name>></a></div>'
+	 
+	 if $CT考验2>=1 and $随机数>=80:
+		if $HS.love>=200 and week_day=7:'<div class="buttonS2"><a href="exec:$m=''HS'' & $ma=$HS.name & gt ''群演_事件'',''便利店_Fuck_专属''">熟人来访</a></div>'
+        if $JY.love>=200 and week_day=6:'<div class="buttonR3"><a href="exec:$m=''JY'' & $ma=$JY.name & gt ''群演_事件'',''便利店_Fuck_专属''">熟人来访</a></div>'
+        if $QT.love>=200 and week_day=5:'<div class="buttonB3"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''群演_事件'',''便利店_Fuck_专属''">熟人来访</a></div>'
+	 end
+	 
+	 
+		'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·按照<<$CT.name>>的要求，月净利润必须超过100万</p>'
+		'<p>·——————————————————</p>'
+		'<p>·<<month>>月累积净利润：￥<<显本月累积利润>>'
+		if 我的精神力>=1000000:'·已完成净利润目标<a href="exec:gt ''帝国穹顶'',''总裁立绘3''">➤复命</a>'
+		'</p>'
+		
+		if 显本月累积利润>我的精神力+100:'<p><B><span class =''red''>☢如果上述收益是你用CE修改的，那我已经预判到了。</p>'
+		
+		'<p>·昨日访客数：<<昨日顾客数>>人；昨日净收入：￥<<昨日利润>>；商品利润率：<span class="tooltip" data-title="=基础10%+<<医院独家>>%+<<学校独家>>%+<<出入境独家>>%+<<电视台独家>>%，上限为18%"><<商品利润率>>%</span></p>'
+		if hour>=22 or hour <=5:
+			'<p>㊰服务积极性：<<夜班.积极性>>%；商品丰富度：<<便利店商品种类>>%；门店整洁度：<<便利店内环境>>%</p>'
+		else:
+			'<p>㊐服务积极性：<<$FW.积极性>>%；商品丰富度：<<便利店商品种类>>%；门店整洁度：<<便利店内环境>>%</p>'
+		end
+		'<p>·➤过去七次评价➤：<<$店评价a[6]>><<$店评价a[5]>><<$店评价a[4]>><<$店评价a[3]>><<$店评价a[2]>><<$店评价a[1]>><<$店评价a[0]>>➤</p>'
+		'<p>·附加效果>'
+		if $偷窃员1入室2>0:'【防盗保险：剩余<<$偷窃员1入室2>>天】'
+		if $偷窃员2入室2>0:'【扫地机器人：剩余<<$偷窃员2入室2>>天】'
+		if 出入境独家=2:'【出入境售货机：剩余<<出入境饮料剩余>>%】'
+		if 电视台独家=2: '【电视台售货机：存货<<电视台饮料剩余>>%】'
+		if $QB店长>0: '【<a href="exec:gt ''群演_事件'',''便利店_Fuck_QB便利店x''">偶像店长</a>：剩余<<$QB店长>>天】'
+		'</p>'
+	'</div>'
+end
+
+
+if $args[0]="数据":
+	'<div class ="show_menu"><img src="images\place\科技.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''便利店''">离开</a></div>'
+		'<div class="buttonG4"><a href="exec:gt ''奖励'',''自己买营业额''">自己买营业额</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·按照<<$CT.name>>的要求，月净利润必须超过100万</p>'
+		'<p>·——————————————————</p>'
+		'<p>·<<month>>月累积净利润：￥<<显本月累积利润>>  ；昨日净利润：￥<<昨日利润>></p>'
+		
+		'<p>·㊐服务积极性：<<$FW.积极性>>%；商品丰富度：<<便利店商品种类>>%；昨日顾客数：<<昨日顾客数>>人</p>'
+		'<p>·㊰服务积极性：<<夜班.积极性>>%；门店整洁度：<<便利店内环境>>%；当前商品净利润：<<商品利润率>>%</p>'   
+		'<p>·——————————————————</p>'
+		'<p>·每日销售额与服务态度和超市环境成正相关</p>'
+		'<p>·超市环境由卫生情况和商品种类两个要素影响</p>'
+	'</div>'
+end
+
+
+if $args[0]="后台":
+	'<div class ="show_menu"><img src="images\place\休息后台.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB2"><a href="exec:gt ''便利店'',''数据''">查看数据统计</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''群演_事件'',''便利店_Fuck_客服''">联系区域经理</a></div>'
+		if $偷窃员1入室>600 and $偷窃员1入室2<=-3 and (week_day=1 or week_day=3 or week_day=7 or week_day=5 ):'<div class="buttonG4"><a href="exec:$偷窃员编号=1 & gt ''群演_事件'',''便利店_Fuck_视频''">您有视频通话</a></div>'
+		if $偷窃员2入室>600 and $偷窃员2入室2<=-3 and (week_day=2 or week_day=4 or week_day=7 or week_day=6 ):'<div class="buttonG5"><a href="exec:$偷窃员编号=2 & gt ''群演_事件'',''便利店_Fuck_视频''">您有视频通话</a></div>'
+		if 夜班SEX次数>0 and 21>=hour and hour>=19:'<div class="buttonPu1"><a href="exec: gt ''群演_事件'',''便利店_Fuck_夜店员激''">激励夜班店员</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·员工休息室，在这能做很多事！</p>'
+	'</div>'
+	
+	
+end
+
+
+if $args[0]="初识店员":
+		$DY.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''便利店''">录用她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$DY.name>>:呀哈咯❤请问这里还招人嘛？</p>'
+		'<p>我:便利店达成百万目标后，成为城里小有名气的网红店，正好现在苦于人手不足呢。</p>'
+		'<p><<$DY.name>>*举手</p>'
+	'</div>'
+	
+end
+
+
+
+if $args[0]="正常夜班":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\YDGZ0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''便利店''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·夜班没什么顾客，所以只招收了一名夜班店员。</p>'
+	'</div>'
+	
+end
+
+
+--- 便利店 ---------------------------------
+

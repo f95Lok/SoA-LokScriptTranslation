@@ -1,0 +1,168 @@
+# 美妆店
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "商场_地图"
+'</div>'
+
+
+
+if $ARGS[0] ="":
+	$MZ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\KA0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $美妆事件链=0:'<div class="buttonP"><a href="exec:gt ''美妆_事件'',''MZ_Fist''">搭话</a></div>'
+		if $美妆事件链>=1:'<div class="buttonP"><a href="exec:美妆对话=0 & gt ''美妆店'',''对话''">私下聊聊</a></div>'
+		'<div class="buttonS3"><a href="exec:gt ''美妆店'',''身后''">看向她身后</a></div>'
+		if $美妆事件链=7 and week_day=5 and hour=17:'<div class="buttonR"><a href="exec:gt ''美妆_事件'',''美妆A8''">迎接抽检</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MZ.name>>：您好，我们推出了新款口红系列，它拥有持久的保湿功效，能够让您的嘴唇长时间保持滋润、柔软和亮丽。</p>'
+		'<p>我：我一个大男人擦什么口红…</p>'
+		if $美妆事件链>=4:'<p>✮<<$SSYY.name>>正在后台认真拍摄<a href="exec:gt ''美妆_事件'',''美妆_Fuck_悠亚''">-过去看看</a></p>'
+	'</div>'
+end
+
+if $ARGS[0] ="身后":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\KA1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:money-=8000 & gt ''美妆_事件'',''美妆A0''">付费体验￥8000</a></div>'
+		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''美妆店'',''仓库''">再往里走</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：这是…</p>'
+		'<p><<$MZ.name>>：这是我们的VIP顾客在试用最新口红的色彩锁定技术。这种技术可以帮助彩妆产品在使用时更持久地保持其颜色和亮度，而不会在短时间内褪色或掉色。</p>'
+		'<p>我：所以这是在…</p>'
+		'<p><<$MZ.name>>：如果口红残留在衣服或者肌肤上，回家了就不好交代对吧？</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="仓库":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\仓库0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''美妆店'',''仓库1''">抬头看</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MZ.name>>：等等！您作为顾客不可以进来这里…这里是我们的仓库，所有的美妆都需要防潮恒温地存放在这里。</p>'
+		'<p>我：排列的挺整齐的…嗯？</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="仓库1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\仓库1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		$MZD.看过仓库=1
+		'<p>我：头顶的窗户是不是快摇摇欲坠了？你刚刚说的防潮恒温，是吹牛的吧？</p>'
+		'<p><<$MZ.name>>：呃…这个破窗确实是我们的老问题了，总部说只要美妆不被雨淋湿就不妨碍销售，所以下雨天店里需要常驻一个店员在这看着。</p>'
+		'<p>我：那你最好祈祷不会突然下暴雨。</p>'
+		'<p><<$MZ.name>>：好了，我们该离开这里了。</p>'
+		'<p><B><span class =''red''>我：真希望暴雨的时候这里不会被淹…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''MZ'' & $ma=$MZ.name & gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+		if 当月美妆额=0:'<div class="buttonR3"><a href="exec:gt ''美妆_事件'',''美妆A2''">本月业绩？</a></div>'else:'<div class="buttonGn"><a href="exec:">本月业绩完成</a></div>'
+		if $美妆事件链=2 or $美妆事件链=3:'<div class="buttonS"><a href="exec:gt ''美妆_事件'',''美妆A3''">喜忧参半</a></div>'
+		if $美妆事件链=5:'<div class="buttonR4"><a href="exec:gt ''美妆_事件'',''美妆D6''">表情不对</a></div>'
+		if $美妆事件链=6:'<div class="buttonR4"><a href="exec:gt ''美妆店'',''危机''">上任风波</a></div>'
+		if $美妆事件链=8:'<div class="buttonGn"><a href="exec:gt ''美妆店'',''危机2''">升职加薪</a></div>'
+		if $美妆事件链>=9:'<div class="buttonS"><a href="exec:gt ''美妆_事件'',''美妆F8''">温泉约会</a></div>'
+		if $美妆事件链=7 and week_day=5 and hour=17:'<div class="buttonR"><a href="exec:gt ''美妆_事件'',''美妆A8''">迎接抽检</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 美妆对话=0:
+		'<p><<$MZ.name>>：唉……</p>'
+		'<p>我：怎么了？</p>'
+		'<p><<$MZ.name>>：因为品牌方请的带货明星翻车了，还爆出了“哪里贵了？有的时候找找自己原因，好吧，这么多年了工资涨没涨，有没有认真工作，好不，这么多年都是这个价格我真的疯掉了”的圣经，现在美妆销售的压力空前巨大…</p>'
+		end
+		
+	'</div>'
+end
+
+if $ARGS[0] ="危机":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">到时候再说</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $美妆事件链=6:$美妆事件链=7
+		'<p><<$MZ.name>>：客户售后反馈的<<$SSYY.name>>虚假宣传情况已经不复存在了，同时她们非常满意你按摩店的手法❤</p>'
+		'<p>我：看来你马上就能够上任区域经理了？</p>'
+		'<p><<$MZ.name>>：沾你的光，不过在此之前还有一件麻烦事，是总部亲自发来的一封涉及欺诈宣传的投诉信。</p>'
+		'<p>我：欺诈宣传？听上去比虚假宣传还要严重…</p>'
+		'<p><<$MZ.name>>：当事人要求我们在周五下午17点迎接她的产品质量调查，总部非常重视。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="危机2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''美妆_事件'',''美妆A7''">开房庆祝</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		
+		'<p><<$MZ.name>>：看来所有的障碍都被扫除了呢❤</p>'
+		'<p>我：恭喜恭喜，现在荣升区域经理了？</p>'
+		'<p><<$MZ.name>>：是的！多亏了你喔❤</p>'
+	'</div>'
+end
+--- 美妆店 ---------------------------------
+

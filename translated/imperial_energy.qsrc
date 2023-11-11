@@ -1,0 +1,110 @@
+# imperial_energy
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+
+
+ if hour<=7:$staff_name="A"&$staff_color=1
+ if 8<=hour and hour <=12:$staff_name="B"&$staff_color=2
+ if 13<=hour and hour <=17:$staff_name="C"&$staff_color=3
+ if hour>=19:$staff_name="D"&$staff_color=4
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="Imperial Group Hall" href="exec:minutes+=15 & gt ''empire_group''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	$random_number=rand(0,100)
+	if $random_number =0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\彩蛋2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	if $random_number =1:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\彩蛋3.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	if 随机数 >1:'<div class ="show_menu"><img src="images\place\帝国能源.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $ny_event_imprisonment!1:'<div class="buttonGn"><a href="exec:gt''imperial_energy'',''director`s_office''">&quot;Director`s Office&quot;</a></div>'
+		'<div class="buttonPu<<$staff_color>>"><a href="exec:minutes+=15 &gt ''group_performation_event'',''energy_fuck_staff''">&quot;Provide services&quot;</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Mechanical AI voice: According to last week`s earnings report, the market value of Imperial Energy is estimated to be floating at 17.4 billion yuan, and the field will be broader in the future. The reason is that light sources will attract more attention in the future. More and more clean energy will replace fossil energy, and the company has more and more customers.</p>'
+	'</div>'
+End
+
+if $args[0]="director`s_office":
+	if $NY.available=0:gt'imperial_energy','introduction'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\NY介绍~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if $massage_room=1:'<div class="button"><a href="exec:gt''imperial_energy'',''recommended_massage_shop''">Recommended massage shop</a></div>'else:'<div class="buttonGr"><a href="exec:">Recommended massage shop</a></div>'
+		if $NY.love>=50 and $NY.bad>=100:'<div class="buttonPu5"><a href="exec: gt ''energy_event'',''ny_fuck_company''">&quot;Provide services&quot;</a></div>'else:'<div class="buttonGr"><a href="exec:">&quot;Provide services&quot;</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$NY.name>>: Have you seen enough?.......OS: The cervical vertebrae that were recently made by those two children are so sore...</p>'
+	'</div>'
+End
+
+if $args[0]="introduction":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\NY照片.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt''imperial_energy'',''director`s_office''">&quot;Director`s Office&quot;</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·As the captain of the first-generation former female idol group Ebisu Muscat Grape, she announced the dissolution of the group after the [new policy] was introduced. The performance held a thanksgiving festival for more than 2,200 spectators.In the heavy rain, it was not only the eyes of the teenagers who were drenched.</p>'
+		'<p>·Now she has transformed into a person. Through her keen business acumen, she is based on the Imperial Group as the most important energy director. It is rumored that she is involved in many power and color transactions, and no one knows her name.</p>'
+		$NY.available=1
+	'</div>'
+End
+
+if $args[0]="recommended_massage_shop":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\NY开幕~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt''imperial_energy'',''director`s_office''">&quot;Director`s Office&quot;</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I know a good massage parlor. Last time I went for physiotherapy, the soreness in my body was cleared after a while!</p>'
+		if spa>=50:
+			'<p><<$NY.name>>：...Is that so?I`ll go and have a look another day.Oh?Is this place?<<$protagonists_surname>>What is the relationship between the boss and you?Since<<$protagonists_surname>>I haven`t been there since the boss was in a coma.</p>'
+			$NY.spa=1
+		else:
+			'<p><<$NY.name>>: I haven`t heard of any broken place.I won`t go to places that are not famous!</p>'
+		end
+	'</div>'
+End
+--- imperial_energy ---------------------------------
+

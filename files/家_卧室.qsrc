@@ -1,0 +1,55 @@
+# 家_卧室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+if $销售_Event_买车=1 and $销售电话1=0:gt'销售_事件','电话1'
+if  3>=XM录像带 and XM录像带>=2 and $XM录像未看天数>=14:gt'杀手_事件','电话1'
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="去大厅" href="exec:minutes+=5 & gt ''家''"><img class="img_stretch" src="images\place\家.jpg"></a>
+		</div>
+		
+		<div class="action">
+			<a class="photo" data-title="电脑" href="exec:minutes+=5 & gt ''家_电脑''"><img class="img_stretch" src="images\place\电脑.jpg"></a>
+		</div>'
+		
+		if 电视机>=1:
+			'<div class="action">
+				<a class="photo" data-title="等离子电视机" href="exec:minutes+=5 & gt ''家_电视''"><img class="img_stretch" src="images\place\电视.jpg"></a>
+			</div>'
+		end
+		
+	'</div>'
+'</div>'
+
+
+
+'<div class="show_menu">'
+		'<img src="images\place\房间_<<$times_of_day>>.jpg" width="854">'
+'</div>'
+
+
+
+'<div class="button_menu">
+	<div class="button"><a href="exec:minutes+=60  & a=0 & q=0 & my.精力+=12 & gt ''家_卧室''">小睡片刻 1h</a></div>
+	<div class="button"><a href="exec:minutes+=480  & gt ''睡觉''">充分睡眠 8h</a></div>'
+	if $悠亚任务=4:'<div class="button"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_反2''">邀请<<$SSYY.name>></a></div>'
+'</div>'
+
+
+
+'<div class="dialog_menu">'
+	'<p>我的卧室真好看</p>'
+'</div>'
+
+ 
+--- 家_卧室 ---------------------------------
+

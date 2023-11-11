@@ -1,0 +1,242 @@
+# reward
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	'<div class="actions_menu"></div>'
+'</div>'
+
+
+if $args[0] ='':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg0.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:  gt ''reward'',''enter_password''">Enter password</a></div>'
+		if $datecountjun>=2:'<div class="button"><a href="exec:  gt ''reward'',''download''">Where can I download it?！</a></div>'else:'<div class="buttonGr"><a href="exec:">Where can I download it?！</a></div>'
+		'<div class="button"><a href="exec:  gt ''police_station''">return</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</p>'
+		'<p>If YOU COMPLETE the `Independent Fanwai Chapter·NONLETHAL Poison` OF THIS GAME, YOU CAN GET RICH REWARDS WITH THE clearance password.</p>'
+		'<p>`To be honest, the QSP engine completely limits my ability to tell stories. Only in this short work can I see my narrative level.</p>'
+	'</div>'
+End
+
+if $args[0] ='enter_password':
+	$egg_code = $TRIM($LCASE($input('Customs clearance code')))
+	'<div class="show_menu">'
+		'<img src="images\intro\bg0.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $egg_code=20230404:'<div class="buttonG"><a href="exec:  gt ''reward'',''receive_rewards''">Receive rewards</a></div>'
+		if $egg_code!20230404:'<div class="button"><a href="exec:  gt ''reward'',''download''">Where can I download it?！</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·Einstein said: “The difference between the past, the present and the future is just a persistent illusion.”</p>'
+		if $egg_code=20230404:
+		'<p>·The customs clearance password is correct!Thank you again for your visit.I believe you already know who the person who poisoned is, he is the only color blind in the entire game.</p>'
+		end
+		if $egg_code!20230404:
+		'<p>·Ah, the password is wrong.</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0] ='download':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg0.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec:  gt ''police_station''">return</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>下载下载Download address of `Independent Fan Wai Chapter·NONLETHAL Poison`↓↓</p>'
+		'<p></p>'
+			'<a href="https://airtable.com/appwOhEh0imH0enzP/shrTzofTAgFVYvDCq"> https://airtable.com/appwOhEh0imH0enzP/shrTzofTAgFVYvDCq</a></p>'
+		'<p></p>'
+		!'<p>·当然您懒得游玩也可以直接购买奖励密钥！</p>'
+		'<p></p>'
+	'</div>'
+End
+
+
+if $args[0] ='receive_rewards':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec:  gt ''police_station''">Collect and return</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>？？？: Congratulations on your victory, money +50,000, measurements (charm/intelligence/figure) +3, upper limit of energy value +100, and a simple victory gesture.</p>'
+		'<p>？？？: Finally, thank you again for playing and wish you a good time.</p>'
+		$customs_clearance_reward_collection+=1
+		if  $customs_clearance_reward_collection=1:
+			money+=50000
+			$my.charm += 3
+			$my.intelligence += 3
+			$my.physical_strength += 3
+			mymax[$energy] += 100
+		end
+		if  $customs_clearance_reward_collection>1:'<p>？？？: Uh (ooo)...You have already received it, little fool.</p>'
+	'</div>'
+End
+
+
+if $args[0] ='teleportation_array':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class ="show_menu"><img src="images\place\大别墅\召唤仪式2.jpg" width="854"></div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+         '<div class="buttonG"><a href="exec:gt ''reward'',''enter_dlc_rewards''">DLC clearance rewards</a></div>'
+         '<div class="button"><a href="exec:$my.energy=0 & gt ''group_performation_event'',''fan_fuck_d_succubus''">zzZ</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·The teleportation array on the ground suddenly began to glow</p>'
+		'<p>DLCDLCDLC download address↓↓</p>'
+		'<p>·New·<a href="https://airtable.com/appTA0ybIvQo8NUtC/shrqAGe9tVRTijS4a"> https://airtable.com/appTA0ybIvQo8NUtC/shrqAGe9tVRTijS4a</a></p>'
+		'<p>·Of course, you can also purchase DLC reward keys directly if you don`t bother to play!</p>'
+		'<p></p>'
+	'</div>'
+End
+
+
+if $args[0] ='enter_dlc_rewards':
+	$dlc_password = $TRIM($LCASE($input('DLC password')))
+	'<div class ="show_menu"><img src="images\place\大别墅\place7_8.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $dlc_password='9t4515043u266915b':'<div class="buttonG"><a href="exec:  $my.energy=0 & gt ''group_performation_event'',''fan_fuck_d_succubus''">Receive rewards</a></div>'else:'<div class="button"><a href="exec:  gt ''reward'',''teleportation_array''">Wrong password!</a></div>'
+		'<div class="button"><a href="exec:$my.energy=0 & gt ''group_performation_event'',''fan_fuck_d_succubus''">leave</a></div>'
+		!嗨，你好，既然你看到了这段留言就说明了你可以通过代码直接获得奖励密码，这是你的本事，我不会有怨言，但恳请你不要外泄给其他人，游戏制作不易，赏我口饭吃，兄弟在这谢谢你了。
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The holy seal has been destroyed, and the king is gone.</p>'
+		'<p>奖励The reward content is：</p>'
+		'<p>存档Archive binding equipment [Devil`s Pupil]: Measurements (charm/intelligence/physique) +5, upper limit of physical strength +299, exclusive title and a special logo</p>'
+		'<p>转Optional identity for reincarnation +1 [Return from another world]: The initial money is 1 million, the measurements (charm/intelligence/physique) are 10, and the initial energy is 999</p>'
+		'<p>【【Devil`s Pupil】 Special Effect: Can be reincarnated unlimited times</p>'
+		
+		if $dlc_password='9t4515043u266915b':
+			$devils_pupil=1
+			'<p>·The DLC password is correct!Thank you again for your visit.</p>'
+			'<p>֍I want to be reincarnated֎<a href="exec:gt ''opening''">-Click to reincarnate</a></p>'
+		end
+		if $dlc_password!'9t4515043u266915b':
+			'<p>·Sorry, the password is wrong.</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0] ='buy_your_own_turnover':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:  gt ''reward'',''krypton_cheat_2''">I am willing to spend money</a></div>'
+		'<div class="button"><a href="exec:  gt ''convenience_store''">return</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>Me: Am I really going to cheat?I will lift the 1 million profit limit for convenience stores.</p>'
+		'<p>·————————————————————————</p>'
+	'</div>'
+End
+
+
+if $args[0] ='krypton_cheat_2':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:gt ''reward'',''enter_the_password_krypton_gold_cheat''">Enter the V48 convenience store card password</a></div>'
+		'<div class="button"><a href="exec:  gt ''convenience_store''">Forget it, return</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·Krypton gold, if you have money, you are naturally in charge.</p>'
+		'<p>·————————Can`t open and change browser————————</p>'
+		'<p>·Purchase address：<a href="https://airtable.com/app5nAgaGmboJewqz/shrAbqA8JyiEhuChb">https://airtable.com/app5nAgaGmboJewqz/shrAbqA8JyiEhuChb</a></p>'
+		'<p>·————————————————————————</p>'
+		'<p><B><span class =''red''>For the payment url, please log in with your computer. If you log in on the mobile phone, you will not be able to receive the card password.</p>'
+		'<p>It is only used as a convenience store for cheating and is not interoperable with other sponsors.</p>'
+		'<p>The card password obtained from the purchase is the password.</p>'
+	'</div>'
+End
+
+
+if $args[0] ='krypton_cheat_3':
+	if $krypton_gold_password_random_number=0:$krypton_gold_password_random_number=rand(3588,4388)+year+day
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:  gt ''empire_dome'',''president_liyi_3''">Got it, get back to life</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>*Congratulations!You no longer have the 1 million profit limit for convenience stores.</p>'
+		'<p>·Of course, the plot of the convenience store can be experienced repeatedly, regardless of whether there are 1 million conditions.</p>'
+		'<p>·————————————————————————</p>'
+	'</div>'
+End
+
+
+if $args[0] ='enter_the_password_krypton_gold_cheat':
+	$krypton_password = $TRIM($LCASE($input('Enter the card password')))
+	$krypton_gold_correct_password='hhddntmjsytsghh'
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $krypton_password=$krypton_gold_correct_password:'<div class="buttonG"><a href="exec:  gt ''empire_dome'',''president_liyi_3''">Got it, get back to life</a></div>'
+		if $krypton_password!$krypton_gold_correct_password:
+			'<div class="button"><a href="exec:  gt ''residential_area''">Wrong password</a></div>'
+			'<div class="buttonG"><a href="exec:  gt ''reward'',''krypton_cheat_2''">Try again</a></div>'
+		end
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		if $krypton_password=$krypton_gold_correct_password:
+		'<p>·The password is correct!You no longer have the 1 million profit limit for convenience stores.</p>'
+		'<p>·Of course, the plot of the convenience store can be experienced repeatedly, regardless of whether there are 1 million conditions.</p>'
+		'<p>·————————————————————————</p>'
+		'<p>·Finally, I hope you don`t selflessly tell others about Kami. Please respect your own money. The process of earning it is hard.</p>'
+		else:
+		'<p>·Sorry, the password is wrong.</p>'
+		end
+	'</div>'
+End
+
+
+
+--- reward ---------------------------------
+

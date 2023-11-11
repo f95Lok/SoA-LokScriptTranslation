@@ -1,0 +1,62 @@
+# 公司
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'公司_地图'
+'</div>'
+
+
+
+
+if  $args[0]="":
+	if 公司开幕=0:gt'公司','开场'
+	'<div class ="show_menu"><img src="images\place\公司.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·昔日由父亲创立的公司……将在我的手上重新崛起!</p>'
+		if $MS.LOVE>=150 and $摄像_MS=0 :'<p>公司的地板上有一卷【匿名录像带】<a href="exec:$摄像_MS=1">-捡起来</a></p>'
+		if 大别墅初次>=1 and 公司锤子=0:'<p>·公司角落的建筑垃圾中有一把【大锤】<a href="exec:大锤+=1 & 公司锤子=1 &  gt ''公司''">-拿走</a></p>'
+	'</div>'
+
+end
+
+
+if  $args[0]="开场":
+	'<div class ="show_menu"><img src="images\place\公司开始.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 秘书对话=0:'<div class="button"><a href="exec:minutes+=15 & 秘书对话=1 & gt ''公司'',''开场''">公司简介</a></div>'
+		if 秘书对话=1:'<div class="button"><a href="exec:minutes+=15 & 秘书对话=2 & gt ''公司'',''开场''">坏消息</a></div>'
+		if 秘书对话=2:'<div class="button"><a href="exec:minutes+=15 & 秘书对话=3 & gt ''公司'',''开场''">好消息</a></div>'
+		if 秘书对话=3:'<div class="button"><a href="exec:minutes+=15 & 秘书对话=4 & gt ''公司'',''开场''">签字</a></div>'
+		if 秘书对话=4:'<div class="button"><a href="exec:minutes+=15 & 公司开幕=1 & gt ''公司''">再见！</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 秘书对话=0:'<p>秘书：你就是<<$主角姓>>社长的儿子？挺年轻的嘛。有什么想知道的？</p>'
+		if 秘书对话=1:'<p>秘书：你老爹是经营什么的你还不清楚？我这里一共就有两件事需要通知你，一个是好消息，一个是坏消息。</p>'
+		if 秘书对话=2:'<p>秘书：坏消息是【由于社长意外中风，资金链断裂，我司已停止所有业务，正等待破产清算】。</p>'
+		if 秘书对话=3:'<p>秘书：好消息是【老娘也不干了！】我已经受够了处理这个烂摊子了！你来了正好。在这里签完字，公司就归你管了！</p>'
+		if 秘书对话=4:'<p>秘书：呼，这下老娘也自由了。对了，虽然所有东西都拿去抵债了，但还有总共700平的使用面积，你可以想想办法利用起来。这是我好心给你提的建议。</p>'
+	'</div>'
+
+end
+
+
+
+--- 公司 ---------------------------------
+

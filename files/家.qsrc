@@ -1,0 +1,64 @@
+# 家
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "家_地图"
+'</div>'
+
+
+
+
+if $OX.room=0 and $JZ_Event_rape>=100:gt '偶像_事件','OX_Event_love'
+if hour=12 and week_day >=6:gt '继母_事件','吃饭'
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\家.jpg" width="854"></div>'
+
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''家''">消磨时间</a></div>'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''家'',''全家福''">❤全家福❤</a></div>'
+		
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>大厅干净整洁</p>'
+	'</div>'
+end
+
+if $ARGS[0]="全家福":
+	'<div class ="show_menu"><img src="images\place\全家福.jpg" width="854"></div>'
+
+
+
+	'<div class="button_menu">'
+		if  JM_JJ>=5 and JM_MM>=5 and MM_JJ>=5:
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''大厅_事件'',''Fuck_全家福''">❤家庭群交趴❤</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''家''">消磨时间</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>看着母女三人的合照......真是温馨的一家人。。</p>'
+		'<p>我：没有血缘关系的话，也不是不可以...努努力，照片上的人都会成为我的..女人！</p>'
+		'<p>突然一个邪恶的种子在颅内萌芽了。</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩</p>'
+		'<p>✩   <<JM_JJ>>/5次    ✧    <<MM_JJ>>/5次     ✦    <<JM_MM>>/5次      ✩</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩</p>'
+	'</div>'
+end
+
+
+ 
+--- 家 ---------------------------------
+

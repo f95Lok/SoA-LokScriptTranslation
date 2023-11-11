@@ -1,0 +1,59 @@
+# strategy_sponsorship
+cls
+gs'menu_time_calc'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs'menu_act_hidden'
+'</div>'
+
+
+if $args[0] ='':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\对话1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt $loc,$metka">leave</a></div>'
+		'<div class="buttonG"><a href="exec:gt ''strategy_sponsorship'',''V48''">Click to activate the strategy</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p><span class="bold"><font color="#2E8B57">First of all, thank you for your continued support and love for me.I sincerely thank you for your trust and favor.</p>'
+		'<p><span class="bold"><font color="#808000">After the V40 version, I directly integrated the new character strategy into the game.：</font></p>'
+		'<p><B><font color="#FF6347">I used pictures to unlock it before, which really exhausted me physically and mentally. A few friends didn`t know how to download, how to unzip...how to click on pictures...Because I couldn`t unlock the strategy, my mentality changed from a warm-hearted sponsor to a cold consumer. o (╥)╥)o
+I basically check my mailbox as soon as I have time. If I don`t reply in time, some impatient friends will behave very scary and even attack me personally, which brings me a lot of mental pressure.…</p>'
+		'<p><font color="#2E8B57">So the current mode is very simple, enter the 10-digit CDK password to unlock it directly…</p>'
+		'<p><font color="#DAA520">`If you are a player sponsored by V44 and before, please contact me by email again, and I will finally send you two more CDKs.，<s>One for V46 version (already sent)</s>, The other one is used for the V48 version.I did this because I didn`t want you to suffer.</p>'
+	'</div>'
+End
+
+
+
+if $args[0] ='V48':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\对话1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt $loc,$metka">leave</a></div>'
+		'<div class="buttonR3"><a href="exec:gt ''strategy_sponsorship_3'',''old_driver''">V48 new character CDK</a></div>'
+		if $v48_raiders_unlock=48:'<div class="buttonG5"><a href="#" onclick="recordmsgA()">激活Activated V<<$v48_raiders_unlock>>Built-in strategy</a></div>'
+		'<div class="buttonGn4"><a href="exec:gt ''strategy_sponsorship_3''">Full character Strategy CDK</a></div>'
+		if $strategy_unlock=48:'<div class="buttonG5"><a href="exec:gt ''strategy_sponsorship_3'',''unlock_all''">cdNew player cdk has been activated</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+        '<p><B><font color="#FF6347">Question: Is it impossible to create a new character without buying a CDK?</p>'
+        '<p><font color="#2E8B57">Answer: Of course not. CDK unlocks the strategy, which is equivalent to real-time mission guidance.Whether you purchase a CDK or not, it will not have any impact on the plot of the game.If you are a player who is unwilling to read text dialogue messages, it is a good idea to buy a CDK.Admittedly, you can also think of it as pure sponsorship.</p>'
+        '<p><font color="#FF6347">Question: How much does CDK sell for?</p>'
+        '<p><font color="#483D8B">Answer: If you are<font color="#FF0000">Old driver</font>, Only the current V_48 is required<font color="#FF0000">New character strategy</font>→30￥</p>'
+        '<p><font color="#483D8B">Answer: If you are<font color="#3CB371">New player</font>, Need to be in the character guide<font color="#3CB371">All character raiders</font>→99￥(<font color="#FF0000">Contains the above</font>)</p>'
+	'</div>'
+End
+--- strategy_sponsorship ---------------------------------
+

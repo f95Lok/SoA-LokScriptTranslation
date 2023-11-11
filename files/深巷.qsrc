@@ -1,0 +1,136 @@
+# 深巷
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+$ZL_num=RAND(2,4)
+my.精力-=1
+$大锤帮随机数=rand(0,15)
+if $大锤帮随机数>=14 and 大别墅初次>=3 and 大锤<2:gt'深巷','深巷格斗'
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if $ZL.room=1:
+				if $ZL_Event_face!2:
+				'<a class="photo" data-title="<<$ZL.name>>" href="exec:minutes+=5 & gt ''援交_事件'',''ZL_Fuck_home''"><img class="img_stretch" src="images\NPC\ZL\pics\1.jpg"></a>'
+				else:
+				'<a class="photo" data-title="<<$ZL.name>>" href="exec:minutes+=5 & gt ''援交_事件'',''ZL_Fuck_home<<$ZL_num>>''"><img class="img_stretch" src="images\NPC\ZL\pics\1.jpg"></a>'
+				end
+				else:'<a class="photo" data-title="空房间"><img class="img_stretch" src="images\NPC\ZL\pics\1.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if $LY.room=1:'<a class="photo" data-title="<<$LY.name>>" href="exec: gt ''主播_事件'',''房间''"><img class="img_stretch" src="images\NPC\ZL\pics\2.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $OX.room=1:'<a class="photo" data-title="<<$OX.name>>" href="exec:minutes+=5 & a=1 & gt ''偶像_事件'',''OXroom''"><img class="img_stretch" src="images\NPC\ZL\pics\3.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $SS.room=1 and $SS_逮捕=0:'<div class="action"><a class="photo" data-title="<<$SS.name>>" href="exec:minutes+=5 & gt ''杀手_事件'',''SS_Event_房间''"><img class="img_stretch" src="images\NPC\ZL\pics\4.jpg"></a></div>'
+			if $SS.room=1 and $SS_逮捕=2:'<div class="action"><a class="photo" data-title="<<$SS.name>>" href="exec:minutes+=5 & $杀手对话=0 & gt ''杀手_事件'',''SS_Event_家''"><img class="img_stretch" src="images\NPC\ZL\pics\4.jpg"></a></div>'
+		'</div>'
+
+		'<div class="action">'
+			if 保时捷=1:'<a class="photo" data-title="<<$XS.name>>" href="exec:minutes+=5 &   gt ''销售_事件'',''销售_Fuck_她家''"><img class="img_stretch" src="images\NPC\ZL\pics\5.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $QT.room=1:'<a class="photo" data-title="<<$QT.name>>" href="exec:minutes+=5 &  gt ''前台_事件'',''前台_家''"><img class="img_stretch" src="images\NPC\ZL\pics\6.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $SX.room=1:'<a class="photo" data-title="<<$SX.name>>" href="exec:minutes+=5 &  gt ''失乡_事件'',''失乡家''"><img class="img_stretch" src="images\NPC\ZL\pics\7.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $督察事件链>=7:'<a class="photo" data-title="<<$DC.name>>" href="exec:minutes+=5 &  gt ''督察_事件'',''督察家''"><img class="img_stretch" src="images\NPC\ZL\pics\8.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $局长x家=1:'<a class="photo" data-title="安全屋" href="exec:minutes+=5 & 搜索位置=0 &  gt ''局长_事件'',''局长家''"><img class="img_stretch" src="images\NPC\ZL\pics\9.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $LXS.available=1:'<a class="photo" data-title="<<$LXS.name>>" href="exec:$留学生对话=0 &  gt ''留学_事件'',''留学生家''"><img class="img_stretch" src="images\NPC\ZL\pics\10.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $WH.available=1:'<a class="photo" data-title="<<$WH.name>>" href="exec:$网红对话=0 &  gt ''网红_事件'',''网红家''"><img class="img_stretch" src="images\NPC\ZL\pics\11.jpg"></a>'
+		'</div>'
+
+			if my.basement>=1:'<div class="action"><a class="photo" data-title="地下室（剩余<<my.basement>>天）" href="exec:minutes+=5 & gt ''地下室''"><img class="img_stretch" src="images\place\地下室.jpg"></a></div>'
+
+	'</div>'
+'</div>'
+
+
+
+if $args[0] ='':
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if  money>=1000:
+		'<div class="buttonG"><a href="exec:minutes+=15 &money-=1000 & my.basement+=30 & gt ''深巷''">租地下室￥1000/月</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">租地下室￥1000/月</a></div>'
+		end
+		if $XM.bad>=300 and $XM.job=1 and 2>hour and hour>=0 and $ZL_num=4 and XM录像带<=1:'<div class="buttonPu2"><a href="exec:gt ''学妹_事件'',''熟悉的身影''">熟悉的身影</a></div>'
+		if $QB事件链=3:'<div class="buttonPu3"><a href="exec:gt ''桥本_事件'',''店长的出租屋''">店长的出租屋</a></div>'
+		if 失乡事件链=1:'<div class="buttonB1"><a href="exec:gt ''失乡_事件'',''深巷''"><<$SX.name>></a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·在光辉未照耀的摩天大楼之下，有着逼仄潮湿而肮脏的贫民区。来大城市闯荡的女人们，逃避税收的男人们，像老鼠一样拥挤在一条条阴暗破败而混乱的深巷里。</p>'
+	'</div>'
+
+end
+
+if $args[0] ='深巷格斗':
+    '<div class ="show_menu"><img src="images\place\大别墅\深巷X.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+       '<div class="buttonG"><a href="exec:money=0 & gt ''深巷''">乖乖交钱</a></div>'
+        if $我战斗力_1>$敌战斗力_1:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''深巷'',''深巷格斗2''">不服就干</a></div>'else:'<div class="buttonGr"><a href="exec:">忍气吞声</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·刚迈入深巷，一伙人围了上来。</p>'
+        '<p>大锤帮首领: 把身上的钱统统交出来！不然没你好果子吃！</p>'
+        '<p>·——————·</p>'
+        $我战斗力_1=my.智力+my.体力
+        '<p>·我的智力：Lv<<my.智力>>；身体素质：Lv<<my.体力>>；战斗力=<<$我战斗力_1>></p>'
+        $敌战斗力_1=15+rand(3,10)
+        '<p>·对方人数：4；综合战斗力=<<$敌战斗力_1>></p>'
+        $大锤掉落率=50/($我战斗力_1-$敌战斗力_1)
+        $大锤掉落数=rand(19,100)
+        '<p>·大锤掉落率(<<$大锤掉落率>>%)=50/（战斗力差值）</p>'
+    '</div>'
+end
+
+if $args[0] ='深巷格斗2':
+    '<div class ="show_menu"><img src="images\place\大别墅\深巷X.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if $大锤掉落数<=$大锤掉落率:'<div class="button"><a href="exec:minutes+=15 & 大锤+=1 & gt ''深巷''">没收锤子</a></div>'
+        '<div class="button"><a href="exec:minutes+=60 & gt ''深巷''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·双拳难敌四手，但你做到了。</p>'
+        '<p>大锤帮首领: 可恶，这次踩到硬茬子了！我们撤！</p>'
+        '<p>·——————·</p>'
+        '<p>·大锤掉落率(<<$大锤掉落率>>%)=50/（战斗力差值）</p>'
+        if $大锤掉落数<=$大锤掉落率:'<p>·交手的过程中，他们遗落了一把大锤。</p>'else:'<p>·他们快速地逃走了，什么都没留下。</p>'
+    '</div>'
+end
+
+--- 深巷 ---------------------------------
+

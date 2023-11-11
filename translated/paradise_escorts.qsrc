@@ -1,0 +1,257 @@
+# paradise_escorts
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+$oxhbao=rand(2,23)
+minutes+=15
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Kabukicho" href="exec:minutes+=5 & gt ''kabukicho''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if piaozi<2000 : 
+	$piaolv="none"
+ elseif piaozi <5000: $piaolv="VIP"
+ elseif piaozi <15000: $piaolv="VVIP"
+  elseif piaozi <25000: $piaolv="VVVIP"
+   elseif piaozi <50000: $piaolv="VVVVIP"
+   else:$piaolv="SVIP"
+END
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\天堂伴游2.jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''paradise_escorts'',''electronic_screen''">(Accompanied by a letter of recommendation)</a></div>'
+		if $caesar_event_chain!0:'<div class="buttonB4"><a href="exec:minutes+=15 & $caesar_dialogue=0 & gt ''paradise_escorts'',''caesar_gate''">&quot;Caesar`s Office&quot;</a></div>'else:'<div class="buttonGr"><a href="exec:">&quot;Caesar`s Office&quot;</a></div>'
+		if $bank_event_chain=2:'<div class="buttonPu4"><a href="exec:minutes+=15 & gt ''bank_event'',''drinking_choice''"><<$YH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Paradise escorts, the main focus is high-quality companionship, to establish a closer emotional connection for you who are lonely.</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="electronic_screen":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''paradise_escorts'',''apply_for_an_escort''">Apply for an escort</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''paradise_escorts'',''pay_the_deposit''">Pay the deposit</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Statement: The following amount is a voluntary gift by me, and there are no expenses for prostitution, naturalization fees, and other suspected sex transactions.</p>'
+		'<p>·Remarks: For customers, we have five membership levels: VIP, VVIP, VVVIP, VVVVIP, and SVIP.</p>'
+		'<p>·The current account has paid ￥ cumulatively<<piaozi>>。Your current level is:<<$piaolv>></p>'
+	'</div>'
+End
+
+if $args[0]="pay_the_deposit":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像<<$oxhbao>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if money>=500:
+		'<div class="buttonG"><a href="exec:minutes+=5 & money-=500 & piaozi+=500 &  gt ''paradise_escorts'',''pay_the_deposit''">Pay 500￥</a></div>'
+		end
+		if money>=5000:
+		'<div class="buttonG"><a href="exec:minutes+=5 & money-=5000 & piaozi+=5000 &  gt ''paradise_escorts'',''pay_the_deposit''">Pay 5000￥</a></div>'
+		end
+		if money>=50000:
+		'<div class="buttonG"><a href="exec:minutes+=5 & money-=50000 & piaozi+=50000 &  gt ''paradise_escorts'',''pay_the_deposit''">Pay 50,000￥</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''paradise_escorts''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Thank you for your support. The above are the well-received pictures from high-quality customers.</p>'
+	'</div>'
+End
+
+if $args[0]="apply_for_an_escort":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if piaozi>=2000:
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''group_performation_event'',''underground_idolate_fuck''">Departure</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Your capital verification is under way, please wait....</p>'
+		if piaozi<2000:
+		'<p>·We are very sorry, the cumulative payment in your account is insufficient.</p>'
+		else:
+		'<p>·Dear customer, there will be a special car to receive you soon.</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="caesar_gate":
+	if rand(0,30)>=20: gt'paradise_escorts','caesar_standing_painting'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\KS_door_<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=15 & gt ''paradise_escorts'',''caesars_gate_2''">Wait a moment</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·There was a lewd voice in the office…</p>'
+	'</div>'
+End
+
+if $args[0]="caesars_gate_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\KS_door_99.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=15 & gt ''paradise_escorts'',''caesar_standing_painting''">Push the door to enter</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems to be over in the office…</p>'
+	'</div>'
+End
+
+if $args[0]="caesar_standing_painting":
+	'<div class ="show_menu"><img src="images\place\天堂伴游3.jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if $caesar_event_chain=1 or $caesar_event_chain=2:'<div class="buttonB4"><a href="exec:$caesar_dialogue=1 & gt ''paradise_escorts'',''caesar_standing_painting''">Ask for negatives</a></div>'
+		if $caesar_event_chain>=5 and $public_toilet_negatives=0:'<div class="buttonB4"><a href="exec:$caesar_dialogue=8 & gt ''paradise_escorts'',''caesar_standing_painting''">Ask for negatives</a></div>'
+		if $caesar_dialogue=1:'<div class="buttonB4"><a href="exec:$caesar_dialogue=2 & gt ''paradise_escorts'',''caesar_standing_painting''">or?</a></div>'
+		if $caesar_dialogue=2:'<div class="buttonS"><a href="exec:$caesar_dialogue=3 & gt ''paradise_escorts'',''caesar_standing_painting''">Evil: Compromise</a></div>'
+		if $caesar_dialogue=2:'<div class="buttonGn"><a href="exec:$caesar_dialogue=4 & gt ''paradise_escorts'',''caesar_standing_painting''">Justice: Veto</a></div>'
+		if $caesar_dialogue=3 or $caesar_dialogue=4:'<div class="buttonGn"><a href="exec:$caesar_dialogue=5 & gt ''paradise_escorts'',''caesar_standing_painting''">Cannot be set no</a></div>'
+		if $caesar_event_chain=3 or $caesar_event_chain=4 :'<div class="buttonS"><a href="exec:$caesar_dialogue=6 & gt ''paradise_escorts'',''caesar_standing_painting''"><<$GJ.name>></a></div>'
+		if $caesar_dialogue=6:'<div class="buttonS"><a href="exec: gt ''champion_event'',''GJ_Fuck_YQH''">Go to dinner together</a></div>'
+		if $caesar_event_chain=6:'<div class="buttonP"><a href="exec:$caesar_dialogue=7 & gt ''paradise_escorts'',''caesar_standing_painting''"><<$GJ.name>></a></div>'
+		if $caesar_dialogue=7:
+			'<div class="buttonS3"><a href="exec: gt ''champion_event'',''GJ_Fuck_FALL1''">Acceptance result</a></div>'
+			if $gj_bad_review=1:
+				'<div class="buttonR"><a href="exec: gt ''champion_event'',''gj_fuck_tuning_f''">Correct bad reviews</a></div>'
+				'<div class="buttonPu5"><a href="exec:$caesar_dialogue=9 & gt ''paradise_escorts'',''caesar_standing_painting''">In the same stream?</a></div>'
+			end
+		end
+		if $caesar_event_chain>=6:'<div class="buttonB3"><a href="exec:gt ''paradise_escorts'',''zx_vertical_painting''"><<$ZX.name>>visit</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $caesar_dialogue=0:
+		'<p>Caesar：<<$protagonists_name>>, Why did you come in without knocking on the door?Do you know what the value of the existence of a loser is?If there are no losers, there will be no winners.</p>'
+		'<p>Me: Then as a successful person, why do you wear a pimple headgear?</p>'
+		'<p>Caesar: Then according to your reasoning, why are you wearing a mask of hypocrisy?</p>'
+		end
+		if $caesar_dialogue=1:
+		'<p>Me: Give me the negatives!What is the purpose of your design to take pictures of me?</p>'
+		'<p>Caesar: You said me?Set up a plan?Candid shots?Aren`t you good at everything I do?Haven`t you done it before?</p>'
+		'<p>Me: Come on, what do you want?</p>'
+		'<p>Caesar: Then I`ll get straight to the point. The underground entertainment industry, you know, has suffered a little resistance recently.The development situation is not as good as before.</p>'
+		'<p>Me: Resistance?Did I cause it?</p>'
+		'<p>Caesar: Of course, I heard that the new idols of Empire Entertainment have all moved into luxury villas, and my chicks are very envious.</p>'
+		'<p>Me: Just say what you want.</p>'
+		'<p>Caesar: Take 50 million to upgrade the staff dormitory for my chicks; or…</p>'
+		end
+		if $caesar_dialogue=2:
+		'<p>Caesar: Or don`t want money, I want to be alone!</p>'
+		'<p>Me: My artist?</p>'
+		'<p>Caesar: Tsk Tsk, of course not.After the idol contest is over<<$GJ.name>>I should have been unemployed all the time, right, you and<<$PW.name>>Joined forces to block her.</p>'
+		'<p>Me: So what?Do you want to fuck her?</p>'
+		'<p>Caesar: The pattern is too small, I want her to be the top card of the underground idol!Spending money here can make a champion idol a real sow.Hahahahahahahahaha!</p>'
+		end
+		if $caesar_dialogue=3:
+		'<p>Me: My sow?This sounds good.</p>'
+		'<p>Caesar: With her, underground idols can prosper again.What do you say?</p>'
+		end
+		if $caesar_dialogue=4:
+		'<p>Me: Sorry, out of a sense of justice, I can`t do this kind of thing!</p>'
+		'<p>Caesar: What a hypocritical person, you personally blocked her.You have ruined her life!</p>'
+		'<p>Me: She shot my sister first!She has already paid the price!</p>'
+		'<p>Caesar: Oh, what price did you pay?！</p>'
+		end
+		if $caesar_dialogue=5:
+		'<p>Caesar: Okay, call me as soon as you hear from her!</p>'
+		'<p>Me: What if I really can`t reach her?</p>'
+		'<p>Caesar: Trust me, you will find her.</p>'
+		if $caesar_event_chain=1:$caesar_event_chain=2
+		end
+		if $caesar_dialogue=6:
+		'<p>Caesar: Yes<<$GJ.name>>Is there any news?</p>'
+		'<p>Me: Yes, and she would like to see you too, but she wants an appearance fee of 50,000.</p>'
+		'<p>Caesar: You don`t want to ask me for this little money, do you?！Hmm?</p>'
+		'<p>I：……</p>'
+		'<p>Caesar: Stop fucking nonsense!Take me to see her!</p>'
+		end
+		if $caesar_dialogue=7:
+		'<p>I：<<$GJ.name>>...how`s it going?</p>'
+		'<p>Caesar: Huh?Do you really want to know?</p>'
+		'<p>Me: Hmm.</p>'
+		'<p>Caesar: Come on, take her to the guest room.</p>'
+		end
+		if $caesar_dialogue=8:
+		'<p>Me: Destroy the negatives to me in person!</p>'
+		'<p>Caesar: Destroy it in person?I thought you would use this negative to threaten another person in the photo.</p>'
+		'<p>Me: Oh?</p>'
+		'<p>Caesar: Take it, I don`t care what you do. You are not a hypocrite, I know.</p>'
+		'<p>·Take away the negatives</p>'
+		 if $public_toilet_negatives=0:$public_toilet_negatives=1
+		end
+		if $caesar_dialogue=9:
+		'<p>Me: You are so vicious. You tricked her into applying for a sky-high medical beauty loan, and finally forced her to sell herself to pay off the debt.…</p>'
+		'<p>Caesar: What`s the matter?On the contrary, you seem to be enjoying it?</p>'
+		'<p>Me: Do I have it?</p>'
+		'<p>Caesar: Then she begged you so hard, did you give her a bad review?Stop pretending, put down your mask of hypocrisy.How about finding prey for me?You can get an objective reward by moving your mouth!</p>'
+		'<p>I：……</p>'
+		'<p>Caesar: Don`t be so mentally burdened. You just introduce outstanding medical beauty services to unfamiliar passers-by.Every time you successfully apply for a loan, I will give you 10,000 ￥.</p>'
+		'<p>Me: *Smile</p>'
+		$caesar_works_part_time=1
+		end
+	'</div>'
+End
+
+
+
+if $args[0]="zx_vertical_painting":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\KS0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=15 & gt ''plasticity_event'',''ZX_Fuck_KS1''">Pretend to avoid</a></div>'
+				if $ZX.bad>=600-$ZX.bad:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''plasticity_event'',''ZX_Fuck_KS2''">Enter 3P </a></div>'else:'<div class="buttonGr"><a href="exec:">Enter 3P·Insufficient favorability </a></div>'
+				'<div class="button"><a href="exec:gt ''kabukicho''">leave </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>: Settle the account?</p>'
+		'<p>Caesar: Which way do you want to end?<<$protagonists_surname>>Broker, should you avoid it?</p>'
+		'<p>I：……</p>'
+	'</div>'
+End
+
+
+ 
+--- paradise_escorts ---------------------------------
+

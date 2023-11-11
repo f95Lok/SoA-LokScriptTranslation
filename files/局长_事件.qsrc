@@ -1,0 +1,1580 @@
+# 局长_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="骚扰":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\骚扰.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''警察局''">离开 </a></div>'
+		'</div>'
+
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>: ？！！啊！！</p>'
+			 '<p>前任局长(中田一平): 屁股还是这么有弹性！</p>'
+			 '<p><<$JZ.name>>: 舅舅…这样不好，我会告你性骚扰执法人员的。</p>'
+			 '<p>前任局长(中田一平): 哎呀，跟你说过多少遍了，工作的时候称职务！</p>'
+			 '<p><<$JZ.name>>: 是…中田局长，你再这样的话，我就要告诉舅妈了…</p>'
+			 '<p>前任局长(中田一平): 提她干嘛？！我对她早就没感觉了！</p>'
+			 if $局长x舅舅=0:$局长x舅舅=1
+		 '</div>'
+
+End
+
+if $args[0]="雨天":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\雨.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if $局长x舅舅=1:'<div class="buttonPu2"><a href="exec:gt ''局长_事件'',''JZ_Fuck_雨夜1''">暗中观察 </a></div>'
+			if $局长x舅舅>=2:'<div class="buttonPu3"><a href="exec:gt ''局长_事件'',''JZ_Fuck_雨夜2''">暗中偷窥 </a></div>'
+
+			'<div class="button"><a href="exec:gt ''地铁''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>: ……</p>'
+		 '</div>'
+
+
+End
+
+
+if $args[0]="JZ_Fuck_雨夜1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\SJ2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if JZ雨天num >= a and a!9:
+        '<div class="button_menu">'
+            '<div class="buttonPu2"><a href="exec:a+=1 & gt ''局长_事件'',''JZ_Fuck_雨夜1''">保持安静 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR4"><a href="exec:hour+=3 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$JZ.name>>: 果然我还是没有打伞的习惯…</p>'
+             if a=1:'<p><<$JZ.name>>: 嗯？这么晚了办公室还会有人吗？</p>'
+             if a=2:'<p><<$JZ.name>>: 先把这几个男性失踪的报案给撤销了吧…没有人会发现这个城市里少了几个男人的……</p>'
+             if a>=3:'<p>前任局长(中田一平): 白天舅舅忍耐地好辛苦啊❤</p>'
+             if a>=4:'<p><<$JZ.name>>: 舅舅，别这样…</p>'
+             if a>=5:'<p>前任局长(中田一平): 当初你求我提拔你的时候可没有拒绝我…现在反悔了？</p>'
+             if a>=6:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+             if a=9:'<p>我: 原来他们还有这样一层特殊的关系！</p>'& if $局长x舅舅=1:$局长x舅舅=2
+         if JZ雨天num < a :
+                '<p>·不小心碰到了花瓶</p>'
+                '<p><<$JZ.name>>: 谁在哪里？！</p>'
+                '<p>我: 我应该下次再来！</p>'
+            JZ雨天num+=a
+         end
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="JZ_Fuck_雨夜2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\SJ3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if JZ雨天num >= a+9 and a!8:
+        '<div class="button_menu">'
+            '<div class="buttonPu3"><a href="exec:a+=1 & gt ''局长_事件'',''JZ_Fuck_雨夜2''">保持安静 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR4"><a href="exec:hour+=3 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$JZ.name>>: 是…是…之前的【重要内容】我已经全部销毁了，请您放心…</p>'
+             if a=0:'<p>前任局长(中田一平): 你在和谁打电话？</p>'
+             if a=1:'<p><<$JZ.name>>: 帝国集团的负责人…</p>'
+             if a=2:'<p>前任局长(中田一平): 她们的爪牙已经伸向执法机关了？</p>'
+             if a>=3:'<p><<$JZ.name>>: 舅舅，只是一点琐事…不用您操心…</p>'
+             if a>=4:'<p>前任局长(中田一平): 我只是个被强制调离的局长，除了操你没有什么实权…</p>'
+             if a>=5:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+             if a=8:'<p>前任局长(中田一平): 我们的事可不能被你舅妈知道…</p>'  
+             
+             if a=8:'<p>我: 我是不是应该拍下来威胁她？威胁警察局局长这事，还是算了吧。</p>'& if $局长x舅舅=2:$局长x舅舅=3
+         if JZ雨天num < a+9 :
+                '<p>·再次不小心碰到了花瓶</p>'
+                '<p><<$JZ.name>>: 谁在哪里？！</p>'
+                '<p>我: 我应该下次再来！</p>'
+            JZ雨天num+=3
+         end
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="舅妈来访":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\SJ4-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a<6:'<div class="buttonPu3"><a href="exec:a+=1 & gt ''局长_事件'',''舅妈来访''">偷看 </a></div>'
+			if a=6 and $JZ录像=1:'<div class="buttonR3"><a href="exec:a=0 & gt ''局长_事件'',''摊牌''">摊牌 </a></div>'
+			'<div class="button"><a href="exec:gt ''市政厅''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>谷梓: 我就不和你多啰嗦了，你自己也清楚做了什么样的事吧？！</p>'
+             '<p>前任局长(中田一平): 当然不想…我们这么多年夫妻了…别闹得太难看……</p>'
+              if a>=1:
+			 '<p><<$JZ.name>>: 舅妈，对不起…！</p>'
+			 '<p>谷梓: 不用跟我道歉！他跟我做爱根本硬不起来，你让他当着我的面硬起来一次，快点！</p>'
+			 end
+              if a>=2:
+			 '<p><<$JZ.name>>: 失礼了…</p>'
+			 '<p>谷梓: 快点！</p>'
+			 end
+              if a>=3:
+			 '<p><<$JZ.name>>: <<$娇喘声>></p>'
+			 end
+              if a>=6:
+             '<p>前任局长(中田一平): 老婆，我没骗你吧？</p>'
+			 '<p>谷梓: 你真是太令人恶心了！</p>'
+			 if $局长x舅舅=3:$局长x舅舅=4
+			 end
+		 '</div>'
+
+
+End
+
+
+if $args[0]="钓鱼执法":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\钓鱼执法.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if $GX_楼道=1:'<div class="buttonS2"><a href="exec:gt ''局长_事件'',''展示录像''">展示录像 </a></div>'
+			'<div class="buttonS2"><a href="exec:gt ''地铁''">明白了 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>: 通过你的义警积分可以看得出你是一个优秀，负责的义务警员，现在我有一个重要的任务交给你。</p>'
+			 '<p>我: 请说。</p>'
+			 '<p><<$JZ.name>>: 我要你跟踪一个女人，把她的日常出行全部记录下来，并且查查她有什么把柄。</p>'
+			 '<p>我: 我具体该怎么做…？</p>'
+			 '<p><<$JZ.name>>: 她在百货商店有不少网购订单，你先伪装成送货员，把她的喜好摸清楚。</p>'
+			  if $局长x舅妈委托=0:$局长x舅妈委托=1
+		 '</div>'
+End
+
+
+if $args[0]="送货上门":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\送货1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a=0 and $GX_love>=1:'<div class="buttonS1"><a href="exec:a+=1 & $GX_love+=1 & gt ''局长_事件'',''送货上门''">对话 </a></div>'
+			if a=1:'<div class="buttonS2"><a href="exec:a=3 & $GX_love+=1 & gt ''局长_事件'',''送货上门''">搬进去 </a></div>'
+			if a=1 and $GX_love>=3:'<div class="buttonS3"><a href="exec:a=2 & $GX_love+=10 & gt ''局长_事件'',''送货上门''">调情 </a></div>'
+			if a>=2 :
+				if $GX_love>=13:'<div class="buttonS4"><a href="exec: gt ''局长_事件'',''修理灯泡''">修理灯泡 </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+				if  $GX_修理num>=3:'<div class="buttonS4"><a href="exec:a=0 & gt ''局长_事件'',''花洒''">修理花洒 </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+				if  $GX_花洒=1:'<div class="buttonS5"><a href="exec:a=0 & gt ''局长_事件'',''楼道''">强吻她 </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+				if  $GX_楼道=1:'<div class="buttonS5"><a href="exec:a=0 & gt ''局长_事件'',''屋内''">进屋SEX </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+			end
+			'<div class="button"><a href="exec:$GX_love+=1 & gt ''地铁''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>谷梓: 辛苦了，放在这里就行了！</p>'
+			  if $GX_love>=1: '<p>我 : 我帮您放进去吧！</p>'
+			  if a=2:
+			  '<p>我 : 一女进性用品商店，要买振动棒，老板说：都在上面自己挑。女认真选后说：我要那个红色的，老板看了一眼说：小姐，那是灭火器。</p>'
+			  '<p>谷梓: 哈哈，你是在诱惑我吗？</p>'
+			  '<p>我 : 你猜。</p>'
+			  end
+			  if a>=2 : 
+				if $GX_love>=13:'<p>谷梓: 真巧了，我的灯泡坏了，你会修理吧？</p>'
+				if $GX_修理num=0: a=0
+				if $GX_修理num=1: a=2
+				if $GX_修理num>=2: a=4
+				if $GX_修理num>=3:'<p>谷梓: 又出问题了，家里的花洒堵住了，你能帮我疏通一下吗？</p>'
+			 end
+
+		 '</div>'
+End
+
+
+if $args[0]="修理灯泡":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\修灯1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a=5 or a=6 or a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''局长_事件'',''修理灯泡''">任其摆布 </a></div>'
+			if a=0 or a=2 or a=4:'<div class="buttonS2"><a href="exec:a+=1 & gt ''局长_事件'',''修理灯泡''">我来吧 </a></div>'else:'<div class="button"><a href="exec:$GX_修理num+=1 & gt ''地铁''">修理完离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			  '<p>谷梓: 你可不要偷瞄我，你能帮我换吗？我没有穿内衣。</p>'
+			  '<p>我 : 你是在诱惑我吗？<<a>></p>'
+			  if a>=1: '<p>谷梓: 你可真…厉害。</p>'
+			  if a>=5: '<p>我 : 欸？</p>'
+			  if a>=6: '<p>谷梓: 明明是你在诱惑我<<$娇喘声>></p>'
+			  if a=8:'<p>我 : （看来她对我有意思）</p>'
+		 '</div>'
+End
+
+if $args[0]="花洒":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\送货2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''局长_事件'',''花洒''">检查花洒</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''局长_事件'',''花洒''">检查裤子</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''局长_事件'',''花洒''">激吻</a></div>'
+            end
+
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''局长_事件'',''花洒''">口交</a></div>'
+            end
+            if a!5 and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''局长_事件'',''花洒''">乳交</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''局长_事件'',''花洒''">射精！</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''局长_事件'',''花洒''">依依不舍</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>谷梓：你看，咕嘟咕嘟地就是喷不出来。</p>'
+             '<p>我：我瞧瞧……</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a>=1:'<p>谷梓：啊咧，怎么自己好了？</p>'
+             if a>=2:'<p>我：夫人，堵住的应该不是花洒吧？</p>'
+             if a>=3:'<p>谷梓: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $GX_love+=q+my.魅力
+         $GX_花洒=1
+         money+=200
+         '<div class="dialog_menu">'
+             '<p>谷梓: 今天辛苦了，这是一点小心意，回去好好补补身体❤</p>'
+             '<p>·收到了200￥的红包</p>'
+             
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="楼道":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\送货3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''局长_事件'',''楼道''">揉奶</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="button"><a href="exec:a=2 & gt ''局长_事件'',''楼道''">侍奉</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''局长_事件'',''楼道''">口交</a></div>'
+            end
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''局长_事件'',''楼道''">后背位</a></div>'
+            end
+            if a!5 and 7>=q and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''局长_事件'',''楼道''">骑乘位</a></div>'
+            end
+            if a!6 and 9>=q and q>=5:
+            '<div class="button"><a href="exec:a=6 & gt ''局长_事件'',''楼道''">大力抽插</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''局长_事件'',''楼道''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''局长_事件'',''楼道''">依依不舍</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>谷梓：你想在这里做？</p>'
+             '<p>我：你怕了？</p>'
+             '<p>谷梓：我就喜欢年轻人的胆量…</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a>=1:'<p>谷梓：<<$娇喘声>></p>'
+             if a>=1:'<p>·偷拍设备记录下了一切</p>'
+             if a>=2:'<p>我：夫人，刺激吗？</p>'
+             if a>=4:'<p>谷梓: 刺激<<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $GX_love+=q+my.魅力
+         $GX_楼道=1
+         money+=500
+         '<div class="dialog_menu">'
+             '<p>谷梓: 你可比我老公强多了❤</p>'
+             '<p>·收到了500￥的红包</p>'
+             '<p>·偷拍设备记录下了一切…我可以向<<$JZ.NAME>>汇报工作了。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="屋内":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\屋内2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''局长_事件'',''屋内''">口交</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="button"><a href="exec:a=2 & gt ''局长_事件'',''屋内''">抠逼</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''局长_事件'',''屋内''">性爱</a></div>'
+            end
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''局长_事件'',''屋内''">后入</a></div>'
+            end
+            if a!5 and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''局长_事件'',''屋内''">骑乘位</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''局长_事件'',''屋内''">内射</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''局长_事件'',''屋内''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>谷梓：来嘛…姐姐等你好久了…</p>'
+             '<p>我：夫人，我们这样不好吧？</p>'
+             '<p>谷梓：现在后悔也来不及了…</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a>=1:'<p>谷梓：<<$娇喘声>></p>'
+             if a>=2:'<p>我：夫人，你丈夫不管你吗？</p>'
+             if a>=3:'<p>谷梓: 闭嘴<<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $GX_love+=q+my.魅力
+         $GX_屋内=1
+         money+=500
+         '<div class="dialog_menu">'
+             '<p>谷梓: 还有像你一样身强力壮的送货员可以统统介绍给我❤</p>'
+             '<p>我：好的。</p>'
+             '<p>谷梓: 报酬是少不了的❤</p>'
+             '<p>·收到了500￥的红包</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="展示录像":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\好处1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''局长_事件'',''展示录像''">索要好处</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="button"><a href="exec:a=2 & gt ''局长_事件'',''展示录像''">揉奶</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''局长_事件'',''展示录像''">撸管</a></div>'
+            end
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''局长_事件'',''展示录像''">口交</a></div>'
+            end
+            if a!5 and 7>=q and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''局长_事件'',''展示录像''">乳交</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''局长_事件'',''展示录像''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''局长_事件'',''展示录像''">交出录像</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:
+               '<p><<$JZ.name>>：这是…你和…她的……出轨视频？！</p>'
+               '<p>我：工作还算顺利，她欲求不满很久了。</p>'
+               '<p><<$JZ.name>>：拿来！</p>'
+               '<p>我：等等，我有一个小小的请求。</p>'
+             end
+             if a>=1:'<p><<$JZ.name>>：这就是你想要的？我是不会和你发生关系的。</p>'
+             if a>=2:'<p>我：明白，我只想要局长大人用某个部位帮我打出来。</p>'
+             if a>=3:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $JZ.bad+=q+my.魅力
+         $JZ录像=1
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 这件事办的不错，从今以后这件事你要烂在肚子里。</p>'
+             '<p>我：好的。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="摊牌":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\状态0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonS5"><a href="exec:gt ''局长_事件'',''摊牌2''">勃起 </a></div>'
+			'<div class="button"><a href="exec:gt ''地铁''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>: 舅妈…这位小哥不陌生吧？我这里还有你们在楼梯里激情四射的画面呢。</p>'
+			 '<p>我: ……嗨？</p>'
+             '<p>前任局长(中田一平): 老婆，你居然背着我出轨？</p>'
+			 '<p>谷梓: 怎么了？！你不是对着我硬不起来吗？我解决自己的生理需求有什么错？</p>'
+			 '<p><<$JZ.name>>: 舅妈，现在的情况呢，要么是我们鱼死网破两败俱伤，要么就是我们互相睁一只眼闭一只眼，你觉得呢？</p>'
+			 '<p>谷梓: ……那从此以后，我们井水不犯河水。我们就各玩各的。</p>'
+		 '</div>'
+End
+
+if $args[0]="摊牌2":
+		a=0 & q=0
+		if $JZ.love>=200 and $JZ.bad>=200:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\状态2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\状态1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+
+
+		'<div class="button_menu">'
+			'<div class="buttonS3"><a href="exec:gt ''局长_事件'',''JZ_Fuck_舅妈''">操舅妈 </a></div>'
+			if $JZ.bad>=150:'<div class="buttonS4"><a href="exec:gt ''局长_事件'',''JZ_Fuck_3P''">操<<$JZ.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			if $JZ.bad>=250:'<div class="buttonS5"><a href="exec:gt ''局长_事件'',''JZ_Fuck_3P2''">让他们看着 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			'<div class="button"><a href="exec:gt ''地铁''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+             '<p>前任局长(中田一平): 老婆，这可是你说的！那我们就就各玩各的咯？</p>'
+			 '<p><<$JZ.name>>: 舅妈，他现在居然勃起了，你说由我们俩谁为他解决好呢？</p>'
+			 '<p>我: 呃……？</p>'
+			 '<p>谷梓: ……*咽口水</p>'
+		 '</div>'
+End
+
+
+if $args[0]="JZ_Fuck_舅妈":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\屋里1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_舅妈''">侍奉</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_舅妈''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_舅妈''">乳交</a></div>'
+            end
+            if a!4 and 5>=q and q>=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_舅妈''">骑上来</a></div>'
+            end
+            if a!5 and 6>=q and q>=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_舅妈''">挑逗肛门</a></div>'
+            end
+            if a!6 and 7>=q and q>=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_舅妈''">插到底</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_舅妈''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''局长_事件'',''JZ_Fuck_舅妈''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:
+               '<p>谷梓：快点，吻我，老公你给我看仔细了，我是怎么被别的男人操的…</p>'
+               '<p>我：真是饥渴的女人…</p>'
+             end
+             if a>=1:'<p>谷梓: <<$娇喘声>></p>'
+             if a>=2:'<p><<$JZ.NAME>>: 舅舅，舅妈玩的这么高兴，我们也开始吧…</p>'  
+             if a>=3:'<p>我: *余光瞥向<<$JZ.NAME>>…</p>'   
+             if a>=4:'<p>谷梓: <<$话>></p>'  
+         '</div>'
+    end
+
+    if a=8:
+         $GX_love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>谷梓: 这件事以后就这么处理吧，我也想落个好名声！</p>'
+             '<p>我：我的荣幸。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_3P":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\三人1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_3P''">肏她</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_3P''">加速肏她</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_3P''">揉她的奶</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_3P''">让局长先射</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_3P''">自己再射</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_3P''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>我：您不介意吧？</p>'
+           '<p>前任局长(中田一平): 小兄弟，我这么大岁数了，还会动真感情？</p>'
+             if a>=1:'<p><<$JZ.NAME>>: <<$娇喘声>></p>'
+             if a>=2:'<p>我：那我就放心了…</p>'
+             if a>=3:'<p><<$JZ.NAME>>: <<$话>></p>'  
+         '</div>'
+    end
+
+    if a=6:
+         $JZ.love+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>前任局长(中田一平): 小兄弟，我看你很有前途，未来可期。</p>'
+             '<p><<$JZ.NAME>>: 还不谢谢舅舅的赏识？</p>'  
+             '<p>我：谢谢您的抬举。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_3P2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\换1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_3P2''">口我</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_3P2''">乳交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_3P2''">骑上来</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_3P2''">后入她</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_3P2''">牵手抽插</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_3P2''">内射</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_3P2''">结束</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>我：不好意思，你们就在一旁看着吧。</p>'
+           '<p>前任局长(中田一平): 小兄弟，这你就不厚道了。</p>'
+           '<p>谷梓: ……你可真行。</p>'
+             if a>=1:'<p><<$JZ.NAME>>: <<$娇喘声>></p>'
+             if a>=2:'<p>我：真舒服…</p>'
+             if a>=3:'<p><<$JZ.NAME>>: <<$话>></p>'  
+         '</div>'
+    end
+
+    if a=7:
+         $JZ.love+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         $JZ3P=1
+         '<div class="dialog_menu">'
+             '<p>谷梓: ……停！我看不下去了！</p>'
+             '<p>前任局长(中田一平): 真没意思，还是自己操得劲。</p>'
+             '<p>我：……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="行贿":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\行贿.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''地铁''">默默记下 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>？？？: J局，BOSS交代的事完成的很好，她很满意。</p>'
+			 '<p><<$JZ.name>>: 我是公职人员，我不能收。</p>'
+			 '<p>？？？: 这是BOSS的意思，在冰箱里有你要的东西。</p>'
+			 '<p><<$JZ.name>>: 是【那个东西】？</p>'
+			 '<p>？？？: *点头 至于你想怎么处理，是你自己的事。</p>'
+			 '<p><<$JZ.name>>: 这是深巷出租屋的钥匙对吧，我知道了。</p>'
+			 '<p>？？？: 姆苟制药的事也拜托了。</p>'
+			 $局长x家=1
+		 '</div>'
+End
+
+if $args[0]="局长家":
+	if 搜索位置=1: 搜索桌面num+=rand(15,20)
+	if 搜索位置=2: 搜索卧室num+=rand(25,30)
+	if 搜索位置=3: 搜索隔间num+=rand(25,35)
+	随机数=rand(0,10)
+	if 随机数>=6 and 搜索位置=1: gt'局长_事件','JZ_Fuck_逮1'
+	if 随机数>=7 and 搜索位置=2: gt'局长_事件','JZ_Fuck_逮2'
+	if 随机数>=8 and 搜索位置=3: gt'局长_事件','JZ_Fuck_魅魔'
+	
+	
+	'<div class ="show_menu"><img src="images\NPC\JZ\pics\安全屋.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonB2"><a href="exec:搜索位置=1 & gt ''局长_事件'',''局长家''">搜索桌面<<搜索桌面num>>% </a></div>'
+			'<div class="buttonP"><a href="exec:搜索位置=2 & gt ''局长_事件'',''局长家''">搜索卧室<<搜索卧室num>>% </a></div>'
+			'<div class="buttonR"><a href="exec:搜索位置=3 & gt ''局长_事件'',''局长家''">搜索隔间<<搜索隔间num>>% </a></div>'
+			if 搜索桌面num>=100 and 搜索卧室num>=100 and 搜索隔间num>=100:'<div class="buttonR"><a href="exec:gt ''局长_事件'',''录像带''">夹层里的录像带 </a></div>'
+			'<div class="button"><a href="exec:gt ''深巷''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>我: 房门没有锁…好像没有人？</p>'
+			 if 搜索位置!0: '<p>我: 搜索了这个区域…好像有人在监视着我？</p>' & my.精力-=my.精力/2+10
+		 '</div>'
+End
+
+
+
+
+if $args[0]="JZ_Fuck_魅魔":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\魅魔1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_魅魔''">舔舐</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_魅魔''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_魅魔''">强制榨精</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_魅魔''">膛内绞杀</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_魅魔''">加速骑乘</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_魅魔''">内射</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_魅魔''">？？？</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''局长_事件'',''JZ_Fuck_魅魔''">zzZ</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>我：？！？！？！我的头好痛，我是在做梦吗？</p>'
+           '<p>？？？: ……</p>'
+           if a=6: my.精力=-999
+         '</div>'
+    end
+
+    if a=7:
+         my.精力=-999
+         '<div class="dialog_menu">'
+             '<p>我：要失去意识了……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_逮1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\逮1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_逮1''">舔舐</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_逮1''">毒龙</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_逮1''">惩罚</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_逮1''">乳交</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS5"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_逮1''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''监狱日常'',''监狱前置''">被逮捕</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>: 你鬼鬼祟祟地在这干嘛呢？</p>'
+           '<p>我：？！？！？！呃？</p>'
+           '<p><<$JZ.name>>: 既然来了就别想走了。</p>'
+         '</div>'
+    end
+
+    if a=8:
+         my.精力=-999
+         '<div class="dialog_menu">'
+             '<p>我：要失去意识了……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_逮2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\逮2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_逮2''">舔舐</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_逮2''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_逮2''">玩弄</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_逮2''">素股</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_逮2''">足交</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_逮2''">骑上来</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_逮2''">加速抽插</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''局长_事件'',''JZ_Fuck_逮2''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''监狱日常'',''监狱前置''">被逮捕</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>: 你鬼鬼祟祟地在这干嘛呢？</p>'
+           '<p>我：？！？！？！呃？</p>'
+           '<p><<$JZ.name>>: 既然来了就别想走了。</p>'
+         '</div>'
+    end
+
+    if a=8:
+         my.精力=-999
+         '<div class="dialog_menu">'
+             '<p>我：要失去意识了……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="录像带":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\录像.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''地铁''">默默记下 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>？？？: 测试员的精神状态？看起来还行。</p>'
+			 '<p><<$JZ.name>>: <<$娇喘声>></p>'
+			 '<p>？？？: 那就继续给这个婊子加大剂量。</p>'
+			 '<p><<$JZ.name>>: <<$娇喘声2>></p>'
+			 '<p>？？？: 药物的依赖性也是测试B-137的重要指标。</p>'
+			 '<p>————————</p>'
+			 '<p>我: 看来<<$JZ.name>>以前参加过麦高芬的人体试验？</p>'
+			 $局长受药=1
+		 '</div>'
+End
+
+if $args[0]="JZ_Fuck_MGF":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\MGF1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_MGF''">玩乳头</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_MGF''">抠逼</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_MGF''">乳交</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_MGF''">口交</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_MGF''">加速抽插</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_MGF''">换姿势</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_MGF''">大力抽插</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''局长_事件'',''JZ_Fuck_MGF''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>: ？！？！？这是？</p>'
+           '<p>我：一个让你流连忘返，心醉痴迷的东西。</p>'
+           if a>=1:'<p><<$JZ.name>>: 你怎么会有这个？</p>'
+           if a>=2:'<p>我：独家配方。</p>'
+           if a>=3:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+           if a>=5:'<p><<$JZ.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $JZ.love+=q+my.魅力
+         $JZ.bad+=q*2+my.魅力
+         $JZ.按摩=1
+         '<div class="dialog_menu">'
+             '<p>我：我知道你喜欢这个，你在我的按摩院可以找到同款…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_诱惑":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\诱惑1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_诱惑''">蹭蹭不进去</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_诱惑''">强制口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_诱惑''">强制深喉</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_诱惑''">慢速抽插</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_诱惑''">加速抽插</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_诱惑''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>: ？！？！？你想干嘛？</p>'
+           '<p>我：我想干，你想吗？</p>'
+           if a>=1:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+           if a>=2:'<p>我：我们速战速决好吗？</p>'
+           if a>=3:'<p><<$JZ.name>>: 好<<$话>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         $JZ.LOVE+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_诱惑2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\SJ5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">玩弄她</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">插入</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">换姿势</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">加速抽插</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_诱惑2''">事后</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>我: ？！？！？你想干嘛？</p>'
+           '<p><<$JZ.name>>：我想干，你想吗？</p>'
+           if a>=1:'<p>我：我们速战速决好吗？</p>'
+           if a>=2:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+           if a>=3:'<p><<$JZ.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $JZ.LOVE+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_配合调查":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\审查1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_配合调查''">是误会</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_配合调查''">我作证</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_配合调查''">再快点</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_配合调查''">脱衣服</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_配合调查''">口交</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_配合调查''">后入</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_配合调查''">加速</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''局长_事件'',''JZ_Fuck_配合调查''">射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''局长_事件'',''JZ_Fuck_配合调查''">对话</a></div>'
+            end
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>调查员: 之前前任局长的配偶好像对你作出了一些不道德的指控？</p>'
+           if a=1:'<p>调查员: 你可以为她作证吗？</p>'
+           if a=2:'<p><<$JZ.name>>: 现在我们已经解除误会了。</p>'
+           if a=3:'<p>调查员: 很好，那我就告辞了。</p>'
+           if a=4:'<p>我: 呼——差点就被他发现了？</p>'
+           if a>=5:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+           if a>=6:'<p><<$JZ.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $JZ.LOVE+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 我越来越喜欢你了。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_暂缓调查":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\审查1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">是误会</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">我作证</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">再快点</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">脱衣服</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">口交</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">后入</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">加速</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''局长_事件'',''JZ_Fuck_暂缓调查''">对话</a></div>'
+            end
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>调查员: 你说不是狂小弟纵火的？？</p>'
+           if a=1:'<p><<$JZ.name>>: 我想调查不能这样结束，可能存在一些误会。</p>'
+           if a=2:'<p>我: 当时狂小弟和我在一起。</p>'
+           if a=3:'<p>调查员: 是吗？既然<<$JZ.name>>都这么说了，那我就告辞了。</p>'
+           if a=4:'<p>我: 呼——差点就被他发现了？</p>'
+           if a>=5:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+           if a>=6:'<p><<$JZ.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $JZ.LOVE+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         $老板暂缓调查=1
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 你要去捞狂小弟？这可不是件容易的事喔，我听说<<$CJ.name>>和<<$SZ.name>>非常生气。你最好先去探探她们的口风！这很重要！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_特殊奖励":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\协助1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_特殊奖励''">揉奶</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_特殊奖励''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_特殊奖励''">乳交</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_特殊奖励''">口爆</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_特殊奖励''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JZ.name>>: 放轻松。</p>'
+           if a=1:'<p>我: 呼——这里不会被别人发现吧？</p>'
+           if a>=2:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $JZ.LOVE+=q+my.魅力
+         $JZ.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我: 别的义警也有这个待遇吗？</p>'
+             '<p><<$JZ.name>>: 没有，只有你是例外。</p>'
+             '<p>————————</p>'
+             '<p>·此事件标志着所有事件均可触发/已触发</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_D1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\办公室D1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_D1''">要求乳交</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_D1''">插入</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_D1''">骑乘位</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_D1''">加速抽插</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_D1''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JZ.name>>: 别闹，马上要开会了。</p>'
+           if a=1:'<p><<$JZ.name>>: 你最好马上给我射出来！</p>'
+           if a>=2:'<p><<$JZ.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $JZ.LOVE+=q+my.魅力
+         $JZ.bad+=q
+         '<div class="dialog_menu">'
+             '<p>我: 好爽。</p>'
+             '<p><<$JZ.name>>: 真是服了你了。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_催眠":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\催眠1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonPu1"><a href="exec:a=1 & gt ''局长_事件'',''JZ_Fuck_催眠''">口交</a></div>'
+            '<div class="buttonPu1"><a href="exec:a=2 & gt ''局长_事件'',''JZ_Fuck_催眠''">用手撸</a></div>'
+            '<div class="buttonPu1"><a href="exec:a=3 & gt ''局长_事件'',''JZ_Fuck_催眠''">单手乳交</a></div>'
+            end
+            if q=1:
+            '<div class="buttonPu2"><a href="exec:a=4 & gt ''局长_事件'',''JZ_Fuck_催眠''">女上位</a></div>'
+            '<div class="buttonPu2"><a href="exec:a=5 & gt ''局长_事件'',''JZ_Fuck_催眠''">后背位</a></div>'
+            '<div class="buttonPu2"><a href="exec:a=6 & gt ''局长_事件'',''JZ_Fuck_催眠''">腿扛在肩上</a></div>'
+            '<div class="buttonPu2"><a href="exec:a=7 & gt ''局长_事件'',''JZ_Fuck_催眠''">双手揉奶</a></div>'
+
+            end
+            if q=2:
+            '<div class="buttonPu3"><a href="exec:a=8 & gt ''局长_事件'',''JZ_Fuck_催眠''">加速冲刺</a></div>'
+            end
+            if q=3:
+            '<div class="buttonPu4"><a href="exec:a=9 & gt ''局长_事件'',''JZ_Fuck_催眠''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonPu5"><a href="exec:gt ''警察局''">结束催眠</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+				'<p>·催眠成功了！</p>'
+				'<p><<$JZ.name>>: 我是母狗<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 我是<<$主角姓名>>主人的母狗肉便器❤</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="催眠局长":
+		
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\催眠0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+		if $魅魔能量>=1:'<div class="buttonPu3"><a href="exec:$魅魔能量-=1 & gt ''局长_事件'',''催眠局长''">再次催眠<<$JZ.name>><font color="#FF00FF">❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">再次催眠<font color="#FF00FF">❤</font></a></div>'
+		if $魅魔能量>=2:'<div class="buttonPu5"><a href="exec:$魅魔能量-=2 & gt ''局长_事件'',''JZ_Fuck_催眠''">深度催眠<<$JZ.name>><font color="#FF00FF">❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">深度催眠<font color="#FF00FF">❤❤</font></a></div>'
+			'<div class="button"><a href="exec:gt ''局长_事件'',''催眠局长2''">放弃 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>·你集中精神，向她射出一道催眠光线❤</p>'
+			 '<p><<$JZ.name>>: ？！！啊！！</p>'
+			 '<p>·但奇怪的是，她好像并没有受到控制</p>'
+		 '</div>'
+
+End
+
+if $args[0]="催眠局长2":
+		
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\催眠1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:my.精力=-10 & gt ''局长_事件'',''催眠局长2''">看着她的眼睛</a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>:哼，就这点程度还想催眠我？真是可笑！</p>'
+			 '<p>·周围的时间像是静止了一样，你感到冰冷且粘稠的空气正从鼻腔钻入你的肺部…</p>'
+			 '<p><<$JZ.name>>:是某个魅魔使教你的吧？让我猜猜是谁…</p>'
+			 '<p>我:放…放开…我……</p>'
+			 '<p><<$JZ.name>>:哼…我还以为我伪装地很好，现在这幅形态被你发现了，该怎么办呢。</p>'
+			 '<p>我:我…我不会说出去的…</p>'
+			 '<p><<$JZ.name>>:你早就见识过了对吧，看着我的眼睛，你将忘记今天发生的一切！</p>'
+		 '</div>'
+
+End
+--- 局长_事件 ---------------------------------
+

@@ -1,0 +1,109 @@
+# 商场
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="百货商店" href="exec:minutes+=5 & gt ''百货商店''"><img class="img_stretch" src="images\place\百货商店.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="健身房" href="exec:minutes+=5 & gt ''健身房''"><img class="img_stretch" src="images\place\健身房.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="餐厅" href="exec:minutes+=5 & gt ''餐厅''"><img class="img_stretch" src="images\place\餐厅.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="4S店" href="exec:minutes+=5 & gt ''4S店''"><img class="img_stretch" src="images\place\4S店.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="居民区" href="exec:minutes+=5 & gt ''居民区''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="美发店" href="exec:minutes+=5 & gt ''美发店''"><img class="img_stretch" src="images\place\美发店.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="丝袜专卖店" href="exec:minutes+=5 & gt ''丝袜店''"><img class="img_stretch" src="images\place\丝袜店0.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="美妆专卖店" href="exec:minutes+=5 & gt ''美妆店''"><img class="img_stretch" src="images\place\美妆店.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	$商场_num=RAND(1,14)
+	$商场_n=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/商场<<$商场_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''商场''">消磨时间</a></div>'
+		if $审核level>1:
+			if 8>=$商场_num and $商场_num>=6:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=1 & gt ''商场'',''尾随''">尾随她</a></div>'
+			if 10>=$商场_num and $商场_num>=9:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=2& gt ''商场'',''尾随''">尾随她</a></div>'
+			if $商场_num =11:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=3& gt ''商场'',''尾随''">尾随她</a></div>'
+			if $商场_num =12:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=3& gt ''商场'',''尾随''">尾随她</a></div>'
+			if $商场_num =13:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=4& gt ''商场'',''尾随''">尾随她</a></div>'
+			if $商场_num =14:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=5& gt ''商场'',''尾随''">尾随她</a></div>'
+		end
+		if hour>=17 and $LJ_Event_Steal=2:'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''留级_事件'',''遇见''">离开</a></div>'
+		if 集印卡=1 and hour=16 and week_day =1:'<div class="buttonS"><a href="exec:集印编号=1 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
+		if 集印卡=1 and hour=13 and week_day =4:'<div class="buttonS"><a href="exec:集印编号=4 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
+		if 集印卡=1 and hour=11 and week_day =1:'<div class="buttonR3"><a href="exec:集印编号S=2 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤搭讪熟人❤</a></div>'
+	    if $QB事件链=1:'<div class="button"><a href="exec:gt ''桥本_事件'',''便利店''">便利店</a></div>'
+	    if $QB事件链=2:'<div class="button"><a href="exec:gt ''桥本_事件'',''便利店2''">便利店</a></div>'
+	    if BGH事件链=1 and hour=16:'<div class="button"><a href="exec:gt ''邻家_事件'',''商场偶遇''"><<$BGH.name>></a></div>'
+	    if 老板对话=1 and hour=13 and week_day =7:'<div class="buttonR3"><a href="exec:gt ''老板_事件'',''老板_Fuck_约会1''"><<$LB.name>></a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>24小时营业的大型商场。</p>'
+		'<p>通勤的必经之路无论何时都有好多人，啧啧。</p>'
+		'<p>哇偶~大饱眼福！</p>'
+	'</div>'
+End
+ 
+ 
+ 
+if $ARGS[0]="尾随":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/商场尾<<$商场_nu>>~<<$商场_n>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $商场_n=1:
+			if $审核level>=2:'<div class="buttonP"><a href="exec:minutes+=5 &  $商场_n=2 & gt ''商场'',''尾随''">摸一把</a></div>'
+			else:
+			if $商场_nu<=2 :  if $审核level>=4:'<div class="buttonP"><a href="exec:minutes+=5 &  gt ''群演_事件'',''商场_Fuck_快速检查''">搜身检查</a></div>'else:'<div class="buttonGr"><a href="exec:">没有搜身权限</a></div>'
+			if $商场_nu>=3 :  if $审核level>=6:'<div class="buttonS"><a href="exec:minutes+=5 &   gt ''群演_事件'',''商场_Fuck_S检查''">跟我走一趟！</a></div>'else:'<div class="buttonGr"><a href="exec:">没有更高权限</a></div>'
+			
+			end
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	  if $商场_n=1:'<p>你大量了一下四周，现在是动手的好机会！</p>'
+		'<p>如果我拥有对居民搜身检查的权限，我就能做更多事…</p>'
+	'</div>'
+End
+
+
+
+
+
+--- 商场 ---------------------------------
+

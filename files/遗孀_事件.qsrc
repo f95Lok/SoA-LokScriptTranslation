@@ -1,0 +1,844 @@
+# 遗孀_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $args[0]="餐厅对话":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''遗孀_事件'',''餐厅对话2''">回击她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 好久不见，您还记得我的名字？</p>'
+		'<p><<$YS.name>>: 你不是拐着我那个老棺材的儿媳妇到处风光吗？我在电视上都看见了。</p>'
+		'<p>我: 那也离不开<<$SF.name>>自己的努力。那是她应得的。</p>'
+		'<p><<$YS.name>>: 你来这里做什么？</p>'
+		'<p>我: 那你来这做什么？</p>'
+		'<p><<$YS.name>>: 真是没有家教呢！面对长辈的提问，不要用问题来回答问题！</p>'
+	'</div>'
+End
+
+if $ARGS[0]="餐厅对话2":
+	$YS.key=1
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\主厨.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''联排别墅''">滚蛋</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><span class =''red''>主厨: 你们这两个傻逼，听不懂人话是吧？！给老子滚出去！你妈了个逼的这里是厨房！不是你们唾沫横飞的地方！</s></p>'
+		'<p>我: 呃……知道了。*主厨火爆的脾气着实震住了你</p>'
+		'<p><<$YS.name>>：嗯…那…你…你…算了，晚上来找我…我有事和你商量……</p>'
+		'<p><span class =''red''>主厨: 少废话！都给我滚蛋！</s></p>'
+	'</div>'
+End
+
+
+
+if $args[0]="YS_Fuck_厨睡":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\zai1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec:a+=1 & gt ''遗孀_事件'',''YS_Fuck_厨睡''">偷听对话</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''遗孀家''">不看了</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+				if 图纸修复度>=100:'<div class="buttonGn"><a href="exec: gt ''遗孀_事件'',''平面图''">看一眼图纸</a></div>'
+                '<div class="buttonGn"><a href="exec: gt ''遗孀家''">不看了</a></div>'
+                
+            '</div>'
+    end
+
+
+    if 5>=a and a>=0:
+		图纸修复度+=rand(7,9)
+         '<div class="dialog_menu">'
+              '<p>主厨: 我有没有告诉过你不要来餐厅找我？我老婆开始怀疑我们了！</p>'
+              '<p><<$YS.name>>: 唔唔？！抱歉…</p>'
+              if a>=1:'<p>主厨: 我不喜欢不听话的女人！</p>' 
+              if a>=1:'<p><<$YS.name>>: 饶了我<<$话>></p>'
+              if a>=6:'<p>主厨: 到底有什么事？非要在餐厅里说？</p>' 
+              if a>=6:'<p><<$YS.name>>: 我已经把</p>'
+         '</div>'
+    end
+
+    if a>=6:
+         '<div class="dialog_menu">'
+              if a>=6:'<p>主厨: 到底有什么事？非要在餐厅里说？</p>' 
+              if a>=6:'<p><<$YS.name>>: 还记得这家房子有一个隐藏的隔间吗？以前是我丈夫为了躲避仇家特意建造的，我想里面应该有未被清算的大量遗产。</p>'
+              if a>=6:'<p>主厨: 怎么？你找到入口了！？不是说因为十几年无仇家连他自己都忘了进入的方法吗？</p>' 
+              if a>=6:'<p><<$YS.name>>: 是的，我找到了施工图纸，但年代太过久远已经支离破碎了，我正在尝试修复。</p>'
+              if a>=6:'<p>主厨: 搞什么，白高兴一场，最好我下次来的时候你能给我好消息！</p>'
+              if a>=6:'<p><<$YS.name>>: 别生气嘛，已经修复了<<图纸修复度>>%了</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+
+
+if $args[0]="平面图":
+ if $看过平面图=0:$看过平面图=1
+ '<div class ="show_menu"><img src="images\place\平面图.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''居民区''">若有所思</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·你盯着看了一会儿。</p>'
+	'</div>'
+end
+
+
+if $args[0]="二把手归来":
+ if $看过平面图=1:$看过平面图=2
+ '<div class ="show_menu"><img src="images\NPC\YS\pics\DX0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''联排别墅''">我不知道</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>？？？： 喂，哪边哪个，龙口组现在谁当家？</p>'
+	'</div>'
+end
+
+
+if $args[0]="争执":
+
+ '<div class ="show_menu"><img src="images\NPC\YS\pics\DX<<a>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if a<=6:'<div class="button"><a href="exec:a+=1 & gt ''遗孀_事件'',''争执''">偷听</a></div>'
+		if a=7:'<div class="button"><a href="exec:a+=1 & gt ''遗孀_事件'',''争执''">溜走</a></div>'
+		if a=8:'<div class="button"><a href="exec:gt ''联排别墅''">摊手</a></div>'
+	'</div>'
+
+	if a!8:
+	'<div class="dialog_menu">'
+		'<p>？？？： 不可能！你说组长已经死了这怎么可能？！</p>'
+		if a>=2:'<p><<$YS.name>>： 你是谁？龙口组早在几年前就解散了。</p>'
+		if a>=3:'<p>马东霉：我是谁？我跟在大哥身边的时候可还没有你呢！我是一番队队长，人称“人斩万马”，龙口组的第二任副手！龙口组是我跟随大哥出生入死一起拼下来的！</p>'
+		if a>=4:'<p><<$YS.name>>： 呵呵，既然你说你自己是龙口组的第二任副手，可为什么我没听说过你呢？</p>'
+		if a>=5:'<p>马东霉： 因为我替大哥顶了罪。在大哥的安排下我被引渡去了邻国蹲了15年的牢。</p>'
+		if a>=6:'<p><<$YS.name>>： 那你这次回来想干什么？龙口组和你大哥都已经不复存在了。</p>'
+		if a>=7:'<p>马东霉： 入狱前大哥对我说<B><span class =''red''>等我出狱了，就把象征着龙口组老大的黄金AK-47传给我。怎么会，不复存在了呢？你！必须跟我走一趟！是你！害死了大哥想独吞所有的财产吧？</p>'
+	'</div>'
+	end
+	
+	if a=8:
+			if $看过平面图=2:$看过平面图=3
+	'<div class="dialog_menu">'
+		'<p>*从后备箱里传出女人微弱的哭喊声</p>'
+		'<p>马东霉： 喂！你知道歌舞伎町的哪个旧仓库的管理员还是不是…算了…我看你也不知道。</p>'
+	'</div>'
+	end
+	
+end
+
+if $args[0]="YS_Fuck_仓库对话":
+  '<div class ="show_menu"><img src="images\NPC\YS\pics\DX7.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $黄金AK=1:'<div class="buttonG"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_仓库对话2''">给他黄金AK</a></div>'
+		'<div class="button"><a href="exec:gt ''歌舞伎町''">滚出去</a></div>'
+	'</div>'
+	
+         '<div class="dialog_menu">'
+             '<p>马东霉： 小子，你是一路跟踪我来到这的吗？</p>'
+             '<p>我： 你想要什么？</p>'
+             '<p>马东霉： 不关你的事！给我滚出去！</p>'
+         '</div>'
+end
+
+if $args[0]="YS_Fuck_仓库对话2":
+ '<div class ="show_menu"><img src="images\place\暗间1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+      if DX对话=0:
+		'<div class="buttonR3"><a href="exec:DX对话=1 & gt ''遗孀_事件'',''YS_Fuck_仓库对话2''">威胁:那我报警了</a></div>'
+		'<div class="buttonS3"><a href="exec:DX对话=2 & gt ''遗孀_事件'',''YS_Fuck_仓库对话2''">谎言:我收购的</a></div>'
+		'<div class="buttonG4"><a href="exec:DX对话=3 & gt ''遗孀_事件'',''YS_Fuck_仓库对话2''">真诚:我偷的</a></div>'
+	 else:
+		'<div class="buttonGn4"><a href="exec:DX对话=0 & gt ''遗孀_事件'',''YS_Fuck_仓库对话3''">冷静谈谈</a></div>'
+	 end
+	'</div>'
+	
+         '<div class="dialog_menu">'
+             '<p>我： 我有你要的东西，是这个吧？*拿出黄金AK-47</p>'
+             '<p>马东霉： 什么？没错，就是它，上面还刻了*龙口组的徽章，你是从哪里搞到的？！说老实话！不然我宰了你！</p>'
+             if DX对话=1:'<p>我： 你想宰了我？我劝你闭上嘴巴，不然我就报警了！</p>'
+             if DX对话=1:'<p>马东霉： 你知道这里是哪吗？这里可是歌舞伎町！太阳照不到，条子管不到的地方！</p>'
+             if DX对话=2:'<p>我： 我问你们龙口组的老大买的！</p>'
+             if DX对话=2:'<p>马东霉： 老大凭什么会把传家宝卖给你？我不相信。</p>'
+             if DX对话=3:'<p>我： 我从哪个女人家里偷出来的！</p>'
+             if DX对话=3:'<p>马东霉： 贼？很抱歉，我最讨厌贼了。</p>'
+         '</div>'
+end
+
+
+if $args[0]="YS_Fuck_仓库对话3":
+  '<div class ="show_menu"><img src="images\NPC\YS\pics\DX7.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:DX对话=1 & money=0 & gt ''遗孀_事件'',''YS_Fuck_仓库对话3''">换￥15,000,000</a></div>'
+		'<div class="buttonS"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_仓库对话4''">换<<$YS.name>></a></div>'
+	'</div>'
+	
+         '<div class="dialog_menu">'
+             '<p>*他把黄金AK放到身后，手指噼里啪啦地搓动着</p>'
+             '<p>我： 嘿，冷静点。我没有恶意，我为什么要把它给你呢？我是来做交易的。</p>'
+			 '<p>马东霉： 交易？说说交易，你想要和我换什么？</p>'
+             if DX对话=1:'<p>我：给我￥15,000,000！</p>'
+             if DX对话=1:'<p>马东霉： 哈哈哈哈哈，你脑子没事吧？居然敢敲诈我？这本身就是属于我的东西！！好了，现在你身上的钱也都归我了！</p>'
+         '</div>'
+end
+
+if $args[0]="YS_Fuck_仓库对话4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\jgz1-6.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn2"><a href="exec:$看过平面图=4 & a=-2 & gt ''遗孀_事件'',''YS_Fuck_安慰''">带她离开这里</a></div>'
+	'</div>'
+	
+         '<div class="dialog_menu">'
+			 '<p>马东霉： 这个女人？</p>'
+             '<p>我： 她对你也没什么用了，对吧？</p>'
+			 '<p><<$YS.name>>: 救…<<$主角姓>>…救我……</p>'
+			 '<p>马东霉： 倒也不是不可以，这个女人要是被玩死在这里就麻烦了。我答应你了。</p>'
+             '<p>我： 我知道龙口组说话一向算话。*扶起她</p>'
+			 '<p>马东霉：当然。</p>'
+			 $救出YS=1
+         '</div>'
+end
+
+
+
+if $args[0]="YS_Fuck_仓库":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\jgz1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10 and a!16:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonR"><a href="exec:a=rand(1,3) & gt ''遗孀_事件'',''YS_Fuck_仓库''">等他离开 </a></div>'
+            end
+            if q=1:
+            '<div class="buttonR"><a href="exec:a=4 & gt ''遗孀_事件'',''YS_Fuck_仓库''">看组员凌辱 </a></div>'
+            '<div class="buttonS"><a href="exec:a=11 & gt ''遗孀_事件'',''YS_Fuck_仓库''">借机靠近 </a></div>'
+            end
+            if q>=2 and 10>=a and a>=4:
+            '<div class="buttonR"><a href="exec:a+=1 & gt ''遗孀_事件'',''YS_Fuck_仓库''">偷听对话 </a></div>'
+            end
+            if q>=2 and a>=11:
+            '<div class="buttonGn3"><a href="exec:a+=1 & gt ''遗孀_事件'',''YS_Fuck_仓库''">继续做 </a></div>'
+            '<div class="buttonR3"><a href="exec:a+=1 & gt ''遗孀_事件'',''YS_Fuck_仓库''">小声说 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+				'<div class="buttonGn3"><a href="exec:a=0 & gt ''遗孀_事件'',''YS_Fuck_仓库对话''">老大回来了 </a></div>'
+                '<div class="button"><a href="exec:gt ''歌舞伎町''">离开 </a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>马东霉： 大哥，我知道是这婊子害得我们龙口组没落了，我一定会拿到黄金AK-47，打响重整的第一枪。老子蹲了十几年大牢，出来之后居然组织没了，真TM操蛋！</p>'
+             '<p>新组员： 老大，这个娘们真的可以放开干吗？</p>'
+             '<p>马东霉： 不惜一切代价！撬开她的嘴！我再去她家里找找线索！拿把纯金的AK-47一定就藏在某个角落里！</p>'
+             '<p>新组员： 谢谢光临…哦…不对！老大慢走！</p>'
+         '</div>'
+    end
+
+    if 3>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>新组员： 说，爽不爽！不对！黄金AK在哪里？！快给老子说！</p>'
+             '<p><<$YS.name>>: 我不知道啊啊<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if 10>=a and a>=4:
+         '<div class="dialog_menu">'
+             '<p>新组员： 嗯？老大走了？那就别怪小爷我亮出真家伙了！</p>'
+             '<p><<$YS.name>>: 救命啊啊啊<<$话>></p>'
+             if a>=9:'<p>新组员： 让这娘们怀孕的话会不会被老大责怪啊？算了！管他呢！</p>'
+             if a>=10:'<p>新组员： 说，爽不爽！不对！黄金AK在哪里？！快给老子说！</p>'
+         '</div>'
+    end
+
+
+    if a=11:
+         '<div class="dialog_menu">'
+             '<p>我： 你是新来的吧！我是原一番队……副队长！你去门口望风，别让一只苍蝇飞进来！</p>'
+             '<p>新组员： 喔？！领导好！哦，不对！副队长好！在下保证完成任务！</p>'
+             '<p><<$YS.name>>: 是你……</p>'
+             '<p>我：你好像遇到麻烦了？</p>'
+         '</div>'
+    end
+
+    if 16>=a and a>=12:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 是你…你怎么在操我…</p>'
+             '<p>我：你好像遇到麻烦了？</p>'
+             if a>=13:'<p><<$YS.name>>: 嗯啊啊啊<<$话>></p>'
+             if a>=14:'<p>我：黄金AK在哪里？你给他们不行吗？</p>'
+             if a>=15:'<p><<$YS.name>>: 我也不知道…我真的…不知道…可能在……</p>'
+             if a>=16:'<p>我：在哪里？告诉我…是在那个隐藏的隔间里吗？</p>'
+             if a>=16:'<p><<$YS.name>>: 什么…你…*她不说话了</p>'
+             $尝试营救YS=1
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="YS_Fuck_安慰":
+	 $救出YS=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\安慰1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=-2:'<div class="button"><a href="exec:a=-1 & gt ''遗孀_事件'',''YS_Fuck_安慰''">扶她进去 </a></div>'
+            if a=-1:'<div class="button"><a href="exec:a=0 & gt ''遗孀_事件'',''YS_Fuck_安慰''">安慰她 </a></div>'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''遗孀_事件'',''YS_Fuck_安慰''">堵上她的嘴 </a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''遗孀_事件'',''YS_Fuck_安慰''">扣她的逼 </a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''遗孀_事件'',''YS_Fuck_安慰''">按头口交 </a></div>'
+            if a>=3:'<div class="buttonR1"><a href="exec:a=4 & gt ''遗孀_事件'',''YS_Fuck_安慰''">插入她 </a></div>'
+            if a>=4:'<div class="buttonR2"><a href="exec:a=5 & gt ''遗孀_事件'',''YS_Fuck_安慰''">用力操她 </a></div>'
+            if a>=5:'<div class="buttonR3"><a href="exec:a=6 & gt ''遗孀_事件'',''YS_Fuck_安慰''">掰开她的腿 </a></div>'
+            if a>=6:'<div class="buttonR4"><a href="exec:a=7 & gt ''遗孀_事件'',''YS_Fuck_安慰''">合上她的腿 </a></div>'
+            if a>=7:'<div class="buttonR5"><a href="exec:a=8 & gt ''遗孀_事件'',''YS_Fuck_安慰''">射精 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG4"><a href="exec:$YS.按摩=1 & gt ''公司''">自营按摩店邀请 </a></div>'
+                '<div class="buttonG5"><a href="exec:YScos=1 & gt ''公司''">自营照相馆邀请 </a></div>'
+                '<div class="button"><a href="exec:gt ''联排别墅''">离开 </a></div>'
+            '</div>'
+    end
+
+
+
+
+    if a<=-1:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 呜………</p>'
+             '<p>我: 没事吧，你的身体在发颤。</p>'
+             if a=-1:'<p><<$YS.name>>: 我…我从来没有受过这么大的屈辱…从来没有……</p>'
+         '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 我…我真不知道没有你我还会被他们**多久…一想起那个画面我就…就…</p>'
+             '<p>我: 会好起来的，时间会抹平这一切。请相信，你有足够的力量和勇气来克服这个心灵创伤。</p>'
+             '<p><<$YS.name>>: 可…我那时的心情真是…悲痛欲绝。这不仅仅是因为身体上的创伤，更因为我感到自己老了。以前…我可以一晚上大战四五个男大学生，从来没有过那样的痉挛失神。可现在，竟然只是那几个小鸡巴都有些力不从心。</p>'
+             '<p>我: 如果你需要任何进一步的帮助或者只是想倾诉，我随时都在这里倾听…</p>'
+             '<p><<$YS.name>>: 岁月不饶人啊…我感觉自己真的老了…</p>'
+             '<p><<$YS.name>>: 怀念过去那个健康活力的自己…渴望回到年轻时充满活力的状态…</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 行了，闭嘴吧！我知道用这种方式才能让你找回年轻的感觉！</p>'
+             '<p><<$YS.name>>: 等等<<$娇喘声>></p>'
+             if a>=4:'<p>我: 听好了！年龄的增长也使我们更加明白什么真正重要。年龄不是决定我们能否成功或快乐的唯一标准，我们可以通过不断学习和成长来展现自己的价值。</p>'
+             if a>=5:'<p><<$YS.name>>: 没错<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=8:
+         $YS.bad+=my.魅力+50
+         $YS.love+=q+my.魅力+50
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 你说的对…我应该调整心态…虽然进展缓慢，但至少我能看到一点点进步。</p>'
+             '<p>我：那我就放心了。</p>'
+             '<p><<$YS.name>>: 你…真好…我…我…</p>'
+             '<p>我：我可能有几个帮助你解压的渠道。</p>'
+             '<p>·————————</p>'
+             '<p>*她对你的好感度上升了</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="报警":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\立绘<<$局长立绘>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn2"><a href="exec:gt ''居民区''">无奈离开</a></div>'
+	'</div>'
+	
+	 '<div class="dialog_menu">'
+		 '<p>我： <<$YS.name>>被掳走了…囚禁的地点在…</p>'
+		 '<p><<$JZ.name>>: 如果地点在歌舞伎町的话，那只能你自己去找了…歌舞伎町不是我们管辖的范围。</p>'
+	 '</div>'
+end
+
+if $args[0]="YS_Fuck_沙发":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\sofa1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''遗孀_事件'',''YS_Fuck_沙发''">口她 </a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''遗孀_事件'',''YS_Fuck_沙发''">撕开丝袜 </a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''遗孀_事件'',''YS_Fuck_沙发''">玩她的逼</a></div>'
+            if a>=3:'<div class="buttonR1"><a href="exec:a=4 & gt ''遗孀_事件'',''YS_Fuck_沙发''">给我乳交 </a></div>'
+            if a>=4:'<div class="buttonR2"><a href="exec:a=5 & gt ''遗孀_事件'',''YS_Fuck_沙发''">沙发上操她 </a></div>'
+            if a>=5:'<div class="buttonR3"><a href="exec:a=6 & gt ''遗孀_事件'',''YS_Fuck_沙发''">站起来操她 </a></div>'
+            if a>=6:'<div class="buttonR4"><a href="exec:a=7 & gt ''遗孀_事件'',''YS_Fuck_沙发''">自己坐上来 </a></div>'
+            if a=7:'<div class="buttonR5"><a href="exec:a=8 & gt ''遗孀_事件'',''YS_Fuck_沙发''">射精 </a></div>'
+            if a=8:'<div class="button"><a href="exec:a=9 & gt ''遗孀_事件'',''YS_Fuck_沙发''">对话 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''联排别墅''">离开 </a></div>'
+            '</div>'
+    end
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>我: 我当然会支持你…</p>'
+             '<p><<$YS.name>>: 天哪…你真是太令人安心了…如果我们年纪相仿…我……</p>'
+             if a>=1:'<p>我: 就算有年龄差距…我们不是还在做同样的事吗…</p>'
+             if a>=2:'<p><<$YS.name>>: 是喔<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+    if a=9:
+         $YS.bad+=my.魅力+25
+         $YS.love+=q+my.魅力+50
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 答应我，一定要让那个混蛋付出代价。</p>'
+             '<p>我: 我会想办法的…</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="警长招呼":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\立绘<<$局长立绘>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn2"><a href="exec:gt ''居民区''">达成一致</a></div>'
+	'</div>'
+	
+	 '<div class="dialog_menu">'
+	     if $警长招呼=1:$警长招呼=2
+		 '<p>我：<<$YS.name>>对你的置若罔闻很不满…她希望以彼之道还彼之身…</p>'
+		 '<p><<$JZ.name>>: 那我有什么办法呢？别说笑了。</p>'
+		 '<p>我：就当帮我一个忙嘛…不然以后不操你了…</p>'
+		 '<p><<$JZ.name>>: ………………</p>'
+		 '<p><<$JZ.name>>: ……</p>'
+		 '<p><<$JZ.name>>: …</p>'
+		 '<p><<$JZ.name>>: 你要我怎么做？</p>'
+		 '<p>我：如果你接到来自她家的报警电话…你要亲自来……然后…任由我们摆布…</p>'
+	 '</div>'
+end
+
+if $args[0]="YS_Fuck_同警长":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\xaw1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''遗孀_事件'',''YS_Fuck_同警长''">假装胁迫</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''遗孀_事件'',''YS_Fuck_同警长''">强行口交 </a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''遗孀_事件'',''YS_Fuck_同警长''">插入她</a></div>'
+            if a>=3:
+                if a>=3:'<div class="buttonR1"><a href="exec:a=4 & gt ''遗孀_事件'',''YS_Fuck_同警长''">加速抽插 </a></div>'
+                if a>=4:'<div class="buttonR2"><a href="exec:a=5 & gt ''遗孀_事件'',''YS_Fuck_同警长''">换个地方 </a></div>'
+                if a>=5:'<div class="buttonR3"><a href="exec:a=6 & gt ''遗孀_事件'',''YS_Fuck_同警长''">背对我 </a></div>'
+                if a>=6:'<div class="buttonR4"><a href="exec:a=7 & gt ''遗孀_事件'',''YS_Fuck_同警长''">大力抽插 </a></div>'
+            end
+            if a=7:'<div class="buttonR5"><a href="exec:a=8 & gt ''遗孀_事件'',''YS_Fuck_同警长''">射精 </a></div>'
+            if a=8:'<div class="button"><a href="exec:a=9 & gt ''遗孀_事件'',''YS_Fuck_同警长''"><<$YS.name>>谅解 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if 100<=YSJZ谅解值:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">让她一起爽 </a></div>'else:'<div class="buttonGr"><a href="exec:">怒气剩余<<100-YSJZ谅解值>>% </a></div>'
+                '<div class="button"><a href="exec:gt ''联排别墅''">离开 </a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 你这是要做什么…我是接到了失窃的报警才亲自来的……</p>'
+             '<p>我: 咳咳…谢谢你的配合*小声说</p>'
+             '<p><<$YS.name>>: 这是对你渎职的惩罚！</p>'
+         '</div>'
+    end
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 我知道错了…是我没有恪守职责……</p>'
+             if a>=2:'<p>我: 这还不够…你必须……</p>'
+             if a>=2:'<p><<$YS.name>>: 感同身受！</p>'
+             if a>=3:'<p><<$JZ.name>>: 饶了我<<$娇喘声>></p>'
+             if a=8:'<p>我: 消气了没？她可是警察局局长…</p>'
+         '</div>'
+    end
+
+
+    if a=9:
+         $YS.bad+=q+my.魅力
+         $YS.love+=q+my.魅力
+         YSJZ谅解值+=rand(25,40)
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: 能再信任我一次吗？我代表警视厅对你的遭遇表示抱歉…</p>'
+             '<p><<$YS.name>>: 我是那种很好说话的人吗？除非…</p>'
+             '<p>~——————</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="YS_Fuck_同警长2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\jaw1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!13:
+        '<div class="button_menu">'
+            if q=0:
+
+                '<div class="buttonR4"><a href="exec:a=7 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">口交：<<$YS.name>></a></div>'
+                '<div class="buttonS4"><a href="exec:a=1 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">口交：<<$JZ.name>></a></div>'
+            end
+            if 4>=q and q>=1:
+                '<div class="buttonS4"><a href="exec:a+=1 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">接着肏她</a></div>'
+            end
+            if q=5:
+                '<div class="buttonS4"><a href="exec:a=1 & q=1 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">口交：<<$JZ.name>></a></div>'
+                '<div class="buttonR4"><a href="exec:a=7 & q=1 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">口交：<<$YS.name>></a></div>'
+                '<div class="buttonB4"><a href="exec:a+=1 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">射精</a></div>'
+            end
+            if a=12 or a=6:'<div class="buttonB5"><a href="exec:a=13 & gt ''遗孀_事件'',''YS_Fuck_同警长2''">舔屌言和 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''联排别墅''">怒气平息了</a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我: 你在边上看湿了吧？不如你们双飞一炮泯恩仇？</p>'
+             '<p><<$JZ.name>>: 我…我没意见，如果能得到你的谅解……</p>'
+             '<p><<$YS.name>>: 呃……</p>'
+         '</div>'
+    end
+
+
+    if 12>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: <<$JZ.name>>…你说两句吧…</p>'
+             '<p><<$JZ.name>>: 是我辜负了市民的信任…我应该与市民齐心协力…</p>'
+             '<p><<$YS.name>>: 齐心协力…什么？被同一个男人肏吗？！</p>'
+             if a>=2:'<p><<$JZ.name>>: 不是<<$娇喘声>></p>'
+             if a>=7:'<p><<$JZ.name>>: 那就在边上看着吧<<$话2>></p>'
+         '</div>'
+    end
+
+
+    if a=13:
+         $YS.bad+=q+my.魅力
+         $YS.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我: 差不多了…得饶人处且饶人…</p>'
+             '<p><<$YS.name>>: 看在你的份上…那就算了吧！</p>'
+             '<p><<$JZ.name>>: *看来风波是平息了…</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="YS_Fuck_离婚":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\LH1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!13:
+        '<div class="button_menu">'
+            if q=0:
+                '<div class="buttonS3"><a href="exec:a=1 & gt ''遗孀_事件'',''YS_Fuck_离婚''">等待主厨</a></div>'
+            end
+            if q=1:
+                '<div class="buttonR4"><a href="exec:a=2 & gt ''遗孀_事件'',''YS_Fuck_离婚''">马上离婚！</a></div>'
+            end
+            if q=2:
+                '<div class="buttonR4"><a href="exec:a=3 & gt ''遗孀_事件'',''YS_Fuck_离婚''">光速闪婚</a></div>'
+            end
+            if q=3:
+                '<div class="buttonR4"><a href="exec:a=4 & gt ''遗孀_事件'',''YS_Fuck_离婚''">手铐play</a></div>'
+            end
+            if q=4:
+                '<div class="buttonS4"><a href="exec:a=5 & gt ''遗孀_事件'',''YS_Fuck_离婚''">我来也！</a></div>'
+            end
+
+
+            if 17>=q and q>=5 and a<=11:
+
+                '<div class="buttonS1"><a href="exec:a=6 & gt ''遗孀_事件'',''YS_Fuck_离婚''">玩她的奶头</a></div>'
+                if q>=6:'<div class="buttonS2"><a href="exec:a=7 & gt ''遗孀_事件'',''YS_Fuck_离婚''">给我乳交</a></div>'
+                if q>=7:'<div class="buttonS3"><a href="exec:a=8 & gt ''遗孀_事件'',''YS_Fuck_离婚''">从后干她</a></div>'
+                if q>=8:'<div class="buttonS4"><a href="exec:a=9 & gt ''遗孀_事件'',''YS_Fuck_离婚''">加速后入</a></div>'
+                if q>=9:'<div class="buttonS4"><a href="exec:a=10 & gt ''遗孀_事件'',''YS_Fuck_离婚''">抬腿爆肏</a></div>'
+                if a=10:'<div class="buttonS5"><a href="exec:a=11 & gt ''遗孀_事件'',''YS_Fuck_离婚''">准备射精</a></div>'
+                '<div class="buttonR5"><a href="exec:a=-1 & gt ''遗孀_事件'',''YS_Fuck_离婚''">强迫他看</a></div>'
+            end
+            if a=11 or q>=18:'<div class="buttonGn5"><a href="exec:a=12 & gt ''遗孀_事件'',''YS_Fuck_离婚''">射精 </a></div>'
+            if a=12:'<div class="buttonB5"><a href="exec:a=13 & gt ''遗孀_事件'',''YS_Fuck_离婚''">签离婚协议 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''联排别墅''">怒气平息了</a></div>'
+            '</div>'
+    end
+
+    if a=-1:
+         '<div class="dialog_menu">'
+             '<p>主厨: 你这个混蛋！臭婊子！为什么要这么对我！</p>'
+             '<p><<$YS.name>>: 为什么？我被掳走的时候你有想过我的遭遇吗？当时我就在被那群人操！怎么了？！现在当着你的面被人操你就接受不了啦？！</p>'
+             '<p>主厨: 啊啊啊啊啊啊啊！</p>'
+         '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 你在哪边躲好…到时候我喊你出来…</p>'
+             '<p>我: 明白…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>主厨: 宝贝…看到你平安无事真好，我现在后悔死了，如果再给我一次机会，我一定毫不犹豫地去救你！</p>'
+             '<p><<$YS.name>>: 太危险了！人家是混黑道的，连警察都不敢招惹，我怎么会以为你是个软蛋呢？</p>'
+             '<p>主厨: 软蛋？！我怎么可能会是软蛋呢！</p>'
+             '<p><<$YS.name>>: 证明给我看！就现在！和你老婆离婚！然后和我结婚！</p>'
+             '<p>主厨: 好！我就给你看看什么才是真男人说一不二！</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p>主厨: 嘟嘟嘟*电话声</p>'
+             '<p>蓮美柚香(投票监督员)：有屁快放，老娘忙着呢<<$娇喘声2>> </p>'
+             '<p>主厨: 臭娘们！老子同意离婚了！我已经签好字了！离婚协议已经生效了！你去和你的男人鬼混吧！</p>'
+             '<p><span class =''red''>~他所持有的赤色餐厅股份因离婚财产分割减半：80%→40%</s></p>'
+             '<p><<$YS.name>>: 真的生效了？那我们现在就去领证！</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+             '<p>·一眨眼的功夫他们就办好了结婚证</p>'
+             '<p><<$YS.name>>: 我穿这套婚纱好看吗？</p>'
+             '<p>主厨: 都领完证了，从今以后要叫我什么呀？老婆❤</p>'
+             '<p><<$YS.name>>: 老公❤想不想人家穿着婚纱和你做呀❤</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+             '<p>主厨: 今天是搞哪一出❤玩那么花？</p>'
+             '<p><<$YS.name>>: 老公❤平时都是你调教我❤今天就让老婆调教你一回嘛❤</p>'
+             '<p>主厨: 嘿，老婆，轻点，你弄得太紧了。</p>'
+             '<p>*<<$YS.name>>的笑容渐渐冰冷</p>'
+             '<p>主厨: 喂喂喂，太紧了！给我松开！</p>'
+             '<p><<$YS.name>>: <<$主角姓名>>！轮到你上场了。</p>'
+         '</div>'
+    end
+
+
+    if 12>=a and a>=5:
+         '<div class="dialog_menu">'
+             '<p>我: 我等了好久了❤</p>'
+             '<p>主厨: 给我松开！你们要做什么？！</p>'
+             '<p><<$YS.name>>: 当然是当着你的面让<<$主角姓名>>操我的骚穴然后我们再离婚啊❤</p>'
+             if a>=6:'<p>我: 喜欢夫前目犯的感觉嘛❤</p>'
+             if a>=8:'<p><<$YS.name>>: 喜欢<<$话2>></p>'
+         '</div>'
+    end
+
+
+    if a=13:
+         $YS.bad+=q+my.魅力
+         $YS.love+=q+my.魅力
+         $YS离婚=1
+         $主厨招呼=3
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 这是离婚协议，既然和你闪婚，闪离也没关系吧！</p>'
+             '<p>主厨: 混蛋！你想夺走我的一半资产！</p>'
+             '<p><<$YS.name>>: 发现的有点太晚了呢，如果我把这件事告诉给你的前妻，你会被她嘲笑一辈子软蛋吧？</p>'
+             '<p>主厨: 给我！我签！你绝对不能告诉她*咬牙</p>'
+             '<p><span class =''red''>~他所持有的赤色餐厅股份再次减半：40%→20%</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="YS_Fuck_股份":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\GF1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if q=0:
+                '<div class="buttonS1"><a href="exec:a=1 & gt ''遗孀_事件'',''YS_Fuck_股份''">获得信任</a></div>'
+            end
+            if 3>=q and q>=1 :
+                '<div class="buttonS2"><a href="exec:a=2 & gt ''遗孀_事件'',''YS_Fuck_股份''">玩她的穴</a></div>'
+                '<div class="buttonS3"><a href="exec:a=3 & gt ''遗孀_事件'',''YS_Fuck_股份''">舔我的蛋</a></div>'
+                '<div class="buttonS4"><a href="exec:a=4 & gt ''遗孀_事件'',''YS_Fuck_股份''">仔细口我</a></div>'
+            end
+            if q=4:
+                '<div class="buttonS5"><a href="exec:a=5 & gt ''遗孀_事件'',''YS_Fuck_股份''">插入她的逼</a></div>'
+            end
+
+
+            if 5<=a  and  a<=9:
+                '<div class="buttonS1"><a href="exec:a=6 & gt ''遗孀_事件'',''YS_Fuck_股份''">加速抽插</a></div>'
+                if a!8 and a>=6:'<div class="buttonS2"><a href="exec:a=7 & gt ''遗孀_事件'',''YS_Fuck_股份''">换个姿势</a></div>'
+                if a=7:'<div class="buttonR"><a href="exec:a=8 & gt ''遗孀_事件'',''YS_Fuck_股份''">拔出来</a></div>'
+                if a=8:'<div class="buttonS4"><a href="exec:a=9 & gt ''遗孀_事件'',''YS_Fuck_股份''">重新插入爆肏</a></div>'
+            end
+                if a=9:'<div class="buttonS4"><a href="exec:a=10 & gt ''遗孀_事件'',''YS_Fuck_股份''">内射她</a></div>'
+                if a=10:'<div class="buttonS5"><a href="exec:a=11 & gt ''遗孀_事件'',''YS_Fuck_股份''">舔干净</a></div>'
+                if a=11:'<div class="buttonB5"><a href="exec:a=12 & gt ''遗孀_事件'',''YS_Fuck_股份''">股权托管协议</a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''联排别墅''">获得20%餐厅股份</a></div>'
+            '</div>'
+    end
+
+    if a=0 or a=1:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 我手里餐厅的股份…通过和他离婚得到了20%…</p>'
+             '<p>我: 可以交给我托管吗？</p>'
+             '<p><<$YS.name>>: 我想想…</p>'
+             if a=1:'<p>我: 只是托管而已，难道你不相信我嘛？</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p>主厨: 宝贝…看到你平安无事真好，我现在后悔死了，如果再给我一次机会，我一定毫不犹豫地去救你！</p>'
+             '<p><<$YS.name>>: 太危险了！人家是混黑道的，连警察都不敢招惹，我怎么会以为你是个软蛋呢？</p>'
+             '<p>主厨: 软蛋？！我怎么可能会是软蛋呢！</p>'
+             '<p><<$YS.name>>: 证明给我看！就现在！和你老婆股份！然后和我结婚！</p>'
+             '<p>主厨: 好！我就给你看看什么才是真男人说一不二！</p>'
+         '</div>'
+    end
+
+
+    if 11>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 我当然相信你了❤在这之前…我有点想要了…</p>'
+             '<p>我: 明白！</p>'
+             if a>=3:'<p><<$YS.name>>: 好喜欢你<<$娇喘声>></p>'
+             if a>=5:'<p>我: 你的逼包裹着我好舒服，喜欢我操你嘛？</p>'
+             if a>=6:'<p><<$YS.name>>: 喜欢啊<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=12:
+         '<div class="dialog_menu">'
+             '<p><<$YS.name>>: 这是股份托管协议，拥有超过50%就可以让那个软蛋厨子滚蛋了！</p>'
+             '<p><span class =''red''>·获得了20%赤色餐厅的股份</p>'
+             if YS给股份=0:
+                餐厅股份+=20
+                YS给股份=1
+             end
+         '</div>'
+    end
+
+
+  q+=1
+End
+--- 遗孀_事件 ---------------------------------
+

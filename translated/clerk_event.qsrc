@@ -1,0 +1,861 @@
+# clerk_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="clumsy":
+	 $dy.work+=2
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonP"><a href="exec:a=1 & gt ''clerk_event'',''clumsy''">Heart-warming guidance</a></div>'
+		if a=0:'<div class="buttonR"><a href="exec:a=2 & gt ''clerk_event'',''clumsy''">Blame mistakes</a></div>'
+		if a!0:
+			if $dy.work>=5:'<div class="buttonB2"><a href="exec:a=0 & gt ''clerk_event'',''mopping_the_floor''">Go mopping the floor</a></div>'
+			if $DY.love>=50:'<div class="buttonP"><a href="exec:a=0 & gt ''clerk_event'',''appointment_invitation''">Appointment invitation</a></div>'
+			'<div class="button"><a href="exec:gt ''convenience_store''">leave</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$DY.name>>In a hurry, the wrong price was recorded, and the customer was very dissatisfied!</p>'
+		if a=1:'<p>Me: It`s okay... When I first became a cashier, I often made mistakes. Practice makes perfect.</p>'& $DY.love+=2
+		if a=2:'<p>Me: You are such an idiot!I have never seen such a stupid person as you!</p>'& $DY.love-=10
+		'<p>·——Her ability to work：<<$dy.work>></p>'
+	'</div>'
+End
+
+if $args[0]="mopping_the_floor":
+	 $dy.work+=3
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonP"><a href="exec:a=1 & gt ''clerk_event'',''mopping_the_floor''">A little inattentive</a></div>'
+		if a!0:
+			if $dy.work>=20:'<div class="buttonB2"><a href="exec:a=0 & gt ''clerk_event'',''to_replenish''">Go replenish</a></div>'
+			'<div class="button"><a href="exec:gt ''convenience_store''">Help her up</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p><<$DY.name>>Humming a little song while working…</p>'
+		if a=1:'<p><<$DY.name>>:Ah ah ah ah ah ah*Slipped and fell</p>'& $DY.love+=3
+		'<p>·——Her ability to work：<<$dy.work>></p>'
+	'</div>'
+End
+
+if $args[0]="to_replenish":
+	 $dy.work+=5
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\3-A-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonP"><a href="exec:a=1 & gt ''clerk_event'',''to_replenish''">Pay attention to guidance</a></div>'
+		if a!0:
+			if $dy.work>=40:'<div class="buttonB3"><a href="exec:a=0 & gt ''clerk_event'',''dy_fuck_water_bar''">To replenish the beverage machine</a></div>'
+			'<div class="button"><a href="exec:gt ''convenience_store''">To do something else</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p>Me: I made a mistake in recording the price, and I slipped and fell while mopping the floor. Why don`t you put the goods on the shelves? There can`t be a problem with the goods?…</p>'
+		'<p><<$DY.name>>: <<$protagonists_name>>Store manager... I can definitely do this job!</p>'
+		if a=1:'<p><<$DY.name>>I am very happy to have completed the listing of goods in the food area.</p>'& $DY.love+=6
+		'<p>·——Her ability to work：<<$dy.work>></p>'
+	'</div>'
+End
+
+
+if $args[0]="dy_fuck_water_bar":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_water_bar''">A little inattentive</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_water_bar''">Close your eyes and try</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_water_bar''">Untied!</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_water_bar''">Scared to pee?</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_water_bar''">I`m scared too</a></div>'
+            end
+            
+            if 9>=a and a>=5:
+            '<div class="buttonS1"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_water_bar''">Homeopathic insertion</a></div>'
+
+            if a>=6:'<div class="buttonS2"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_water_bar''">After entering her</a></div>'
+
+            if a>=7:'<div class="buttonS3"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_water_bar''">Riding position</a></div>'
+
+            if a>=8:'<div class="buttonS4"><a href="exec:a=9 & gt ''clerk_event'',''dy_fuck_water_bar''">Accelerate thrusting</a></div>'
+
+            if a>=9:'<div class="buttonS5"><a href="exec:a=10 & gt ''clerk_event'',''dy_fuck_water_bar''">Bukkake</a></div>'
+            end
+
+            if a=10:
+            '<div class="buttonB4"><a href="exec:a=11 & gt ''clerk_event'',''dy_fuck_water_bar''">apologize</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''convenience_store''">Go back to work</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=1:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:It doesn`t seem to be difficult, but sure enough, I am getting more and more capable!</p>'
+             '<p>I：…………</p>'
+             if a>=1:'<p><<$DY.name>>:Ah ah ah ah!Tied by a rope!</p>'
+         '</div>'
+    end
+
+    if 2<=a and a<=10:
+         '<div class="dialog_menu">'
+             if a<3:'<p><<$DY.name>>: You, you, help me untie it!</p>'
+             if a<3:'<p>Me: Don`t be rude!</p>'
+             if a<3:'<p><<$DY.name>>:You pulled it up this time!you!You`d better open your eyes and untie the rope!</p>'
+             if a>=3:'<p>Me: Huh, be careful next time, why are your panties so wet?</p>'
+             if a>=4:'<p><<$DY.name>>:I thought I would fall a big somersault... scared to pee a little bit…</p>'
+             if a>=5:'<p>Me: You just called me hard* Joking</p>'
+             if a>=5:'<p><<$DY.name>>: Store manager... I... I know what you mean... I`ve been causing you trouble recently.…</p>'
+             if a>=6:'<p>Me: I didn`t mean...uh... just understand!</p>'
+             if a>=7:'<p><<$DY.name>>:What<<$words>></p>'
+         '</div>'
+    end
+
+    if a=11:
+         $DY.love+=8
+         $DY.bad+=12
+         '<div class="dialog_menu">'
+             '<p>Me: Sorry, I did it with you without holding back……</p>'
+             '<p><<$DY.name>>:It`s okay, and<<$protagonists_name>>I won`t suffer from a handsome guy like the store manager❤</p>'
+             '<p>Me: Come on...drink some water and take a break.</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+
+if $args[0]="appointment_invitation":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\0-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec: gt ''clerk_event'',''dy_fuck_aquarium''">①Aquarium</a></div>'
+		if $DY.love>=100:'<div class="buttonS2"><a href="exec: gt ''clerk_event'',''dy_fuck_hotel_a''">②Amusement park</a></div>'else:'<div class="buttonGr"><a href="exec: ">②Insufficient favorability</a></div>'
+		if $DY.bad>=100:'<div class="buttonS3"><a href="exec: gt ''clerk_event'',''dy_fuck_nightclub''">去Go to the nightclub</a></div>'else:'<div class="buttonGr"><a href="exec: ">不足Insufficient favorability</a></div>'
+		if $DY.love>=230:'<div class="buttonS4"><a href="exec: gt ''clerk_event'',''dy_fuck_hot_spring_1''">④Go to the hot spring</a></div>'else:'<div class="buttonGr"><a href="exec: ">不足Insufficient favorability</a></div>'
+		if $DY.bad>=300:'<div class="buttonS5"><a href="exec: gt ''clerk_event'',''dy_fuck_home_1''">去Go to her house</a></div>'else:'<div class="buttonGr"><a href="exec: ">不足Insufficient favorability</a></div>'
+		if $dy.sea=1:'<div class="buttonP"><a href="exec:a=0 & gt ''clerk_event'',''sea''">❤Set off to see the sea❤</a></div>'
+		'<div class="button"><a href="exec:gt ''convenience_store''">Talk about it next time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p><<$DY.name>>Humming a little song while working…</p>'
+		'<p>Me: I`m working hard, do you want me to take you to another place to play?</p>'
+		'<p><<$DY.name>>:Okay, okay!</p>'
+	'</div>'
+End
+
+
+if $args[0]="dy_fuck_aquarium":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\5-A-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!14:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_aquarium''">Invite her to eat ice cream</a></div>'
+            end
+            if a=1:
+            if $DY.love>=60:'<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_aquarium''">Play late</a></div>'
+            '<div class="buttonGn3"><a href="exec:gt ''convenience_store''">Go back to the convenience store together</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_aquarium''">Touch it with your hands</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_aquarium''">Oral sex</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_aquarium''">insert</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_aquarium''">ride</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_aquarium''">Keep sprinting</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_aquarium''">Ejaculation</a></div>'
+            end
+            if a=8:
+            '<div class="buttonGn3"><a href="exec:a=9 & gt ''clerk_event'',''dy_fuck_aquarium''">Early the next morning</a></div>'
+            end
+
+            if a>=9:'<div class="buttonS1"><a href="exec:a=10 & gt ''clerk_event'',''dy_fuck_aquarium''">Get started caressing</a></div>'
+            if a>=10:'<div class="buttonS2"><a href="exec:a=11 & gt ''clerk_event'',''dy_fuck_aquarium''">insert</a></div>'
+            if a>=11:'<div class="buttonS3"><a href="exec:a=12 & gt ''clerk_event'',''dy_fuck_aquarium''">accelerate</a></div>'
+            if a>=12:'<div class="buttonS4"><a href="exec:a=13 & gt ''clerk_event'',''dy_fuck_aquarium''">Back in</a></div>'
+            if a>=13:'<div class="buttonS5"><a href="exec:a=14 & gt ''clerk_event'',''dy_fuck_aquarium''">Inward shot out</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:gt ''residential_area''">Kiss goodbye</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=1:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:&quot;Yeah!So happy to say!</p>'
+             '<p>Me: This is what it`s like to date…</p>'
+             if a>=1:'<p><<$DY.name>>:Ice cream!My favorite ❤</p>'
+         '</div>'
+    end
+
+    if 2<=a and a<=8:
+         '<div class="dialog_menu">'
+             if a<3:'<p><<$DY.name>>: The night view is also beautiful!</p>'
+             if a<3:'<p>Me: It`s so late... Why don`t you stay, I want to watch the sunrise tomorrow with you.</p>'
+             if a>=3:'<p><<$DY.name>>:You are so good at talking love❤</p>'
+             if a>=4:'<p>Me: Do you have it?</p>'
+             if a>=5:'<p><<$DY.name>>: Ok<<$words>></p>'
+         '</div>'
+    end
+
+    if 9<=a and a<=13:
+         '<div class="dialog_menu">'
+             '<p>Me: What time is it now?Did I overslept?</p>'
+             if a>=9:'<p><<$DY.name>>: Now is the time of love ❤LOVE❤</p>'
+             if a>=10:'<p>Me: Then I`m not polite!</p>'
+             if a>=5:'<p><<$DY.name>>: Ok<<$words>></p>'
+         '</div>'
+    end
+
+
+    if a=14:
+         $DY.love+=20
+         $DY.bad+=15
+         $DY1=1
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Like a dream, and<<$protagonists_name>>A handsome guy like the store manager has been doing it all night❤</p>'
+             '<p>Me: I am also very happy to have sex with you.</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+
+if $args[0]="dy_fuck_hotel_a":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\5-B-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!16:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_hotel_a''">Play carousel</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_hotel_a''">Ride the ferris wheel</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_hotel_a''">Go to the restaurant</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_hotel_a''">Go to the theme hotel</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_hotel_a''">Put on a sexy outfit</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_hotel_a''">Oral sex</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_hotel_a''">Play with her</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_hotel_a''">Riding position</a></div>'
+            end
+            if a=8:
+            '<div class="buttonGn1"><a href="exec:a=9 & gt ''clerk_event'',''dy_fuck_hotel_a''">Front</a></div>'
+            end
+            if 13>=a and a>=9:
+            if a>=9:'<div class="buttonS5"><a href="exec:a=10 & gt ''clerk_event'',''dy_fuck_hotel_a''">In front of the mirror</a></div>'
+            if a>=10:'<div class="buttonS5"><a href="exec:a=11 & gt ''clerk_event'',''dy_fuck_hotel_a''">On the sofa</a></div>'
+            if a>=11:'<div class="buttonS5"><a href="exec:a=12 & gt ''clerk_event'',''dy_fuck_hotel_a''">Accelerate the sprint</a></div>'
+            if a>=12:'<div class="buttonS5"><a href="exec:a=13 & gt ''clerk_event'',''dy_fuck_hotel_a''">Ejaculation</a></div>'
+            end
+            if a>=13:'<div class="buttonS5"><a href="exec:a=14 & gt ''clerk_event'',''dy_fuck_hotel_a''">Express love</a></div>'
+            if a>=14:'<div class="buttonB3"><a href="exec:a=15 & gt ''clerk_event'',''dy_fuck_hotel_a''">Take a bath together</a></div>'
+            if a>=15:'<div class="buttonB4"><a href="exec:a=16 & gt ''clerk_event'',''dy_fuck_hotel_a''">Wash it clean</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS3"><a href="exec:DYcos=1 & gt ''company''">Take her to COSPLAY</a></div>'
+                '<div class="buttonGn3"><a href="exec:gt ''convenience_store''">Go back to the convenience store together</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=3:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Amusement parks are still so fun!So happy, so happy!</p>'
+             if a>=1:'<p>Me: Can you have so much fun on the carousel?</p>'
+             if a>=2:'<p><<$DY.name>>:As long as I come out to play with you, I will be happy no matter what I do ❤</p>'
+         '</div>'
+    end
+
+    if 4<=a and a<=13:
+         '<div class="dialog_menu">'
+             if a>=4:'<p>Me: Eat enough and drink enough to go to the Japanese batch❤</p>'
+             if a>=4:'<p><<$DY.name>>: You are really not shy.</p>'
+             if a>=5:'<p>Me: Then don`t you still wear sexy clothes obediently?</p>'
+             if a>=6:'<p><<$DY.name>>: Yes...because I like you…</p>'
+             if a>=8:'<p><<$DY.name>>: Continue<<$words>></p>'
+         '</div>'
+    end
+
+    if 14<=a and a<=15:
+         '<div class="dialog_menu">'
+             '<p>Me: I want to be with you every day, I really want time to stop at this moment ❤</p>'
+             '<p><<$DY.name>>:Same as I thought ❤</p>'
+         '</div>'
+    end
+
+
+    if a=16:
+         $DY.love+=25
+         $DY.bad+=20
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Do you want to do it again after washing it?</p>'
+             '<p>Me: You are too greedy❤</p>'
+             '<p><<$DY.name>>:Um--* sulking</p>'
+             '<p>Me: By the way, you just looked great in sexy clothes, I think you are very suitable for cosplay❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_nightclub":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_nightclub''">Rubbing tits</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_nightclub''">Touch force</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_nightclub''">Serve me</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_nightclub''">Mouth me</a></div>'
+            end
+            
+            if 9>=a and a>=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_nightclub''">Put it in</a></div>'
+            
+            if a>=5:'<div class="buttonS1"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_nightclub''">Homeopathic insertion</a></div>'
+
+            if a>=6:'<div class="buttonS2"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_nightclub''">Intense insertion</a></div>'
+
+            if a>=7:'<div class="buttonS3"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_nightclub''">sprint</a></div>'
+
+            if a>=8:'<div class="buttonS4"><a href="exec:a=9 & gt ''clerk_event'',''dy_fuck_nightclub''">Ejaculation</a></div>'
+
+            if a>=9:'<div class="buttonS5"><a href="exec:a=10 & gt ''clerk_event'',''dy_fuck_nightclub''">Clean up</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''the_night_is_fine''">Promise to go to the hot spring</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=1:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Wow!The atmosphere of the nightclub feels so good!</p>'
+             '<p>Me: Is it the feeling I think it is?</p>'
+             if a>=1:'<p><<$DY.name>>:Hmm*nodded</p>'
+         '</div>'
+    end
+
+    if 2<=a and a<=9:
+         '<div class="dialog_menu">'
+             '<p>Me: Do you like it?</p>'
+             if a>=3:'<p><<$DY.name>>:Like it<<$panting>></p>'
+             if a>=5:'<p>Me: Don`t stop, okay?</p>'
+             if a>=6:'<p><<$DY.name>>:Ok<<$words>></p>'
+         '</div>'
+    end
+
+    if a=10:
+         $DY.love+=25
+         $DY.bad+=32
+         $dy_nightclub=1
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:The atmosphere here is so good, I want to jump alone for a while❤</p>'
+             '<p>Me: Be careful not to be abducted by other men.</p>'
+             '<p><<$DY.name>>:Then promise me that next time you take me to the hot spring, I will go home obediently!</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_hot_spring_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\温泉1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Tease her here</a></div>'
+            if $DY.love>=272:'<div class="buttonG3"><a href="exec:a=0 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Go to the hot spring</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of favorability</a></div>'
+		  if $DY.love>=300:'<div class="buttonB3"><a href="exec:a=0 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Eat delicious</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of favorability</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Mouth me</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">insert</a></div>'
+            end
+            if 9>=a and a>=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Female upper</a></div>'
+
+            if a>=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Back in</a></div>'
+            
+            if a>=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Homeopathy sprint</a></div>'
+
+            if a>=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Ejaculation</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''suburbs''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 0=a:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:I have always wanted to come to the hot springs here!Thank you!</p>'
+             '<p>Me: It`s a trifle.</p>'
+             '<p><<$DY.name>>: Then which project shall we come to first?*Blink</p>'
+         '</div>'
+    end
+
+    if 1<=a and a<=6:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Too anxious<<$panting>></p>'
+             if a>=2:'<p>Me: It`s not that you are too tempting❤</p>'
+             if a>=5:'<p><<$DY.name>>:Slow down<<$words>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $DY.love+=20+q
+         $DY.bad+=30+q
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:You stink all over your body again❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_hot_spring_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\温泉2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Pull her to force</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Pull and spray her</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Oral sex</a></div>'
+            end
+            if 9>=a and a>=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Plug her in</a></div>'
+
+            if a>=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Front</a></div>'
+            
+            if a>=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Sprint vigorously</a></div>'
+
+            if a>=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_hot_spring_2''">Ejaculation</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''suburbs''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=6:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Wow!The water temperature here is so comfortable❤</p>'
+             '<p>Me: Do you want to be more comfortable?*Blink</p>'
+             if a>=1:'<p><<$DY.name>>:Ok<<$panting>></p>'
+             if a>=3:'<p>Me: So comfortable❤</p>'
+             if a>=4:'<p><<$DY.name>>:Slow down<<$words>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $DY.love+=20+q
+         $DY.bad+=30+q
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Won`t you be scolded by the owner of the hot spring?</p>'
+             '<p>Me: I don`t think so?</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_hot_spring_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\温泉3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Cheers</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Upper props</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Oral sex</a></div>'
+            end
+            if 9>=a and a>=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">ride</a></div>'
+
+            if a>=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Back in</a></div>'
+            
+            if a>=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Sprint vigorously</a></div>'
+
+            if a>=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_hot_spring_3''">Ejaculation</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+				'<div class="buttonG3"><a href="exec:$dy.massage=1 & gt ''company''">Take her for a massage</a></div>'
+                '<div class="buttonGn3"><a href="exec:gt ''suburbs''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=6:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Wow!This dish is good❤</p>'
+             if a>=1:'<p>Me: I have done a good job recently, cheers!</p>'
+             if a>=1:'<p><<$DY.name>>:Cheers!</p>'
+             if a>=2:'<p><<$DY.name>>:Wait❤</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $DY.love+=20+q
+         $DY.bad+=30+q
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:I haven`t eaten a few bites yet!</p>'
+             '<p>Me: Hasn`t my big meat stick fed you yet?</p>'
+             '<p><<$DY.name>>:I`m so tired of being fucked by you!I don`t have the strength to eat anymore!How do you compensate me!</p>'
+             '<p>Me: If you`re tired...I`ll give you a massage?</p>'
+             '<p><<$DY.name>>:massage?It`s a good idea!</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_home_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\home1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_home_1''">Homeopathic kissing</a></div>'
+            if $DY.bad>=351:'<div class="buttonS3"><a href="exec:a=0 & gt ''clerk_event'',''dy_fuck_home_2''">Go take a mandarin duck bath</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of favorability</a></div>'
+            if $DY.bad>=402:'<div class="buttonS5"><a href="exec:a=0 & gt ''clerk_event'',''dy_fuck_home_3''">Go to her boudoir</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of favorability</a></div>'
+            if $dy.sea=1:'<div class="buttonP"><a href="exec:a=0 & gt ''clerk_event'',''sea''">❤Set off to see the sea❤</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_home_1''">Enjoy serving</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_home_1''">Mouth me</a></div>'
+            end
+            if 9>=a and a>=3:
+            '<div class="buttonS1"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_home_1''">Get started</a></div>'
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_home_1''">Female upper</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_home_1''">Back in</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_home_1''">sprint</a></div>'
+            if a>=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_home_1''">Ejaculation</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 0=a:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>: Welcome, do you want to come in and sit down?*Took my hand</p>'
+             '<p>Me: Then respectfully follow your orders.</p>'
+         '</div>'
+    end
+
+    if 1<=a and a<=7:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:I can`t bear you to go❤</p>'
+             if a>=2:'<p>Me: Really can`t bear me?</p>'
+             if a>=5:'<p><<$DY.name>>:Can`t bear this<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $DY.love+=50+q
+         $DY.bad+=50
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Come and accompany me when you have time, okay?I want to see you all the time, my dear ❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_home_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\home2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_home_2''">By hand</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_home_2''">Use your mouth</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_home_2''">Help her wash</a></div>'
+            end
+            if 9>=a and a>=3:
+            '<div class="buttonS1"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_home_2''">Play with her</a></div>'
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_home_2''">Sit up</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_home_2''">Front</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_home_2''">sprint</a></div>'
+            if a>=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_home_2''">Ejaculation</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 0<=a and a<=7:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:How do you want me to wash it for you❤</p>'
+             if a>=1:'<p>Me: Let me think❤</p>'
+             if a>=2:'<p><<$DY.name>>:So big<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $DY.love+=50+q
+         $DY.bad+=50+$my.charm
+         '<div class="dialog_menu">'
+             '<p>Me: Do you like this feeling?</p>'
+             '<p><<$DY.name>>:Hmm... we seem to be a couple like this❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="dy_fuck_home_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DY\vids\home3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''clerk_event'',''dy_fuck_home_3''">Lick the glans</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''clerk_event'',''dy_fuck_home_3''">Oral sex</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''clerk_event'',''dy_fuck_home_3''">tease</a></div>'
+            end
+            if 9>=a and a>=3:
+            '<div class="buttonS1"><a href="exec:a=4 & gt ''clerk_event'',''dy_fuck_home_3''">Get started</a></div>'
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''clerk_event'',''dy_fuck_home_3''">Insert her</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''clerk_event'',''dy_fuck_home_3''">Move by yourself</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''clerk_event'',''dy_fuck_home_3''">sprint</a></div>'
+            if a>=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''clerk_event'',''dy_fuck_home_3''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:a=0 & gt ''clerk_event'',''request''">Small request</a></div>'
+                '<div class="buttonGn3"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 0<=a and a<=7:
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:Baby, just lie down❤</p>'
+             if a>=1:'<p>Me: Your skills are getting better and better❤</p>'
+             if a>=2:'<p><<$DY.name>>:Thank you<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $DY.love+=50+q
+         $DY.bad+=50+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$DY.name>>:I`m really happy to be with you❤</p>'
+             '<p>Me: Me too ❤</p>'
+             '<p><<$DY.name>>:Like you ❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="request":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\QQ<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonP"><a href="exec:a=1 & gt ''clerk_event'',''request''">Promise her</a></div>'
+		if a=1:'<div class="button"><a href="exec:gt ''residential_area''">To prepare</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p><<$DY.name>>:Honey... I always wanted to see the sea, can you take me there?</p>'
+		if a=1:'<p>Me: Of course, I will take you wherever you want to go.</p>'& $dy.sea=1
+		if a=1:'<p><<$DY.name>>Comfortably pressed to my chest, feeling the temperature of my heartbeat.</p>'& $DY.love+=60
+	'</div>'
+End
+
+
+if $args[0]="sea":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\HAI<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonP"><a href="exec:a=1 & gt ''clerk_event'',''sea''">Reach the beach</a></div>'
+		if a=1:'<div class="buttonP"><a href="exec:a=2 & gt ''clerk_event'',''sea''">Watching her fool around</a></div>'
+		if a=2:'<div class="buttonP"><a href="exec:">Wish you happiness</a></div>'
+		if a=2:'<div class="buttonG4"><a href="exec:gt ''residential_area''">Little happiness*end</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		if a=0:'<p><<$DY.name>>:Honey... are you really going to see the sea?I`m so excited❤</p>'
+		if a=0:'<p>Me: It`s almost here, you can see it soon, the sea of your dreams.</p>'
+
+		if a=1:'<p><<$DY.name>>:Wow, this is the sea, the sea breeze blows on your face, so Suhu!</p>'
+		if a=1:'<p>Me: Let`s go play, I`ll take a look at the bag for you.</p>'
+		if a=2:
+			$DY.GE=1
+			'<p>I did nothing, sitting relaxed on the sand, quietly blowing the sea breeze, without thinking about anything.</p>'
+			'<p>Suddenly, I heard someone call my name.</p>'
+			'<p>I turned my head to look, and the halo that caught my eyes slowly spread out.</p>'
+			'<p><<$DY.name>>She was playing against the waves, and her smile was frozen in the deepest part of my eyes.…</p>'
+			'<p>· </p>'
+			'<p>·—————Here is the end of the character`s story—————</p>'
+			'<p>·I also sincerely wish all players can watch the sea with those who love you</p>'
+		end
+	'</div>'
+End
+
+
+
+
+--- clerk_event ---------------------------------
+

@@ -1,0 +1,714 @@
+# 警察局
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="市政大厅" href="exec:minutes+=15 & gt ''市政厅''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+			'<a class="photo" data-title="临时看守所" href="exec:minutes+=15 & gt ''警察局'',''看守所''"><img class="img_stretch" src="images\place\看守所 (4).jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	if 100>$JZ_Event_gun and $JZ_Event_gun>=50:
+	'<div class ="show_menu"><img src="images\place\警察局2.jpg" width="854"></div>'
+	else:
+	'<div class ="show_menu"><img src="images\place\警察局.jpg" width="854"></div>'
+	end
+
+	'<div class="button_menu">'
+		'<div class="buttonPu5"><a href="exec:gt ''警察局'',''局长办公室''">♝局长办公室♝</a></div>'
+		if $督察事件链>=2:'<div class="buttonPu4"><a href="exec:gt ''警察局'',''督察立绘''">☎督察办公室☎</a></div>'
+		if $JY.available=1 and ($JZ_Event_gun<50 or $JZ_Event_gun>=100):'<div class="buttonPu3"><a href="exec:$jy_num=0 & $警局对话=0 & gt ''警察局'',''警员立绘''"><<$JY.name>></a></div>'
+		if $DD项圈=1:'<div class="buttonPu2"><a href="exec:gt ''执行官_事件'',''执行官_Fuck_DD项圈后''"><<$DD.name>></a></div>'
+		if $任务_女警外套=1:'<div class="buttonPu1"><a href="exec:gt ''警察局'',''更衣室''">警局更衣室</a></div>'
+		if $证据齐全=1 and $XN.审判=1:'<div class="buttonR4"><a href="exec:gt ''修女_事件'',''XN_Fuck_钓鱼''">状告主教罪行</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·政权改革后由帝国集团出资赞助，名义上隶属于市议会和城市，但考虑到议会和帝国集团的紧密关系，要说警察局和他们完全没有任何联系是不可能的。</p>'
+		'<p>·尽管多数市民对警察局的未来感到担忧，但是仍然由少数警员坚守着自己身上别着的那枚警徽的职责，纵使世道混乱，他们还是尽全力保护市民们的安全。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="局长办公室":
+	$JZ.available=1
+	if $天气='☂雨' and $times_of_day='night' : gt'局长_事件','雨天'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\警局局长开场~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:局长对话=0 & gt ''警察局'',''局长立绘''">对话</a></div>'
+		'<div class="buttonG1"><a href="exec:gt ''警察局'',''兼职义警''">兼职义警</a></div>'
+		'<div class="buttonG2"><a href="exec:gt ''警察局'',''无偿协助''">无偿协助</a></div>'
+		
+		if  $SS_逮捕=1:'<div class="buttonR"><a href="exec:gt ''杀手_事件'',''SS_Event_审讯''">审讯<<$SS.name>></a></div>'
+		if $JZ.bad>=200:'<div class="buttonS"><a href="exec:gt ''局长_事件'',''JZ_Fuck_诱惑''">掏出鸡巴</a></div>'else:'<div class="buttonGr"><a href="exec:">掏出鸡巴</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$JZ.name>>:你知道我很忙的。如果你不是来无偿配合警方帮助的破案的，请你立刻离开！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="局长立绘":
+	$局长立绘=rand(0,2)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\立绘<<$局长立绘>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		if $看过平面图=3:'<div class="buttonPu3"><a href="exec:gt ''遗孀_事件'',''报警''">黑道非法监禁</a></div>'
+		if $警长招呼=1:
+			if $JZ.love>$my.魅力*25:'<div class="buttonGn4"><a href="exec:gt ''遗孀_事件'',''警长招呼''">事先串通</a></div>'else:'<div class="buttonGr"><a href="exec:">好感需><<$my.魅力*25>></a></div>'
+		end
+		if $督察事件链=1:'<div class="button"><a href="exec:局长对话=1 & gt ''警察局'',''局长立绘''">至关重药</a></div>'
+		if $局长x舅舅<=1:'<div class="buttonPu2"><a href="exec:gt ''局长_事件'',''骚扰''">暂时回避</a></div>'
+		if $局长x舅舅>=3:
+		 '<div class="buttonR4"><a href="exec:gt ''局长_事件'',''舅妈来访''">☠兴师问罪☠</a></div>'
+		 if $JZ录像!1 :
+			if $义警积分>=500:'<div class="buttonR3"><a href="exec:gt ''局长_事件'',''钓鱼执法''">▲钓鱼执法▲</a></div>'else:'<div class="buttonGr"><a href="exec:">至少500义警积分</a></div>'
+		 end
+		 if $JZ3P=1:'<div class="buttonR3"><a href="exec:gt ''局长_事件'',''JZ_Fuck_配合调查''">▲配合调查▲</a></div>'
+		end
+		if $局长受药=1:
+			if MGF>0:'<div class="buttonS"><a href="exec:MGF-=1 & gt ''局长_事件'',''JZ_Fuck_MGF''">拿出麦高芬</a></div>'else:'<div class="buttonGr"><a href="exec:">缺少麦高芬</a></div>'
+		end
+		if $JZ.love>=100:'<div class="buttonS"><a href="exec:gt ''局长_事件'',''JZ_Fuck_诱惑2''">摸她的腿</a></div>'else:'<div class="buttonGr"><a href="exec:">摸她的腿</a></div>'
+		if $JZ.bad>=155:'<div class="buttonS"><a href="exec:gt ''局长_事件'',''JZ_Fuck_D1''">伸进内裤</a></div>'else:'<div class="buttonGr"><a href="exec:">伸进内裤</a></div>'
+		if $JZ.bad>=200 and JZcos!1:'<div class="buttonS"><a href="exec:JZcos=1 & $m=''JZ'' & $ma=$JZ.name & gt ''群演_事件'',''群演_Fuck_coser专属''">邀请COS</a></div>'
+		if $老板事件链=6 and $老板暂缓调查=0 :
+			if $JZ.love>=250:'<div class="buttonR3"><a href="exec:gt ''局长_事件'',''JZ_Fuck_暂缓调查''">暂缓调查</a></div>'else:'<div class="buttonGr"><a href="exec:">暂缓调查-好感不足</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if 局长对话=0:'<p><<$JZ.name>>: 咳咳…有何贵干？</p>'
+		if 局长对话=1:
+			'<p><<$JZ.name>>: 坐吧，等你很久了。</p>'
+			'<p>我: 你果然知道我回来？</p>'
+			'<p><<$JZ.name>>: 我们早就调查过你，所以，我希望你能介入这件案子。</p>'
+			'<p>我: 怎么说？</p>'
+			'<p><<$JZ.name>>:歌舞伎町冒出一种新药，不仅能催情，关键的问题在于还能摧毁人的心智，沦为性奴。</p>'
+			'<p>我: 这么严重？</p>'
+			'<p><<$JZ.name>>: 你有制药公司的背景资源，督察办公室正在全面着手这个案子，我们要求你协助办案，这是命令！</p>'
+			$督察事件链=2
+		end
+	'</div>'
+end
+
+
+
+if $ARGS[0]="无偿协助":
+	$警局对话=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\警局局长开场~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $JZ_Event_rape<=100:'<div class="button"><a href="exec:gt ''警察局'',''失踪案''">案子：失踪案<< $JZ_Event_rape>>﹪</a></div>'else:'<div class="buttonGn"><a href="exec:">已结案：失踪案</a></div>'
+		if  $JZ_Event_gun<=100:'<div class="button"><a href="exec:gt ''警察局'',''杀人执照''">案子：杀人执照<< $JZ_Event_gun>>﹪</a></div>'else:'<div class="buttonGn"><a href="exec:">已结案：杀人执照</a></div>'
+	    if $YDM_Event_free<11:'<div class="buttonGn"><a href="exec:">条件不足</a></div>'
+		if $YDM_Event_free>=11:
+		 if $处分奖励=0:'<div class="button"><a href="exec:gt ''警察局'',''内部处分''">案子：内部处分</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''警察局'',''内部处分''">已结案：内部处分</a></div>'
+		end
+		'<div class="buttonG"><a href="exec:gt ''奖励''">陈年旧案</a></div>'
+		'<div class="buttonGr"><a href="exec:gt ''警察局''">没有更多的案子</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$JZ.name>>:你知道我很忙的。如果你不是来无偿配合警方帮助的破案的，请你立刻离开！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="失踪案":
+	'<div class ="show_menu"><img src="images\NPC\OX\vids\寻人.jpg" height="492"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$警局对话=1 & $OX.available=1 & gt ''警察局'',''失踪案''">保证完成任务</a></div>'
+		if $JZ_Event_rape>=10:'<div class="button"><a href="exec:$警局对话=2 & gt ''警察局'',''失踪案''">车牌号：IPZ-905</a></div>'else:'<div class="buttonGr"><a href="exec:">未找到线索</a></div>'
+		if $JZ_Event_rape>=100:'<div class="button"><a href="exec:$警局对话=3 & gt ''警察局'',''失踪案''">人已救出</a></div>'else:'<div class="buttonGr"><a href="exec:">未找到线索</a></div>'
+		if $警局对话=3:'<div class="buttonG"><a href="exec:$JZ_Event_rape+=50 & $JZ.love+=25 & gt ''警察局'',''局长办公室''">确认结案</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if  $警局对话=0:
+		   '<p><<$JZ.name>>:这是目前可公开的情报：</p>'
+			'<p>①有人报警称一位女性于72小时内失联，据亲友汇报是要在歌舞伎町与星探碰面。</p>'
+			'<p>②日本女子写真偶像サンスポPSリポート的一期成员，曾经在日本秋叶原的女仆主题咖啡厅打工。年龄身高体重均为保密内容。</p>'
+			'<p>③由于后街的管辖权比较特殊，我们警方不便前往。我希望你能以便衣辅警的临时身份前往调查。当然，这完全是你的个人行为，警局官方是不会承认你的。</p>'
+		 end
+		if  $警局对话=1:'<p>我:保证完成任务。</p><p><<$JZ.name>>:很好，困难越大，荣耀也越大。</p>'
+		if  $警局对话=2:
+			if $JZ_Event_rape=10:  $JZ_Event_rape=15
+			'<p>我:局长！我有重大突破！嫌疑人的车牌号是IPZ-905！</p><p><<$JZ.name>>:很遗憾，交管系统里并没有这辆车的信息。应该是一辆失踪车辆改装的N手套牌车，根本无法查找。</p>'
+		 end
+		if  $警局对话=3:
+			'<p><<$JZ.name>>:人居然能被你从大火中救出来，你也是挺牛的。可惜【新政策】下男性警员数量需要严格控制，不然不排除给你个便衣当当。</p>'
+			'<p><<$JZ.name>>:现场一共发现了四名男性的尸体，因为大火无法辨认身份。</p>'
+			'<p>我:四名？我怎么记得好像只有三个人？</p>'
+			'<p><<$JZ.name>>:是的，现场还发现了一把手枪，神奇的是这把手枪上有你的指纹。</p>'
+			'<p>我:我？我的指纹？这怎么可能？</p>'
+			'<p><<$JZ.name>>:可能是火场中不小心碰到的，我们在你昏迷的时候对你做了硝烟反应。已经排除了你的嫌疑。</p>'
+			'<p><<$JZ.name>>:别再想了！只要你确认无误，这件案子就会以“枪支走火引发废弃油罐爆炸”结案了。</p>'
+		end
+	'</div>'
+end
+
+if $ARGS[0]="杀人执照":
+	'<div class ="show_menu"><img src="images\NPC\SS\pics\猎杀.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$警局对话=1 & $JY.available=1 & gt ''警察局'',''杀人执照''">保证完成任务</a></div>'
+		if $JZ_Event_gun=50:'<div class="button"><a href="exec:$警局对话=2 & gt ''警察局'',''杀人执照''">正在卧底</a></div>'
+		if $JZ_Event_gun=90:'<div class="buttonR3"><a href="exec:$警局对话=3 & gt ''警察局'',''杀人执照''">需要增援</a></div>'
+		if $警局对话=3:'<div class="buttonR5"><a href="exec:gt ''警员_事件'',''JY_Event_救援''">先行一步</a></div>'
+		if $JZ_Event_gun=100:'<div class="button"><a href="exec:$警局对话=4 & gt ''警察局'',''杀人执照''">结案综述</a></div>'
+		if $警局对话=4:'<div class="buttonR5"><a href="exec:$JZ_Event_gun+=50 & $JZ.love+=25 & gt ''警察局'',''局长办公室''">确认结案</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if  $警局对话=0:
+		   '<p><<$JZ.name>>:这是目前可公开的情报：</p>'
+			'<p>①据可靠消息称，下城区的歌舞伎町即将发生重大事件，这可能一位来自境外的杀手有关。</p>'
+			'<p>②警方已经征用一个高层建筑作为盯梢点。但由于歌舞伎町的管辖权比较特殊，我们不便高调行事。</p>'
+			'<p><<$JZ.name>>:你就和门口那个丫头片子负责盯梢组吧，你记得向她报道！当然，这完全是你的个人行为，警局官方是不会承认你的。</p>'
+		 end
+		if  $警局对话=1:'<p>我:保证完成任务。</p><p><<$JZ.name>>:很好，困难越大，荣耀也越大。</p>'
+		
+		if  $警局对话=2:
+		   '<p>我:已经派出<<$JY.name>>，正在卧底之中！</p>'
+			'<p><<$JZ.name>>:和爆炸案的仓库里发现了大量被烧毁的违禁药物和枪支有关吗？</p>'
+		   '<p>我:还在调查中，有一切进展我会立即汇报！</p>'
+		   if $JZ_Event_gun=50: $JZ_Event_gun=60
+		 end
+		if  $警局对话=3:
+		   '<p>我:局长！<<$JY.name>>有危险！她拿到了关键性证据但是身份暴露了！</p>'
+			'<p><<$JZ.name>>:什么？可是地点在歌舞伎町...我们没有管辖权..</p>'
+		   '<p>我:这种时候还在乎属地管辖还是属人管辖？救人要紧！我先去了！你能见死不救我可不能！</p>'
+		 end
+		 
+		if  $警局对话=4:
+			'<p><<$JZ.name>>:不错，这回又是大功一件！面对国际S级杀手还能空手夺枪，你可真是了不起！</p>'
+		   '<p>我:她是来做什么的？</p>'
+			'<p><<$JZ.name>>:她的来头可不小，刚一被捕，就收到了它国的引渡申请，并且想为她保释。现场的人就惨咯，一共17人，除了那几个傻乎乎的练习生，全部毙命！</p>'
+		   '<p>我:那....警方觉得她和之前的爆炸案有联系吗？</p>'
+			'<p><<$JZ.name>>:好了！别多想了！只要你确认无误，这件案子就会以“黑社会团伙内讧火并”结案了。毕竟...上面也不想闹得太大。</p>'
+		   '<p>我:那....我可以审讯她嘛？</p>'
+			'<p><<$JZ.name>>:emmmm，我们正好需要一个人来干这份脏活。当然，我会睁一只眼闭一只眼。</p>'
+		 end
+	'</div>'
+end
+
+
+
+if $ARGS[0]="警员立绘":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JY\vids\开幕<<$jy_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		if $jy_num=0:
+			if $JY.上垒=1:'<div class="buttonS"><a href="exec:gt ''警员_事件'',''JY_Fuck_办公室''">在这搞一发</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		if $jy_num!0:
+			if $JY.bad>=30:'<div class="buttonS"><a href="exec:gt ''警员_事件'',''JY_Fuck_车上''">车上搞一发</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+	
+		'<div class="button"><a href="exec:$警局对话=1 & gt ''警察局'',''警员立绘''">讨论：失踪案</a></div>'
+		'<div class="button"><a href="exec:$警局对话=2 & gt ''警察局'',''警员立绘''">讨论：杀人执照</a></div>'
+		if $老板事件链>=6:'<div class="button"><a href="exec:$警局对话=4 & gt ''警察局'',''警员立绘''">讨论：露营区火灾</a></div>'
+		'<div class="button"><a href="exec:$警局对话=3 & gt ''警察局'',''警员立绘''">摸鱼：日常划水</a></div>'
+		'<div class="buttonG3"><a href="exec:gt ''警员_事件'',''JY_Fuck_催眠''">工作：交通节目</a></div>'
+
+		
+		if $警局对话=3:'<div class="buttonP"><a href="exec:gt ''警察局'',''摸鱼''">OK</a></div>'else:'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+		
+	'</div>'
+	'<div class="dialog_menu">'
+		if $警局对话=0:
+			$jy_num=1
+			'<p>·刚刚上任的见习警员，经验和能力均不足的她一脸期待地看着你！</p>'
+			'<p><<$JY.name>>:<<$主角姓名>>，你要寸步不离保证我的安全。</p>'
+		end
+		if $警局对话=1:
+			if $JZ_Event_rape<100:
+				'<p><<$JY.name>>: 啊？这件案子是人口失踪组负责的，跟我可没关系喔~歌舞伎町什么的太危险啦~</p>'
+				'<p>我: ……好吧…（看来指望不上她了）</p>'
+				'<p><<$JY.name>>:如果你想调查的话，我听她们说，好像是在一家酒吧被什么星探搭讪然后下落不明的...</p>'
+				'<p>我: 我知道了，那我就自己去调查吧。</p>'
+				'<p><<$JY.name>>:<<$主角姓名>>，要注意安全！我可救不了你！</p>'
+			else:
+				'<p><<$JY.name>>: 真是的！命不要啦？！又是火灾，又是大爆炸！早知道就不该让你去调查！</p>'
+				'<p>我: …这不是还好好的嘛？</p>'
+				'<p><<$JY.name>>:还嘴硬！哼！我可不想再失去一个搭档了！</p>'
+				'<p>我: 再失去…？</p>'
+				'<p><<$JY.name>>:没什么…总之！以后你的行动必须经过我的批准！</p>'
+			end
+		 end
+		if $警局对话=2:
+			if $JZ_Event_gun=0:
+				'<p>我: 这种案子怎么会轮到你？什么境外杀手，你不害怕吗？</p>'
+				'<p><<$JY.name>>: 当然害怕了！但是你不知道吗？医院里的精子库被人入侵了，据说某些优质精子还被污染了呢！现在主要的警力都被抽调去做筛选排查了。</p>'
+				'<p>我: 是去走访摸排嫌疑人吗？</p>'
+				'<p><<$JY.name>>:.....是给精子库做筛选排查重新归档,趁着没领导管我，我们就划划水吧。我可不想去歌舞伎町那种鬼地方。还有什么杀手o(╥﹏╥)o</p>'
+			end
+			if $JZ_Event_rape>=100 and $JZ_Event_gun<=10:
+				'<p><<$JY.name>>: 真是倒霉！明明不关我的事的！都怪你！爆炸案的仓库里发现了大量被烧毁的违禁药物和枪支，市长高度重视，要求我们去调查清楚！</p>'
+				'<p>我: 这下没法赖着不去了呢？</p>'
+				'<p><<$JY.name>>:..领导的安排是要我去做卧底，哦不，是我们。</p>'
+				'<p>我: 我们？</p>'
+				'<p><<$JY.name>>:上回的爆炸案不是什么打着星探名号的诱拐案吗？缉毒部的怀疑他们用药物和枪支控制被害人。不过你救出来的小妹妹没有提到这些，只是一味的遭受强奸....</p>'
+				'<p><<$JY.name>>:..唉，不管了，总之你扮演我的经纪人就行了，我回去打扮一番，我们在那个什么club里碰头。</p>'
+			  if $JZ_Event_gun=0:$JZ_Event_gun=10
+			end
+			if $JZ_Event_gun>=100:
+				'<p>我: 真是的！多危险啊？！差点就被人强奸了！早知道就不该让你去调查！</p>'
+				'<p><<$JY.name>>: 这不是还好好的嘛？不光升职加薪还是大功一件！</p>'
+				'<p>我: 别嘴硬！哼！</p>'
+				'<p><<$JY.name>>:你是不是在担心我呀，傻瓜。欸？这个对话好像在哪里听过....</p>'
+			end
+		end
+
+		if $警局对话=3:
+				'<p><<$JY.name>>: (＾ヮ＾)V 好耶！我们去吃好吃的吧！</p>'
+			end
+		if $警局对话=4:
+				'<p>我: 听说露营区的纵火犯是你亲手抓到的？！</p>'
+				'<p><<$JY.name>>: (＾ヮ＾)V 厉害吧！快夸我！</p>'
+				'<p>我: 那当时你怎么判断是他纵火的？！</p>'
+				'<p><<$JY.name>>: 他手里抱着一大罐的柴油好嘛！</p>'
+				'<p>我: 还有呢？</p>'
+				'<p><<$JY.name>>:还有....就是作为出色警员的第六感！或者说直觉啦！</p>'
+				'<p>我: 呃…</p>'
+				'<p><<$JY.name>>:喔？你是不是在担心我呀，傻瓜。欸？这个对话好像在哪里听过....</p>'
+			end
+	'</div>'
+end
+
+
+if $ARGS[0]="摸鱼":
+	'<div class ="show_menu"><img src="images\NPC\JY\pics\摸鱼<<rand(0,5)>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $寻枪事件链<=4:'<div class="buttonR3"><a href="exec:gt ''警员_事件'',''寻枪开始''">✣大事不好！</a></div>'
+		if $寻枪结束=1:
+			'<div class="buttonP"><a href="exec:gt ''警员_事件'',''约会''">约会</a></div>'
+		end
+		'<div class="buttonGn"><a href="exec:gt ''地铁''">解散</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$JY.name>>:哇偶！这个好好吃耶！(๑´ڡ`๑)</p>'
+		'<p>我:那你多吃点，都瘦成什么样子了…</p>'
+	'</div>'
+end
+
+if $ARGS[0]="兼职义警":
+
+	'<div class ="show_menu"><img src="images\place\兼职义警.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''警察局'',''接听电话''">接听电话</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局'',''代理出警''">代理出警</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局'',''积分兑换''">积分兑换</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[兼职义警的主要工作]</p>'
+		'<p>·接听报警电话</p>'
+		'<p>·代理出警任务</p>'
+		'<p>·辅助抓捕嫌犯【未实装】</p>'
+		'<p>——————————</p>'
+		'<p>当前的义警积分：<<$义警积分>></p>'
+	'</div>'
+end
+
+if $ARGS[0]="积分兑换":
+
+	'<div class ="show_menu"><img src="images\place\兼职义警.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $义警积分>=10:'<div class="buttonG"><a href="exec: $义警积分-=10 & coins+=1 & gt ''警察局'',''积分兑换''">劳动凭证/10分</a></div>'else:'<div class="buttonGr"><a href="exec: ">劳动凭证/10分</a></div>'
+		if $义警积分>=1000 and $JZ.按摩=1 and $JZ3P=1:'<div class="buttonG"><a href="exec: $义警积分-=1000 & gt ''局长_事件'',''JZ_Fuck_特殊奖励''">Julia特殊奖励/1000分</a></div>'else:'<div class="buttonGr"><a href="exec: ">1000分&Julia条件</a></div>'
+
+		'<div class="button"><a href="exec:gt ''警察局'',''兼职义警''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>[兼职义警的主要工作]</p>'
+		'<p>·接听报警电话</p>'
+		'<p>·代理出警任务</p>'
+		'<p>·辅助抓捕嫌犯【未实装】</p>'
+		'<p>——————————</p>'
+		'<p>当前的义警积分：<<$义警积分>></p>'
+		
+	'</div>'
+end
+
+
+
+if $ARGS[0]="接听电话":
+	来电num=rand(0,5)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\来电<<来电num>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR3"><a href="exec:来电num+=10 & gt ''警察局'',''接听电话判断''">出现紧急情况</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''警察局'',''接听电话判断''">无紧急情况</a></div>'
+		'<div class="buttonR5"><a href="exec:gt ''市政厅''">高血压了</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>当前的义警积分：<<$义警积分>></p>'
+		'<p>——————————</p>'
+		'<p>请判断市民来电中是否出现了紧急情况？</p>'		
+	'</div>'
+end
+
+if $ARGS[0]="接听电话判断":
+
+	'<div class ="show_menu"><img src="images\place\来电判断.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR4"><a href="exec:gt ''警察局'',''接听电话''">接听下一通</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>请判断市民来电中是否出现了紧急情况？</p>'		
+		'<p>——————————</p>'
+		if 来电num>=13 or 来电num<=2:
+		$义警积分+=100
+		$JZ.LOVE+=1
+		'<p>判断成功，义警积分+100</p>'		
+		'<p>——————————</p>'
+		else:
+		$义警积分-=200
+		'<p>判断错误，义警积分-200</p>'		
+		'<p>——————————</p>'
+		end
+		'<p>当前的义警积分：<<$义警积分>></p>'
+	'</div>'
+end
+
+if $ARGS[0]="代理出警":
+	'<div class ="show_menu"><img src="images\place\兼职义警.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if TJ任务<=1 and TJQ1>=100:'<div class="button"><a href="exec:gt ''警察局'',''超市险情''">超市险情</a></div>'
+		!'<div class="button"><a href="exec:gt ''警察局'',''猫猫走失案''">猫猫走失案</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局'',''深夜失踪案''">深夜失踪案</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>[代理出警：放心，都是一些小案子]</p>'
+		'<p>我: …………</p>'
+	'</div>'
+end
+
+if $ARGS[0]="深夜失踪案":
+	寻人num=rand(1,7)
+         if 寻人num=1:$m_sz='走失少女'&$报案人='父亲'
+         if 寻人num=2:$m_sz='垫底辣妹'&$报案人='母亲'
+         if 寻人num=3:$m_sz='巨乳OL'&$报案人='未婚夫'
+         if 寻人num=4:$m_sz='贫乳妹'&$报案人='丈夫'
+         if 寻人num=5:$m_sz='潮流辣妹'&$报案人='继父'
+         if 寻人num=6:$m_sz='清纯学妹'&$报案人='男友'
+         if 寻人num=7:$m_sz='富家女'&$报案人='叔叔'
+	失踪时间num=rand(12,24)
+	失踪任务时间num=rand(17,24)
+	if 失踪任务时间num=24:失踪任务时间num=rand(0,2)
+	寻找时间num=失踪时间num+失踪任务时间num
+	if 寻找时间num>24:寻找时间num-=24
+	if 寻找时间num>24:寻找时间num-=24
+	if 寻找时间num=24:寻找时间num=0
+	
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\寻人.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR5"><a href="exec:失踪任务=1 & gt ''市政厅''">动身寻找</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【报案人：她的<<$报案人>>】【失踪对象描述：<<$m_sz>>】 【失联时间：<<失踪时间num>>小时】 </p>'
+		'<p>——————————</p>'
+		'<p>【最后一次见面地点：歌舞伎町某处】</p>'		
+		'<p>【最后一次见面时间：<<失踪任务时间num>>:00】</p>'		
+	'</div>'
+end
+
+if $ARGS[0]="内部处分":
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''警察局'',''内部处分开始''">改造处分</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$JZ.name>>: 这是特殊部门—射精执法科给新增我们的任务！对这三名严重违规的执法人员进行严厉的改造教育！</p>'
+		'<p>我: 啊…？由我处置？</p>'
+		'<p><<$JZ.name>>: 内部处理本来就会落下惩罚不均的话柄。交给你这样一个外人既可以避嫌，又可以不用担责！怎么了？不愿意吗？</p>'
+		'<p>我: 交给我吧！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="处分奖励":
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分01.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''警察局'',''内部处分开始''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$JZ.name>>: 做的不错，看来她们都已经得到了应有的惩罚，这是给你的奖励！</p>'
+		'<p>我: 啊…？还有奖励？</p>'
+		'<p><<$JZ.name>>: 1000点义警积分！</p>'
+		'<p>我: ………</p>'
+		$义警积分+=1000
+		if $处分奖励=0:$处分奖励=1
+	'</div>'
+end
+
+if $ARGS[0]="内部处分开始":
+	$TJ.available=1
+	$DD.available=1
+	if TJLJ3>=100 and ZXGQ1>=100 and DDQ1>=100 and $DD项圈=1:
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分01.jpg" width="854"></div>'
+	else:
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1.jpg" width="854"></div>'
+	end
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''警察局'',''TJ立绘''">✏<<$TJ.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''警察局'',''ZXG立绘''">✒<<$ZXG.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''警察局'',''DD立绘''">✑<<$DD.name>></a></div>'
+		if TJLJ3>=100 and ZXGQ1>=100 and DDQ1>=100 and $DD项圈=1 and $处分奖励=0:'<div class="buttonG"><a href="exec:gt ''警察局'',''处分奖励''">♝领取奖励</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·【卷宗】<<$TJ.name>>——私自修改嫌犯射精量至多人精尽休克！</p>'
+		'<p>·【卷宗】<<$ZXG.name>>——因职务疏忽导致犯人越狱！</p>'
+		'<p>·【卷宗】<<$DD.name>>——与犯人发生不正当感情，包庇犯人！</p>'
+		'<p>·✪✪✪✪✪✪✪✪✪✪✪✪✪✪✪✪✪·</p>'
+		'<p>·处罚完毕：'
+		if TJLJ3>=100:'✓'else:'✗' 
+		if ZXGQ1>=100:'✓'else:'✗' 
+		if DDQ1>=100 and $DD项圈=1:'✓'else:'✗' 
+		'</p>'
+	'</div>'
+end
+
+if $ARGS[0]="TJ立绘":
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1A.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR4"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''执行官_事件'',''执行官_Fuck_P1泛''">单人惩戒<<TJP1>>%</a></div>'
+		if TJP1>=100:'<div class="buttonR3"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''执行官_事件'',''执行官_Fuck_GZ泛1''">工作考核<<TJGZ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if TJGZ1>=100:
+		 if MGF>0:
+			'<div class="buttonR2"><a href="exec:MGF-=1 & $m=''TJ'' & $ma=$TJ.name & gt ''执行官_事件'',''执行官_Fuck_Y泛''">阈值培训<<TJY1>>%</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">缺少麦高芬</a></div>'
+		 end
+		end
+		if TJY1>=100:'<div class="buttonR1"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''执行官_事件'',''执行官_Fuck_Q泛''">车轮战考核<<TJQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if TJ任务=2:'<div class="buttonR"><a href="exec:$m=''TJ'' & $ma=$TJ.name & TJ立绘数=1 & gt ''警察局'',''TJ请示上级''">请示上级</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if TJLJ2>=100:'<div class="buttonR5"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''执行官_事件'',''执行官_Fuck_强制性''">强制性惩罚</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if TJLJ3>=100:'<div class="buttonGn"><a href="exec:">处罚&考核完毕</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·【卷宗】<<$TJ.name>>——私自修改嫌犯射精量至多人精尽休克！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="TJ请示上级":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\TJ\vids\0<<TJ立绘数>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if TJ立绘数=1:'<div class="button"><a href="exec:TJ立绘数=2 & gt ''警察局'',''TJ请示上级''">暴力执法</a></div>'
+		if TJ立绘数=2:'<div class="button"><a href="exec:gt ''执行官_事件'',''执行官_Fuck_谅解''">申请谅解<<TJLJ1>>%</a></div>'
+		if TJLJ1>=100:'<div class="button"><a href="exec:gt ''执行官_事件'',''执行官_Fuck_贪污''">贪污事件<<TJLJ2>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>执行部部长: 听说你还在查内部的腐败问题？你先解决队内处分的问题吧！</p>'
+		'<p><<$TJ.name>>: 我的问题？</p>'
+		if TJ立绘数=2:
+		'<p>执行部部长: 独断行动，无视命令！造成了多名嫌疑人不同程度的伤亡。如果争取不到他们的谅解书，你只能被撤职了！</p>'
+		'<p><<$TJ.name>>: ……</p>'
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="ZXG立绘":
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1B.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR5"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''执行官_事件'',''执行官_Fuck_P1泛''">单人惩戒<<ZXGP1>>%</a></div>'
+		if ZXGP1>=100:'<div class="buttonR4"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''执行官_事件'',''执行官_Fuck_工作1''">工作考核<<ZXGG1>>%</a></div>'
+		if ZXGG1>=100:'<div class="buttonR3"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''执行官_事件'',''执行官_Fuck_工作2''">外勤考核<<ZXGG2>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if ZXGG2>=100:
+		 if MGF>0:
+			'<div class="buttonR2"><a href="exec:MGF-=1 & $m=''ZXG'' & $ma=$ZXG.name & gt ''执行官_事件'',''执行官_Fuck_Y泛''">阈值培训<<ZXGY1>>%</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">缺少麦高芬</a></div>'
+		 end
+		end
+
+
+		if ZXGY1>=100:'<div class="buttonR1"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''执行官_事件'',''执行官_Fuck_Q泛''">车轮战考核<<ZXGQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if ZXGQ1>=100:'<div class="buttonGn"><a href="exec:">处罚&考核完毕</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·【卷宗】<<$ZXG.name>>——因职务疏忽导致犯人越狱！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="DD立绘":
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1C.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR5"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''执行官_事件'',''执行官_Fuck_P1泛''">单人惩戒<<DDP1>>%</a></div>'
+		if DDP1>=100:'<div class="buttonR3"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''执行官_事件'',''执行官_Fuck_GZ泛1''">工作考核<<DDGZ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if DDP1>=100:'<div class="buttonPu1"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''警察局'',''DD监督工作''">监督工作</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+
+		if DDGZ1>=100:
+		 if MGF>0:
+			'<div class="buttonR2"><a href="exec:MGF-=1 & $m=''DD'' & $ma=$DD.name & gt ''执行官_事件'',''执行官_Fuck_Y泛''">阈值培训<<DDY1>>%</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">缺少麦高芬</a></div>'
+		 end
+		end
+		
+		if DDY1>=100:'<div class="buttonR5"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''执行官_事件'',''执行官_Fuck_Q泛''">车轮战考核<<DDQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if DDQ1>=100 and $DD项圈=1:'<div class="buttonGn"><a href="exec:">处罚&考核完毕</a></div>'else:'<div class="buttonGr"><a href="exec:">事件未完成</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·【卷宗】<<$DD.name>>——与犯人发生不正当感情，包庇犯人！</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="超市险情":
+	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\抢劫.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''警察局''">立即出发</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		TJ任务=1
+		'<p>[监控录像：给我听着！准备好一辆越野车！再加三个亿的现金！]</p>'
+		'<p>我: …………</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="DD监督工作":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\DD\vids\工作中.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $DD男友=0:
+		if hour>=17:'<div class="button"><a href="exec:gt ''执行官_事件'',''送她回家''">送她回家</a></div>'else:'<div class="buttonGr"><a href="exec:">未到下班时间</a></div>'
+		end
+		if $DD男友=1:
+		if hour>=17:'<div class="button"><a href="exec:gt ''执行官_事件'',''送她回家2''">送她回家</a></div>'else:'<div class="buttonGr"><a href="exec:">未到下班时间</a></div>'
+		end
+		if $DD上车=1:'<div class="buttonS"><a href="exec:gt ''执行官_事件'',''执行官_Fuck_DD办公室''">办公室SEX</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">别打扰她</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我: 她好像在窃窃私语着什么…</p>'
+	'</div>'
+end
+
+if $ARGS[0]="督察立绘":
+	$DC.available=1
+	if $DC.love<=50:DC立绘num=0
+	if 50<=$DC.love and $DC.love<=100:DC立绘num=1
+	if $DC.love>100:DC立绘num=2
+	if $DC.bad>=200:DC立绘num=3
+	if $DC.异形>=1:DC立绘num=4
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\DC\vids\立绘<<DC立绘num>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $DC隐藏进度>=15 and $督察事件链<=3 :'<div class="buttonPu3"><a href="exec:gt ''督察_事件'',''准备收网''">准备收网</a></div>'
+		if $督察事件链=4:'<div class="buttonR3"><a href="exec:gt ''督察_事件'',''审讯中''">审讯中</a></div>'
+		if DCNTR=1:'<div class="buttonR"><a href="exec:gt ''督察_事件'',''DC_Fuck_拷问''">持续拷问中</a></div>'
+		if $督察事件链<7:'<div class="buttonS3"><a href="exec:gt ''督察_事件'',''DC_Fuck_上车''">出发调查</a></div>'
+		if $督察事件链>=7:'<div class="buttonR2"><a href="exec:gt ''督察_事件'',''DC_Fuck_上车''">继续调查</a></div>'
+		if $DC.love>=50:'<div class="buttonS2"><a href="exec:hour+=1 & gt ''督察_事件'',''喝一杯''">喝点东西</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if 每日调查=0:'<div class="buttonS1"><a href="exec:gt ''督察_事件'',''走访摸排''">每日调查</a></div>'
+		if DC立绘num>=3:'<div class="buttonS3"><a href="exec:gt ''督察_事件'',''DC_Fuck_办公''">来一发</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $DC.love<50:'<p><<$DC.name>>: 你就是局长说的那个助手？有什么要汇报的？</p>'
+		if $DC.love>=50:'<p><<$DC.name>>: 你总算来了，今天有很多事情要做，昨天只处理了<<$督察事件链>>件。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="更衣室":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\JZ\vids\更衣室.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $任务_女警外套=1:'<div class="buttonPu2"><a href="exec:$任务_女警外套=2 & gt ''警察局''">拿走女警外套</a></div>'
+		if $JZ.available=1 and  $魅魔能量>0:'<div class="buttonPu5"><a href="exec:$魅魔能量-=1 & gt ''局长_事件'',''催眠局长''"><font color="#FF00FF">催眠<<$JZ.name>>❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠<<$JZ.name>><font color="#FF00FF">❤</font></a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·警察局内部的更衣室，女警外套的外套就在这里。</p>'
+		'<p>我: …………</p>'
+	'</div>'
+end
+
+if $ARGS[0]="看守所":
+	'<div class ="show_menu"><img src="images\place\看守所 (<<rand(1,4)>>).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $班长事件链B=5 or $班长事件链B=6:'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''班长B8''">审讯<<$BZ.name>></a></div>'
+		if  $SS_逮捕=1:'<div class="buttonR"><a href="exec:gt ''杀手_事件'',''SS_Event_审讯''">审讯<<$SS.name>></a></div>'
+		if $贼被抓=1 or $贼被抓=2:'<div class="buttonR"><a href="exec:gt ''群演_事件'',''群演_Fuck_贼4''">叮嘱希咲エマ（惯偷）</a></div>'
+		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·警察局内部的看守所，对于涉嫌犯罪的女子嫌疑人一般来说只是象征性地拘留几日作为处罚。</p>'
+		'<p>·————————</p>'
+		'<p>·家里的小偷如果在这审讯完，最后会在（监狱-拥有肥皂钥匙的情况下-晚上去-纵火犯审讯室）</p>'
+		'<p>·原本想做个抓捕嫌犯然后关在这里调教的计划，但海上长时间无网络或者几KB根本下载不了我这个计划，目前的库存无法支撑…我股票中心本打算用星宫一花也因为出海前没下片子现在只能搁置了</p>'
+	'</div>'
+end
+--- 警察局 ---------------------------------
+

@@ -1,0 +1,285 @@
+# home_computer
+!cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "energy_judgment"
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="bedroom" href="exec:minutes+=5 & gt ''home_bedroom''"><img class="img_stretch" src="images\place\房间_<<$times_of_day>>.jpg"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="Live broadcast" href="exec:minutes+=15 & gt ''home_live''"><img class="img_stretch" src="images\items\dy0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="Vibrato" href="exec:$douyin_num2=$douyin_num & minutes+=30 & gt ''home_computer'',''brushing_douyin''"><img class="img_stretch" src="images\items\tk0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="Watch a movie" href="exec:minutes+=30 & gt ''home_computer'',''watching_a_movie''"><img class="img_stretch" src="images\items\ph0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="Surveillance & video recording" href="exec:minutes+=5 & gt ''home_computer'',''monitor''"><img class="img_stretch" src="images\items\摄像头0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="Weibo" href="exec:minutes+=15 & gt ''home_computer'',''weibo''"><img class="img_stretch" src="images\items\wb0.png"></a>
+		</div>'
+		'<div class="action2">'
+			!'<a class="photo" data-title="黑客" href="execminutes+=15 & gt ''家_电脑'',''真测试''"><img class="img_stretch" src="images\items\测试按钮.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0] = 'brushing_douyin':
+	$douyin_num = rand(1,213)
+	$my.energy-=1
+	if $douyin_num = $douyin_num2:
+		$douyin_num = rand(1,212)
+	end
+	
+	if $WH.available=0:$douyin_num=50
+	
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/tiktok/抖音<<$douyin_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	!++++++++++++++++++↓选项↓+++++++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec:$douyin_num2=$douyin_num & minutes+=30 & gt ''home_computer'',''brushing_douyin''">Slide up</a></div>'
+		if  $douyin_num = 50:'<div class="buttonS"><a href="exec:gt ''home_computer'',''private_message''">Private message her</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">In a daze</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>This vibrato is really awesome!This is number one on the hot list<<$douyin_num>>A work</p>'
+	'</div>'
+End
+
+
+if $args[0] = '':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">In a daze</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>What should I do.....</p>'
+	'</div>'
+End
+
+
+if $args[0] = 'monitor':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\监控~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	 '<div class="button_menu">'
+		if $camera_warehouse>=1:
+		'<div class="button"><a href="exec: $B=''仓库''  &  C=1 & gt ''stepmom_event'',''warehouse_monitoring''">Pharmaceutical warehouse: Saturday 23:00~24:00</a></div>'
+		end 
+		
+		if $camera_ss>=1 :
+		'<div class="button"><a href="exec:gt ''killer_event'',''kitchen_monitoring''"><<$SS.name>>kitchen</a></div>'
+		end 
+
+		if $camera_ly>=1 :
+		'<div class="button"><a href="exec:gt ''anchor_event'',''kitchen_monitoring''"><<$LY.name>>kitchen</a></div>'
+		end 
+		
+		if $camera_ms>=1 :
+		'<div class="button"><a href="exec: a=0 & gt ''secretary_event'',''secretary_fuck_visitor_2''">Anonymous videotape</a></div>'
+		end 
+		
+		if $xm_videotape>=2 :
+		'<div class="button"><a href="exec: a=0 & $the_number_of_days_the_xm_video_has_not_been_watched=0 & gt ''school_girl_event'',''tape_selection''">Stolen photo<<$XM.name>></a></div>'
+		end 
+		
+		if $lei_tape_1>=1:
+		'<div class="button"><a href="exec: a=0 & gt ''nun_event'',''choose_videotape''">Videotape·<<$LEI.name>></a></div>'
+		end 
+		
+		'<div class="button"><a href="exec: minutes+=30 & a=0 & gt ''home_computer''">No signal</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>The signal source is being obtained.....</p>'
+	'</div>'
+
+End
+
+if $args[0] = 'watching_a_movie':
+	$my.energy-=10
+	$watch_film_num += rand(1,3)
+	if  $watch_film_num> 29:
+		$watch_film_num -=29
+	end
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/porn/黄片<<$watch_film_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	!++++++++++++++++++↓选项↓+++++++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 &gt ''home_computer'',''watching_a_movie''">Next</a></div>
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">In a daze</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>This film is really exciting!This is number one on the hot list<<$watch_film_num>>A work</p>'
+	'</div>'
+End
+
+
+if $args[0] = 'weibo':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">Don`t watch it anymore</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·It`s all non-nutritious content...</p>'
+		if $HZ_Event_coser>=0:'<p><a href="exec:minutes+=5 &gt ''home_computer'',''weibo_status''">#Coser status</a></p>'
+	'</div>'
+End
+
+
+if $args[0] = 'weibo_status':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $camera>0 and $HZ_Event_coser=0:'<div class="button"><a href="exec: minutes+=30 & gt ''home_computer'', ''contact_her''">Contact her</a></div>'
+		if $HZ_Event_coser=2:'<div class="buttonG"><a href="exec: minutes+=30 & $HZ_Event_coser=3  & money-=700 & gt ''home_computer'', ''weibo_status''">Hire navy 700￥</a></div>'
+		if $HZ_Event_coser=5 and $HZ.bad>0:'<div class="buttonG"><a href="exec: minutes+=30 & $HZ_Event_coser=6  & money-=700 & gt ''home_computer'', ''weibo_status''">Human flesh black history 700￥</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">Don`t watch it anymore</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·#Coser status</p>'
+	if $HZ_Event_coser<2:
+		'<p>·A female coser is looking for an appointment with a photographer.</p>'
+		'<p>Requirements: There is no limit to female photographers; male and female photographers must listen to the command. Only Canon R6 SLR is accepted for photographic equipment. The film is released for free and includes post-production.</p>'
+		if $HZ_Event_coser=1:'<p>Private message: Come to the university student union in the city to pick me up on weekends!Do you know where it is?Hillbilly.If you dare to pigeon, I will expose you as a trash cat on the Internet.</p>'
+	end
+	if $HZ_Event_coser=2:
+		'<p>·The photos you took for her were mediocre, and there was no amount of likes.</p>'
+	end
+	if $HZ_Event_coser=3:
+		'<p>·For a while, the number of likes on Weibo rose rapidly, and the hot search turned out to be #Mysterious coser turned out #Who is this coser?#coser source #Jue Jue Zi coser</p>'
+		'<p>·The response was enthusiastic!It`s time to go to school and ask her for credit.</p>'
+		$HZ_Event_coser=4
+	end
+	if $HZ_Event_coser=6:
+		'<p>·Marketing number: #What`s the matter with Coser suffering from sexually transmitted diseases?I believe everyone is familiar with the coser who exploded a while ago, but what happened to the coser who exploded a while ago suffering from sexually transmitted diseases? Let Xiaobian take you to understand.</p>'
+		'<p>·Marketing ID: #The true identity of the coser is<<$hz.name>>！You may be surprised how the president of the student union suffers from an sexually transmitted disease?</p>'
+		'<p>·Marketing number: According to people familiar with her, she had a boyfriend in high school, but the boyfriend died of an incurable infection. The school generally analyzed it as yes.<<$hz.name>>Suffering from an venereal disease!！Killed his boyfriend!！It`s a pity that this is the case, and Xiaobian was also very surprised.</p>'
+	end
+	'</div>'
+End
+
+if $args[0] = 'contact_her':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">Ok</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·Doodle doodle————</p>'
+		'<p>？？？: Hey, ow.It`s free, isn`t it?Speaking of the ugly words, I am responsible for the cos service, and you are responsible for the filming and post-production.I won`t pay a penny. If you like to take pictures or not, some people want to take pictures of me.</p>'
+		'<p>Me: Uh..Yes, just practice your hands.</p>'
+		'<p>？？？: Can you do it or not?Rookie, don`t waste time.</p>'
+		'<p>Me: Ok!</p>'
+		'<p>？？？: Come to the university student union in the city to pick me up on weekends!Do you know where it is?Hillbilly.If you dare to pigeon, I will expose you as a trash cat on the Internet.</p>'
+         if $HZ_Event_coser=0:$HZ_Event_coser=1
+	'</div>'
+End
+
+
+if $args[0] = 'private_message':
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\私信.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if money>=4888:'<div class="buttonG"><a href="exec:money-=488 & gt ''net_celebrity_event'',''meet''">Meet 4888￥</a></div>'else:'<div class="buttonGr"><a href="exec:">Meet 4888￥</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>Me: Hello!</p>'
+		'<p><Automatic reply>Bring the coordinate age to the threshold private message, and there is no routine for face-to-face communication!You can make an appointment, you can play, you can have sex.</p>'
+		'<p>I：……</p>'
+	'</div>'
+End
+
+
+if $args[0] = 'test':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\测试.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer'',''true_test''">Insist on entering</a></div>
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">leave</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+	'</div>'
+End
+
+if $args[0] = 'true_test':
+	a=0
+	q=0
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\测试.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG3"><a href="exec: $gun_hunting_incident_chain=2 & gt ''police_station''">Police Officer 22</a></div>
+
+</div>
+
+
+
+
+
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">
+		<p><<$draft_event_chain>>SS<<$electricguitar>></p>
+	</div>'
+	
+End
+
+
+
+
+--- home_computer ---------------------------------
+

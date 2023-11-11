@@ -1,0 +1,216 @@
+# empire_dome
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+n=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="100th floor: Empire Dome" href="exec:minutes+=5 & gt ''empire_dome''"><img class="img_stretch" src="images\place\帝国穹顶.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="Underground transportation" href="exec:minutes+=15 & gt ''subway''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Imperial Group Hall" href="exec:minutes+=15 & gt ''empire_group''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		
+
+		
+
+
+
+		
+
+		
+	'</div>'
+'</div>'
+
+
+
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\总裁办公室.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''empire_dome'',''president_liyi''">『<<$CT.name>>』</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>&quot;The huge floor-to-ceiling windows are obscured by scenes of green plants&quot;</p>'
+	'</div>'
+end
+
+if $args[0]="president_liyi":
+	 if $convenience_store=0:gt'empire_dome','president_liyi_1'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\LH<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		if $ct.home>0 and $airport_progress<3:'<div class="button"><a href="exec:gt ''empire_dome'',''cooperate_with_execution''">Assist and cooperate</a></div>'
+		if $heterochromaticplantseeds>0:
+			if $heterochromatic_plant_seedlings>0:'<div class="buttonGn5"><a href="exec:$heterochromatic_plant_seedlings-=1 & gt ''empire_event'',''empire_fuck_heterochromatic_seedlings''">Give her heterochromatic plant seedlings</a></div>'else:'<div class="buttonGr"><a href="exec:">No heterochromatic plant seedlings</a></div>'
+		end
+		if $CT.love>=50+$my.charm*10:'<div class="buttonP"><a href="exec:gt ''empire_event'',''empire_fuck_ct_massage''">Propose massage</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<50+$my.charm*10>></a></div>'
+		if $CT.bad>=115+$my.charm*15:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_toilet_engage''">Drag it into the toilet to engage in</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity<<115+$my.charm*15>></a></div>'
+		
+		'<div class="button"><a href="exec:gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: You came just in time, sit down.*Her twin peaks caused a great burden on her cervical spine</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="president_liyi_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		if $convenience_store=0:'<div class="button"><a href="exec:gt ''empire_dome'',''president_liyi_2''">&quot;New test&quot;</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>:You came just in time, sit down.</p>'
+	'</div>'
+end
+
+
+if $args[0]="president_liyi_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$convenience_store=1 & gt ''empire_group''">accept</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">refuse</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>:You should know that our group has acquired more than a dozen townhouses in the villa area and turned them into talent apartments. The convenience store located in the prime location of the apartment is not operating well. I want to assign you as the store manager to participate in the management.</p>'
+		'<p><<$CT.NAME>>:We have high expectations for this convenience store, and hope you can ensure the normal operation of the store and customer satisfaction.Of course, this includes maintaining the image and environment of the store, as well as providing good service and effectively managing employees.For a person like you, I believe these things should be a cinch, right?</p>'
+		'<p>Me: Of course, although I have never run a convenience store, I am confident that I can do it well.</p>'
+		'<p><<$CT.NAME>>:Oh, do you think you are so amazing?I hope you understand that this is not an easy task.The monthly profit of this convenience store is more than one million.Yes, you heard me right, one million!I don`t know if you have the ability to do it, but I hope you can work hard to achieve this goal with innovative thinking and pragmatic actions.If you can`t do it, then don`t blame me for changing people.</p>'
+		'<p><<$CT.NAME>>:Well, you can now consider whether you are willing to accept this task.If you think you are capable, then accept it.But don`t forget, I have high expectations for you. I hope you can become an outstanding store manager of our convenience store and surprise me.</p>'
+	'</div>'
+end
+
+
+if $args[0]="president_liyi_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''empire_event'',''empire_fuck_reward_1''">Accept the reward first</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_dome'',''president_liyi_4''">`New Test 2.0`</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">refuse</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>:Has the goal of one million been achieved?！I admit that I underestimated you a little bit at the beginning.Do you plan to continue to work for me?</p>'
+		'<p>Me: Of course, I am confident that I can do well.</p>'
+	'</div>'
+end
+
+if $args[0]="president_liyi_4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=-3 & gt ''empire_event'',''empire_fuck_goal_1''">Go downstairs</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>:Your business ability has been fully recognized by me. Next, I want to see your ambition and courage.</p>'
+		'<p>Me: Please say.</p>'
+		'<p><<$CT.NAME>>:You see, this is the real vote situation of the idol contest, in fact<<$SSYY.name>>It`s the first place, but I put which newcomer you brought to the first place through some insider trading. Now you don`t still think it`s your credit, do you?</p>'
+		'<p>Me: It turned out to be like this, no wonder<<$QB.name>>Will inexplicably counterattack to win the championship.</p>'
+		'<p><<$CT.NAME>>:Judging from the results, we forced<<$PW.name>>Because of the high debt will<<$SSYY.name>>Sold to Empire Entertainment, the villa prize as the champion is actually still under the name of the Empire Group. We didn`t lose anything but one arrow and three carvings.</p>'
+		'<p>Me: Is there anything else I can do to help?</p>'
+   '</div>'
+end
+
+if $args[0]="cooperate_with_execution":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\配合执行.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''empire_group''">understand</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>:Imperial Airways` recent passenger satisfaction and crew enthusiasm are generally lower than the same period. I think the necessary measures need to be taken to solve this problem. I decided that you and<<$protagonists_name>>Take charge of this task together.</p>'
+		'<p><<$QJ.NAME>>:He will go with him too.</p>'
+		'<p><<$CT.NAME>>:Can`t it work?Did he bully you?</p>'
+		'<p>Me: Then how dare I.</p>'
+		'<p><<$CT.NAME>>:So be it.</p>'
+		'<p><<$QJ.NAME>>:Let`s go，<<$protagonists_name>>.</p>'
+		if $airport_progress=0:$airport_progress=1
+   '</div>'
+end
+
+
+
+
+
+
+--- empire_dome ---------------------------------
+

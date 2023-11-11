@@ -1,0 +1,1028 @@
+# 会长_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="接她拍照":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\拍摄0<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=1:'<div class="button"><a href="exec:minutes+=5 &a=2& gt ''会长_事件'',''接她拍照''">拍裙底</a></div>'
+		if a=2:'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		if a=1:'<p><<$HZ.name>>:...这个蝈蝻...会不会拍呀...</p>'
+		if a=2:
+		'<p><<$HZ.name>>:...？..？？喂喂喂？！喂？！你在搞什么啊？！操，我就知道这个蝈蝻不靠谱。</p>'
+		'<p><<$HZ.name>>:..你这个猥琐蝈蝻摄影师快给我滚！</p>'
+		'<p>·拍摄结束了</p>'
+		'<p>（看来她不会再找我拍摄了........除非我能使照片的获赞量上升的话...）</p>'
+		end
+		$HZ_Event_coser=2
+	'</div>'
+End
+
+if $args[0]="再次拍照":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\拍摄01~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''会长_事件'',''前往深巷''">前往深巷</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$HZ.name>>:上次的照片反响不错，没想到你这个蝈蝻还有点水平？</p>'
+		'<p>我:你有什么想拍的吗？</p>'
+		'<p><<$HZ.name>>:你去过歌舞伎町的贫民窟吗，喔现在已经改名叫深巷了。我想去哪里拍照，题材嘛，就叫《超级美少女和破烂贫民窟的反差美》</p>'
+		'<p>..........</p>'
+	'</div>'
+End
+
+if $args[0]="前往深巷":
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if my.basement>=1:'<div class="button"><a href="exec:minutes+=5 & a=0 & gt ''会长_事件'',''地下室''">去你的地下室</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''深巷''">一拍两散</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$HZ.name>>:喂喂？这里怎么这么脏啊。我都没地方下脚了。快给本小姐搞个能落座的地方，废物蝈蝻！</p>'
+		'<p>我:....真是不好伺候......</p>'
+	'</div>'
+End
+
+if $args[0]="地下室":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\摸<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:minutes+=5 &a+=1& gt ''会长_事件'',''地下室''">摸她</a></div>'
+		if a=1:'<div class="button"><a href="exec:minutes+=5 &a+=1& gt ''会长_事件'',''地下室''">摸她</a></div>'
+		if a=2:'<div class="button"><a href="exec:minutes+=5 &a+=1& gt ''会长_事件'',''地下室''">戴上振动棒</a></div>'
+		if a=3:'<div class="button"><a href="exec:minutes+=5 & gt ''深巷''">晾她一会</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		if a=0:
+		'<p>我:这样吧，你把这个戴上。</p>'
+		'<p><<$HZ.name>>:...蛤？为什么要戴上这种东西？...</p>'
+		'<p>我:会长大人不会怕我这个废物蝈蝻吧，我不敢对会长大人怎么样的。</p>'
+		'<p><<$HZ.name>>:也是，你们这些废物蝈蝻都是有色心没色胆的！</p>'
+		end 
+		if a=1:
+		'<p><<$HZ.name>>:...喂！你在摸哪里啊？！</p>'
+		'<p>我:会长大人，你的纹身真特别，真好看。</p>'
+		'<p><<$HZ.name>>:闭嘴！我要报警了！</p>'
+		end 
+		if a=2:
+		'<p><<$HZ.name>>:...？..？？喂喂喂？！喂！真恶心！快放开我！你在摸哪里啊？！</p>'
+		'<p>我:我只是在你拍摄难忘的写真。</p>'
+		end 
+		if a=3:
+		'<p><<$HZ.name>>:..等等，快住手你这个废物蝈蝻！喂！谁来救救我啊？！快住手！</p>'
+		'<p>我:你也说了，这里是乡巴佬蝈蝻住的地方，四周一个人影都没的鬼地方。</p>'
+		'<p><<$HZ.name>>:..救命！救命啊！！</p>'
+		$HZ_Event_coser=5
+		$HZ.love-=50
+		end
+		
+	'</div>'
+End
+
+if $args[0]="HZ_Fuck_调教":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\调教-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a<9:
+		'<div class="button_menu">'
+			if a!0 and a<4:
+			'<div class="button"><a href="exec:a=0 & gt ''会长_事件'',''HZ_Fuck_调教''">不管她</a></div>'
+			end
+			if a!1 and q<7:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_调教''">交谈</a></div>'
+			end
+			if a=1:
+			'<div class="buttonS1"><a href="exec:a=-1 &会长对话=1& gt ''会长_事件'',''HZ_Fuck_调教''">你的小穴好敏感</a></div>'
+			'<div class="buttonS2"><a href="exec:a=-1 &会长对话=2& gt ''会长_事件'',''HZ_Fuck_调教''">为什么仇视男性</a></div>'
+			if $HZ_Event_coser>=6:'<div class="buttonS3"><a href="exec:a=-1 &会长对话=3& gt ''会长_事件'',''HZ_Fuck_调教''">关于黑历史</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+			end
+			if a!2 and a<4:
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_调教''">摸屁股</a></div>'
+			end
+			if a<3 and 5>q and q>2 and $HZ.bad>=10:
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_调教''">看着我的屌</a></div>'
+			end
+			if a<4 and 6>q and q>3  and $HZ.bad>=20:
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_调教''">口交</a></div>'
+			end
+			if a!5 and a!8 and q>4 and $HZ_Event_coser>=7 : 
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_调教''">后入</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_调教''">骑上来</a></div>'
+			end
+
+			if a>4 and a!8 and $HZ_Event_coser>=7 :
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_调教''">冲刺</a></div>'
+			end
+
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_调教''">内射</a></div>'
+			end
+			if $HZ_Event_coser>=7 and  $HZ.bad>=60: 
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_调教''">恋恋不舍</a></div>'
+			end
+
+			if a!7:
+			'<div class="button"><a href="exec:a=10 & gt ''会长_事件'',''HZ_Fuck_调教''">重新放置</a></div>'
+			end
+			'</div>'
+		else:
+			'<div class="button_menu">'
+				if a=9 and $HZ.bad>=100:'<div class="button"><a href="exec:minutes+=15 & $HZ_Event_coser=8 & gt ''地下室''">调教完毕：放她走</a></div>'else:'<div class="buttonGr"><a href="exec:">还不能放她走</a></div>'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''地下室''">结束今天</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>> :…………………</p>'
+			 '<p>我 :………会长大人…还能坚持…吗？</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我 :…让我们来谈谈心吧…</p>'
+			 '<p><<$HZ.name>> :…我没什么好对你说的……</p>'
+			 '<p>我 :…既然你不愿意说，那我只能向问问网友你的故事了…</p>'
+			 '<p><<$HZ.name>> :…那群臭虫…！能知道个屁…</p>'
+		 '</div>'
+	end
+
+	if a=-1:
+		 '<div class="dialog_menu">'
+		 if 会长对话=1:
+			 '<p>我 :…你的小穴好敏感…</p>'
+			 '<p><<$HZ.name>> :…管你什么事？你这个变态。我只和一个男生做过一次能不敏感吗？…</p>'
+			 '<p>我 :…只和一个？</p>'
+			 '<p><<$HZ.name>> :…爱信不信…</p>'
+		 end 
+		 if 会长对话=2:
+			 '<p>我 :为什么这么仇视男性？</p>'
+			 '<p><<$HZ.name>> :和你说个故事吧，一个富二代男生，可能是闲得无聊，想换换口味，便找到一个女生，要和她谈恋爱。但出乎他意料，女孩温和地拒绝了他，他却和身边的所有同学朋友去说，她是个婊子，有性病还要三千一晚。</p>'
+			 '<p><<$HZ.name>> :…这时另一个男生站了出来，勇敢地袒护了这个女孩，他们也因此相爱，献出了自己的身心。但好景不长，男生检查出了心脏病。故事的结局也并没有反转。男生离开了这个世界，女生则继续被无数谣言轮番骚扰，背负虚有的骂名。</p>'
+			 '<p>我 :不擅长安慰人的你选择了沉默...</p>'
+		 end 
+		 if 会长对话=3:
+			 '<p><<$HZ.name>> :…对，我是有性病，你不怕死就来肏我啊！孬种！……你们这群无能的男人只会用捏造的事实来恶意揣测我！恶心至极！</p>'
+			 '<p>我 :…其实我不害怕，因为我知道，你没有病，你比那些诋毁你，用恶意揣测你的人，要干净的多…</p>'
+			 '<p><<$HZ.name>> :…她愣了神...什么..这怎么可能...为什么..你会和他说同样的话...</p>'
+			 '<p>我 :…我很抱歉，并不是替那些伤害你的人道歉..而是替没有出现在你身边，为你撑腰而感到抱歉…</p>'
+			 '<p><<$HZ.name>> :骗子...别说了...现在说什么...都没有用了..没有人再会为了我挺身而出了..我只能靠自己强大起来...</p>'
+			 '<p>我 :请你给我一个让你相信我的机会,一个奋不顾身的机会。</p>'
+			 '<p><<$HZ.name>> :好，那就证明给我看，操我，我真的有病，跟我做爱会死。</p>'
+			 '<p>我 :好，我不怕，我还要告诉所有人。你是我的女人。</p>'
+			 '<p><<$HZ.name>> :你..你这个傻瓜...T﹏T</p>'
+			 if $HZ_Event_coser=6:
+	             $HZ.bad+=40
+	             $HZ.love=100
+	             $HZ_Event_coser=7
+	         end	 
+		 end 
+		 '</div>'
+	end
+
+	if 8>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:………</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		if $HZ_Event_coser>=7 :
+		 $HZ.bad+=q*2+5
+		 $HZ.love+=q
+		 end
+		 '<div class="dialog_menu">'
+			 '<p>我 :…差不多该放你走了………</p>'
+			 '<p><<$HZ.name>> :啊？你不要我啦……</p>'
+			 '<p>我 :…傻瓜，想什么呢！</p>'
+			 '<p><<$HZ.name>> :再让我待几天嘛……</p>'
+		 '</div>'
+	end
+
+
+	if a=10:
+		 $HZ.bad+=5
+		if $HZ_Event_coser>=7 :
+		 $HZ.bad+=q*2
+		 $HZ.love+=q
+		 end
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>> :………</p>'
+			 '<p>我:也行，看你能坚持多久，淫水流得床单都湿了。</p>'
+			 '<p>·她的心态隐约发生了变化。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HZ_Fuck_学生会":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\学生会干<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_学生会''">抱起她的腿</a></div>'
+			end
+			if a!1 and q<3:
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_学生会''">直接后入</a></div>'
+			end
+			if a!3 and 1<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_学生会''">玩小穴</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_学生会''">帮她抠高潮</a></div>'
+			end
+			if a!5 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_学生会''">挂在腰间操</a></div>'
+			end
+			if a!6 and 10>=q and q>=4:
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_学生会''">女上位</a></div>'
+			end
+			if a!7 and 12>=q and q>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_学生会''">抬腿后入</a></div>'
+			end
+			if a!8 and q>=6 and a!9:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_学生会''">冲刺</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_学生会''">内射</a></div>'
+			end
+			if a=9 :  
+			'<div class="button"><a href="exec:a=10 & gt ''会长_事件'',''HZ_Fuck_学生会''">求饶</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:喂！！！这也太突然了吧！不过..我喜欢！</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$娇喘声>>不行...太快了..太快了..你慢点..小穴要被你操坏掉的。</p>'
+		 '</div>'
+	end
+
+	if 2<=a and a<=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$娇喘声>><<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=10:
+		 $HZ.bad+= q
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>被插的几乎要失去意识了....不行了不行了..真是受不了你！快出去吧！一会那些抖M傻逼就要进来了。</a></p>'
+		 	 '<p>我:好像干得太过火了...</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HZ_Fuck_药干":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\下药干-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_药干''">口我</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_药干''">扣喷她</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_药干''">女上位爆操</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_药干''">女上位高潮</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_药干''">抬腿抽插</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_药干''">抬腿冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_药干''">内射</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & a=3 & q=2 &gt ''会长_事件'',''HZ_Fuck_药干''">没问题</a></div>'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮''">结束</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:好像我喝了也没什么变化嘛..</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:来嘛！人家已经准备好接受你的炮火了。</p>'
+		 '</div>'
+	end
+
+	if 2<=a and a<=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$娇喘声>>不行...太快了..太快了..你慢点..小穴要被你操坏掉的。<<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $HZ.bad+= q
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:别停....我还要....大鸡吧快插进来....再操我一次。</a></p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HZ_Fuck_浴室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\浴室1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_浴室''">侍奉</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_浴室''">揉奶</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_浴室''">口交</a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_浴室''">后入</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_浴室''">按在玻璃上</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_浴室''">镜子前冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_浴室''">射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_浴室''">舔干净</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=15 & a=0 & q=0 &gt ''会长_事件'',''HZ_Fuck_床上''">去床上做</a></div>'
+				'<div class="buttonB"><a href="exec:minutes+=15 & gt ''会长_事件'',''一起睡觉''">一起睡觉</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:你平时都是穿着制服洗澡的吗？</p>'
+			 '<p><<$HZ.name>>:当然不是了，是特意给你的....湿身制服诱惑嘛..</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$娇喘声>>……喜欢吗？喜欢以后每天都跟我做爱好不好…</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $HZ.bad+= q
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>我:不用舔这么干净啦，反正还要洗澡的。</p>'
+		 	 '<p><<$HZ.name>>:我不管，这是你射给我的，我要全部收下。</a></p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HZ_Fuck_床上":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\卧室1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_床上''">接吻</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_床上''">对话</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_床上''">口交</a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_床上''">镜子前后入</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_床上''">加速抽插</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_床上''">高潮冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_床上''">颜射</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_床上''">爱你</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=15 & gt ''会长_事件'',''一起睡觉''">一起睡觉</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:被你抱着的感觉真好。</p>'
+			 '<p><<$HZ.name>>:嗯，好久没有人这样抱着我睡觉了....</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$娇喘声>>……</p>'
+			 if a=2:
+			 '<p><<$HZ.name>>:这样的感觉真好，好不容易又能再多爱一天。我好想时间就这样慢下来。安静地只剩下我们就好了。…</p>'
+			 '<p>我:我也想就这样摸着你的头永远不放开。"</p>'
+			 end
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $HZ.bad+= q
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:喂....答应我，不要离开我。</a></p>'
+			 '<p>我:我怎么会离开你呢，傻瓜。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="一起睡觉":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\卧室1-9~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=1440 & hour=7 &my.精力=mymax[精力]& gt ''辣妹帮'',''走廊''">睡到第二天</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p>我:晚安咯，会长大人。</p>'
+		'<p><<$HZ.name>>:晚安，亲爱的。</p>'
+		'<p>..........</p>'
+	'</div>'
+End
+
+if $args[0]="HZ_Fuck_医院探视":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\医院1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_医院探视''">检查</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_医院探视''">慢一点</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_医院探视''">快一点</a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_医院探视''">女上位</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_医院探视''">后背位</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_医院探视''">冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_医院探视''">内射</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_医院探视''">吞下</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''试药日常''">回去</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:你怎么在这？</p>'
+			 '<p><<$HZ.name>>:看什么看!怎么了，不高兴我来看你吗？让我检查一下你有没有受伤...你这几天没来学校，担心死我了。</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$娇喘声>>…看来你没事，我就放心了…</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $HZ.bad+= q
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:嘿嘿~精液全部消失啦~都去哪里了呢？</p>'
+			 '<p>我:喂喂，可别生病了啊。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="喝茶警告":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\警告1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+				if a<=1:'<div class="button"><a href="exec:minutes+=15 & a+=1 &gt ''会长_事件'',''喝茶警告''">看下去</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+	 if a=0:
+		'<p><<$HZ.name>>:你最近和<<$主角姓名>>走得挺近的嘛。</p>'
+		'<p><<$LJ.name>>:…会长大人也对他有意…思…？</p>'
+		'<p><<$HZ.name>>:你给我听好了，离他远点。否则别怪我不客气。</p>'
+		'<p><<$LJ.name>>:学生会…好像只有对男性学生有惩罚的权利吧。</p>'
+		'<p>………</p>'
+	end
+	 if a=1:
+		'<p><<$HZ.name>>:呵呵。我能理解你作为垫底生窘迫的校园地位，也能理解你相貌平平找不到追求者的困扰。</p>'
+		'<p><<$HZ.name>>:我不会和你计较什么，但我需要你明白一件事情。</p>'
+		'<p><<$LJ.name>>:…什么…</p>'
+		'<p><<$HZ.name>>:<<$主角姓名>>是无论如何都瞧不上你这种女人的，你怎么能够配得上他呢。</p>'
+		'<p><<$LJ.name>>:………</p>'
+		'<p><<$HZ.name>>:看清楚了，这是<<$主角姓名>>操过的逼，他已经是我的男人了。</p>'
+		'<p><<$LJ.name>>:………</p>'
+	end
+	 if a=2:
+		'<p><<$HZ.name>>:如果明白我的意思了，喝完这杯茶你就可以走了。</p>'
+		'<p><<$LJ.name>>:………</p>'
+		'<p><<$HZ.name>>:好自为之，否则下次喝的就不会是茶了。</p>'
+		'<p>………</p>'
+	end
+	'</div>'
+End
+
+
+if $args[0]="HZ_Fuck_音乐节":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\音乐节1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_音乐节''">带她去洗澡</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_音乐节''">在床上等她</a></div>'
+			end
+			if a=2: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_音乐节''">让她侍奉</a></div>'
+			end
+			if 3<=a and a<=6: 
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_音乐节''">揉肥臀</a></div>'
+			end
+			if 3<=a and a<=6: 
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_音乐节''">顶到深处</a></div>'
+			end
+			if 3<=a and a<=6: 
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_音乐节''">加速抽插</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_音乐节''">内射</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_音乐节''">对话</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_音乐节''">拥抱</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮''">送她回去</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:找了你好久，原来在这打水枪呢…小心！</p>'
+			 '<p><<$HZ.name>>:嘿，你他妈不长眼的吗？你撞到我了！你这个傻逼男…</p>'
+			 '<p>我:冷静点，犯不着和他一般见识。</p>'
+			 '<p><<$HZ.name>>:嗯…真是讨厌！好心情都被他毁了！被他撞了一下身上脏死了！太恶心了！</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p><<$HZ.name>>:我洗好啦❤你不洗吗？</p>'
+			 if a=2:'<p>我:还要多久？我快睡着了。</p>'
+			 if a=3:'<p><<$HZ.name>>:久等啦❤</p>'
+			 if a>=4:'<p><<$HZ.name>>:宝贝<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:可恶……这样的话澡不是白洗了吗？</p>'
+			 '<p>我:还不是因为我太爱你了，舍不得拔出来。</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $HZ.bad+= q
+		 $HZ.love+= q+my.魅力
+		 $HZ.音乐节约会=0
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:可恶的甜言蜜语……你，你答应我，不要离开我。</p>'
+			 '<p>我:我答应你，和你好一辈子。</p>'
+			 '<p><<$HZ.name>>:那我就不洗啦❤你想不想和我…生个孩子？</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="HZ_Fuck_玩具":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\玩具1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!13:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_玩具''">戴上这个</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_玩具''">戴上跳蛋</a></div>'
+			end
+			if a=2: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_玩具''">戴上口球</a></div>'
+			end
+			if a=3: 
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_玩具''">戴上眼罩</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_玩具''">放置play</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_玩具''">鸡巴插嘴</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_玩具''">去床上口</a></div>'
+			end
+			if a=7 or a=6:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_玩具''">强制深喉</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_玩具''">女上位</a></div>'
+			'<div class="button"><a href="exec:a=10 & gt ''会长_事件'',''HZ_Fuck_玩具''">后背位</a></div>'
+			'<div class="button"><a href="exec:a=11 & gt ''会长_事件'',''HZ_Fuck_玩具''">正常位</a></div>'
+			end
+			if a>=9 and a!12:
+			'<div class="button"><a href="exec:a=12 & gt ''会长_事件'',''HZ_Fuck_玩具''">颜射</a></div>'
+			end
+			if a=12:
+			'<div class="button"><a href="exec:a=13 & gt ''会长_事件'',''HZ_Fuck_玩具''">对话</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB2"><a href="exec:minutes+=15 & a=0 & q=0 & gt ''会长_事件'',''HZ_Fuck_浴室''">一起洗澡</a></div>'
+				'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''辣妹帮''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:铛铛铛❤这些都是我的小玩具，嘿嘿。</p>'
+			 '<p>我:你最喜欢哪个？</p>'
+			 '<p><<$HZ.name>>:我想想，我喜欢的还挺多的呢。</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:这个也是我喜欢的❤</p>'
+		 '</div>'
+	end
+
+	if 5<=a and a<=8:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:可恶……呜呜呜…说不了话惹❤</p>'
+		 '</div>'
+	end
+
+	if 9<=a and a<=12:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:好<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 $HZ.bad+= q+my.魅力
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:和我做爱爽不爽？你刚刚都没说话欸。</p>'
+		 	 '<p>我:爽到难以言表！</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="HZ_Fuck_练习":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\练习1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_练习''">看看嘴巴</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_练习''">看看技巧</a></div>'
+			end
+			if a=2: 
+			'<div class="button"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_练习''">看看深度</a></div>'
+			end
+			if a=3: 
+			'<div class="button"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_练习''">来舔这个</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_练习''">口到底</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_练习''">插嘴练习</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_练习''">口内射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_练习''">张开嘴巴</a></div>'
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_练习''">真厉害</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_练习''">检查口腔</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''会长_事件'',''HZ_Fuck_练习''">为她加油</a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:亲爱的❤我打算做一些小练习，我准备参加吃热狗比赛。</p>'
+			 '<p>我:是大胃王比赛？</p>'
+			 '<p><<$HZ.name>>:是的，别看我这样子，我的嘴巴可是很大呢。</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=5:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p><<$HZ.name>>:啊啊啊啊❤怎么样？有天赋吧！我还有特殊的技巧！</p>'
+			 if a=2:'<p><<$HZ.name>>:吃热狗的技巧，就是嘴巴里有热狗的时候依然进行吞咽！</p>'
+			 if a>=3:'<p><<$HZ.name>>:唔唔唔❤好深…</p>'
+		 '</div>'
+	end
+
+	if 6<=a and a<=7:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:可恶……吃不消惹❤</p>'
+		 '</div>'
+	end
+
+	if 8<=a and a<=9:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:啊❤真美味❤</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 $HZ.bad+= q+my.魅力
+		 $HZ.love+= q+my.魅力
+		 $HZ.热狗=1
+		 '<div class="dialog_menu">'
+		 	 '<p>我:你一定可以的，我会为你加油的！</p>'
+		 	 '<p><<$HZ.name>>:好耶！你也要继续陪我练习喔！</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="HZ_Fuck_练习2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\练习2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''会长_事件'',''HZ_Fuck_练习2''">深度训练</a></div>'
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''会长_事件'',''HZ_Fuck_练习2''">吞咽练习</a></div>'
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''会长_事件'',''HZ_Fuck_练习2''">速度特训</a></div>'
+			end
+			if a=1 or a=2 or a=3: 
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''会长_事件'',''HZ_Fuck_练习2''">口爆</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''会长_事件'',''HZ_Fuck_练习2''">吞精</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=6 & gt ''会长_事件'',''HZ_Fuck_练习2''">换个姿势</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''会长_事件'',''HZ_Fuck_练习2''">口内射精</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''会长_事件'',''HZ_Fuck_练习2''">检查口腔</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''会长_事件'',''HZ_Fuck_练习2''">为她加油</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:亲爱的❤吃热狗比赛我势在必得。</p>'
+			 '<p>我:我想知道哪里有吃鸡巴比赛……</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:唔唔唔❤好深…<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 5<=a and a<=8:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:这可不是我的极限❤</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $HZ.bad+= q+my.魅力
+		 $HZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:你觉得我怎么样？能赢吗！</p>'
+		 	 '<p>我:当然了，如果这样都不能赢，我一定要去见见冠军！</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+--- 会长_事件 ---------------------------------
+

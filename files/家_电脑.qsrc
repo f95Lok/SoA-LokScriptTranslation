@@ -1,0 +1,285 @@
+# 家_电脑
+!cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "精力判定"
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="卧室" href="exec:minutes+=5 & gt ''家_卧室''"><img class="img_stretch" src="images\place\房间_<<$times_of_day>>.jpg"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="直播" href="exec:minutes+=15 & gt ''家_直播''"><img class="img_stretch" src="images\items\dy0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="抖音" href="exec:$抖音_num2=$抖音_num & minutes+=30 & gt ''家_电脑'',''正在刷抖音''"><img class="img_stretch" src="images\items\tk0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="看片" href="exec:minutes+=30 & gt ''家_电脑'',''正在看片''"><img class="img_stretch" src="images\items\ph0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="监控&录像" href="exec:minutes+=5 & gt ''家_电脑'',''监控''"><img class="img_stretch" src="images\items\摄像头0.png"></a>
+		</div>
+		<div class="action2">
+			<a class="photo" data-title="微博" href="exec:minutes+=15 & gt ''家_电脑'',''微博''"><img class="img_stretch" src="images\items\wb0.png"></a>
+		</div>'
+		'<div class="action2">'
+			!'<a class="photo" data-title="黑客" href="execminutes+=15 & gt ''家_电脑'',''真测试''"><img class="img_stretch" src="images\items\测试按钮.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0] = '正在刷抖音':
+	$抖音_num = rand(1,213)
+	my.精力-=1
+	if $抖音_num = $抖音_num2:
+		$抖音_num = rand(1,212)
+	end
+	
+	if $WH.available=0:$抖音_num=50
+	
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/tiktok/抖音<<$抖音_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	!++++++++++++++++++↓选项↓+++++++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec:$抖音_num2=$抖音_num & minutes+=30 & gt ''家_电脑'',''正在刷抖音''">上滑</a></div>'
+		if  $抖音_num = 50:'<div class="buttonS"><a href="exec:gt ''家_电脑'',''私信''">私信她</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">发呆</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>这个抖音可真给劲儿！这是热榜上第<<$抖音_num>>个作品</p>'
+	'</div>'
+End
+
+
+if $args[0] = '':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">发呆</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>我该做什么呢.....</p>'
+	'</div>'
+End
+
+
+if $args[0] = '监控':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\监控~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	 '<div class="button_menu">'
+		if $摄像头_仓库>=1:
+		'<div class="button"><a href="exec: $B=''仓库''  &  C=1 & gt ''继母_事件'',''仓库监控''">药厂仓库：周六 23:00~24:00</a></div>'
+		end 
+		
+		if $摄像头_SS>=1 :
+		'<div class="button"><a href="exec:gt ''杀手_事件'',''厨房监控''"><<$SS.name>>厨房</a></div>'
+		end 
+
+		if $摄像头_LY>=1 :
+		'<div class="button"><a href="exec:gt ''主播_事件'',''厨房监控''"><<$LY.name>>厨房</a></div>'
+		end 
+		
+		if $摄像_MS>=1 :
+		'<div class="button"><a href="exec: a=0 & gt ''秘书_事件'',''秘书_Fuck_访客2''">匿名录像带</a></div>'
+		end 
+		
+		if XM录像带>=2 :
+		'<div class="button"><a href="exec: a=0 & $XM录像未看天数=0 & gt ''学妹_事件'',''录像带选择''">盗摄<<$XM.name>></a></div>'
+		end 
+		
+		if $LEI录像带1>=1:
+		'<div class="button"><a href="exec: a=0 & gt ''修女_事件'',''选择录像带''">录像带·<<$LEI.name>></a></div>'
+		end 
+		
+		'<div class="button"><a href="exec: minutes+=30 & a=0 & gt ''家_电脑''">无信号</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>信号源获取中.....</p>'
+	'</div>'
+
+End
+
+if $args[0] = '正在看片':
+	my.精力-=10
+	$看片_num += rand(1,3)
+	if  $看片_num> 29:
+		$看片_num -=29
+	end
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/porn/黄片<<$看片_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	!++++++++++++++++++↓选项↓+++++++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 &gt ''家_电脑'',''正在看片''">下一个</a></div>
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">发呆</a></div>
+	</div>'
+	!++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>这个片儿可真给劲儿！这是热榜上第<<$看片_num>>个作品</p>'
+	'</div>'
+End
+
+
+if $args[0] = '微博':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">不看了</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·全是一些没有营养的内容...</p>'
+		if $HZ_Event_coser>=0:'<p><a href="exec:minutes+=5 &gt ''家_电脑'',''微博状态''">#Coser状态</a></p>'
+	'</div>'
+End
+
+
+if $args[0] = '微博状态':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if 相机>0 and $HZ_Event_coser=0:'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑'', ''联系她''">联系她</a></div>'
+		if $HZ_Event_coser=2:'<div class="buttonG"><a href="exec: minutes+=30 & $HZ_Event_coser=3  & money-=700 & gt ''家_电脑'', ''微博状态''">雇佣水军 700￥</a></div>'
+		if $HZ_Event_coser=5 and $HZ.bad>0:'<div class="buttonG"><a href="exec: minutes+=30 & $HZ_Event_coser=6  & money-=700 & gt ''家_电脑'', ''微博状态''">人肉黑历史 700￥</a></div>'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">不看了</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·#Coser状态</p>'
+	if $HZ_Event_coser<2:
+		'<p>·某女性coser正在寻找约拍摄影师。</p>'
+		'<p>要求：女性摄影师不限；蝈蝻摄影师必须听指挥，摄影器材只接受佳能R6单反，免费出片，包后期。</p>'
+		if $HZ_Event_coser=1:'<p>私信：双休日来城里的大学学生会接我!知道是哪吧?乡巴佬。你要是敢鸽我就网上曝光你这个垃圾蝈蝻。</p>'
+	end
+	if $HZ_Event_coser=2:
+		'<p>·你为她拍摄的照片平平无奇，没有什么点赞量。</p>'
+	end
+	if $HZ_Event_coser=3:
+		'<p>·一时间微博点赞量迅速上升，热搜竟然是#神秘coser横空出世 #这个coser是谁？#coser出处  #绝绝子coser</p>'
+		'<p>·反响热烈！是时候去学校找她邀功了。</p>'
+		$HZ_Event_coser=4
+	end
+	if $HZ_Event_coser=6:
+		'<p>·营销号:#爆火coser患有性病是怎么回事呢？前阵子爆火的coser相信大家都很熟悉，但是前阵子爆火的coser患有性病是怎么回事呢，下面就让小编带大家一起了解吧。</p>'
+		'<p>·营销号:#爆火coser的真实身份是<<$hz.name>>！大家可能会很惊讶学生会会长怎么会患有性病呢？</p>'
+		'<p>·营销号:据熟悉她的人爆料，她在高中时期交往过一个男友，但该男友因感染不治之症身亡，校内普遍分析为是<<$hz.name>>患有性病！！害死了其男友！！可惜事实就是这样，小编也感到非常惊讶。</p>'
+	end
+	'</div>'
+End
+
+if $args[0] = '联系她':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\电脑.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">好的</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·嘟嘟嘟————</p>'
+		'<p>？？？：喂，嗷。免费的蝈蝻摄影师是吧。丑话说前头，我负责出cos服，你负责拍片和后期。我不会出一分钱的，你爱拍不拍有的是蝈蝻想拍我。</p>'
+		'<p>我：呃..可以，就当练练手。</p>'
+		'<p>？？？：你到底行不行啊？菜鸟蝈蝻就别来浪费时间了。</p>'
+		'<p>我：行！</p>'
+		'<p>？？？：双休日来城里的大学学生会接我!知道是哪吧?乡巴佬。你要是敢鸽我就网上曝光你这个垃圾蝈蝻。</p>'
+         if $HZ_Event_coser=0:$HZ_Event_coser=1
+	'</div>'
+End
+
+
+if $args[0] = '私信':
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\私信.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if money>=4888:'<div class="buttonG"><a href="exec:money-=488 & gt ''网红_事件'',''见面''">见面4888￥</a></div>'else:'<div class="buttonGr"><a href="exec:">见面4888￥</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>我：你好！</p>'
+		'<p><自动回复>门槛私信带上坐标年龄，面交无套路！可约可玩可啪啪。</p>'
+		'<p>我：……</p>'
+	'</div>'
+End
+
+
+if $args[0] = '测试':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\测试.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑'',''真测试''">执意进入</a></div>
+		<div class="button"><a href="exec: minutes+=30 & gt ''家_电脑''">离开</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·此房间是程序员/测试游戏的地方，不是你这个玩家该来的地方！</p>'
+		'<p>·此房间是程序员/测试游戏的地方，不是你这个玩家该来的地方！</p>'
+		'<p>·此房间是程序员/测试游戏的地方，不是你这个玩家该来的地方！</p>'
+	'</div>'
+End
+
+if $args[0] = '真测试':
+	a=0
+	q=0
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\测试.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG3"><a href="exec: $寻枪事件链=2 & gt ''警察局''">警员22</a></div>
+
+</div>
+
+
+
+
+
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">
+		<p><<$选秀事件链>>SS<<电吉他>></p>
+	</div>'
+	
+End
+
+
+
+
+--- 家_电脑 ---------------------------------
+

@@ -1,0 +1,463 @@
+# 竞演
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+if $竞演倒计时=0:$竞演剩余日期=90&$竞演倒计时=1
+if $花姐事件链=6 and jailday>0:gt"监狱_强制休息"
+if QB.压力<0:QB.压力=0
+if QB.压力>=10 and $QB事件链=0:gt'桥本_事件','压力'
+if QB.压力>=13+$QB事件链 and $QB事件链>=4:gt '桥本_事件','压力2'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+
+		
+		'<div class="action">'
+			'<a class="photo" data-title="电视台" href="exec:gt ''电视台''"><img class="img_stretch" src="images\place\电视台.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="竞演舞台" href="exec:gt ''竞演''"><img class="img_stretch" src="images\place\竞演\竞演.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="实时排名" href="exec:gt ''竞演'',''竞演排名''"><img class="img_stretch" src="images\place\竞演\竞演2.gif"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="地下交通" href="exec:minutes+=15 & gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $QB事件链=0  or $QB事件链>=4:'<a class="photo" data-title="<<$QB.name>>" href="exec:gt ''竞演'',''桥本立绘''"><img class="img_stretch" src="images\place\竞演\QB1.jpg"></a>'
+		'</div>'
+	
+		'<div class="action">'
+			if $冠军事件链!13:
+				'<a class="photo" data-title="<<$GJ.name>>" href="exec:gt ''竞演'',''冠军立绘''"><img class="img_stretch" src="images\place\竞演\GJ1.jpg"></a>'
+			else:
+				'<a class="photo" data-title="失联中" ><img class="img_stretch" src="images\place\竞演\GJ2.jpg"></a>'
+			end
+		'</div>'
+	
+		'<div class="action">'
+			'<a class="photo" data-title="<<$SSYY.name>>" href="exec:gt ''竞演'',''悠亚立绘''"><img class="img_stretch" src="images\place\竞演\YY1.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="<<$PW.name>>" href="exec:gt ''竞演'',''花姐立绘''"><img class="img_stretch" src="images\place\竞演\PW1.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	$竞演现场num=rand(0,3)
+	'<div class ="show_menu"><img src="images\place\竞演\竞演现场<<$竞演现场num>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		!'<div class="button"><a href="exec:gt ''竞演'',''花姐立绘''">联络<<$PW.name>></a></div>'
+		!'<div class="button"><a href="exec:gt ''竞演'',''悠亚立绘''">查看<<$SSYY.name>></a></div>'
+		!if $冠军事件链!13:'<div class="button"><a href="exec:gt ''竞演'',''冠军立绘''">查看<<$GJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:"><<$GJ.name>>失联中</a></div>'
+		'<div class="buttonPu1"><a href="exec:gt ''竞演'',''旬果立绘''">查看<<$SF.name>></a></div>'
+		!'<div class="button"><a href="exec:gt ''竞演'',''桥本立绘''">联络<<$QB.name>></a></div>'
+		if $冠军事件链=10 or $冠军事件链=11:'<div class="buttonR4"><a href="exec:gt ''竞演'',''妹妹立绘''"><<$MM.name>>呼救！</a></div>'else:'<div class="buttonS2"><a href="exec:gt ''竞演'',''妹妹立绘''">联络<<$MM.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''市政厅''">离开</a></div>'
+		if $决赛预备=2:'<div class="buttonG"><a href="exec:minutes+=30 & gt ''群演_事件'',''群演_Event_颁奖''">总决赛&颁奖仪式</a></div>'else:'<div class="buttonGr"><a href="exec:">总决赛&颁奖仪式</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $竞演现场num=0:'<p>我：什么嘛，海报完全把其他人给挡住了……</p>'
+		if $竞演现场num=1:'<p>·摄像机的主机位一直对着<<$SSYY.name>>…其他人根本没有镜头…</p>'
+		if $竞演现场num=2:'<p>·<<$SSYY.name>>在每一次公演都是主C位…</p>'
+		if $竞演现场num=3:
+			'<p><<$GJ.name>>: 女神女明星都用的照相机，两万八而已！不买真的可惜！</p>'
+			'<p><<$SSYY.name>>: 不买真的可惜！照片一张张，没有皱纹看起来一点也不沧桑！</p>'
+			'<p><<$BD.name>>: 咔——！词念错了！照着稿子念！</p>'
+			'<p><<$GJ.name>>: ……你为什么要抢我的词？“不买真的可惜！”是我的台词！</p>'
+			'<p><<$SSYY.name>>: 为什么？我只是在慢慢拿回属于我的东西罢了，属于“冠军”的台词，还有属于冠军的“位置”。</p>'
+			'<p><<$GJ.name>>: 真是大言不惭！我这次参赛，就是为了再一次击败你！</p>'
+			'<p><<$SSYY.name>>: 我们走着瞧，你的“后台”可没我的硬。</p>'
+			$GJ.available=1
+		end
+		'<p>【距离选秀大赛结束还剩余<font color="#ff1493"><<$竞演剩余日期>>天</font>】</p>'
+		if $竞演剩余日期<=0:'<p><font color="#ff1493">【倒计时吓吓你们的而已 (◉ω◉)上当了吧】</font></p>'
+		'<p><B><span class =''red''>【—苦—手—按—钮—】<a href="exec:gt ''竞演'',''跳过偶像大赛''">-跳过偶像大赛</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="竞演排名":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\A0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $QB事件链!8 and $冠军事件链!15:'<div class="button"><a href="exec:$排名nu=1 & gt ''竞演'',''竞演排名2''">1-4名</a></div>'
+		if $冠军事件链>=15:'<div class="button"><a href="exec:$排名nu=3 & $决赛预备=1 & gt ''竞演'',''竞演排名2''">现1-4名</a></div>'
+		if $QB事件链>=8:'<div class="button"><a href="exec:$排名nu=2 & gt ''竞演'',''竞演排名2''">前1-4名</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我：现在虚拟偶像的人气这么高嘛…时代变了啊…</p>'
+	'</div>'
+end
+
+if $ARGS[0]="竞演排名2":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\A<<$排名nu>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''竞演'',''竞演排名''">5-8名</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我：我得想想办法，可不能最后成了她人的垫脚石…</p>'
+		'<p>我：<<$SF.name>>…的名次也这么高？看来她真的有点实力…</p>'
+	'</div>'
+end
+
+
+
+
+if  $args[0]="花姐立绘":
+	$不重复=$花姐立绘
+	$花姐立绘=rand(0,3)
+	if $花姐事件链>=8:$花姐立绘=rand(0,4)
+	if $花姐立绘=$不重复:gt '竞演','花姐立绘'
+	if $花姐事件链<=1:$花姐立绘=rand(-1,3)
+	if $花姐事件链=3:gt'评委_事件','PW_Fuck_秘密'
+	
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\PW\vids\立绘<<$花姐立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''花姐立绘''">稍事等待</a></div>'
+		if $花姐立绘=-1:'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''花姐立绘''">偷偷记下</a></div>'
+
+		if $花姐立绘=3:
+			if $花姐事件链=4 or $花姐事件链=5:
+				'<div class="buttonR1"><a href="exec:minutes+=15 & gt ''评委_事件'',''PW_Fuck_事1''">私下沟通</a></div>'
+				if $PW.bad>=10:'<div class="buttonR2"><a href="exec:minutes+=15 & gt ''评委_事件'',''PW_Fuck_事2''">深度沟通</a></div>'else:'<div class="buttonGr"><a href="exec:">？？沟通</a></div>'
+				if $花姐事件链=5 and $PW.love<=-100 and $手机被格式=1:'<div class="buttonGn"><a href="exec:gt ''评委_事件'',''安全通道''">安全通道</a></div>'else:'<div class="buttonGr"><a href="exec:">？？通道</a></div>'
+			end
+		end
+		if $花姐事件链>=7 and $花姐立绘!4:'<div class="buttonR3"><a href="exec:minutes+=15 & gt ''评委_事件'',''PW_Fuck_事3''">强势沟通</a></div>'
+		if $花姐立绘=4:
+			'<div class="buttonR3"><a href="exec:gt ''评委_事件'',''PW_Fuck_公司''">门外截她</a></div>'
+			if $PW.bad>=70:'<div class="buttonGn"><a href="exec:gt ''评委_事件'',''安全通道2''">安全通道截她</a></div>'else:'<div class="buttonGr"><a href="exec:">？？通道</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $花姐立绘=-1:
+		'<p>·拍摄的间隙<<$PW.name>>正在休息室里…</p>'
+		'<p><<$PW.name>>: 居然亏了这么多…看来偶像剧的项目计划要搁浅了…不行…晚上我得找他们融点钱…</p>'
+		'<p><<$PW.name>>: 毕竟这和帝国集团的老总有直接关联…还是定在赤色餐厅这种人多的地方吧…</p>'
+		$花姐事件链 =1
+		end
+		if $花姐立绘=0:
+		'<p>·<<$PW.name>>正在拍摄杂志封面…</p>'
+		end
+		if $花姐立绘=1:
+		'<p>·<<$PW.name>>正在进行评委走秀展示…</p>'
+		end
+		if $花姐立绘=2:
+		'<p>·<<$PW.name>>正在接受媒体独家采访…</p>'
+		end
+		if $花姐立绘=3:
+		'<p><<$PW.name>>: 啧啧…努力训练的比不上起点高的，天赋好的比不上有话题的，能忍耐的比不上会哭的…趁我现在有空，你找我什么事？</p>'
+		end
+		if $花姐立绘=4:
+		'<p>余主任: 我们再来洽谈一下这次房屋转赠的手续…首先由<<$PW.name>>出资购买该房屋的产权，台里作为头奖的申请手续应该没问题吧？</p>'
+		'<p><<$TZ.name>>: 嗯，这个你放心。如果有这么大的奖项，这次的收视率一定会一路飘红！我一定会全力支持。</p>'
+		'<p>余主任: 呃…<<$PW.name>>？你没事吧？家母想送你一匹大马，寓意是马到成功。</p>'
+		'<p><<$PW.name>>: 大马？我可没地方养啊！</p>'
+		'<p>余主任: 没事…家母还说了，它派不上用处，就把它送去马戏团，让每个人骑！</p>'
+		'<p><<$PW.name>>: 呃…我…突然有点胸闷，想去透透气…</p>'
+		end
+		
+	'</div>'
+End
+
+if  $args[0]="悠亚立绘":
+	$不重复=$悠亚立绘
+	$悠亚立绘=rand(0,2)
+	if $悠亚事件链<=1:$悠亚立绘=rand(-1,2)
+	if $悠亚立绘=$不重复:gt '竞演','悠亚立绘'
+	
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SSYY\vids\立绘<<$悠亚立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''悠亚立绘''">稍事等待</a></div>'
+		if $悠亚立绘=2:
+			if $悠亚事件链=2 or $悠亚事件链=3:'<div class="button"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">拿出偷拍照</a></div>'
+			if $悠亚事件链=3:'<div class="button"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_开房''">别拍了，去开房</a></div>'
+			if $悠亚事件链=4 or $悠亚事件链=5:'<div class="buttonR"><a href="exec:gt ''悠亚_事件'',''拿她没辙''">照片呢？！</a></div>'
+			if $悠亚事件链=5:'<div class="buttonR2"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_反转0''">看到了什么？</a></div>'
+		end
+		if $SSYY.love>=200 and $SSYY.love>=200:'<div class="buttonS2"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">约去旅馆</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $悠亚事件链>=7:'<div class="buttonS3"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_厕所''">拉去厕所来一发</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $SSYY.love>=250 and $SSYY.love>=250:'<div class="buttonS4"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_按摩''">按摩解乏</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $决赛预备>=1:'<div class="buttonG"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_终前''">决赛前来一发 </a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $悠亚立绘=-1:
+		'<p>·<<$SSYY.name>>单独的个人练习室…</p>'
+		'<p><<$SSYY.name>>： 乖狗狗…想主人了？嘻嘻，那我们老地方见。</p>'
+		'<p>电话： …你不是在竞演比赛吗…</p>'
+		'<p><<$SSYY.name>>： 没关系的，都去了那么多次了…没人会发现我们的…</p>'
+		'<p>电话： …也是…谁会大半夜去学校呢…</p>'
+		$悠亚事件链=1
+		end
+		if $悠亚立绘=0:
+		'<p>·<<$SSYY.name>>正在展示舞蹈…</p>'
+		'<p>我： 她成为当红偶像是有实力的…</p>'
+		end
+		if $悠亚立绘=1:
+		'<p>·<<$SSYY.name>>正在演唱个人单曲…</p>'
+		'<p>我： 完了，她怎么什么都会啊…</p>'
+		end
+		if $悠亚立绘=2:
+		'<p>·<<$SSYY.name>>正在拍摄真人漫改电影宣传海报…</p>'
+		'<p>我：真不愧是当红偶像…</p>'
+		end
+	'</div>'
+End
+
+if  $args[0]="旬果立绘":
+	$旬果立绘=rand(0,1)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SF\vids\立绘<<$旬果立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''旬果立绘''">稍事等待</a></div>'
+		'<div class="buttonPu4"><a href="exec:minutes+=5  &gt ''少妇_事件'',''SF_Fuck_厕所受孕''">厕所等她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $旬果立绘=0:
+		'<p>·<<$SF.name>>的电吉他引爆了全场…整个舞台快被她掀翻了！</p>'
+		'<p>·你从她的眼神里看见了光…</p>'
+		end
+		if $旬果立绘=1:
+		'<p>·<<$SF.name>>正在准备宣传物料，看起来是一组性感写真。</p>'
+		end
+	'</div>'
+End
+
+if  $args[0]="桥本立绘":
+	QB.压力+=1
+	'<div class ="show_menu"><img src="images\NPC\QB\pics\桥本立绘.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''桥本立绘''">稍事等待</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''商量对策''">商量对策</a></div>'
+		if $QB事件链=5 :'<div class="button"><a href="exec:minutes+=15 & gt ''桥本_事件'',''QB_Fuck_询问''">厕所的事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·你们俩面面相觑</p>'
+		'<p><<$QB.name>>: 经纪人^_^#那我们表演什么？</p>'
+		'<p>♯她的压力值：<<QB.压力>></p>'
+	'</div>'
+End
+
+if  $args[0]="冠军立绘":
+	if $冠军事件链=0: gt '冠军_事件','偷听'
+	if $冠军事件链=2 and $悠亚事件链>=2: gt '冠军_事件','偷听2'
+	if $冠军事件链=4: gt  '冠军_事件','GJ_Fuck_口1'
+	if $冠军事件链<14:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\GJ\vids\立绘0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\GJ\vids\下药1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+		
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''竞演'',''冠军立绘''">稍事等待</a></div>'
+		if 6>=$冠军事件链 and $冠军事件链>=5: '<div class="button"><a href="exec:minutes+=15 & gt ''冠军_事件'',''GJ_Fuck_口2''">私下座谈</a></div>'
+		if 7>=$冠军事件链 and $冠军事件链>=6 and $手机被格式=1: '<div class="button"><a href="exec:minutes+=15 & gt ''冠军_事件'',''GJ_Fuck_口3''">关于“那东西”</a></div>'
+		if $冠军事件链=8 or $冠军事件链=9:
+			'<div class="button"><a href="exec:minutes+=15 & a=2 & q=2 & gt ''冠军_事件'',''GJ_Fuck_旅馆''">约去旅馆</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''冠军_事件'',''GJ_Fuck_办公室''">在这试探她</a></div>'
+		end
+		if $冠军事件链=11 or $冠军事件链=12 :'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''冠军_事件'',''生气''">询问妹妹的事</a></div>'
+		if $冠军事件链>=14 :'<div class="button"><a href="exec:$G下药num=1 & gt ''竞演'',''靠近''">靠近</a></div>'
+		
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $冠军事件链<14:
+			'<p>·我: ……（唱得不太行啊…很难想象她居然是上届的冠军…）</p>'
+			else:
+			'<p>·<<$GJ.name>>失联回来后染了金发…穿着也更加暴露了…</p>'
+			end
+		if $冠军事件链=7:'<p>·我: …偷拍的照片已经被<<$SSYY.name>>删除了…总不可能再去偷拍一次吧…（有没有那种对我言听计从的人陪我做场戏呢）</p>'
+	'</div>'
+End
+
+if  $args[0]="妹妹立绘":
+		if $冠军事件链=10 or $冠军事件链=11:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\MM\vids\竞演2.webm" type=''video/webm;''></video></div>'
+			'</div>'
+			
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & $冠军事件链=11 & gt ''竞演''">推开他！</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$MM.name>>: 你要干什么？！啊啊啊？！救命啊！</p>'
+			'<p>？？？: 有人派我来教训教训你！你转达给你哥哥，如果他再不老实合作，你全家就等着被我一个个安排吧！</p>'
+			'<p>我: 住手！你给我放开她！</p>'
+			'<p>？？？: 哼，老子有的是机会，你能保护她们一辈子吗？！哈哈哈哈！</p>'
+		'</div>'
+		else:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\MM\vids\竞演0.webm" type=''video/webm;''></video></div>'
+			'</div>'
+			
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''妹妹_事件'',''MM_Fuck_竞演''">私下见面</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>·<<$MM.name>>正在拍摄宣传视频</p>'
+			'<p><<$MM.name>>: 请大家多多支持我喔！我的粉丝们！你们也要为我投票助力喔！</p>'
+		'</div>'
+		end
+End
+
+if $ARGS[0]="靠近":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\GJ\vids\下药1-<<$G下药num>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+	'<div class="button_menu">'
+		if $G下药num=1:
+			if $可以G下药=1 and $QB事件链=8 and $悠亚事件链>=7 :'<div class="buttonS"><a href="exec:$G下药num=2 & gt ''竞演'',''靠近''">撒入麦高芬</a></div>'else:'<div class="buttonGr"><a href="exec:">时机未成熟</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''竞演''">离开</a></div>'
+		end
+		if $G下药num=2:'<div class="button"><a href="exec:$G下药num=3 & gt ''竞演'',''靠近''">干杯</a></div>'
+		if $G下药num=3:
+			if $冠军事件链>=14 :'<div class="buttonS"><a href="exec:minutes+=15 & gt ''冠军_事件'',''GJ_Fuck_DL''">片刻之后</a></div>'
+			if $冠军事件链>=15 :'<div class="buttonR"><a href="exec:minutes+=15 & gt ''冠军_事件'',''GJ_Fuck_DL2''">❤❤❤</a></div>'
+		end
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $可以G下药=1:'<p>我：按照<<$PW.name>>的指示…</p>'
+		if $可以G下药!1:'<p>我：暂时没必要这样做…多打听一下，谁不希望她卫冕…</p>'
+	'</div>'
+end
+
+if  $args[0]="商量对策":
+	QB.压力+=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\讨论.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & $QB物料=3 & gt ''竞演'',''宣传物料''">拍摄宣传物料</a></div>'
+		if $QB.bad>=25 and $桥本晚安!1:'<div class="button"><a href="exec:gt ''桥本_事件'',''应援交易''">应援交易</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 我也没有什么好主意…粉丝们都喜欢什么呢…</p>'
+		'<p>我: 让我想想……</p>'
+		'<p>♯她的压力值：<<QB.压力>></p>'
+	'</div>'
+End
+
+if  $args[0]="宣传物料":
+		QB.压力+=2+$QB物料
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\宣传物料<<$QB物料>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $QB事件链>=6 and $桥本助眠!1:'<div class="buttonS1"><a href="exec:gt ''桥本_事件'',''QB_Fuck_助眠''">拍摄助眠视频</a></div>'
+		if $QB事件链>=7 and $桥本诱人!1:'<div class="buttonS5"><a href="exec:gt ''桥本_事件'',''QB_Fuck_诱人''">拍摄诱人写真</a></div>'
+		
+		if $桥本助眠=1:'<div class="buttonS1"><a href="exec:$QB物料=2 & gt ''竞演'',''宣传物料''">助眠视频</a></div>'else:'<div class="buttonGr"><a href="exec:">未拍摄</a></div>'
+		if $桥本晚安=1:'<div class="buttonS3"><a href="exec:$QB物料=1 & gt ''竞演'',''宣传物料''">床边摄影</a></div>'else:'<div class="buttonGr"><a href="exec:">未拍摄</a></div>'
+		if $桥本诱人=1:'<div class="buttonS5"><a href="exec:$QB物料=0 & gt ''竞演'',''宣传物料''">诱人写真</a></div>'else:'<div class="buttonGr"><a href="exec:">未拍摄</a></div>'
+		if $桥本助眠=1 and $桥本晚安=1 and $桥本诱人=1:'<div class="button"><a href="exec:$排名nu=1 & gt ''竞演'',''排名上升''">排名上升！</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 经纪人…这样能行吗？我听你的…</p>'
+		if $QB物料=3:
+		'<p><<$BD.name>>: 搞什么？怎么又是你啊？换个人来拍！这家伙可是个扫把星！我们可要躲远点！</p>'
+		'<p>我: 唉…干嘛说得这么重…</p>'
+		else:
+		'<p>·她的人气上升了！</p>'
+		end
+		'<p>♯她的压力值：<<QB.压力>></p>'
+	'</div>'
+End
+
+
+if  $args[0]="排名上升":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\A<<$排名nu>>.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $排名nu=1:'<div class="button"><a href="exec:minutes+=15 & $排名nu=2 & gt ''竞演'',''排名上升''">更新排名</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 话说这个第三名是谁啊…有点眼熟…她还是主动弃赛的…</p>'
+		if $排名nu>=2:
+			'<p><<$QB.name>>: 经纪人！！太棒了！我们居然挤进前三了！难道说？！我们真的要出道啦！</p>'
+			'<p>我: 尽人事听天命…我该去做做竞争对手的工作了…</p>'
+			$QB事件链=8
+		end
+	'</div>'
+End
+
+if  $args[0]="跳过偶像大赛":
+	'<div class ="show_menu"><img src="images\place\彩排室.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''竞演''">不按下</a></div>'
+		'<div class="buttonGr"><a href="exec:">-想-清-楚-</a></div>'
+		'<div class="buttonR"><a href="exec:minutes+=15 & gt ''群演_事件'',''群演_Event_颁奖''">按下·跳过偶像大赛</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·警告：这个按钮是V37.7版本后临时添加的</p>'
+		'<p>·警告：面向的是在之前版本已经完成偶像大赛的玩家和</p>'
+		'<p>·警告：没有能力独自完成偶像大赛的玩家</p>'
+		'<p>·——————·</p>'
+		'<p>·警告：在按下这个按钮后你会瞬间跳过偶像大赛的全部剧情。</p>'
+		'<p>·警告：由于没有实际测试，对跳过后出现的一切BUG不负责任。</p>'
+	'</div>'
+End
+
+
+--- 竞演 ---------------------------------
+

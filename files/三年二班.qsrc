@@ -1,0 +1,80 @@
+# 三年二班
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="本班名册" href="exec:gt ''menu_charac_学生'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
+		</div>'
+		if 新图书馆=1:
+		'<div class="action">
+			<a class="photo" data-title="新图书馆" href="exec:gt ''学生群_事件'',''电车图书馆''"><img class="img_stretch" src="images\place\图书馆_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+		if 新体育馆=1:
+		'<div class="action">
+			<a class="photo" data-title="新体育馆" href="exec:gt ''学生群_事件'',''校花F15''"><img class="img_stretch" src="images\place\体育馆_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+		if 新游泳馆=1:
+		'<div class="action">
+			<a class="photo" data-title="新游泳馆" href="exec:gt ''体育馆'',''游泳馆''"><img class="img_stretch" src="images\place\游泳馆_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\三年二班.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if $松本事件链=0:'<div class="button"><a href="exec:gt ''松本_事件'',''SB_Fuck_km''">看向讲台</a></div>'
+		if $松本事件链=1:'<div class="button"><a href="exec:gt ''松本_事件'',''SB_Fuck_开幕''">看向讲台</a></div>'
+		if $松本事件链=2:'<div class="button"><a href="exec:gt ''松本_事件'',''SB_Fuck_km2''">看向讲台</a></div>'
+		if $松本事件链=3:'<div class="buttonP"><a href="exec:a=6 & gt ''松本_事件'',''SB_Fuck_km2''"><<$SB.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·这个班级简直是一个彻底堕落的集体，学生们的积极性完全只存在于课堂之外。她们无视学习的重要性，沉迷并且开发各种无下限的娱乐活动中。至于如何确保这所学校的毕业率达到最高水准，成为了校长的难题。</p>'
+		if $BZ.available=1:
+		  if $班长事件链B<=2 and $班长事件链G<7:'<p>·前排讲台上：<a href="exec:gt ''学生群_事件'',''班长立绘''">-<<$BZ.name>></a></p>'
+		end
+
+		if $DCM.available=1 and $电车事件链<10:
+			if DCM就读=0:'<p>·靠墙的无人座位：<a href="exec:$电车角色=''B'' & gt''地铁_事件'',''地铁骚扰0''">-去接她</a></p>'
+			if DCM就读=1:'<p>·靠墙的闷热座位：<a href="exec:gt''学生群_事件'',''电车教室立绘''">-<<$DCM.name>></a></p>'
+		end
+		if $XH.available=1 and $校花事件链<10:
+			if $校花事件链<=1:'<p>·最后一排：<a href="exec:gt ''学生群_事件'',''校花开幕''">-<<$XH.name>></a></p>'
+			if $校花事件链>=2:'<p>·最后一排：<a href="exec:gt ''学生群_事件'',''校花对话''">-<<$XH.name>></a></p>'
+		end
+		
+	'</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- 三年二班 ---------------------------------
+

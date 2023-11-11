@@ -1,0 +1,382 @@
+# 姐姐办公室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "姆苟制药_地图"
+
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\姐姐办公室.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐办公室''">消磨时间</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>的办公室，垃圾桶里有大量的杯面和外卖，看来姐姐每天都工作得很晚！</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="姐姐办公室对话":
+	if $JJ.bad<30:
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐办公室.jpg" width="854"></div>'
+	end
+	
+	if 30<=$JJ.bad and $JJ.bad<60:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\101~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	
+	if 60<=$JJ.bad:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\102~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	
+	if $JJ.event_委托=0:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & $JJ.event_委托=1 & gt ''姐姐办公室'',''姐姐办公室对话''">同意</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>-<<$jj.name>>：弟弟！你来的正好！我有事拜托你！我需要你协助我研究C-137项目！</p>'
+			'<p>-我：呃，C-137项是啥？</p>'
+			'<p>-<<$jj.name>>：这是我回国后的首个重大发现！C-137项目的研究成果是从天然植物中提取出了一种叫麦高芬(MacGuffin)的物质。奇怪的是，只有【山峦R&M区域】的植物才提取出这种物质。</p>'
+			'<p>-<<$jj.name>>：但是<<$JM.name>>知道我在研究麦高芬(MacGuffin)后立马叫停了研究项目，现在我只能求助你的帮助。</p>'
+			'<p>-我：所以你要我做什么？</p>'
+			'<p>-<<$jj.name>>：我会给你一些实验株，我需要你偷偷去【山峦R&M区域】内种植，并且将成熟的果实带回来。我会给你一些报酬。</p>'
+		'</div>'
+	end 
+	
+	if $JJ.event_委托=1:
+		'<div class="button_menu">'
+			if $JJ.event_购物=2:
+			'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐_事件'',''偷偷交易''">偷偷交易</a></div>'
+			end
+			
+			if 授精室=1 and $JJ.bad>=200 and $JJ.授精=0:'<div class="buttonS"><a href="exec:$JJ.授精=1 & gt ''姐姐办公室''">邀请人工授精</a></div>'
+			
+			if 异色植物报告=0 and 异色植物>0 and 异色进度=0:'<div class="buttonGn5"><a href="exec:异色植物-=1 & gt ''姐姐办公室'',''检测异色植物''">检测异色植物</a></div>'
+			if 异色植物报告=0 and 异色进度>0:'<div class="buttonGn5"><a href="exec:gt ''姐姐办公室'',''检测异色植物2''">检测异色植物</a></div>'
+			
+			'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''上缴植物果实''">上缴植物果实</a></div>'
+			
+			'<div class="buttonB1"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''果实研发情况''">果实研发情况</a></div>'
+			
+			if $jj.bad>=100:
+			'<div class="buttonP"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''讨要麦高芬提取液''">讨要麦高芬提取液</a></div>'
+			end
+			
+			if plant_研究数>=30:
+			'<div class="buttonR3"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''人体实验''">人体实验</a></div>'
+			end
+			
+			if $jj.bad>=200 and $jj.love>=200 and $jm.love>=200 and $jm.bad>=200:
+			'<div class="buttonS"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''母女实验''">母女实验</a></div>'
+			end
+			if JJ.忏悔=0 and 主教选择=1:'<div class="buttonG2"><a href="exec:JJ.忏悔=1 & $m=''JJ'' & $ma=$JJ.name & gt ''修女_事件'',''XN_Fuck_忏悔''">邀请去教堂洗礼</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>-<<$jj.name>>：弟弟！收集了多少棵植物果实呀？</p>'
+			'<p>-我：现在我拥有<<plant>>个植物果实。</p>'
+			'<p>-<<$jj.name>>：我再给你一些实验株，我需要你在【山峦R&M区域】内种植，并且将成熟的果实带回来。我会给你一些报酬。</p>'
+			'<p></p>'
+			if 30<=$JJ.bad:'<p>-<<$jj.name>>：给你一点点奖励,能不能让你更加卖力呢？~</p>'
+			if 60<=$JJ.bad:'<p>-<<$jj.name>>：或者....就盯着姐姐这里看....难道姐姐这里...不能吸引你吗？</p>'
+		'</div>'
+	end 
+	
+end
+
+
+!ok
+if $args[0]="上缴植物果实":
+	money+=plant*100
+	plant_研究数+=plant
+	$jj.love+=plant
+	$jj.bad+=plant * 2
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\上缴~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我:上缴了<<plant>>个，获得了<<plant>> X 100的现金！</p>'
+		'<p><<$jj.name>>:已经累计上缴了<<plant_研究数>>个......加油！让我们一起努力吧！</p>'
+	'</div>'
+	plant=0
+	
+end
+!ok
+if $args[0]="果实研发情况":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\上缴2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if plant_研究数>=5:
+		'<div class="buttonB1"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''001''">初步研究5棵</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">初步研究5棵</a></div>'
+		end
+		if plant_研究数>=15:
+		'<div class="buttonB2"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''002''">深入研究15棵</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">需要研究15棵</a></div>'
+		end
+		if plant_研究数>=30:
+		'<div class="buttonB3"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''003''">临床研究30棵</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">需要研究30棵</a></div>'
+		end
+		if plant_研究数>=50:
+		'<div class="buttonB4"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''007''">临床试验50棵</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">需要研究50棵</a></div>'
+		end
+		if $JJ.love>=30 and plant_研究数>=5 and $DZ.event_见面=0:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''地质见面''">提出猜想</a></div>'
+		if $DZ.event_见面!0:'<div class="buttonGr"><a href="exec:">提出猜想·已提出</a></div>'
+		
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>:托你的福，已经累积研究了<<plant_研究数>>颗了！有什么问题你都可以问我！不过得让我先把资料整理一下。</p>'
+	'</div>'
+	
+end
+
+!ok
+if $args[0]="通用研究":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究<<$args[1]>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if plant_研究数>=5:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''001''">初步研究5棵</a></div>'
+		end
+		if plant_研究数>=15:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''002''">深入研究15棵</a></div>'
+		end
+		if plant_研究数>=30:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''003''">临床研究30棵</a></div>'
+		end
+		if plant_研究数>=50:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''通用研究'',''007''">临床试验50棵</a></div>'
+		end
+		if $args[1]=007:
+		'<div class="button"><a href="exec:minutes+=5 &a=0 & q=0 &gt ''姐姐_事件'',''JJ_Fuck_巨大化'',''巨大化0开幕''">挑战：研究强化版!</a></div>'
+		end
+	'</div>'
+
+		
+	'<div class="dialog_menu">'
+		if $args[1]=001:
+		'<p><<$jj.name>>:初步报告：提取量较少时，我将麦高芬与催产素相融合，惊奇地发现它解决了给药过多，引起强直性或痉挛性子宫收缩，导致孕妇大出血、胎儿缺氧的问题。</p>'
+		end
+		if $args[1]=002:
+		'<p><<$jj.name>>:深度研究报告：提纯后为固体白色粉末，并具有一定的荷尔蒙刺激效果。主要表现在欣快感和兴奋感、感官意识变化、食欲增强。嗯？现在越看你越顺眼了，你长得很合姐姐口味~~</p>'
+		end
+		if $args[1]=003:
+		'<p><<$jj.name>>:临床前研究发现：呈液状时易挥发，溶解度极高。其本质是一种被转化的、强烈的天然中枢兴奋剂...光是被你这样子看着..不好..姐姐现在越来越兴奋了...！我的好弟弟！</p>'
+		end
+		if $args[1]=007:
+		'<p><<$jj.name>>:我用我自己做了临床实验，每天摄入了1g麦高芬(MacGuffin)，发现其具有一定的成瘾性...！</p>'
+		'<p><<$jj.name>>:我现在很好奇...麦高芬(MacGuffin)在人体内的转化是怎样的？啊呀，姐姐迫不及待想研究你了呢。..！</p>'
+		end
+	'</div>'
+	
+end
+
+!ok
+if $args[0]="人体实验":
+	q=0
+	a=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究007~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	'<div class="button_menu">'
+	
+		'<div class="buttonB1"><a href="exec:minutes+=5 & q=0 &gt ''姐姐_事件'',''射精测试'',''巨诱惑0开幕''">吞服测试</a></div>'
+		
+		if $jj.bad>=75:
+		'<div class="buttonB2"><a href="exec:minutes+=5 & q=0 &gt ''姐姐_事件'',''自体循环'',''005''">吞服轻量版</a></div>'
+		end
+		
+		if $jj.bad>=100:
+		'<div class="buttonR3"><a href="exec:minutes+=5 & q=0 &gt ''姐姐_事件'',''JJ_Fuck_巨大化'',''巨大化0开幕''">挑战：吞服强化版</a></div>'
+		end
+		
+		if $jj.bad>=150 and $jj.love>=150:
+		'<div class="buttonS"><a href="exec:minutes+=5 & q=0 &gt ''姐姐_事件'',''JJ_Fuck_巨做'',''巨做0开幕''">性爱测试</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>:快把麦高芬(MacGuffin)精华提取液喝了，让姐姐看看它经过体内循环后的转化率。据说同化率高的人可以无限制射精...！</p>'
+		'<p><<$jj.name>>:姐姐就拿你做男性的首个实验体了....女性的实验体..就是姐姐我呀！</p>'
+	'</div>'
+	
+end
+
+
+if $args[0]="讨要麦高芬提取液":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\药~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=0 & q=0 &gt ''姐姐_事件'',''JJ_Fuck_巨大化'',''巨大化0开幕''">挑战：吞下强化版结晶</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>:这是我通过科技萃取出的强化版麦高芬(MacGuffin)结晶，你快试试。！</p>'
+		'<p>·姐姐，我能要一点麦高芬提取液吗？·</p>'
+		'<p><<$jj.name>>:可以，但是你要先替我测试一下强化版麦高芬(MacGuffin)结晶的功效！我笃定这会是未来的诺奖！</p>'
+		'<p><<$jj.name>>:但是！！如果你坚持不到最后的话，我可不会把它分给你！</p>'
+	'</div>'
+	
+end
+
+
+if $args[0]="地质见面":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">记下并离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我:为什么只有在【山峦R&M区域】的植物中才能提取出这种叫麦高芬(MacGuffin)的物质？</p>'
+		'<p><<$jj.name>>:这一直也是我所在研究的！</p>'
+		'<p>我:和地质地貌有关系吗？话说我在施肥的过程中看到土壤里泛着绿光....</p>'
+		'<p><<$jj.name>>:土壤受到辐射所以植物发生突变？！可土壤不是我的研究领域....对了，我认识一个地质学研究的专家！我约她见一面，正好带你去认识她吧！</p>'
+		'<p><<$jj.name>>:下午1点在商场的餐厅里等你！她可是个对时间斤斤计较的女人，别迟到了！</p>'
+		$DZ.event_见面=1
+	'</div>'
+	
+end
+
+if $args[0]="母女实验":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\母姐1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=0 &q=0 & gt ''姐姐_事件'',''JJ_Fuck_母姐''">参与实验（开操）</a></div>'
+	'</div>'
+
+ if JM_JJ<5:
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>:我只是今天正好有空，来看看你...的..研究..成果...喔？..<<$主角姓名>>也在啊...？</p>'
+		'<p><<$jj.name>>:妈！拜托啦！就帮帮我嘛~~麦高芬我真的很想研究！！</p>'
+		'<p><<$jm.name>>:你们关系很好嘛..？...干嘛直勾勾地看着我...？</p>'
+		'<p><<$jj.name>>:这就是我的研究成果！(*小声：妈妈这眼神....果然上次我在门外听到的声音是真的....你早就把她们都拿下了是吗？)</p>'
+	'</div>'
+	end
+ if JM_JJ>=5:
+ 	'<div class="dialog_menu">'
+		'<p><<$jj.name>>:妈！拜托啦！就帮帮我嘛~~麦高芬我真的很想研究！！</p>'
+		'<p><<$jm.name>>:帮你也不是不行，让我先检查一下你的研究成果.....<<$主角姓名>>..哼！怎么把裤子脱了？！</p>'
+		'<p><<$jj.name>>:好！弟弟！一会我们跟妈妈一起做完就回家和妹妹一起做好吗？我让妹妹给你吸鸡巴，你把精液都射我嘴里。</p>'
+	'</div>'
+	end
+end
+
+if $args[0]="检测异色植物":
+	异色进度+=rand(10,25)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我:姐姐，有时间帮我检测一下这个异色植物的成分嘛？</p>'
+		'<p><<$jj.name>>:知道了，你放在这个抽屉里吧，有空了我帮你看看。</p>'
+		'<p>·————·</p>'
+		!'<p>研究进度·<<异色进度>>%</p>'
+	'</div>'
+end
+
+if $args[0]="检测异色植物2":
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if 异色植物>0:'<div class="buttonGn1"><a href="exec:异色进度+=rand(10,20) & 异色植物-=1 & gt ''姐姐办公室'',''检测异色植物2''">上交异色植物</a></div>'else:'<div class="buttonGr"><a href="exec:">上交异色植物</a></div>'
+		if 异色进度>99:'<div class="buttonGn3"><a href="exec:异色植物报告+=1 & gt ''姆苟制药''">领取报告</a></div>'
+		if $jj.bad>=100:
+		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''讨要麦高芬提取液''">讨要麦高芬提取液</a></div>'
+		end
+		if $jj.bad>=200 and $jj.love>=200 and $jm.love>=200 and $jm.bad>=200:
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''姐姐办公室'',''母女实验''">召唤母女丼</a></div>'
+		end
+		if $jj.love>=200 and $jj.bad>=200 and $DZ.love>=200 and $DZ.bad>=200:
+		'<div class="buttonS"><a href="exec: gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P0开幕''">召唤闺蜜丼</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我:姐姐，异色植物的成分研究进度怎么样了？</p>'
+		'<p><<$jj.name>>:我还需要更多的植物样本，再多带点叶子过来。</p>'
+		'<p>·————·</p>'
+		'<p>研究进度·<<异色进度>>%</p>'
+	'</div>'
+end
+--- 姐姐办公室 ---------------------------------
+

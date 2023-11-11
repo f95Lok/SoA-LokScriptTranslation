@@ -1,0 +1,251 @@
+# bank
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="City Hall" href="exec:minutes+=15 & gt ''city_hall''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\银行大厅.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $my.bank=1:'<div class="buttonG3"><a href="exec:gt ''bank'',''vice_president`s_office''">Vice President`s Office</a></div>'
+		'<div class="buttonG2"><a href="exec:gt ''bank'',''financial_products''">Financial products</a></div>'
+		'<div class="buttonG1"><a href="exec:gt ''bank'',''stock_trading''">Stock trading</a></div>'
+		if $squad_leader_event_chain_b=4 and week_day=7 and hour=12:'<div class="buttonR"><a href="exec:gt ''student_group_event'',''squad_leader_b7''">ATM machine that doesn`t spit out money</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·The financial center is formed with the development of the economic center, and it is also the highest form of the economic center.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="vice_president`s_office":
+	'<div class ="show_menu"><img src="images\NPC\YH\pics\副行长室.jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: The president asked me to find out the corrupt elements in the bank... It`s a bit difficult.…</p>'
+		'<p>· <<$YH.name>>:<<$protagonists_surname>>Sir, that`s not right<<$protagonists_surname>>Vice President... are you free?<a href="exec:gt ''bank_event'',''YH_Fuck_B7''">-Knock on the door</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="stock_trading":
+	if $stock_start=0:
+		$stock_pharmaceutical_o=430
+		$stock_entertainment_o=5500
+		$stock_health_o=16500
+		$stock_energy_o=32700
+		$stock_wine_company_o=170
+	end
+	
+	if $dailystock_price=0:
+		$stock_pharmaceutical_n=$stock_pharmaceutical_o+rand(-5,7)
+		$stock_entertainment_n=$stock_entertainment_o+rand(-15,15)
+		$stock_health_n=$stock_health_o+rand(-25,30)
+		$stock_energy_n=$stock_energy_o+rand(-50,50)
+		$stock_wine_company_n=$stock_wine_company_o+rand(-1,1)
+		$dailystock_price=1
+		if $stock_pharmaceutical_c>0 and $stock_pharmaceutical_n>$stock_pharmaceutical_b:$stock_pharmaceutical_n=$stock_pharmaceutical_b+rand(-1,2)
+	end
+	'<div class ="show_menu"><img src="images\place\银行股票.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''bank'',''stock_trading''">Stock trading</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【Mugou Pharmaceutical】 Current Price：<<$stock_pharmaceutical_n>> Bid price：<<$stock_pharmaceutical_b>> Number of shares held：<<$stock_pharmaceutical_c>>' 
+		if $stock_pharmaceutical_c>0:'·<a href="exec:money+=$stock_pharmaceutical_n*$stock_pharmaceutical_c & $stock_pharmaceutical_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=$stock_pharmaceutical_n: '·<a href="exec:$stock_pharmaceutical_c=money/$stock_pharmaceutical_n & money-=$stock_pharmaceutical_c*$stock_pharmaceutical_n & $stock_pharmaceutical_b=$stock_pharmaceutical_n  & gt ''bank'',''stock_trading''">Full warehouse￥</a>·'
+		'</p>'
+		'<p>【Empire Entertainment】 Current Price：<<$stock_entertainment_n>> Bid price：<<$stock_entertainment_b>> Number of shares held：<<$stock_entertainment_c>>' 
+		if $stock_entertainment_c>0:'·<a href="exec:money+=$stock_entertainment_n*$stock_entertainment_c & $stock_entertainment_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=$stock_entertainment_n*100 and $stock_entertainment_c=0: '·<a href="exec:$stock_entertainment_c=100 & money-=$stock_entertainment_n*100 & $stock_entertainment_b=$stock_entertainment_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		'</p>'
+		'<p>【Imperial Health】 Current Price：<<$stock_health_n>> Bid price：<<$stock_health_b>> Number of shares held：<<$stock_health_c>>' 
+		if $stock_health_c>0:'·<a href="exec:money+=$stock_health_n*$stock_health_c & $stock_health_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=$stock_health_n*100 and $stock_health_c=0: '·<a href="exec:$stock_health_c=100 & money-=$stock_health_n*100 & $stock_health_b=$stock_health_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		'</p>'
+		'<p>【Imperial Energy】 Current Price：<<$stock_energy_n>> Bid price：<<$stock_energy_b>> Number of shares held：<<$stock_energy_c>>' 
+		if $stock_energy_c>0:'·<a href="exec:money+=$stock_energy_n*$stock_energy_c & $stock_energy_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+		if money>=$stock_energy_n*100 and $stock_energy_c=0: '·<a href="exec:$stock_energy_c=100 & money-=$stock_energy_n*100 & $stock_energy_b=$stock_energy_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		'</p>'
+        '<p>【Contemplation Wine Company】 Current Price：<<$stock_wine_company_n>> Bid price：<<$stock_wine_company_b>> Number of shares held：<<$stock_wine_company_c>>' 
+        if $stock_wine_company_c>0:'·<a href="exec:money+=$stock_wine_company_n*$stock_wine_company_c & $stock_wine_company_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
+        if money>=$stock_wine_company_n*100 and $stock_wine_company_c=0: '·<a href="exec:$stock_wine_company_c=100 & money-=$stock_wine_company_n*100 & $stock_wine_company_b=$stock_wine_company_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+        '</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="financial_products":
+	'<div class ="show_menu"><img src="images\NPC\YH\pics\bank (<<rand(1,14)>>).jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:gt ''bank_event'',''YH_Fuck_Bank''">Listen to her introduction</a></div>'
+		if $yh.fund>=1:'<div class="buttonR"><a href="exec:gt ''bank'',''fund_loss''">The fund lost money</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Fund manager：<<$protagonists_surname>>Sir, we are currently launching a monthly profit project, with an annualized interest rate of up to 200%. Are you interested?</p>'
+		'<p>Me: So tall?</p>'
+		'<p>Fund Manager: Yes, I can introduce you when you come over.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="fund_loss":
+	'<div class ="show_menu"><img src="images\NPC\YH\pics\基金亏损.jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:gt ''bank_event'',''YH_Fuck_Bank''">Shall I buy another order?</a></div>'
+		if $bank_event_chain_a!4 or $bank_event_chain_b>=1:'<div class="buttonP"><a href="exec:gt ''bank'',''manager_liyi''">Call your manager!</a></div>'
+		if $bank_event_chain_a=4:'<div class="buttonR"><a href="exec:gt ''bank_event'',''YH_Fuck_be''">Call your manager!</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: What`s the matter?Lose 99% as soon as you buy it?！You are not a financial product!Is it a scam?</p>'
+		'<p>Fund manager：<<$protagonists_surname>>Sir, don`t worry... I believe you can turn a loss into a profit by buying another order for your little sister ❤Now is the perfect time to copy the bottom!</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="manager_liyi":
+	 $YH.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\立绘.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $bank_event_chain_b<=6:'<div class="button"><a href="exec:gt ''bank_event'',''YH_Fuck_km''">Go to the vice president`s office</a></div>'
+		if $bank_event_chain=1or $bank_event_chain=2:'<div class="button"><a href="exec:gt ''bank'',''dialogue_with_the_credit_manager''">Keep up with her</a></div>'
+		if $bank_event_chain_b=1:'<div class="button"><a href="exec:gt ''bank'',''investigate_bad_debts''">Investigate bad debts with her</a></div>'
+		if $bank_event_chain_b=3:'<div class="button"><a href="exec:gt ''bank'',''men`s_room_monitor''">Go to the men`s room to monitor</a></div>'
+		if $bank_event_chain_b=6:'<div class="buttonR"><a href="exec:gt ''bank_event'',''board_of_directors_of_the_head_office''">Board of Directors of the head office</a></div>'
+		if $bank_event_chain_b>=7:'<div class="buttonS"><a href="exec:gt ''bank_event'',''YH_Fuck_B7''">Go to my office</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $bank_event_chain_b>=7:'<p>Me: Now I am the deputy governor... Do you want to go to my office to sit down?</p>'
+		if $bank_event_chain>=0:'<p><<$YH.name>>: Okay, okay, Vice President... I... I`ll be right over……</p>'
+		if $bank_event_chain=1 or $bank_event_chain=2:'<p>Credit manager: Come with me!</p>'
+	'</div>'
+end
+
+if $ARGS[0]="dialogue_with_the_credit_manager":
+	if $bank_event_chain=1:$bank_event_chain=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\km1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Manager of the credit department: The deputy governor temporarily pressed this matter and did not report it to the governor!</p>'
+		'<p><<$YH.name>>: Um...please thank him for me…</p>'
+		'<p>Credit manager: I have some good news. I will tell you when we meet in Paradise Escorts at 23 o`clock tonight.</p>'
+		'<p><<$YH.name>>: Paradise escorts?What kind of place to meet in Kabukicho?</p>'
+		'<p>Credit manager: What`s the matter?Don`t you want to recover these 500 million bad debts?</p>'
+		'<p><<$YH.name>>: Ok...I see…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="investigate_bad_debts":
+	if $bank_event_chain_b=1:$bank_event_chain_b=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\调查.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">I can go by myself</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: What did you find?</p>'
+		'<p><<$YH.name>>: We gave a one-time loan of 500 million...to Dongtian Iron and Steel Plant.But the factory director applied for bankruptcy liquidation immediately after confirming the receipt of the payment... This is too wrong.…</p>'
+		'<p>Me: Indeed, why don`t we go on a field trip?</p>'
+		'<p><<$YH.name>>: Good idea... its factory site is in the suburbs, do you want to go with me?</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="men`s_room_monitor":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if week_day=3:'<div class="buttonPu2"><a href="exec:gt ''bank'',''men`s_toilet_monitor_2''">He`s here</a></div>'else:'<div class="buttonS"><a href="exec:gt ''bank_event'',''YH_Fuck_B4''">Push her out</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$YH.name>>: What did you find?</p>'
+		'<p>Me: His secretary said that the credit manager will have a secret deal with the factory director on Wednesday…</p>'
+		'<p><<$YH.name>>: So we are going to hide here now?Are you simply waiting?</p>'
+		'<p>I：…………</p>'
+	'</div>'
+end
+
+if $ARGS[0]="men`s_toilet_monitor_2":
+	if $bank_event_chain_b=3:$bank_event_chain_b=4
+     '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''bank_event'',''YH_Fuck_B4''">Celebrate</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Credit department manager: I have changed my mind... Recently, the bank has been checked more strictly, and I cannot accept remittances.</p>'
+		'<p>？？？: Then what do you want?My good friend…</p>'
+		'<p>Credit department manager: A written contract for the transfer of title deeds... I know you have purchased more than a dozen luxury villas overseas, and you used the 500 million.…</p>'
+		'<p>？？？: Your news is quite well-informed... Are you too greedy?</p>'
+		'<p>Credit department manager: Listen, if you didn`t have me, you wouldn`t be able to borrow the 500 million at all. Your books are full of holes.If it weren`t for me<<$YH.name>>That idiot woman put pressure on…</p>'
+		'<p>？？？: Okay, okay, I see.Send me the basic information such as the transferee`s name, address, passport number, etc.…</p>'
+		'<p>Credit department manager: At 14:00 tomorrow afternoon, you will find a stranger and let him put it in the locker at A9522 of the subway station.…</p>'
+		'<p>？？？: Do you need to act like 007?</p>'
+		'<p>Credit manager: Idiot!How can you be careless!Be careful that the wall has ears!</p>'
+	'</div>'
+end
+
+
+
+
+
+
+--- bank ---------------------------------
+

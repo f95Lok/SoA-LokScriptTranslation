@@ -1,0 +1,216 @@
+# 教室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+if hour<8:
+	'<div class ="show_menu"><img src="images\place\教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·无人的空教室</p>'
+	'</div>'
+End
+
+
+if hour=12:
+	'<div class ="show_menu"><img src="images\place\教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·可能是不可抗力的因素，例如懒惰，导致了中午的教室，空无一人。</p>'
+		if 留学生学校=1:'<p>·也有例外，就是努力在课后恶补的<<$LXS.name>><a href="exec:$留学生对话=0 & gt ''留学_事件'',''学校辅导''">-上前辅导</a></p>'
+	'</div>'
+End
+!校长
+if 8<=hour and hour <10:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\上课~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''通用看书''">认真听课2h</a></div>'
+		if $XZ.bad>=10:
+		 '<div class="buttonS"><a href="exec:minutes+=15 & gt ''校长_事件'',''XZ_Fuck_性骚扰''">性骚扰</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">性骚扰</a></div>'
+		 end
+	 	 if $XZ.bad>=300-$XZ.love:
+		 '<div class="buttonS"><a href="exec:minutes+=30 &a=0&q=0& gt ''校长_事件'',''XZ_Fuck_空教室A''">去隔壁教室</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		 end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$xz.name>>：请各位同学打开《新法案》的法条，朗读《女性权利修整法案》。</p>'
+		'<p>·第一款·规定：确立女性领导法案的至上性，所有司法解释权归市政厅享有，所有条款需经过女性领导议会表决。</p>'
+		'<p>·第二款·赋税：向全体男性居民征收居住税、呼吸税、射精税、等其他赋税。用以提供本市女性居民的社会福利。</p>'
+		'<p>·第三款·权利：所有女性居民拥有若干自由权利、包括且不限于：言论自由、穿衣自由、婚姻自由、等69条自由权利。</p>'
+		'<p>·第四款·惩戒：所有女性居民拥有10次犯罪豁免权，适用于犯罪情节轻微、包括且不限于：针对男性的凌辱、虐待、监禁、故意伤害。</p>'
+		'<p>……</p>'
+End
+
+
+!生物
+if 10<=hour and hour <12:
+	if $SW.love<20:
+		$swlove=0
+	elseif $SW.love>=20:$swlove=1
+	elseif $SW.love>=50:$swlove=2
+	end
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\上课00<<$swlove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''通用看书''">认真听课2h</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''妹妹_事件'',''翘课''">和<<$MM.name>>翘课</a></div>'
+		if $SW.bad>=50:'<div class="buttonS"><a href="exec:minutes+=5 & a=3 & gt ''生物_事件'',''SW_Fuck_教室外''">出去做爱</a></div>'else:'<div class="buttonGr"><a href="exec:">出去？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：上午的最后一堂课，请各位同学打开《生物学》的课本。今天我们要讲的是第二性状……(哈欠)</p>'
+		'<p>……</p>'
+	'</div>'
+End
+
+!西语
+if 13<=hour and hour <15:
+	if $xy.love<100:
+		$xylove=-1
+	elseif $xy.love>=100:$xylove=0
+	elseif $xy.love>=200:$xylove=1
+	end
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\课后00<<$xylove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''通用看书''">认真听课2h</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''妹妹_事件'',''翘课''">和<<$MM.name>>翘课</a></div>'
+		if $西语课堂约定=1 or $XY.bad>=150:'<div class="buttonS1"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_性骚扰''">性骚扰</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if $XY.love>=100 and hour>=14:'<div class="buttonS2"><a href="exec:minutes+=25 &a=2 &  gt ''西语_事件'',''XY_Fuck_课后辅导''">课后辅导</a></div>'else:'<div class="buttonGr"><a href="exec:">课后？？</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：Buenos días a todos.Bienvenido a aprender español. Nuestra clase es de 13: 00 a 15: 00. No quiero que nadie cuelgue.</p>'
+		'<p>……</p>'
+	'</div>'
+End
+
+!副校长
+if 15<=hour and hour <17:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\教室000~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & $历史章节=0 & gt ''通用看书''">认真听课2h</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & $历史章节=0 & gt ''妹妹_事件'',''翘课''">和<<$MM.name>>翘课</a></div>'
+		if $FXZ.love>=100:'<div class="buttonS2"><a href="exec:minutes+=15  & gt ''副校长_事件'',''来一发''">来一发</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & $历史章节=0 &gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$FXZ.name>>：历史学是枯燥乏味的，但近代史才是最值得大家去学习的！</p>'
+		if $历史章节=0:
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $历史章节=1 & gt ''教室''">第一章：女性领导的萌芽</a></p>'
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $历史章节=2 & gt ''教室''">第二章：女性领导的崛起</a></p>'
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $历史章节=3 & gt ''教室''">第三章：女性领导的升级</a></p>'
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $历史章节=4 & gt ''教室''">第四章：女性领导的变态</a></p>'
+		end 
+		if $历史章节=1:
+		 '<p>·<第一章：女性领导的萌芽>自2018年至2020年，女性领导运动从城市向周边兴起。女性领导主义认为现代的社会建立于以男性为中心的父权体系之上。于是为了促进性阶层平等而创立和发起的社会理论与政治运动,随后迎来了三波浪潮。</p>'
+		 '<p>·第一波女性领导浪潮：强调社会权利，为女性争取社会上的平等。</p>'
+		 '<p>·第二波女性领导浪潮：强调经济权利，为女性争取经济上的平等。</p>'
+		 '<p>·第三波女性领导浪潮：强调政治权利，为女性争取政治上的平等。</p>'
+		 '<p><<$FXZ.name>>:记清楚了吗？这些都是考点！*我一个教西方近代史的改教这个，真是耻辱。等我当上了校长肯定不会放过她！</p>'
+		end 
+		if $历史章节=2:
+		 '<p>·<第二章：女性领导的崛起>女性领导的真正崛起在2020年。本市的女市长通过勉强的票数推行了【2020新政策】，并由我市作为试点城市。值得注意的是【2020新政策】中主要提出了三个要求</p>'
+		 '<p>·1.要求社会中高精尖和具有一定社会地位的职业需让出百分之五十给女性从事，以体现社会上的平等。</p>'
+		 '<p>·2.要求经济中的大中小企业需由女性独资或以男女合资百分之五十的方式经营，以体现经济上的平等。</p>'
+		 '<p>·3.要求政治中具有投票权、选举权、被选举权的女性占百分之五十以上，以体现政治上的平等。</p>'
+		 '<p><<$FXZ.name>>:记清楚了吗？这些都是考点！哼，这次的职称评选没人跟我争了，只要能带出一个全市最高分，呵呵！校长的位子..她就坐不久了！</p>'
+		 '<p>你又听得昏昏欲睡。好像<<$FXZ.name>>很需要一个全市最高分来替她争取职称评选...</p>'
+		end 
+		if $历史章节=3:
+		 '<p>·<第三章：女性领导的升级>自【2020新政策】推广开始，社会反响强烈，由于男性工作岗位的锐减，不少男性选择了前往别的城市发展；而其他城市的女性公民则选择了前往本市，来争取工作机会。</p>'
+		 '<p>>久而久之，形成了新的社会问题。随着女性愈来愈多，男性愈来愈少。社会资源的分配发生了偏转，从而引发了整个社会结构的失衡。</p>'
+		 '<p>>女性领导的升级便由此开始，男性公民的权益不断减少，女性公民的权益不断增加，演变至今催生了三个结果。</p>'
+		 '<p>·1.女性完全占据了所有高精尖和具有一定社会地位的工作岗位，只提供最底层的劳动岗位给男性公民。</p>'
+		 '<p>·2.所有企业皆由女性企业家独资。大量企业无法通过种种“女性领导保护”规定，不得不关闭或迁址。</p>'
+		 '<p>·3.女性政治家的总占比高达百分之九十。并出台一系列“女性领导保护”的新规定。</p>'
+		 '<p><<$FXZ.name>>:记清楚了吗？这些都是考点！如果有想要报名【全市历史竞赛】找老师报名考试。*不知道会不会有个好苗子呢，现在的女性领导主义愈演愈烈，如果有个男生能脱颖而出，我的职称评选会不会更有含金量呢？</p>'
+		 '<p>你几乎就是睡着了。（不知道<<$FXZ.name>>愿意为这个好苗子付出什么呢？）</p>'
+		end 
+		if $历史章节=4:
+		 '<p><<$FXZ.name>>:同学们，这一章并不存在于课本，是老师结合时事进行的拓展。经过前三章的学习，我们已经知道了女性领导运动已经成为了我市的主宰。目前正在推行的《特色女性领导主义政策》也正以不可阻挡的趋势进行着。</p>'
+		 '<p>>《特色女性领导主义政策》 一妻多夫制 ：介于男性市民数量骤减，为确保优质女性的生育率，一位女性公民可以充分享受婚姻自由，与多位男性成为性配偶。</p>'
+		 '<p>>1.1条例补充：为确保所有女性公民有充分的择偶权利，女性配偶不得独占其男性配偶。 1.2条例补充：为确保女性地位，性配偶直接的关系随时可由女方以“休夫”方式解除。</p>'
+		 '<p>>《特色女性领导主义政策》 女优通行证 ：介于外市女性大量涌入将剥夺本市女性的资源，拟定每一名私来我市的女性都将先接受优质筛选。</p>'
+		 '<p>>2.1条例补充：筛选内容由颜值，身高，罩杯，性开放度，新规则接受度等一系列要求构成，确保每一位新我市人都是出色的优质女性。</p>'
+		 '<p>>《特色女性领导主义政策》 特色身份证 ：介于仍存在一小部分反女性领导势力，拟推市民特色身份证，将记录该市民的详细信息并分级。</p>'
+		end 
+		if $历史章节>0:$FXZ.love+=1
+		if $FXZ.love>=4 and $FXZ_Event_辅导=0:'<p><<$FXZ.name>>：对了……如果有同学有意向参加<a href="exec:minutes+=20 &a=1&  gt ''副校长_事件'',''竞赛测试''">【全市历史竞赛】</a>可以找我报名。</p>'
+	'</div>'
+End
+
+
+!妹妹
+if hour>=17:
+	if mm_fans<=10:
+		$mmclass=0
+	 elseif mm_fans <100:
+		$mmclass=1
+	 else:
+	   $mmclass=2
+	  end
+	  
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\00<<$mmclass>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $mm.love>=100 and $mm.bad>=125:
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''妹妹_事件'',''MM_Fuck_课后''">课后练习</a></div>'
+		end
+		'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''妹妹_事件'',''接你回家''">接你回家</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·<<$mm.name>>：哟，这不是老哥嘛，特意来找我的？</p>'
+		if  mm_fans >=10:
+		'<p>·我：看来已经小有人气了嘛！</p>'
+		end
+		if  mm_fans >=100:
+		'<p>·<<$mm.name>>：现在是大明星了好嘛！</p>'
+		end
+		'<p>·————————————</p>'
+		if $LXS.bad>100 and 18>=hour and hour>=17  and 保时捷=1:'<p>·<<$LXS.name>>在收拾书包<a href="exec:$留学生对话=0 & gt ''留学_事件'',''上车''">-载她一程</a></p>'
+	'</div>'
+End
+
+
+
+ 
+--- 教室 ---------------------------------
+

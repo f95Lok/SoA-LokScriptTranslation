@@ -1,0 +1,174 @@
+# high-rise_imperial_mansion
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+$random_number=rand(0,100)
+
+'<div id="right-column">'
+    gs'menu_time'
+    gs'menu_status_show'
+    gs'menu_option_show'
+    '<div class="actions_menu">'
+        '<div class="action">'
+            '<a class="photo" data-title="Parking room" href="exec:gt''high-rise_imperial_mansion'',''upper_left_corner''"><img class="img_stretch" src="images\NPC\CT\pics\左上角.jpg"></a>'
+            '<a class="photo" data-title="Project room" href="exec:gt''high-rise_imperial_mansion'',''project_room''"><img class="img_stretch" src="images\NPC\CT\pics\项目室.jpg"></a>
+            <a class="photo" data-title="view" href="exec:gt''imperial_mansion'',''view''"><img class="img_stretch" src="images\NPC\CT\pics\景色.jpg"></a>
+        </div>'
+        '<div class="action">
+            <a class="photo" data-title="Top of the reactor" href="exec:gt''high-rise_imperial_mansion'',''high-rise_lid''"><img class="img_stretch" src="images\NPC\CT\pics\高层盖子.jpg"></a>
+            <a class="photo" data-title="reactor" href="exec:gt''high-rise_imperial_mansion'',''high-rise_reactor''"><img class="img_stretch" src="images\NPC\CT\pics\高层反应堆.jpg"></a>
+            <a class="photo" data-title="office" href="exec:gt''imperial_mansion'',''office''"><img class="img_stretch" src="images\NPC\CT\pics\办公室.jpg"></a>
+        </div>'
+        '<div class="action">
+            <a class="photo" data-title="Mother plant petri dish" href="exec:gt''high-rise_imperial_mansion'',''high-level_independence''"><img class="img_stretch" src="images\NPC\CT\pics\高层独立.jpg"></a>
+            <a class="photo" data-title="laboratory" href="exec:gt''high-rise_imperial_mansion'',''high-level_laboratory''"><img class="img_stretch" src="images\NPC\CT\pics\高层实验室.jpg"></a>
+            <a class="photo" data-title="Green plants" href="exec:gt''imperial_mansion'',''green_plants''"><img class="img_stretch" src="images\NPC\CT\pics\绿植.jpg"></a>
+        </div>'
+        '<div class="action">
+            <a class="photo" data-title="Culture matrix" href="exec:gt''high-rise_imperial_mansion'',''high-level_matrix''"><img class="img_stretch" src="images\NPC\CT\pics\高层矩阵.jpg"></a>
+            <a class="photo" data-title="High-rise aisle" href="exec:gt''high-rise_imperial_mansion'',''high-rise_aisle''"><img class="img_stretch" src="images\NPC\CT\pics\高层过道.jpg"></a>
+            <a class="photo" data-title="？？？" href="exec:gt''imperial_mansion'',''right_channel''"><img class="img_stretch" src="images\NPC\CT\pics\右通道.jpg"></a>
+        </div>'
+        
+    '</div>'
+'</div>'
+
+if $args[0] ="":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\通道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·The more core and confidential area extends upward from here.</p>'
+    '</div>'
+End
+
+
+if $args[0] ="upper_left_corner":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\左上角.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB1"><a href="exec:gt ''residential_area''">Fly to residential areas</a></div>'
+		'<div class="buttonB2"><a href="exec:gt ''big_villa''">Fly to the big villa</a></div>'
+		'<div class="buttonB3"><a href="exec:gt ''city_hall''">Fly to City hall</a></div>'
+		'<div class="buttonB4"><a href="exec:gt ''subway''">Fly to the city</a></div>'
+		'<div class="buttonB5"><a href="exec:gt ''suburbs''">Fly to the suburbs</a></div>'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Private parking room, where you can take a private helicopter to all parts of the city</p>'
+	'</div>'
+End
+
+if $args[0] = "project_room":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\项目室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn1"><a href="exec:$edited_by_imperial_jingyuan=1 & gt ''empire_event'',''empire_fuck_jingyuan_project_person''">Ejaculation room No. 1</a></div>'
+		'<div class="buttonGn2"><a href="exec:$edited_by_imperial_jingyuan=2 & gt ''empire_event'',''empire_fuck_jingyuan_project_person''">Ejaculation room ②</a></div>'
+		'<div class="buttonGn3"><a href="exec:$edited_by_imperial_jingyuan=3 & gt ''empire_event'',''empire_fuck_jingyuan_project_person''">Ejaculation room No. 3</a></div>'
+		if $empire_jingyuan_1_recommended+$empire_jingyuan_2_recommended+$empire_jingyuan_3_recommended<3:'<div class="buttonGr"><a href="exec:">Separate ejaculation room<<$empire_jingyuan_1_recommended+$empire_jingyuan_2_recommended+$empire_jingyuan_3_recommended>>/3</a></div>'else:'<div class="buttonG4"><a href="exec:gt ''empire_event'',''empire_fuck_jingyuan_project_plan_c''">Separate ejaculation room</a></div>'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is the project room of the Imperial Group in cooperation with the government, which is mainly responsible for the in-depth development of the Jingyuan project.</p>'
+	'</div>'
+End
+
+if $args[0] = "high-rise_lid":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层盖子.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is the main console at the top of the reactor, which is used to monitor and control the operating status of the reactor.It can display the energy output, temperature, pressure and other parameters of the reactor, and can also adjust the operating mode and parameters of the reactor.Through the main console, the reactor can be ensured to be in a safe and stable state at all times, and can be adjusted as needed to meet the energy needs of the building.In addition, the main console can also record the operating data of the reactor for subsequent analysis and optimization of the performance of the reactor.</p>'
+	'</div>'
+End
+
+if $args[0] = "high-rise_reactor":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层反应堆.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is a huge biodegradable reactor, which is responsible for providing energy to the entire building.</p>'
+		'<p>Me: What is its fuel?</p>'
+		'<p><<$CT.name>>:The leaves of those plants, although the special chemical reactions of the leaves of these plants are different from nuclear reactions when they are burned, their characteristics of producing ultra-high heat are somewhat similar to nuclear reactions.In a nuclear reaction, the fission or fusion of atomic nuclei releases a large amount of energy, which can be used in power generation, nuclear weapons and other fields.And the chemical reactions of the leaves of these plants can also produce ultra-high heat…</p>'
+	'</div>'
+End
+
+if $args[0] = "high-level_independence":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层独立.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is the “gift” your father brought to me. At that time, the mother plant was only the size of a palm. Now it is several meters high. Time flies so fast.</p>'
+		'<p>Me: It seems that you know my father very well?</p>'
+		'<p><<$CT.name>>:I can`t talk about it very well. He seems to know the value of this plant and is looking for investors very high-profile, but you know, the tree is catching the wind.</p>'
+		'<p>Me: My father`s coma was not an accident?</p>'
+		'<p><<$CT.name>>:I didn`t say that, I just know that some people don`t like the development of nuclear energy, for example<<$SZ.name>></p>'
+	'</div>'
+End
+
+if $args[0] = "high-level_laboratory":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层实验室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB1"><a href="exec:$experiment_number_in_the_empire=1 & gt ''empire_event'',''empire_fuck_ordinary_experiment''">Participate in routine experiments</a></div>'
+		if $experiment_in_the_secretary=1:'<div class="buttonB3"><a href="exec:$experiment_number_in_the_empire=2 & gt ''empire_event'',''empire_fuck_ordinary_experiment''">Participate in in-depth experiments</a></div>'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is a secret plant energy laboratory, a high-tech laboratory specializing in the use of plant energy.The laboratory has a variety of advanced equipment and technologies, which can analyze and test different types of plants to determine their energy performance and adaptability.Here, scientists can also use genetic engineering and biotechnology methods to improve the energy performance and growth characteristics of plants to adapt to different environmental conditions and energy needs.The staff of the laboratory will also regularly publish research results and technical reports to contribute to the research and development of the energy field.</p>'
+	'</div>'
+End
+
+if $args[0] = "high-level_matrix":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层矩阵.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''high-rise_imperial_mansion''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is the heterochromatic plant culture matrix, which is responsible for cultivating heterochromatic plants isolated from the parent plant.</p>'
+	'</div>'
+End
+
+
+if $args[0] ="high-rise_aisle":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\高层过道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+		'<p><<$CT.name>>:This is the main corridor of the entire Advanced R&amp;D Department and the Energy Center. I will introduce everything here for you.</p>'
+		'<p>Me: Why is there such a large R&D center and something like a nuclear reactor here?</p>'
+		'<p><<$CT.name>>:You ask me why I want to build this kind of thing in my own home?The most dangerous place is the safest place.</p>'
+    '</div>'
+End
+
+
+
+
+
+--- high-rise_imperial_mansion ---------------------------------
+

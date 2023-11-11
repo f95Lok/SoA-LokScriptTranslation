@@ -1,0 +1,209 @@
+# 人才公寓
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			if $CT考验2>=1:
+				if $YS离婚!1:'<a class="photo" data-title="蓮美柚香(投票监督员)" href="exec:gt ''帝国_事件'',''帝国_Fuck_目标1''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+				if $YS离婚=1:'<a class="photo" data-title="蓮美柚香(投票监督员)" href="exec:gt ''帝国_事件'',''帝国_Fuck_餐厅股份''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+			else:
+				'<a class="photo" data-title="【锁住】" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A202" href="exec:gt ''人才公寓'',''游泳教练家门''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A201" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			if $BGH.room=1:'<a class="photo" data-title="<<$BGH.name>>" href="exec:gt ''人才公寓'',''八挂海家门''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+			if $BGH.room!1:'<a class="photo" data-title="【锁住】" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A102" href="exec:$偷窃员编号=1 & gt ''人才公寓'',''超市人妻判断''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A101" href="exec:$偷窃员编号=2 & gt ''人才公寓'',''超市人妻判断''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="居民区" href="exec:minutes+=15 & gt ''居民区''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="公寓管理员室" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (7).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $便利店=0:'<a class="photo" data-title="社区便利店" href="exec:gt ''人才公寓'',''公寓便利店''"><img class="img_stretch" src="images\place\公寓便利店小图.jpg"></a>'
+			if $便利店=1:'<a class="photo" data-title="社区便利店" href="exec:gt ''便利店''"><img class="img_stretch" src="images\place\公寓便利店小图.jpg"></a>'
+		'</div>'
+
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\人才公寓入口.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·帝国集团为了吸引优秀人才加入而将其名下的私人别墅改造成职工专属的家属公寓。此举引起了周边业主的不满，他们认为这会降低社区综合质量，从而使别墅区的房价下跌。</p>'
+	'</div>'
+end
+
+if $args[0]="八挂海家门":
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (1).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''邻家_事件'',''家立绘''">敲门</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：不知道家里有人吗？</p>'
+	'</div>'
+end
+
+if $args[0]="公寓便利店":
+	'<div class ="show_menu"><img src="images\place\公寓便利店_.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·位于一楼的住改商便利店，此举也引起了周边业主的不满，他们认为廉价的便利店会使别墅区的房价下跌。</p>'
+	'</div>'
+end
+
+if $args[0]="超市人妻判断":
+        if $偷窃员编号=1:$偷窃员名字='穂高結花(软弱人妻)'
+        if $偷窃员编号=2:$偷窃员名字='三宮椿(傲慢人妻)'
+        
+        if $偷窃员编号=1 and $偷窃员1入室2<=-100:gt '群演_事件','便利店_Fuck_主上门'
+        if $偷窃员编号=2 and $偷窃员2入室2<=-100:gt '群演_事件','便利店_Fuck_主上门2'
+        
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFJ<<$偷窃员编号>>-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓'',''超市人妻2''">和她谈谈</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if $偷窃员编号=1:
+		'<p><<$偷窃员名字>>: 亲爱的，路上小心，工作要加油喔！</p>'
+		'<p>男人: 工作再苦再累，只要回家能看到你的笑脸我就满足了！</p>'
+		else:
+		'<p>男人: 你怎么又来了？不是让你在公司里等我吗？</p>'
+		'<p><<$偷窃员名字>>: 老公，你的小助理可真听话，每天都会来接你！省了不少汽油费呢！</p>'
+		'<p>助理: 师父，这不是顺路嘛…还是师母善解人意❤</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="超市人妻2":
+        if $偷窃员编号=1:$偷窃员名字='穂高結花(软弱人妻)'
+        if $偷窃员编号=2:$偷窃员名字='三宮椿(傲慢人妻)'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFJ<<$偷窃员编号>>-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $偷窃员1入室>0 and $偷窃员编号=1:'<div class="buttonR"><a href="exec:gt ''群演_事件'',''便利店_Fuck_回家奸''">入室强奸她</a></div>'
+		if $偷窃员2入室>0 and $偷窃员编号=2:'<div class="buttonR"><a href="exec:gt ''群演_事件'',''便利店_Fuck_回家奸''">入室强奸她</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">没什么事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if $偷窃员编号=1:
+		'<p><<$偷窃员名字>>: 你……有事吗？</p>'
+		else:
+		'<p><<$偷窃员名字>>: 嘘——我老公和他的助理还没走远，我随时可以叫他们回头。</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="游泳教练家门":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YY\vids\家门口.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $YY.家可进=1:'<div class="button"><a href="exec:$游泳对话=0 & gt ''人才公寓'',''游泳教练家里''">敲门进去</a></div>'else:'<div class="buttonGr"><a href="exec:">敲门进去</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·这位人妻正在打扫卫生。</p>'
+	'</div>'
+end
+
+if $args[0]="游泳教练家里":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YY\vids\家<<$游泳对话>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $游泳对话=0:
+			'<div class="button"><a href="exec:$游泳对话=1 & gt ''人才公寓'',''游泳教练家里''">等他走远</a></div>'
+		else:
+			'<div class="buttonS3"><a href="exec:$游泳对话=1 & gt ''帝国_事件'',''帝国_Fuck_游泳教练家1''">自慰给我看</a></div>'
+			if $YY.love>=my.魅力*10:'<div class="buttonS4"><a href="exec:$游泳对话=1 & gt ''帝国_事件'',''帝国_Fuck_游泳教练家2''">商量喝一杯</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足<<my.魅力*10>></a></div>'
+			if $YY.同意=1:'<div class="buttonS5"><a href="exec:$游泳对话=1 & gt ''帝国_事件'',''帝国_Fuck_游泳教练大的''">带她出去玩</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $游泳对话=0:
+		'<p><<$YY.name>>: 这次东西都没忘拿吧？简历都带齐了嘛？</p>'
+		'<p>她老公: 这次我准备充分！一定能找到新工作的！</p>'
+		'<p><<$YY.name>>: 路上小小！</p>'
+		else:
+		'<p><<$YY.name>>: 我老公前脚走你后脚就来了，你没安好心吧❤</p>'
+		'<p>我: 你这样说我可是很伤心的。</p>'
+		end
+	'</div>'
+end
+
+
+
+
+
+--- 人才公寓 ---------------------------------
+

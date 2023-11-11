@@ -1,0 +1,80 @@
+# hair_salon
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "shopping_mall_map"
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class ="show_menu"><img src="images\place\美发店0.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $gun_hunting_incident_chain=1 and $hair_salon_survey=0:'<div class="button"><a href="exec:minutes+=5 & gt ''police_incident'',''jy_fuck_barber''">✣Ask the barber</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hair_salon'',''price_list''">Look at the price list</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hair_salon'',''recharge_card''">Recharge card</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·In the newly opened barber shop, opaque consumer prices make customers daunting.</p>'
+	'</div>'
+
+end
+
+if $ARGS[0] ="price_list":
+	'<div class ="show_menu"><img src="images\place\美发店<<rand(2,3)>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if BarCard>0:'<div class="buttonG1"><a href="exec:Barber=0 & gt ''group_performation_event'',''general_fuck_barber''">Trainee barber</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=2000:'<div class="buttonG2"><a href="exec:Barber=1 & gt ''group_performation_event'',''general_fuck_barber''">Popular wash, cut and blow</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=4000:'<div class="buttonG3"><a href="exec:Barber=2 & gt ''group_performation_event'',''general_fuck_barber''">High-end hot dyeing artist</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=8000:'<div class="buttonG4"><a href="exec:Barber=3 & gt ''group_performation_event'',''general_fuck_barber''">Senior hairdresser</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=16000:'<div class="buttonG5"><a href="exec:Barber=4 & gt ''group_performation_event'',''general_fuck_barber''">Invited stylist</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=32000:'<div class="buttonPu3"><a href="exec:Barber=5 & gt ''group_performation_event'',''general_fuck_barber''">Chief designer</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=64000:'<div class="buttonPu4"><a href="exec:Barber=6 & gt ''group_performation_event'',''general_fuck_barber''">Styling director</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+		if BarCard>=128000:'<div class="buttonPu5"><a href="exec:Barber=7 & gt ''group_performation_event'',''general_fuck_barber''">The store manager is in person</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient balance</a></div>'
+
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·Apply for a card now and immediately enjoy the value-added service of charging 1000 and getting 1000 free!</p>'
+		'<p>·The current balance of the hairdressing card is：<<BarCard>>￥</p>'
+	'</div>'
+
+end
+
+if $ARGS[0] ="recharge_card":
+	'<div class ="show_menu"><img src="images\place\美发店1.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if money>=1000:'<div class="buttonG1"><a href="exec:minutes+=5 & money-=1000 & BarCard+=2000 & gt ''hair_salon'',''recharge_card''">Charge 1000</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of money</a></div>'
+		if money>=10000:'<div class="buttonG5"><a href="exec:minutes+=5 & money-=10000 & BarCard+=20000 & gt ''hair_salon'',''recharge_card''">Charge 10000</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of money</a></div>'
+		if money>=100000:'<div class="buttonS"><a href="exec:minutes+=5 & money-=100000 & BarCard+=200000 & gt ''group_performation_event'',''general_fuck_barber2''">Charge 100000</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of money</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·Apply for a card now and immediately enjoy the value-added service of charging 1000 and getting 1000 free!</p>'
+		'<p>·The current balance of the hairdressing card is：<<BarCard>>￥</p>'
+	'</div>'
+
+end
+
+
+--- hair_salon ---------------------------------
+

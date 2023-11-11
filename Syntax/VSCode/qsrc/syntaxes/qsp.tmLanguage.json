@@ -1,0 +1,219 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "QSP",
+	"scopeName": "text.qsp.qsrc",
+	"patterns": [
+		{
+			"include": "#begin-end"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#keyword-control"
+		},
+		{
+			"include": "#keyword-operators"
+		},
+		{
+			"include": "#marks"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#support-objects"
+		},
+		{
+			"folds": [
+				{
+					"type": "comment"
+				},
+				{
+					"type": "if_statement",
+					"start": {
+						"type": [
+							"elif_clause",
+							"else_clause"
+						]
+					},
+					"end": "end"
+				}
+			]
+		}
+	],
+	"repository": {
+		"begin-end": {
+			"patterns": [
+				{
+					"name": "constant.character.qsp",
+					"match": "^-{1,2}\\S.*?\\S-{1,2}$"
+				},
+				{
+					"name": "constant.character.qsp",
+					"match": "^(#)\\s?.+$"
+				},
+				{
+					"name": "constant.character.qsp",
+					"match": "\\b\\d+\\b"
+				}
+			]
+		},
+		"comments": {
+			"comment": "singe and multiline comments starting with !",
+			"patterns": [
+				{
+					"comment": "comments without possible multiline chars",
+					"match": "(?:^|\\s?[&])\\s*((!!?)[^{'\"]*?$\\n?)",
+					"captures": {
+						"1": {
+							"name": "comment.line.qsp"
+						},
+						"2": {
+							"name": "punctuation.definition.comment.qsp"
+						}
+					}
+				},
+				{
+					"comment": "comments with multiline chars",
+					"begin": "(?:^|\\s?[&])\\s*(!!?)",
+					"beginCaptures": {
+						"0": {
+							"name": "comment.block.qsp"
+						},
+						"1": {
+							"name": "punctuation.definition.comment.qsp"
+						}
+					},
+					"patterns": [
+						{
+							"name": "comment.block.qsp",
+							"match": "\\G",
+							"include": "#comment-block"
+						}
+					]
+				}
+			]
+		},
+		"comment-block": {
+			"patterns": [
+				{
+					"match": "(\\s*[^{'\"]*)(?=$)",
+					"captures": {
+						"1": {
+							"name": "comment.block.text.qsp"
+						}
+					}
+				},
+				{
+					"include": "#comment-block-quote"
+				},
+				{
+					"include": "#comment-block-bracket-curly"
+				},
+				{
+					"match": "(\\s*[^{'\"]*)(?!$)",
+					"captures": {
+						"1": {
+							"name": "comment.block.text.qsp"
+						}
+					}
+				},
+				{
+					"comment": "continue parsing after the comment ends",
+					"begin": "($\\n?)",
+					"pattern": {
+						"match": "\\G"
+					}
+				}
+			]
+		},
+		"comment-block-quote": {
+			"name": "comment.block.quote.qsp",
+			"begin": "('|\")",
+			"end": "(\\1)"
+		},
+		"comment-block-bracket-curly": {
+			"name": "comment.block.bracket.curly.qsp",
+			"begin": "[{]",
+			"patterns": [
+				{
+					"include": "#comment-block-bracket-curly"
+				},
+				{
+					"include": "#comment-block-quote"
+				}
+			],
+			"end": "([}])"
+		},
+		"keyword-control": {
+			"patterns": [
+				{
+					"name": "keyword.control.qsp",
+					"match": "(\\$)(?=(\\b(?i:(counter|ongload|ongsave|onnewloc|onactsel|onobjsel|onobjadd|onobjdel|usercom|fname|backimage|args|result))\\b))"
+				},
+				{
+					"name": "keyword.control.qsp",
+					"match": "\\b(?i:(counter|ongload|ongsave|onnewloc|onactsel|onobjsel|onobjadd|onobjdel|usercom|fname|backimage|args|result|nosave|disablescroll|disablesubex|debug|usehtml|(b|f|l)color|fsize))\\b"
+				}
+			]
+		},
+		"keyword-operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.qsp",
+					"match": "(\\$)(?=(\\b(?i:(dyneval|input|user_text|usrtxt|maintxt|stattxt|func|curloc|selobj|selact|curacts|getobj|mid|(u|l)case|trim|replace|str|loc|strfind))\\b))"
+				},
+				{
+					"name": "keyword.operator.qsp",
+					"match": "\\b(?i:(dyneval|input|user_text|usrtxt|iif|rgb|isplay|msecscount|desc|maintxt|stattxt|qspver|func|curloc|selobj|no|and|obj|len|mod|selact|curacts|arrsize|arrpos|countobj|getobj|led|mid|(u|l)case|trim|replace|instr|isnum|val|str|loc|or|max|min|r(a)?nd|(arr|str)comp|str(find|pos)))\\b"
+				}
+			]
+		},
+		"marks": {
+			"patterns": [
+				{
+					"name": "entity.other.attribute-name.qsp",
+					"match": "^(:)[^'\"]*$\n?"
+				},
+				{
+					"name": "entity.other.attribute-name.qsp",
+					"match": "^(\\s+:)[^'\"]*$\n?"
+				}
+			]
+		},
+		"strings": {
+			"name": "string.quoted.single.qsp",
+			"begin": "(\"|')",
+			"end": "\\1",
+			"patterns": [
+				{
+					"name": "string.interpolated.qsp",
+					"begin": "<<",
+					"end": ">>",
+					"patterns": [
+						{
+							"include": "$self"
+						}
+					]
+				}
+			]
+		},
+		"support-objects": {
+			"patterns": [
+				{
+					"name": "support.function.qsp",
+					"match": "(\\*)(?=(\\b(?i:(pl?|clear|clr|nl))\\b))"
+				},
+				{
+					"name": "support.function.qsp",
+					"match": "\\b(?i:(nl|pl?|clear|clr|act|exit|killvar|cla|gs|xgt|gt|goto|gosub|\\[|\\]|xgoto|if|else|elseif|end|jump|msg|wait|delact|cmdclear|cmdclr|cls|menu|settimer|dynamic|set|let|play|close|view|copyarr|addobj|delobj|killobj|unselect|unsel|killall|opengame|openqst|addqst|killqst|savegame|refint|showacts|showinput|showobjs|showstat|\\*|&))\\b"
+				},
+				{
+					"name": "support.function.qsp",
+					"match": "(?i:(,|\\[|\\]|\\(|\\)|\\{|\\}|&|\\/|!|\\*|\\+|=|-|(<|>)=?|=?(<|>)))"
+				}
+			]
+		}
+	}
+}

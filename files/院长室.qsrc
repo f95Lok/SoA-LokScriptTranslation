@@ -1,0 +1,223 @@
+# 院长室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $args[0]="":
+		$YZ.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\交流1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''院长室'',''系鞋带''">系鞋带</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''院长室'',''试药员面试''">试药员面试</a></div>'
+			if $YZ.炮友=1 and $times_of_day='':'<div class="buttonS"><a href="exec:minutes+=5 & gt ''院长室'',''约炮''">约炮</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·眼前的这位就是:<<$YZ.name>>。上任三年就完成了医院的转型，从『全国优秀模范医院』转型为『独立女性整形医院』。</p>'
+			
+		'</div>'
+End
+
+ 
+if $args[0]="系鞋带":
+		if $YZ.bad<=50:a=1
+		if 100 >$YZ.bad and $YZ.bad >50 :a=2
+		if $YZ.bad>=100:a=3
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\交流1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''院长室''">站起来</a></div>'
+			if $YZ.bad>=100:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''院长室'',''口她''">口她</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$YZ.name>>:Vous avez quelque chose à faire?抱歉，我又习惯说法语了.....你有什么事吗？OS:Le mot de passe est alors défini à:935888</p>'
+		'</div>'
+End
+
+ 
+ 
+if $args[0]="试药员面试":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\药奴~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''院长室'',''签订合同''">签订合同</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>女医生:你是来应聘试药员的吗？我来介绍一下，这几位身着比基尼的是女性领导联盟下医药企业中信仰穿衣自由的代表们。</p>'
+		'<p>女医生:目前所有的临床试验都是严谨的、安全的，在这之前也通过了动物试验，但不排除有可能会有一些的毒副作用，当然这种概率很低。</p>'
+		'<p>我:毒副作用？</p>'
+		'<p>医药代表:放心，受试者的权益、安全和健康必须高于对科学和社会利益的考虑。所以对于试药员而言是身体健康是有保障的，在试验过程中，一旦出现可能危及病人利益的情况，无论试验进行到什么阶段，经评估后都可以申请叫停并立即得到援助。</p>'
+	'</div>'
+End
+
+ 
+
+if $args[0]="签订合同":
+             if medicine!1:
+                 q = RAND(50,200)
+                 if 50<=q and q<100:
+                     $Q="一级"
+                     A=1
+                     D= RAND(3,5)
+                     end
+                 if 100<=q and q<150:
+                     $Q="二级"
+                     A=2
+                     D= RAND(4,7)
+                     end
+                 if 150<=q:
+                     $Q="三级"
+                     A=4
+                     D= RAND(7,10)
+                     end
+                 MED=(81+q)*D
+			End
+	'<div class ="show_menu"><img src="images\place\医院场景\签订合同.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			if A<=my.体力:'<div class="button"><a href="exec:minutes+=5 & gt ''院长室'',''就这个''">就这个</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &  gt ''院长室'',''签订合同''">下一个</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>·合同明细:危险等级：<<$Q>>  试药期限：<<D>>天。 体质门槛：Lv<<A>>  佣金组成：（基本工资+餐补）X 试药期限。总计：<<MED>>￥</p>'
+			'<p>·注意事项:试药期间试药员将与外界完全隔离，直至试药实验结束。</p>'
+		'</div>'
+End
+
+ 
+ 
+if $args[0]="就这个":
+	medicine=1
+	'<div class ="show_menu"><img src="images\place\医院场景\注射前<< $Q>>.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 &  gt ''院长室'',''偷看''">偷看</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>女护士:这里就是你未来<<D>>天接受药物测试的地方。随着危险等级的提升会出现一定程度的幻觉、心悸、呕吐。'
+		'</div>'
+End
+ 
+if $args[0]="偷看":
+	'<div class ="show_menu"><img src="images\place\医院场景\注射偷窥<< $Q>>.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 &  gt ''院长室'',''注射''">注射</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>我:稍等一下，这里有一点污渍。</p>'
+			'<p>女护士:哪里？没有啊。</p>'
+		'</div>'
+End
+
+if $args[0]="注射":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房一级_.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & $须知=0 &  gt ''试药日常''">深呼吸</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>女护士:接下来我们将对您进行静脉注射。请调整呼吸。</p>'
+		'</div>'
+End
+ 
+if $args[0]="口她":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\给她口.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''院长室''">站起来</a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''院长_事件'',''YZ_Fuck_公司''">射精检查</a></div>'
+		if $YZ.love>=25:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''院长_事件'',''YZ_Fuck_公司2''">在这做</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>：哟，没想到你居然心领意会…说吧，是不是有事要求我办？</p>'
+		'<p>我:……（我还能不知道你在想什么吗）</p>'
+	'</div>'
+End
+
+if $args[0]="约炮":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\约会.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''院长室'',''喝酒''">去喝酒</a></div>'
+		if $YZ.love>=135:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''院长室'',''她家''">去你家</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>：想去哪做？快点！我下面又湿又痒…</p>'
+	'</div>'
+End
+
+if $args[0]="喝酒":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\喝酒.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''院长_事件'',''YZ_Fuck_酒店''">去酒店</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>：我说…下次能跳过这个环节直接去开房吗？</p>'
+		'<p>我：哈哈哈哈。</p>'
+	'</div>'
+End
+
+
+if $args[0]="她家":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\她家.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''院长_事件'',''YZ_Fuck_她家''">换情趣内衣</a></div>'
+		if $YZ.love>=600-$YZ.bad:'<div class="button"><a href="exec:minutes+=5 & gt ''院长_事件'',''YZ_Fuck_催女''">提议：操你女儿</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>：最近带男人回来的次数变多了…我的孩子们对我也可是有了不少意见呢…</p>'
+		'<p>我：你应该和你的孩子们关系“很好”吧？</p>'
+		'<p><<$YZ.name>>：现在他们都不在家…你想和我怎么玩？</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+--- 院长室 ---------------------------------
+

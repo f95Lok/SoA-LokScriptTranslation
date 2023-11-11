@@ -1,0 +1,60 @@
+# 好差评
+
+
+
+
+
+
+if $args[0]="好评":
+KILLVAR '$店评价a',0 
+ $店评价a[6]='<font color="#33CC00">『☺』</font>'
+ end
+ 
+ 
+if $args[0]="差评":
+KILLVAR '$店评价a',0 
+ $店评价a[6]='<font color="#FF0000">『☹』</font>'
+end
+
+
+
+
+
+
+
+
+好评总计=0
+
+if $店评价a[0]='<font color="#33CC00">『☺』</font>':好评总计+=1
+if $店评价a[1]='<font color="#33CC00">『☺』</font>':好评总计+=1
+if $店评价a[2]='<font color="#33CC00">『☺』</font>':好评总计+=1
+if $店评价a[3]='<font color="#33CC00">『☺』</font>':好评总计+=1
+if $店评价a[4]='<font color="#33CC00">『☺』</font>':好评总计+=1
+if $店评价a[5]='<font color="#33CC00">『☺』</font>':好评总计+=1
+if $店评价a[6]='<font color="#33CC00">『☺』</font>':好评总计+=1
+
+
+if $args[0]="计算":
+		if $店评价a[0]='<font color="#33CC00">『☺』</font>':$店评价a[0]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+		if $店评价a[1]='<font color="#33CC00">『☺』</font>':$店评价a[1]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+		if $店评价a[2]='<font color="#33CC00">『☺』</font>':$店评价a[2]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+		if $店评价a[3]='<font color="#33CC00">『☺』</font>':$店评价a[3]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+		if $店评价a[4]='<font color="#33CC00">『☺』</font>':$店评价a[4]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+		if $店评价a[5]='<font color="#33CC00">『☺』</font>':$店评价a[5]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+		if $店评价a[6]='<font color="#33CC00">『☺』</font>':$店评价a[6]='<font color="#FF0000">『☹』</font>' & 所需好评-=1
+		if 所需好评<=0:gt'便利店'
+end
+
+
+
+
+
+gt '便利店'
+--- 好差评 ---------------------------------
+

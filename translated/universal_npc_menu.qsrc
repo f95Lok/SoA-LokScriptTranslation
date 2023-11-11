@@ -1,0 +1,126 @@
+# universal_npc_menu
+cls
+gs'menu_time_calc'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs'menu_act_hidden'
+    if $args[0]='<<$YS.name>>':'<a href="exec:$filename_reference=''<<$YS.filename>>'' & gt ''character_strategy'',''<<$YS.name>>'',''<<$YS.love>>'',''<<$YS.bad>>''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$CT.name>>':'<a href="exec:$filename_reference=''<<$CT.filename>>'' & gt ''character_strategy'',''<<$CT.name>>'',''<<$CT.love>>'',''<<$CT.bad>>'',''42''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$YY.name>>':'<a href="exec:$filename_reference=''<<$YY.filename>>'' & gt ''character_strategy'',''<<$YY.name>>'',''<<$YY.love>>'',''<<$YY.bad>>'',''42''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$QJ.name>>':'<a href="exec:$filename_reference=''<<$QJ.filename>>'' & gt ''character_strategy'',''<<$QJ.name>>'',''<<$QJ.love>>'',''<<$QJ.bad>>'',''42''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$XN.name>>':'<a href="exec:$filename_reference=''<<$XN.filename>>'' & gt ''character_strategy'',''<<$XN.name>>'',''<<$XN.love>>'',''<<$XN.bad>>'',''44''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$LEI.name>>':'<a href="exec:$filename_reference=''<<$LEI.filename>>'' & gt ''character_strategy'',''<<$LEI.name>>'',''<<$LEI.love>>'',''<<$LEI.bad>>'',''44''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$DY.name>>':'<a href="exec:$filename_reference=''<<$DY.filename>>'' & gt ''character_strategy'',''<<$DY.name>>'',''<<$DY.love>>'',''<<$DY.bad>>'',''46''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$WH.name>>':'<a href="exec:$filename_reference=''<<$WH.filename>>'' & gt ''character_strategy'',''<<$WH.name>>'',''<<$WH.love>>'',''<<$WH.bad>>''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$SWD.name>>':'<a href="exec:$filename_reference=''<<$SWD.filename>>'' & gt ''character_strategy'',''<<$SWD.name>>'',''<<$SWD.love>>'',''<<$SWD.bad>>'',''46''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$YH.name>>':'<a href="exec:$filename_reference=''<<$YH.filename>>'' & gt ''character_strategy'',''<<$YH.name>>'',''<<$YH.love>>'',''<<$YH.bad>>'',''46''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$XH.name>>':'<a href="exec:$filename_reference=''<<$XH.filename>>'' & gt ''character_strategy'',''<<$XH.name>>'',''<<$XH.love>>'',''<<$XH.bad>>'',''48''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$DCM.name>>':'<a href="exec:$filename_reference=''<<$DCM.filename>>'' & gt ''character_strategy'',''<<$DCM.name>>'',''<<$DCM.love>>'',''<<$DCM.bad>>'',''48''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$MZ.name>>':'<a href="exec:$filename_reference=''<<$MZ.filename>>'' & gt ''character_strategy'',''<<$MZ.name>>'',''<<$MZ.love>>'',''<<$MZ.bad>>'',''48''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$BZ.name>>':'<a href="exec:$filename_reference=''<<$BZ.filename>>'' & gt ''character_strategy'',''<<$BZ.name>>'',''<<$BZ.love>>'',''<<$BZ.bad>>'',''48''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+    if $args[0]='<<$SB.name>>':'<a href="exec:$filename_reference=''<<$SB.filename>>'' & gt ''character_strategy'',''<<$SB.name>>'',''<<$SB.love>>'',''<<$SB.bad>>'',''48''"><div class="option_gonglue"data-title="Character_strategy"></div></a>'
+'</div>'
+
+
+
+
+
+!#--------------------------------------------------------------------------------------------------
+'<div class="charac_nps_info">'
+
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+		
+	 '<div id="left-column2">'
+		'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+		'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>>		'
+
+		if $args[1] <0:'厌恶'
+		if $args[1]=0 :'中立'
+		if 0<$args[1] and $args[1]<15 :'დ略有好感'
+		if 15<=$args[1] and $args[1]<30 :'❤有点喜欢'
+		if 30<=$args[1] and $args[1]<50 :'❤დ心跳加速'
+		if 50<=$args[1] and $args[1]<75 :'❤❤超喜欢'
+		if 75<=$args[1] and $args[1]<100 :'❤❤დ恋爱脑'
+		if 100<=$args[1] and $args[1]<200 :'❤❤❤所爱之人'
+		if 200<=$args[1] and $args[1]<300 :'❤❤❤დ爱如潮水'
+		if 300<=$args[1] and $args[1]<400 :'❤❤❤❤痴情迷恋'
+		if 400<=$args[1] and $args[1]<500 :'❤❤❤❤დ彻底沦陷'
+		if 500<=$args[1] and $args[1]<600 :'❤❤❤❤❤献身主义℠'
+		if 600<=$args[1] and $args[1]<700 :'❤❤❤❤❤为爱献身℠✰'
+		if 700<=$args[1] and $args[1]<800 :'❤❤❤❤❤为爱献身℠✰✰'
+		if 800<=$args[1] and $args[1]<900 :'❤❤❤❤❤为爱献身℠✰✰✰'
+		if 900<=$args[1] and $args[1]<1000 :'❤❤❤❤❤为爱献身℠✰✰✰✰'
+		if 1000<=$args[1] and $args[1]<2000 :'❤❤❤❤❤为爱献身℠✰✰✰✰✰'
+		if 2000<=$args[1] :
+			 if $args[1]='confidentiality' :' '
+			 if $args[1]!'confidentiality' :'❤❤❤❤❤至死不渝℠♕'		
+		end
+		
+		'</font></span></p>'
+			
+		 
+		'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>>		'	
+
+		if $args[2] <0:'正直'
+		if $args[2] =0:'中立'
+		if 0<$args[2] and $args[2]<15 :'◌偶有自慰'
+		if 15<$args[2] and $args[2]<30 :'Ⓑ经常自慰'
+		if 30<=$args[2] and $args[2]<50 :'Ⓑ◌性欲高涨'
+		if 50<=$args[2] and $args[2]<75 :'ⒷⒾ欲求不满'
+		if 75<=$args[2] and $args[2]<100 :'ⒷⒾ◌性饥渴'
+		if 100<=$args[2] and $args[2]<200 :'ⒷⒾⓉ痴女'
+		if 200<=$args[2] and $args[2]<300 :'ⒷⒾⓉ◌性爱成瘾'
+		if 300<=$args[2] and $args[2]<400 :'ⒷⒾⓉⒸ淫乱婊子'
+		if 400<=$args[2] and $args[2]<500 :'ⒷⒾⓉⒸ◌性欲奴隶'
+		if 500<=$args[2] and $args[2]<600 :'ⒷⒾⓉⒸⒽ私人母狗℠'
+		if 600<=$args[2] and $args[2]<700 :'ⒷⒾⓉⒸⒽ专属母狗℠✡'
+		if 700<=$args[2] and $args[2]<800 :'ⒷⒾⓉⒸⒽ专属母狗℠✡✡'
+		if 800<=$args[2] and $args[2]<900 :'ⒷⒾⓉⒸⒽ专属母狗℠✡✡✡'
+		if 900<=$args[2] and $args[2]<1000 :'ⒷⒾⓉⒸⒽ专属母狗℠✡✡✡✡'
+		if 1000<=$args[2] and $args[2]<2000 :'ⒷⒾⓉⒸⒽ专属母狗℠✡✡✡✡✡'
+		if 2000<=$args[2]  :
+			if $args[2]='confidentiality' :' '
+			if $args[2]!'confidentiality' :'ⒷⒾⓉⒸⒽ胯下之奴℠♝'
+		end
+		
+		'</font></span></p>'
+		
+	    if $args[4]!0:
+		'<span class="bold"><font color="#ff7300">❀ Number of fans:<<$args[4]>>k		'	
+		'</font></span></p>'
+		end
+		
+	    if $args[5]!0:
+		'<span class="bold"><font color="#FF3939">㊝ Multi-faceted ability:<<$args[5]>>		'	
+		'</font></span></p>'
+		end
+		
+	    if $args[6]!0:
+		'<span class="bold"><font color="#ff7300">㊫ Average score of each subject:<<$args[6]>>points	'	
+		'</font></span></p>'
+		end
+		
+	    if $args[7]=1:
+		'<span class="bold"><font color="#008000">㊩ Very healthy		'	
+		'</font></span></p>'
+		end
+		
+	    if $args[7]=2:
+		'<span class="bold"><font color="#FF3939">㊡ Pregnant-exemption from exams	'	
+		'</font></span></p>'
+		end
+		
+	 '<div class ="charac_quest_txt1">'
+		'<p>※<<$args[3]>></p>'
+	 
+	 '</div>'
+	 '</div>'
+'</div>'
+'<div class="options_back"><a href="exec:gt''menu_charac_nps''"><div class="settings_back_menu"></div></a></div>'
+
+
+--- universal_npc_menu ---------------------------------
+

@@ -1,0 +1,884 @@
+# geology_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=10
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+if $ARGS[0]="first_meeting":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $ARGS[1]="et al":
+		'<div class="button"><a href="exec: $filename_reference=''遇见'' & gt ''geology_event'',''first_meeting'',''meet''">Say hello</a></div>'
+		end
+		if $ARGS[1]="meet":
+		'<div class="button"><a href="exec: $filename_reference=''分析'' & gt ''geology_event'',''first_meeting'',''analysis''">Soil testing</a></div>'
+		end
+		if $ARGS[1]="analysis":
+		'<div class="button"><a href="exec:$dz.event_meet=10  &  gt ''restaurant''">nodded</a></div>'
+		else:
+		'<div class="button"><a href="exec: gt ''restaurant''">leave</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if $ARGS[1]="et al":
+		'<p>-<<$JJ.name>>: Brother!Here you are!It`s her!She is the famous icy goddess in Mgo Pharmaceutical, and she is also an excellent geological expert!At the same time, he is also my classmate and best friend!</p>'
+		end
+		
+		if $ARGS[1]="meet":
+		'<p>-Me: Hello!My name is<<$protagonist_name>>...'
+		'<p>-<<$DZ.name>>：<<$jj.name>>？Why did you keep me waiting for so long?What about your concept of time?Please at least abide by the concept of time before asking people!Hope you are on time next time!！</p>'
+		'<p>-<<$JJ.name>>: I waited for the analysis report for a while. It was all classmates. Why are you so fierce!My brother is still there, give me some face~~!Show you my latest analysis report!You will be surprised!</p>'
+		'<p>-<<$DZ.name>>: What?！Is this MacGuffin`s analysis report?！Isn`t the C-137 project already invalid?Where did you get the raw materials?OS: This is the effect of MacGuffin....Sure enough, it`s not easy.....</p>'
+		'<p>-<<$JJ.name>>: Hehe, keep it secret!By the way, my brother wants to ask you something.</p>'
+		'<p>-(She just looked at you now)</p>'
+
+		end
+		
+		if $ARGS[1]="analysis":
+		'<p>-Me: I speculate that the soil is exposed to radiation, so the plants mutate.If you want to trace the roots, you also need to conduct soil testing!'
+		'<p>-<<$DZ.name>>: Soil testing?Just send the sample to my office.Sorry, it`s my break time now, so let`s go to my office if you have something to talk about.Farewell first.</p>'
+		'<p>-(Get up and prepare to leave)</p>'
+		'<p>-<<$JJ.name>>: Brother, don`t take offense!She is such a person, but don`t look at her appearance as cold and frosty, in fact, she is quite cute.OS: Especially when you are drunk.</p>'
+		end
+		
+	'</div>'
+
+end
+
+if $ARGS[0]="eat":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\喝酒1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''geology_event'',''meal_selection_is_complete'',''my_sister''">My sister</a></div>'
+		'<div class="button"><a href="exec:gt ''geology_event'',''meal_selection_is_complete'',''sister_you''">Sister you</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$DZ.name>>: Okay, I have eaten with you.It`s time to answer my question, your sister and I, who is better for you?</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="meal_selection_is_complete":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\分析~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=55 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+	if $ARGS[1]="my_sister":
+	$DZ.LOVE-=15
+	money-=500
+	'<div class="dialog_menu">'
+		'<p>-<<$DZ.name>>: Oh, you can buy the order, a total of ￥500.I`ll go first, if you don`t have any money, let your sister give you money!OS: What a conscientious nuisance.</p>'
+	'</div>'
+	end
+	if $ARGS[1]="sister_you":
+	$DZ.LOVE+=10+$my.charm
+	'<div class="dialog_menu">'
+		'<p>-Me: Of course it`s your sister~</p>'
+		'<p>-<<$DZ.name>>: Cut, I don`t care about a younger brother like you.I still have something to do, let`s go first.I paid the money.OS: Huh, you have a conscience.</p>'
+	'</div>'
+	end
+end
+
+if $ARGS[0]="go_to_the_restaurant":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=60 & $filename_reference=''喝酒2'' & gt ''geology_event'',''drinking'',''drink_2''">Drinking</a></div>'
+	if $my.ethics<=-13 and $DZ.BAD>=35:
+	'<div class="button"><a href="exec:minutes+=60 & a=0  & $filename_reference=''sex0开幕'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex0_opening''">Go open a room</a></div>'
+	end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$DZ.name>>: Your sister and I had a lot of suitors when we were students. It`s been so many years in the blink of an eye....</p>'
+		'<p>  </p>'
+		'<p>-<<$DZ.name>>: By the way, I have dinner with my best friend`s brother...It feels so subtle......</p>'
+		'<p>-The distance between each other has been narrowed a lot.. </p>'
+		
+	 if $DZ.BAD>=35:
+		'<p>-Under the table, she titillated your calf with the tip of her high heels...... </p>'
+	 end
+	 if $DZ.BAD>=100:
+		'<p>-No one found out....She gradually moved the tip of her shoe up again..Teasing your crotch..... </p>'
+	 end
+	'</div>'
+end
+
+if $ARGS[0]="drinking":
+	$my.ethics-=5
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=60 & gt ''subway''">She sent home</a></div>'
+	if $my.ethics<=-10:
+	'<div class="button"><a href="exec:minutes+=60 & a=0  & $filename_reference=''醉倒'' & gt ''geology_event'',''dz_fuck_drunk'',''drunk''">Pour a few more cups</a></div>'
+	end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-After a few glasses of red wine......Her drunk look makes you laugh.....</p>'
+		'<p>-<<$DZ.name>>: Your sister....Previous favorite......Grab a boyfriend with me...(Hiccup)...Which one do I fancy...She wants it...Go with.....People want a phone.....also......(Hiccup).....(Hiccup)...</p>'
+		'<p>-Me: Sister....You drank too much...</p>'
+		'<p>-<<$DZ.name>>: I`m not drunk...Listen up....PI...The top 100 are..3.14...159...26...5...3594..(Hiccup)....</p>'
+		'<p>-<<$DZ.name>>: Clam?！...and many more...Did you just call my sister?..You drank too much, right?......(Hiccup).....(Hiccup)......</p>'
+		'<p>-Me: I`ll take you back...</p>'
+		'<p>-<<$DZ.name>>: Don`t I look good?.?..Not as good as your sister...?...To be honest, have you ever committed adultery with your sister?....?....(Hiccup).....(Hiccup).....</p>'
+		$DZ.bad+=1
+		$DZ.love+=$my.charm
+	'</div>'
+end
+
+if $ARGS[0]="dz_fuck_drunk_follow-up":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\暧昧自慰~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:  gt ''universal_overnight''">sleep</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-The second half of the night...There was a light gasp from inside the house....</p>'
+		if $DZ.BAD<=30:
+		'<p>-<<$DZ.name>>：...Over and over again......When are you going to eat me?....actually....I kind of like you.........</p>'
+		end
+		if $DZ.BAD>30:
+		'<p>-<<$DZ.name>>：..............</p>'
+		'<p>-<<$DZ.name>>: I actually slept with my best friend`s brother....I`m such a bitch...but...You really suit my appetite....</p>'
+		end
+		if $DZ.BAD>100:
+		'<p>-<<$DZ.name>>: Since I have done it so many times....Instead of being<<$jj.name>>I found out that I was scolded for being a slut who seduced her brother....It`s better to pull her into the water too...</p>'
+		end
+		if $DZ.BAD>150:
+		'<p>-<<$DZ.name>>: His sister and I were fucked by him....There will be no problem........</p>'
+		end
+		$DZ.BAD+=5
+	'</div>'
+end
+
+
+
+if $args[0]="dz_fuck_drunk":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''喂水'' & gt ''geology_event'',''dz_fuck_drunk'',''feed_water''">Feed water</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''接吻'' & gt ''geology_event'',''dz_fuck_drunk'',''kiss''">kiss</a></div>'
+			end
+			if a!3 and  5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''舔奶'' & gt ''geology_event'',''dz_fuck_drunk'',''licking_milk''">Licking milk</a></div>'
+			end
+			if a!4 and a!5 and  8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''准备进入'' & gt ''geology_event'',''dz_fuck_drunk'',''ready_to_enter''">Rubbing the lower body</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''射'' & gt ''geology_event'',''dz_fuck_drunk'',''shoot''">External shot</a></div>'
+			end
+
+			if a=5: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''暧昧'' & gt ''geology_event'',''dz_fuck_drunk'',''ambiguous'',''end''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $DZ.bad>=25:
+				'<div class="button"><a href="exec:a=9 & gt ''geology_event'',''dz_fuck_drunk_follow-up''">The second half of the night...</a></div>'
+				end
+				'<div class="button"><a href="exec:  gt ''universal_overnight''">overnight</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Wait until<<$DZ.name>>When she was carried to the hotel, she was already drunk and out of shape.......</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I`ll feed you some water..Drink slowly....</p>'
+			 '<p><<$DZ.name>>: Wait..Don`t go down.go...Let`s sleep together....This time<<$JJ.name>>But it can`t grab me anymore........</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: No way..Stop quickly..It`s not good to be known by your sister....OS: She has robbed me of so many boyfriends, so it`s not too much for me to rob her of a younger brother..</p>'
+		 '</div>'
+	end
+
+
+	
+	if a=9:
+		 $DZ.bad+=q+2
+		 $DZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>fuck....I actually talked to my best friend`s brother.....OS: Forget it...I didn`t plug it in again..Nothing happened anyway...</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $args[0]="DZ_Fuck_sex":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''sex1挑逗'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex1_tease''">Licking testicles</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''sex2挑逗2'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex2_tease_2''">Play with cock</a></div>'
+			end
+			if a!3 and  5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''sex3口交'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex3_blowjob''">Oral sex</a></div>'
+			end
+			if a!4 and  8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''sex4sex'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex4sex''">Didn`t enter the whole root</a></div>'
+			end
+			if a!5 and  9>= q and q>=4 :
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''sex5sex'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex5sex''">Top to the uterine mouth</a></div>'
+			end
+			if a!6 and a!9 and  q>=5 :
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''sex6冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex6_sprint_sex''">sprint</a></div>'
+			end
+			if a=6: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''sex7射'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex7_shoot''">Internal injection</a></div>'
+			end
+			if a=9: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''暧昧'' & gt ''geology_event'',''DZ_Fuck_sex'',''ambiguous'',''end''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $DZ.bad>=30:
+				'<div class="button"><a href="exec:a=9 & gt ''geology_event'',''dz_fuck_drunk_follow-up''">overnight</a></div>'
+				end
+				'<div class="button"><a href="exec: minutes+=30 &gt ''home''">Go home</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:This time i....can..Not drunk!..........</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:Tweet-tweet-tweet——<<$protagonists_name>>, Your job is not bad....No wonder your sister likes you so much...</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$words>>..</p>'
+		 '</div>'
+	end
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: It`s so hot in the small hole, the uterus is filled......</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+
+if $ARGS[0]="weekend_date":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\喝酒2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=60 & $filename_reference=''sex20开幕'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex20_opening''">Pay</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-Beauty, food, and wine have brought the distance between each other a lot closer...</p>'
+		'<p>-<<$DZ.name>>: You said....(Hiccup)..Who is more beautiful than your sister and me?....(Hiccup)..Choose me..Choose me~~</p>'
+		'<p>-<<$DZ.name>>: Hello....Are you drunk..?I kind of want it....</p>'
+		
+	 if $DZ.BAD>=100:
+		'<p>-Under the table, she took off her high heels and teased your crotch with her feet...... </p>'
+	 end
+	 if $DZ.BAD>=150:
+		'<p>-<<$DZ.name>>: I want you to give it to me now....Satisfy me... </p>'
+	 end
+	'</div>'
+end
+
+
+if $args[0]="DZ_Fuck_sex2":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''sex21挑逗'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex21_tease''">Licking milk to serve</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''sex22挑逗2'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex22_tease_2''">Lick cock and serve</a></div>'
+			end
+			if a!3 and a<6 and  5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''sex23口交'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex23_blowjob''">Hand and mouth service</a></div>'
+			end
+			if a!4 and a<6 and  8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''sex24sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex24sex''">Female upper</a></div>'
+			end
+			if a!5 and a<6 and  9>= q and q>=4 :
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''sex25sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex25sex''">Normal bit</a></div>'
+			end
+			if a!6 and a<6 and a!9 and  q>=5 :
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''sex26sprintsex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex26sprintsex''">冲刺</a></div>'
+			end
+			if a=6: 
+			'<div class="button"><a href="exec:a=7 & $filename_reference=''sex26冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex26冲刺sex''">Ejaculation</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''sex2颜射'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex2_bukkake''">Shoot in the face</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''sex2胸射'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex2_chest_shot''">Shot in the chest</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''sex2臀射'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex2_butt_shot''">Shoot buttocks</a></div>'
+			end
+
+			if a=8: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''sex28结束'' & gt ''geology_event'',''DZ_Fuck_sex2'',''end_of_sex28'',''end''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $DZ.bad>=30:
+				'<div class="button"><a href="exec:a=9 & gt ''geology_event'',''dz_fuck_drunk_follow-up''">overnight</a></div>'
+				end
+				'<div class="button"><a href="exec:a=0 & q=0 & $filename_reference=''sex20开幕'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex20_opening'',''0''">One more shot</a></div>'
+				'<div class="button"><a href="exec: minutes+=30 &gt ''residential_area''">Almost there</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: I knew you were the best~ she couldn`t wait to wrap her tongue around you...</p>'
+		 '</div>'
+	end
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: Do you want to do it again?I know you can, the meat stick will be hard after a few blows..</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $args[0]="dz_fuck_home":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''家1挑逗'' & gt ''geology_event'',''dz_fuck_home'',''home_10''">Lick the glans</a></div>'
+			end
+			if a!2 and q<=9 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''家2挑逗2'' & gt ''geology_event'',''dz_fuck_home'',''home_2_tease_2''">Small hole thrusting</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''家2挑逗3'' & gt ''geology_event'',''dz_fuck_home'',''home_2_tease_3''">Small hole observation</a></div>'
+			end
+			if a!4 and 5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''家3口交'' & gt ''geology_event'',''dz_fuck_home'',''home_3_blowjob''">Oral sex</a></div>'
+			end
+			if a!5 and 8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''家4sex'' & gt ''geology_event'',''dz_fuck_home'',''home_4tex''">Female upper</a></div>'
+			end
+			if a!6 and 9>= q and q>=4 :
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''家5sex'' & gt ''geology_event'',''dz_fuck_home'',''home_5tex''">Embrace the female upper class</a></div>'
+			end
+			if a!7 and q>=5: 
+			'<div class="button"><a href="exec:a=7 & $filename_reference=''家6冲刺sex'' & gt ''geology_event'',''dz_fuck_home'',''home_6_sprint_sex''">Anal sex sprint</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''家7射'' & gt ''geology_event'',''dz_fuck_home'',''home_7_shots''">Bukkake</a></div>'
+			end
+			if a=8: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''家8结束'' & gt ''geology_event'',''dz_fuck_home'',''home_8_ends'',''end''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:a=9 & gt ''geology_event'',''rion_ran_into''">Ready to leave</a></div>'
+
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:Oh, I can`t find it anywhere, will it be with you?</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: No, it`s not that hole!Pull it out quickly, it hurts...It hurts so much..what!</p>'
+		 '</div>'
+	end
+	
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: (The brain is in the air)...It seems that the file is not in my pussy either...It`s not in my ass either...</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $ARGS[0]="rion_ran_into":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\撞见~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:minutes+=30 & gt ''geology_event'',''eat_at_home''">Ready to eat</a></div>'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''subway''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$RION.name>>: Do you have my clothes?....</p>'
+		'<p> <<$DZ.name>>sister!you..Why are you at home?！</p>'
+		'<p> <<$RION.name>>: What`s up?Is this your little boyfriend?Hello!I am<<$DZ.NAME>>My cousin, who works in the Immigration Administration, you can call me Anzhai Lala, Utsunomiya Aster or Rion.</p>'
+		$RION.available=1
+		$rion.bumped_into=1
+		'<p> <<$DZ.name>>: Sister!How many times have I said it!Sister, why don`t you knock on the door again!</p>'
+		'<p> <<$RION.name>>: Sorry~.....OS: Did you get an erection when you saw my big breasts?Although I have seen this length and hardness several times...Tsk tsk...Oh, the occupational disease has been committed again..</p>'
+		'<p> <<$RION.name>>: Well, don`t disturb your sexual time. If you want to eat, I will prepare one more.....</p>'
+	'</div>'
+end
+
+if $ARGS[0]="invite_home":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:gt ''geology_event'',''eat_at_home''">Go to her house</a></div>'
+	 	'<div class="button"><a href="exec:gt ''subway''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$DZ.name>>: Let`s go, my cousin is at home today!Show you a taste of her craftsmanship!She doesn`t just have the advantage of big tits!</p>'
+
+end
+
+if $ARGS[0]="eat_at_home":
+	a=0
+	q=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\收拾~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:minutes+=30 & gt ''geology_event'',''eat_at_home_1''">...</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$RION.name>>: Ah, there are so many clothes to wash...It seems that the curry will have to be cooked for a while...</p>'
+		'<p> <<$RION.name>>: By the way, the tits have been so big recently, I don`t know if the female hormones have exploded again........</p>'
+
+end
+
+if $ARGS[0]="eat_at_home_1":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\隐秘1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:$filename_reference=''隐秘1-1'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-1''">agree</a></div>'
+	 	'<div class="button"><a href="exec:gt ''subway''">Declined</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$DZ.name>>: Damn it, since the meal is not ready yet, why don`t we have sex secretly here?...</p>'
+		'<p> <<$DZ.name>>: My sister has a lot of housework to do, she won`t find out...</p>'
+
+end
+
+if $args[0]="dz_fuck_secret":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''隐秘1-1'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-1''">Keep kissing</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''隐秘1-2'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-2''">Squirting</a></div>'
+			end
+			if a!3 and 5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''隐秘1-3'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-3''">Oral sex</a></div>'
+			end
+			if a!4 and q>=3 :
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''隐秘1-4'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-4''">Back position</a></div>'
+			end
+			if a!5 and q>=4 :
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''隐秘1-5'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-5''">Female upper</a></div>'
+			end
+			if a!6 and q>=6 :
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''隐秘1-6'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-6''">sprint</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''隐秘1-7'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-7'',''end''">Ejaculation</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:a=9 & gt ''geology_event'',''rion_discovered''">...</a></div>'
+
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: It`s really exciting.....The heart is almost tuned out.....</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+$my.charm
+		 $RION.bad+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: Hehe, it`s so exciting......</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $ARGS[0]="rion_discovered":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\隐秘1-8~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	if $RION.love>=100:'<div class="button"><a href="exec:a=-1 & gt ''rion_event'',''rion_fuck_dinner''">Stay for dinner</a></div>'else:'<div class="buttonGr"><a href="exec:">Stay for dinner</a></div>'
+	 	'<div class="button"><a href="exec:gt ''subway''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$RION.name>>: Damn sister.....Actually doing this kind of thing secretly....</p>'
+
+end
+
+if $args[0]="dz_fuck_medicine":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''药1挑逗'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_12''">Nipple drops</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''药10挑逗'' & gt ''geology_event'',''dz_fuck_medicine'',''10_pieces_of_medicine''">Breast orgasm</a></div>'
+			end
+			if a!3 and 5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''药2挑逗2'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_2_tease_2''">Drop clitoris</a></div>'
+			end
+			if a!4 and 6>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''药3口交'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_3_oral_sex''">Oral sex</a></div>'
+			end
+			if a!5 and a<8 and q>=4 :
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''药4sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_4tex''">Back position</a></div>'
+			end
+			if a!6 and a<8 and q>=6 :
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''药5sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_5tex''">Female upper</a></div>'
+			end
+			if a!7 and a<8 and q>=7 :
+			'<div class="button"><a href="exec:a=7 & $filename_reference=''药9sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_9tex''">Normal bit</a></div>'
+			end
+			if a!8 and q>=8 :
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''药6冲刺sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_6_sprint_sex''">sprint</a></div>'
+			end
+			if a=8: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''药7射'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_7_shots''">Ejaculation</a></div>'
+			end
+			if a=9: 
+			'<div class="button"><a href="exec:a=10 & $filename_reference=''药8结束'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_8_is_over'',''end''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:MGF -= 1 & gt ''mugou_pharmaceutical''">Pack up and leave</a></div>'
+
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:Is this McGovern Essence?This kind of tension and expectation is the same as every time I see you.</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+	
+	if a=10:
+		 $DZ.bad+=q
+		 $DZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>: This is Mei Medicine!Aphrodisiac!No matter how pure a woman is, she will become a degenerate bitch...It`s so dangerous, fortunately, it`s you....</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $args[0]="dzjj_fuck_inverse_3p":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"end":
+		'<div class="button_menu">'
+			if a!1 and q<=3 :
+			'<div class="button"><a href="exec:a=1 & $filename_reference=''3P2挑逗'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p2_tease''">Double service</a></div>'
+			end
+			if a!2 and 6>= q and q>=1 :
+			'<div class="button"><a href="exec:a=2 & $filename_reference=''3P3口交'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p3_oral_sex''">Let sister mouth</a></div>'
+			end
+			if a!3 and 6>= q and q>=1 :
+			'<div class="button"><a href="exec:a=3 & $filename_reference=''3P4口交'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p4_oral_sex''">let<<$DZ.name>>mouth</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=4 & $filename_reference=''3P5口射'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p5_oral_injection''">Shoot sister in the mouth</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=5 & $filename_reference=''3P6口射'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p6_oral_injection''">shoot<<$DZ.name>>mouth</a></div>'
+			end
+			if a!6 and q>=4 :
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''3P7sex'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3P7sex''">Have sex with sister</a></div>'
+			end
+			if a!7 and q>=4 :
+			'<div class="button"><a href="exec:a=7 & $filename_reference=''3P8sex'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3P8sex''">and<<$DZ.name>>Make_love</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''3P9射'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p9_shot''">Ejaculation</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=9 & $filename_reference=''3P10射'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p10_shot''">Ejaculation</a></div>'
+			end
+			if a>=8: 
+			'<div class="button"><a href="exec:a=10 & $filename_reference=''3P1结束'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''end_of_3p1'',''end''">end</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:q=0 & $filename_reference=''3P0开幕'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p0_opening''">Satisfied again</a></div>'
+
+				'<div class="button"><a href="exec:gt ''mugou_pharmaceutical''">It`s 8 o`clock</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>This is really a good place. No matter how loud they do it, they won`t be discovered. They can`t bear to start kissing you again....</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p>*<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=6 :
+		 '<div class="dialog_menu">'
+			 '<p>*<<$words>></p>'
+		 '</div>'
+	end
+	
+	if a=10:
+		 $DZ.bad+=q
+		 $DZ.love+= q+$my.charm
+		 $JJ.bad+=q
+		 $JJ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p>It is obvious that they are not satisfied...</p>'
+		 	 '<p>Me: I only have one meat stick, and I can only fuck one bitch at a time. Which of you two is the most lascivious bitch?</p>'
+			 '<p><<$JJ.name>>: I am, I am, I am my brother`s bitch, I want to drink my brother`s delicious semen, go home and let you fuck your sister and mother one by one, just plug me in now~~</p>'
+			 '<p><<$DZ.name>>: Punish me severely with your big meat stick!I am a goddess in the eyes of outsiders, but it is your private bitch who fills every hole in me, please!</p>'
+		 	 '<p>Me: I really can`t help you~</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+
+
+
+ 
+--- geology_event ---------------------------------
+

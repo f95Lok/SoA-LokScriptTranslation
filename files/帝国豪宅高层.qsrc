@@ -1,0 +1,174 @@
+# 帝国豪宅高层
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+随机数=rand(0,100)
+
+'<div id="right-column">'
+    gs'menu_time'
+    gs'menu_status_show'
+    gs'menu_option_show'
+    '<div class="actions_menu">'
+        '<div class="action">'
+            '<a class="photo" data-title="停机室" href="exec:gt''帝国豪宅高层'',''左上角''"><img class="img_stretch" src="images\NPC\CT\pics\左上角.jpg"></a>'
+            '<a class="photo" data-title="项目室" href="exec:gt''帝国豪宅高层'',''项目室''"><img class="img_stretch" src="images\NPC\CT\pics\项目室.jpg"></a>
+            <a class="photo" data-title="景色" href="exec:gt''帝国豪宅'',''景色''"><img class="img_stretch" src="images\NPC\CT\pics\景色.jpg"></a>
+        </div>'
+        '<div class="action">
+            <a class="photo" data-title="反应堆顶部" href="exec:gt''帝国豪宅高层'',''高层盖子''"><img class="img_stretch" src="images\NPC\CT\pics\高层盖子.jpg"></a>
+            <a class="photo" data-title="反应堆" href="exec:gt''帝国豪宅高层'',''高层反应堆''"><img class="img_stretch" src="images\NPC\CT\pics\高层反应堆.jpg"></a>
+            <a class="photo" data-title="办公室" href="exec:gt''帝国豪宅'',''办公室''"><img class="img_stretch" src="images\NPC\CT\pics\办公室.jpg"></a>
+        </div>'
+        '<div class="action">
+            <a class="photo" data-title="母株培养皿" href="exec:gt''帝国豪宅高层'',''高层独立''"><img class="img_stretch" src="images\NPC\CT\pics\高层独立.jpg"></a>
+            <a class="photo" data-title="实验室" href="exec:gt''帝国豪宅高层'',''高层实验室''"><img class="img_stretch" src="images\NPC\CT\pics\高层实验室.jpg"></a>
+            <a class="photo" data-title="绿植" href="exec:gt''帝国豪宅'',''绿植''"><img class="img_stretch" src="images\NPC\CT\pics\绿植.jpg"></a>
+        </div>'
+        '<div class="action">
+            <a class="photo" data-title="培养矩阵" href="exec:gt''帝国豪宅高层'',''高层矩阵''"><img class="img_stretch" src="images\NPC\CT\pics\高层矩阵.jpg"></a>
+            <a class="photo" data-title="高层过道" href="exec:gt''帝国豪宅高层'',''高层过道''"><img class="img_stretch" src="images\NPC\CT\pics\高层过道.jpg"></a>
+            <a class="photo" data-title="？？？" href="exec:gt''帝国豪宅'',''右通道''"><img class="img_stretch" src="images\NPC\CT\pics\右通道.jpg"></a>
+        </div>'
+        
+    '</div>'
+'</div>'
+
+if $args[0] ="":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\通道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·更核心也是更机密的区域由此处向上延伸着。</p>'
+    '</div>'
+End
+
+
+if $args[0] ="左上角":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\左上角.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB1"><a href="exec:gt ''居民区''">飞往居民区</a></div>'
+		'<div class="buttonB2"><a href="exec:gt ''大别墅''">飞往大别墅</a></div>'
+		'<div class="buttonB3"><a href="exec:gt ''市政厅''">飞往市政厅</a></div>'
+		'<div class="buttonB4"><a href="exec:gt ''地铁''">飞往市区</a></div>'
+		'<div class="buttonB5"><a href="exec:gt ''郊外''">飞往郊外</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·私人停机室，这里可以搭乘私人直升机前往城市各处</p>'
+	'</div>'
+End
+
+if $args[0] = "项目室":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\项目室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn1"><a href="exec:帝国精源人编=1 & gt ''帝国_事件'',''帝国_Fuck_精源项目人''">①号射精室</a></div>'
+		'<div class="buttonGn2"><a href="exec:帝国精源人编=2 & gt ''帝国_事件'',''帝国_Fuck_精源项目人''">②号射精室</a></div>'
+		'<div class="buttonGn3"><a href="exec:帝国精源人编=3 & gt ''帝国_事件'',''帝国_Fuck_精源项目人''">③号射精室</a></div>'
+		if 帝国精源1推荐+帝国精源2推荐+帝国精源3推荐<3:'<div class="buttonGr"><a href="exec:">㊕别射精室<<帝国精源1推荐+帝国精源2推荐+帝国精源3推荐>>/3</a></div>'else:'<div class="buttonG4"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_精源项目计划C''">㊕别射精室</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这里是帝国集团与政府合作的项目室，主要负责的是精源项目的深度开发。</p>'
+	'</div>'
+End
+
+if $args[0] = "高层盖子":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层盖子.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这里是反应堆的顶部主控制台，它用来监控和控制反应堆的运行状态的。它可以显示反应堆的能量输出、温度、压力等参数，同时也可以调整反应堆的运行模式和参数。通过主控制台，可以确保反应堆始终处于安全、稳定的状态，并且可以根据需要进行调整，以满足建筑的能源需求。此外，主控制台还可以记录反应堆的运行数据，以便后续分析和优化反应堆的性能。</p>'
+	'</div>'
+End
+
+if $args[0] = "高层反应堆":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层反应堆.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这是巨大的生物降解反应堆，它负责为整个建筑提供能量。</p>'
+		'<p>我: 它的燃料是什么？</p>'
+		'<p><<$CT.name>>: 那些植物的叶子，在焚烧的时候虽然这些植物叶子的特殊化学反应与核反应不同，但是它们产生超高的热量的特性与核反应有些相似。在核反应中，原子核的裂变或聚变会释放大量的能量，这种能量可以用于发电、核武器等领域。而这些植物叶子的化学反应也能够产生超高的热量…</p>'
+	'</div>'
+End
+
+if $args[0] = "高层独立":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层独立.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这是你父亲带给我的“礼物”，当时母株还只有手掌那么大，现在已经有数米高了，时间可过得真快。</p>'
+		'<p>我: 看来你和我父亲很熟？</p>'
+		'<p><<$CT.name>>: 很熟也谈不上，他好像知道这株植物的价值，非常高调地四处寻找投资者，但是你知道的，树大招风。</p>'
+		'<p>我: 我父亲的昏迷不是意外？</p>'
+		'<p><<$CT.name>>: 我可没这样说，我只知道有些人不喜欢类似核能的开发，比如说<<$SZ.name>></p>'
+	'</div>'
+End
+
+if $args[0] = "高层实验室":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层实验室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB1"><a href="exec:帝国内实验编号=1 & gt ''帝国_事件'',''帝国_Fuck_普通实验''">参与常规实验</a></div>'
+		if 秘书内实验=1:'<div class="buttonB3"><a href="exec:帝国内实验编号=2 & gt ''帝国_事件'',''帝国_Fuck_普通实验''">参与深度实验</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这里是一个秘密植物能源实验室，是一个专门研究利用植物能源的高科技实验室。实验室拥有各种先进的设备和技术，可以对不同种类的植物进行分析和测试，以确定它们的能源性能和适应性。在这里，科学家们还可以利用基因工程和生物技术手段，改良植物的能源性能和生长特性，以适应不同环境条件和能源需求。实验室的工作人员还会定期发布研究成果和技术报告，为能源领域的研究和发展做出贡献。</p>'
+	'</div>'
+End
+
+if $args[0] = "高层矩阵":
+	'<div class="show_menu"><img src="images\NPC\CT\pics\高层矩阵.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国豪宅高层''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这是异色植物培养矩阵，负责培养从母株分离出的异色植物。</p>'
+	'</div>'
+End
+
+
+if $args[0] ="高层过道":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\高层过道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''帝国豪宅''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+		'<p><<$CT.name>>: 这里是整个高级研发部和能源中心的主体走廊，我会为你介绍这里的一切。</p>'
+		'<p>我: 为什么这里会有这样一个大型的研发中心和类似核反应堆一样的东西？</p>'
+		'<p><<$CT.name>>: 你问我为什么要在自己家建这种东西？最危险的地方就是最安全的地方。</p>'
+    '</div>'
+End
+
+
+
+
+
+--- 帝国豪宅高层 ---------------------------------
+

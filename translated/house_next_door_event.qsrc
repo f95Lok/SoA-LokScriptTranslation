@@ -1,0 +1,1217 @@
+# house_next_door_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+if $ARGS[0]="chance_encounter_in_the_mall":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\商场1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:$BGH.love+=5 & a=1 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Say hello</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & $BGH.love+=5 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Take her shopping</a></div>'
+		if 4>=a and a>=2 :
+			if a=2:'<div class="buttonR1"><a href="exec:a=3 & $BGH.love+=10 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Talk about life</a></div>'
+			if a!4 and $BGH.love>30:'<div class="buttonP"><a href="exec:a=4 & $BGH.love+=10 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Talk about feelings</a></div>'else:'<div class="buttonGr"><a href="exec:">Talk about feelings</a></div>'
+			if a=4 and $BGH.love>50:'<div class="button"><a href="exec:a=5 & $BGH.love+=9 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Pull to eat</a></div>'
+		end
+		if a=5:'<div class="buttonG"><a href="exec:a=6 & $BGH.love+=10 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Pay</a></div>'
+		if a=6 and $BGH.love>100:'<div class="button"><a href="exec:a=7 & $BGH.love+=10 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Go for a drink?</a></div>'
+		if a=7:'<div class="button"><a href="exec:a=8 & $BGH.love+=1 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Cheers</a></div>'
+		if a=8:'<div class="button"><a href="exec:a=9 & $BGH.love+=2 & gt ''house_next_door_event'',''chance_encounter_in_the_mall''">Keep drinking</a></div>'
+		if a=9:'<div class="button"><a href="exec:a=0 & $BGH.love+=2 & gt ''house_next_door_event'',''take_it_to_the_hotel''">Take it to the hotel</a></div>'
+		'<div class="button"><a href="exec:minutes+=60 & gt ''shopping_mall''">respectively</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:'<p>Me: ... is it her?</p>'
+		if a=1:
+		$BGH.available=1
+		'<p>Me: Hello, my name is<<$protagonists_name>>, I replace<<$JM.name>>Come shopping with you.</p>'
+		'<p><<$BGH.name>>:Then you should know my name, right?My name is<<$BGH.name>></p>'
+		'<p>Me: Have you been waiting for a long time?</p>'
+		'<p><<$BGH.name>>:I made an appointment with my husband to buy things together before, but the company worked overtime temporarily. If you don`t come, I`m going back.…</p>'
+		end
+		
+		if a=2:
+		'<p>Me: I`m familiar with this area, why don`t I show you around?</p>'
+		'<p><<$BGH.name>>:That`s great... let me see the list of items I want to buy……</p>'
+		end
+		
+		if a=3:
+		'<p>Me: What does my sister usually like to do?</p>'
+		'<p><<$BGH.name>>:I usually have nothing to do at home, so I either do housework or go out to stroll around the street or something.…</p>'
+		'<p>Me: Yeah, it`s quite boring to go shopping alone, right?</p>'
+		'<p><<$BGH.name>>:Yeah, but there`s no way. My husband works overtime every day. It`s not once or twice like today. I`m used to it.…</p>'
+		'<p>Me: Then don`t you feel empty and lonely?</p>'
+		'<p><<$BGH.name>>: * Glanced at you…</p>'
+		end
+		
+		if a=4:
+		'<p>Me: How is your relationship with your husband?</p>'
+		'<p><<$BGH.name>>:My husband... he loves his job more than I do.</p>'
+		'<p>Me: Oh?How do you say this?</p>'
+		'<p><<$BGH.name>>:He feels...a man must have a career first...before he can have love.</p>'
+		'<p>Me: Is his work so busy every day?</p>'
+		'<p><<$BGH.name>>: Yeah, for him, work is much more important than me... * Wry smile</p>'
+		'<p>Me: Anyway, you go home and eat alone. I know there is a good restaurant nearby. Do you want to try it?</p>'
+		'<p><<$BGH.name>>: What?*Cheeks are red</p>'
+		end
+		
+		if a=5:
+		'<p>Me: Isn`t this shop good?And your taste?</p>'
+		'<p><<$BGH.name>>:Very delicious!</p>'
+		'<p>Me: That`s good.</p>'
+		'<p>·The atmosphere is gradually warm</p>'
+		end
+		
+		if a=6:
+		'<p>Me: Waiter!Pay!</p>'
+		'<p><<$BGH.name>>:Let me do it!I am also very embarrassed that you have been shopping with me for so long.</p>'
+		'<p>Me: Let me do it.</p>'
+		'<p><<$BGH.name>>: No way!*Resolute tone</p>'
+		'<p>Me: Okay, then I will invite next time.</p>'
+		end
+		
+		if a=7:
+		'<p><<$BGH.name>>:Alas, I have rarely drunk alcohol since I got married.</p>'
+		'<p>Me: Would you like some wine!</p>'
+		'<p><<$BGH.name>>:Ok!But you have to keep it a secret from my husband!</p>'
+		'<p>Me: Cheers!</p>'
+		'<p><<$BGH.name>>: Cheers!*Pleasant atmosphere</p>'
+		end
+		
+		if a=8:
+		'<p>Me: Are you a little drunk?</p>'
+		'<p><<$BGH.name>>:How could it be?？I just haven`t drunk it for too long❤</p>'
+		'<p>Me: How did you and your husband meet?</p>'
+		'<p><<$BGH.name>>:We are colleagues. He is my senior. I was with him soon after I entered the company. After I got married, I resigned and stayed at home. Because of the transfer of work, I came here with him.…</p>'
+		'<p>Me: Then your relationship must be very good!</p>'
+		'<p><<$BGH.name>>: Heh* She hesitated for a moment, lowered her head and didn`t speak</p>'
+		end
+		
+		if a=9:
+		'<p>Me: Are you still awake?Wake up (shook her)</p>'
+		'<p><<$BGH.name>>:Call--call——</p>'
+		'<p>Me: You are drunk, shall I take you home?</p>'
+		'<p><<$BGH.name>>:I don`t want to go home... he won`t be back tonight... I`m going home too……</p>'
+		'<p>Me: Then where do you want to go?</p>'
+		'<p><<$BGH.name>>:You take me to the hotel…</p>'
+		end
+		
+	'</div>'
+end
+
+
+if $args[0]="take_it_to_the_hotel":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\酒店0-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''house_next_door_event'',''take_it_to_the_hotel''">Go in and sit down</a></div>'
+		if a=0:'<div class="button"><a href="exec:gt ''residential_area''">Have a good rest</a></div>'
+		if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''take_it_to_the_hotel''">Small talk</a></div>'
+		if a=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''house_next_door_event'',''take_it_to_the_hotel''">Comfort her</a></div>'
+		if a=3:'<div class="buttonS1"><a href="exec:a=4 & gt ''house_next_door_event'',''take_it_to_the_hotel''">Turn around</a></div>'
+		if a=4:'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Go with her</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		if a=0:
+		'<p><<$BGH.name>>:Thank you…</p>'
+		'<p>Me: Then I`m gone?</p>'
+		'<p><<$BGH.name>>: Uh, you should go back and rest early…</p>'
+		end
+		if a=1:
+		'<p>Me: I`ll leave with a glass of water.</p>'
+		'<p><<$BGH.name>>:It`s okay... you can stay longer if you want.</p>'
+		end
+		if a=2:
+		'<p><<$BGH.name>>:Hey... am I very unattractive?</p>'
+		'<p>Me: How could it be? I think it is his blessing that your husband can marry you.</p>'
+		'<p><<$BGH.name>>:Uh, but I`ve been married for several years, and he goes home every day to sleep. I haven`t done it with him for a long time.……</p>'
+		'<p>Me: That`s because he has eyes and no beads.</p>'
+		'<p><<$BGH.name>>:How can you say that to him... obviously I`m not attractive enough</p>'
+		end
+		if a=3:
+		'<p>Me: You have to be confident in yourself. In my eyes, you can fascinate all men.</p>'
+		'<p><<$BGH.name>>:I don`t believe it, you prove it to me!</p>'
+		'<p>Me: How do you want me to prove it?</p>'
+		'<p><<$BGH.name>>Suddenly took off his clothes</p>'
+		'<p>Me: You are……</p>'
+		'<p><<$BGH.name>>:You look at me... do you... feel it?</p>'
+		end
+		if a=4:
+		'<p><<$BGH.name>>:Does my body look good?</p>'
+		'<p>Me: Good-looking* swallowing saliva</p>'
+		'<p><<$BGH.name>>:Do you like me?</p>'
+		'<p>Me: like…</p>'
+		'<p><<$BGH.name>>:Since he doesn`t know how to cherish, then I don`t need to be widowed all the time, come here.</p>'
+		end
+
+	'</div>'
+End
+
+
+
+if $args[0]="next_door_fuck_hotel":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\酒店1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<17:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_hotel''">kiss</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Serve me</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Further service</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_hotel''">kiss</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Oral sex</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Hold on</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Touch the pussy</a></div>'
+            end
+            if a!8 and 7<=q and q<=11:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Lick her</a></div>'
+            end
+            if a!9 and 8<=q and q<=12:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Plug in</a></div>'
+            end
+            if a!10 and 9<=q and q<=13:
+            '<div class="buttonS1"><a href="exec:a=10 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Slow thrusting</a></div>'
+            end
+            if a!11 and 10<=q and q<=14:
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Quick thrusting</a></div>'
+            end
+            if a!12 and 11<=q and q<=15:
+            '<div class="buttonS3"><a href="exec:a=12 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Vigorous thrusting</a></div>'
+            end
+            if a!13 and 12<=q and q<=16:
+            '<div class="buttonS4"><a href="exec:a=13 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Pumping from behind</a></div>'
+            end
+            if a!14 and 13<=q and q<=17:
+            '<div class="buttonS2"><a href="exec:a=14 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Riding on the top of the female</a></div>'
+            end
+            if a!15 and 14<=q and q<=18:
+            '<div class="buttonS3"><a href="exec:a=15 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Side position</a></div>'
+            end
+            if a!16 and 15<=q :
+            '<div class="buttonS4"><a href="exec:a=16 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Persevere</a></div>'
+            end
+            if a=16:
+            '<div class="buttonS5"><a href="exec:a=17 & gt ''house_next_door_event'',''next_door_fuck_hotel''">Internal injection</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=1440 & hour=7 & a=0 & q=0 & gt ''house_next_door_event'',''next_door_fuck_hotel_2''">Spend the night here</a></div>'
+                !'<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 16>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>I went into the bathroom with her…</p>'
+             if a=1:'<p>Xiaohai gently pretended to kiss my chest inadvertently, and I let out a sigh, and my whole body suddenly collapsed tightly.</p>'
+             if a=2:'<p>Xiaohai took advantage of the situation and kissed my chest again, and the whole person seemed to slide into my arms, as if there were no bones, soft and fluffy. </p>'
+             if a=3:'<p>I tried to kiss Baqianghai`s lips lightly. She was a little embarrassed and turned her face to one side. I stubbornly turned her face to myself. </p>'
+             if a=4:'<p>Me: Ah...so comfortable...Sister Xiaohai...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah.…… </p>'
+             if a=5:'<p>Me: Ah...so comfortable...Sister Xiaohai...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah.…… </p>'
+             if a=6:'<p>Baqianghai: Please... hurry up... itchy...please... I can`t stand it anymore…… </p>'
+             if a=7:'<p>Baqianghai: Ah... I`m coming out.Good brother, sister Liu... is flowing out of lewd water. </p>'
+             if a=8:'<p>Baqianghai: Well, I`m afraid of pain, please take it easy </p>'
+             if a=9:'<p>Baqianghai: You have to be gentle!You can only plug in when I say yes! </p>'
+             if a=10:'<p>Me: Let our hearts be closer, okay? </p>'
+             if a=11:'<p>Baqianghai: Woo!Woo!…...Brother, stop plugging in, my little cunt is cracked!…...woo!I serve you with my mouth, don`t insert it anymore!Woo!…...I`m dying of pain…… </p>'
+             if a=12:'<p>Eight hanging seas: Oops... slow down... light up…… </p>'
+             if a=13:'<p>Me: Sister Xiaohai, your cunt is so beautiful... I like you so much! </p>'
+             if a=14:'<p>Eight hanging seas: Oh...I`m dead...Humph...dear brother...Oh...so beautiful...you really can do it...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...humph...humph...humph...humph...humph...humph...humph...humph… </p>'
+             if a=15:'<p>Eight hanging seas: Hmm...hmm...so cool... I didn`t expect to be forced...yes...yes...so refreshing...ah...ah...again...again...it`s going to ascend to heaven again.… </p>'
+             if a=16:
+                '<p>Me: Xiaohai, I`m coming! </p>'
+                '<p>Baqianghai: Hmm~hmm~hmm~ Ah, shoot me! </p>'
+                '<p>Me: Sister Xiaohai, I`m going to shoot! </p>'
+             end
+         '</div>'
+    end
+
+    if a=17:
+         '<div class="dialog_menu">'
+                '<p>Baqianghai: You just said... my cunt is so beautiful... you like me... is it true? </p>'
+                '<p>Me: Hmm. </p>' 
+                '<p>Baqianghai: I want you, tell me again… </p>'    
+                '<p>Me: Sister Xiaohai, I love you! </p>'
+                '<p>Baqianghai: I love you too…<<$protagonists_name>>❤ </p>'
+         '</div>'
+         $BGH.bad+=q+$my.charm
+         $BGH.love+=q+$my.charm
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="next_door_fuck_hotel_2":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\酒店1-18.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$BGH.name>>:Just take me to the door. I`m afraid I`ll be seen. I`ll take another bag of bread back and pretend to make breakfast.</p>'
+		'<p>Me: Okay.</p>'
+		'<p><<$BGH.name>>:My husband is not at home during the day. If you are okay, can you come to help me?</p>'
+		'<p>Me: Anytime, my pleasure.</p>'
+		$BGH.ROOM=1
+	'</div>'
+End
+
+
+
+if $args[0]="jia_liyi":
+	a=0
+	q=0
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\2.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''house_next_door_event'',''house_next_door_fuck_home''">Wait for the meal to be ready</a></div>'
+		if $bgh_home_made=1:'<div class="buttonR3"><a href="exec:gt ''house_next_door_event'',''last_time''">Last time</a></div>'
+		if $bgh_home_made=2:'<div class="buttonG"><a href="exec:gt ''house_next_door_event'',''hot_spring''">Hot spring travel</a></div>'
+		if $bgh.hot_spring=1 and $bgh.night<=2:'<div class="buttonS3"><a href="exec:gt ''house_next_door_event'',''bar_invitation''">Nightclub presumptuous</a></div>'
+		if $bgh.night>=2:'<div class="buttonS4"><a href="exec:gt ''house_next_door_event'',''next_door_fuck_tune_1''">Little domination</a></div>'
+		if $bgh.night>=3:'<div class="buttonR4"><a href="exec:gt ''house_next_door_event'',''next_door_fuck_tune_2''">Train the queen</a></div>'
+		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$BGH.name>>:Are you here?</p>'
+		'<p>Me: I think your husband should not be at home, right?Let me chat with you.</p>'
+		'<p><<$BGH.name>>:He is always busy with work, I really don`t know what the Imperial Group is doing all day long.</p>'
+	'</div>'
+End
+
+
+if $args[0]="bar_invitation":
+	a=0
+	q=0
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\2.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''residential_area''">See you soon</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$BGH.name>>:Now that my husband is on a business trip, why don`t you take me to some interesting places?</p>'
+		'<p>Me: Then where do you want to go?</p>'
+		'<p><<$BGH.name>>:Is there a street here that is only open at night?</p>'
+		'<p>Me: Kabukicho?</p>'
+		'<p><<$BGH.name>>:Where do I want to go to the nightclub to be presumptuous, can you accompany me?</p>'
+		'<p>Me: Of course.</p>'
+		'<p><<$BGH.name>>: Then...22:00 on Wednesday night?</p>'
+		if $bgh.night=0:$bgh.night=1
+	'</div>'
+End
+
+
+
+if $args[0]="house_next_door_fuck_home":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\家1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<23:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=2:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''house_next_door_fuck_home''">It`s delicious</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Open arms</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Go one step further</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Untie your panties</a></div>'
+            end
+            if a!5 and 4<=q and q<=6:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Fingertip stroking</a></div>'
+            end
+            if a!6 and 5<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Finger in</a></div>'
+            end
+            if a!7 and 6<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''house_next_door_fuck_home''">I lie down</a></div>'
+            end
+            if a!8 and 7<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Help me masturbate</a></div>'
+            end
+            if a!9 and 8<=q and q<=10:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Oral sex</a></div>'
+            end
+            if a!10 and 9<=q and q<=11:
+            '<div class="buttonR5"><a href="exec:a=10 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Mouth explosion</a></div>'
+            end
+            if a!11 and 10<=q and q<=12:
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Go to the bathroom and wash it</a></div>'
+            end
+            if a!12 and 11<=q and q<=13:
+            '<div class="buttonS3"><a href="exec:a=12 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Wash together</a></div>'
+            end
+            if a!13 and 12<=q and q<=14:
+            '<div class="buttonS4"><a href="exec:a=13 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Help me wash</a></div>'
+            end
+            if a!14 and 13<=q and q<=15:
+            '<div class="buttonS2"><a href="exec:a=14 & gt ''house_next_door_event'',''house_next_door_fuck_home''">I help her wash</a></div>'
+            end
+            if a!15 and 14<=q and q<=16:
+            '<div class="buttonS3"><a href="exec:a=15 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Bend over for oral sex</a></div>'
+            end
+            if a!16 and 15<=q and q<=17:
+            '<div class="buttonS4"><a href="exec:a=16 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Standing blowjob</a></div>'
+            end
+            if a!17 and 16<=q and q<=18:
+            '<div class="buttonS5"><a href="exec:a=17 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Front riding</a></div>'
+            end
+            if a!18 and 17<=q and q<=19:
+            '<div class="buttonS3"><a href="exec:a=18 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Vigorous thrusting</a></div>'
+            end
+            if a!19 and 18<=q and q<=20:
+            '<div class="buttonS4"><a href="exec:a=19 & gt ''house_next_door_event'',''house_next_door_fuck_home''">A little deeper</a></div>'
+            end
+            if a!20 and 19<=q and q<=26:
+            '<div class="buttonS2"><a href="exec:a=20 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Ride on the back</a></div>'
+            end
+            if a=20:
+            '<div class="buttonS3"><a href="exec:a=21 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Positive depth</a></div>'
+            end
+            if a=21:
+            '<div class="buttonS4"><a href="exec:a=22 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Bukkake</a></div>'
+            end
+            if a=22:
+				if $bgh_home_made!2:'<div class="buttonR4"><a href="exec:a=23 & gt ''house_next_door_event'',''house_next_door_fuck_home''">The sound of the key</a></div>'
+				if $bgh_home_made=2:'<div class="buttonR4"><a href="exec:a=23 & gt ''house_next_door_event'',''house_next_door_fuck_home''">Lingering afterwards</a></div>'
+            end
+
+
+
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 22>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: I`ve been waiting for a long time, the hospitality is not good!</p>'
+             if a=1:'<p>Baqianghai: Really, I`m so happy you can like it</p>'
+             if a=2:'<p>·She hugged me happily after listening, I smelled her body and was about to move </p>'
+             if a=3:'<p>Baqianghai: Do you like it like this? </p>'
+             if a=4:'<p>Baqianghai: So shy  </p>'
+             if a=5:'<p>Baqianghai: Hey (she feels the change in my lower body) Can`t you help it? </p>'
+             if a=6:'<p>Baqianghai: Good brother... you touch me... so comfortable...ahhhhhhhhhhhhhhhhhh…… </p>'
+             if a=7:'<p>Baqianghai: Good brother... you lie down</p>'
+             if a=8:'<p>·Xiaohai`s lips and teeth surrounded and rubbed his dick, while the tip of his tongue swept and entangled quickly on the glans, and the occasional scratching of hard teeth brought another kind of pleasure with a different flavor. </p>'
+             if a=9:'<p>Me: Xiaohai, I can`t help it </p>'
+             if a=10:'<p>Baqianghai: Hehe, go and wash it, he won`t go home if he works overtime tonight. </p>'
+             if a=11:'<p>Baqianghai: Don`t mind if I come in </p>'
+             if a=12:'<p>·She came in, took off her clothes and knelt in front of me </p>'
+             if a=13:'<p>Baqianghai: Good brother, let me serve you </p>'
+             if a=14:'<p>Me: Good sister, let me do it for you…… </p>'
+             if a=15:'<p>Me: Ah...so comfortable...ah </p>'
+             if a=16:'<p>Me: Cool...ah...*After taking a shower, she pulled me to the couple`s bedroom </p>'
+             if a=17:'<p>Baqianghai: Come on... good brother, let`s change our posture</p>'
+             if a=18:'<p>Baqianghai: It`s cool... Ah……</p>'
+             if a=19:'<p>Me: My sister is really lascivious, good sister, you are so lustful… </p>'
+             if a=20:'<p>Baqianghai: It`s cool... Ah……</p>'
+             if a=21:'<p>Eight hanging seas: Ah...Oh... ah cool... day I... dear brother, plug in...so fast……</p>'
+             if a=22:
+                '<p>Eight hanging seas: Ah...ah oh... come on... sister is coming...ah… </p>'
+                '<p>Me: I`m going to shoot too... sister... I`m going to ejaculate in my sister`s cunt! </p>'
+                '<p>Baqianghai: Shoot in my sister`s tender cunt, my dear brother...ah...ah... all shoot in……</p>'
+                '<p>·She and I screamed loudly at the same time, and the two of them...reached a climax at the same time.I pulled my dick out of her cunt.Semen mixed with her lewd water flowed on the sheets, a big piece of wetness. </p>'
+             end
+
+
+         '</div>'
+    end
+
+    if a=23:
+		 if $bgh_home_made=2:
+         '<div class="dialog_menu">'
+                '<p>Me: Sister Xiaohai, I love you! </p>'
+                '<p>Baqianghai: I love you too! </p>'
+         '</div>'
+         end
+    
+		 if $bgh_home_made!2:
+         '<div class="dialog_menu">'
+                '<p>*Kacha </p>'
+                '<p>·Suddenly the sound of a key opening the door sounded at the door </p>' 
+                '<p>Baqianghai: Ah, why is my husband coming back now?Go back through the back door </p>'    
+                '<p>Me: Sister Xiaohai, I love you! </p>'
+                '<p>Baqianghai: I love you too, so hurry up and go! </p>'
+         '</div>'
+         end
+         
+         $BGH.bad+=q*2+$my.charm
+         $BGH.love+=q+$my.charm
+         if $bgh_home_made=0:$bgh_home_made=1
+    end
+
+
+  q+=1
+End
+
+if $ARGS[0]="last_time":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\后1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:$BGH.love+=5 & a=1 & gt ''house_next_door_event'',''last_time''">Go on</a></div>'
+		if a=1:'<div class="button"><a href="exec:$BGH.love+=5 & a=2 & gt ''house_next_door_event'',''last_time''">Look far away</a></div>'
+		if a=2:'<div class="button"><a href="exec:$BGH.love+=5 & a=2 & gt ''house_next_door_event'',''jia_liyi''">Ok</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:
+			'<p>Me: Sister... what happened last time... is your husband suspicious?</p>'
+			'<p><<$BGH.name>>:The last time he came back to get his passport, the Imperial Group temporarily arranged for him to go overseas to discuss a merger and acquisition business.</p>'
+			'<p>Me: Then when will he come back?</p>'
+			'<p><<$BGH.name>>:Less than ten days, more than half a year.But I told him to call me before he came back.</p>'
+
+		end
+		if a=1:
+		'<p>Me: Huh--then I`m relieved.</p>'
+		'<p><<$BGH.name>>:Now we can finally be together all the time.</p>'
+		end
+		
+		if a=2:
+		'<p>Me: Who is the person in the photo on the table?</p>'
+		'<p><<$BGH.name>>:That`s a long story…</p>'
+		'<p>Me: Tell me about it.</p>'
+		'<p><<$BGH.name>>:I`ll tell you at a later date (version)!</p>'
+		'<p>Me: Then I`ll wait.</p>'
+		'<p><<$BGH.name>>:I haven`t experienced hot springs since I moved here!Shall we go together?</p>'
+		if $bgh_home_made=1:$bgh_home_made=2
+		end
+		
+
+
+		
+	'</div>'
+end
+
+if $ARGS[0]="hot_spring":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\温泉0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$BGH.love+=5 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_1''">Let`s start first</a></div>'
+		'<div class="button"><a href="exec:$BGH.love+=5 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Soak in hot springs</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+			'<p><<$BGH.name>>:Thank you for bringing me here.</p>'
+			'<p>Me: You`re welcome, Sister Xiaohai.</p>'
+			'<p><<$BGH.name>>:So what do we do first?</p>'
+	'</div>'
+end
+
+
+if $args[0]="next_door_fuck_hot_spring_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_1''">Serve me</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_1''">Licking testicles</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_1''">Oral sex</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_1''">Mouth explosion</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_1''">dialogue</a></div>'
+            end
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Go to dinner</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: Hey...hmm…</p>'
+             if a=1:'<p>Me: Um...um...it`s so beautiful...my dear...it`s really good...ahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh</p>'
+             if a=2:'<p>Me: Just slowly...um... don`t be too fast...ah……</p>'
+             if a=3:'<p>Baqianghai: Is your sister comfortable licking you?</p>'
+             if a=4:'<p>Me: Sister Xiaohai, you are amazing!  </p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+                '<p>Baqianghai: Wait for me to change clothes and go to dinner together. </p>'
+         '</div>'
+         $BGH.bad+=q*2+$my.charm
+         $BGH.love+=q+$my.charm
+    end
+
+
+  q+=1
+End
+
+if $args[0]="next_door_fuck_hot_spring_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Help her wash</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Lick me</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Wash butt</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Oral sex</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Mouth explosion</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">insert</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">accelerate</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Ready to launch</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_2''">Ejaculation</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Go to dinner</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: Smelly brother, let me wash it for you this time</p>'
+             if a=1:'<p>Me: Do you like this?</p>'
+             if a=2:'<p>Me: Good sister... um... you wash me so comfortably... I can`t stand it anymore.…… </p>'
+             if a=3:'<p>Baqianghai: Is your sister`s ass comfortable for you?</p>'
+             if a=4:'<p>Me: Oh...ah...okay!…...good sister...even more...suck hard...hmm…  </p>'
+             if a=5:'<p>Baqianghai: Hey?！Can`t you help it? </p>'
+             if a=6:'<p>Me: Good sister, don`t suppress yourself, just call if you want. The sound insulation facilities here are very good.</p>'
+             if a=7:'<p>Bakuehai: Oh...good brother...insert hard...Um...yes...harder...oh...so beautiful……</p>'
+             if a=8:'<p>Bakuehai: Um... itchy... smelly brother...Oh...please... sister can`t stand it anymore</p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+                '<p>Me: Sister Xiaohai, shot! </p>'
+                '<p>Bagua Hai: You are exhausted too, let`s go to dinner together! </p>'
+         '</div>'
+         $BGH.bad+=q*2+$my.charm
+         $BGH.love+=q+$my.charm
+    end
+
+
+  q+=1
+End
+
+if $args[0]="next_door_fuck_hot_spring_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_3''">Oral sex</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_3''">Licking testicles</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_3''">accelerate</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_3''">Ejaculation</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_3''">Lick clean</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=7 & $my.energy*=2 & a=0 & q=0 & gt ''residential_area''">zzZ</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: Hey... smelly brother... People are still greedy for your body…</p>'
+             if a=1:'<p>Me: Then my body will be at the mercy of my sister!</p>'
+             if a=2:'<p>Me: It`s cool...ah……</p>'
+             if a=3:'<p>Me: Please...hurry up...so comfortable...please...I can`t stand it anymore!</p>'
+             if a=4:'<p>Me: Sister Xiaohai, I can`t help it!</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+                '<p>Baqianghai: I`ve been doing it for a day today, so take a good rest❤ </p>'
+         '</div>'
+         $BGH.bad+=q*2+$my.charm
+         $BGH.love+=q+$my.charm
+         $bgh.hot_spring=1
+    end
+
+
+  q+=1
+End
+
+if $args[0]="next_door_fuck_hot_spring_4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Cheers</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Unbearable heat and dryness</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Lick me</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Oral sex</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Tease her</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Touch the pussy</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Riding position</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Ready to launch</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_4''">Ejaculation</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu3"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''house_next_door_event'',''next_door_fuck_hot_spring_3''">Spend the night here</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: Ah~ Hmm!So delicious!</p>'
+             if a=1:'<p>Me: Sister Xiaohai, cheers!</p>'
+             if a=2:'<p>Baqianghai: My sister is a little bit feverish.… </p>'
+             if a=3:'<p>Baqianghai: Is your sister comfortable licking you?</p>'
+             if a=4:'<p>Me: Oh...ah...okay!…...good sister...even more...suck hard...hmm…  </p>'
+             if a=5:'<p>Eight hanging seas: Um... itchy... good brother…… </p>'
+             if a=6:'<p>Bakuehai: Oh...good brother...insert hard...Um...yes...harder...oh...so beautiful……</p>'
+             if a=7:'<p>Eight hanging seas: Just slowly...um... don`t be too fast...ah...by the way... I`m so happy... humph……</p>'
+             if a=8:'<p>Eight hanging seas: Oops... Hurry up... don`t be slow...hurry up...push hard...Oops... I`m going to die...hmm……</p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+                '<p>Me: Sister Xiaohai, ah ah! </p>'
+                '<p>Eight hanging seas: Oh... big dick brother... it`s all shot out… </p>'
+         '</div>'
+         $BGH.bad+=q*2+$my.charm
+         $BGH.love+=q+$my.charm
+    end
+
+
+  q+=1
+End
+
+if $args[0]="house_next_door_fuck_ye":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\夜1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Tease her</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Touch the pussy</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Serve me</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Oral sex</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Plug her in</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Lift your legs</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Go to the sofa</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Accelerate thrusting</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Ejaculation</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS1"><a href="exec:a=10 & gt ''house_next_door_event'',''house_next_door_fuck_ye''">Lick clean</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: Do I look like that DJ who is cute?…</p>'
+             if a=1:'<p>I took advantage of the situation and touched her chest. Her whole body seemed to slide into my arms, as if there were no bones, soft and fluffy.</p>'
+             if a=2:'<p>Baqianghai: Ah... I`m coming out.Good brother, sister Liu... is flowing out of lewd water. </p>'
+             if a=3:'<p>Me: Ah...so comfortable...Sister Xiaohai...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah.…… </p>'
+             if a=4:'<p>Me: Yes... Sister Xiaohai... that`s it...your skills are getting better and better.… </p>'
+             if a=5:'<p>Eight hanging seas: Oops... slow down... light up…… </p>'
+             if a=6:'<p>Baqianghai: Woo!Woo!…...Brother, stop plugging in, my little cunt is cracked!Please... I can`t take it anymore…… </p>'
+             if a=7:'<p>Eight hanging seas: Oh...I`m dead...Humph...dear brother...Oh...so beautiful...you really can do it...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...humph...humph...humph...humph...humph...humph...humph...humph… </p>'
+             if a=8:'<p>Eight hanging seas: Hmm...hmm...so cool... I didn`t expect to be forced...yes...yes...so refreshing...ah...ah...again...again...it`s going to ascend to heaven again.… </p>'
+             if a=9:
+                '<p>Me: Xiaohai, I`m coming! </p>'
+                '<p>Baqianghai: Hmm~hmm~hmm~ Ah, shoot me! </p>'
+                '<p>Me: Sister Xiaohai, I`m going to shoot! </p>'
+             end
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+                '<p>Eight hanging seas: Smelly brother and sister help you lick it clean❤  </p>'
+                '<p>Me: Sister Xiaohai, am I strong? </p>'
+                '<p>Baqianghai: You are the best…<<$protagonists_name>>❤ </p>'
+                '<p>Me: Do I have any rewards? </p>'
+                '<p>Baqianghai: Then what do you want❤ </p>'
+                '<p>Me: I want to dominate my sister for a day❤ </p>'
+                '<p>Baqianghai: Okay, listen to you❤ </p>'
+         '</div>'
+         $BGH.bad+=q+$my.charm
+         $BGH.love+=q+$my.charm
+         if $bgh.night=1:$bgh.night=2
+    end
+
+
+  q+=1
+End
+
+if $args[0]="house_next_door_fuck_night_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\夜2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Kiss her forcibly</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Rub your chest</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Up and down</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Serve me</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Mouth me</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Sit up</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">kiss</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Use inertia</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">accelerate</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS1"><a href="exec:a=10 & gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Ejaculation</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Me: Sister Xiaohai... you really listened to me and dressed like this…</p>'
+             if a=1:'<p>Baqianghai: Oh... Smelly brother... what`s the hurry?…</p>'
+             if a=2:'<p>Baqianghai: Ah... am I wearing a show? </p>'
+             if a=3:'<p>Eight hanging sea：<<$panting>></p>'
+             if a=4:'<p>Me: Ah...so comfortable...Sister Xiaohai...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah...ah.…… </p>'
+             if a=5:'<p>Me: Yes... Sister Xiaohai... that`s it...your skills are getting better and better.… </p>'
+             if a=6:'<p>Baqianghai: Woo!Woo!…...slow down... lighten up... I can`t stand it anymore…… </p>'
+             if a=7:'<p>Eight hanging seas: Oh...I`m dead...Humph...dear brother...Oh...so beautiful...you really can do it...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...humph...humph...humph...humph...humph...humph...humph...humph… </p>'
+             if a=8:'<p>Bakuehai: Um...um... so cool... I didn`t expect...yes...yes...so refreshing...ah...ah...again...again...it`s going to ascend to heaven again.… </p>'
+             if a=9:
+                '<p>Me: Xiaohai, I`m coming! </p>'
+                '<p>Baqianghai: Hmm~hmm~hmm~ Ah, shoot me! </p>'
+             end
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+                '<p>Me: Xiaohai, I`m coming! </p>'
+                '<p>Baqianghai: Hmm~hmm~hmm~ Ah, shoot me! </p>'
+                '<p>Me: Sister Xiaohai, I`m going to shoot! </p>'
+                '<p>Baqianghai: Hehe!I won this time!I haven`t had a good time yet, so you shot first, so…… </p>'
+                '<p>Me: So? </p>'
+                '<p>Baqianghai: I want to be the queen of the day... punish you severely! </p>'
+                '<p>Me: Uh... I`m looking forward to it. </p>'
+         '</div>'
+         $BGH.bad+=q+$my.charm
+         $BGH.love+=q+$my.charm
+         if $bgh.night=2:$bgh.night=3
+    end
+
+
+  q+=1
+End
+
+if $args[0]="next_door_fuck_tune_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\调1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Dog chain</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Command masturbation</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Insert her</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Speed up</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Order yourself to interrupt</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Do it yourself</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">Ejaculation</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''next_door_fuck_tune_1''">dialogue</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">See you soon</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:
+                '<p>Baqianghai: Smelly brother... so ashamed... give me a break</p>'
+                '<p>Me: Sister Xiaohai!You can`t go back on what you promised, right? </p>'
+             end
+             if a=1:'<p>Baqianghai: Okay... then sister will be your personal bitch for one day❤</p>'
+             if a=2:'<p>Me: Sister Xiaohai!Do you want the owner`s big baby? </p>'
+             if a=3:'<p>Baqianghai: Master, thank you for giving me a big meat stick…</p>'
+             if a=4:'<p>Me: Sister Xiaohai... is my meat stick comfortable? </p>'
+             if a=5:'<p>Eight hanging seas: Comfortable... so beautiful... you can really do it... humph... still really feel ❤</p>'
+             if a=6:'<p>Baqianghai: Woo!Woo!…...slow down... lighten up... I can`t stand it anymore…… </p>'
+             if a=7:'<p>Me: Sister Xiaohai, I shot you in the face!</p>'
+
+
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+                '<p>Me: Sister Xiaohai, I shot you in the face!</p>'      
+                '<p>Baqianghai: No... it`s okay... I like the master`s semen the most❤ </p>'
+                '<p>Me: What`s wrong with you, Sister Xiaohai?Why is your expression weird?</p>'      
+                '<p>Eight hanging seas: I feel dizzy in my head ❤Let`s go to the nightclub again on Wednesday❤ </p>'
+                '<p>Me: Okay, but I have a condition, you have to wear a cooler one!</p>'      
+                '<p>Eight hanging seas: Cooler?Let me think about it❤</p>'
+                '<p>Me: I`ll see you at the nightclub on Wednesday❤</p>'      
+         '</div>'
+         $BGH.bad+=q+$my.charm
+         $BGH.love+=q+$my.charm
+         if $bgh.tuning=0:$bgh.tuning=1
+    end
+
+
+  q+=1
+End
+
+if $args[0]="next_door_fuck_tune_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\调2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<11:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Strengthen her</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Press and fuck</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Hold your legs</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Fuck in front of the sofa</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Go to the table to fuck</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Fuck in the chair</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Go back to the table</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Go to bed and fuck</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Ejaculation</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Two in a row</a></div>'
+            end
+            if a=10:
+            '<div class="buttonR5"><a href="exec:a=11 & gt ''house_next_door_event'',''next_door_fuck_tune_2''">Ejaculate!</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Let you go</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>Baqianghai: I let you play with me like this last time... This time it`s my turn. Today you have to listen to the queen, come with me❤</p>'
+             if a=1:'<p>Baqianghai: Oh... Smelly brother...what are you doing?！Today you have to listen to the Queen... ah ah❤</p>'
+             if a=2:'<p>Me: Sister Xiaohai!I can`t help it, you want to be fucked by me too, right? </p>'
+             if a=3:'<p>Eight hanging sea：<<$panting>></p>'
+             if a=4:'<p>Me: Sister Xiaohai... is my meat stick comfortable? </p>'
+             if a=5:'<p>Eight hanging seas: Oh...I`m dead...Humph...dear brother...Oh...so beautiful...you really can do it...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...humph...humph...humph...humph...humph...humph...humph...humph… </p>'
+             if a=6:'<p>Baqianghai: Woo!Woo!…...slow down... lighten up... I can`t stand it anymore…… </p>'
+             if a=7:'<p>Eight hanging seas: Oh...I`m dead...Humph...dear brother...Oh...so beautiful...you really can do it...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...Humph...humph...humph...humph...humph...humph...humph...humph...humph… </p>'
+             if a=8:'<p>Ba Hanghai: I only made this bed with my husband... You don`t want to leave a trace.<<$panting>> </p>'
+             if a=9:
+                '<p>Me: Sister Xiaohai, look at the trick! </p>'
+                '<p>Eight hanging sea：<<$panting>> </p>'
+             end
+             if a=10:
+                '<p>Baqianghai: Wait, why are you still so hard?Slow down... lighten up... I can`t stand it anymore… </p>'
+                '<p>Me: Sister Xiaohai, you didn`t wear this kind of clothes for your husband, did you?You can wear him twice in a row! </p>'
+             end
+
+         '</div>'
+    end
+
+    if a=11:
+         '<div class="dialog_menu">'
+                '<p>Me: Tsk Tsk tsk, Sister Xiaohai? </p>'        
+                '<p>Eight hanging seas: Oh... I`m dead... smelly brother... sister can`t do it anymore...spare sister❤ </p>'
+                '<p>·——————————————</p>'
+                '<p>[The above is the end of the current version of the story.This role is contributed by group friends. If you have a passion for creation, you can add group contributions.】</p>'
+         '</div>'
+         $BGH.bad+=q+$my.charm
+         $BGH.love+=q+$my.charm
+         if $bgh.tuning=1:$bgh.tuning=2
+    end
+
+
+  q+=1
+End
+--- house_next_door_event ---------------------------------
+

@@ -1,0 +1,1217 @@
+# 邻家_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $ARGS[0]="商场偶遇":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\商场1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:$BGH.love+=5 & a=1 & gt ''邻家_事件'',''商场偶遇''">打招呼</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & $BGH.love+=5 & gt ''邻家_事件'',''商场偶遇''">带她逛街</a></div>'
+		if 4>=a and a>=2 :
+			if a=2:'<div class="buttonR1"><a href="exec:a=3 & $BGH.love+=10 & gt ''邻家_事件'',''商场偶遇''">聊生活</a></div>'
+			if a!4 and $BGH.love>30:'<div class="buttonP"><a href="exec:a=4 & $BGH.love+=10 & gt ''邻家_事件'',''商场偶遇''">聊感情</a></div>'else:'<div class="buttonGr"><a href="exec:">聊感情</a></div>'
+			if a=4 and $BGH.love>50:'<div class="button"><a href="exec:a=5 & $BGH.love+=9 & gt ''邻家_事件'',''商场偶遇''">拉去吃饭</a></div>'
+		end
+		if a=5:'<div class="buttonG"><a href="exec:a=6 & $BGH.love+=10 & gt ''邻家_事件'',''商场偶遇''">买单</a></div>'
+		if a=6 and $BGH.love>100:'<div class="button"><a href="exec:a=7 & $BGH.love+=10 & gt ''邻家_事件'',''商场偶遇''">去喝一杯？</a></div>'
+		if a=7:'<div class="button"><a href="exec:a=8 & $BGH.love+=1 & gt ''邻家_事件'',''商场偶遇''">干杯</a></div>'
+		if a=8:'<div class="button"><a href="exec:a=9 & $BGH.love+=2 & gt ''邻家_事件'',''商场偶遇''">继续喝</a></div>'
+		if a=9:'<div class="button"><a href="exec:a=0 & $BGH.love+=2 & gt ''邻家_事件'',''带去酒店''">带去酒店</a></div>'
+		'<div class="button"><a href="exec:minutes+=60 & gt ''商场''">分别</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:'<p>我: …是她？</p>'
+		if a=1:
+		$BGH.available=1
+		'<p>我: 你好，我叫<<$主角姓名>>，我代替<<$JM.name>>来和你逛街。</p>'
+		'<p><<$BGH.name>>: 那你应该知道我的名字吧？我叫<<$BGH.name>></p>'
+		'<p>我: 等久了吧？</p>'
+		'<p><<$BGH.name>>: 之前是跟丈夫约了一起买东西的，结果公司临时加班，你不来我都准备回去了…</p>'
+		end
+		
+		if a=2:
+		'<p>我: 这一带我熟的，要不我带你逛一逛吧？</p>'
+		'<p><<$BGH.name>>: 那太好了…我看看我要买的物品清单……</p>'
+		end
+		
+		if a=3:
+		'<p>我: 姐姐平时喜欢做些什么呢？</p>'
+		'<p><<$BGH.name>>: 平时在家也是无所事事，所以不是做家务就是出来逛逛街啥的…</p>'
+		'<p>我: 是嘛，那一个人逛街也是蛮无趣的吧？</p>'
+		'<p><<$BGH.name>>: 是啊，但是没办法呢，我丈夫天天加班，像今天这种情况也不是一次两次了，我都习惯了…</p>'
+		'<p>我: 那你不会觉得空虚寂寞吗？</p>'
+		'<p><<$BGH.name>>: *瞥了你一眼…</p>'
+		end
+		
+		if a=4:
+		'<p>我: 你和你老公的感情怎么样？</p>'
+		'<p><<$BGH.name>>: 我丈夫…他比起我更爱他的工作。</p>'
+		'<p>我: 喔？此话怎讲？</p>'
+		'<p><<$BGH.name>>: 他觉得…一个男人要先有事业…才能拥有爱情。</p>'
+		'<p>我: 那他的工作每天都这么忙吗？</p>'
+		'<p><<$BGH.name>>: 是啊，对他来说，工作比我重要多了…*苦笑</p>'
+		'<p>我: 那反正你回家也是一个人吃饭，我知道这附近有家味道不错的餐厅，要不要去试试？</p>'
+		'<p><<$BGH.name>>: 啊？*脸颊红了</p>'
+		end
+		
+		if a=5:
+		'<p>我: 这家店还不错吧？和你的口味吗？</p>'
+		'<p><<$BGH.name>>: 非常美味！</p>'
+		'<p>我: 那就好。</p>'
+		'<p>·气氛逐渐热烈</p>'
+		end
+		
+		if a=6:
+		'<p>我: 服务员！买单！</p>'
+		'<p><<$BGH.name>>: 我来吧！你陪我逛了这么久了，我也挺不好意思的。</p>'
+		'<p>我: 我来吧。</p>'
+		'<p><<$BGH.name>>: 不行！*语气坚决</p>'
+		'<p>我: 好吧，那下一次我请。</p>'
+		end
+		
+		if a=7:
+		'<p><<$BGH.name>>: 唉，自从结婚以后我就已经很少喝酒了。</p>'
+		'<p>我: 要不要喝点酒呢！</p>'
+		'<p><<$BGH.name>>: 好的！但你要对我丈夫保密！</p>'
+		'<p>我: 干杯！</p>'
+		'<p><<$BGH.name>>: 干杯！*气氛愉快</p>'
+		end
+		
+		if a=8:
+		'<p>我: 你是不是有点醉了？</p>'
+		'<p><<$BGH.name>>: 怎么会呢？？我只是太久没喝了而已❤</p>'
+		'<p>我: 你跟你丈夫是怎么认识的呢？</p>'
+		'<p><<$BGH.name>>: 我们是同事关系，他是我的前辈，我刚进公司不久就跟他在一起，结婚后就辞职在家，因为工作调动的关系，跟他来到这里…</p>'
+		'<p>我: 那你们的感情一定很好了！</p>'
+		'<p><<$BGH.name>>: 呵*她迟疑了一下，低头不说话</p>'
+		end
+		
+		if a=9:
+		'<p>我: 你还清醒吗？醒醒（摇了摇她）</p>'
+		'<p><<$BGH.name>>: 呼——呼——</p>'
+		'<p>我: 你喝醉了，我送你回家吧？</p>'
+		'<p><<$BGH.name>>: 我不想回家…他今晚又不回来…我回家了也……</p>'
+		'<p>我: 那你想去哪里？</p>'
+		'<p><<$BGH.name>>: 你送我去酒店吧…</p>'
+		end
+		
+	'</div>'
+end
+
+
+if $args[0]="带去酒店":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\酒店0-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''邻家_事件'',''带去酒店''">进去坐坐</a></div>'
+		if a=0:'<div class="button"><a href="exec:gt ''居民区''">好好休息</a></div>'
+		if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''带去酒店''">闲聊</a></div>'
+		if a=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''邻家_事件'',''带去酒店''">安慰她</a></div>'
+		if a=3:'<div class="buttonS1"><a href="exec:a=4 & gt ''邻家_事件'',''带去酒店''">转过去</a></div>'
+		if a=4:'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''邻家_事件'',''邻家_Fuck_酒店''">跟她走</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		if a=0:
+		'<p><<$BGH.name>>:谢谢你…</p>'
+		'<p>我:那我走了？</p>'
+		'<p><<$BGH.name>>:呃,你也早点回去休息吧…</p>'
+		end
+		if a=1:
+		'<p>我:我喝杯水就走。</p>'
+		'<p><<$BGH.name>>:没关系…你想待久一点也行。</p>'
+		end
+		if a=2:
+		'<p><<$BGH.name>>:喂…我是不是很没有吸引力啊？</p>'
+		'<p>我:怎么会呢，我觉得你老公能娶到你，是他的福气。</p>'
+		'<p><<$BGH.name>>:呃，但是结婚好几年了，他每天回家就是睡觉，我已经很久没跟他做了……</p>'
+		'<p>我:那是他有眼无珠。</p>'
+		'<p><<$BGH.name>>:你怎么可以这样说他…明明是我不够有魅力</p>'
+		end
+		if a=3:
+		'<p>我:你要对自己有自信，在我眼里，你可以迷倒所有男人。</p>'
+		'<p><<$BGH.name>>:我不信，你证明给我看！</p>'
+		'<p>我:你要我怎么证明？</p>'
+		'<p><<$BGH.name>>突然脱了自己的衣服</p>'
+		'<p>我:你这是……</p>'
+		'<p><<$BGH.name>>:你看着我……你…有感觉吗？</p>'
+		end
+		if a=4:
+		'<p><<$BGH.name>>:我的身体好看吗？</p>'
+		'<p>我:好看*咽口水</p>'
+		'<p><<$BGH.name>>:你喜欢我吗？</p>'
+		'<p>我:喜欢…</p>'
+		'<p><<$BGH.name>>:既然他不懂得珍惜，那我也没必要一直守活寡，你过来。</p>'
+		end
+
+	'</div>'
+End
+
+
+
+if $args[0]="邻家_Fuck_酒店":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\酒店1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<17:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_酒店''">接吻</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_酒店''">服侍我</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_酒店''">进一步服侍</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_酒店''">亲吻</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_酒店''">口交</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_酒店''">含住</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_酒店''">摸小穴</a></div>'
+            end
+            if a!8 and 7<=q and q<=11:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_酒店''">舔她</a></div>'
+            end
+            if a!9 and 8<=q and q<=12:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_酒店''">插进去</a></div>'
+            end
+            if a!10 and 9<=q and q<=13:
+            '<div class="buttonS1"><a href="exec:a=10 & gt ''邻家_事件'',''邻家_Fuck_酒店''">缓慢抽插</a></div>'
+            end
+            if a!11 and 10<=q and q<=14:
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''邻家_事件'',''邻家_Fuck_酒店''">快速抽插</a></div>'
+            end
+            if a!12 and 11<=q and q<=15:
+            '<div class="buttonS3"><a href="exec:a=12 & gt ''邻家_事件'',''邻家_Fuck_酒店''">猛力抽插</a></div>'
+            end
+            if a!13 and 12<=q and q<=16:
+            '<div class="buttonS4"><a href="exec:a=13 & gt ''邻家_事件'',''邻家_Fuck_酒店''">背后抽插</a></div>'
+            end
+            if a!14 and 13<=q and q<=17:
+            '<div class="buttonS2"><a href="exec:a=14 & gt ''邻家_事件'',''邻家_Fuck_酒店''">乘骑女上位</a></div>'
+            end
+            if a!15 and 14<=q and q<=18:
+            '<div class="buttonS3"><a href="exec:a=15 & gt ''邻家_事件'',''邻家_Fuck_酒店''">侧面位</a></div>'
+            end
+            if a!16 and 15<=q :
+            '<div class="buttonS4"><a href="exec:a=16 & gt ''邻家_事件'',''邻家_Fuck_酒店''">坚持不泄</a></div>'
+            end
+            if a=16:
+            '<div class="buttonS5"><a href="exec:a=17 & gt ''邻家_事件'',''邻家_Fuck_酒店''">内射</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=1440 & hour=7 & a=0 & q=0 & gt ''邻家_事件'',''邻家_Fuck_酒店2''">在此过夜</a></div>'
+                !'<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 16>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>我跟她进了浴室…</p>'
+             if a=1:'<p>小海轻轻的装做不经意的吻了一下我的胸前，我嗯了一声，全身顿时崩的紧紧的</p>'
+             if a=2:'<p>小海就顺势再一次吻了我的前胸，整个人似乎要滑入我的怀中，像是没有了骨头一般，软绵绵的 </p>'
+             if a=3:'<p>我尝试着轻吻八挂海的嘴唇，她有些不好意思，把脸转向一边，我固执的把她脸转向自己 </p>'
+             if a=4:'<p>我：啊……好舒服啊……小海姐……重点……啊…… </p>'
+             if a=5:'<p>我：啊……好舒服啊……小海姐……重点……啊…… </p>'
+             if a=6:'<p>八挂海：请你……快……好痒……求求你……我受不了了…… </p>'
+             if a=7:'<p>八挂海：啊…我流出来啦。好弟弟，姐流…流出淫水了。 </p>'
+             if a=8:'<p>八挂海：嗯，我怕疼，你轻点 </p>'
+             if a=9:'<p>八挂海：你要温柔一点呦！我说可以的时候，你才可以插呦！ </p>'
+             if a=10:'<p>我：让我们的心灵更接近，好吗？ </p>'
+             if a=11:'<p>八挂海：呜！呜！……弟弟不要再插了，我的小屄裂开了啦！……呜！我用嘴巴服侍你，你不要再插了啦！呜！……我快痛死了…… </p>'
+             if a=12:'<p>八挂海：哎呀……慢点……轻点…… </p>'
+             if a=13:'<p>我：小海姐，你的屄好美……我好喜欢你! </p>'
+             if a=14:'<p>八挂海：哎呀……日死我了……哼哼……亲哥哥……哎呀……好美呀……你真会干……哼哼… </p>'
+             if a=15:'<p>八挂海：嗯……嗯……好爽呀……没想到干逼……有……有……这样爽快……啊……啊……又……又……又要升天了… </p>'
+             if a=16:
+                '<p>我：小海，我要来了! </p>'
+                '<p>八挂海：嗯~嗯~嗯~啊，射给我! </p>'
+                '<p>我：小海姐，我要射了！ </p>'
+             end
+         '</div>'
+    end
+
+    if a=17:
+         '<div class="dialog_menu">'
+                '<p>八挂海：你刚刚说…我的屄好美……你好喜欢我…是真的嘛？ </p>'
+                '<p>我：嗯。 </p>' 
+                '<p>八挂海：我要你，再对我说一遍… </p>'    
+                '<p>我：小海姐，我爱你！ </p>'
+                '<p>八挂海：我也爱你…<<$主角姓名>>❤ </p>'
+         '</div>'
+         $BGH.bad+=q+my.魅力
+         $BGH.love+=q+my.魅力
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="邻家_Fuck_酒店2":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\酒店1-18.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$BGH.name>>:就送我到家门口吧，我怕被人看到了，我再带一袋面包回去，假装做了早餐。</p>'
+		'<p>我:好吧。</p>'
+		'<p><<$BGH.name>>:我丈夫白天不在家，你要是没事的话可以上门帮我的忙吗？</p>'
+		'<p>我:随时都可以，我的荣幸。</p>'
+		$BGH.ROOM=1
+	'</div>'
+End
+
+
+
+if $args[0]="家立绘":
+	a=0
+	q=0
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\2.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''邻家_事件'',''邻家_Fuck_家''">等饭做好</a></div>'
+		if $BGH家做=1:'<div class="buttonR3"><a href="exec:gt ''邻家_事件'',''上次的事''">上次的事</a></div>'
+		if $BGH家做=2:'<div class="buttonG"><a href="exec:gt ''邻家_事件'',''温泉''">温泉旅行</a></div>'
+		if $BGH.温泉=1 and $BGH.夜色<=2:'<div class="buttonS3"><a href="exec:gt ''邻家_事件'',''酒吧邀请''">夜店放肆</a></div>'
+		if $BGH.夜色>=2:'<div class="buttonS4"><a href="exec:gt ''邻家_事件'',''邻家_Fuck_调1''">小小支配</a></div>'
+		if $BGH.夜色>=3:'<div class="buttonR4"><a href="exec:gt ''邻家_事件'',''邻家_Fuck_调2''">调教女王</a></div>'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$BGH.name>>: 你来啦？</p>'
+		'<p>我: 我想你丈夫应该不在家吧？我来陪你聊聊天。</p>'
+		'<p><<$BGH.name>>: 他总是在忙工作，我真不知道帝国集团一天到晚都在干什么。</p>'
+	'</div>'
+End
+
+
+if $args[0]="酒吧邀请":
+	a=0
+	q=0
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\2.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''居民区''">不见不散</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$BGH.name>>: 现在既然我丈夫在外出差，不如你带我去点有意思的地方吧？</p>'
+		'<p>我: 那你想去哪里？</p>'
+		'<p><<$BGH.name>>: 这里是不是有一条街，只在晚上开放？</p>'
+		'<p>我: 歌舞伎町？</p>'
+		'<p><<$BGH.name>>: 我想去哪里的夜店放肆一下，你能陪我去吗？</p>'
+		'<p>我: 当然了。</p>'
+		'<p><<$BGH.name>>: 那…周三晚上22:00？</p>'
+		if $BGH.夜色=0:$BGH.夜色=1
+	'</div>'
+End
+
+
+
+if $args[0]="邻家_Fuck_家":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\家1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<23:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=2:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_家''">好好吃</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_家''">张开双臂</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_家''">更进一步</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_家''">撩开内裤</a></div>'
+            end
+            if a!5 and 4<=q and q<=6:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_家''">指尖抚摸</a></div>'
+            end
+            if a!6 and 5<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_家''">手指进入</a></div>'
+            end
+            if a!7 and 6<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_家''">我躺下</a></div>'
+            end
+            if a!8 and 7<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_家''">帮我手淫</a></div>'
+            end
+            if a!9 and 8<=q and q<=10:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_家''">口交</a></div>'
+            end
+            if a!10 and 9<=q and q<=11:
+            '<div class="buttonR5"><a href="exec:a=10 & gt ''邻家_事件'',''邻家_Fuck_家''">口爆</a></div>'
+            end
+            if a!11 and 10<=q and q<=12:
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''邻家_事件'',''邻家_Fuck_家''">去浴室洗干净</a></div>'
+            end
+            if a!12 and 11<=q and q<=13:
+            '<div class="buttonS3"><a href="exec:a=12 & gt ''邻家_事件'',''邻家_Fuck_家''">一起洗</a></div>'
+            end
+            if a!13 and 12<=q and q<=14:
+            '<div class="buttonS4"><a href="exec:a=13 & gt ''邻家_事件'',''邻家_Fuck_家''">帮我洗</a></div>'
+            end
+            if a!14 and 13<=q and q<=15:
+            '<div class="buttonS2"><a href="exec:a=14 & gt ''邻家_事件'',''邻家_Fuck_家''">我帮她洗</a></div>'
+            end
+            if a!15 and 14<=q and q<=16:
+            '<div class="buttonS3"><a href="exec:a=15 & gt ''邻家_事件'',''邻家_Fuck_家''">弯腰口交</a></div>'
+            end
+            if a!16 and 15<=q and q<=17:
+            '<div class="buttonS4"><a href="exec:a=16 & gt ''邻家_事件'',''邻家_Fuck_家''">站立口交</a></div>'
+            end
+            if a!17 and 16<=q and q<=18:
+            '<div class="buttonS5"><a href="exec:a=17 & gt ''邻家_事件'',''邻家_Fuck_家''">正面乘骑</a></div>'
+            end
+            if a!18 and 17<=q and q<=19:
+            '<div class="buttonS3"><a href="exec:a=18 & gt ''邻家_事件'',''邻家_Fuck_家''">猛力抽插</a></div>'
+            end
+            if a!19 and 18<=q and q<=20:
+            '<div class="buttonS4"><a href="exec:a=19 & gt ''邻家_事件'',''邻家_Fuck_家''">再深一点</a></div>'
+            end
+            if a!20 and 19<=q and q<=26:
+            '<div class="buttonS2"><a href="exec:a=20 & gt ''邻家_事件'',''邻家_Fuck_家''">背面乘骑</a></div>'
+            end
+            if a=20:
+            '<div class="buttonS3"><a href="exec:a=21 & gt ''邻家_事件'',''邻家_Fuck_家''">正面深入</a></div>'
+            end
+            if a=21:
+            '<div class="buttonS4"><a href="exec:a=22 & gt ''邻家_事件'',''邻家_Fuck_家''">颜射</a></div>'
+            end
+            if a=22:
+				if $BGH家做!2:'<div class="buttonR4"><a href="exec:a=23 & gt ''邻家_事件'',''邻家_Fuck_家''">钥匙的声音</a></div>'
+				if $BGH家做=2:'<div class="buttonR4"><a href="exec:a=23 & gt ''邻家_事件'',''邻家_Fuck_家''">事后缠绵</a></div>'
+            end
+
+
+
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 22>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：久等啦，招待不周！</p>'
+             if a=1:'<p>八挂海：真的嘛，真开心你能喜欢</p>'
+             if a=2:'<p>·她听完开心的抱着我，我闻着她身上的味道，蠢蠢欲动 </p>'
+             if a=3:'<p>八挂海：这样子喜欢吗 </p>'
+             if a=4:'<p>八挂海：好害羞呀  </p>'
+             if a=5:'<p>八挂海：欸（她感受到我下半身的变化）这就忍不住了吗 </p>'
+             if a=6:'<p>八挂海：好哥哥…你摸得我…好舒服啊…啊啊…啊…… </p>'
+             if a=7:'<p>八挂海：好哥哥…你躺下吧</p>'
+             if a=8:'<p>·小海的嘴唇和牙齿包围和摩擦着他的鸡巴，同时舌尖在龟头上快速的扫动和缠绕，以及偶尔坚硬牙齿的刮碰却带来了另外一种别有风味的快感 </p>'
+             if a=9:'<p>我：小海我忍不住了 </p>'
+             if a=10:'<p>八挂海：嘻嘻，快去洗洗吧，他今晚加班不回家哦 </p>'
+             if a=11:'<p>八挂海：不介意我进来吧 </p>'
+             if a=12:'<p>·她进来脱了衣服跪在我面前 </p>'
+             if a=13:'<p>八挂海：好弟弟，让我来服侍你 </p>'
+             if a=14:'<p>我：好姐姐，让我为你…… </p>'
+             if a=15:'<p>我：啊……好舒服……啊 </p>'
+             if a=16:'<p>我：爽啊……啊……*洗完澡她拉着我来到夫妻的卧室 </p>'
+             if a=17:'<p>八挂海：来…好弟弟，咱换个姿势</p>'
+             if a=18:'<p>八挂海：爽啊……啊……</p>'
+             if a=19:'<p>我：姐姐可真是淫荡，好姐姐你真浪呀… </p>'
+             if a=20:'<p>八挂海：爽啊……啊……</p>'
+             if a=21:'<p>八挂海：啊……哦……啊爽啊……日我……亲爱的弟快插……好快……</p>'
+             if a=22:
+                '<p>八挂海：啊……啊哦……快快……姐要来了……啊… </p>'
+                '<p>我：我也要射了…姐……我要在姐的骚屄里射精了！ </p>'
+                '<p>八挂海：在姐的嫩屄里射吧，我亲爱的弟……啊……啊……都射进来……</p>'
+                '<p>·我和她同时大声的浪叫起来，两人…同时达到了高潮。我把鸡巴从她的骚屄里抽出来。精液混合着她的淫水流在了床单上，湿了好大的一片。 </p>'
+             end
+
+
+         '</div>'
+    end
+
+    if a=23:
+		 if $BGH家做=2:
+         '<div class="dialog_menu">'
+                '<p>我：小海姐，我爱你！ </p>'
+                '<p>八挂海：我也爱你！ </p>'
+         '</div>'
+         end
+    
+		 if $BGH家做!2:
+         '<div class="dialog_menu">'
+                '<p>*咔嚓 </p>'
+                '<p>·突然门口响起了钥匙开门的声音 </p>' 
+                '<p>八挂海：啊，我老公怎么会现在回来？你快从后门回去吧 </p>'    
+                '<p>我：小海姐，我爱你！ </p>'
+                '<p>八挂海：我也爱你，你先快点走吧！ </p>'
+         '</div>'
+         end
+         
+         $BGH.bad+=q*2+my.魅力
+         $BGH.love+=q+my.魅力
+         if $BGH家做=0:$BGH家做=1
+    end
+
+
+  q+=1
+End
+
+if $ARGS[0]="上次的事":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\后1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:$BGH.love+=5 & a=1 & gt ''邻家_事件'',''上次的事''">继续说</a></div>'
+		if a=1:'<div class="button"><a href="exec:$BGH.love+=5 & a=2 & gt ''邻家_事件'',''上次的事''">看向远处</a></div>'
+		if a=2:'<div class="button"><a href="exec:$BGH.love+=5 & a=2 & gt ''邻家_事件'',''家立绘''">好的</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:
+			'<p>我: 姐姐……上次的事…你老公有起疑吗？</p>'
+			'<p><<$BGH.name>>: 他上次回来是来拿护照的，帝国集团临时安排他去海外谈一笔并购生意。</p>'
+			'<p>我: 那他什么时候回来？</p>'
+			'<p><<$BGH.name>>: 少则十天，多则半年。不过我告诉他，回来前要打电话给我。</p>'
+
+		end
+		if a=1:
+		'<p>我: 呼——那我就放心了。</p>'
+		'<p><<$BGH.name>>: 现在我们终于可以一直在一起了。</p>'
+		end
+		
+		if a=2:
+		'<p>我: 桌上照片里的人是谁？</p>'
+		'<p><<$BGH.name>>: 那可就说来话长了…</p>'
+		'<p>我: 给我说说呗。</p>'
+		'<p><<$BGH.name>>: 等以后的日子（版本）再告诉你！</p>'
+		'<p>我: 那我等着。</p>'
+		'<p><<$BGH.name>>: 我搬来这里还没去体验过温泉呢！我们要不要一起去？</p>'
+		if $BGH家做=1:$BGH家做=2
+		end
+		
+
+
+		
+	'</div>'
+end
+
+if $ARGS[0]="温泉":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BGH\vids\温泉0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$BGH.love+=5 & gt ''邻家_事件'',''邻家_Fuck_温泉1''">先来一发</a></div>'
+		'<div class="button"><a href="exec:$BGH.love+=5 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">泡温泉</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+			'<p><<$BGH.name>>: 谢谢你带我来这里。</p>'
+			'<p>我: 不客气，小海姐。</p>'
+			'<p><<$BGH.name>>: 那我们先做什么？</p>'
+	'</div>'
+end
+
+
+if $args[0]="邻家_Fuck_温泉1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_温泉1''">侍奉我</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_温泉1''">舔睾丸</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_温泉1''">口交</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_温泉1''">口爆</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_温泉1''">对话</a></div>'
+            end
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">去吃饭</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：哎……唔…</p>'
+             if a=1:'<p>我：唔……唔……好美……亲爱的……真行……啊！</p>'
+             if a=2:'<p>我：就这样慢慢的……唔……不要太快……啊……</p>'
+             if a=3:'<p>八挂海：姐姐舔得你舒服吗？</p>'
+             if a=4:'<p>我：小海姐你太厉害了！  </p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+                '<p>八挂海：等我换身衣服一起去吃饭吧。 </p>'
+         '</div>'
+         $BGH.bad+=q*2+my.魅力
+         $BGH.love+=q+my.魅力
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_温泉2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">帮她洗</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">舔我</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">洗屁股</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">口交</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">口爆</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">插入</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">加速</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">准备发射</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_温泉2''">射精</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">去吃饭</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：臭弟弟，这次让我来帮你洗吧</p>'
+             if a=1:'<p>我：这样子喜欢吗？</p>'
+             if a=2:'<p>我：好姐姐……嗯……你洗得我好舒服喔……我都快受不了了…… </p>'
+             if a=3:'<p>八挂海：姐姐的屁股磨得你舒服吗？</p>'
+             if a=4:'<p>我：喔……啊……好啊！……好姐姐……再更……用力吸呀……嗯…  </p>'
+             if a=5:'<p>八挂海：欸？！这就忍不住了吗 </p>'
+             if a=6:'<p>我：好姐姐，别压抑自己，想叫就叫吧，这里的隔音设施很好的</p>'
+             if a=7:'<p>八挂海：哦……好弟弟……用力插……嗯……对……用力点……哦……好美喔……</p>'
+             if a=8:'<p>八挂海：嗯……好痒喔……臭弟弟……哦……求求你……姐姐受不了了</p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+                '<p>我：小海姐，射了！ </p>'
+                '<p>八卦海：你也累坏了吧，我们一起去吃饭吧！ </p>'
+         '</div>'
+         $BGH.bad+=q*2+my.魅力
+         $BGH.love+=q+my.魅力
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_温泉3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_温泉3''">口交</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_温泉3''">舔睾丸</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_温泉3''">加速</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_温泉3''">射精</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_温泉3''">舔干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=7 & my.精力*=2 & a=0 & q=0 & gt ''居民区''">zzZ</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：哎…臭弟弟…人家还是馋你的身子…</p>'
+             if a=1:'<p>我：那我的身体就随姐姐摆布好了！</p>'
+             if a=2:'<p>我：爽啊……啊……</p>'
+             if a=3:'<p>我：请你……快……好舒服……求求你……我受不了了！</p>'
+             if a=4:'<p>我：小海姐我忍不住了！</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+                '<p>八挂海：今天已经做了一天了，你就好好休息吧❤ </p>'
+         '</div>'
+         $BGH.bad+=q*2+my.魅力
+         $BGH.love+=q+my.魅力
+         $BGH.温泉=1
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_温泉4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\温泉4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">干杯</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">燥热难耐</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">舔我</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">口交</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">挑逗她</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">摸小穴</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">骑乘位</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">准备发射</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_温泉4''">射精</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu3"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''邻家_事件'',''邻家_Fuck_温泉3''">在此过夜</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：啊~嗯！真美味！</p>'
+             if a=1:'<p>我：小海姐，干杯！</p>'
+             if a=2:'<p>八挂海：姐姐有点微微发热了呢… </p>'
+             if a=3:'<p>八挂海：姐姐舔得你舒服吗？</p>'
+             if a=4:'<p>我：喔……啊……好啊！……好姐姐……再更……用力吸呀……嗯…  </p>'
+             if a=5:'<p>八挂海：嗯…好痒喔……好弟弟…… </p>'
+             if a=6:'<p>八挂海：哦……好弟弟……用力插……嗯……对……用力点……哦……好美喔……</p>'
+             if a=7:'<p>八挂海：就这样慢慢的……唔……不要太快……啊……对了……乐死我了……哼哼……</p>'
+             if a=8:'<p>八挂海：哎呀……快使劲……别慢慢的……快……用力顶……哎呀……我要死了……唔……</p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+                '<p>我：小海姐，啊啊！ </p>'
+                '<p>八挂海：哎呀……大鸡巴弟弟……全射出来了… </p>'
+         '</div>'
+         $BGH.bad+=q*2+my.魅力
+         $BGH.love+=q+my.魅力
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_夜":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\夜1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_夜''">挑逗她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_夜''">摸小穴</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_夜''">服侍我</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_夜''">口交</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_夜''">插她</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_夜''">抬起腿</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_夜''">去沙发上</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_夜''">加速抽插</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_夜''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS1"><a href="exec:a=10 & gt ''邻家_事件'',''邻家_Fuck_夜''">舔干净</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：我学那个DJ卖萌的样子像吗…</p>'
+             if a=1:'<p>我就顺势摸了一下她的前胸，她整个人似乎要滑入我的怀中，像是没有了骨头一般，软绵绵的</p>'
+             if a=2:'<p>八挂海：啊…我流出来啦。好弟弟，姐流…流出淫水了。 </p>'
+             if a=3:'<p>我：啊……好舒服啊……小海姐……重点……啊…… </p>'
+             if a=4:'<p>我：对…小海姐…就这样…你的技术越来越好了… </p>'
+             if a=5:'<p>八挂海：哎呀……慢点……轻点…… </p>'
+             if a=6:'<p>八挂海：呜！呜！……弟弟不要再插了，我的小屄裂开了啦！求你……我受不了了…… </p>'
+             if a=7:'<p>八挂海：哎呀……日死我了……哼哼……亲哥哥……哎呀……好美呀……你真会干……哼哼… </p>'
+             if a=8:'<p>八挂海：嗯……嗯……好爽呀……没想到干逼……有……有……这样爽快……啊……啊……又……又……又要升天了… </p>'
+             if a=9:
+                '<p>我：小海，我要来了! </p>'
+                '<p>八挂海：嗯~嗯~嗯~啊，射给我! </p>'
+                '<p>我：小海姐，我要射了！ </p>'
+             end
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+                '<p>八挂海：臭弟弟姐姐帮你舔干净❤  </p>'
+                '<p>我：小海姐，我厉不厉害？ </p>'
+                '<p>八挂海：你最厉害了…<<$主角姓名>>❤ </p>'
+                '<p>我：那我有什么奖励吗？ </p>'
+                '<p>八挂海：那你想要什么呢❤ </p>'
+                '<p>我：我想要支配姐姐一天❤ </p>'
+                '<p>八挂海：好吧，都听你的❤ </p>'
+         '</div>'
+         $BGH.bad+=q+my.魅力
+         $BGH.love+=q+my.魅力
+         if $BGH.夜色=1:$BGH.夜色=2
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_夜2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\夜2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_夜2''">强吻她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_夜2''">揉胸</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_夜2''">上下其手</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_夜2''">服侍我</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_夜2''">口我</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_夜2''">坐上来</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_夜2''">接吻</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_夜2''">利用惯性</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_夜2''">加速</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS1"><a href="exec:a=10 & gt ''邻家_事件'',''邻家_Fuck_夜2''">射精</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>我：小海姐…你果然听我的话，穿成这个样子了…</p>'
+             if a=1:'<p>八挂海：呜呜……臭弟弟……急什么…</p>'
+             if a=2:'<p>八挂海：啊…我穿的骚吗？ </p>'
+             if a=3:'<p>八挂海：<<$娇喘声>></p>'
+             if a=4:'<p>我：啊……好舒服啊……小海姐……重点……啊…… </p>'
+             if a=5:'<p>我：对…小海姐…就这样…你的技术越来越好了… </p>'
+             if a=6:'<p>八挂海：呜！呜！……慢点……轻点……我受不了了…… </p>'
+             if a=7:'<p>八挂海：哎呀……日死我了……哼哼……亲哥哥……哎呀……好美呀……你真会干……哼哼… </p>'
+             if a=8:'<p>八挂海：嗯……嗯……好爽呀……没想到……有……有……这样爽快……啊……啊……又……又……又要升天了… </p>'
+             if a=9:
+                '<p>我：小海，我要来了! </p>'
+                '<p>八挂海：嗯~嗯~嗯~啊，射给我! </p>'
+             end
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+                '<p>我：小海，我要来了! </p>'
+                '<p>八挂海：嗯~嗯~嗯~啊，射给我! </p>'
+                '<p>我：小海姐，我要射了！ </p>'
+                '<p>八挂海：嘿嘿!这次是我赢了吧！我还没爽到，你就先射了，所以…… </p>'
+                '<p>我：所以？ </p>'
+                '<p>八挂海：我要做一天的女王大人…狠狠惩罚你！ </p>'
+                '<p>我：呃…还挺期待的呢。 </p>'
+         '</div>'
+         $BGH.bad+=q+my.魅力
+         $BGH.love+=q+my.魅力
+         if $BGH.夜色=2:$BGH.夜色=3
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_调1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\调1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_调1''">牵狗链</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_调1''">命令自慰</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_调1''">插入她</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_调1''">加快速度</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_调1''">命令自己插嘴</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_调1''">自己来</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_调1''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_调1''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">不见不散</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:
+                '<p>八挂海：臭弟弟…好羞耻啊……饶了我吧</p>'
+                '<p>我：小海姐！你答应的事不能反悔对吧？ </p>'
+             end
+             if a=1:'<p>八挂海：好吧…那姐姐就当一天你的私人母狗❤</p>'
+             if a=2:'<p>我：小海姐！想不想要主人的大宝贝？ </p>'
+             if a=3:'<p>八挂海：主人，谢谢您赏赐给我大肉棒…</p>'
+             if a=4:'<p>我：小海姐…我的肉棒舒服吗？ </p>'
+             if a=5:'<p>八挂海：舒服……好美呀……你真会干……哼哼…还是真的有感觉❤</p>'
+             if a=6:'<p>八挂海：呜！呜！……慢点……轻点……我受不了了…… </p>'
+             if a=7:'<p>我： 小海姐，射你脸上了！</p>'
+
+
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+                '<p>我： 小海姐，射你脸上了！</p>'      
+                '<p>八挂海：没…没关系…主人的精液我最喜欢了❤ </p>'
+                '<p>我： 你怎么了，小海姐？你的表情怎么怪怪的？</p>'      
+                '<p>八挂海：脑子感觉晕晕的❤我们周三再去夜店吧❤ </p>'
+                '<p>我： 好啊，但是我有个条件，你得穿一件清凉一点的去！</p>'      
+                '<p>八挂海：清凉一点的？我考虑考虑吧❤</p>'
+                '<p>我：我们周三夜店见❤</p>'      
+         '</div>'
+         $BGH.bad+=q+my.魅力
+         $BGH.love+=q+my.魅力
+         if $BGH.调教=0:$BGH.调教=1
+    end
+
+
+  q+=1
+End
+
+if $args[0]="邻家_Fuck_调2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\调2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<11:
+        '<div class="button_menu">'
+
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonP"><a href="exec:a=1 & gt ''邻家_事件'',''邻家_Fuck_调2''">强上她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''邻家_事件'',''邻家_Fuck_调2''">按着操</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''邻家_事件'',''邻家_Fuck_调2''">抱大腿</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''邻家_事件'',''邻家_Fuck_调2''">沙发前操</a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''邻家_事件'',''邻家_Fuck_调2''">去桌上操</a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''邻家_事件'',''邻家_Fuck_调2''">去椅子上操</a></div>'
+            end
+            if a!7 and 6<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''邻家_事件'',''邻家_Fuck_调2''">回去餐桌上</a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''邻家_事件'',''邻家_Fuck_调2''">去床上操</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''邻家_事件'',''邻家_Fuck_调2''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''邻家_事件'',''邻家_Fuck_调2''">二连击</a></div>'
+            end
+            if a=10:
+            '<div class="buttonR5"><a href="exec:a=11 & gt ''邻家_事件'',''邻家_Fuck_调2''">射精！</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''居民区''">放你一马</a></div>'
+            '</div>'
+    end
+
+
+
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>八挂海：上次都让你这样玩我了…这次轮到我了，今天你要听女王大人的话，跟我来❤</p>'
+             if a=1:'<p>八挂海：呜呜……臭弟弟…你干什么？！今天你要听女王大人的话…啊啊❤</p>'
+             if a=2:'<p>我：小海姐！我忍不住了，你也想被我操对吧？ </p>'
+             if a=3:'<p>八挂海：<<$娇喘声>></p>'
+             if a=4:'<p>我：小海姐…我的肉棒舒服吗？ </p>'
+             if a=5:'<p>八挂海：哎呀……日死我了……哼哼……亲哥哥……哎呀……好美呀……你真会干……哼哼… </p>'
+             if a=6:'<p>八挂海：呜！呜！……慢点……轻点……我受不了了…… </p>'
+             if a=7:'<p>八挂海：哎呀……日死我了……哼哼……亲哥哥……哎呀……好美呀……你真会干……哼哼… </p>'
+             if a=8:'<p>八挂海：这张床我只和我丈夫做过…你可不要留下痕迹<<$娇喘声>> </p>'
+             if a=9:
+                '<p>我：小海姐，看招! </p>'
+                '<p>八挂海：<<$娇喘声>> </p>'
+             end
+             if a=10:
+                '<p>八挂海：等下，你怎么还这么硬？慢点……轻点……我受不了了… </p>'
+                '<p>我：小海姐，你没给你丈夫穿过这种衣服吧？你穿他也能二连发！ </p>'
+             end
+
+         '</div>'
+    end
+
+    if a=11:
+         '<div class="dialog_menu">'
+                '<p>我：啧啧啧，小海姐？ </p>'        
+                '<p>八挂海：哎呀……日死我了…臭弟弟……姐姐不行了…饶了姐姐吧❤ </p>'
+                '<p>·——————————————</p>'
+                '<p>【以上为现版本故事的终点。此角色由群友供稿，若有创作热情，可加群投稿。】</p>'
+         '</div>'
+         $BGH.bad+=q+my.魅力
+         $BGH.love+=q+my.魅力
+         if $BGH.调教=1:$BGH.调教=2
+    end
+
+
+  q+=1
+End
+--- 邻家_事件 ---------------------------------
+

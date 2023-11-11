@@ -1,0 +1,117 @@
+# 家_继母房间
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'家_地图'
+'</div>'
+
+
+if $args[0]="":
+	 '<div class ="show_menu"><img src="images\place\继母房间.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		 '<div class="button"><a href="exec:minutes+=30 & gt ''家_继母房间''">消磨时间</a></div>'
+	 '</div>'
+     '<div class="dialog_menu">'
+	     '<p>......</p>'
+	 '</div>'
+End
+
+if $args[0]="关门":
+	 '<div class ="show_menu"><img src="images\place\紧闭的门.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		 if $JM_Event_grandpa < 7 :
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''继母_事件'',''偷听''">偷听</a></div>'
+		  end
+		  	if $JM_Event_grandpa >=7 :
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''家_继母房间'',''偷看''">偷看</a></div>'
+		  end
+		 '<div class="button"><a href="exec:minutes+=5 & gt ''家''">离开</a></div>'
+	 '</div>'
+     '<div class="dialog_menu">'
+	     '<p>房门紧闭</p>'
+	 '</div>'
+End
+
+if $ARGS[0]="偷看":
+	$随机数=rand(1,10)
+	if $随机数>=7 and hour <=9 :gt'继母_事件','JM_Fuck_电话时'
+	if $随机数>=5 and hour <=15:gt'继母_事件','卧室内'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\偷窥~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec: $jm.bad+=1 &  gt ''家_继母房间'',''房间对话''">敲门进去</a></div>'
+		if 茅台>0:
+		'<div class="buttonS2"><a href="exec: 茅台-=1& gt ''家_继母房间'',''带一瓶酒进去''">带一瓶酒进去</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">需要茅台</a></div>'
+		end
+		if 精油>0:
+		'<div class="buttonS3"><a href="exec: 精油-=1&gt ''继母_事件'',''JM_Fuck_精油'',''精油0开幕''">带一瓶精油进去</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">需要精油</a></div>'
+		end
+		if MGF>0:
+		'<div class="buttonS4"><a href="exec: MGF-=1 & gt ''继母_事件'',''JM_Fuck_麦高芬'',''麦高芬0''">带一瓶麦高芬进去</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">需要麦高芬</a></div>'
+		end
+		if JM.忏悔=0 and 主教选择=1:'<div class="buttonG1"><a href="exec:JM.忏悔=1 & $m=''JM'' & $ma=$JM.name & gt ''修女_事件'',''XN_Fuck_忏悔''">邀请去教堂洗礼</a></div>'
+		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>：<<$娇喘声>></p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="房间对话":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\床上~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''继母_事件'',''继母_房间抱'',''床上0开幕''">抱住她</a></div>'
+		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>：咳咳....有什么事吗？</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="带一瓶酒进去":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\喝酒~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''继母_事件'',''JM_Fuck_酒后'',''酒后1挑逗''">任由事件发展</a></div>'
+		'<div class="button"><a href="exec: $jm.bad+=5 &  gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$JM.name>>拨弄着头发暧昧地看着你，自顾自地就喝了起来......咕嘟..咕嘟.....</p>'
+	'</div>'
+
+end
+--- 家_继母房间 ---------------------------------
+

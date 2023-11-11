@@ -1,0 +1,271 @@
+# 附身院长
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=30
+a=0 & q=0
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if hour <=6 or hour>=21:
+			'<a class="photo" data-title="主卧" href="exec:minutes+=5 & gt ''附身院长'',''主卧''"><img class="img_stretch" src="images\NPC\YZ\pics\主卧0.jpg"></a>'
+			else:
+			'<a class="photo" data-title="主卧" href="exec:minutes+=5 & gt ''附身院长'',''主卧''"><img class="img_stretch" src="images\NPC\YZ\pics\主卧1.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if hour <=6 or hour>=21:
+			'<a class="photo" data-title="客厅"><img class="img_stretch" src="images\NPC\YZ\pics\客厅0.jpg"></a>'
+			else:
+			'<a class="photo" data-title="客厅" href="exec:minutes+=5 & gt ''附身院长'',''客厅''"><img class="img_stretch" src="images\NPC\YZ\pics\客厅1.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if hour <=6 or hour>=21:
+			'<a class="photo" data-title="儿子们的房间" href="exec:minutes+=5 & gt ''附身院长'',''儿子房间0''"><img class="img_stretch" src="images\NPC\YZ\pics\儿子房间0.jpg"></a>'
+			else:
+			'<a class="photo" data-title="儿子们的房间" href="exec:minutes+=5 & gt ''附身院长'',''儿子房间1''"><img class="img_stretch" src="images\NPC\YZ\pics\儿子房间1.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if hour <=6 or hour>=21:'<a class="photo" data-title="大女儿房间" href="exec:minutes+=5 & gt ''附身院长'',''女儿房间0''"><img class="img_stretch" src="images\NPC\YZ\pics\女儿房间0.jpg"></a>'
+			if 12>=hour and hour>=7:'<a class="photo" data-title="大女儿房间" href="exec:minutes+=5 & gt ''附身院长'',''女儿房间1''"><img class="img_stretch" src="images\NPC\YZ\pics\女儿房间1.jpg"></a>'
+			if 20>=hour and hour>=13:'<a class="photo" data-title="大女儿房间" href="exec:minutes+=5 & gt ''附身院长'',''女儿房间2''"><img class="img_stretch" src="images\NPC\YZ\pics\女儿房间2.jpg"></a>'
+
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="浴室" href="exec:minutes+=5 & gt ''附身院长'',''浴室''"><img class="img_stretch" src="images\NPC\YZ\pics\浴室.jpg"></a>'
+		'</div>'
+
+		
+	'</div>'
+'</div>'
+
+
+if $args[0]="附身":
+	 '<div class ="show_menu"><img src="images\place\迷幻.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=30 & gt ''附身院长'',''主卧''">醒来</a></div>'
+		'</div>'
+		
+		'<div class="dialog_menu">'
+			'<p>·一种无法形容的感觉油然而生，你感觉灵魂被抽离剥落了…</p>'
+		'</div>'
+End
+
+
+if $args[0]="主卧":
+	if hour <=6 or hour>=21:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\睡觉0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\睡觉1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''附身院长'',''自慰''">自慰并沉睡</a></div>'
+	if hour <=6 or hour>=21:
+		if $二儿子发现=1:'<div class="buttonS"><a href="exec:gt ''院长_事件'',''YZ_Fuck_逆袭''">浅睡</a></div>'else:'<div class="buttonGr"><a href="exec:">浅睡</a></div>'
+	end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 我记得我明明在医院里…头好痛…我下面怎么这么瘙痒？</p>'
+		'<p>我: 嗯……我靠( ‵o′)凸，怎么回事？！我居然变成院长了？？这怎么可能？！</p>'
+		'<p>我: 这是梦吗？！未免也太真实了吧……</p>'
+	'</div>'
+End
+
+if $args[0]="自慰":
+	$YZ自慰=rand(0,3)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\自慰1-<<$YZ自慰>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:my.精力=0 & gt ''附身院长'',''主卧''">沉睡</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 这就是院长的身体吗？简直太有感觉了❤</p>'
+		$YZ.bad+=1
+		my.精力-=my.精力*1/10
+	'</div>'
+End
+
+if $args[0]="儿子房间0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YZ\vids\夜袭儿1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+            if $YZ.bad>=65:'<div class="buttonPu2"><a href="exec:gt ''院长_事件'',''YZ_Fuck_夜袭儿''">进入 </a></div>'else:'<div class="buttonGr"><a href="exec:">进入 </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·你小心翼翼地打开了儿子们的房门！</p>'
+	'</div>'
+End
+
+if $args[0]="儿子房间1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\儿房0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''附身院长'',''拿起VR''">拿起VR</a></div>'
+		'<div class="button"><a href="exec:gt ''附身院长'',''批评教育他们''">批评教育他们</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 呵呵，我就知道！藏黄片的地方果然在这！</p>'
+	'</div>'
+End
+
+if $args[0]="拿起VR":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\儿房1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS2"><a href="exec:gt ''附身院长'',''拿起VR''">自慰</a></div>'
+		'<div class="button"><a href="exec:gt ''附身院长'',''主卧''">回房</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 这片子我怎么从来没看过？！</p>'
+		$YZ.bad+=1
+		my.精力-=my.精力*1/10
+	'</div>'
+End
+
+
+if $args[0]="批评教育他们":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\教育.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''附身院长'',''主卧''">回房</a></div>'
+		if $二儿子发现=1 and $YZ.bad>=100:'<div class="buttonS"><a href="exec:gt ''院长_事件'',''YZ_Fuck_儿房SEX''">让大儿子留下</a></div>'else: '<div class="buttonGr"><a href="exec:">让大儿子留下</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 你们真是太让我失望了！每天不学好！竟是一天天搞黄色！</p>'
+		'<p>二儿子: 妈！我没有看！</p>'
+		'<p>我: 还说谎！</p>'
+		'<p>大儿子: 妈！你别怪弟弟了！</p>'
+		'<p>我: 我要惩罚你们！统统给我去把院子里的杂草拔了！</p>'
+	'</div>'
+End
+
+if $args[0]="客厅":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\辅导1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:gt ''院长_事件'',''YZ_Fuck_辅导''">奖励大儿子</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·儿子们正在复习迎考，这是他们第三次高考复读了。</p>'
+		'<p>大儿子: 妈，这次我在班里考了前三名…冲击医科大有希望了！</p>'
+	'</div>'
+End
+
+if $args[0]="女儿房间0":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\袭女1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $YZ.bad>=15 and  $女儿洗完=1:'<div class="buttonPu3"><a href="exec:a=1 & q=0 & gt ''院长_事件'',''YZ_Fuck_袭女''">夜袭女儿 </a></div>'else:'<div class="buttonGr"><a href="exec:">夜袭女儿 </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>女儿: zzZ zzZ zzZ</p>'
+	'</div>'
+End
+
+if $args[0]="女儿房间1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\女卧.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·女儿出去约会了…你对着女儿的胸罩一阵把玩…</p>'
+		$YZ.bad+=1
+		my.精力-=my.精力*1/10
+	'</div>'
+End
+
+if $args[0]="女儿房间2":
+		$见过女儿男友=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\女儿房间2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $袭女完毕=1:'<div class="buttonPu1"><a href="exec:gt ''院长_事件'',''YZ_Fuck_女卧''">和女儿独处</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $和男友洗完=1:'<div class="buttonPu2"><a href="exec:gt ''院长_事件'',''YZ_Fuck_女友''">在门外等着</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		if $和男友做完=1:'<div class="buttonPu3"><a href="exec:gt ''院长_事件'',''YZ_Fuck_女友3''">端茶进去</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>女儿: 帮我把饮料和零食拿过来！你要是真想娶我的话，就要对我言听计从！</p>'
+		'<p>男友: 好…需不需要我再给你去洗点水果？</p>'
+		'<p>女儿: 不如帮我去买一杯草莓西柚冻柠茶吧！大杯！去冰！少糖！再加一份芒果！</p>'
+		'<p>男友: ………</p>'
+	'</div>'
+End
+
+if $args[0]="浴室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\洗澡.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	
+		if 20>=hour and hour>=13 and $见过女儿男友=1:'<div class="button"><a href="exec:gt ''院长_事件'',''YZ_Fuck_浴室2''">谁在偷看？</a></div>'
+		if $YZ.bad>=5 and hour>=18:'<div class="buttonP"><a href="exec:gt ''院长_事件'',''YZ_Fuck_浴室''">和女儿一起洗</a></div>'else:'<div class="buttonGr"><a href="exec:">和女儿一起洗</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=45 & gt ''附身院长'',''主卧''">回房间</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：这么大的胸部，清洗起来还真是费劲呢…（怎么总感觉有人在偷看我呢）</p>'
+	'</div>'
+End
+
+
+--- 附身院长 ---------------------------------
+

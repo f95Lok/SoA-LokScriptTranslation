@@ -1,0 +1,168 @@
+# beauty_shop
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "shopping_mall_map"
+'</div>'
+
+
+
+if $ARGS[0] ="":
+	$MZ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\KA0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $beauty_event_chain=0:'<div class="buttonP"><a href="exec:gt ''beauty_event'',''MZ_Fist''">Accosted</a></div>'
+		if $beauty_event_chain>=1:'<div class="buttonP"><a href="exec:$beauty_dialogue=0 & gt ''beauty_shop'',''dialogue''">Talk in private</a></div>'
+		'<div class="buttonS3"><a href="exec:gt ''beauty_shop'',''behind''">Look behind her</a></div>'
+		if $beauty_event_chain=7 and week_day=5 and hour=17:'<div class="buttonR"><a href="exec:gt ''beauty_event'',''beauty_a8''">Welcome to sampling</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MZ.name>>: Hello, we have launched a new lipstick series, which has a long-lasting moisturizing effect and can keep your lips moisturized, soft and bright for a long time.</p>'
+		'<p>Me: What lipstick do I wear as a big man?…</p>'
+		if $beauty_event_chain>=4:'<p>✮<<$SSYY.name>>Seriously shooting backstage<a href="exec:gt ''beauty_event'',''beauty_makeup_fuck_you_ya''">-Go over and have a look</a></p>'
+	'</div>'
+end
+
+if $ARGS[0] ="behind":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\KA1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:money-=8000 & gt ''beauty_event'',''beauty_a0''">Paid experience ￥8000</a></div>'
+		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''beauty_shop'',''warehouse''">Go in again</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: This is…</p>'
+		'<p><<$MZ.name>>: This is our VIP customer trying out the color locking technology of the latest lipstick.This technology can help makeup products maintain their color and brightness longer when used, without fading or fading in a short period of time.</p>'
+		'<p>Me: So this is in…</p>'
+		'<p><<$MZ.name>>: If lipstick remains on clothes or skin, it`s hard to explain when you go home, right?</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="warehouse":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\仓库0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''beauty_shop'',''warehouse_1''">Look up</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MZ.name>>: Wait!As a customer, you are not allowed to come in here... This is our warehouse. All beauty products need to be stored here in moisture-proof and constant temperature.</p>'
+		'<p>Me: It`s neatly arranged... huh?</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="warehouse_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\仓库1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		$mzd.seen_the_warehouse=1
+		'<p>Me: Is the window above your head about to crumble?The moisture-proof constant temperature you just said is bragging, right?</p>'
+		'<p><<$MZ.name>>: Uh... This broken window is indeed our old problem. The headquarters said that as long as the beauty makeup is not wet by the rain, it will not hinder sales, so on rainy days, the store needs to have a resident clerk here to watch.</p>'
+		'<p>Me: Then you`d better pray that it won`t rain suddenly.</p>'
+		'<p><<$MZ.name>>: Okay, it`s time for us to get out of here.</p>'
+		'<p><B><span class =''red''>Me: I really hope this place won`t be flooded during the heavy rain…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="dialogue":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m=''MZ'' & $ma=$MZ.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+		if $beauty_of_the_month=0:'<div class="buttonR3"><a href="exec:gt ''beauty_event'',''beauty_a2''">Performance this month?</a></div>'else:'<div class="buttonGn"><a href="exec:">Completion of performance this month</a></div>'
+		if $beauty_event_chain=2 or $beauty_event_chain=3:'<div class="buttonS"><a href="exec:gt ''beauty_event'',''beauty_a3''">Mixed emotions</a></div>'
+		if $beauty_event_chain=5:'<div class="buttonR4"><a href="exec:gt ''beauty_event'',''beauty_d6''">Wrong expression</a></div>'
+		if $beauty_event_chain=6:'<div class="buttonR4"><a href="exec:gt ''beauty_shop'',''crisis''">Storm in office</a></div>'
+		if $beauty_event_chain=8:'<div class="buttonGn"><a href="exec:gt ''beauty_shop'',''crisis_2''">Promotion and salary increase</a></div>'
+		if $beauty_event_chain>=9:'<div class="buttonS"><a href="exec:gt ''beauty_event'',''beauty_f8''">Hot spring date</a></div>'
+		if $beauty_event_chain=7 and week_day=5 and hour=17:'<div class="buttonR"><a href="exec:gt ''beauty_event'',''beauty_a8''">Welcome to sampling</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $beauty_dialogue=0:
+		'<p><<$MZ.name>>: Ugh……</p>'
+		'<p>Me: What`s the matter?</p>'
+		'<p><<$MZ.name>>: Because the star who brought the goods invited by the brand overturned, it also broke out, `Where is it expensive?`Sometimes I look for my own reasons. Well, after so many years, my salary has not risen, and I have not worked hard. Okay, I have been at this price for so many years. I`m really crazy.” The bible, now the pressure on beauty sales has never been greater.…</p>'
+		end
+		
+	'</div>'
+end
+
+if $ARGS[0] ="crisis":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Let`s talk about it then</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $beauty_event_chain=6:$beauty_event_chain=7
+		'<p><<$MZ.name>>: Customer after-sales feedback<<$SSYY.name>>The false propaganda situation no longer exists, and at the same time they are very satisfied with the techniques of your massage shop❤</p>'
+		'<p>Me: It seems that you will be able to take up the position of regional manager soon?</p>'
+		'<p><<$MZ.name>>: It`s your light, but before that, there is another troublesome thing. It is a letter of complaint involving fraudulent propaganda personally sent by the headquarters.</p>'
+		'<p>Me: Fraudulent propaganda?Sounds more serious than false propaganda…</p>'
+		'<p><<$MZ.name>>: The party concerned asked us to welcome her product quality investigation at 17:00 on Friday afternoon, and the headquarters attaches great importance to it.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0] ="crisis_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MZ\vids\A5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''beauty_event'',''beauty_a7''">Opening celebration</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		
+		'<p><<$MZ.name>>: It seems that all obstacles have been removed❤</p>'
+		'<p>Me: Congratulations, are you now promoted to regional manager?</p>'
+		'<p><<$MZ.name>>: Yes it is!Thanks to you❤</p>'
+	'</div>'
+end
+--- beauty_shop ---------------------------------
+

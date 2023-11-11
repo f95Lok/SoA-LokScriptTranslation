@@ -1,0 +1,128 @@
+# immigration_administration
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="City Hall" href="exec:minutes+=15 & gt ''city_hall''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	$RION.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\介绍0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+
+		if $rion_interview!3:'<div class="button"><a href="exec:  gt ''immigration_administration'',''audit_requirements''">Ask for review requirements</a></div>'
+		if $rion_interview!3:'<div class="button"><a href="exec:  gt ''immigration_administration'',''interview''">Interview auditor</a></div>'
+		if $rion_interview=3:
+			'<div class="buttonR1"><a href="exec:$chat=''RION''& $where_to_go_out = ''City hall'' & addlove=0 &addbad=0 & gt ''universal_chat''">interaction</a></div>'
+			'<div class="buttonR2"><a href="exec: gt ''rion_event'',''rion_event_observation''">Observation review</a></div>'
+			'<div class="buttonR3"><a href="exec: gt ''second_generation_project_event'',''edm_fuck_threat''">Unconventional audit</a></div>'
+			if $chain_of_lost_hometown_events=0:
+				if $audit_level>=5:'<div class="buttonB2"><a href="exec: gt ''lost_hometown_incident'',''girl_in_town''">Sobbing</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient audit level</a></div>'
+			end
+			if $LY.available=1:
+			 if $ly_event_pre_entry=0:'<div class="buttonB3"><a href="exec:  gt ''anchor_event'',''ly_event_pre-entry''">Familiar voice</a></div>'
+			 if $ly_event_pre_entry=1:'<div class="buttonB4"><a href="exec:  gt ''anchor_event'',''ly_event_entry''">Re-review</a></div>'
+			end
+			
+			if $LXS.available=1 and $interview_for_international_students=0:
+				if $audit_level>=5:'<div class="buttonPu3"><a href="exec:  gt ''study_abroad_event'',''study_abroad_fuck_entry_11''">Audit foreigners</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient audit level</a></div>'
+			end
+			
+			
+			if $RION.bad>0:'<div class="buttonB3"><a href="exec: $lock_review=1 & gt ''daily_review''">Start review</a></div>'
+			if hour>=16 :
+				if $rion.bumped_into=1 and $RION.love>=100 :'<div class="buttonS"><a href="exec: a=-2 & q=0 & gt ''rion_event'',''rion_fuck_dinner''">Family dinner</a></div>'else:'<div class="buttonGr"><a href="exec:">Family dinner</a></div>'
+			end
+		end
+		
+
+		
+		'<div class="button"><a href="exec: & gt ''city_hall''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$Rion.name>> : Hello everyone, I am responsible for the immigration review this time.You can call me Anzhai Lala, Utsunomiya Aster or Rion.</p>'
+		'<p><<$Rion.name>> : Any more questions?*Sigh (the number of people who have applied for actress passes recently is too large, and they are almost unable to review it)</p>'
+	'</div>'
+end
+
+if $ARGS[0]="audit_requirements":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\介绍1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''immigration_administration''">Got it</a></div>'
+		'<div class="button"><a href="exec: gt ''city_hall''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>Me: Excuse me, what are the review requirements for immigration management?</p>'
+		'<p><<$Rion.name>> :Foreign residents who go to our city to work, visit relatives or are invited to participate in economic, scientific and technological, cultural, educational, academic and other activities need to apply to the immigration management department. After review, men will be issued temporary residence permits and women will be issued actress passes.</p>'
+		'<p><<$Rion.name>> : Women require a good face, a height of 160+, a C cup or more, no gynecological diseases, self-confidence and openness, and those who support female leadership are preferred.</p>'
+		'<p><<$Rion.name>> : Men demand to voluntarily give up the right to be elected and firmly support female leadership.Women with an annual income of more than 10 million, or with a rating of S or above, are preferred as guarantors.</p>'
+		'<p>Me: Does the auditor have any rights?</p>'
+		'<p><<$Rion.name>> :Different audit levels have different authority, and the most senior auditors can conduct compulsory personal inspections of residents, which is completely legal and in compliance.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="interview":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\面试0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $rion_interview=0:'<div class="button"><a href="exec: gt ''immigration_administration'',''first_round''">First round: Application</a></div>'
+		if $rion_interview=1:'<div class="button"><a href="exec:a=1 & $interview_num=0 & gt ''rion_event'',''second_round''">Second round: Written test</a></div>'
+		if $rion_interview=2:'<div class="button"><a href="exec: gt ''rion_event'',''third_round''">Round 3: Interview</a></div>'
+		'<div class="button"><a href="exec: gt ''city_hall''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$Rion.name>> : Male residents can only participate as part-time workers and are purely voluntary voluntary labor....Of course, there will be three rounds of interviews before that.</p>'
+		'<p>Me: Does the auditor have any rights after passing?</p>'
+		'<p><<$Rion.name>> :Different audit levels have different authority, and the most senior auditors can conduct compulsory personal inspections of residents, which is an obligation for residents to cooperate.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="first_round":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\面试0-1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $my.intelligence>=4:'<div class="button"><a href="exec:$rion_interview=1 & gt ''immigration_administration'',''first_round''">The answer is like a stream</a></div>'else:'<div class="buttonGr"><a href="exec: ">Insufficient intelligence<<$my.intelligence>>/4</a></div>'
+		'<div class="button"><a href="exec: gt ''city_hall''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>First round: Application</p>'
+		'<p><<$Rion.name>> :When facing applicants with incomplete materials, concealment of facts, unclear purpose, and refusal to cooperate, what is the correct approach?</p>'
+		if $rion_interview=1:
+		'<p>Me: It should be regarded as she has given up her application for entry, and it will be handled at her discretion depending on the severity of the circumstances, and reported to you for personal processing if necessary.</p>'
+		'<p><<$Rion.name>> :Very good, the next written test is a trial and error question, and all must be answered correctly.</p>'
+		
+		end
+		
+	'</div>'
+end
+
+
+
+--- immigration_administration ---------------------------------
+

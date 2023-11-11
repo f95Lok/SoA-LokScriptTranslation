@@ -1,0 +1,884 @@
+# 地质_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=10
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $ARGS[0]="初次见面":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $ARGS[1]="等人":
+		'<div class="button"><a href="exec: gt ''地质_事件'',''初次见面'',''见面''">打招呼</a></div>'
+		end
+		if $ARGS[1]="见面":
+		'<div class="button"><a href="exec: gt ''地质_事件'',''初次见面'',''分析''">土壤检测</a></div>'
+		end
+		if $ARGS[1]="分析":
+		'<div class="button"><a href="exec:$DZ.event_见面=10  &  gt ''餐厅''">点点头</a></div>'
+		else:
+		'<div class="button"><a href="exec: gt ''餐厅''">离开</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if $ARGS[1]="等人":
+		'<p>-<<$JJ.name>>：弟弟！你来啦！就是她！她是姆苟制药里有名的冰冷女神，也是出色的地质学专家！同时也是我的同学兼闺蜜喔！</p>'
+		end
+		
+		if $ARGS[1]="见面":
+		'<p>-我：你好！我叫<<$主角名>>...'
+		'<p>-<<$DZ.name>>：<<$jj.name>>？怎么让我等了这么久？你的时间观念呢？拜托人之前最起码要先遵守好时间观念！希望你下次准时！！</p>'
+		'<p>-<<$JJ.name>>：我等分析报告耽误了一会嘛，都是同学一场，这么凶干嘛！我弟弟还在呢，给我点面子啦~~！给你看我最新的分析报告！你一定会大吃一惊的！</p>'
+		'<p>-<<$DZ.name>>：什么？！这是麦高芬(MacGuffin)的分析报告？！C-137项目不是已经作废了吗？你从哪儿搞到原材料的？OS：这麦高芬(MacGuffin)的效果....果然不简单呐.....</p>'
+		'<p>-<<$JJ.name>>：嘿嘿，保密！对了，我弟弟有事想请教你。</p>'
+		'<p>-（这会儿她才正眼瞧了瞧你）</p>'
+
+		end
+		
+		if $ARGS[1]="分析":
+		'<p>-我：我推测土壤受到辐射所以植物发生突变.如果要追根溯源的话还需要进行土壤检测！'
+		'<p>-<<$DZ.name>>：土壤检测？你把样品寄到我办公室就行了。抱歉现在是我的休息时间，有事去我的办公室说吧。先告辞了。</p>'
+		'<p>-（起身便准备离开）</p>'
+		'<p>-<<$JJ.name>>：弟弟你别见怪！她就是这样的人，但你别看她外表冷落冰霜的，其实她人挺可爱的哦。OS：尤其是在醉酒的时候。</p>'
+		end
+		
+	'</div>'
+
+end
+
+if $ARGS[0]="吃饭":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\喝酒1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''地质_事件'',''吃饭选择完毕'',''我姐姐''">我姐姐</a></div>'
+		'<div class="button"><a href="exec:gt ''地质_事件'',''吃饭选择完毕'',''姐姐你''">姐姐你</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$DZ.name>>：好了，都和你吃过饭了。现在该回答我的问题了，我和你姐姐，谁对你更好？</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="吃饭选择完毕":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\分析~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=55 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+	if $ARGS[1]="我姐姐":
+	$DZ.LOVE-=15
+	money-=500
+	'<div class="dialog_menu">'
+		'<p>-<<$DZ.name>>：哦，你把单买一下吧，一共￥500。我先走了，没钱的话让你姐姐给你打钱！OS：真是个没良心的讨厌鬼。</p>'
+	'</div>'
+	end
+	if $ARGS[1]="姐姐你":
+	$DZ.LOVE+=10+my.魅力
+	'<div class="dialog_menu">'
+		'<p>-我：当然是姐姐你啦~</p>'
+		'<p>-<<$DZ.name>>：切，我才不稀罕你这种弟弟呢。我还有事，先走了。钱我付过了。OS：哼，还算你有良心。</p>'
+	'</div>'
+	end
+end
+
+if $ARGS[0]="去餐厅":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=60 & gt ''地质_事件'',''灌酒'',''喝酒2''">灌酒</a></div>'
+	if my.道德<=-13 and $DZ.BAD>=35:
+	'<div class="button"><a href="exec:minutes+=60 & a=0  & gt ''地质_事件'',''DZ_Fuck_sex'',''sex0开幕''">去开房</a></div>'
+	end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$DZ.name>>：你姐和我在学生时期就有不少追求者呢，一眨眼都过去这么多年了....</p>'
+		'<p>  </p>'
+		'<p>-<<$DZ.name>>：话说和闺蜜的弟弟一起吃饭...感觉真微妙呢......</p>'
+		'<p>-彼此间的距离拉近了不少.. </p>'
+		
+	 if $DZ.BAD>=35:
+		'<p>-桌子底下，她用高跟鞋尖撩拨着你的小腿...... </p>'
+	 end
+	 if $DZ.BAD>=100:
+		'<p>-没有人发现....她又渐渐将鞋尖上移..挑逗着你的裤裆..... </p>'
+	 end
+	'</div>'
+end
+
+if $ARGS[0]="灌酒":
+	my.道德-=5
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=60 & gt ''地铁''">她送回家</a></div>'
+	if my.道德<=-10:
+	'<div class="button"><a href="exec:minutes+=60 & a=0  & gt ''地质_事件'',''DZ_Fuck_醉酒'',''醉倒''">再灌几杯</a></div>'
+	end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-几杯红酒下肚后......她醉醺醺的样子令你忍俊不禁.....</p>'
+		'<p>-<<$DZ.name>>：你姐姐....以前最爱......跟我抢男朋友...（嗝）...我看中哪个...她就要...去跟.....人家要电话.....还要......（嗝）.....（嗝）...</p>'
+		'<p>-我：姐姐....你喝多了...</p>'
+		'<p>-<<$DZ.name>>：我没醉...你听好....圆周率...前100位是..3.14...159...26...5...3594..（嗝）....</p>'
+		'<p>-<<$DZ.name>>：蛤？！...等等...你刚才喊我姐姐？..是你喝多了吧！......（嗝）.....（嗝）......</p>'
+		'<p>-我：我送你回去吧...</p>'
+		'<p>-<<$DZ.name>>：难道我不好看吗..?..比不上你姐姐...?...老实说有没有意淫过你姐姐.....?....（嗝）.....（嗝）.....</p>'
+		$DZ.bad+=1
+		$DZ.love+=my.魅力
+	'</div>'
+end
+
+if $ARGS[0]="DZ_Fuck_醉酒后续":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\暧昧自慰~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:  gt ''通用过夜''">睡觉</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-后半夜...屋内传来轻喘....</p>'
+		if $DZ.BAD<=30:
+		'<p>-<<$DZ.name>>：...三番五次的......打算什么时候把我吃掉?....居然....有点喜欢你了.........</p>'
+		end
+		if $DZ.BAD>30:
+		'<p>-<<$DZ.name>>：..............</p>'
+		'<p>-<<$DZ.name>>：我居然和闺蜜的弟弟搞上床了....我真是个婊子...但是...你真的很合我胃口....</p>'
+		end
+		if $DZ.BAD>100:
+		'<p>-<<$DZ.name>>：既然都做了这么多次了....与其被<<$jj.name>>发现，被骂是个勾引她弟弟的骚货....不如把她也拉下水...</p>'
+		end
+		if $DZ.BAD>150:
+		'<p>-<<$DZ.name>>：我和他姐姐都被他操了....就不会有问题了........</p>'
+		end
+		$DZ.BAD+=5
+	'</div>'
+end
+
+
+
+if $args[0]="DZ_Fuck_醉酒":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZ_Fuck_醉酒'',''喂水''">喂水</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZ_Fuck_醉酒'',''接吻''">接吻</a></div>'
+			end
+			if a!3 and  5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZ_Fuck_醉酒'',''舔奶''">舔奶</a></div>'
+			end
+			if a!4 and a!5 and  8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZ_Fuck_醉酒'',''准备进入''">摩擦下体</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZ_Fuck_醉酒'',''射''">外射</a></div>'
+			end
+
+			if a=5: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_醉酒'',''暧昧'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $DZ.bad>=25:
+				'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_醉酒后续''">后半夜...</a></div>'
+				end
+				'<div class="button"><a href="exec:  gt ''通用过夜''">过夜</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>等到把<<$DZ.name>>抬到旅馆里时，她已经醉的不成样子了.......</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我：我喂你喝点水..慢点喝....</p>'
+			 '<p><<$DZ.name>>:等..下别.走...我们一起睡觉觉....这回<<$JJ.name>>可抢不过我了........</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:不行..快停下..被你姐姐知道了不好....OS:她都抢了我这么多男朋友了，我抢她一个弟弟也不过分吧..</p>'
+		 '</div>'
+	end
+
+
+	
+	if a=9:
+		 $DZ.bad+=q+2
+		 $DZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>艹....我居然和闺蜜的弟弟.....OS：算了...又没插进去..反正也没发生什么...</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $args[0]="DZ_Fuck_sex":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex1挑逗''">舔睾丸</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex2挑逗2''">玩鸡巴</a></div>'
+			end
+			if a!3 and  5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex3口交''">口交</a></div>'
+			end
+			if a!4 and  8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex4sex''">整根没入</a></div>'
+			end
+			if a!5 and  9>= q and q>=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex5sex''">顶到子宫口</a></div>'
+			end
+			if a!6 and a!9 and  q>=5 :
+			'<div class="button"><a href="exec:a=6 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex6冲刺sex''">冲刺</a></div>'
+			end
+			if a=6: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_sex'',''sex7射''">内射</a></div>'
+			end
+			if a=9: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_sex'',''暧昧'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $DZ.bad>=30:
+				'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_醉酒后续''">过夜</a></div>'
+				end
+				'<div class="button"><a href="exec: minutes+=30 &gt ''家''">回家</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:这次我....可..没喝醉喔！..........</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:啾——啾——啾——<<$主角姓名>>，你的活还不错....怪不得你姐姐这么喜欢你...</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$话>>..</p>'
+		 '</div>'
+	end
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>：小穴里好热，子宫被灌满了......</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+
+if $ARGS[0]="周末约会":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\喝酒2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=60 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex20开幕''">买单</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-美人，美食，美酒，彼此间的距离又拉近了不少...</p>'
+		'<p>-<<$DZ.name>>：你说....(嗝)..我和你姐姐谁更漂亮？....(嗝)..选我嘛..选我嘛~~</p>'
+		'<p>-<<$DZ.name>>：喂....你喝醉了吗..?我有点想要了....</p>'
+		
+	 if $DZ.BAD>=100:
+		'<p>-桌子底下，她脱下高跟鞋，用小脚挑逗着你的裤裆...... </p>'
+	 end
+	 if $DZ.BAD>=150:
+		'<p>-<<$DZ.name>>：我要你现在就给我....满足我... </p>'
+	 end
+	'</div>'
+end
+
+
+if $args[0]="DZ_Fuck_sex2":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex21挑逗''">舔奶侍奉</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex22挑逗2''">舔屌侍奉</a></div>'
+			end
+			if a!3 and a<6 and  5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex23口交''">手口侍奉</a></div>'
+			end
+			if a!4 and a<6 and  8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex24sex''">女上位</a></div>'
+			end
+			if a!5 and a<6 and  9>= q and q>=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex25sex''">正常位</a></div>'
+			end
+			if a!6 and a<6 and a!9 and  q>=5 :
+			'<div class="button"><a href="exec:a=6 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex26冲刺sex''">冲刺</a></div>'
+			end
+			if a=6: 
+			'<div class="button"><a href="exec:a=7 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex26冲刺sex''">射精</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex2颜射''">射脸上</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex2胸射''">射胸上</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex2臀射''">射臀上</a></div>'
+			end
+
+			if a=8: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex28结束'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $DZ.bad>=30:
+				'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_醉酒后续''">过夜</a></div>'
+				end
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''地质_事件'',''DZ_Fuck_sex2'',''sex20开幕'',''0''">再来一炮</a></div>'
+				'<div class="button"><a href="exec: minutes+=30 &gt ''居民区''">差不多了</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:我就知道你最棒了~她迫不及待地用舌头缠住了你...</p>'
+		 '</div>'
+	end
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>：还要再干一次吗？我知道你可以的，肉棒没吹几下就硬邦邦的了..</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $args[0]="DZ_Fuck_家":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZ_Fuck_家'',''家1挑逗''">舔龟头</a></div>'
+			end
+			if a!2 and q<=9 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZ_Fuck_家'',''家2挑逗2''">小穴抽插</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZ_Fuck_家'',''家2挑逗3''">小穴观察</a></div>'
+			end
+			if a!4 and 5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZ_Fuck_家'',''家3口交''">口交</a></div>'
+			end
+			if a!5 and 8>= q and q>=3 :
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZ_Fuck_家'',''家4sex''">女上位</a></div>'
+			end
+			if a!6 and 9>= q and q>=4 :
+			'<div class="button"><a href="exec:a=6 & gt ''地质_事件'',''DZ_Fuck_家'',''家5sex''">怀抱女上位</a></div>'
+			end
+			if a!7 and q>=5: 
+			'<div class="button"><a href="exec:a=7 & gt ''地质_事件'',''DZ_Fuck_家'',''家6冲刺sex''">肛交冲刺</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=8 & gt ''地质_事件'',''DZ_Fuck_家'',''家7射''">颜射</a></div>'
+			end
+			if a=8: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_家'',''家8结束'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''RION撞见''">准备离开</a></div>'
+
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:啊呀，哪里都找不到，会不会在你这里呢？</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:不可以，不是那个洞！快拔出来，好痛...好痛..呀！</p>'
+		 '</div>'
+	end
+	
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>：（大脑放空中）...看起来文件也不在我的小穴里...也不在我的屁眼里...</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $ARGS[0]="RION撞见":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\撞见~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:minutes+=30 & gt ''地质_事件'',''在家吃饭''">准备吃饭</a></div>'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$RION.name>>：我的衣服在你这吗.....</p>'
+		'<p> <<$DZ.name>>姐姐！你..你你你怎么在家啊？！</p>'
+		'<p> <<$RION.name>>：啊咧？这是你的小男友吗？你好！我是<<$DZ.NAME>>的表姐，在出入境管理局工作，你可以叫我安齋拉拉，宇都宫紫苑或者Rion。</p>'
+		$RION.available=1
+		$RION.撞见=1
+		'<p> <<$DZ.name>>：姐姐！我说了多少次了！姐姐你怎么又不敲门！</p>'
+		'<p> <<$RION.name>>：抱歉啦~.....OS：看到我的巨乳就勃起了吗？虽然见过好几次了这长度和硬度...啧啧...啊呀，职业病又犯了..</p>'
+		'<p> <<$RION.name>>：好啦，不打扰你们的性福时光了，如果要吃饭的话我就多准备一份.....</p>'
+	'</div>'
+end
+
+if $ARGS[0]="邀请回家":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:gt ''地质_事件'',''在家吃饭''">去她家</a></div>'
+	 	'<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$DZ.name>>：走吧，今天我表姐在家喔！带你尝尝她的手艺！她可不光只有奶子大这一项优点哦！</p>'
+
+end
+
+if $ARGS[0]="在家吃饭":
+	a=0
+	q=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\收拾~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:minutes+=30 & gt ''地质_事件'',''在家吃饭1''">...</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$RION.name>>：啊，还有这么多衣服要洗嘛...看来咖喱还要再煮一会了...</p>'
+		'<p> <<$RION.name>>：话说最近奶子张的厉害，不知道是不是雌性激素又爆表了........</p>'
+
+end
+
+if $ARGS[0]="在家吃饭1":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\隐秘1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	'<div class="button"><a href="exec:gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-1''">同意</a></div>'
+	 	'<div class="button"><a href="exec:gt ''地铁''">婉拒</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$DZ.name>>：可恶，既然饭还没准备好，不如我们在这里偷偷做爱吧？...</p>'
+		'<p> <<$DZ.name>>：姐姐有一大堆家务要做，不会发现的...</p>'
+
+end
+
+if $args[0]="DZ_Fuck_隐秘":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-1''">继续接吻</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-2''">潮吹</a></div>'
+			end
+			if a!3 and 5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-3''">口交</a></div>'
+			end
+			if a!4 and q>=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-4''">后背位</a></div>'
+			end
+			if a!5 and q>=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-5''">女上位</a></div>'
+			end
+			if a!6 and q>=6 :
+			'<div class="button"><a href="exec:a=6 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-6''">冲刺</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_隐秘'',''隐秘1-7'',''结束''">射精</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''RION发现''">...</a></div>'
+
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:真是刺激呢.....心脏都快调出来了.....</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+	
+	if a=9:
+		 $DZ.bad+=q
+		 $DZ.love+= q+my.魅力
+		 $RION.bad+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>：嘻嘻，真是太刺激了......</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $ARGS[0]="RION发现":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\隐秘1-8~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 	if $RION.love>=100:'<div class="button"><a href="exec:a=-1 & gt ''RION_事件'',''RION_Fuck_晚餐''">留下吃饭</a></div>'else:'<div class="buttonGr"><a href="exec:">留下吃饭</a></div>'
+	 	'<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$RION.name>>：可恶的妹妹.....居然偷偷做这种事....</p>'
+
+end
+
+if $args[0]="DZ_Fuck_药":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=2 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZ_Fuck_药'',''药1挑逗''">滴乳头</a></div>'
+			end
+			if a!2 and q<=3 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZ_Fuck_药'',''药10挑逗''">乳首高潮</a></div>'
+			end
+			if a!3 and 5>= q and q>=2 :
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZ_Fuck_药'',''药2挑逗2''">滴阴蒂</a></div>'
+			end
+			if a!4 and 6>= q and q>=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZ_Fuck_药'',''药3口交''">口交</a></div>'
+			end
+			if a!5 and a<8 and q>=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZ_Fuck_药'',''药4sex''">后背位</a></div>'
+			end
+			if a!6 and a<8 and q>=6 :
+			'<div class="button"><a href="exec:a=6 & gt ''地质_事件'',''DZ_Fuck_药'',''药5sex''">女上位</a></div>'
+			end
+			if a!7 and a<8 and q>=7 :
+			'<div class="button"><a href="exec:a=7 & gt ''地质_事件'',''DZ_Fuck_药'',''药9sex''">正常位</a></div>'
+			end
+			if a!8 and q>=8 :
+			'<div class="button"><a href="exec:a=8 & gt ''地质_事件'',''DZ_Fuck_药'',''药6冲刺sex''">冲刺</a></div>'
+			end
+			if a=8: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZ_Fuck_药'',''药7射''">射精</a></div>'
+			end
+			if a=9: 
+			'<div class="button"><a href="exec:a=10 & gt ''地质_事件'',''DZ_Fuck_药'',''药8结束'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:MGF -= 1 & gt ''姆苟制药''">收拾完离开</a></div>'
+
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:这就是麦高芬精华液吗？这种紧张又期待的心情，和每次见你时一样呢。</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+	
+	if a=10:
+		 $DZ.bad+=q
+		 $DZ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$DZ.name>>：这是媚药！春药！再纯洁的女人也会变成堕落的母狗的...真是太危险了，还好对象是你....</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+if $args[0]="DZJJ_Fuck_逆3P":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DZ\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if $args[2]!"结束":
+		'<div class="button_menu">'
+			if a!1 and q<=3 :
+			'<div class="button"><a href="exec:a=1 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P2挑逗''">双人侍奉</a></div>'
+			end
+			if a!2 and 6>= q and q>=1 :
+			'<div class="button"><a href="exec:a=2 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P3口交''">让姐姐口</a></div>'
+			end
+			if a!3 and 6>= q and q>=1 :
+			'<div class="button"><a href="exec:a=3 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P4口交''">让<<$DZ.name>>口</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=4 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P5口射''">射姐姐嘴里</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=5 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P6口射''">射<<$DZ.name>>嘴里</a></div>'
+			end
+			if a!6 and q>=4 :
+			'<div class="button"><a href="exec:a=6 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P7sex''">和姐姐做爱</a></div>'
+			end
+			if a!7 and q>=4 :
+			'<div class="button"><a href="exec:a=7 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P8sex''">和<<$DZ.name>>做爱</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=8 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P9射''">射精</a></div>'
+			end
+			if a=7: 
+			'<div class="button"><a href="exec:a=9 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P10射''">射精</a></div>'
+			end
+			if a>=8: 
+			'<div class="button"><a href="exec:a=10 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P1结束'',''结束''">结束</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:q=0 & gt ''地质_事件'',''DZJJ_Fuck_逆3P'',''3P0开幕''">再次满足</a></div>'
+
+				'<div class="button"><a href="exec:gt ''姆苟制药''">8彳亍了</a></div>'
+
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>这里真是个好地方，无论做的再大声也不会被人发现，她们欲火难耐地开始与你继续拥吻....</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p>*<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=6 :
+		 '<div class="dialog_menu">'
+			 '<p>*<<$话>></p>'
+		 '</div>'
+	end
+	
+	if a=10:
+		 $DZ.bad+=q
+		 $DZ.love+= q+my.魅力
+		 $JJ.bad+=q
+		 $JJ.love+= q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p>显而易见的是她们并没有得到满足...</p>'
+		 	 '<p>我：我只有一根肉棒，一次只能操一条母狗，你们俩谁是最淫荡的母狗呢？</p>'
+			 '<p><<$JJ.name>>：我是我是，我是弟弟的骚母狗，想喝弟弟的美味精液，回家让你把妹妹和妈妈挨个操个够，现在就插我嘛~~</p>'
+			 '<p><<$DZ.name>>：用你的大肉棒狠狠地惩罚我吧！我是外人眼里的女神，但是是你的私有母狗，把我的每一个洞都灌满，求你了!</p>'
+		 	 '<p>我：真拿你们没办法~</p>'
+		 '</div>'
+	end
+		
+ q+=1
+
+end
+
+
+
+
+ 
+--- 地质_事件 ---------------------------------
+

@@ -1,0 +1,357 @@
+# convenience_store
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=30
+$random_number=rand(0,100)
+
+if $entering_a_convenience_store_for_the_first_time=0:
+	$fw.enthusiasm=20
+	$typesofconveniencestoreproducts=20
+	$convenience_store_environment=20
+	$entering_a_convenience_store_for_the_first_time=1
+	$floor_a_dirt_degree=rand(0,6)
+	$floor_b_dirt=rand(0,6)
+	$fw.upper_limit_of_internal_environment=100
+	$fw.upper_limit_of_enthusiasm=50
+	$night_shift.enthusiasm=25
+	
+	$store_evaluation_a[0]="☹"
+	$store_evaluation_a[1]="☹"
+	$store_evaluation_a[2]="☹"
+	$store_evaluation_a[3]="☹"
+	$store_evaluation_a[4]="☹"
+	$store_evaluation_a[5]="☹"
+	$store_evaluation_a[6]="☹"
+    end
+
+
+$convenience_store_environment+=rand(-5,0)
+$probability_of_theft+=rand(3,5)
+
+
+if $floor_a_dirt_degree>0:$floor_a_dirt_degree-=1
+if $floor_b_dirt>0:$floor_b_dirt-=1
+
+
+$convenience_store_environment-=(5-$floor_a_dirt_degree)*2
+$convenience_store_environment-=(5-$floor_b_dirt)*2
+
+
+
+if $thief_2_enters_the_room_2>0:$convenience_store_environment+=25
+!#↑这个是扫地机器人
+
+
+
+if $convenience_store_environment<=-20:$convenience_store_environment=-20
+if $convenience_store_environment>=$fw.upper_limit_of_internal_environment:$convenience_store_environment=$fw.upper_limit_of_internal_environment
+
+
+$leftover_drinks_in_and_out_of_the_country-=rand(2,4)
+$tv_station_drinks_leftover-=rand(2,5)
+if $leftover_drinks_in_and_out_of_the_country<=0:$entry_and_exit_exclusive=0
+if $tv_station_drinks_leftover<=0:$tv_station_exclusive=0
+
+
+$commodityprofitmargin=10+$school_exclusive+$hospital_exclusive+$entry_and_exit_exclusive+$tv_station_exclusive
+
+
+if $fw.enthusiasm>=1+$fw.upper_limit_of_enthusiasm:$fw.enthusiasm=$fw.upper_limit_of_enthusiasm
+
+if $night_shift.enthusiasm>=$fw.upper_limit_of_enthusiasm:$night_shift.enthusiasm=$fw.upper_limit_of_enthusiasm
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+if hour>=22 or hour <=5:
+	$times_of_convenience_store='night'
+	$night_shift.enthusiasm+=rand(-5,0)
+	$customer_patience_value-=(50-$night_shift.enthusiasm)
+	if $qb_store_manager>0:$night_shift.enthusiasm+=6
+else:
+	$times_of_convenience_store=''
+	$fw.enthusiasm+=rand(-5,0)
+	$customer_patience_value-=(50-$fw.enthusiasm)
+	if $qb_store_manager>0:$fw.enthusiasm+=6
+end
+
+
+if $customer_patience_value>=350:$customer_patience_value=300
+
+
+	if $school_exclusive=2 and day=11 and ($principal_nightclub!2 and $principal_nightclub!3):msg'校长对你很失望，合作结束'  & $school_exclusive=0 & gt 'convenience_store'
+	if $hospital_exclusive=2 and day=21 and ($dean_nightclub!2 and $dean_nightclub!3):msg'院长对你很失望，合作结束'  & $hospital_exclusive=0 & gt 'convenience_store'
+
+
+
+	if $fw.enthusiasm<=-20:$fw.enthusiasm=-20
+
+if  $times_of_convenience_store='':
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''convenience_store'',''backstage''"><img class="img_stretch" src="images\place\market\仓库.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			if $fw.enthusiasm>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\收银台.jpg"></a>'
+			if $fw.enthusiasm<=0:'<a class="photo"  href="exec:gt ''group_performation_event'',''convenience_store_fuck_fuck''"><img class="img_stretch" src="images\place\market\收银台99.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+				if $customer_patience_value>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客0.jpg"></a>'
+				if -50<=$customer_patience_value and $customer_patience_value<=0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客1.jpg"></a>'
+				if  -100<=$customer_patience_value and $customer_patience_value <-50:'<a class="photo"  href="exec:$store_customer_number=rand(1,6) & gt ''group_performation_event'',''convenience_store_fuck_convenience_store_customer''"><img class="img_stretch" src="images\place\market\顾客2.jpg"></a>'
+				if  -300<=$customer_patience_value and $customer_patience_value <-100:'<a class="photo"  href="exec:$store_customer_number=rand(1,6) & gt ''group_performation_event'',''convenience_store_fuck_convenience_store_customer''"><img class="img_stretch" src="images\place\market\顾客3.jpg"></a>'
+				if $customer_patience_value<-300:msg'顾客无人理睬，给了bad_review'  & $customer_patience_value=250 & gt 'bad_reviews','差评'
+		'</div>'
+		'<div class="action">'
+			if $random_number<$probability_of_theft: 
+					if $thief_1_enters_the_room_2>0:$additionalprofit_and_loss+=1000
+					!#↑这个是保险自动消费
+				if $thief_1_enters_the_room>100 and $random_number>=50:
+				'<a class="photo"  href="exec:$thief_number=1 & gt ''group_performation_event'',''convenience_store_fuck_come_to_the_store_to_do''"> <img class="img_stretch" src="images\place\market\顾客95.jpg"></a>'
+				else:
+				$additionalprofit_and_loss-=250
+				'<a class="photo"  href="exec:$thief_number=rand(1,2) & gt ''group_performation_event'',''convenience_store_fuck_fuck''"> <img class="img_stretch" src="images\place\market\顾客96.jpg"></a>'
+				end
+			    elseif $fw.enthusiasm>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客1.jpg"></a>'
+				elseif $fw.enthusiasm<=0:'<a class="photo"  href="exec:$store_number=rand(3,6) &gt ''group_performation_event'',''convenience_store_delivery_service''"> <img class="img_stretch" src="images\place\market\顾客99.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if day=7 or day=14 or day=21 or day=28:
+				'<a class="photo"  href="exec:$inspector_number=day/7 & gt ''group_performation_event'',''convenience_store_fuck_inspector''"> <img class="img_stretch" src="images\place\market\顾客98.jpg"></a>'
+				elseif $fw.enthusiasm>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客0.jpg"></a>'
+				
+				elseif $fw.enthusiasm<=0:'<a class="photo"  href="exec:$store_number=rand(0,2) &gt ''group_performation_event'',''convenience_store_delivery_service''"> <img class="img_stretch" src="images\place\market\顾客99.jpg"></a>'
+			
+			end
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''convenience_store''"><img class="img_stretch" src="images\place\公寓便利店_<<$times_of_convenience_store>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $floor_a_dirt_degree=0 or $floor_a_dirt_degree>=3:'<a class="photo"  data-title="Clean the floor" " href="exec:$floor_a_dirt_degree=9 & gt ''convenience_store''"><img class="img_stretch" src="images\place\market\地板<<$floor_a_dirt_degree>>.jpg"></a>'
+			if $floor_a_dirt_degree=2:'<a class="photo"  data-title="Troublesome guest" " href="exec:$floor_number=''A'' & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_a_dirt_degree>>.jpg"></a>'
+			if $floor_a_dirt_degree=1:'<a class="photo"  data-title="Troublesome guest" " href="exec:a=4 & $floor_number=''A'' & $floor_role_number=rand(1,3) & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_a_dirt_degree>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+            if $floor_b_dirt=0 or $floor_b_dirt>=3:'<a class="photo"  data-title="Clean the floor" " href="exec:$floor_b_dirt=9 & gt ''convenience_store''"><img class="img_stretch" src="images\place\market\地板<<$floor_b_dirt>>.jpg"></a>'
+            if $floor_b_dirt=2:'<a class="photo"  data-title="Troublesome guest" " href="exec:$floor_number=''B'' & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_b_dirt>>.jpg"></a>'
+            if $floor_b_dirt=1:'<a class="photo"  data-title="Troublesome guest" " href="exec:a=4 & $floor_number=''B'' & $floor_role_number=rand(1,3) & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_b_dirt>>.jpg"></a>'
+        '</div>'
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''talent_apartment''"><img class="img_stretch" src="images\place\market\离开.jpg"></a>'
+		'</div>'
+		! ###############################################################
+	'</div>'
+'</div>'
+
+else:
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''convenience_store'',''backstage''"><img class="img_stretch" src="images\place\market\仓库.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\market\货架.jpg"></a>'
+		'</div>'
+		! ##################晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上###
+		'<div class="action">'
+			if $night_shift.enthusiasm>0:'<a class="photo"  href="exec:gt ''convenience_store'',''normal_night_shift''"><img class="img_stretch" src="images\place\market\收银台98.jpg"></a>'
+			if $night_shift.enthusiasm<=0:'<a class="photo"  href="exec:gt ''group_performation_event'',''convenience_store_fuck_night_shift_sex''"><img class="img_stretch" src="images\place\market\收银台97.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+				if $customer_patience_value>0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客0.jpg"></a>'
+				if -50<=$customer_patience_value and $customer_patience_value<=0:'<a class="photo"  ><img class="img_stretch" src="images\place\market\顾客1.jpg"></a>'
+				if  -100<=$customer_patience_value and $customer_patience_value <-50:'<a class="photo"  href="exec:$store_customer_number=rand(1,6) & gt ''group_performation_event'',''convenience_store_fuck_convenience_store_customer''"><img class="img_stretch" src="images\place\market\顾客2.jpg"></a>'
+				if  -300<=$customer_patience_value and $customer_patience_value <-100:'<a class="photo"  href="exec:$store_customer_number=rand(1,6) & gt ''group_performation_event'',''convenience_store_fuck_convenience_store_customer''"><img class="img_stretch" src="images\place\market\顾客3.jpg"></a>'
+				if $customer_patience_value<-300:msg'顾客无人理睬，给了bad_review'  & $customer_patience_value=250 & gt 'bad_reviews','差评'
+		'</div>'
+		'<div class="action">'
+			if $random_number<$probability_of_theft and  $thief_2_enters_the_room>100 and $random_number<=50:
+				'<a class="photo"  href="exec:$thief_number=2 & gt ''group_performation_event'',''convenience_store_fuck_come_to_the_store_to_do''"> <img class="img_stretch" src="images\place\market\顾客95.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if (day=8 and $inspector_n1=1) or (day=15 and $inspector_n2=1)or (day=22 and $inspector_n3=1)or (day=29 and $inspector_n4=1):
+				'<a class="photo"  href="exec:$inspector_number=day/7 & gt ''group_performation_event'',''convenience_store_fuck_inspector_2''"> <img class="img_stretch" src="images\place\market\顾客97.jpg"></a>'
+				elseif $school_exclusive=2 and day=10: '<a class="photo"  href="exec:gt ''group_performation_event'',''convenience_store_fuck_principal_2''"> <img class="img_stretch" src="images\place\market\顾客94.jpg"></a>'
+				elseif $hospital_exclusive=2 and day=20: '<a class="photo"  href="exec:gt ''group_performation_event'',''convenience_store_fuck_dean_2''"> <img class="img_stretch" src="images\place\market\顾客94.jpg"></a>'
+				else:'<a class="photo"  ><img class="img_stretch" src="images\place\market\空白.jpg"></a>'
+			end
+		'</div>'
+		! ##################晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上##晚上###
+	
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''convenience_store''"><img class="img_stretch" src="images\place\公寓便利店_<<$times_of_convenience_store>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $floor_a_dirt_degree=0 or $floor_a_dirt_degree>=3:'<a class="photo"  data-title="Clean the floor" " href="exec:$floor_a_dirt_degree=9 & gt ''convenience_store''"><img class="img_stretch" src="images\place\market\地板<<$floor_a_dirt_degree>>.jpg"></a>'
+			if $floor_a_dirt_degree=2:'<a class="photo"  data-title="Troublesome guest" " href="exec:$floor_number=''A'' & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_a_dirt_degree>>.jpg"></a>'
+			if $floor_a_dirt_degree=1:'<a class="photo"  data-title="Troublesome guest" " href="exec:a=4 & $floor_number=''A'' & $floor_role_number=rand(1,3) & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_a_dirt_degree>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+            if $floor_b_dirt=0 or $floor_b_dirt>=3:'<a class="photo"  data-title="Clean the floor" " href="exec:$floor_b_dirt=9 & gt ''convenience_store''"><img class="img_stretch" src="images\place\market\地板<<$floor_b_dirt>>.jpg"></a>'
+            if $floor_b_dirt=2:'<a class="photo"  data-title="Troublesome guest" " href="exec:$floor_number=''B'' & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_b_dirt>>.jpg"></a>'
+            if $floor_b_dirt=1:'<a class="photo"  data-title="Troublesome guest" " href="exec:a=4 & $floor_number=''B'' & $floor_role_number=rand(1,3) & gt ''group_performation_event'',''convenience_store_fuck_floor''"><img class="img_stretch" src="images\place\market\地板<<$floor_b_dirt>>.jpg"></a>'
+        '</div>'
+		'<div class="action">'
+			'<a class="photo"  href="exec:gt ''talent_apartment''"><img class="img_stretch" src="images\place\market\离开.jpg"></a>'
+		'</div>'
+		! ###############################################################
+	'</div>'
+'</div>'
+
+end
+
+
+
+if $args[0]="":
+
+	'<div class ="show_menu"><img src="images\place\公寓便利店_<<$times_of_convenience_store>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	 if $bd_advertising>0:'<div class="buttonGn"><a href="exec:$bd_advertising-=1 & gt ''group_performation_event'',''convenience_store_fuck_bd1''">Shooting advertising<<$bd_advertising>>times</a></div>'
+	 if $ct_test_2>=1 and $DY.available=0:'<div class="buttonP"><a href="exec:gt ''convenience_store'',''first_acquaintance_with_the_clerk''">Hello❤</a></div>'
+	 if $DY.available>0:'<div class="buttonP"><a href="exec:gt ''clerk_event'',''clumsy''"><<$DY.name>></a></div>'
+	 
+	 if $ct_test_2>=1 and $random_number>=80:
+		if $HS.love>=200 and week_day=7:'<div class="buttonS2"><a href="exec:$m=''HS'' & $ma=$HS.name & gt ''group_performation_event'',''convenience_store_fuck_exclusive''">Acquaintances visit</a></div>'
+        if $JY.love>=200 and week_day=6:'<div class="buttonR3"><a href="exec:$m=''JY'' & $ma=$JY.name & gt ''group_performation_event'',''convenience_store_fuck_exclusive''">Acquaintances visit</a></div>'
+        if $QT.love>=200 and week_day=5:'<div class="buttonB3"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''group_performation_event'',''convenience_store_fuck_exclusive''">Acquaintances visit</a></div>'
+	 end
+	 
+	 
+		'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·According to<<$CT.name>>The monthly net profit must exceed 1 million</p>'
+		'<p>·——————————————————</p>'
+		'<p>· <<month>>Monthly cumulative net profit: ￥<<$significant_cumulative_profit_this_month>>'
+		if $my_mental_power>=1000000:'·已完成净利润目标<a href="exec:gt ''empire_dome'',''president_liyi_3''">复Resurrection</a>'
+		'</p>'
+		
+		if $significant_cumulative_profit_this_month>$my_mental_power+100:'<p><B><span class =''red''>☢If the above benefits were modified by you with CE, then I have already predicted it.</p>'
+		
+		'<p>·Number of visitors yesterday：<<$numberofcustomersyesterday>>People; yesterday`s net income: ￥<<$yesterdaysprofit>>; Commodity profit margin：<span class="tooltip" data-title="=Basic 10%+<<$hospital_exclusive>>%+<<$school_exclusive>>%+<<$entry_and_exit_exclusive>>%+<<$tv_station_exclusive>>%, the upper limit is 18%"><<$commodityprofitmargin>>%</span></p>'
+		if hour>=22 or hour <=5:
+			'<p>㊰Service enthusiasm：<<$night_shift.enthusiasm>>%; product richness：<<$typesofconveniencestoreproducts>>%; store cleanliness：<<$convenience_store_environment>>%</p>'
+		else:
+			'<p>㊐Service enthusiasm：<<$fw.enthusiasm>>%; product richness：<<$typesofconveniencestoreproducts>>%; store cleanliness：<<$convenience_store_environment>>%</p>'
+		end
+		'<p>·➤Past seven reviews➤：<<$store_evaluation_a[6]>><<$store_evaluation_a[5]>><<$store_evaluation_a[4]>><<$store_evaluation_a[3]>><<$store_evaluation_a[2]>><<$store_evaluation_a[1]>><<$store_evaluation_a[0]>>➤</p>'
+		'<p>·Additional effects>'
+		if $thief_1_enters_the_room_2>0:'【防盗保险：剩余<<$偷窃员1入室2>>天】'
+		if $thief_2_enters_the_room_2>0:'【扫地机器人：剩余<<$偷窃员2入室2>>天】'
+		if $entry_and_exit_exclusive=2:'【出入境售货机：剩余<<出入境饮料剩余>>%】'
+		if $tv_station_exclusive=2: '【电视台售货机：存货<<电视台饮料剩余>>%】'
+		if $qb_store_manager>0: '【<a href="exec:gt ''group_performation_event'',''convenience_store_fuck_qb_convenience_store_x''">Idol store manager</a>：剩余<<$QB店长>>天】'
+		'</p>'
+	'</div>'
+end
+
+
+if $args[0]="data":
+	'<div class ="show_menu"><img src="images\place\科技.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''convenience_store''">leave</a></div>'
+		'<div class="buttonG4"><a href="exec:gt ''reward'',''buy_your_own_turnover''">Buy your own turnover</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·According to<<$CT.name>>The monthly net profit must exceed 1 million</p>'
+		'<p>·——————————————————</p>'
+		'<p>· <<month>>Monthly cumulative net profit: ￥<<$significant_cumulative_profit_this_month>>  ; Yesterday`s net profit: ￥<<$yesterdaysprofit>></p>'
+		
+		'<p>·㊐Service enthusiasm：<<$fw.enthusiasm>>%; product richness：<<$typesofconveniencestoreproducts>>%；$numberofcustomersyesterday：<<昨日顾客数>>people</p>'
+		'<p>·㊰Service enthusiasm：<<$night_shift.enthusiasm>>%; store cleanliness：<<$convenience_store_environment>>%; current commodity net profit：<<$commodityprofitmargin>>%</p>'   
+		'<p>·——————————————————</p>'
+		'<p>·Daily sales are positively related to service attitude and supermarket environment</p>'
+		'<p>·The supermarket environment is affected by two elements: hygiene and commodity types</p>'
+	'</div>'
+end
+
+
+if $args[0]="backstage":
+	'<div class ="show_menu"><img src="images\place\休息后台.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB2"><a href="exec:gt ''convenience_store'',''data''">View statistics</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''group_performation_event'',''convenience_store_fuck_customer_service''">Contact the regional manager</a></div>'
+		if $thief_1_enters_the_room>600 and $thief_1_enters_the_room_2<=-3 and (week_day=1 or week_day=3 or week_day=7 or week_day=5 ):'<div class="buttonG4"><a href="exec:$thief_number=1 & gt ''group_performation_event'',''convenience_store_fuck_video''">You have a video call</a></div>'
+		if $thief_2_enters_the_room>600 and $thief_2_enters_the_room_2<=-3 and (week_day=2 or week_day=4 or week_day=7 or week_day=6 ):'<div class="buttonG5"><a href="exec:$thief_number=2 & gt ''group_performation_event'',''convenience_store_fuck_video''">You have a video call</a></div>'
+		if $number_of_night_shifts>0 and 21>=hour and hour>=19:'<div class="buttonPu1"><a href="exec: gt ''group_performation_event'',''convenience_store_fuck_nightclub_staff_excitement''">Motivate the night shift clerk</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Staff lounge, you can do a lot of things here!</p>'
+	'</div>'
+	
+	
+end
+
+
+if $args[0]="first_acquaintance_with_the_clerk":
+		$DY.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\DY\vids\1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''convenience_store''">Hire her</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$DY.name>>:Aha ❤ Are you still recruiting people here?</p>'
+		'<p>Me: After reaching the million goal, the convenience store has become a well-known Internet celebrity store in the city. It just so happens that it is suffering from insufficient manpower.</p>'
+		'<p><<$DY.name>>*Raise your hand</p>'
+	'</div>'
+	
+end
+
+
+
+if $args[0]="normal_night_shift":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\YDGZ0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''convenience_store''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·There were no customers on the night shift, so only one night shift clerk was recruited.</p>'
+	'</div>'
+	
+end
+
+
+--- convenience_store ---------------------------------
+

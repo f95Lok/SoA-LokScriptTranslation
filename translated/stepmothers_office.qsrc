@@ -1,0 +1,315 @@
+# stepmothers_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+$stepmom_office_num=RAND(1,3)
+if $inspector_event_chain=0 and $JM.love>=400-$JM.bad :gt'inspector_event','first_sight_in_the_first_act'
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "mugou_pharmacy_map"
+
+'</div>'
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\继母办公室.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''stepmothers_office''">Kill time</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>The office is more like a small conference hall!As the CEO of Mugou Pharmaceutical, there must be a lot of trouble.</p>'
+	'</div>'
+End
+
+if $args[0]="office":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好<<$stepmom_office_num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''story_supplement''">talk</a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''three_requirements''">Three requirements</a></div>'
+		if MGF>0 and $JM_Event_mgf=0:
+		'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''use_mcgovern''">Use McGovern</a></div>'
+		end
+		if $JM_Event_mgf>0:
+		'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''observe''">observe</a></div>'
+		end
+		if $JM.LOVE>=100 and $JM.BAD>=100:
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''propose_an_appointment''">Hot spring travel</a></div>'
+		end
+		
+		if $JM.LOVE>=150 and $JM.BAD>=150 and $JM_Event_3p=0:
+		'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''our_lady`s_choice''">Heart of our Lady</a></div>'
+		end
+		
+		if $JM.LOVE>=150 and $JM.BAD>=150 and $JM_Event_3p=1:
+		'<div class="buttonS1"><a href="exec:minutes+=5 & $filename_reference=''3P0开幕'' & gt ''stepmom_event'',''JM_Fuck_3P'',''3p0_opening''">With assistant 3P</a></div>'
+		end
+		if $jm.confession=0 and $bishopschoice=1:'<div class="buttonG1"><a href="exec:$jm.confession=1 & $m=''JM'' & $ma=$JM.name & gt ''nun_event'',''xn_fuck_confession''">Invitation to church for baptism</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>: Uh....<<$protagonists_name>>...Is there anything wrong..</p>'
+	'</div>'
+End
+
+
+if $args[0]="people_are_here":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\公司开场~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if  $JM_Event_grandpa <7:
+		'<div class="button"><a href="exec:minutes+=5 & $B=''员工'' & C=0 & gt ''stepmom_event'',''temporary_worker''">Temporary worker</a></div>'
+		 end
+		if $JM_Event_grandpa>=5 and $JM_Event_new=1 and $JM_Event_store>=1 and 2>=$JM_Event_store:
+		 '<div class="button"><a href="exec: gt ''stepmom_event'',''deal_with_trouble''">Deal with trouble</a></div>'
+		 end
+		if $JM_Event_store=3:
+		 '<div class="button"><a href="exec: gt ''stepmom_event'',''take_credit''">Take credit</a></div>'
+		 end
+		 if $JM_Event_grandpa>=5 and $JM_Event_new=1 and $JM_Event_store=4 and $JM_Event_grandpa <7:
+		 '<div class="button"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''bitter_plan''">Bitter plan</a></div>'
+		 end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$jm.name>>He looked worried.......</p>'
+		'<p>-<<$jm.name>>：....Troubles one after another.......</p>'
+
+	'</div>'
+End
+
+if $args[0]="story_supplement":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''about_father''">About father</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''about_mcgovern''">About McGovern</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>: What do you want to know?</p>'
+	'</div>'
+End
+
+
+if $args[0]="about_father":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好<<$stepmom_office_num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>: Your dad and I are just a corporate marriage between chaebols. He also has a lover in the company....It`s just a marriage.</p>'
+		'<p>Me: Who is the biological father of the elder sister and younger sister?</p>'
+		'<p><<$jm.name>>：  ....They are a few big people who can do it all at once...I don`t know whose it is...</p>'
+		'<p>Me: About my father`s coma and hospitalization....Are there any conspiracy theories?</p>'
+		'<p><<$jm.name>>：  ....I don`t know, although the biggest beneficiary of this matter is me, I also have to bear the loss of 10 million.....</p>'
+	'</div>'
+End
+
+
+if $args[0]="about_mcgovern":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好<<$stepmom_office_num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>: The research result of my B-137 project is that a pure natural nerve inhibitor, aphrodisiac, and central stimulant called McGovern has been extracted from natural plants.
+		因为后续的市场投入出了严重的问题。我不得不让我的助手背锅，他也因此用B-137的研发责任人一事来要挟我，对我做了那种事...我听说<<$jj.name>>
+		Still secretly studying, alas.It is a Pandora`s box, which can only make people sink and crazy.</p>'
+	'</div>'
+End
+
+if $args[0]="bitter_plan":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好3~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: You should go home in the afternoon. Since Grandpa has already torn his face with you, you have to be ruthless.</p>'
+		'<p><<$jm.name>>: What do you want me to do?</p>'
+		'<p>Me: I want to watch being violated by my grandfather, so that we have a reason to do it....</p>'
+		'<p><<$jm.name>>: Do it...？you.....What do you want to do?......</p>'
+		'<p>Me: ....Is what you think now!.......No matter how late it is, it will be too late....Sever the relationship between father and daughter....Removed from the board of directors....How will the news be written?...Ruined reputation....Like a bereaved dog....</p>'
+		'<p><<$jm.name>>: Enough!....me...me....What if the judge doesn`t believe us?...you..You will go to jail...</p>'
+		'<p>Me: Just do your job well. The more hot-headed people are, the more they like to be heroes.</p>'
+		$JM_Event_grandpa=6
+	'</div>'
+End
+
+if $args[0]="three_requirements":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & $B=''口交''  &C=0  & gt ''stepmom_event'',''the_first_requirement''">The first requirement: oral sex</a></div>'
+		if  $jm.love>=-$jm.bad+120:
+		'<div class="buttonS"><a href="exec:minutes+=5 &  $filename_reference=''公司日常0'' & gt ''stepmom_event'',''stepmom_company_day'',''company_daily_0''">The second requirement: do it here</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:minutes+=5 &  gt ''stepmothers_office'',''three_requirements''">The second requirement:?？？</a></div>'
+		end
+		if soil_b>0:
+		'<div class="buttonG"><a href="exec:minutes+=5 & gt ''stepmothers_office'',''Requirements to upgrade geological analysis equipment''">The third requirement: upgrade geological analysis equipment</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:minutes+=5 &  gt ''stepmothers_office'',''three_requirements''">The third requirement:?？？</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：...I promised you.....Help me deal with three troubles.....Agree to your three requirements....</p>'
+	'</div>'
+End
+
+
+if $args[0]="requirements_to_upgrade_geological_analysis_equipment":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\家友好~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Can you allocate a little more money to purchase a few more soil geological analyzers?It is best to be the latest model that can detect trace metal elements.......</p>'
+		'<p><<$jm.name>>：.....Since you said that, then this is one of the requirements.I`m going to order now, you can`t go back!....</p>'
+		$dz.event_device=1
+	'</div>'
+End
+
+if $args[0]="use_mcgovern":
+	'<div class ="show_menu"><img src="images\NPC\JM\pics\下药.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>You will start from<<$jj.name>>McGovern from there got mixed in<<$jm.name>>In the cup.</p>'
+		$JM_Event_mgf=1
+		MGF-=1
+	'</div>'
+End
+
+if $args[0]="observe":
+		$stepmom_observes_num=RAND(0,10)
+		if  $JM_Event_mgfs < $stepmom_observes_num:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\JM\vids\办公室友好<<$stepmom_office_num>>~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		 else:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\JM\vids\首药0~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		end
+
+		
+	'<div class="button_menu">'
+		if  $JM_Event_mgfs < $stepmom_observes_num:
+			'<div class="button"><a href="exec:minutes+=30 & gt ''mugou_pharmaceutical''">Wait a minute...</a></div>'
+		 else:
+		  	'<div class="button"><a href="exec:a=1 & $filename_reference=''首药1'' & gt ''stepmom_event'',''jm_fuck_first_medicine'',''first_medicine_1''">Take her to rest</a></div>'
+		  	end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>: (￢_￢) Aim...</p>'
+	'</div>'
+End
+
+if $args[0]="propose_an_appointment":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\家友好~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: I heard that a new hot spring restaurant has opened. Do you want to take a bath?......</p>'
+		'<p><<$jm.name>>：.....Do you want to take a bath, or do you want to soak me?</p>'
+		'<p>Me: It depends on what mom means....？</p>'
+		'<p><<$jm.name>>：.....I still have a few meetings to be held this week, but I should be able to take time out.At three o`clock in the afternoon on Friday, you go to the hall and wait for me to come out after the meeting.</p>'
+		$JM_Event_date=1
+	'</div>'
+End
+
+if $args[0]="our_lady`s_choice":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\HM交谈~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$JM_Event_3p=1 & minutes+=5 & gt ''mugou_pharmaceutical''">Leave him 3P</a></div>'
+		'<div class="button"><a href="exec:$JM_Event_3p=2 & minutes+=5 & gt ''mugou_pharmaceutical''">Let him roll</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：.....The previous assistant, I rehired him....In fact, I am also ashamed of him for this matter...I heard that he had devoted all his research work to it before..</p>'
+		'<p>Me: What....？He doesn`t have your handle anymore.Didn`t I give you the B-137 file?？</p>'
+		'<p><<$jm.name>>：.....Hmm..But he is the first McGovern volunteer. Since he does not pose a threat to me, it is better to keep him........</p>'
+		'<p>Me: I think you are addicted to being raped by him.</p>'
+		'<p><<$jm.name>>：.....If you agree to keep him......We can 3P.....</p>'
+	'</div>'
+End
+
+
+
+ 
+--- stepmothers_office ---------------------------------
+

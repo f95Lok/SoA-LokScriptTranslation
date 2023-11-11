@@ -1,0 +1,386 @@
+# hot_girl_gang
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$hot_girl_incident=0
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'hot_girl_gang_map'
+'</div>'
+
+
+if $args[0]="":
+	$random_number=rand(1,100)
+	$hot_girl_incident=rand(0,2)
+	if $random_number>=85:
+		$hot_girl_incident=rand(1,2)
+	else:
+		$hot_girl_incident=0
+	end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\EDM\vids\辣妹群<<$hot_girl_incident>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $hot_girl_incident!0:
+			if $EDM.love>=200-$EDM.bad:'<div class="buttonS"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_hot_girls_group_2''">Join them</a></div>'else:'<div class="buttonGr"><a href="exec:">Join them</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·In the base camp of the Hot Girls Gang, you can see coolly dressed hot girls from time to time.</p>'
+		if $hot_girl_incident!0:'<p>Hot girl: It`s so boring, why don`t we have some fun.Are you going to call a doll or find a virgin?</p>'
+	'</div>'
+End
+
+if $args[0]="corridor":
+	'<div class ="show_menu"><img src="images\place\辣妹帮走廊.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if hour>=19:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''president`s_room''"><<$hz.name>>The room</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$hz.name>>Room: locked</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The corridor of the Hot girls Gang is full of the entertainment rooms and living rooms of the hot girls.</p>'
+	'</div>'
+End
+
+if $args[0]="second_floor":
+	'<div class ="show_menu"><img src="images\place\辣妹帮二楼<<$time>>.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $time='下午':'<div class="button"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hot_girl_fuck_group''">Look at each other</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The second floor of the Hot girl Gang, the activity area of the cadres.</p>'
+	'</div>'
+End
+
+if $args[0]="top_layer":
+	'<div class ="show_menu"><img src="images\place\辣妹帮顶楼.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The top floor of the Hot girl Gang, the activity area of the leader of the hot girl Gang.</p>'
+	'</div>'
+End
+
+if $args[0]="top_2":
+	if hour<7:gt'hot_girl_gang','top_layer'
+	$EDM.available=1
+
+	if hour<=8:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\EDM\vids\白1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	if 9<=hour and hour<=21:'<div class ="show_menu"><img src="images\place\辣妹帮顶楼2.jpg" width="854"></div>'
+
+	if hour>=22:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\EDM\vids\黑1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	
+	
+	
+	'<div class="button_menu">'
+		if $YDM_Event_free=0:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''dialogue''">explain</a></div>'
+		if $YDM_Event_free>0 and $fighting_front=2:'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''fighting_game''">Fighting game</a></div>'
+		if $YDM_Event_free=10:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''jailbreak_balance''">Jailbreak balance</a></div>'
+		if $YDM_Event_free>=11:'<div class="buttonR2"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''one_generation''">dialogue<<$YDM.name>></a></div>'
+		if $YDM.room=1:
+			'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=0& gt ''hot_girl_gang'',''what_to_drink''">What to drink</a></div>'
+			if $EDM_Event_friend=1:
+				if hour<=8 and $EDM.love>=100:'<div class="buttonR1"><a href="exec:minutes+=15 & gt ''second_generation_project_event'',''edm_fuck_white''">dialogue</a></div>'
+				if hour>=22 and $EDM.bad>=150:'<div class="buttonR1"><a href="exec:minutes+=15 & gt ''second_generation_project_event'',''edm_fuck_black''">Close</a></div>'
+				if hour=12 or hour=13:'<div class="button"><a href="exec:minutes+=15 & gt ''one_generation_project_event'',''lunch_time''">Lunch time</a></div>'else:'<div class="buttonGr"><a href="exec:">Lunch time</a></div>'
+				if hour>=22:'<div class="button"><a href="exec:minutes+=15 & gt ''one_generation_project_event'',''ydm_fuck_quiet_3p''">Request to stay</a></div>'else:'<div class="buttonGr"><a href="exec:">Request to stay</a></div>'
+				if hour>=18:'<div class="buttonGn"><a href="exec:gt ''second_generation_project_event'',''drive''">Go out together</a></div>'else:'<div class="buttonGr"><a href="exec:">Go out together</a></div>'
+			end
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The top floor of the Hot girl Gang, the activity area of the leader of the hot girl Gang.</p>'
+		'<p><<$EDM.name>>:Hey, why are you talking to yourself and coming in?</p>'
+	'</div>'
+End
+
+if $args[0]="dialogue":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''second_generation_project_event'',''disobedience''">Disobedience</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Obedient</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Excuse me...I was invited up on the way to pick up school ingredients..My name is<<$protagonists_name>>.</p>'
+		'<p><<$EDM.name>>:Humph...That`s it...If it weren`t for the fact that you are a guest, I would have beaten you over right away!</p>'
+		'<p>Me: So you are the leader, nice to meet you.</p>'
+		'<p><<$EDM.name>>: Now, get out of my house!Men are filthy creatures, and that`s the truth.Chatter, thoughts are dirty and dirty.But for the only mammals that will kill each other, this is also one of the processes of life evolution...</p>'
+	'</div>'
+End
+
+if $args[0]="fighting_game":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">See you at the TV station</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I don`t know if anyone is interested in participating in the women`s fighting competition organized by the TV station...?</p>'
+		'<p><<$EDM.name>>: Humph...Women`s fighting competition...?What is the bonus?</p>'
+		'<p>Me: Bonus...?About 100,000…</p>'
+		'<p><<$EDM.name>>: Only a mere 100,000...?I`m not interested!</p>'
+		'<p>Me: OK…</p>'
+		'<p><<$EDM.name>>: But!This is a great opportunity to show our strength to the outside world!I will choose a few who can fight!The TV station is now*Oh whistling whistling whistling~</p>'
+		$fighting_front=3
+	'</div>'
+End
+
+
+if $args[0]="jailbreak_balance":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & money+=50000 & gt ''hot_girl_gang''">Accept</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+         $YDM_Event_free+=1
+         $YDM.room=1
+		'<p><<$EDM.name>>:Good job!I have seen it...Your determination!This is 50,000!(That bastard actually sold me a fake gun!See if I don`t kill him!）</p>'
+	'</div>'
+End
+
+if $args[0]="what_to_drink":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if $edm_dialogue=0:
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=1& gt ''hot_girl_gang'',''what_to_drink''">tea</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=2& gt ''hot_girl_gang'',''what_to_drink''">Hot chocolate</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=3& gt ''hot_girl_gang'',''what_to_drink''">Orange soda</a></div>'
+		else:
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=0& gt ''hot_girl_gang'',''chat''">chat</a></div>'
+		if $EDM_Event_friend=1:'<div class="buttonR3"><a href="exec:minutes+=15 &$edm_dialogue=0& gt ''hot_girl_gang'',''best_friend_challenge''">Best friend Challenge</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $edm_dialogue=0:'<p><<$EDM.name>>: Let me see....uh..I have tea..Hot chocolate...And orange soda!</p>'
+		if $edm_dialogue=1:
+			'<p><<$EDM.name>>:Are you an antique?Actually like to drink tea?</p>'
+			'<p>Me:....</p>'
+			'<p><<$EDM.name>>: Wait a moment, if you want the sweetness and foaming resistance of black tea, it is recommended to use water at a high temperature of 95℃. This is the most suitable temperature for black tea~ (I was shocked by my erudition!Oh whistling whistling whistling~）</p>'
+			'<p>Me:....</p>'
+			'<p><<$EDM.name>>:Hey?！Since ancient times, it has been taboo to make tea old and tender!Sit down for me!(Ah ah ah ah, could it be that I cooked too slowly and he was impatient?）</p>'
+			'<p>Me:....Ten minutes later.</p>'
+			'<p><<$EDM.name>>: Okay, it`s all done, please use it slowly!*Oh whistling whistling whistling~</p>'
+		end
+		if $edm_dialogue=2:
+			'<p><<$EDM.name>>:Hello!wait!Small, heart, hot!</p>'
+			'<p>Me:呲溜----*took a sip.</p>'
+			'<p><<$EDM.name>>:Isn`t it delicious?The key is that the first choice is pure skim milk, which is full of milk flavor.The second is to choose the best quality chocolate. I use chocolate beans for baking. If you want, you can use the most common chocolate to make it.....</p>'
+			'<p>Me:....*Take another sip.</p>'
+			'<p><<$EDM.name>>: It`s just that it should be cut into crumbs before use so that it melts easily, if there is excess whipped cream at home!Put a piece!It will be more delicious!(You weak chicken, I have a serious cooking class!Convex (fuck dish fuck))</p>'
+			'<p>Me:.......*Take a sip..</p>'
+			'<p><<$EDM.name>>: If you don`t have these, you can use them..Hey hey!Why did you finish drinking in one breath!Didn`t you say to be careful of scalding?*Wait, is it to prove to me that you drank hard?..Determined?</p>'
+		end
+		if $edm_dialogue=3:
+			'<p><<$EDM.name>>:Orange soda?Only children and melodrama<Conan and Kyle>Rikel loves to drink orange soda!Do you actually want to try this?The iced taste is like licking the rust with your tongue in winter!</p>'
+			'<p>Me: Do you like to drink too?*---------Open the can.</p>'
+			'<p><<$EDM.name>>:Huh?！This kind of cheap, easy-to-obtain drink, as well as the rapid release of serotonin caused by high sugar and carbon dioxide, is just an emotional symbol that resonates strongly with the majority of young consumers.(How could I like this kind of thing?）</p>'
+			'<p>Me: Oh.*Tons tons tons----ε=(>ο<*)))Ah~~</p>'
+			'<p><<$EDM.name>>:*Smack your mouth----*Soon after you finish drinking...Let`s go!I hope this carbonated drink can corrode your teeth, as well as your bones and soul!I cut Hu orange soda supply channels, if you want to drink, only I have Oh~Oh whistling whistling whistling~</p>'
+		end
+		if $edm_dialogue!0:
+			'<p>Me: Uh...Thank you for your hospitality.I thought it was all spirits like vodka and whiskey.</p>'
+			'<p><<$EDM.name>>:..Oh, you`re welcome.....</p>'
+			'<p><<$YDM.name>>:*Puff--*Your character is really not suitable for being the boss.</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="chat":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if $edm_dialogue=0:
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=1& gt ''hot_girl_gang'',''chat''">Make friends</a></div>'
+		if $EDM.love>=10:'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=2& gt ''hot_girl_gang'',''chat''">Favorite type</a></div>'else:'<div class="buttonGr"><a href="exec:">Privacy topics</a></div>'
+		if $EDM.love>=20:'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=3& gt ''hot_girl_gang'',''chat''">What is your determination?</a></div>'else:'<div class="buttonGr"><a href="exec:">Privacy topics</a></div>'
+		else:
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=0& gt ''hot_girl_gang''">leave</a></div>'
+		end
+		if $edm_dialogue=1:'<div class="buttonR"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_dating''">wait!</a></div>'
+		 
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $edm_dialogue=0:'<p><<$EDM.name>>:It`s delicious!</p>'
+		if $edm_dialogue=1:
+			'<p><<$EDM.name>>:？！！really?I am so happy!I accepted....A fart! Convex (Fuck, fuck) How could I chatter with you like this, my thoughts are dirty and dirty.Selfish and weak people make friends?</p>'
+			'<p><<$EDM.name>>:If it weren`t for your help<<$YDM.name>>For the sake of getting out of prison....of course!You are also willing to do it for money!</p>'
+			'<p><<$YDM.name>>:Speaking of，<<$protagonists_name>>Sir, I haven`t thanked you well yet.<<$EDM.name>>That`s the character, don`t pay attention to her.She intends to avoid this challenge!</p>'
+			'<p><<$EDM.name>>: Challenge!？sister!Did you just say [challenge]?Do you think I can`t be friends with him? Convex(LV dish LV )Oh whistling whistling whistling~what a joke!</p>'
+			'<p><<$YDM.name>>: I don`t believe it, you can`t do it.*u_u</p>'
+			'<p><<$EDM.name>>:Humph!We don`t just want to be friends!Still have to be....Best friend!</p>'
+			'<p><<$YDM.name>>:None of you have ever been born or died, how can you become best friends.And me and<<$protagonists_name>>Have already experienced it, to some extent.He even stabbed me in the anus.*u_u</p>'
+			'<p><<$EDM.name>>:Excuse me?！？！！Have you and your sister already done that kind of thing?！Do you think I can`t poke your anus with you?good!Let`s do it too!This is fair competition!</p>'
+			$EDM_Event_friend=1
+			end
+		if $edm_dialogue=2:
+			'<p><<$EDM.name>>:？！！？.....Why did you talk about this all of a sudden?To be honest, I am not very picky about men.If only...If you go to bed.</p>'
+			'<p><<$YDM.name>>:Oh?Is that so?How many men have you slept with?</p>'
+			'<p><<$EDM.name>>: Sister!Ok!I like men who don`t like to be jealous, don`t like to cause trouble, and have a sense of responsibility....There can`t be tattoos and piercings, I actually don`t like those.....If he can wear a well-ironed shirt with a coordinated coat, it will definitely attract my attention.A little muscle is also good, which will arouse my affection even more.Even if you look exactly like a child, you can have a mature heart!</p>'
+			'<p><<$EDM.name>>:Of course, the most important thing is....Perseverance and determination</p>'
+			'<p>·I found that you are looking at her with relish.</p>'
+			'<p><<$EDM.name>>:Hmm!？！？！？！I`m talking nonsense.</p>'
+			end
+		if $edm_dialogue=3:
+			'<p><<$EDM.name>>: When I was a kid, in order to prove that I was the strongest in the Iron Lady Army, I tried to fight the leader one-on-one.The point is to try the word...I can`t even hit her at all!To make matters worse, from start to finish, she refused to fight back!I was humiliated and ashamed!After that, she touched my head and said something stupid to me.“Want to know how to beat me?”I said I thought about it!Since then, she has been training me.She has also become the goal of my struggle.</p>'
+			'<p><<$YDM.name>>: Three years ago, I finally defeated her.But at that moment, I felt....Very bad.She smiled happily.I have never seen anyone feel honored because of losing.</p>'
+			'<p>Me: She is really a good teacher.</p>'
+			'<p><<$EDM.name>>: But she...But because of his opposition to the [Women`s Leadership Act] and his insistence on gender equality, he was removed from public office and arrested in accordance with the law, and that day....It was I who defeated her with my own hands.I became the new head of the team....Training those pussy cats who have no fighting spirit and no determination all day long!</p>'
+			'<p><<$YDM.name>>:In the end, she had enough!Came to me.By the way, I am not the head of the Iron Lady Army.Don`t get me wrong.The whereabouts of the leader has been unknown since then, and there has been no news.</p>'
+			'<p><<$EDM.name>>:In order to vindicate the head of the team!We want to overthrow the government!Reshape a city of equality between men and women!This is my determination!</p>'
+			'<p><<$YDM.name>>:Ugh...In fact, my original intention in establishing the Hot Girls Gang was just to find a place to have fun.Unexpectedly, during this period of imprisonment, it was developed into an anti-government organization.Fortunately, there has been no substantial progress~</p>'
+			end
+
+	'</div>'
+End
+
+if $args[0]="one_generation":
+	$YDM.available=1
+	n=rand(1,2)
+	$random_number=rand(0,3)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YDM\vids\对话<<n>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonR1"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_reward''">Reward</a></div>'
+		if week_day >5:'<div class="buttonR2"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_band''">Heavy metal band</a></div>'else:'<div class="buttonGr"><a href="exec:">Weekend party</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''one_generation_project_event'',''go_out''">Go out together</a></div>'
+		if $YDM_Event_XZ>0 and $random_number=1:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_he_principal''"><<$XZ.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XZ.name>>visit</a></div>'
+		if $FXZ.bad>=200 and $random_number=2:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_vice_principal''"><<$FXZ.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$FXZ.name>>visit</a></div>'
+		if $XY.bad>=200 and $random_number=3:'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_assessment''"><<$XY.name>>visit</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XY.name>>visit</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YDM.name>>:Ah, it`s time to reward you for your bravery. I wanted to do it when I was in prison.</p>'
+		if $random_number>0:'<p><<$YDM.name>>:I also made an appointment with someone else, so you don`t want to come and take a peek.</p>'
+	'</div>'
+End
+
+if $args[0]="best_friend_challenge":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_dating''">Anal challenge</a></div>'
+		if $essential_oil>0:'<div class="buttonS2"><a href="exec:$essential_oil-=1 & m= 0& gt ''second_generation_project_event'',''edm_fuck_massage''">Massage challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Massage challenge</a></div>'
+		if $EDM.love>=20:'<div class="buttonS3"><a href="exec:a=-1 & gt ''second_generation_project_event'',''edm_fuck_cow_outfit''">Dating challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Dating challenge</a></div>'
+		if $SW.love>=250-$SW.bad:'<div class="buttonS4"><a href="exec:a=-1 & gt ''second_generation_project_event'',''edm_fuck_biotic_pasta''">Cooking challenge</a></div>'else:'<div class="buttonGr"><a href="exec:">Cooking challenge</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$edm_dialogue=0& gt ''hot_girl_gang''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$EDM.name>>: Socrates once said!The only way to become a best friend is.....Do bad things together!！Uh!I remembered it wrong...To complete the challenge together!！Convex (fuck dish fuck)</p>'
+	'</div>'
+End
+
+if $args[0]="president`s_room":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\HZ吃~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''overnight_in_the_president`s_room''">Spend the night here</a></div>'
+		if MGF>0:'<div class="buttonS"><a href="exec:minutes+=15 & MGF-=1 & gt ''hot_girl_gang'',''president`s_room_medicine''">Try McGovern</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of McGovern</a></div>'
+		if $HZ.love>=250:'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''president_event'',''hz_fuck_toy''">Display collection</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		if $hz.music_festival_date=0:'<div class="buttonP"><a href="exec:minutes+=15 & $hz.music_festival_date=1 & gt ''hot_girl_gang'',''president`s_room''">Agree to date</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:How`s it going, the environment here is not bad, you are the first man I brought back……</p>'
+		'<p>Me: It seems that the accommodation conditions of the hot girls are really unusual.…</p>'
+		'<p><<$HZ.name>>:Of course!</p>'
+		if $hz.music_festival_date=0:
+		'<p><<$HZ.name>>:baby!There will be a music festival in the park every Saturday. I also want to go to play. Will you accompany me?</p>'
+		'<p>Me: Music festival?Let me think about it…</p>'
+		'<p><<$HZ.name>>:baby!Please ❤</p>'
+		end
+		if $hz.music_festival_date=1:
+		'<p><<$HZ.name>>:baby!Let`s go early on Saturday!I heard that you can still sign a contract with the singer when you set up the stage!</p>'
+		'<p>Me: Of course you can.</p>'
+		'<p><<$HZ.name>>: You are the best!Mua❤</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0]="president`s_room_medicine":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\下药~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''president_event'',''hz_fuck_medicine_dry''">Engage in</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: This is a new drug developed by my sister... are you interested in trying it...?</p>'
+		'<p><<$HZ.name>>:I won`t touch drugs!</p>'
+		'<p>Me: The main role is aphrodisiac, stimulating hormones, and improving sexual performance.</p>'
+		'<p><<$HZ.name>>:Oh?Then you can try it!</p>'
+	'</div>'
+End
+
+if $args[0]="overnight_in_the_president`s_room":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\房间开心~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''president_event'',''hz_fuck_bathroom''">Wash together</a></div>'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''president_event'',''hz_fuck_bed''">Waiting for you in bed</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Can I spend the night here...?</p>'
+		'<p><<$HZ.name>>:Okay, I endured it for a long time at school. Looking at the way those people look at you, I was wondering when you would come to me.……</p>'
+		'<p>Me: Why are your clothes wet?</p>'
+		'<p><<$HZ.name>>:I`m going to take a shower... do you want to take a shower together?……</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+
+--- hot_girl_gang ---------------------------------
+

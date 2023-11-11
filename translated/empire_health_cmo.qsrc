@@ -1,0 +1,254 @@
+# empire_health_cmo
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+n=0
+
+	 if $JK.bad<=10: $director_liyi=RAND(0,1)
+	 if 10<=$JK.bad and $JK.bad<=50: $director_liyi=RAND(0,3)
+	 if 50<=$JK.bad and $JK.bad<=100: $director_liyi=RAND(0,5)
+	 if 100<=$JK.bad and $JK.bad<=150: $director_liyi=RAND(0,6)
+	 if $JK.bad>=150: $director_liyi=RAND(0,7)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="Imperial Group Hall" href="exec:minutes+=15 & gt ''empire_group''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if 9>hour or hour >17:
+	'<div class ="show_menu"><img src="images\place\帝国健康.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>=Slogan=`One cup of essence every day, beautiful and young`</p>'
+		'<p>·Please be sure to abide by the following rules to ensure your safety, otherwise you will be at your own risk.</p>'
+		'<p>·Our company does not need to work at midnight. Your working hours are from 9:00 in the morning to 17:00 in the evening.You can be late and leave early appropriately, but don`t arrive early and work overtime.</p>'
+	'</div>'
+end
+
+if $args[0]="":
+	 $healthy_place_num=0
+	 $healthy_dialogue=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\电梯1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+
+		'<div class="buttonB1"><a href="exec:$healthy_place=''办公室''& gt ''empire_health_cmo'',''inside''">&quot;Office&quot;</a></div>'
+		'<div class="buttonB2"><a href="exec:$healthy_place=''电梯''& gt ''empire_health_cmo'',''inside''">&quot;Elevator room&quot;</a></div>'
+		'<div class="buttonB3"><a href="exec:$healthy_place=''品''& gt ''empire_health_cmo'',''inside''">&quot;Quality Room&quot;</a></div>'
+		if hour<=9 or hour>=17:'<div class="buttonB4"><a href="exec:$healthy_place=''打卡''& gt ''empire_health_cmo'',''inside''">&quot;Punch card machine&quot;</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>=Slogan=`One cup of essence every day, beautiful and young`</p>'
+		'<p>·Please be sure to abide by the following rules to ensure your safety, otherwise you will be at your own risk.</p>'
+	'</div>'
+end
+
+
+
+
+if $args[0]="inside":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\<<$healthy_place>>1-<<$healthy_place_num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if  $healthy_place_num<=3:
+			if $healthy_place_num<=2:'<div class="buttonS1"><a href="exec:$healthy_place_num+=1 & gt ''empire_health_cmo'',''inside''">Provide services</a></div>'
+			if $healthy_place_num=3:'<div class="buttonS"><a href="exec:$healthy_place_num+=1 & gt ''empire_health_cmo'',''inside''">Ejaculation</a></div>'
+			if $healthy_place='办公室' and $empire_level>=4:'<div class="buttonS2"><a href="exec:gt ''group_performation_event'',''imperial_health_special_service_staff''">1v1 exclusive service</a></div>'
+			if $healthy_place='品' and $empire_level>=4:'<div class="buttonS3"><a href="exec:gt ''group_performation_event'',''imperial_health_pin''">1v1 reward service</a></div>'
+			if $empire_level<4:'<div class="buttonGr"><a href="exec:">Not enough level</a></div>'
+		end
+	
+		if $healthy_place_num=0:
+		 if $healthy_place='品' : '<div class="buttonR4"><a href="exec:$healthy_dialogue=1 & gt ''empire_health_cmo'',''inside''">&quot;Employee Code ②&quot;</a></div>'
+		 if $healthy_place='办公室': '<div class="buttonR4"><a href="exec:$healthy_dialogue=2 & gt ''empire_health_cmo'',''inside''">&quot;Employee Code ①&quot;</a></div>'
+		 if $healthy_place='打卡' and hour>=17: '<div class="buttonB"><a href="exec:$healthy_dialogue=3 & gt ''empire_health_cmo'',''inside''">&quot;Sticky notes&quot;</a></div>'
+		 if $healthy_place='打卡' and hour<=9: '<div class="buttonR4"><a href="exec:$healthy_dialogue=4 & gt ''empire_health_cmo'',''inside''">&quot;Employee Code③&quot;</a></div>'
+		 if $healthy_place='办公室':'<div class="buttonS5"><a href="exec:gt ''empire_health_cmo'',''director`s_office''">(Director`s Office)</a></div>'
+		end
+		
+		'<div class="button"><a href="exec: gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>=Slogan=`One cup of essence every day, beautiful and young`</p>'
+		if $healthy_dialogue=1:
+		'<p><s><span class =''red''>&quot;Employee Code ②&quot;: Void</p>'
+		'<p>1. During the process of fine-tuning, please make sure that the recorder and the fine-tuning officer [2 people] work together.</p>'
+		'<p>2. After the tasting is over, please do not stay alone in the concave wall of the tasting room.</p>'
+		'<p>3. The subjects of the meat sticks participating in the test are all human beings.</s></p>'
+		end
+		
+		if $healthy_dialogue=2:
+		'<p><s><span class =''red''>&quot;Employee Code ①&quot;: Invalid</p>'
+		'<p>Our company has extremely high employee benefits, including overtime pay and a large amount of annual leave, and we purchase insurance for all employees.I hope you will work hard to ensure your safety while keeping in mind the employee code.Life is precious, only this time.</p>'
+		'<p>1. Remember not to enter the unmanned tasting room [alone].</p>'
+		'<p>2. In case of danger, there are percussion sticks and anesthetic guns placed at the front desk.The security exit is at the end of the right side of the office.</p>'
+		'<p>3. If you violate the above regulations, you will be at your own risk for safety issues.</s></p>'
+		end
+
+		if $healthy_dialogue=3:
+		'<p>&quot;Sticky notes&quot;</p>'
+		'<p>1. If the evacuation fails and you did not leave the company before 17:10, and “it” finds you or is approaching you quickly, please go to the toilet to avoid danger and evacuate quickly after 15 minutes.If you meet “it” again, repeat the above steps.</p>'
+		'<p>2. If you are avoiding risks with your colleagues and your colleagues want to leave the risk-averse place, please try to dissuade them. If the dissuasion is invalid, you can let them leave.If a colleague comes back and asks you out again after leaving, please ignore him, don`t make a sound, and don`t open the door for him. He may not be your colleague.</p>'
+		'<p>3. If you accidentally violate Article 2, please stop all communication immediately and flee the company at any cost before something more terrifying happens.</p>'
+		'<p><s>4. Please always remember: overtime meetings do not exist.And the labor law exists@!￥@！Yes!</s></p>'
+		end
+
+		if $healthy_dialogue=4:
+		'<p><s>&quot;Employee Code③&quot;</s>&quot;Employee Code ①&quot;</p>'
+		'<p>1. Our company does not need to work at midnight. Your working hours are from 9:00 in the morning to 17:00 in the evening.You can be late and leave early appropriately, but don`t arrive early and work overtime.</p>'
+		'<p>2. You should leave the company as soon as possible after get off work to enjoy life, and don`t pay attention to anyone who tries to leave your voice.</p>'
+		'<p>3. If you violate the above regulations, you will be at your own risk for safety issues.</s></p>'
+		end
+
+
+		'<p>You read through it and didn`t feel abnormal.</p>'
+		if  $healthy_place_num>=4:xp+=2 & '<p>工作Work experience increased by 22♟</p>'
+	'</div>'
+end
+
+if $args[0]="director`s_office":
+	 $JK.available=1
+	 $director_dialogue=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕<<$director_liyi>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonR1"><a href="exec:gt ''empire_health_cmo'',''job_description''">Job description</a></div>'
+		'<div class="buttonR2"><a href="exec:gt ''empire_health_cmo'',''provide_services''">Provide services</a></div>'
+		if $empire_level>=6 and $JK.love>=50:'<div class="buttonR3"><a href="exec:gt ''empire_health_cmo'',''foreign-related_business''">Foreign-related business</a></div>'else:'<div class="buttonGr"><a href="exec:">？？business</a></div>'
+		if $JK.love>=50 and $pull_sponsorship=1:'<div class="buttonGn"><a href="exec:gt ''empire_health_cmo'',''advertising_business''">Advertising business</a></div>'
+		if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m=''JK'' & $ma=$JK.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>: You must know that a normal and healthy man can produce about 300 milliliters of semen per month, and about 3,500 milliliters of semen a year. Based on a common 2-liter pet bottle, only 1 and a half bottles can be produced in a year.</p>'
+		'<p><<$jk.name>>: What can I do for you?Presumably you are already familiar with the basic business, right?It is to provide semen supply for female employees!*Buzzing*buzzing</p>'
+	'</div>'
+end
+
+
+
+
+if $args[0]="job_description":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕<<$director_liyi>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:$director_dialogue=1 & gt ''empire_health_cmo'',''job_description''">Level description</a></div>'
+		'<div class="buttonB"><a href="exec:$director_dialogue=2 & gt ''empire_health_cmo'',''job_description''">Ask about the benefits of swallowing sperm</a></div>'
+		'<div class="button"><a href="exec:$director_dialogue=0 & gt ''empire_health_cmo'',''director`s_office''">Got it</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>: And current research shows that the semen of male animals has many benefits for women.I hope you can be an excellent humanoid ejaculation animal, responsible for providing semen to female employees.Of course, this is also our unique employee benefit.</p>'
+		if $director_dialogue=1:
+			'<p>Me: I still don`t know much about the classification of positions.</p>'
+			'<p><<$jk.name>>: Who recruited you in?Why don`t you know anything?Let`s not talk about level 1 and level 2.Starting from level 3, women take the S-level, which is the Supervisor-supervisor route, and it has nothing to do with you.Men take the M-class, Marbling-wagyu route.</p>'
+			'<p><<$jk.name>>: M3 level is engaged in basic sperm supply services, M4 level can be used as a “reward” for outstanding female staff, reaching M5 level wagyu authorized sexual intercourse and vaginal ejaculation, M6 level can be used as high-quality wagyu beef to participate in special events.As for fine wagyu beef above M7 level, you don`t need to know.</p>'
+		end
+		if $director_dialogue=2:
+			'<p>Me: Is swallowing semen really good for the human body?</p>'
+			'<p><<$jk.name>>:1. It protects women`s skin and has the effect of nourishing and whitening.This is because healthy male sperm contains a lot of moisture and protein, as well as trace elements such as zinc and iron. Whether it is eaten or used as a mask, it has a whitening and moisturizing effect on the skin.</p>'
+			'<p><<$jk.name>>:2. Semen helps to disinfect the vagina of women.Experiments have proved that there is an antibacterial substance in semen-semen cytoplasmin, which can kill pathogenic bacteria such as Staphylococcus, streptococcus, and pneumococcus.So it can help protect the female genitals from microorganisms.</p>'
+			'<p><<$jk.name>>:3. It has the effect of delaying aging and keeping young.Both zinc and androgens contained in sperm have anti-aging effects.  </p>'
+			'<p><<$jk.name>>:4. Calm the nerves, improve sleep, and regulate endocrine disorders.Eating sperm can treat insomnia and make you sleep better. </p>'
+			'<p><<$jk.name>>:5. Postpone female menopause.Women who eat sperm secrete more estrogen and have stronger physiological functions, resulting in better physical fitness. In this way, the arrival of menopause will be delayed. </p>'
+			'<p>·She started to talk about it endlessly, and you had to interrupt her.</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="provide_services":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕5~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''health_event'',''jk_fuck_blowjob''">Semen direct drink</a></div>'
+		if $empire_level>=6:'<div class="button"><a href="exec:gt ''health_event'',''JK_Fuck_sex''">Take the initiative to produce chickens</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient level</a></div>'
+		if $empire_level>=6:'<div class="button"><a href="exec:gt ''health_event'',''jk_fuck_f_3p''">Wagyu body test</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient level</a></div>'
+		if $empire_level>=5 and $DYZ.friend>=1:'<div class="button"><a href="exec: gt ''health_event'',''jk_fuck_pin_jing_3p''">Chief Quality Engineer: Name</a></div>'else:'<div class="buttonGr"><a href="exec:">Someone is underqualified</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_health_cmo'',''director`s_office''">It`s okay</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>: And current research shows that the semen of male animals has many benefits for women.I hope you can be an excellent humanoid ejaculation animal, responsible for providing semen to female employees.Of course, this is also our unique employee benefit.</p>'
+	'</div>'
+end
+
+if $args[0]="foreign-related_business":
+	 $wait_for_the_red_light=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕<<$director_liyi>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec: gt ''health_event'',''jk_event_check''">Let her check</a></div>'
+		'<div class="button"><a href="exec:gt ''health_event'',''get_in_the_car''">Let`s go now</a></div>'
+		'<div class="button"><a href="exec:gt ''empire_group''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>:I am very optimistic about your ability. Come with me to talk about business.What better product promotion than letting customers experience it in person?</p>'
+		'<p>Me: Thank you, director, for your promotion.</p>'
+		'<p><<$jk.name>>: The documents and materials of the belt...And the most important thing..Pointed to your crotch, are you ready?</p>'
+	'</div>'
+end
+
+if $args[0]="advertising_business":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕5~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''empire_group''">Take care of me</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I think we should run more ads on TV.</p>'
+		'<p><<$jk.name>>:Isn`t our slogan loud enough?</p>'
+		'<p>Me: The slogan is on the one hand, if you can see our boutique humanoid ejaculation on TV, the acceptance of customers will increase imperceptibly.</p>'
+		'<p><<$jk.name>>: Show our fine wagyu beef directly on TV?This is a good idea!I will approve a budget of 300,000 for you, so you can finalize the details!</p>'
+	 $pull_sponsorship=2
+	'</div>'
+end
+
+
+
+
+
+
+
+
+--- empire_health_cmo ---------------------------------
+

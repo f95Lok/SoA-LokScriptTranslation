@@ -1,0 +1,100 @@
+# 授精室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'公司_地图'
+'</div>'
+
+ if sheshop<10:$sheshop_name="无人问津"
+ if 10<=sheshop and sheshop<25:$sheshop_name="小有名气"
+ if 25<=sheshop and sheshop<50:$sheshop_name="名声鹊起"
+ if 50<=sheshop and sheshop<75:$sheshop_name="声名大噪"
+ if 75<=sheshop and sheshop<100:$sheshop_name="鼎鼎有名"
+ if 100<=sheshop and sheshop<10000:$sheshop_name="声名远扬"
+ if 10000<=sheshop:$sheshop_name="扬名立万"
+ Cmoney_授精+=Cmoney_授精*sheshop/1000000
+
+授精室=1
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''授精室'',''授精名单1''">邀请名单</a></div>'
+		'<div class="buttonG"><a href="exec:gt ''授精室'',''提现''">提现</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·生命的重量，是腹部的斑纹.</p>'
+		'<p>·目前人工授精的声望为：<<sheshop>> ➤ 处于<<$sheshop_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_授精>>￥</p>'
+		'·<a href="exec:$m=''FT_1'' & $ma=''实验人员'' & gt ''群演_事件'',''授精店_Fuck_专属''">帝国集团实验人员</a>'
+	'</div>'
+End
+
+
+if $ARGS[0]="授精名单1":
+	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$m=''CT'' & $ma=$CT.name & gt ''群演_事件'',''授精店_Fuck_专属''">㊕<<$CT.name>></a></div>'
+        if  $JJ.授精=1:'<div class="buttonS"><a href="exec:$m=''JJ'' & $ma=$JJ.name & gt ''群演_事件'',''授精店_Fuck_专属''">①<<$JJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①<<$JJ.name>></a></div>'
+        if  $XZ.授精=1:'<div class="buttonS"><a href="exec:$m=''XZ'' & $ma=$XZ.name & gt ''群演_事件'',''授精店_Fuck_专属''">②<<$XZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②<<$XZ.name>></a></div>'
+        if  $FXZ.授精=1:'<div class="buttonS"><a href="exec:$m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''授精店_Fuck_专属''">③<<$FXZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">③<<$FXZ.name>></a></div>'
+        if  $XY.授精=1:'<div class="buttonS"><a href="exec:$m=''XY'' & $ma=$XY.name & gt ''群演_事件'',''授精店_Fuck_专属''">④<<$XY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">④<<$XY.name>></a></div>'
+        if  $SS.授精=1:'<div class="buttonS"><a href="exec:$m=''SS'' & $ma=$SS.name & gt ''群演_事件'',''授精店_Fuck_专属''">⑤<<$SS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑤<<$SS.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''授精室'',''授精名单2''">▶下一页</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前人工授精的声望为：<<sheshop>> ➤ 处于<<$sheshop_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_授精>>￥</p>'
+	'</div>'
+End
+
+if $ARGS[0]="授精名单2":
+	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''授精室'',''授精名单1''">▶上一页</a></div>'
+        if  $ZL.授精=1:'<div class="buttonS"><a href="exec:$m=''ZL'' & $ma=$ZL.name & gt ''群演_事件'',''授精店_Fuck_专属''">⑥<<$ZL.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑥<<$ZL.name>></a></div>'
+        if  $ZX.授精=1:'<div class="buttonS"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''授精店_Fuck_专属''">⑦<<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑦<<$ZX.name>></a></div>'
+        if  $SWD.授精=1:'<div class="buttonS"><a href="exec:$m=''SWD'' & $ma=$SWD.name & gt ''群演_事件'',''授精店_Fuck_专属''">⑧<<$SWD.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑧<<$SWD.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前人工授精的声望为：<<sheshop>> ➤ 处于<<$sheshop_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_授精>>￥</p>'
+	'</div>'
+End
+
+
+
+if  $args[0]="提现":
+    TXM=MS.power*100/(100+MS.power)
+    '<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:minutes+=15 & money+=Cmoney_授精*TXM/100  & Cmoney+=Cmoney_授精/10000 & Cmoney_授精=0 &  gt ''授精室'',''提现''">提现</a></div>'
+        '<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·人工授精累计的收益为：<<Cmoney_授精>>￥</p>'
+        '<p>·提现规则，每次提现，只能提现超过1万￥的数额，低于1万￥的数额将作为企业税，支援给市政厅中女性职员的养老金。</p>'
+        '<p>☺基于秘书的能力【<<MS.power>>】可以进行合法避税，并转移<<TXM>>%至个人账户。</p>'
+    '</div>'
+
+end
+--- 授精室 ---------------------------------
+

@@ -1,0 +1,344 @@
+# 温泉走廊
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+温泉舒适度-=1
+随机数=rand(0,100)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		!'<div class="action">'
+		!	'<a class="photo" data-title="回房间休息" href="exec:minutes+=15 & gt ''温泉'',''套间''"><img class="img_stretch" src="images\place\温泉双人房.jpg"></a>'
+		!'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="温泉走廊" href="exec:minutes+=15 & gt ''温泉走廊''"><img class="img_stretch" src="images\NPC\WQ\pics\温泉走廊.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="室外温泉" href="exec:minutes+=15 & gt ''温泉走廊'',''室外温泉''"><img class="img_stretch" src="images\NPC\WQ\pics\室外温泉.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="<<$WQ.name>>房间" href="exec:minutes+=15 & gt ''温泉_事件'',''房立绘''"><img class="img_stretch" src="images\NPC\WQ\pics\主屋_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if 温泉油压馆=0:
+				if $WQ.股东=0:
+					'<a class="photo" data-title="无股权" ><img class="img_stretch" src="images\place\未装修.jpg"></a>'
+				else:
+					if money>=250000 :'<a class="photo" data-title="油压馆￥250k" href="exec:money-=250000 & 温泉油压馆=1 & gt ''温泉走廊''"><img class="img_stretch" src="images\place\未装修.jpg"></a>'else:'<a class="photo" data-title="油压馆￥250k" ><img class="img_stretch" src="images\place\未装修.jpg"></a>'
+				end
+				
+			end
+			if 温泉油压馆=1:'<a class="photo" data-title="温泉油压馆" href="exec:minutes+=30 & gt ''温泉走廊'',''温泉油压馆''"><img class="img_stretch" src="images\NPC\WQ\pics\按摩.jpg"></a>'
+		'</div>'
+		
+		
+
+		
+		'<div class="action">'
+			if 随机数>=80 and $WQ.LG=1:'<a class="photo" data-title="房间101（有人）" href="exec:minutes+=15 & gt ''温泉走廊'',''101房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			if 随机数<80 or $WQ.LG=0:'<a class="photo" data-title="房间101（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if 60<=随机数 and 随机数<80 and $WQ.照片销毁=1:
+				'<a class="photo" data-title="房间102（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''102房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间102（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if 70<=随机数 and 随机数<90 and 温泉舒适度>=50:
+				'<a class="photo" data-title="房间103（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''103房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间103（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if 50<=随机数 and 随机数<80 and 温泉舒适度>=59:
+				'<a class="photo" data-title="房间104（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''104房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间104（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+		'</div>'
+		
+	 if $WQ.股东!0:
+		'<div class="action">'
+			if WQroom201=0:
+			if money>=10000 :'<a class="photo" data-title="扩展房间￥10k" href="exec:money-=10000 & WQroom201=1 & gt ''温泉走廊''"><img class="img_stretch" src="images\place\未装修.jpg"></a>'else:'<a class="photo" data-title="扩展房间￥10k" ><img class="img_stretch" src="images\place\未装修.jpg"></a>'
+			else:
+		
+			if 50<=随机数 and 随机数<80 and 温泉舒适度>=69 :
+				'<a class="photo" data-title="房间201（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''201房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间201（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if WQroom202=0:
+			if money>=20000 :'<a class="photo" data-title="扩展房间￥20k" href="exec:money-=20000 & WQroom202=1 & gt ''温泉走廊''"><img class="img_stretch" src="images\place\未装修.jpg"></a>'else:'<a class="photo" data-title="扩展房间￥20k" ><img class="img_stretch" src="images\place\未装修.jpg"></a>'
+			else:
+			if 50<=随机数 and 随机数<80 and 温泉舒适度>=79:
+				'<a class="photo" data-title="房间202（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''202房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间202（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+			end
+		'</div>'
+		'<div class="action">'
+			if WQroom203=0:
+			if money>=30000 :'<a class="photo" data-title="扩展房间￥30k" href="exec:money-=30000 & WQroom203=1 & gt ''温泉走廊''"><img class="img_stretch" src="images\place\未装修.jpg"></a>'else:'<a class="photo" data-title="扩展房间￥30k" ><img class="img_stretch" src="images\place\未装修.jpg"></a>'
+			else:
+			if 50<=随机数 and 随机数<80 and 温泉舒适度>=89:
+				'<a class="photo" data-title="房间203（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''203房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间203（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if WQroom204=0:
+			if money>=40000 :'<a class="photo" data-title="扩展房间￥40k" href="exec:money-=40000 & WQroom204=1 & gt ''温泉走廊''"><img class="img_stretch" src="images\place\未装修.jpg"></a>'else:'<a class="photo" data-title="扩展房间￥40k" ><img class="img_stretch" src="images\place\未装修.jpg"></a>'
+			else:
+			if 50<=随机数 and 随机数<80 and 温泉舒适度>=99:
+				'<a class="photo" data-title="房间204（有人）" href="exec:minutes+=15 & gt ''温泉_事件'',''204房''"><img class="img_stretch" src="images\NPC\WQ\pics\房门_<<$times_of_day>>.jpg"></a>'
+			else:
+				'<a class="photo" data-title="房间204（无人）" ><img class="img_stretch" src="images\NPC\WQ\pics\房门.jpg"></a>'
+			end
+			end
+		'</div>'
+	 end
+		
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\WQ\pics\温泉走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:minutes+=60 & gt ''温泉走廊'',''温泉前台''">温泉前台</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">回房间休息</a></div>'
+		if $WQ事件链>=5 and 温泉舒适度<=100:'<div class="buttonGn"><a href="exec:minutes+=60 & my.精力-=99 & 温泉舒适度+=11 & gt ''温泉走廊''">打扫卫生</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·拥有地暖的走廊，每个人都想在泡完澡后做点什么…</p>'
+		'<p>——————————</p>'
+		'<p>·温泉舒适度：<<温泉舒适度>>/100（MAX）</p>'
+	'</div>'
+
+end
+
+if $args[0]="温泉前台":
+	
+	if $XY.温泉前台!1:
+	'<div class ="show_menu"><img src="images\NPC\WQ\pics\前台.jpg" width="854"></div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XWBZC0-<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		if $XY.温泉前台!1:'<div class="buttonGr"><a href="exec:minutes+=60 & gt ''温泉走廊'',''温泉前台''">应该招募谁呢？</a></div>'else:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''温泉走廊'',''温泉前台2''">按开关</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: ………</p>'
+	'</div>'
+
+end
+
+if $args[0]="温泉前台2":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XWBZC0-2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=60 &  gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">去没人的地方</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>: 快快快关掉！我就知道！你肯定没安好心！</p>'
+		'<p>我: 嘿嘿</p>'
+	'</div>'
+
+end
+
+
+if $args[0]="室外温泉":
+	if 随机数>=50 and $WQ.人手202=1:
+		$DSJ_NUM=rand(1,7)
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\DSJ-<<$DSJ_NUM>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+		if 随机数<=25:
+		    '<div class="show_menu">'
+				'<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\混浴1-<<rand(0,5)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+			'<div class ="show_menu"><img src="images\NPC\WQ\pics\室外温泉.jpg" width="854"></div>'
+		end
+	end
+	
+	'<div class="button_menu">'
+		if $DSJ_NUM>=5:'<div class="buttonB2"><a href="exec:minutes+=60 & gt ''温泉_事件'',''打扫室内''">打扫室内</a></div>'
+		if 随机数>=80 and $LJ.BAD>=300 and 温泉油压馆=1:'<div class="buttonB3"><a href="exec:minutes+=60 & gt ''温泉_事件'',''室内声音3''">熟悉的声音</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·室外温泉还是混浴…</p>'
+		
+	'</div>'
+
+end
+
+
+
+if $args[0]="101房":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\t_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">回房间休息</a></div>'
+		if $times_of_day!'':'<div class="button"><a href="exec:minutes+=60 & gt ''温泉走廊'',''另一边''">绕到另一边</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $times_of_day='':
+		'<p>客人（101室）: 我老婆马上就回来了，差不多了吧。</p>'
+		'<p><<$WQ.name>>: 你的时间越来越短了…</p>'
+		else:
+		'<p>客人（101室）: 老婆！老婆！老婆！老婆！</p>'
+		'<p>女客人（101室）:怎么了老公？你怎么这么有干劲？</p>'
+		end
+		'<p>我: ………</p>'
+		
+	'</div>'
+
+end
+
+if $args[0]="另一边":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\偷窥后入~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">回房间休息</a></div>'
+		if $WQ.照片!1:'<div class="button"><a href="exec:minutes+=60 & gt ''温泉走廊'',''另一边2''">拍下来</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>客人（101室）: 老婆！老婆！老婆！老婆！我好爱你！</p>'
+		'<p><<$WQ.name>>: 噢喔<<$娇喘声>></p>'
+		'<p>我: ………</p>'
+	'</div>'
+
+end
+
+if $args[0]="另一边2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\偷窥正常激烈~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>: 高潮<<$话>></p>'
+		'<p>我: *咔嚓——</p>'
+		$WQ.照片=1
+	'</div>'
+
+end
+
+
+if $args[0]="温泉油压馆":
+	'<div class ="show_menu"><img src="images\NPC\WQ\pics\按摩.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $WQ事件链>=5:'<div class="buttonS"><a href="exec:minutes+=60 &  gt ''温泉_事件'',''WQ_Fuck_WSPA''"><<$WQ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:"><<$WQ.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><温泉油压馆>·温泉舒适度：<<温泉舒适度>>/100（MAX）</p>'
+		if 随机数>=20 and 温泉舒适度>=40:
+			'<p>①【服务中】-看重颜值<a href="exec:$wqspa=1 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>①【空床位】-等待客人</a></p>'
+		end
+		if 随机数>=30 and 温泉舒适度>=50:
+			'<p>②【服务中】-喜欢金发<a href="exec:$wqspa=2 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>②【空床位】-等待客人</a></p>'
+		end
+		if 随机数>=40  and 温泉舒适度>=60:
+			'<p>③【服务中】-喜欢人妻<a href="exec:$wqspa=3 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>③【空床位】-等待客人</a></p>'
+		end
+		if 随机数>=50  and 温泉舒适度>=70:
+			'<p>④【服务中】-喜欢成熟<a href="exec:$wqspa=4 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>④【空床位】-等待客人</a></p>'
+		end
+		if 随机数>=60  and 温泉舒适度>=80:
+			'<p>⑤【服务中】-喜欢巨乳<a href="exec:$wqspa=5 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>⑤【空床位】-等待客人</a></p>'
+		end
+		if 随机数>=70  and 温泉舒适度>=90:
+			'<p>⑥【服务中】-看重服务<a href="exec:$wqspa=6 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>⑥【空床位】-等待客人</a></p>'
+		end
+		if $WQ_HP=1  :
+			'<p>㊛【服务中】-喜欢太妹<a href="exec:$wqspa=7 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>㊛【有客人】-喜欢太妹-无人服务</a></p>'
+		end
+		if $WQ_LJ=1  :
+			'<p>㊛【服务中】-喜欢贫乳<a href="exec:$wqspa=8 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>㊛【有客人】-喜欢贫乳-无人服务</a></p>'
+		end
+		if $WQ_MMS=1  :
+			'<p>㊛【服务中】-喜欢尝鲜<a href="exec:$wqspa=9 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>㊛【有客人】-喜欢尝鲜-无人服务</a></p>'
+		end
+		if LSX温泉=1 :
+			'<p>㊛【服务中】-喜欢洋马<a href="exec:$wqspa=10 & gt ''群演_事件'',''泛用_Fuck_温泉SPA''">-监督工作</a></p>'
+		else:
+			'<p>㊛【有客人】-喜欢洋马-无人服务</a></p>'
+		end
+	'</div>'
+
+end
+
+
+--- 温泉走廊 ---------------------------------
+

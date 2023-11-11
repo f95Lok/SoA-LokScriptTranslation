@@ -1,0 +1,656 @@
+# rion_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=5
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="second_round":
+	'<div class ="show_menu"><img src="images\place\看书.jpg" width="854"></div>'
+
+	$interview_questions[1]='①The review content for female applicants does not include：'
+	$interview_options[1]='A-Breast examination B-Measurements C-Vaginal endoscopy D-Education review'
+	$interview_questions[2]='②the review content for male applicants does not include：'
+	$interview_options[2]='A-Female leadership support B-Asset strength C-Semen test D-Marriage history '
+	$interview_questions[3]='③For applicants who have objections/doubts, the additional review period that can be added is：'
+	$interview_options[3]='A-12 hours B-24 hours C-48 hours D-unlimited '
+	$interview_questions[4]='④ For applicants who refuse to cooperate with the physical examination, does the auditor have the right to enforce it?'
+	$interview_options[4]='A-Yes B-no C-need to report D-only during special hours '
+	$interview_questions[5]='⑤ When the applicant becomes pregnant, has an abortion, or complains that the auditor has committed illegal acts such as sexual harassment, rape, gang rape, and imprisonment during the physical examination due to the auditor`s own abuse of power, the attitude of the Immigration Administration is： '
+	$interview_options[5]='A-Will never tolerate B-Violations of the law will be investigated C-The behavior of temporary workers D-Accountability to the end '
+	if a!6:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=1000& gt ''rion_event'',''second_round''">Choose A</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=100& gt ''rion_event'',''second_round''">Choose B</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=10& gt ''rion_event'',''second_round''">Choose C</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &$interview_num+=1& gt ''rion_event'',''second_round''">Choose D</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $interview_num=1013:'<div class="button"><a href="exec:minutes+=30 & $rion_interview=2 & gt ''city_hall''">Passed the written test</a></div>'
+				if $interview_num!1013:'<div class="button"><a href="exec:minutes+=30 & gt ''city_hall''">Failed the written test</a></div>'
+			'</div>'
+	end
+
+	if a!6:
+	 '<div class="dialog_menu">'
+		 '<p><<$interview_questions[a]>></p>'
+		 '<p><<$interview_options[a]>></p>'
+	 '</div>'
+	 end 
+
+	if a=6:
+	 '<div class="dialog_menu">'
+	 	 if $interview_num=1013:'<p><<$RION.name>>:emmmmmm...Congratulations...You answered all correctly.The next interview is the most difficult, so go back and prepare well!</p>'
+	 	 if $interview_num!1013:'<p><<$RION.name>>:emmmmmm...sorry...You must answer all five questions correctly.Go back and get ready!</p>'
+	 '</div>'
+	 end 
+
+	 a+=1
+End
+
+
+if $args[0]="third_round":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\RION\vids\面试1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if a!11:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''rion_event'',''third_round''">continue</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & $immigration_auditor=''【Immigration Auditor】''  & $rion_interview=3 & gt ''city_hall''">Passed the interview</a></div>'
+			'</div>'
+	end
+
+	if a>=0:
+	 '<div class="dialog_menu">'
+	 	 if a=0:'<p><<$RION.name>> : This is a process walkthrough..If you can hold on to the end, it means that the interview has passed.</p>'
+		 if a=1:'<p><<$RION.name>> : In the process of review, you will meet all kinds of women....First check their mouths...</p>'
+		 if a=2:'<p><<$RION.name>> : Then make sure their secondary sexual characteristics are fully developed....</p>'
+		 if a=3:'<p><<$RION.name>> : Yes, just like this, check whether their cups meet the prescribed requirements......Hmm~ lighten up.</p>'
+		 if a=4:'<p><<$RION.name>> : Naked inspection can be taken if necessary....To prevent..Hmm..filler..Hmm..continue..</p>'
+		 if a=5:'<p><<$RION.name>> : Yes, breast examination is also essential....It can detect whether the other party will....Hmm..Get a quick nipple erection after being teased..</p>'
+		 if a=6:'<p><<$RION.name>> : Vaginal examination....Explore the inner wall of the vagina with your fingers...Hmm..Hmm..Check for prohibited items.</p>'		
+		 if a=7:'<p><<$RION.name>> : Tell you a little secret, if the other party can have intercourse for you....Then her cup must exceed C...This is also a method of rapid detection.</p>'
+		 if a=8:
+		 '<p><<$RION.name>> : Finally, a deeper vaginal examination...</p>'
+		 '<p>Me: Is it necessary to do this?</p>'
+		 '<p><<$RION.name>> : When necessary..You can test the opponent`s obedience...sensitivity..Degree of sexual openness...</p>'
+		 end
+		 if a=9:'<p><<$RION.name>> : Stop!You can stop at that step just now...Don`t top me...I am not a prostitute...Hurry up..Hmm...Hurry up and stop.</p>'
+		 if a=10:'<p>Me: Sorry....Your meat hole is so comfortable...I can`t control it at all...me...</p>'
+		 if a=11:'<p><<$RION.name>> : Forget it....Your performance is good, work hard in the future!</p>'
+	 '</div>'
+	 end 
+
+
+
+	 a+=1
+End
+
+if $args[0]="rion_event_observation":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\RION\vids\观摩1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	if a=0:q=rand(4396,14396)
+
+	if a!7:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''rion_event'',''rion_event_observation''">continue</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''city_hall''">The observation is over</a></div>'
+			'</div>'
+	end
+
+	if a>=0:
+	 '<div class="dialog_menu">'
+	 	 if a=0:'<p><<$RION.name>> :Below I announce that the first<<q>>The round of review has officially begun, please sort according to the asset certificate.</p>'
+	 	 if a=0:'<p><<$RION.name>> : This round of review examines everyone`s sexual ability, that is, whether they have the ability to be eugenic and fertile...Please line up...I will use my chest to provide services to everyone.</p>'
+		 if a=1:'<p><<$RION.name>> :Please shoot it out as quickly as possible.</p>'
+		 if a=2:'<p><<$RION.name>> :....It`s a pity, next one.</p>'
+		 if a=3:'<p><<$RION.name>> :Very good, you are qualified, next one.</p>'
+		 if a=4:'<p><<$RION.name>> : If the asset certificate is greater than 10 million, please arrange it in the “special channel”.</p>'
+		 if a=5:'<p><<$RION.name>> : It is worthy of the proof of assets greater than 10 million...Strong strength....</p>'
+		 if a=6:
+		 '<p><<$RION.name>> : Very good, you are qualified, next one!</p>'
+		 '<p>·In this way, the review activity lasted for nearly four hours...</p>'
+		 end
+		 if a=7:
+		 '<p><<$RION.name>> :Then, today`s sexual ability review work is all completed, please go to the next room for applicants who have passed the sexual ability review.</p>'
+		 '<p>·(Really hard work)</p>'
+		 $RION.bad+=1
+		 end
+	 '</div>'
+	 end 
+
+
+
+	 a+=1
+End
+
+if $args[0]="rion_event_ntr_front":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\RION\vids\温泉0-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	if a=0:q=rand(4396,14396)
+
+	if a!4:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''rion_event'',''rion_event_ntr_front''">Keep peeking</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & a=0 & q=0 &  gt ''rion_event'',''RION_Event_NTR''">Go in</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''hot_spring'',''suite''">leave</a></div>'
+			'</div>'
+	end
+
+	if a>=0:
+	 '<div class="dialog_menu">'
+	 	 if a=0:'<p>·In the double room on the first floor, you saw a familiar figure...</p>'
+	 	 if a=0:'<p><<$RION.name>> :(What a coincidence，<<$protagonists_name>>Why are you here...Just tease him..）</p>'
+		 if a=1:'<p><<$RION.name>> :Come on, my dear, be strong!</p>'
+		 if a=2:'<p>Man: Ah...I`m going to shoot..It`s not working anymore...sorry..</p>'
+		 if a=3:
+		 	'<p>Me: It turned out to be a man with premature ejaculation....Even if you don`t have premature ejaculation，<<$rion.name>>I have intercourse with so many men every day, can he satisfy her?</p>'
+		 	'<p>Man:..sorry....I`m really useless...Oh right!I have something for you!I made the cross stitch myself!.....Ah!I forgot it in the car!I`ll get it right away!</p>'
+		 end
+		 if a=4:
+		    '<p><<$RION.name>> :Haven`t had fun watching it!That`s my fiance, but it hasn`t been counted since the new policy was introduced.Women will no longer be restricted by marriage.</p>'
+		 	'<p>Me: It`s amazing that he can tolerate your work.</p>'
+		    '<p><<$RION.name>> :Um... maybe it`s compensation for me.Let`s not talk about this for now, do you want to come in?</p>'
+		
+		 end
+	 '</div>'
+	 end 
+
+
+
+	 a+=1
+End
+
+if $args[0]="RION_Event_NTR":
+	$RION_NTR=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\RION\vids\温泉1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!13:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''rion_event'',''RION_Event_NTR''">Rubbing tits </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''rion_event'',''RION_Event_NTR''">Insert a small hole </a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''rion_event'',''RION_Event_NTR''">Lick me </a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''rion_event'',''RION_Event_NTR''">Oral sex </a></div>'
+			end
+			if a!5 and 10>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''rion_event'',''RION_Event_NTR''">Lactation </a></div>'
+			end
+			if a=5 :
+			'<div class="button"><a href="exec:a=6 & gt ''rion_event'',''RION_Event_NTR''">Hurry up </a></div>'
+			end
+			if a=5 :
+			'<div class="button"><a href="exec:a=7 & gt ''rion_event'',''RION_Event_NTR''">Slow down </a></div>'
+			end
+			if a!8 and q>=7:
+			'<div class="button"><a href="exec:a=8 & gt ''rion_event'',''RION_Event_NTR''">Open plug </a></div>'
+			end
+			if  a!9 and q>=8 and a>=8:
+			'<div class="button"><a href="exec:a=9 & gt ''rion_event'',''RION_Event_NTR''">Normal bit </a></div>'
+			end
+			if  a!10 and q>=9 and a>=8:
+			'<div class="button"><a href="exec:a=10 & gt ''rion_event'',''RION_Event_NTR''">Female riding </a></div>'
+			end
+			if  a!11 and q>=10 and a>=8:
+			'<div class="button"><a href="exec:a=11 & gt ''rion_event'',''RION_Event_NTR''">Back in </a></div>'
+			end
+			if a!12 and q>=10 and a>=8: 
+			'<div class="buttonS"><a href="exec:a=12 & gt ''rion_event'',''RION_Event_NTR''">Ejaculation </a></div>'
+			end
+			if a=12:
+			'<div class="button"><a href="exec:a=13 & gt ''rion_event'',''RION_Event_NTR''">end </a></div>'
+			end
+
+
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''hot_spring'',''suite''">Sneak back</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Voice in the distance: Sorry....I`m really useless...Forgot to embroider our name on the cross stitch.I will cheer while the sun is good now!</p>'
+			 '<p><<$RION.name>>:Shhh----Keep your voice down, if he finds out...He is going to cry.</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$panting>>...</p>'
+		 '</div>'
+	end
+
+	if 8<=a and a<=12:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$words>>...</p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 $RION.bad+= q*3/2
+		 $RION.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>Me: It is worthy of being an immigration auditor who reviews more than 50 people every day. My physical strength almost can`t keep up.</p>'
+		 	 '<p><<$RION.name>>: Before he finds out, let`s go, we will come every Sunday at noon.Hehe, this kind of excitement of cheating seems to be easier to orgasm...</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="rion_fuck_hot_spring":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\RION\vids\温泉2-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''rion_event'',''rion_fuck_hot_spring''">serve </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''rion_event'',''rion_fuck_hot_spring''">Kneading milk </a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''rion_event'',''rion_fuck_hot_spring''">Lactation </a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''rion_event'',''rion_fuck_hot_spring''">normal </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''rion_event'',''rion_fuck_hot_spring''">ride </a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''rion_event'',''rion_fuck_hot_spring''">sprint </a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=7 & gt ''rion_event'',''rion_fuck_hot_spring''">Outdoor situation </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''rion_event'',''rion_fuck_hot_spring''">Ejaculation </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''rion_event'',''rion_fuck_hot_spring''">Clean up </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·It didn`t take long for her to come.She stepped on your waist as soon as she met.</p>'
+			 '<p><<$RION.name>>:Let`s do it, I prefer non-working sex.</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$panting>>...</p>'
+
+		 '</div>'
+	end
+
+	if 4<=a and a<=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$words>>...</p>'
+			 if a=7:'<p>？？？ : It`s so exciting... I also want to be fucked by a big chicken... fuck me... fuck me…</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $RION.bad+= q+3
+		 $RION.love+= q*3/2+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$RION.name>>:I`ll lick it clean for you... I won`t be as sloppy as I was to the reviewer.…</p>'
+			 '<p>Me: You are so kind.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="rion_fuck_dinner":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\RION\vids\晚餐1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a=-2:
+			'<div class="button"><a href="exec:a+=1 & gt ''rion_event'',''rion_fuck_dinner''">Go home with her </a></div>'
+			end
+
+			if a=-1:
+			'<div class="button"><a href="exec:a=0 & q=0 & gt ''rion_event'',''rion_fuck_dinner''">15 minutes later </a></div>'
+			end
+
+			
+			if a>=0:
+				if a!1 and q<=1:
+				'<div class="buttonS"><a href="exec:a=1 & gt ''rion_event'',''rion_fuck_dinner''">Do it! </a></div>'
+				end
+				if a!2 and 1<=q and q<=3: 
+				'<div class="button"><a href="exec:a=2 & gt ''rion_event'',''rion_fuck_dinner''">Kneading milk </a></div>'
+				end
+				if a!3 and 2<=q and q<=5: 
+				'<div class="button"><a href="exec:a=3 & gt ''rion_event'',''rion_fuck_dinner''">Touch the clitoris </a></div>'
+				end
+				if a!4 and 3<=q and q<=7: 
+				'<div class="button"><a href="exec:a=4 & gt ''rion_event'',''rion_fuck_dinner''">Fuck on the sofa </a></div>'
+				end
+				if a!5 and 9>=q and q>=4:
+				'<div class="button"><a href="exec:a=5 & gt ''rion_event'',''rion_fuck_dinner''">Separate thighs </a></div>'
+				end
+				if a!6 and q>=5:
+				'<div class="button"><a href="exec:a=6 & gt ''rion_event'',''rion_fuck_dinner''">sprint </a></div>'
+				end
+				if a=6 :
+				'<div class="button"><a href="exec:a=7 & gt ''rion_event'',''rion_fuck_dinner''">Going to shoot </a></div>'
+				end
+				if a=7:
+				'<div class="buttonS"><a href="exec:a=8 & gt ''rion_event'',''rion_fuck_dinner''">Shoot tits on </a></div>'
+				end
+				if a=8:
+				'<div class="button"><a href="exec:a=9 & gt ''rion_event'',''rion_fuck_dinner''">dialogue </a></div>'
+				end
+			end
+			if a=-2 or a=0:
+			'<div class="buttonB"><a href="exec:gt ''residential_area''">Declined </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $RION.bad>=200-$RION.love:'<div class="button"><a href="exec:minutes+=1440& hour=7 &a=0 & q=0& $my.energy=mymax[$energy] & gt ''rion_event'',''rion_fuck_morning_cannon''">Stay overnight</a></div>'else:'<div class="buttonGr"><a href="exec:">stay?？</a></div>'
+				'<div class="button"><a href="exec:minutes+=15 & a=0 & q=0 & gt ''rion_event'',''rion_fuck_fuck''">Knock on the door</a></div>'
+			'</div>'
+	end
+
+	if a=-2:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>: My sister shouldn`t have to work overtime today. I am planning to try a few newly learned dishes..Do you want to come together?We can have a meal together.</p>'
+		 '</div>'
+	end
+
+	if a=-1:
+		 '<div class="dialog_menu">'
+			 '<p>·Family dinner</p>'
+			 '<p><<$DZ.name>>:What?It turns out that my brother-in-law still has this kind of embarrassment~~ I laughed to death!</p>'
+			 '<p><<$RION.name>>: What kind of brother-in-law, it`s not necessarily whether you get married or not.What happened a few days ago is even more outrageous than this, come and drink more~</p>'
+			 '<p>· <<$RION.name>>Under the persuasion of drinking, I didn`t have a few drinks.，<<$DZ.name>>I started to recite Pi while being coquettish.....</p>'
+		 '</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>: Shhh----don`t wake her up...Do you feel guilty for doing it with me in front of her?</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$panting>>...</p>'
+
+		 '</div>'
+	end
+
+	if 4<=a and a<=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$words>>...</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $RION.bad+= q*3/2
+		 $RION.love+= q*3/2+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$RION.name>>: My sister`s wine is like this...Won`t wake up, don`t worry.But if she finds out, she will suffer, she is not easy to coax.</p>'
+			 '<p>Me: Then we have to be careful.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="rion_fuck_morning_cannon":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\RION\vids\晨炮1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS"><a href="exec:a=1 & gt ''rion_event'',''rion_fuck_morning_cannon''">Have a shot </a></div>'
+			'<div class="button"><a href="exec:a=1 & gt ''city_hall''">Go out together </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''rion_event'',''rion_fuck_morning_cannon''">kiss </a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''rion_event'',''rion_fuck_morning_cannon''">Oral sex </a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''rion_event'',''rion_fuck_morning_cannon''">Lactation </a></div>'
+			end
+			if 6>=a and a>=4 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''rion_event'',''rion_fuck_morning_cannon''">Slow down </a></div>'
+			end
+			if 6>=a and a>=4 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=6 & gt ''rion_event'',''rion_fuck_morning_cannon''">Hurry up </a></div>'
+			end
+			if 6>=a and a>=4 and 10>=q and q>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''rion_event'',''rion_fuck_morning_cannon''">Can`t stand it anymore </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''rion_event'',''rion_fuck_morning_cannon''">Riding milk shake </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''rion_event'',''rion_fuck_morning_cannon''">tease </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''rion_event'',''rion_fuck_morning_cannon''">sprint </a></div>'
+			end
+			if a=10:
+			'<div class="buttonS"><a href="exec:a=11 & gt ''rion_event'',''rion_fuck_morning_cannon''">Oral ejaculation </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec: gt ''residential_area''">leave </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·The next morning, two soft giants pressed you down...</p>'
+			 '<p><<$RION.name>>:Shhh----Keep your voice down, she hasn`t woken up yet...</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$panting>>...</p>'
+
+		 '</div>'
+	end
+
+	if 7<=a and a<=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$words>>...</p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $RION.bad+= q*3/2
+		 $RION.love+= q*3/2+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p>Voice outside the door: Sister!Have you seen my panties?</p>'
+		 	 '<p><<$RION.name>>:.....Shhh----It seems that we can only pause first~</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="rion_fuck_fuck":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\RION\vids\当面干1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a=0:
+			if $RION.bad>=200 and $RION.love>=200:'<div class="buttonS"><a href="exec:a=1 & gt ''rion_event'',''rion_fuck_fuck''">When his face is dry </a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity </a></div>'
+			'<div class="button"><a href="exec:a=1 & gt ''residential_area''">Know each other and leave </a></div>'
+			end
+			if (a!2 and 1<=q) or a=10 : 
+			'<div class="buttonP"><a href="exec:a=2 & gt ''rion_event'',''rion_fuck_fuck''">Insert into the vagina </a></div>'
+			end
+			if (a!6 and 1<=q) or a=10 : 
+			'<div class="buttonR3"><a href="exec:a=6 & gt ''rion_event'',''rion_fuck_fuck''">Insert anus </a></div>'
+			end
+			if a=2 or a=6: 
+			'<div class="button"><a href="exec:a+=1 & gt ''rion_event'',''rion_fuck_fuck''">Accelerate thrusting </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS"><a href="exec:a=4 & gt ''rion_event'',''rion_fuck_fuck''">Shoot her in the face </a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''rion_event'',''rion_fuck_fuck''">Shoot in the ass </a></div>'
+			end
+			if a=4 or a=8:
+			'<div class="button"><a href="exec:a+=1 & gt ''rion_event'',''rion_fuck_fuck''">Lick clean </a></div>'
+			end
+			if a=5 or a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''rion_event'',''rion_fuck_fuck''">Keep fucking </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''rion_event'',''rion_fuck_fuck''">Pull the cock and leave </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec: gt ''residential_area''">leave </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·The visitor is exactly<<$RION.name>>fiance</p>'
+			 '<p><<$RION.name>>:Introduce, this is my subordinate，<<$protagonists_name>>.</p>'
+			 '<p>Fiance:<<$protagonists_name>>, It`s so late, it won`t be safe on the way back, right?(When he saw your untidy clothes just now, he gave you an eviction order)</p>'
+			 '<p>Me:…………</p>'
+			 if $RION.bad>=200 and $RION.love>=200:
+			 '<p>><<$RION.name>>:If it`s not safe, don`t go back.</p>'
+			 '<p>Fiance: What^&%%&8^&&...... what!</p>'
+			 '<p>><<$RION.name>>:I heard the latest research report that impotence also has physiological and psychological differences. Tonight you have to look at me and<<$protagonists_name>>Make love.</p>'
+			 '<p>Fiance: How...how unreasonable!You bitch!</p>'
+			 '<p>><<$RION.name>>:In order to treat you, I am willing to have sex with a strange man. Do you scold me in turn?I really misread you!</p>'
+			 '<p>Fiance: No...no... my mouth is stupid...I deserve to die...I...I...okay...just...just this time…</p>'
+			 end
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$RION.name>>:<<$panting>>...<<$words>>...</p>'
+			 '<p>Fiance:………</p>'
+		 '</div>'
+	end
+
+
+	if a=11:
+		 $RION.bad+= q*2
+		 $RION.love+= q*2+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p>·As the meat stick pulled away from her body, she suddenly limped on the bed.</p>'
+		 	 '<p><<$RION.name>>:So cool... I like it so much…</p>'
+			 '<p>Fiance: It`s all my fault... I`m useless... as long as you like it... I don`t blame you…</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+--- rion_event ---------------------------------
+

@@ -1,0 +1,216 @@
+# 健身房
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "商场_地图"
+'</div>'
+
+
+
+if hour<= 6:
+'<div class ="show_menu"><img src="images\place\健身房.jpg" width="854"></div>'
+'<div class="button_menu">'
+'<div class="button"><a href="exec:minutes+=55 & gt''健身房''">等待1小时</a></div>'
+'</div>'
+'<div class="dialog_menu">'
+	'<p> -【健身房关门了】</p>'
+	'<p> -【营业时间】  7:00——24:00  全年无休</p>'
+'</div>'
+end
+
+
+if $ARGS[0]="":
+'<div class ="show_menu"><img src="images\place\健身房.jpg" width="854"></div>'
+
+'<div class="button_menu">'
+	if $健身教练资格=0:
+		'<div class="button"><a href="exec:gt''健身房'',''应聘教练说明''">应聘教练</a></div>'
+	end
+	if $健身教练资格=1:
+		'<div class="button"><a href="exec:minutes+=55 & my.精力-=55 & gt ''健身房'',''精品私教''">上私教课-1小时</a></div>'
+		'<div class="button"><a href="exec:minutes+=55 & my.精力-=55 & gt ''健身房'',''上团操课'',''防BUG''">上团操课-1小时</a></div>'
+	end
+	'<div class="button"><a href="exec:minutes+=115 & my.精力-=35 & gt ''健身房'',''独自锻炼'',''防BUG''">独自锻炼-2小时</a></div>'
+	if $寻枪事件链=1 and $健身房调查=0:'<div class="button"><a href="exec:minutes+=5 & gt ''警员_事件'',''JY_Fuck_健身者''">✣询问健身者</a></div>'
+	if $DC.available=1 and 20>=hour and hour>=17:'<div class="button"><a href="exec:minutes+=115 & my.精力-=35 & gt ''督察_事件'',''健身房''"><<$DC.name>></a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p>令人肾上腺素飙升的健身房。</p>'
+	if 大别墅初次>=1 and 健身房锤子=0:'<p>·健身房的哑铃区有一把【大锤】<a href="exec:大锤+=1 & 健身房锤子=1 &  gt ''健身房''">-拿走</a></p>'
+'</div>'
+end
+
+if $ARGS[0]="应聘教练说明":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/GYM介绍~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if my.体力 >=5:
+			'<div class="button"><a href="exec:$健身教练资格=1 & $健身教练=''【☺健身教练】''  & gt ''健身房''">没问题</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''健身房''">再练练</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>-【女教练】：特色团操是结合了力量训练与有氧运动的特色团体课程，属于高级性偶服务项目！</p>'
+		'<p>-【女教练】：每位私人教练都具备健康证，及30天禁欲考核。比起后街糜烂的低级服务更具备安全保障！目前名额紧俏，欲购从速！</p>'
+		'<p>-【我】：呃，我想应聘特色团操教练！</p>'
+		'<p>-【女教练】：你？团操教练要求：身材达到5级、阴茎长度达标、吃苦耐劳、能满足会员需求、课时薪资：300/节。其中包括了营养费、射精税补贴。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="独自锻炼":
+	$num=RAND(1,3)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/GYM<<$num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''健身房''">咽咽口水</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $ARGS[1]="防BUG":
+			Exp_身材 += my.智力
+			mymax[精力] +=RAND(0,my.体力)
+		 end
+		if $num=3:
+		'<p>-【女教练】：1,2,1,2!保持臀部肌肉的泵感！特色团操就是贵在坚持！</p>'
+		end
+		'<p>-一边抵制诱惑一边刻苦训练....</p>'
+		'<p></p>'
+		'<p>-受到智力【<<my.智力>>】▲的影响，对肌肉的控制能力增加了▲</p>'
+		'<p></p>'
+		'<p>-受到熟练度的影响，心肺功能得到了提升▲，精力上限提升为【<<mymax[精力]>>】▲</p>'
+		'<p>-▲▲▲▲▲▲▲▲▲▲▲▲</p>'
+		
+	'</div>'
+end
+
+
+
+if $ARGS[0]="上团操课":
+		if $ARGS[1]="防BUG":
+			$num=RAND(11,15)
+			$loveMoney=my.魅力*20+RAND(0,my.魅力)
+			money+=300
+			money+=$loveMoney
+		 end
+
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/GYM<<$num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''健身房''">卖力教学</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【女教练】：坚持！坚持！跟上我们男教练的节拍！1！2！1！2！</p>'
+		'<p>❤在此起彼伏的呻吟声中，学员们非常满意❤</p>'
+		'<p>❤收到了课时费300..</p>'
+		'<p>❤基于魅力，收到了女学员的小费<<$loveMoney>>..</p>'
+
+	'</div>'
+end
+
+if $ARGS[0]="精品私教":
+	if 私教等级=0:私教等级=1
+	if 私教等级*7-已上私教课<=0:私教等级+=1 & 已上私教课=0
+	'<div class ="show_menu"><img src="images\task\GYM (<<rand(0,8)>>).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''健身房'',''1对1私教''">1对1私教</a></div>'
+		'<div class="button"><a href="exec:gt ''健身房''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【女教练】：你现在的私教等级是<<私教等级>>级，距离下一次晋升还需要上<<私教等级*7-已上私教课>>节课</p>'
+		'<p>【女学员】：今天是哪位教练带我训练？</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="认真授课":
+	'<div class ="show_menu"><img src="images\task\精品私教2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:money+=200 & 已上私教课+=1 & gt ''健身房''">收取课时费200￥</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·一个小时后</p>'
+		'<p>【女教练】：谢谢你，我感觉身材真在发生变化！</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="1对1私教":
+	 '<div class ="show_menu"><img src="images\task\level1 (<<rand(1,23)>>).jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if  私教等级>=2:'<div class="buttonS2"><a href="exec:gt ''健身房'',''1对1私教2''">衣服不对！</a></div>'else:'<div class="buttonGr"><a href="exec:">衣服不对！</a></div>'
+		'<div class="buttonB2"><a href="exec:gt ''健身房'',''认真授课''">认真授课</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【女学员】：<<$主角姓>>教练你好！今天请多多指教！</p>'
+		'<p>我：没问题，我会直接指出你的任何问题！</p>'
+		'<p>【女学员】：那让我们开始吧！</p>'
+	'</div>'
+end
+
+
+
+if $ARGS[0]="1对1私教2":
+	 '<div class ="show_menu"><img src="images\task\level2 (<<rand(1,43)>>).jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if  私教等级>=3:'<div class="buttonS4"><a href="exec:gt ''健身房'',''1对1私教3''">全裸授课！</a></div>'else:'<div class="buttonGr"><a href="exec:">全裸授课！</a></div>'
+		'<div class="buttonB2"><a href="exec:gt ''健身房'',''认真授课''">认真授课</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【女学员】：<<$主角姓>>教练！这样的穿着我有点害羞…</p>'
+		'<p>我：接下来我们会大量出汗！这样穿是合理的！</p>'
+		'<p>【女学员】：可是…</p>'
+		'<p>我：在健身房里没有人会嘲笑你的穿着！但大街上会！</p>'
+		'<p>【女学员】：那让我们开始吧！</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="1对1私教3":
+	 '<div class ="show_menu"><img src="images\task\level5 (<<rand(1,20)>>).jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if  私教等级>=4:'<div class="buttonS5"><a href="exec:gt ''群演_事件'',''群演_Fuck_健身房私教''">进去热身！</a></div>'else:'<div class="buttonGr"><a href="exec:">进去热身！</a></div>'
+		'<div class="buttonB2"><a href="exec:gt ''健身房'',''认真授课''">认真授课</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【女学员】：<<$主角姓>>教练，我还在脱衣服。请稍等</p>'
+		'<p>我：……</p>'
+	'</div>'
+end
+
+
+
+
+
+--- 健身房 ---------------------------------
+

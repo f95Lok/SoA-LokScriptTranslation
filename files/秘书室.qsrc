@@ -1,0 +1,237 @@
+# 秘书室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'公司_地图'
+'</div>'
+
+
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\place\秘书室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $MS.available=0:'<div class="button"><a href="exec:minutes+=15 & gt ''秘书_事件'',''招募秘书''">招募秘书</a></div>'
+		if $MS.available=1 and hour>=7 and $前台_Event_喉咙!4 :'<div class="button"><a href="exec:minutes+=15 & 秘书日常=rand(0,1) & gt ''秘书室'',''秘书立绘''"><<$MS.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·秘书的工作不仅仅是穿上包臀裙黑丝和高跟鞋</p>'
+		if $前台_Event_喉咙=4 :'<p>·<<$MS.name>>被派到市政厅顶班中…</p>'
+	'</div>'
+
+end
+
+if  $args[0]="秘书立绘":
+	if 秘书状态=2:gt '秘书室','插入状态3'
+	if 秘书状态=1:gt '秘书室','插入状态'
+	if hour>=19 and day=15:gt '秘书_事件','秘书_Fuck_客人'
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\日常<<秘书日常>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''秘书室'',''靠近她''">靠近她</a></div>'
+		if 15>= hour and hour>=12 :'<div class="button"><a href="exec:minutes+=15 & gt ''秘书_事件'',''外出''">外出</a></div>'
+		if $前台_Event_喉咙=2:'<div class="button"><a href="exec:minutes+=15 & gt ''秘书室'',''拜托顶岗''">拜托顶岗</a></div>'
+		if $冠军事件链=7 and $秘书学校偷拍!2: '<div class="button"><a href="exec:minutes+=15 & gt ''秘书室'',''伪造照片''">伪造照片</a></div>'
+		if 秘书cos=0 and tuc_level3=1:'<div class="buttonB2"><a href="exec:minutes+=15 & gt ''秘书室'',''拍摄cos协助''">拍摄cos协助</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">没事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MS.name>>:<<$主角姓>>老板，有什么吩咐吗？</p>' 
+		if 秘书日常=0:'<p>我:这是旧公司过去的市场数据和债务报表啊什么的，你拿去整理一下吧。</p>'
+		if 秘书日常=1:'<p>我:没什么事，你忙你的吧。</p>'
+		'<p>·<<$MS.name>>目前的能力:<<MS.power>></p>'
+	'</div>'
+end
+
+
+if $args[0]="靠近她":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\桌上1-0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''秘书_事件'',''秘书_Fuck_按摩''">按摩</a></div>'
+		if hour>=21:'<div class="button"><a href="exec:gt ''秘书_事件'',''秘书_Fuck_上楼''">可以下班了</a></div>'
+		if $摄像_MS>=2:'<div class="button"><a href="exec:gt ''秘书_事件'',''秘书_Fuck_椅子''">束缚她</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:辛苦你了，需要放松一下吗?</p>'
+		if 秘书日常=0:'<p><<$MS.name>>:<<$主角姓>>老板，我并不觉得工作很劳累。我为能为您效劳而感到荣幸。</p>'
+		if 秘书日常=1:'<p><<$MS.name>>:<<$主角姓>>老板，我并不需要特别的休息时间。我会在工作时间内保持专注，并在工作之余休息和调整，以便在您需要我时能够尽快响应。当然，如果您有任何特殊的要求，我会竭诚为您效劳。</p>'
+	'</div>'
+End
+
+
+if  $args[0]="插入状态":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\状态1-6.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''秘书室'',''插入状态2''">拔出来</a></div>'
+		'<div class="buttonP"><a href="exec:minutes+=15 & a=3 & q=3 & gt ''秘书_事件'',''秘书_Fuck_状态''">调教她</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">没事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:如果你求饶的话，我会把它拔出来。</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板…我…会尽力坚持…</p>'
+	'</div>'
+
+end
+
+if  $args[0]="插入状态2":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\状态1-7.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">去工作吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:比起这个，工作更重要。</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板感谢您对我的指导和帮助，我会继续努力，为您做出更多的贡献。</p>'
+		秘书状态=0
+	'</div>'
+
+end
+
+if  $args[0]="插入状态3":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\椅子1-4.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''秘书室'',''插入状态4''">拔出来</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & $MS.love+=5 & gt ''公司''">置之不理</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MS.name>>:<<$主角姓>>老板…我…我不行了…我要高潮了……求求你…拔出来啊啊啊啊…</p>'
+	'</div>'
+
+end
+
+if  $args[0]="插入状态4":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\椅子1-5.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''秘书室'',''插入状态5''">当然不会</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:真是难得，能听见你求饶。</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板……求求你不要辞退我…我需要这份工作…不然…主人…会惩罚我…</p>'
+	'</div>'
+
+end
+
+if  $args[0]="插入状态5":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\椅子1-6.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">去工作吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我答应你，不会辞退你，公司需要你。</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板…我会继续努力，为您做出更多的贡献。</p>'
+		秘书状态=0
+		$MS.love+=10
+		$MS.BAD+=10
+	'</div>'
+
+end
+
+if $args[0]="拜托顶岗":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\桌上1-0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公司''">辛苦你了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我有个市政厅前台的朋友…有点私事…呃…</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板，不妨直说。</p>'
+		'<p>我:你能去市政厅顶几天前台的活吗？</p>'
+		'<p><<$MS.name>>:只要是您安排的工作，我会竭尽全力做到最好。</p>'
+				if $前台_Event_喉咙=2:$前台_Event_喉咙=3
+	'</div>'
+End
+
+if $args[0]="伪造照片":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\桌上1-0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公司''">辛苦你了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我…有点私事…呃…能拜托你去学校让我拍点照片吗？</p>'
+		'<p><<$MS.name>>:<<$主角姓>>老板，什么类型的照片？不妨直说。</p>'
+		'<p>我:呃…偷情时被偷拍的照片…</p>'
+		'<p><<$MS.name>>:只要是您安排的工作，我会竭尽全力做到最好，我会想办法的，晚上我在学校等你。</p>'
+		if $秘书学校偷拍=0:$秘书学校偷拍=1
+	'</div>'
+End
+
+
+if $args[0]="拍摄cos协助":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MS\vids\桌上1-0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公司''">辛苦你了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$MS.name>>:<<$主角姓>>老板，您之前拍摄的写真大受好评呢！</p>'
+		'<p>我:没想到我拍摄方面也是天赋异禀！我把闲置的房间改造成了COSER约拍馆，怎么样？</p>'
+		'<p><<$MS.name>>:COSER约拍馆…那是什么？</p>'
+		'<p>我:正好，我要研究一下新场地的灯光和拍摄效果。你去换一套cos服，换好了在那里等我！我会"亲自"告诉你。</p>'
+		'<p><<$MS.name>>:收到！只要是老板的要求，我会无条件满足并竭尽全力做到最好！</p>'
+		秘书cos=1
+	'</div>'
+End
+--- 秘书室 ---------------------------------
+

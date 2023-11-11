@@ -1,0 +1,1880 @@
+# 悠亚_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $ARGS[0]="走廊偷看":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SSYY\vids\偷拍<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:minutes+=30 & a=1 & gt ''悠亚_事件'',''走廊偷看''">偷拍</a></div>'
+		if a=1:'<div class="button"><a href="exec:minutes+=45 & a=1 & gt ''大学''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我: (……<<$SSYY.name>>?!)</p>'
+		'<p>？？？: 主人您的竞演压力很大吧…</p>'
+		'<p><<$SSYY.name>>: 一般般啦，努力训练的比不上起点高的，天赋好的比不上有话题的，能忍耐的比不上会哭的…而我<<$娇喘声>></p>'
+		if a>=1:
+		'<p>？？？: 而您什么…?</p>'
+		'<p><<$SSYY.name>>: 而我…赢定了！</p>'
+		$悠亚事件链=2
+		end
+	'</div>'
+end
+
+if $args[0]="SSYY_Fuck_COS照口":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\口1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8 and $SSYY.BAD>=a-2:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">要求清场 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">抚摸我 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">撸管 </a></div>'
+            end
+            if a!4 and 3<=q and a!6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">侍奉 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">口交 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">准备发射 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_COS照口''">对话 </a></div>'
+            end
+            if $SSYY.BAD < 6:
+            '<div class="buttonGr"><a href="exec:">条件不足 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 &  $SSYY.BAD+=2 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我: 冒昧打扰！</p>'
+             '<p><<$SSYY.name>>: 这……你想合成照片敲诈我吗？！</p>'
+         '</div>'
+    end
+
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>我: 咳咳……别装了，主人…</p>'
+             '<p><<$SSYY.name>>:好吧…先不用拍摄了，我和<<$主角姓>>先生要聊点私事，非礼勿视！</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p>我: 只能做到这种程度的话可不行…</p>'
+             '<p><<$SSYY.name>>:那你还想怎样？</p>'
+             '<p>我: 我记得…<<$PW.name>>有警告过你，叫你安分守己吧…</p>'
+             '<p><<$SSYY.name>>:可恶…</p>'
+             '<p>我: 你想这件事闹大…再一次退赛吗？</p>'
+             '<p><<$SSYY.name>>:我…我知道了…</p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SSYY.bad+=4
+         if $悠亚事件链=2:$悠亚事件链=3
+         '<div class="dialog_menu">'
+             '<p>我: 如果你想安安稳稳地渡过这90天，从现在起该喊我什么？</p>'
+             '<p><<$SSYY.name>>: 什么？？</p>'
+             '<p>我: 你帮我回忆回忆，你让他喊你什么来着？</p>'
+             '<p><<$SSYY.name>>: ？！可恶…我知道了，主…主人…</p>'
+             '<p>我: 这就对了嘛！</p>'
+             '<p><<$SSYY.name>>: 我会老老实实照你说的去做…请你千万不要公开！也不要告诉<<$PW.name>>！拜托了！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_开房":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\开房1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!13:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">脱她裤子 </a></div>'
+            end
+            if a=1:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">掏出大鸟 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">口我 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">舔睾丸 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">插口穴 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">玩弄她 </a></div>'
+            end
+            if a=6:
+            if $SSYY.bad>=15:'<div class="buttonS3"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">肏她 </a></div>'else:'<div class="buttonGr"><a href="exec:">肏她 </a></div>'
+            '<div class="button"><a href="exec:minutes+=30 & $SSYY.BAD+=5 & gt ''居民区''">离开</a></div>'
+            end
+            if a!8 and 8<=q and q<=12 and a!6:
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">换姿势 </a></div>'
+            end
+            if a!9 and 9<=q and q<=13 and a!6:
+            '<div class="buttonS3"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">大力冲刺 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonS4"><a href="exec:a=10 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">射精 </a></div>'
+            end
+            if a=10:
+            '<div class="buttonS4"><a href="exec:a=11 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">舔干净 </a></div>'
+            end
+            if a=11:
+            '<div class="buttonR1"><a href="exec:a=12 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">小歇一会 </a></div>'
+            end
+            if a=12:
+            '<div class="buttonR1"><a href="exec:a=13 & gt ''悠亚_事件'',''SSYY_Fuck_开房''">zzZ </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:minutes+=30 & $SSYY.BAD+=1 & gt ''居民区''">zzZ</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我: 还愣着干什么？怎么侍奉主人还需要我教吗？</p>'
+             '<p><<$SSYY.name>>: 你要说话算数，过了这90天…就当什么事都没发生过！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 11>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 只能做到这种程度的话可不行…</p>'
+             if a>=2:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=3:'<p>我: 你不想让…<<$PW.name>>再给你擦一次屁股吧…</p>'
+             if a>=4:'<p><<$SSYY.name>>:可恶…</p>'
+             if a>=5:'<p>我: 如果这件事让<<$PW.name>>知道了的话…</p>'
+             if a>=6:'<p><<$SSYY.name>>:别…别再说了…</p>'
+             if a>=7:'<p>我: 那你先得让我爽到闭嘴才行！</p>'
+             if a>=8:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=12:
+         $SSYY.bad+=5
+         $悠亚事件链=4
+         $手机被格式=1
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 哼，把我当成什么了，真以为我是那种胸大无脑的女人吗？</p>'
+             '<p><<$SSYY.name>>: 让我猜猜你的密码…</p>'
+             '<p><<$SSYY.name>>: 生日？星座？QQ号？…啊哈！居然是这个！</p>'
+         '</div>'
+    end
+
+	if a=13:
+         '<div class="dialog_menu">'
+             '<p>·确认格式化数据…</p>'
+             '<p><<$SSYY.name>>: 还想让我喊你主人？继续做梦吧！傻瓜！</p>'
+             '<p>我: zzZ…zzZ…zzZ…</p>'
+         '</div>'
+	end
+
+  q+=1
+End
+
+if $ARGS[0]="拿她没辙":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\口1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=45 & gt ''竞演''">拿她没辙了</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我: 我的照片影像资料库怎么一干二净了？！</p>'
+		'<p><<$SSYY.name>>: 啊？你自己的东西跑来问我，我怎么知道嘛(・へ・)</p>'
+		'<p>我: 是你趁着我睡着的时候动了手脚对吧？！</p>'
+		'<p><<$SSYY.name>>: 你是有臆想症吗？拜托！我可是当红偶像！(・へ・)</p>'
+		'<p>我: 我马上就去曝光这件事！</p>'
+		'<p><<$SSYY.name>>: 你冷静点！(・へ・)我的小狗狗已经搭飞机去国外“度假”了喔！物证没有，人证也没有，口说无凭谁会相信你呢？</p>'
+		'<p>我: 可恶…</p>'
+	'</div>'
+end
+
+if $args[0]="SSYY_Fuck_反转0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\反0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_反转0''">示好 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_反转0''">忍耐 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_反转0''">堵嘴 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_反转0''">足交寸止 </a></div>'
+            end
+            if a!5 and 4<=q:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_反转0''">射精 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonR"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_反转0''">挨打 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=30 & $悠亚事件链=6 & gt ''竞演''">认主</a></div>'
+                '<div class="buttonPu4"><a href="exec:minutes+=30 & gt ''竞演''">拒绝</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 立场互换了喔？没想到你也有把柄落在我手上了呢！</p>'
+             '<p>我: 我当时不也没把你的事告诉<<$PW.name>>…你经过的时候拍照了吗？</p>'
+             '<p><<$SSYY.name>>: 喔？你猜我有没有拍照呢？！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 话说回来…你害我的小狗狗连夜潜逃到国外去了呢！</p>'
+             if a>=2:'<p>我: 抱歉…我…是我的错…</p>'
+             if a>=3:'<p><<$SSYY.name>>:把你的嘴巴给我闭上！现在道歉已经晚了！</p>'
+             if a>=4:'<p><<$SSYY.name>>:要忍住喔！不然我会生气的！</p>'
+             if a>=5:'<p><<$SSYY.name>>:还是射了？真是没用！</p>'
+         '</div>'
+    end
+
+    if a=6:
+         '<div class="dialog_menu">'
+             '<p>我: 别…别打了…</p>'
+             '<p><<$SSYY.name>>: 我还没有发泄够呢！有了！就让我好好调教调教你吧！</p>'
+             '<p>我: 嗯…？</p>'
+             '<p><<$SSYY.name>>: 就决定是你了！小狗狗二号！怎么样？从今天开始，保你到大赛结束，你得按我说的做，认我做主人！</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $ARGS[0]="悠亚任务":
+	$悠亚任务=0
+	 '<div class ="show_menu"><img src="images\place\打电话.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:$悠亚任务=1 & gt ''商场''">赤色餐厅</a></div>'
+		if $SSYY.love>=30 and $SSYY.bad>=30:'<div class="buttonS2"><a href="exec:$悠亚任务=2 & gt ''地铁''">S20车厢</a></div>'else:'<div class="buttonGr"><a href="exec:">未知地点</a></div>'
+		if $SSYY.love>=60 and $SSYY.bad>=60:'<div class="buttonS3"><a href="exec:$悠亚任务=4 & gt ''家''">我的卧室</a></div>'else:'<div class="buttonGr"><a href="exec:">未知地点</a></div>'
+		if $SSYY.love>=100 and $SSYY.bad>=100:'<div class="buttonS4"><a href="exec:$悠亚任务=3 & gt ''家''"><<$MM.name>>卧室</a></div>'else:'<div class="buttonGr"><a href="exec:">未知地点</a></div>'
+		if $SSYY.love>=150 and $SSYY.bad>=150:'<div class="buttonS5"><a href="exec:$悠亚任务=5 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">去她家</a></div>'else:'<div class="buttonGr"><a href="exec:">未知地点</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SSYY.name>>: 怎么电话接这么慢？听着，你不想你和你妹妹那档子破事上新闻头条的话，马上选择一个地点来找我！</p>'
+	'</div>'
+end
+
+if $args[0]="SSYY_Fuck_餐厅":
+	$悠亚任务=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\餐厅1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">瞧她穿了什么 </a></div>'
+            end
+            if a!2 and 1<=q and q<=5:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">乳交 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">口我 </a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">对话 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:minutes+=30 & $SSYY.BAD+=1 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 知道我为什么约你来这吗？</p>'
+             '<p>我: 从你跟上一任打野战来分析，你是不是有点露出癖啊？</p>'
+             '<p><<$SSYY.name>>: 答案为什么不由你亲自来揭晓呢？</p>'
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 哇偶…真是劲爆呢！</p>'
+             '<p><<$SSYY.name>>:很少见吧，你知道我最想要的是什么吗？做了大明星就完全失去了隐私…一举一动都被媒体捕捉，活的可太不自由了。</p>'
+             if a=2:'<p><<$SSYY.name>>:唉，就让我暂时缓解一下压力吧。这可是当红偶像的奶子，想到这个就让你更硬了吧。</p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=4:'<p><<$SSYY.name>>:可恶…又来通告了，快点射出来吧…</p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         $悠亚任务=0
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 哈哈哈！看看你，射的满桌子都是，听好了，你的下一个任务就是…在我回来之前…保护好现场！</p>'
+             '<p>我: 这怎么可能啊？！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_电车":
+	$悠亚任务=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\电车1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">摸她 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">吸她的乳头 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">口她的逼 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">口我 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">插入 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">换姿势 </a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">小幅冲刺 </a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">她来劲了 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">射精 </a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''悠亚_事件'',''SSYY_Fuck_电车''">事后对话 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & $SSYY.BAD+=1 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>给你使了一个眼色…</p>'
+         '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 你可真大胆呢…越来越夸张的露出啊！</p>'
+             '<p><<$SSYY.name>>:嘘…小声点…</p>'
+             if a>=2:'<p>我:你说，我现在突然大叫一声，你是不是就被抓现行了？</p>'
+             if a>=3:'<p><<$SSYY.name>>:别做梦了，我反手就会告你性骚扰我…你觉得公众是会相信我还是相信你？</p>'
+             if a>=4:'<p>我:大不了就鱼死网破嘛…</p>'
+             if a>=5:'<p><<$SSYY.name>>:你敢！你就不怕我把你妹…</p>'
+             if a>=6:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=7:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=10:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         $悠亚任务=0
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 乖狗狗表现不错，主人很满意！</p>'
+             '<p>我: 谢谢主人夸奖…</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_反1":
+	 $悠亚任务=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\反1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">忍耐 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">忍住 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">煎熬 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">口我 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">骑上来 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">加速 </a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">忍不住了 </a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">射精 </a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_反1''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:为什么要选这里…这是我妹妹的房间吧…</p>'
+             '<p><<$SSYY.name>>:狗狗可不会提问喔#^_^#如果你能忍住…我就销毁掉你和你妹妹的照片哟！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 痛痛痛痛…痛！</p>'
+             if a>=2:'<p><<$SSYY.name>>:嘘…要继续忍耐喔…</p>'
+             if a>=3:'<p><<$SSYY.name>>:在妹妹房间做爱肉棒这么硬？果然是个变态！</p>'
+             if a>=4:'<p>我:我可不怕被妹妹发现…发现的话说不定我们还能3P！</p>'
+             if a>=5:'<p><<$SSYY.name>>:那我就喊大声点咯？</p>'
+             if a>=6:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=9:
+         $SSYY.bad+=q
+         $SSYY.love+=q+my.魅力
+         $悠亚任务=0
+         '<div class="dialog_menu">'
+             '<p>我: 你真的有偷拍吗？能给我看看照片吗？</p>'
+             '<p><<$SSYY.name>>: 不相信我吗？那你明天可以看看报纸头版！</p>'
+             '<p>我: …………（她真的拍了吗？）</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_反2":
+	$悠亚任务=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\反2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_反2''">口她 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_反2''">操她 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_反2''">被捂脸 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_反2''">加速冲刺 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_反2''">射精 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_反2''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:呃…为什么要选这？</p>'
+             '<p><<$SSYY.name>>:你家里人在家吗？时刻担心被她们发现的心情，我超能理解！！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:那你要小声点喔！</p>'
+             if a>=2:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=6:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         $悠亚任务=0
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 你是故意的吧？！这么快就结束了！是被吓得阳痿了还是想速战速决？</p>'
+             '<p>我: ……你删了照片我就告诉你。</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_反3":
+	$悠亚任务=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\反3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">舔她 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">直接开搞 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">顶她 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">后背位 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">她上头了 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">加速冲刺 </a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">忍不住了 </a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">射精 </a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_反3''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:呃…我现在走还来得及吗？</p>'
+             '<p><<$SSYY.name>>:这是我给你准备的大礼喔！狗狗就应该套上项圈！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:乖狗狗…好好侍奉主人我才行喔！</p>'
+             if a>=2:'<p>我:呜唔…呜唔…</p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=4:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=9:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         $悠亚任务=0
+         '<div class="dialog_menu">'
+             '<p>我: ………怎么了？</p>'
+             '<p><<$SSYY.name>>: 刚刚有个不错的想法从脑海中闪过呢…我不打算让他回来了(#^_^#)你是他的上位代替品！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_旅馆二":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\旅馆二1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">来门这里 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">有人经过 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">抱插出去 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">丢在外面 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">趁机检查手机 </a></div>'
+            end
+            if a>=5:
+				if a=5:
+				'<div class="buttonS4"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">进来吹硬我 </a></div>'
+				end
+				if a=6 or a=8:
+				'<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">抱着猛肏 </a></div>'
+				end
+				if a=7 or a=9:
+				'<div class="buttonS4"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">她上头了 </a></div>'
+				end
+				if a=8:
+				'<div class="buttonS4"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">剧烈冲刺 </a></div>'
+				end
+				if a=9:
+				'<div class="buttonS5"><a href="exec:a=10 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">射精 </a></div>'
+				end
+				if a=10:
+				'<div class="button"><a href="exec:a=11 & gt ''悠亚_事件'',''SSYY_Fuck_旅馆二''">对话 </a></div>'
+				end
+			end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & $SSYY.BAD+=1 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:你要让我等多久？</p>'
+             '<p>我:不来门这边做吗？你不是喜欢刺激的嘛？</p>'
+         '</div>'
+    end
+
+
+
+
+    if 10>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:真有你的…开着门干的感觉好爽啊！</p>'
+             if a>=2:'<p>我:嘘……</p>'
+             if a>=3:'<p><<$SSYY.name>>:刚刚绝对是被看见了吧？！你还要出去？！喂！</p>'
+             if a>=4:'<p>我:你先在外面呆一会喔…</p>'
+             if a>=5:'<p><<$SSYY.name>>:别闹…算我求你了！快开门好不好！我求你了啊啊！</p>'
+             if a>=6:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=7:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=11:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         if $悠亚事件链=6:$悠亚事件链=7
+         '<div class="dialog_menu">'
+             '<p>我: 我刚刚检查过你的手机了…</p>'
+             '<p><<$SSYY.name>>: 可恶！好过分！怎么能随便偷看我的隐私！</p>'
+             '<p>我: 里边没有我和我妹妹的照片呢…</p>'
+             '<p><<$SSYY.name>>: 呃…我早就偷偷转移了！先别管这个了！刚刚太刺激了太爽啦！让我们再干一次好不好？！</p>'
+             '<p>我: 是吗…果然漂亮女人是最会骗人的…（看来她根本没有偷拍）</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_厕所":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\厕所1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_厕所''">蹲下口我 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_厕所''">直接开肏 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_厕所''">加速爆肏 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_厕所''">射精 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_厕所''">吐露心声 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:我还在工作中啦！你干嘛！不听话的话我会把你的照片曝光的！</p>'
+             '<p>我:快点过来，我知道你根本没有照片…</p>'
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:真乖……</p>'
+             if a>=2:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 可恶！日程表也太满了吧！一点喘息的时间都没。</p>'
+             '<p>我: 我看你刚刚不是喘得挺凶的嘛…</p>'
+             '<p><<$SSYY.name>>: 还不是见缝插针在和你做爱？本小姐可是很忙的…</p>'
+             '<p>我: 是吗？</p>'
+             '<p><<$SSYY.name>>: 呐，我说…帝国娱乐那边的待遇怎么样？帮我打听打听。</p>'
+             '<p>我: 你打算跳槽了？<<$PW.name>>会放你走？</p>'
+             '<p><<$SSYY.name>>: 当然不会了！ 我还签了天价违约金呢…除非老师欠了一大笔钱…否则怎么会把我卖掉呢…</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_终前":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\终前1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_终前''">决赛前来一发 </a></div>'
+            end
+            if a!2 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_终前''">强势插入 </a></div>'
+            end
+            if a!3 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_终前''">加速爆肏 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_终前''">射精 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_终前''">生气了 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:马上就要公布排名结果了！我居然还有点紧张了…</p>'
+             '<p>我:咳咳…</p>'
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:你干嘛？你疯了吗？你想我脸上挂着你的精液上电视吗？</p>'
+             if a>=2:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         if $决赛预备=1:$决赛预备=2
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 你这是在强奸我…懂吗？而且一点也不爽！</p>'
+             '<p>我: 你明明流了很多水啊？</p>'
+             '<p><<$SSYY.name>>: 滚啦！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_按摩":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\按摩1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">按摩乳房 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">按摩小穴 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">轻松抽插 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">加速抽插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">大力抽插 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">送上云霄 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_按摩''">对话 </a></div>'
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:你还会按摩呢？又是想借口和我做爱吧…</p>'
+             '<p>我:咳咳…我还真会一点…</p>'
+         '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         $SSYY按过=1
+         '<div class="dialog_menu">'
+             '<p>·<<$SSYY.name>>已经被你完全征服了…她沉浸在一浪又一浪的快感中…</p>'
+             '<p>我: 还想按的话，可以随时来找我！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_别墅按摩":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\按摩1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">按摩乳房 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">按摩小穴 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">轻松抽插 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">加速抽插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">大力抽插 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">送上云霄 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_别墅按摩''">对话 </a></div>'
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:你还会按摩呢？又是想借口和我做爱吧…</p>'
+             '<p>我:咳咳…我还真会一点…</p>'
+         '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         $SSYY按过=1
+         '<div class="dialog_menu">'
+             '<p>·<<$SSYY.name>>已经被你完全征服了…她沉浸在一浪又一浪的快感中…</p>'
+             '<p>我: 还想按的话，可以随时来找我！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_睡觉":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\睡觉1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_睡觉''">睡了吗 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_睡觉''">揉奶 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_睡觉''">乳交 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_睡觉''">射精 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_睡觉''">插着睡吧 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>·<<$SSYY.name>>睡得很香…</p>'
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:真乖……</p>'
+             if a>=2:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 饶了我吧…明天还有拍摄活动呢…</p>'
+             '<p>我: 休想。</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_刷牙":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\刷牙1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!2:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_刷牙''">进去肏她！ </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_刷牙''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>·<<$SSYY.name>>正在洗漱…</p>'
+         '</div>'
+    end
+
+
+
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:喂喂！<<$主角姓名>>！<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+    if a=2:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 哪有你这样的…今天还有拍摄活动呢…</p>'
+             '<p>我: 不喜欢的话下次不搞你了。</p>'
+             '<p><<$SSYY.name>>: 哼❤*白眼</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_采访":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\工作中2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">捣鬼 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">引起注意 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">玩喷她 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">忽悠过去 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">采访结束 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">大力抽插 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">口爆 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS2"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_采访''">事后对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">一起回去</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>·<<$SSYY.name>>正在配合娱乐杂志的专访…</p>'
+			 '<p>㊖获得了报酬，积累了一些人气</p>'
+			 OMoney+=SSYY_fans*$SSYY.多面
+			 SSYY_fans+=rand(5,10)
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:嗯…唔喔❤</p>'
+             if a>=2:'<p>工作人员: 怎么了吗？外面是不是下雨了？</p>'
+             if a>=3:'<p><<$SSYY.name>>:没…哦噢喔❤没什么…</p>'
+             if a>=4:'<p>工作人员: 那我们就刚才的话题继续吧……</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=5:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:你真是疯了<<$话>></p>'
+             if a>=6:'<p>我: 你不就喜欢这样吗？爱好露出的骚货女偶像？</p>'
+             if a>=7:'<p><<$SSYY.name>>:还是你最了解我❤</p>'
+         '</div>'
+    end
+
+
+    if a=8:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 回去再好好干一次吧❤</p>'
+             '<p>我: …………</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_封面":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\工作中1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">溜进更衣室 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">揉胸 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">舔我 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">口我 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">边亲边插 </a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">缓慢抽插 </a></div>'
+            end
+            if a!7 and 5<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">大力抽插 </a></div>'
+            end
+            if a!8 and 7<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">30分钟后 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">射精 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonR4"><a href="exec:a=10 & gt ''悠亚_事件'',''SSYY_Fuck_封面''">被发现了？ </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">马上溜走</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>摄影师: 很好！海报封面就用这一张，接下来拍摄一点花絮吧。</p>'
+             '<p><<$SSYY.name>>: OKOK！那我去换一件亲民一点的衣服。</p>'
+			 '<p>㊖获得了报酬，积累了一些人气</p>'
+			 OMoney+=SSYY_fans*$SSYY.多面
+			 SSYY_fans+=rand(5,10)
+         '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:嗯？你怎么在这…</p>'
+             if a>=2:'<p>我: 怎么了吗？不欢迎我？那我走了。</p>'
+             if a>=3:'<p><<$SSYY.name>>:别急嘛，让我们玩一下啦❤</p>'
+             if a>=4:'<p>我: 你越来越大胆了呢，就隔着一道布……</p>'
+             if a>=5:'<p><<$SSYY.name>>:放心啦，他们不敢进来的❤</p>'
+             if a>=6:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if 9>=a and a>=8:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 你还不射吗？再不射他们就要怀疑了啦！</p>'
+         '</div>'
+    end
+
+    if a=10:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>摄影师: 咳咳！<<$SSYY.name>>小姐！你…</p>'
+             '<p><<$SSYY.name>>: 来了来了！衣服尺寸太小卡住了啦！</p>'
+             '<p>我: …………</p>'
+             '<p><<$SSYY.name>>: 你快点走！回去再继续哈❤</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="挑选工作":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\化妆室<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''挑选工作''">边肏边选 </a></div>'
+			if $SSYY.多面>=15:'<div class="buttonG1"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_采访''">杂志专访 </a></div>'else:'<div class="buttonGr"><a href="exec:">多面需求15</a></div>'
+			if $SSYY.多面>=20:'<div class="buttonG2"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_封面''">拍摄海报 </a></div>'else:'<div class="buttonGr"><a href="exec:">多面能力不足</a></div>'
+			if $SSYY.多面>=25:'<div class="buttonG3"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">粉丝感谢祭 </a></div>'else:'<div class="buttonGr"><a href="exec:">多面能力不足</a></div>'
+			if $同意新演出=1:'<div class="buttonPu4"><a href="exec:gt ''群演_事件'',''新新节目''">今夜三人行 </a></div>'else:'<div class="buttonGr"><a href="exec:">没被允许</a></div>'
+			if $丝袜事件链=1:'<div class="buttonP"><a href="exec:gt ''丝袜店_事件'',''丝袜站台''">丝袜站台 </a></div>'
+			if $美妆事件链=3:'<div class="buttonP"><a href="exec:gt ''美妆_事件'',''代言身体乳''">代言身体乳 </a></div>'
+            if a!0:'<div class="button"><a href="exec:a=1 & gt ''大别墅''">离开 </a></div>'
+        '</div>'
+
+
+
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 受到了这么多工作邀约…<<$主角姓名>>你作为我的经纪人，帮我选一个吧。</p>'
+             '<p>我: 让我看看…</p>'
+             if a>=1:
+				 '<p><<$SSYY.name>>: 嗯啊啊？！你是不是不做爱会死啊？</p>'
+				 '<p>我: 那我拔出来了？</p>'
+				 '<p><<$SSYY.name>>: 等等❤就这样❤<<$娇喘声>></p>'
+				 a=0
+			end
+         '</div>'
+
+
+End
+
+if $args[0]="SSYY_Fuck_感谢祭":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\感谢祭1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">握手答谢 </a></div>'
+            end
+            if a!2 and 1<=q and q<=2:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">拥抱答谢 </a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">隔着玻璃 </a></div>'
+            '<div class="buttonR3"><a href="exec:a=0 & q=0 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">终止活动 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">默许 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">全部射完 </a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭''">结束语 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+            '<div class="buttonR3"><a href="exec:a=0 & q=0 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">假装生气 </a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">一起回去</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我: 这些都是为你支持打榜的粉丝团骨干成员。</p>'
+             '<p><<$SSYY.name>>: 就是这群傻瓜一个个对我都言听计从，一个劲地为我花钱呢。</p>'
+             '<p>我: ………</p>'
+             '<p><<$SSYY.name>>: 喂喂！你们能闭嘴吗？我在和我的经纪人沟通工作内容呢！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 2>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:啊呀！感谢您的支持！未来还需要您不断为我加油喔！</p>'
+             if a>=2:
+                '<p>粉丝团长: 啊！胸部好软…</p>'
+                '<p>其他成员: 可恶的团长…咳咳！</p>'
+                '<p>粉丝团长: 我，我代表在场的全体成员，向您提出一个请求！请让我们看一下您的胸部！</p>'
+                '<p><<$SSYY.name>>:这个嘛，我要听我经纪人的意见。</p>'
+             end
+         '</div>'
+     end
+     
+    if 5>=a and a>=3:
+             '<div class="dialog_menu">'
+                '<p>我:为了安全起见，你们不能触碰她喔，其他的都可以。</p>'
+                '<p>粉丝团长: 只要不触碰她，什么都可以是吗！那我要对着她撸一发！</p>'
+             if a>=4:'<p><<$SSYY.name>>:你们想好未来要怎么支持我了吗？</p>'
+             if a>=5:'<p>其他成员: 我马上和我老婆离婚！</p><p>其他成员: 我回去就卖掉房子！</p><p>其他成员: 啊啊啊！我不做人啦！！</p>'
+         '</div>'
+    end
+
+
+    if a=6:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:各位辛苦了，不要忘记你们对我的许诺喔！</p>'
+			 '<p>㊖获得了报酬，积累了大量人气</p>'
+			 OMoney+=SSYY_fans*$SSYY.多面
+			 SSYY_fans+=rand(15,30)
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_感谢祭2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\感谢祭2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">原谅她 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">换姿势 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">加速抽插 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">大力操她 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">内射 </a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_感谢祭2''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">一起回去</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>·你略显不悦，她遣散了众人</p>'
+             '<p><<$SSYY.name>>: 你生气了嘛？你放心啦，我才不会被那群脑残粉发生一丢丢关系的。</p>'
+             '<p>我: ………</p>'
+             '<p><<$SSYY.name>>: 我现在可是在舔舐着你的肉棒，这种事是他们这一辈子都不会经历的！</p>'
+         '</div>'
+    end
+
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 用这种方式泄火也可以喔！</p>'
+             if a>=2:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=6:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:射在我子宫里了？算啦，这次就算扯平啦！如果我怀孕了的话，可就麻烦了喔</p>'
+             '<p>我: ………</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_早袭":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\乖1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">接吻 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">揉胸 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">为我口交 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">边亲边插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">换姿势 </a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">自己动 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">内射她 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_早袭''">事后对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅'',''主卧''">起床</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 你醒啦？早上好呀。</p>'
+             '<p>我: 嗯？*睡眼惺忪</p>'
+         '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:嗯？人家想你了❤</p>'
+             if a=2:'<p>我: 你的胸好软❤</p>'
+             if a>=3:'<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=4:'<p><<$SSYY.name>>:<<$话>></p>'
+             if a=7:'<p>·清晨浓厚的第一发就这样射进了她的子宫深处❤</p>'
+         '</div>'
+    end
+
+    if a=8:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 又内射啦？一大早就感觉被灌满了呢❤</p>'
+             '<p>我: 我可是一大早就觉得精疲力尽了呢…</p>'
+             '<p><<$SSYY.name>>: 哈哈❤我知道你没那么弱！</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_晚袭":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\乖2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">接吻 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">舔我 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">为我口交 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">坐上来 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">自己动 </a></div>'
+            end
+            if a!6 and 5<=q and q<=9:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">背过去 </a></div>'
+            end
+            if a!7 and 6<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">开腿抽插 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">颜射 </a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''悠亚_事件'',''SSYY_Fuck_晚袭''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">晚安</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 好不容易要睡着了居然把我拉起来，我可不会轻饶你！</p>'
+             '<p>我: 谁怕谁啊！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=4:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $SSYY.bad+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 酥胡啦！可以睡个好觉惹！辛苦你啦！</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_别墅吃":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\吃1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!7:
+        '<div class="button_menu">'
+            if a!0 and 0<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=0 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">吃香肠 </a></div>'
+            end
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">加俩蛋 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">品尝鲍鱼 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">整根怼入 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">夹逼抽插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">开腿抽插 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">加速冲刺 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_别墅吃''">射精 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>我:光吃面怎么行…要多吃点蛋白质</p>'
+             '<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a=1:'<p>我:好吃吗？</p>'
+             if a=2:'<p>我:鲍鱼挺新鲜的！我喜欢！</p>'
+         '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=3:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>:<<$娇喘声>></p>'
+             if a>=4:'<p><<$SSYY.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=7:
+         $SSYY.bad+=q
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>·<<$SSYY.name>>全身瘫软在床上…消耗的卡路里已经远远超过了预期……</p>'
+             '<p>我: ……这样干的话，怪不得会一直饿。</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SSYY_Fuck_生理":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SSYY\vids\生理1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!7:
+        '<div class="button_menu">'
+            if a<5:
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''悠亚_事件'',''SSYY_Fuck_生理''">忍耐 </a></div>'
+            end
+
+            if a=5:
+            '<div class="buttonS"><a href="exec:a=6 & gt ''悠亚_事件'',''SSYY_Fuck_生理''">射精！ </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''悠亚_事件'',''SSYY_Fuck_生理''">清理干净 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅''">消气了</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: <<$主角姓名>>，你好像好几天没来我房间了吧？</p>'
+             '<p>我: 嗯？</p>'
+             '<p><<$SSYY.name>>: 我的小狗狗，是不是找了新主人？</p>'
+             '<p>我: 没…没有啊…</p>'
+             '<p><<$SSYY.name>>: 乖乖把屁股撅起来！</p>'
+             if a>=2:'<p><<$SSYY.name>>: 我就知道你喜欢这个！</p>'
+             if a>=3:'<p><<$SSYY.name>>: 不忍耐住的话，主人可要生气了喔！</p>'
+         '</div>'
+    end
+
+
+    if a=7:
+         $SSYY.bad+=q
+         $SSYY.love+=q
+         悠亚CD=0
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 看在你还能射这么多的份上❤这次就原谅你了❤</p>'
+             '<p>我: 你居然会欲求不满到主动找我…</p>'
+             '<p><<$SSYY.name>>: 还不是你害的❤</p>'
+         '</div>'
+    end
+  q+=1
+End
+--- 悠亚_事件 ---------------------------------
+

@@ -1,0 +1,285 @@
+# 郊外
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="地下交通" href="exec:minutes+=15 & gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			'<a class="photo" data-title="海天温泉" href="exec:minutes+=5 & gt ''温泉''"><img class="img_stretch" src="images\place\温泉.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="山顶" href="exec:minutes+=5 & gt ''辣妹帮基地''"><img class="img_stretch" src="images\place\辣妹帮基地.jpg"></a>'
+		'</div>'
+		
+		if $JJ.event_委托>=1:
+		'<div class="action">
+			<a class="photo" data-title="山峦R&M" href="exec:minutes+=30 & gt ''山峦R&M''"><img class="img_stretch" src="images\place\山峦R&M_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+		'<div class="action">'
+			'<a class="photo" data-title="西海岸" href="exec:minutes+=5 & gt ''西海岸''"><img class="img_stretch" src="images\place\西海岸.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="FOX监狱" href="exec:minutes+=5 & gt ''监狱日常'',''警告''"><img class="img_stretch" src="images\place\监狱大图.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="希莫洛斯教堂" href="exec:minutes+=5 & gt ''教堂''"><img class="img_stretch" src="images\place\教堂小图.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="机场" href="exec:minutes+=5 & gt ''机场''"><img class="img_stretch" src="images\place\机场_小图.jpg"></a>'
+		'</div>'
+		if $银行事件链A>=1 or $银行事件链B>=2:
+		'<div class="action">'
+			'<a class="photo" data-title="钢铁厂" href="exec:gt ''银行_事件'',''钢铁厂''"><img class="img_stretch" src="images\place\钢铁厂.jpg"></a>'
+		'</div>'
+		end
+	'</div>'
+'</div>'
+
+if $args[0]="":
+
+	'<div class ="show_menu"><img src="images\place\郊外_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+			if hour=22 and $督察事件链=3:'<div class="button"><a href="exec:minutes+=15 & a=1 & gt ''督察_事件'',''DC_Fuck_收网''">废弃仓库</a></div>'
+			if 集印卡=1 and hour=15 and week_day =1:'<div class="buttonS"><a href="exec:集印编号=8 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
+
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·远离大都市的郊外。</p>'
+			if 大别墅初次>=1 and 郊外锤子=0:'<p>·有人在这里遗弃了一把【大锤】<a href="exec:大锤+=1 & 郊外锤子=1 &  gt ''郊外''">-拿走</a></p>'
+			if $制服后续=1:'<p>·警方封锁了一处区域<a href="exec:gt ''郊外'',''警戒线''">-查看</a></p>'
+			if $LEI录像事件链<9:
+				if 主教选择=2:'<p>·有一个男人垂头丧气地坐在教堂门口<a href="exec:gt ''郊外'',''见习男''">-搭话</a></p>'
+				if 主教选择=1 and $XN.审判>=1:'<p>·有一个男人双目无神地坐在教堂门口<a href="exec:gt ''郊外'',''见习男''">-搭话</a></p>'
+			end
+	'</div>'
+
+end
+
+if $args[0]="警戒线":
+
+	'<div class ="show_menu"><img src="images\place\警戒线.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·警方告示：如有目击身着【射精执行官制服】的可疑人员，请立即联络警方</p>'
+		'<p>·警方告示：如有目击在此焚烧衣物者，请立即联络警方</p>'
+		'<p>·警方告示：请勿跨越</p>'
+	'</div>'
+
+end
+
+
+if $args[0]="见习男":
+	if $XN.审判=2:gt'郊外','见习男完成'
+
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\见习男.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 拍立得=0:'<div class="buttonG2"><a href="exec:拍立得=1 & gt ''郊外''">收下</a></div>'
+		if 拍立得=1:
+			if $XN.审判=0:
+				if 证据一=0:'<div class="buttonGr"><a href="exec:">提供证据①</a></div>'else:'<div class="buttonR"><a href="exec:gt ''郊外'',''见习男2''">提供证据①</a></div>'
+			else:
+			'<div class="buttonG1"><a href="exec:gt ''menu_items''">证据①-已在包内</a></div>'
+			if 证据二=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">证据②-已在包内</a></div>'else:'<div class="buttonGr"><a href="exec:">证据②-未获得</a></div>'
+			if 证据三=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">证据③-已在包内</a></div>'else:'<div class="buttonGr"><a href="exec:">证据③-未获得</a></div>'
+			if 证据四=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">证据④-已在包内</a></div>'else:'<div class="buttonGr"><a href="exec:">证据④-未获得</a></div>'
+			if 证据五=1:'<div class="buttonG1"><a href="exec:gt ''menu_items''">证据⑤-已在包内</a></div>'else:'<div class="buttonGr"><a href="exec:">证据⑤-未获得</a></div>'
+			if 证据一*证据二*证据三*证据四*证据五=1:'<div class="buttonR4"><a href="exec:gt ''郊外'',''见习男3''">商量对策</a></div>'else:'<div class="buttonGr"><a href="exec:">未收集齐</a></div>'
+			end
+		end
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $XN.审判=0:
+		'<p>男人：可恶可恶可恶！</p>'
+		'<p>我：嘿，怎么了？</p>'
+		'<p>男人：我的宝贝女友居然被哪个主教哄骗入教了！还说什么是自愿的…我绝不相信！</p>'
+		'<p>我：与其在这里无能狂怒不如站起来做点什么？</p>'
+		'<p>男人：你说的对！和我一起去揭发哪个混球主教的真面目怎么样？我赌他绝不是什么好东西！这是我的拍立得，请协助我拍下他的罪行！</p>'
+		else:
+		if 主教选择=1 and 拍立得=0:'<p>男人：可恶！你愿意帮助我吗？这是我的拍立得和我拍到的照片…</p>'& 证据一=1
+		'<p>我：………</p>'
+		'<p>男人：真该死！居然被他借驴下坡…是我草率了…不该轻举妄动的…我一定要揭发哪个混球主教的真面目！我赌他绝不是什么好东西！</p>'
+		'<p>我：既然你这样想，那就必须准备更多证据…</p>'
+		end
+		if $XN.标记=10:$XN.标记=11
+		if $XN.标记=3:$XN.标记=4
+	'</div>'
+
+end
+
+if $args[0]="见习男2":
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\见习男.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_审判''">去揭发他</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>男人：这是……他迷奸<<$XN.name>>的罪证！太好了！</p>'
+		'<p>我：这应该是不可饶恕之罪吧？</p>'
+	'</div>'
+end
+
+if $args[0]="见习男3":
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\见习男.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">去警局</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>男人：这些都是他的累累罪证！太好了！这次一定能搞倒他！</p>'
+		'<p>我：走吧，我们一起去报警。</p>'
+		'<p>男人：呃…这个嘛…其实我身上有不少案底，我怕我一进去她们就会把我拷住…所以……</p>'
+		'<p>我：那好吧，看来只能我一个人去了。</p>'
+		$证据齐全=1
+	'</div>'
+end
+
+if $args[0]="见习男完成":
+	$LEI.available=1
+	$见习男筹码=money/5
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\见习男.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">勉强答应</a></div>'
+		if $LEI录像事件链=1:'<div class="button"><a href="exec:minutes+=15 & gt ''郊外'',''见习男戒指''">还给他戒指</a></div>'
+		if $LEI录像事件链=4:'<div class="button"><a href="exec:minutes+=15 & gt ''郊外'',''见习男赌局''">来一把</a></div>'
+		if $LEI录像事件链=7:'<div class="button"><a href="exec:minutes+=15 & gt ''郊外'',''见习男赌局''">来一把</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>男人：真是无法理解！<<$LEI.name>>？！为什么！</p>'
+		'<p>我：怎么了？</p>'
+		'<p>男人：明明哪个混蛋主教已经被你撵出去了，彻底滚蛋了，她怎么还是不肯回到我的身边…<<$LEI.name>>她真的是心甘情愿做什么见习修女的吗？这真的太难以置信，不可理喻了。</p>'
+		'<p>我：你不要试图去改变她，尝试去理解<<$LEI.name>>内心真正的想法呢？</p>'
+		'<p>男人：<<$LEI.name>>的内心…那你能帮我去窥伺一下她的内心吗？让她回到我的身边来…</p>'
+		if 归还拍立得=0:
+			'<p>男人：<B><span class =''red''>哦对了，你能把拍立得还给我吗？我身上赌得输光了，我打算拿去抵点筹码，再赌最后一次！这绝对是最后一次了！快把拍立得还给我！<a href="exec:归还拍立得=1 & gt ''郊外''">-还给他</a></p>'
+		end
+		if $LEI录像事件链=4:
+			'<p>男人：<B><span class =''red''>你这个卑鄙的贱人，这就是你替我窥伺她内心的方式吗？我想再和你赌一次！筹码是你绝对没有见过的第二份录影带！</p>'
+		end
+		if $LEI录像事件链=7:
+			'<p>我：你为什么要偷拍我？想要模仿我把主教扳倒时那样做是吗？</p>'
+			'<p>男人：<B><span class =''red''>嘻嘻嘻，你误会了，我只是想再和你赌一次！筹码是你绝对没有见过的第三份录影带！</p>'
+		end
+		
+	'</div>'
+end
+
+if $args[0]="见习男戒指":
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\见习男.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外'',''见习男赌局''">来一把</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：这是<<$LEI.name>>要我交给你的【订婚戒指】，她不想再见到你了…</p>'
+		'<p>男人：太好了！这个戒指也能卖不少钱！</p>'
+		'<p>我：嘿！我说，你关心的是这个？这可是你送她的【订婚戒指】</p>'
+		'<p>男人：怎么了？！只要我卖了它一定能回本！只要我有钱了！她一定会重新回到我身边！</p>'
+		'<p>我：你就这么嗜赌？她可是个好女人…</p>'
+		'<p>男人：好女人？不如我们来赌一把？你能赢了我的话…我就给你我珍藏的，关于她的色情录影带❤</p>'
+	'</div>'
+end
+
+if $args[0]="见习男赌局":
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\赌局.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if money>=$见习男筹码:'<div class="buttonG"><a href="exec:money-=$见习男筹码 & 见习我赌=6 & gt ''郊外'',''见习男赌局开''">买【大】￥<<$见习男筹码>></a></div>'else:'<div class="buttonGr"><a href="exec:">买【大】￥<<$见习男筹码>></a></div>'
+		if money>=$见习男筹码:'<div class="buttonG"><a href="exec:money-=$见习男筹码 & 见习我赌=1 & gt ''郊外'',''见习男赌局开''">买【小】￥<<$见习男筹码>></a></div>'else:'<div class="buttonGr"><a href="exec:">买【小】￥<<$见习男筹码>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>男人：规则很简单，掷出1-3为【小】；4-6为【大】</p>'
+		'<p>我：这筛子没问题吧？</p>'
+		'<p>男人：当然了，我向你保证！绝对没问题！嘿嘿。不过你的赌注嘛…至少得这么多才行。*他眯起眼睛</p>'
+		$见习男点数=rand(1,6)
+	'</div>'
+end
+
+
+if $args[0]="见习男赌局开":
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\赌局.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>男人：规则很简单，掷出1-3为【小】；4-6为【大】</p>'
+		'<p>我：这骰子没问题吧？</p>'
+		'<p>男人：当然了，我向你保证！绝对没问题！嘿嘿。不过你的赌注嘛…至少得这么多才行。*他眯起眼睛</p>'
+		'<p>·——————</p>'
+		'<p>·骰子从他的指尖滚落，掷出了<<$见习男点数>>点</p>'
+		if 见习我赌=6:
+			if  $见习男点数=4 or $见习男点数=5 or $见习男点数=6:'<p>我：看来是我赢了<a href="exec:money+=$见习男筹码 & gt ''郊外'',''见习男我赢''">-东西拿来</a></p>'else:'<p>我：可恶！我输了…<a href="exec:gt ''郊外'',''见习男赌局''">-再来一把</a></p>'
+		end 
+		
+		if 见习我赌=1:
+			if  $见习男点数=1 or $见习男点数=2 or $见习男点数=3:'<p>我：看来是我赢了<a href="exec:money+=$见习男筹码 & gt ''郊外'',''见习男我赢''">-东西拿来</a></p>'else:'<p>我：可恶！我输了…<a href="exec:gt ''郊外'',''见习男赌局''">-再来一把</a></p>'
+		end 
+		
+	'</div>'
+end
+
+
+if $args[0]="见习男我赢":
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\收.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $LEI录像事件链=1 and $LEI录像带1=0:'<div class="button"><a href="exec: $LEI录像带1=1 & $LEI录像事件链=2 & gt ''郊外''">拿走录像带</a></div>'
+		if $LEI录像事件链=4 and $LEI录像带2=0:'<div class="button"><a href="exec: $LEI录像带2=1 & $LEI录像事件链=5 & gt ''郊外''">拿走录像带</a></div>'
+		if $LEI录像事件链=7 and $LEI录像带3=0:'<div class="button"><a href="exec: $LEI录像带3=1 & $LEI录像事件链=8 & gt ''郊外''">拿走录像带</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>男人：他妈的！操！你个逼样的运气真好！拿去！</p>'
+		'<p>我：只是我的本金够多而已，你会输是必然的…</p>'
+		'<p>男人：哼！你得意啥，等你看完这卷录影带，你就笑不出来了！白痴！</p>'
+		'<p>·—在我家能播放</p>'
+	'</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+--- 郊外 ---------------------------------
+

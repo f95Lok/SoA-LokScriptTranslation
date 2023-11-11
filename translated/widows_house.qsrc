@@ -1,0 +1,274 @@
+# widows_house
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+		 '<a class="photo" data-title="Return to the gate" href="exec:gt ''widows_house''"><img class="img_stretch" src="images\place\YS家.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+
+
+
+if $args[0]="":
+	if $have_seen_the_floor_plan=2: a=1 & gt'widow_incident','dispute'
+'<div class ="show_menu"><img src="images\place\遗孀家.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $have_seen_the_floor_plan<3:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''cannot_enter''">Knock on the door</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''back''">Go around the back</a></div>'
+		end
+		if $have_seen_the_floor_plan=3:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''gatekeeper''">enter</a></div>'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''背面''">绕到背面</a></div>'
+		end
+		if $have_seen_the_floor_plan>3:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''living_room_2''">enter</a></div>'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''背面''">绕到背面</a></div>'
+		end
+		
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Unlike the surrounding architectural style, it is completely Japanese style.</p>'
+	'</div>'
+
+end
+
+if $args[0]="cannot_enter":
+ msg'她并不欢迎你'  & gt 'widows_house'
+end
+
+if $args[0]="gatekeeper":
+ '<div class ="show_menu"><img src="images\NPC\YS\pics\DX99.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>New team member: The boss has an order. As new entrants in the New Longkou Group, we must take care of the door here!No fly can let it fly in!Do you understand?！</p>'
+		'<p>New team member A: Roger that!</p>'
+		'<p>New team member B: Understand!</p>'
+		'<p>New team member C: How can the full field in the daily knot group pretend to be the underworld*yawn<a href="exec:money-=200 & gt ''widows_house'',''living_room''">-Bribe him ￥200</a></p>'
+	'</div>'
+end
+
+if $args[0]="bedroom":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\主卧_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $times_of_day!'':'<div class="buttonS"><a href="exec:a=2 & gt ''widow_incident'',''ys_fuck_comfort''">Go in and fuck her</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $times_of_day='':
+		'<p>· <<$YS.name>>Not in the bedroom during the day.</p>'
+		else:
+		'<p><<$YS.name>>:Want to...seem to be fucked...no matter who it is... come and fuck me...have I been imprisoned by them for too long...or do I like to be humiliated?It doesn`t matter... come on... hurry up.……</p>'
+		end
+	'</div>'
+end
+
+
+
+
+if $args[0]="living_room":
+ '<div class ="show_menu"><img src="images\place\遗孀家客厅.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''卧室''">卧室</a></div>'
+		if $have_seen_the_floor_plan=3:'<div class="buttonGr"><a href="exec:">Horse winter mold is in it</a></div>'
+		if $have_seen_the_floor_plan>3:'<div class="button"><a href="exec:gt ''widows_house'',''bedroom''">bedroom</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''study_room''">Study room</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The living room is empty</p>'
+	'</div>'
+end
+
+if $args[0]="living_room_2":
+		if $hello,_chef=2:gt'widow_incident','ys_fuck_divorce'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\遗孀家客厅_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $times_of_day='':'<div class="buttonS1"><a href="exec:$revenge_dialogue=0 & gt ''widows_house'',''living_room_2_dialogue''">Close to the conversation</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''bedroom''">bedroom</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''study_room''">Study room</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $times_of_day='':
+		'<p>·In the living room<<$YS.name>>He was in a daze.</p>'
+		else:
+		'<p>·There is no one in the living room at night, she should be asleep already…</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="living_room_2_dialogue":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\遗孀家客厅0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR2"><a href="exec:$revenge_dialogue=1 & gt ''widows_house'',''living_room_2_dialogue_2''">Chef: Coward</a></div>'
+		'<div class="buttonR3"><a href="exec:$revenge_dialogue=2 & gt ''widows_house'',''living_room_2_dialogue_2''"><<$JZ.name>></a></div>'
+		'<div class="buttonR4"><a href="exec:$revenge_dialogue=3 & gt ''widows_house'',''living_room_2_dialogue_2''">Horse winter mold: the culprit</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YS.name>>:Damn bastard, I must retaliate against them, I really can`t stand this humiliation.</p>'
+		'<p>Me: Who are you going to retaliate against?</p>'
+	'</div>'
+end
+
+if $args[0]="living_room_2_dialogue_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\遗孀家客厅1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''widow_incident'',''ys_fuck_sofa''">I will support you</a></div>'
+		if $hello,_sheriff=2 and $revenge_dialogue=2:'<div class="buttonR2"><a href="exec:gt ''widow_incident'',''ys_fuck_same_sheriff''">Call the police: lied about the theft</a></div>'
+		if $hello,_chef=3:'<div class="buttonG4"><a href="exec:gt ''widow_incident'',''ys_fuck_shares''">Escrow 20% of her shares</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: What is the reason?</p>'
+		if $revenge_dialogue=1:
+		'<p><<$YS.name>>:That bastard cook, who is fierce on the surface, is actually a weak coward!I must make him pay the price for turning a blind eye to my death or not!</p>'
+		'<p>Me: What do you want to do?</p>'
+		'<p><<$YS.name>>:I`m going to ruin his restaurant!That was his life`s work!I want him to watch his red restaurant fall into the hands of others!</p>'
+		'<p><B><span class =''red''>Me: He owns 80% of the shares... as long as you divorce, you will lose half of it, right?…</p>'
+			if $hello,_chef!3:
+				'<p><<$YS.name>>:That`s right!！！You reminded me, I have a good idea, you go and help me call him over❤</p>'
+				 if $hello,_chef=0:$hello,_chef=1
+			 else:
+				'<p><<$YS.name>>: After 2 divorces, he is now only half and half of 80%, only 20% hahahahaha❤</p>'
+			 end
+		end
+		if $revenge_dialogue=2:
+		'<p><<$YS.name>>:I am a taxpayer!It is her duty to protect every citizen!I must make her pay the price for turning a blind eye to my death or not!</p>'
+		'<p>Me: What do you want to do?</p>'
+		'<p><<$YS.name>>:I don`t know... it`s not a wise move to challenge her without a careful plan.…</p>'
+		'<p><B><span class =''red''>Me: If I`m with<<$JZ.name>>Say hello in advance, hoping there will be a peaceful way to calm her anger…</p>'
+		 if $hello,_sheriff=0:$hello,_sheriff=1
+		end
+		if $revenge_dialogue=3:
+		'<p><<$YS.name>>:The abominable culprit!Why let his newly recruited horse invade me!He must be impotent...no...he must be a eunuch!</p>'
+		'<p>Me: What do you want to do?</p>'
+		'<p><<$YS.name>>:I want to imprison him in the dungeon... humiliate his dick every night I want!</p>'
+		'<p>Me: Hope you can succeed……</p>'
+		'<p><B><span class =''red''>·The current version cannot complete the revenge on him</p>'
+		end
+		'<p><<$YS.name>>:Do you think I am a vicious woman?But it`s my character to be vindicated.…</p>'
+	'</div>'
+end
+
+
+if $args[0]="study_room":
+	$compass[0]="East"
+	$compass[1]="West"
+	$compass[2]="South"
+	$compass[3]="North"
+	$compass="<<$compass[rand(0,3)]>>"
+	$compass_a=$compass
+
+	'<div class ="show_menu"><img src="images\place\遗孀家书房<<$kerosene_lamp_goes_out>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn4"><a href="exec:gt ''widows_house'',''nothing_happened''">Press the abrupt button</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''living_room''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Study room, this room gives people a crowded feeling.</p>'
+		'<p>·————————————</p>'
+		'<p>·Broken watch pointing<<$bad_watch_time>>Point ✮ <a href="exec:$bad_watch_time+=1 & gt ''widows_house'',''study_room''">Dial one hour faster</a> ✮ <a href="exec:$bad_watch_time-=1 & gt ''widows_house'',''study_room''">Dial slowly for one hour</a>            </p>'
+		'<p>·The orientation of the compass<<$compass>> ✮ <a href="exec:gt ''widows_house'',''study_room''">Shake</a>            </p>'
+		if $kerosene_lamp_goes_out=0:
+			'<p>·The ancient kerosene lamp is lit. <a href="exec:$kerosene_lamp_goes_out=1 & gt ''widows_house'',''study_room''">Extinguish</a>            </p>'
+			'<p>·Cross reflection length<<$the_length_of_the_shadow>>Beige <a href="exec:$the_length_of_the_shadow+=1 & gt ''widows_house'',''study_room''">Move forward</a> ✮ <a href="exec:$the_length_of_the_shadow-=1 & gt ''widows_house'',''study_room''">Move back</a>            </p>'
+		end
+		if $kerosene_lamp_goes_out=1:
+			'<p>·The ancient kerosene lamp is out✮ <a href="exec:$kerosene_lamp_goes_out=0 & gt ''widows_house'',''study_room''">Light up</a>            </p>'
+		end
+	'</div>'
+end
+
+if $args[0]="nothing_happened":
+ if  $bad_watch_time=3 and $compass_a="North" and $the_length_of_the_shadow=3:gt'widows_house','hidden_room'
+ msg'什么都没发生'  & gt 'widows_house','study_room'
+end
+
+if $args[0]="hidden_room":
+ '<div class ="show_menu"><img src="images\place\暗间0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $have_seen_the_floor_plan=3:'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''hidden_room_2''">Surveillance weapon</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Om----a hidden trapdoor opened</p>'
+		'<p>Me: This should be the secret compartment that has been dusty for many years.…</p>'
+	'</div>'
+end 
+
+if $args[0]="hidden_room_2":
+ '<div class ="show_menu"><img src="images\place\暗间1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$golden_ak=1 & gt ''residential_area''">Take it away</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: There is really a golden AK…</p>'
+	'</div>'
+end 
+
+
+
+if $args[0]="back":
+ '<div class ="show_menu"><img src="images\place\遗孀家背面.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $have_seen_the_floor_plan<3:'<div class="button"><a href="exec:minutes+=15 & gt ''widow_incident'',''ys_fuck_kitchen_sleep''">Look through the window</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p></p>'
+	'</div>'
+end 
+
+--- widows_house ---------------------------------
+

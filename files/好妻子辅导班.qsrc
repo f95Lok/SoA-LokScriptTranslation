@@ -1,0 +1,128 @@
+# 好妻子辅导班
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'公司_地图'
+'</div>'
+
+ if tut<10:$tut_name="鲜有人知"
+ if 10<=tut and tut<25:$tut_name="小有名气"
+ if 25<=tut and tut<50:$tut_name="名声鹊起"
+ if 50<=tut and tut<75:$tut_name="声名大噪"
+ if 75<=tut and tut<100:$tut_name="名震一时"
+ if 100<=tut and tut<10000:$tut_name="百里挑一"
+ if 10000<=tut:$tut_name="扬名立万"
+ m1=rand(1,7)
+ m2=rand(1,7)
+ m3=rand(1,7)
+ if tut_lv=1:
+		m4=rand(9,14)
+		if $TZ.bad>=100:m4=rand(8,13)
+ end
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\place\好妻子辅导班.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if tut_lv=0:'<div class="buttonG"><a href="exec:money-=5000 & gt ''好妻子辅导班'',''升级''">扩大规模5000￥</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''好妻子辅导班'',''提现''">提现</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·好妻子辅导班:通过为人妻们提供性指导和性培训，帮助她们更好地了解自己的身体和性欲，从而提高性爱的质量，促进夫妻和睦。</p>'
+		'<p>·目前辅导班的声望为：<<tut>> ➤ 处于<<$tut_name>>阶段。</p>'
+		'<p>·辅导班的累计收益为：<<Cmoney_辅导>>￥</p>'
+		'<p>————预约名单————</p>'
+		 if m1=1:$m='新婚少妇'
+		 if m1=2:$m='火辣人妻'
+		 if m1=3:$m='成熟人妻'
+		 if m1=4:$m='离异少妇'
+		 if m1=5:$m='未婚妻'
+		 if m1=6:$m='寂寞少妇'
+		 if m1=7:$m='来玩的婊子'
+		 '<p>'
+			'♀<a href="exec: m=m1 & gt ''群演_事件'',''群演_Fuck_辅导班''"><<$m>></a>'
+			if hour>=m2*3 and m2!1:
+			 m2-=1
+			 if m2=1:$m='新婚少妇'
+			 if m2=2:$m='火辣人妻'
+			 if m2=3:$m='成熟人妻'
+			 if m2=4:$m='离异少妇'
+			 if m2=5:$m='未婚妻'
+			 if m2=6:$m='寂寞少妇'
+			 if m2=7:$m='来玩的婊子'
+			'♀<a href="exec:  m=m2 & gt ''群演_事件'',''群演_Fuck_辅导班''"><<$m>></a>'
+			end
+			if tut>=50 and m1+m2!14:
+			 if m3=m1 or m3 =m2:m3=7
+			 if m3=1:$m='新婚少妇'
+			 if m3=2:$m='火辣人妻'
+			 if m3=3:$m='成熟人妻'
+			 if m3=4:$m='离异少妇'
+			 if m3=5:$m='未婚妻'
+			 if m3=6:$m='寂寞少妇'
+			 if m3=7:$m='来玩的婊子'
+			'♀<a href="exec:  m=m3 & gt ''群演_事件'',''群演_Fuck_辅导班''"><<$m>></a>'
+			end
+		'</p>'
+		if tut_lv=1:
+		'<p>————扩充名单————</p>'
+		 '<p>'
+			 if m4=8:$m='<<$TZ.name>>'
+			 if m4=9:$m='家庭主妇'
+			 if m4=10:$m='邻家少妻'
+			 if m4=11:$m='现充妹'
+			 if m4=12:$m='新手人妻'
+			 if m4=13:$m='骨感美人'
+			 if m4=14:$m='羞涩少女'
+			'♀<a href="exec:  m=m4 & gt ''群演_事件'',''群演_Fuck_辅导班''"><<$m>></a>'
+		'</p>'
+		end
+	'</div>'
+
+end
+
+if  $args[0]="提现":
+	TXM=MS.power*100/(100+MS.power)
+	'<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & money+=TXM*Cmoney_辅导/100  & Cmoney+=Cmoney_辅导/10000 & Cmoney_辅导=0& gt ''好妻子辅导班'',''提现''">提现</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·按摩院的累计收益为：<<Cmoney_辅导>>￥</p>'
+		'<p>·提现规则，每次提现，只能提现超过1万￥的数额，低于1万￥的数额将作为企业税，支援给市政厅中女性职员的养老金。</p>'
+		'<p>☺基于秘书的能力【<<MS.power>>】可以进行合法避税，并转移<<TXM>>%至个人账户。</p>'
+	'</div>'
+
+end
+
+if  $args[0]="升级":
+	'<div class ="show_menu"><img src="images\place\升级.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">明白了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·该升级策划由群里的玩家提供，新增了6位来访人妻。</p>'
+		'<p>————</p>'
+		'<p>·如果您也有好想法加群就可以实现喔，集思广益嘛。</p>'
+		tut_lv=1
+	'</div>'
+
+end
+
+--- 好妻子辅导班 ---------------------------------
+

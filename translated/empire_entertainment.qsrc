@@ -1,0 +1,579 @@
+# empire_entertainment
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="Imperial Group Hall" href="exec:minutes+=15 & gt ''empire_group''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		if $MM_Event_idol>=3 and ((hour=18)or (week_day >=6 and hour>=13 and hour<19)):
+		'<div class="action">'
+			'<a class="photo" data-title="Dance practice room" href="exec:minutes+=15 & gt ''dance_room''"><img class="img_stretch" src="images\NPC\MM\pics\舞蹈房2.jpg"></a>'
+		'</div>'
+		else:
+		'<div class="action">'
+			'<a class="photo" data-title="Dance practice room" ><img class="img_stretch" src="images\place\舞蹈房.jpg"></a>'
+		'</div>'
+		end 
+		
+		if $OX.job=1:
+		'<div class="action">'
+			'<a class="photo" data-title="Photo studio" href="exec:minutes+=15 & $idol_photography_series=rand(1,4) & gt ''empire_entertainment'',''studio''"><img class="img_stretch" src="images\NPC\OX\pics\摄影室.jpg"></a>'
+		'</div>'
+		end
+		
+		if $QB.room=1 and $the_competition_begins!1 and $the_competition_begins!999:
+		'<div class="action">'
+			'<a class="photo" data-title="Personal dormitory" href="exec:minutes+=15 & gt ''empire_entertainment'',''personal_dormitory''"><img class="img_stretch" src="images\place\个人宿舍.jpg"></a>'
+		'</div>'
+		end
+	'</div>'
+'</div>'
+
+
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\帝国娱乐2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''empire_entertainment'',''talk''">talk</a></div>'
+		if $angel_album=1:'<div class="buttonPu5"><a href="exec:$universal_location=''电梯1'' & fxnum=7 & 
+            $general_selection_1=''Take a deep breath'' & $general_selection_2=''Too dangerous'' & $general_selection_3=''Mouth me directly'' & $general_selection_4=''Licking the testicles'' &
+            $general_selection_5=''Oral sex'' & $general_selection_6=''Hurry up'' & $general_selection_7=''Ejaculation'' & $general_selection_8=''dialogue'' &
+            $pan_dialogue_1=''We will go directly to the highest level of the empire in a while. As my adjutant, you can`t drop the chain.'' & $pan_dialogue_2=''I`m still a little nervous when you say that''& $pan_dialogue_3=''If you are nervous, I will relax for you, and there is plenty of time to rise!''&
+            $pan_dialogue_4=''How`s it going... no pressure, right?''& $pan_dialogue_5=''More pressure…''&
+            $pan_leave=''Residential area'' & gt ''angel_event'',''ts_fuck_universal''">Go to the elevator with her</a></div>'
+            
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">Kill time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Mechanical AI voice: Welcome to the 69th floor of the Empire Group.Empire Entertainment.</p>'
+	'</div>'
+End
+
+
+if  $args[0]="talk":
+	if $bomb_incident=1 and $times_of_day='night':
+         '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\晚办公室.webm" type=''video/webm;''></video></div>'
+         '</div>'
+	else:
+		'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+	end
+	
+	'<div class="button_menu">'
+		if $bomb_incident=1 and $times_of_day='night':'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_company_mouth''">I`m here to fuck you!</a></div>'
+		if $bomb_incident=1:'<div class="buttonPu2"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''recording_studio''">Recording studio</a></div>'
+		if $TS.available!1:'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''look_at_the_wall''">Look at the wall</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''scout_program''">Scout Program</a></div>'
+		if $empire_level<1:'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''artificial_knife_blade''">Artificial knife blade</a></div>'
+		if $MM_Event_idol>=2:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''underground_idol''">Underground idol</a></div>'
+		end
+		if $daily_chores=0 and $empire_level>=1:'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''daily_chores''">Daily_chores</a></div>'
+		if $draft_event_chain=1 or $draft_event_chain=2:'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''proposed_draft_2''">Proposal: Participate in the draft</a></div>'
+		if $draft_event_chain=4:'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''proposed_draft_4''">Entry: Draft competition</a></div>'
+		if $bigvillaforthefirsttime>0 and $angel_event_chain<=1:'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''dinner_to_celebrate''">Dinner to celebrate</a></div>'
+		if $angel_event_chain>=2:'<div class="buttonPu1"><a href="exec:$m=''TS'' & $mcat=$TS.name & gt ''task_event'',''feeding_task''">Feeding task</a></div>'
+		if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m=''TS'' & $ma=$TS.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $the_competition_begins!999:'<p>· <<$ts.name>>: Hello, can I help you?OS: There is no market for the new male idols at all. There is also a strong entry of the first sister of internal entertainment to grab people. Help me~~ Or I`d better resign. Forget it.</p>'
+		if $the_competition_begins=999:'<p>· <<$ts.name>>: It`s finally getting better. I was able to win the championship. Now the three people in the group are all our artists. It`s great.</p>'
+		if $bomb_incident=1 and $times_of_day='night':'<p>· <<$ts.name>>：<<$protagonists_name>>, Are you still coming to work so late?</p>'
+	'</div>'
+End
+
+if  $args[0]="look_at_the_wall":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使介绍0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''look_at_the_wall_2''">Keep watching</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The resume of the current chief operating officer COO hangs on the wall.</p>'
+		'<p>·As a second-generation trainee of Empire Entertainment, she is still cooperating with the release of the album and the promotion of her solo concert as scheduled in a state of no appointment, and has survived batch after batch of trainees.</p>'
+		'<p>·After three years and three years, she is now the youngest chief operating officer of Empire Entertainment. Her name is: Angel Meng.</p>'
+	'</div>'
+End
+
+if  $args[0]="look_at_the_wall_2":
+	$TS.available=1
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使介绍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·However, under the suppression of the [new policy], men`s income has generally declined, and the female idol group industry has declined rapidly, and many shareholders have withdrawn their capital one after another.Empire Entertainment is in an embarrassing situation where no one is available.</p>'
+		'<p>·It seems that this is a big challenge for her.</p>'
+	'</div>'
+End
+
+
+if  $args[0]="scout_program":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $MM_Event_idol>=1 and  $MM_Event_idol<3:'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''push_sister''">recommend<<$mm.name>></a></div>'
+		if $qb_contract_chain=1:'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''recommend_hashimoto''">recommend<<$QB.name>></a></div>'
+		if $qb_contract_chain=6:'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment'',''summon_hashimoto''">Summon<<$QB.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">Ok</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Me: I noticed what scout plan was posted at the door.</p>'
+		'<p>· <<$ts.name>>: A star scout is a person who has the potential to be a star.The job of a scout is simply summarized, which is to find suitable [rookies] on the street and in the crowd according to the requirements of advertisers.</p>'
+		'<p>·Me: Then I am responsible for finding someone, and you are responsible for sending these potential ordinary people to the stage.</p>'
+		'<p>· <<$ts.name>>: That`s right!Once you tap into the suitable &quot;rookie&quot;.Please contact me as soon as possible.</p>'
+	'</div>'
+End
+
+if  $args[0]="push_sister":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Me: Resume: I worked in FamilyMart when I was a student, and I have a history of gymnastics.....(This is why she said she was able to maintain stability in the riding position)</p>'
+		'<p>· <<$ts.name>>: Stop, stop, stop!She is not the one I am looking for.To be honest, the competition in the idol world is cruel, and with all due respect, she is not this material.</p>'
+		'<p>·Me: My sister`s school is facing a crisis of abolishing the school with insufficient students!She wants to become an idol only to increase the school`s reputation and attract more students to enroll!Save the school!</p>'
+		'<p>· <<$ts.name>>: (Smiled) Your sister?It turned out to be the same thing, so let her try it.(Anyway, there is nothing to lose for me....）</p>'
+		'<p>·Me: Thank you very much, I will tell her the good news later!</p>'
+	'</div>'
+	$MM_Event_idol=2
+End
+
+if  $args[0]="underground_idol":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $oxhbao=0 & gt ''empire_entertainment'',''underground_idol_2''">Look at the poster</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ts.name>>: None of these trainees seem to be able to do it....The current underground idols are too outrageous, how can they take such a photo?！Damn escort company!</p>'
+		'<p>Me: Underground idol?Escort company?</p>'
+		'<p><<$ts.name>>: Did you hear it?The so-called underground idols belong to escort companies.They are clearly priced to play with them during the day and sleep with them at night.It`s just that women choose customers in reverse, drilling a hole in [legal prostitution].</p>'
+		'<p>Me: It means that only high-end and high-quality customers will serve them?</p>'
+		'<p><<$ts.name>>: Yes, look at this is their latest poster of underground idols.</p>'
+	'</div>'
+End
+
+if  $args[0]="underground_idol_2":
+
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像<<$oxhbao>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $oxhbao=0:
+		'<div class="button"><a href="exec:minutes+=5 & $oxhbao=1 & gt ''empire_entertainment'',''underground_idol_2''">Next one</a></div>'
+		end 
+		if $oxhbao=1:
+		  if $MM_Event_idol=3:
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''porn_idol''">Porn idol</a></div>'
+		  end
+		  if $MM_Event_idol=5:
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''cultivate_younger_sister''">Cultivate younger sister</a></div>'
+		  end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">Not yet</a></div>'
+		end 
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $oxhbao=0:
+		'<p>Me: Wow, the scale is not small....(It seems that the nipples can be seen vaguely)</p>'
+		'<p><<$ts.name>>: What is this, take a look at this one again.</p>'
+		else:
+		'<p>Me: Wow, my world is lit up!but...It seems that the quality is not very good either...There is no one comparable to you.</p>'
+		'<p><<$ts.name>>: Huh, that`s for sure.</p>'
+		'<p>Me: I should also experience it if I have the opportunity......</p>'
+		'<p><<$ts.name>>: What are you muttering about?Is there any good idea?</p>'
+		end
+	'</div>'
+End
+
+
+if  $args[0]="porn_idol":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $oxhbao=0 & gt ''empire_entertainment''">Don`t worry</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & $MM_Event_idol=4 & $oxhbao=0 & gt ''empire_entertainment''">agree</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: In contrast, the advantage of underground idols is...Fans can have direct sexual relations with them.The allure of this to fans is unlimited.Is there such a possibility?..What if our artists also provide sexual services?</p>'
+		'<p><<$ts.name>>: Are you crazy?！We are a regular idol company!</p>'
+		'<p>Me: If it is...The artist invited the fan group to come in the form of a thanksgiving festival...</p>'
+		'<p><<$ts.name>>: Will the handshake be?Fans now don`t eat this set for a long time.</p>'
+		'<p>Me: Come on, group P!You still don`t understand men!Men just like this kind of contrast!Who doesn`t desire to fuck female love beans?</p>'
+		'<p><<$ts.name>>：................this.......in case...</p>'
+		'<p>Me: If you hesitate like this, the market will be divided up!The first erotic love bean!It must be our family!</p>'
+		'<p><<$ts.name>>：..That`s good!This matter...I`ll leave it to you!You are responsible for the problem!！Just use the four newly signed trainees to make experimental products!(It`s an unsecured contract anyway...Don`t be responsible if something happens)</p>'
+		'<p>Me: What?this...(The other three don`t matter, but one of them is my sister...）</p>'
+		'<p><<$ts.name>>: Huh, now it`s your turn to hesitate, isn`t it?</p>'
+	'</div>'
+End
+
+
+if  $args[0]="cultivate_younger_sister":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I think<<$mm.name>>Already fully qualified!</p>'
+		'<p><<$ts.name>>: Okay, then take a good look at her, you can make some announcements!I have dismissed the remaining three people.</p>'
+		'<p>Me: Leave it to me, I think I can own a Canon R6 SLR to shoot some photo albums.</p>'
+	'</div>'
+End
+
+if  $args[0]="studio":
+	'<div class ="show_menu"><img src="images\NPC\OX\pics\摄影室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $idol_photography_series=1:'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''idol_event'',''ox_fuck_drum''">Idol costume</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		if $idol_photography_series=2:'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''idol_event'',''ox_fuck_rem''">COS Rem</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		if $idol_photography_series=3:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''idol_event'',''ox_fuck_swimwear''">Wear swimwear</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		if $idol_photography_series=4:'<div class="buttonS5"><a href="exec:minutes+=15 & gt ''idol_event'',''ox_fuck_coercion''">stranger</a></div>'else:'<div class="buttonGn"><a href="exec:">？？？</a></div>'
+		
+		if week_day>=6 and hour=13 and $ch.rice>=2:'<div class="buttonG3"><a href="exec:minutes+=15 & gt ''dealer_event'',''temporary_studio''">Temporary studio</a></div>'
+		if $school_flower_event_chain>=7:'<div class="buttonG4"><a href="exec:minutes+=15 & gt ''student_group_event'',''school_flower_work''"><<$XH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$OX.name>>POSING inside.</p>'
+	'</div>'
+End
+
+if  $args[0]="artificial_knife_blade":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">Apply for a position</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I heard that the Imperial Group has a special promotion channel, from M1 to M10?Like the quality of wagyu beef.I am very curious, so I want to apply for a job position to see.</p>'
+		'<p><<$ts.name>>: Yes, with the accumulation of your work experience, you can continue to be promoted.From the bottom of the M1 all the way up, it`s like climbing a tower in the game.</p>'
+		'<p><<$ts.name>>: Although there is no shortage of people in the company, the majority of Tier 1 employees who work part-time still hope that the more, the better.I can provide you with a level 1 position, and then your efforts will be needed.</p>'
+		'<p>Me: Thank you then.</p>'
+		'<p><<$ts.name>>: Let me remind you, it`s best not to become an M3 level....Just do the bottom-level things in M1 and M2.(After M3, you will be a complete ejaculation machine....The women upstairs are more perverted than one another...That`s why I can only be the director of this small entertainment department...）</p>'
+		if $empire_level<=1: $empire_level=1
+	'</div>'
+End
+
+if  $args[0]="daily_chores":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Did some chores, job experience +1</p>'
+		'<p><<$ts.name>>: Let me remind you, it`s best not to become an M3 level....Just do the bottom-level things in M1 and M2.(After M3, you will be a complete ejaculation machine....The women upstairs are more perverted than one another...That`s why I can only be the director of this small entertainment department...）</p>'
+		$daily_chores=1
+		xp+=1
+	'</div>'
+End
+
+if  $args[0]="recommend_hashimoto":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''hashimoto_contract''">Drafting contracts</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: You know<<$QB.name>>Is it?Now is a good time to sign her.</p>'
+		'<p><<$ts.name>>：<<$QB.name>>?She messed up the World Cup recently, who doesn`t know her now?The overwhelming verbal abuse of her on the Internet almost stripped her alive.</p>'
+		'<p>Me: That`s right, but black and red are also red; notoriety is also famous.The current pursuit of Tuyere is a distorted market with only traffic, and signing her will have a staggering salary gain.</p>'
+		'<p><<$ts.name>>: But she looks...mediocre. The appearance of becoming an artist in our company is an important consideration.</p>'
+		'<p>Me: Please also grant me a sum of...plastic surgery funds…</p>'
+		'<p><<$ts.name>>: This is not in line with my investment philosophy.I can only draft a contract for you. Since you want to sign her, you have to be solely responsible.</p>'
+	'</div>'
+End
+
+if  $args[0]="hashimoto_contract":
+	'<div class ="show_menu"><img src="images\place\医院场景\签订合同.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $qb_contract_chain=2  & gt ''empire_entertainment''">Take away the contract</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">refuse</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>【Contract text】</p>'
+		'<p>Party A: Empire Entertainment Party B：<<$protagonists_name>></p>'
+		'<p>Article 1: Party B agrees to accept Party A`s employment and perform relevant work in accordance with Party A`s requirements.</p>'
+		'<p>Article 2: Party B`s work content includes but is not limited to: Signing<<$QB.name>>, Pay for living expenses and beauty expenses…</p>'
+		'<p>Article 3: Party B shall serve as<<$QB.name>>During the broker period, he shall be fully responsible for all consequences arising therefrom.</p>'
+		'<p>The final interpretation right belongs to Empire Entertainment</p>'
+		
+	'</div>'
+End
+
+if  $args[0]="summon_hashimoto":
+	'<div class ="show_menu"><img src="images\NPC\QB\pics\效果2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">Take the key</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: This is our boss，<<$TS.name>>.</p>'
+		'<p><<$QB.name>>: You...hello.Thank you for giving me the opportunity, I will work hard to become an excellent artist!</p>'
+		'<p><<$ts.name>>: Don`t thank me, yes<<$protagonists_name>>Highly recommend yours.It seems that it is still necessary to make a slight adjustment. You have a good vision!</p>'
+		'<p>Me: Thank you for your compliment... now I still need to find a place for her to live.</p>'
+		'<p><<$ts.name>>: The personal dormitory where I slept when I was a trainee before, let her live there.</p>'
+		$QB.room=1
+		$qb_contract_chain=7
+		$QB.name='Hashimoto Arina (artist)'
+		$QB.filename='桥本有菜(艺人)'
+	'</div>'
+End
+
+
+if  $args[0]="personal_dormitory":
+	'<div class ="show_menu"><img src="images\place\个人宿舍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $draft_event_chain<=1:'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''proposed_draft''">Proposal: Participate in the draft</a></div>'
+		if $draft_event_chain=3:'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''proposed_draft_3''">Are you considering participating?</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>:I don`t know if I can do it well, but I will definitely try my best!</p>'
+	'</div>'
+End
+
+if  $args[0]="proposed_draft":
+	'<div class ="show_menu"><img src="images\place\个人宿舍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''proposed_draft''">Proposal: Participate in the draft</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>:Eh?！Talent show, I know that!Last year`s general trend character withdrawal caused a lot of uproar, and this year she made a comeback... I`m afraid my strength is not enough.…</p>'
+		'<p>Me: Don`t worry, black and red are also red... As long as there is popularity and topic... it`s okay.…</p>'
+		'<p><<$QB.name>>:I want to practice for another year, if…<<$TS.name>>If you ask me to go... I can`t help it…</p>'
+		'<p>Me: Then I have to talk to her…</p>'
+		$draft_event_chain=1
+	'</div>'
+End
+
+if  $args[0]="proposed_draft_2":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''view_mail''">View mail</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>:This is indeed a good idea... it`s a good way to increase exposure and topic, but…</p>'
+		'<p>Me: But what?</p>'
+		'<p><<$TS.name>>:Her current public opinion environment is unfavorable to her... I`m afraid she can`t stand the bombardment of public opinion.…</p>'
+		'<p>I: ……</p>'
+		'<p><<$TS.name>>:By the way... I recently received a very interesting self-recommendation email…</p>'
+	'</div>'
+End
+
+if  $args[0]="view_mail":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\旬果大学.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">Leave it to me</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><Email></p>'
+		'<p>？？？: Hello, take the liberty to interrupt, my husband was in a car accident not long ago... now he is in the hospital... to tell the truth... I have had enough of him!I originally wanted to be a young lady, but I never imagined that it would be my turn to work to pay for his hospitalization!</p>'
+		'<p>？？？: The money earned from working part-time to wash dishes is completely not enough for his expenses. My credit card has been cashed out in turns... I was the lead singer of the school band when I was a student. I hope your company can provide me with an electric guitar... and sign me!</p>'
+		'<p><<$TS.name>>:What do you think...?I have heard of this person, she used to be my senior sister!</p>'
+		'<p>Me: I see what you mean…</p>'
+	'</div>'
+End
+
+if  $args[0]="proposed_draft_3":
+	'<div class ="show_menu"><img src="images\place\个人宿舍1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>:Which...I decided...to participate!That big-breasted sister was right just now. No matter how I make a mistake, it won`t be more serious than the embarrassment of the World Cup live broadcast.…</p>'
+		'<p>Me: Uh... it`s hard to say…</p>'
+		'<p><<$QB.name>>:and!What if someone likes a real dumb person like me... there are too many perfect idols.…</p>'
+		'<p>Me: That`s true... in that case, where am I going?<<$TS.name>>Reported.</p>'
+		$draft_event_chain=4
+	'</div>'
+End
+
+if  $args[0]="proposed_draft_4":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if  $sister_is_allowed=0: 
+			if mm_fans>=50:'<div class="button"><a href="exec:$sister_is_allowed=1 & gt ''empire_entertainment'',''proposed_draft_4''">Bring<<$MM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:"><<$MM.name>>Insufficient number of fans</a></div>'
+		 end
+		if $sf_is_allowed=0: '<div class="button"><a href="exec:$sf_is_allowed=1 & gt ''empire_entertainment'',''proposed_draft_4''">Bring<<$SF.name>></a></div>'
+		if $sf_is_allowed=1 and $sister_is_allowed=1: '<div class="buttonG"><a href="exec:gt ''empire_entertainment'',''departure_registration''">Set off to sign up!</a></div>'else:'<div class="buttonGr"><a href="exec:">Set off to sign up!</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>:Good job, I haven`t felt this kind of fighting spirit for a long time.…</p>'
+		'<p>Me: I have a request.</p>'
+		'<p><<$TS.name>>:What request?</p>'
+		'<p>I: ……</p>'
+		if  $sister_is_allowed=1:'<p><<$TS.name>>: <<$MM.name>>Now that there are so many fans, it`s time to take her to meet the big scene. It`s okay to take her!</p>'
+		if  $sf_is_allowed=1:'<p><<$TS.name>>: <<$SF.name>>…？As a newcomer, you have to go to this kind of competition for the first time?I am worried that she will become cannon fodder, but... bringing her will have nothing to lose to me.</p>'
+	'</div>'
+End
+
+if  $args[0]="departure_registration":
+	$PW.available=1
+	$SSYY.available=1
+	'<div class ="show_menu"><img src="images\place\竞演\出发报名.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $QT.job=2:'<div class="buttonG"><a href="exec:minutes+=5 & $draft_event_chain=5 & $the_competition_begins=1 & gt ''tv_station''">90-day competition begins</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of announcer</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">Wait a minute</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$PW.name>>:Tsk Tsk tsk, it seems that this year`s opponent is very weak.You have to play well, I won`t wipe your ass like last year.</p>'
+		'<p><<$SSYY.name>>:I will definitely not disappoint the teacher this time!I will win the championship fiercely!</p>'
+		'<p><<$PW.name>>:Huh, I will protect you from which side of the judges.I will do whatever I ask you to do, understand?We have only one goal…</p>'
+		'<p><<$SSYY.name>>:champion!champion!champion!</p>'
+		'<p>I: ………</p>'
+		'<p><<$TS.name>>: Let me talk about the preliminary rules of the draft competition... Once we sign up, the 90-day draft competition will start immediately. Have you decided yet?</p>'
+
+		
+		
+	'</div>'
+End
+
+if  $args[0]="dinner_to_celebrate":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">Ok</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: Wow, you are really great!I really didn`t expect us to win the C position, and I also won the award of the best economic company.</p>'
+		'<p>Me: This is really incredible, but we did it!</p>'
+		'<p><<$TS.name>>:This is definitely worth celebrating!I want to invite you to eat the best, what do you want to eat?Chinese food?Western food?Or something else?</p>'
+		'<p>Me: How about the red restaurant? It is said that the dishes are very good and the prices are reasonable.</p>'
+		'<p><<$TS.name>>:Great, I also love the red restaurant so much!It sounds like our tastes are very similar!Let`s go this weekend, I can`t wait to have dinner with you.</p>'
+		'<p>Me: Me too, then set it for this Saturday night.</p>'
+		$angel_event_chain=1
+	'</div>'
+End
+
+if  $args[0]="recording_studio":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\录音室.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	'<div class="button_menu">'
+		if hour<=5:'<div class="buttonPu5"><a href="exec:$universal_location=''录音1'' & fxnum=10 & 
+			$general_selection_1=''Touch her'' & $general_selection_2=''dialogue'' & $general_selection_3=''Mouth me'' & $general_selection_4=''Hide in'' &
+			$general_selection_5=''Licking testicles'' & $general_selection_6=''insert'' & $general_selection_7=''Back position'' & $general_selection_8=''Accelerate the sprint'' &
+			$general_selection_9=''Ejaculation'' & $general_selection_10=''Ejaculation'' & 
+			$pan_dialogue_1=''They all seemed to be tired and fell asleep.'' & $pan_dialogue_2=''So what should we do?''& $pan_dialogue_3=''Be more presumptuous... don`t you want to do something more exciting?''&
+			$pan_dialogue_4=''So exciting…''& $pan_dialogue_5=''The way you let go is so erotic…''&
+			$pan_leave=''subway'' & gt ''angel_event'',''ts_fuck_universal''">The second half of the night</a></div>'
+			
+        if 16>=hour and hour>=8:'<div class="buttonPu1"><a href="exec:$universal_location=''公测1'' & fxnum=8 & 
+            $general_selection_1=''Alone time'' & $general_selection_2=''kiss'' & $general_selection_3=''Hand work'' & $general_selection_4=''Sucking balls'' &
+            $general_selection_5=''Hold the whole root'' & $general_selection_6=''Enjoy oral sex'' & $general_selection_7=''Shoot her in the mouth'' & $general_selection_8=''Lick clean'' &
+            $pan_dialogue_1=''What`s happened?Won`t you talk to them more?They are all excellent music producers…'' & $pan_dialogue_2=''They are too noisy…''& $pan_dialogue_3=''Is it too quiet here?The quieter the place, the more restless it will be❤''&
+            $pan_dialogue_4=''Okay, let`s go back together after being comfortable❤''& $pan_dialogue_5=''If they go back together, they will doubt it, right?''&
+            $pan_leave=''Empire Group'' & gt ''angel_event'',''ts_fuck_universal''">Go to the bathroom</a></div>'
+			
+		if hour>=17:'<div class="buttonPu4"><a href="exec:$universal_location=''录音2'' & fxnum=12 & 
+			$general_selection_1=''Drink and lie on them'' & $general_selection_2=''dialogue'' & $general_selection_3=''kiss'' & $general_selection_4=''Lick'' &
+			$general_selection_5=''Licking testicles'' & $general_selection_6=''Oral sex'' & $general_selection_7=''Masturbate by yourself'' & $general_selection_8=''Kissing and thrusting'' &
+			$general_selection_9=''Back position'' & $general_selection_10=''Accelerate thrusting'' & $general_selection_11=''Bukkake'' & $general_selection_12=''Lick clean'' &
+			$pan_dialogue_1=''Aha!It`s the best to have a glass of beer after work!'' & $pan_dialogue_2=''Cheers!You guys come too!''& $pan_dialogue_3=''They really don`t drink it... Hey... I feel a little fluttering❤''&
+			$pan_dialogue_4=''Haven`t they discovered it ❤ A few of them have my suitors❤''& $pan_dialogue_5=''That`s really dangerous. I don`t want to meet another psychopath.…''&
+			$pan_leave=''subway'' & gt ''angel_event'',''ts_fuck_universal''">Have a drink</a></div>'
+			
+			
+		if $album_num<100:
+			'<div class="buttonP"><a href="exec:minutes+=5 & gt ''empire_entertainment'',''record_music''">Record album<<$album_num>>%</a></div>'
+		else:
+			'<div class="buttonPu3"><a href="exec:$universal_location=''演出1'' & fxnum=8 & 
+			$general_selection_1=''Go behind the scenes'' & $general_selection_2=''Fuck her'' & $general_selection_3=''Lift your thighs'' & $general_selection_4=''Accelerate thrusting'' &
+			$general_selection_5=''Sprint vigorously'' & $general_selection_6=''Ejaculation'' & $general_selection_7=''Stuff in the vibrating egg'' & $general_selection_8=''Continue the show'' &
+			$pan_dialogue_1=''Long time no see!Dear fans!This song is the title song of the upcoming release!'' & $pan_dialogue_2=''Really motivated!''& $pan_dialogue_3=''Please take a break, I`ll change into a costume... hey?！Wait ❤ You don`t want to…''&
+			$pan_dialogue_4=''She just opened her mouth, but what came out was a groan ❤Hmm ❤Thank you for your support ❤Angel loves you❤''& $pan_dialogue_5=''Hehe, this feeling is really good... I didn`t expect her to be so popular.''&
+			$pan_leave=''subway'' & $angel_album=1 & gt ''angel_event'',''ts_fuck_universal''">Album audition</a></div>'
+			
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>:The vocals here are strengthened a little bit, and the drums are weakened a little bit.Add another reverse shot at the end here, why don`t you add another electronic sound?</p>'
+		'<p>Me: It seems that she has high requirements for songs…</p>'
+	'</div>'
+End
+
+
+if  $args[0]="record_music":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\录制音乐.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=420 & gt ''empire_entertainment'',''record_music_2''">Perfect album<<$album_num>>%</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>:hey!<<$protagonists_name>>！Won`t you come and give me some advice?</p>'
+		'<p>Me: Let me use my brain…</p>'
+	'</div>'
+End
+
+if  $args[0]="record_music_2":
+	$album_num+=$my.intelligence+15
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\天使立绘3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$my.energy=0 & gt ''subway''">Leave it to me</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Let me modify the chord part for you…</p>'
+		'<p><<$TS.name>>:Do you still understand this?Then I will wait for Jiayin?</p>'
+		'<p>Me: You go back and rest first, leave it to me!*Pointed to his brain…</p>'
+	'</div>'
+End
+--- empire_entertainment ---------------------------------
+

@@ -1,0 +1,463 @@
+# 监狱日常
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+my.精力-=10
+
+
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show一半'
+	gs "BUG脱出"
+'</div>'
+
+if jings<0:jings=0
+if 0<=hour and hour <=5:$监狱图="监狱0"
+if 6<=hour and hour <=11:$监狱图="监狱1"
+if 12<=hour and hour <=14:$监狱图="监狱2"
+if 15<=hour and hour <=18:$监狱图="监狱3"
+if 19<=hour and hour <=24:$监狱图="监狱4"
+now_time=year*365+month*30+day
+
+if jings>=50:a=-1& gt '执行官_事件','ZXG_Fuck_强制执行'
+if jailday>0:
+	if  now_time-jing_time>=5:
+		if  $YJ.bad<=30: gt'狱警_事件','YJ_Event_惩罚'
+		if  $YJ.bad > 30: gt'狱警_事件','YJ_Event_惩罚二'
+	end
+end
+
+监狱随机数=rand(1,10)
+if 肥皂钥匙>0 and 监狱随机数>9 and 监狱肛塞=0:gt'狱警_事件','YJ_Event_惩罚三'
+
+if jailday<0:
+	 '<div class ="show_menu"><img src="images\place\监狱大图.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5  & jailday=0 & gt ''郊外''">出狱</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·刑满释放了</p>'
+			if $花姐事件链=6:$花姐事件链=7
+		'</div>'
+End
+
+
+if $ARGS[0]="":
+
+	'<div class ="show_menu"><img src="images\place\<<$监狱图>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 每日点名=0:'<div class="buttonR4"><a href="exec:每日点名=1 & jailday-=1 & gt ''监狱日常''">每日点名</a></div>'
+		if dogteam>=1:'<div class="buttonR5"><a href="exec:监狱守则=0 & gt ''监狱日常'',''典狱长办公室''">典狱长办公室</a></div>'
+		'<div class="button"><a href="exec:监狱守则=1 & gt ''监狱日常''">朗读监狱守则</a></div>'
+		if hour!12 and hour!18:'<div class="buttonR2"><a href="exec:劳改项目=0 &gt ''监狱日常'',''劳动改造''">劳动改造</a></div>'
+		if hour=12:'<div class="buttonB"><a href="exec:gt ''监狱日常'',''放风时间''">放风时间</a></div>'
+		if hour=18:'<div class="buttonB"><a href="exec:gt ''监狱日常'',''操场开放''">操场开放</a></div>'
+		if day=1:'<div class="buttonGn"><a href="exec: a=-1 & gt ''男科_事件'',''NK_Fuck_每月''">每月健康检查</a></div>'
+		'<div class="button"><a href="exec:minutes+=165 &监狱守则=0 & my.精力+=15 &jings+=rand(1,3)& gt ''监狱日常''">休息3h</a></div>'
+		if hour>=6 and  $YJ.slave=1 and 监狱随机数<4:'<div class="buttonG"><a href="exec:gt ''狱警_事件'',''YJ_Event_调教''">铃铛声</a></div>'
+		if hour>=19 and 肥皂钥匙>0:'<div class="buttonB"><a href="exec:gt ''监狱日常'',''监狱走廊''">使用肥皂钥匙</a></div>'
+		if hour>=19:'<div class="button"><a href="exec:minutes+=1440 & hour=6 &监狱守则=0 & my.精力+=45 &jings+=rand(4,6)& gt ''监狱日常''">熄灯就寝</a></div>'
+		if 10>$YDM_Event_free and $YDM_Event_free>0:
+			if 0<=hour and hour<=3:'<div class="buttonB5"><a href="exec:gt ''监狱日常'',''接头''">越狱接头</a></div>'
+		end
+
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·剩余刑期：<<jailday>>天。劳动凭证：<<coins>>个。积攒精液量：<<jings>>ml。糟糕的环境让你身心俱疲。</p>'
+		if 监狱肛塞=1: jings+=rand(1,3 )& '<p>·由于被插着肛塞，随着前列腺的疯狂摩擦，精液不断积蓄着。<a href="exec: gt''狱警_事件'',''YJ_Event_惩罚四''">·拔出来</a></p>'
+		if 监狱守则=1:
+		'<p>·监狱守则：通过不同的劳动换取劳动凭证，每个劳动凭证可以抵消一天的刑期。</p>'
+		'<p>·手工：按照需求制作女性情趣道具，每次可获取1个劳动凭证。</p>'
+		'<p>·榨精：用自己的精液灌满10ml的量杯，以此换取10个劳动凭证。</p>'
+		'<p>·特殊时段：每日12时，可与其他区的囚犯活动。每日18时，操场开放。</p>'
+		'<p>·每月会有一次免费的健康检查。</p>'
+		end
+		if $花姐事件链=6:'<p>我:可恶的<<$PW.name>>…居然把我关在这里计划让我错过选秀大赛…</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="警告":
+	'<div class ="show_menu"><img src="images\place\监狱大图.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''监狱日常'',''监狱前置''">硬闯</a></div>'
+		'<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><B><span class =''red''>·警告：监狱重地，闲人免进！！</p>'
+		if 大别墅初次>=1 and 监狱锤子=0:'<p>·监狱门口有一把沾满了灰尘和泥土的【大锤】<a href="exec:大锤+=1 & 监狱锤子=1 &  gt ''监狱日常'',''警告''">-拿走</a></p>'
+	'</div>'
+
+end
+
+
+
+if $ARGS[0]="监狱前置":
+	$DYZ.available=1
+	$YJ.available=1
+	jailday=90
+	jing_time=year*365+month*30+day 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DYZ\vids\介绍~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''监狱日常'',''监狱前置2''">沉默</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><B><span class =''red''>·二话不说，你就被押运进了监狱，甚至跳过了审讯的环节。！</p>'
+		'<p><<$DYZ.name>>:杂碎们，欢迎来到FOX监狱！我是你们的典狱长！训导员，接下来交给你了。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="监狱前置2":
+	$DYZ.available=1
+	$YJ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\介绍~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''监狱日常''">收监</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YJ.name>>:贱狗们！很遗憾，你被宣判有罪！按照女性领导保护法第三版第二款修正条例，将对你采取90天的强制拘留措施，在此期间你将被剥夺一切“男人”的权利。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="劳动改造":
+		if 劳改项目=1: coins+=1
+		if 劳改项目=2: jing+=jings & jings=0		
+		if 劳改项目=3: jing=0 & coins+=10
+		if 劳改项目=4: jailday-=coins & coins=0
+
+	'<div class ="show_menu"><img src="images\place\<<$监狱图>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR1"><a href="exec:劳改项目=1 & minutes+=60 & gt ''监狱日常'',''劳动改造''">手工</a></div>'
+		'<div class="buttonR2"><a href="exec:劳改项目=2 & minutes+=60 &gt ''监狱日常'',''劳动改造''">榨精<<jing>>/10ml</a></div>'
+		if jing>=10:'<div class="buttonR3"><a href="exec:劳改项目=3 &jing_time=year*365+month*30+day & minutes+=15 &gt ''监狱日常'',''劳动改造''">上缴量杯</a></div>'
+		if coins>0:'<div class="buttonR4"><a href="exec:劳改项目=4 & minutes+=60 &gt ''监狱日常'',''劳动改造''">兑换劳动凭证</a></div>'
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回牢房</a></div>'
+	'</div>'
+
+
+ 
+
+	'<div class="dialog_menu">'
+		if 劳改项目=0:'<p>·劳动改造，赚取劳动凭证，争取早日出狱！</p>'
+		if 劳改项目=1:'<p>·制作了数个假阳具，获取了劳动凭证。</p>' 
+		if 劳改项目=2:'<p>·对着量杯打飞机。</p>' 
+		if 劳改项目=3:'<p>·将装满精液的量杯交给了<<$YJ.name>>，获取了劳动凭证。</p>'
+		if 劳改项目=4:'<p>·兑换了劳动凭证，缩短了刑期。</p>'
+		'<p>·剩余刑期：<<jailday>>天。劳动凭证：<<coins>>个。积攒精液量：<<jings>>ml。糟糕的环境让你身心俱疲。</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="放风时间":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\jail\监狱商店0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if money>=10000:'<div class="buttonG"><a href="exec:money-=10000 & coins+=1 & gt ''监狱日常'',''放风时间''">购买劳动凭证￥10000</a></div>'else:'<div class="buttonGr"><a href="exec:">购买劳动凭证￥10000</a></div>'
+		if 肥皂钥匙<=0 and coins>=10:'<div class="buttonG"><a href="exec:coins-=10 &  肥皂钥匙+=1 & gt ''监狱日常''">购买肥皂钥匙·10枚</a></div>'else:'<div class="buttonGr"><a href="exec:">肥皂钥匙·10枚</a></div>'
+		if dogteam=2 and jings>=10:'<div class="buttonR3"><a href="exec:gt ''群演_事件'',''监狱_Fuck_口''">出售·种犬の精液</a></div>'else:else:'<div class="buttonGr"><a href="exec:">出售·???</a></div>'
+		if coins>=20:'<div class="buttonS"><a href="exec:coins-=20 & gt ''群演_事件'',''监狱_Fuck_女同''">性服务:Girls Love·20枚</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？20枚</a></div>'
+		if coins>=40:'<div class="buttonS"><a href="exec: gt ''群演_事件'',''监狱_Fuck_商店3P''">性服务:双飞·40枚</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？40枚</a></div>'
+		if 10>$YDM_Event_free and $YDM_Event_free>0:'<div class="buttonR3"><a href="exec:gt ''监狱日常'',''一代目入狱''">前往A区</a></div>'else:'<div class="buttonR5"><a href="exec:">A区封禁中</a></div>'
+
+
+		'<div class="button"><a href="exec:gt ''监狱日常''">回C区</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>B区女囚们:嘿，你应该知道劳动凭证是监狱内唯一的流通货币吧？劳动凭证可以在我们这换取不少好东西喔 (#^_^#)</p>'
+		'<p>B区女囚们:当然，我们手里也有不少劳动凭证，可以大大缩短刑期喔！支持狱外汇款！仅售￥10000/枚！</p>'
+		if $YDM_Event_free=0:'<p>B区女囚们:A区可是关押重刑犯的区域，太危险啦。</p>'
+		if $YDM_Event_free=10:'<p>B区女囚们:A区目前处于封禁中，好像有人逃出去了，正在无限期大搜查呢。虽然典狱长把这件事压下去了，声称犯人还藏匿在A区的某个堆满手工阳具的仓库里呢！但是据某条看门狗说，是射精执行官袭击了A区~</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="监狱走廊":
+	'<div class ="show_menu"><img src="images\place\监狱走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:肥皂钥匙-=1 & gt ''狱警_事件'',''YJ_Event_女同''"><<$YJ.name>>寝室</a></div>'
+		'<div class="buttonR5"><a href="exec:肥皂钥匙-=1 & gt ''群演_事件'',''监狱_Fuck_审讯室''">反社会拷问室</a></div>'
+		if $贼被抓=3:'<div class="buttonR5"><a href="exec:肥皂钥匙-=1 & gt ''群演_事件'',''群演_Fuck_贼9''">纵火犯拷问室</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·使用了肥皂钥匙打开了牢房，钥匙扭曲严重，看来只能再用一次了！</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="典狱长办公室":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DYZ\vids\开幕~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		if dogteam!2:'<div class="buttonR1"><a href="exec: m=180 & gt ''典狱长_事件'',''DYZ_Fuck_调教面试''">狗舍面试</a></div>'
+		if dogteam=2:
+			if DYZcos=0 and tuc_level3=1:'<div class="buttonPu1"><a href="exec:DYZcos=1 & gt ''监狱日常'',''典狱长办公室''">递出写真馆名片</a></div>'
+			'<div class="buttonS1"><a href="exec:  gt ''典狱长_事件'',''DYZ_Fuck_盛宴''">提供盛宴</a></div>'
+			if $DYZ.bad>=110-$DYZ.love:'<div class="buttonR1"><a href="exec:  gt ''典狱长_事件'',''DYZ_Fuck_3P''">群交竞赛</a></div>'else:'<div class="buttonGr"><a href="exec:">？？竞赛</a></div>'
+			if $DYZ.bad>=100:
+			 if jings>=30 and  $DYZ.friend=1:'<div class="buttonR3"><a href="exec:  gt ''典狱长_事件'',''DYZ_Event_招待2''">精液马提尼</a></div>'else:'<div class="buttonR2"><a href="exec:gt ''典狱长_事件'',''DYZ_Event_招待''">介绍客人</a></div>'
+			end
+			if $DYZ.招待>=1:'<div class="buttonR4"><a href="exec:  gt ''典狱长_事件'',''DYZ_Fuck_逆3P''">二人独享</a></div>'else:'<div class="buttonGr"><a href="exec:">二人？？</a></div>'
+			if $DYZ.招待>=2 and $DYZ.bad>=400-$DYZ.love:'<div class="buttonR5"><a href="exec:  gt ''典狱长_事件'',''DYZ_Fuck_逆3P2''">群精荟萃</a></div>'else:'<div class="buttonGr"><a href="exec:">？？荟萃</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''监狱日常''">滚回去</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if DYZcos=1:
+		'<p><<$DYZ.name>>:你经营着一家照相馆是吗？看起来还有点价值。</p>'
+		'<p>我:是啊，到时候您来我可以给你…免单！</p>'
+		end
+		'<p><<$DYZ.name>>:听好了，你们每天都要至少射出20ml的精液！如果听不懂就滚回去。</p>'
+		if jings<=0:'<p><B><span class =''red''><<$DYZ.name>>:<<$主角姓名>>？！你连一滴精液都没有存来这里干嘛？快滚！</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="操场开放":
+	'<div class ="show_menu"><img src="images\place\监狱操场.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:minutes+=30 & gt ''监狱日常'',''操场下棋'',''防BUG''">下棋</a></div>'
+		'<div class="buttonB"><a href="exec:minutes+=30 & gt ''监狱日常'',''操场踢球'',''防BUG''">踢球</a></div>'
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·监狱的操场中，只有为数不多的几项运动可以选择。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="操场下棋":
+	'<div class ="show_menu"><img src="images\place\监狱操场.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if  $ARGS[1]="防BUG": Exp_智力 += my.智力*2
+		'<p>一番棋盘的互弈，时间不知不觉地流逝了！</p>'
+		'<p>·受到基础智力【<<my.智力>>】▲的影响以及身边观棋者的指指点点，智力得到了【双倍提升▲▲】</p>'
+	'</div>'
+end
+
+if $ARGS[0]="操场踢球":
+	'<div class ="show_menu"><img src="images\place\监狱操场.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if  $ARGS[1]="防BUG":
+		Exp_身材 += my.智力
+		mymax[精力] +=RAND(1,my.体力*2)
+		end
+		'<p></p>'
+		'<p>·受到基础智力【<<my.智力>>】▲的影响，对肌肉的控制能力增加了▲</p>'
+		'<p>·因为囚犯们恶意凶狠的身体对抗，心肺功能得到了【双倍提升▲▲】，精力上限提升为【<<mymax[精力]>>】▲</p>'
+	'</div>'
+end
+
+if $ARGS[0]="接头":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YDM\vids\越狱策划.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $YDM_Event_free=1:'<div class="buttonB1"><a href="exec:gt ''监狱日常'',''接头''">深猷远计</a></div>'
+		if $YDM_Event_free=2:'<div class="buttonB2"><a href="exec:gt ''监狱日常'',''接头''">锦衣夜行</a></div>'
+		if $YDM_Event_free=3 or $YDM_Event_free=4:'<div class="buttonB3"><a href="exec:gt ''监狱日常'',''接头''">万无一失</a></div>'
+		if $YDM_Event_free=5:'<div class="buttonB4"><a href="exec:gt ''监狱日常'',''接头''">差点忘了</a></div>'
+		if $YDM_Event_free=6:'<div class="buttonB5"><a href="exec:gt ''监狱日常'',''接头''">万事俱备</a></div>'
+		'<div class="button"><a href="exec:gt ''监狱日常''">明白了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我是<<$EDM.name>>派来和你们接头的，请指示。（我操？！？找的越狱专家是你俩啊？！这不稳了？）</p>'
+		if $YDM_Event_free=1:
+		'<p>Michael Scofield:客户被羁押在A区。U盘呢？</p>'
+		'<p>我:...还在我身体里。</p>'
+		'<p>Michael Scofield:计划是这样的，囚犯的精液积攒会引起射精执行官的访问。我们只需要在合适的时间给客户一件合适的服装，就能绕过【警犬队】的眼线，离开第一道封锁线。</p>'
+		'<p>我:那这个U盘呢？……（牵连着奇怪的液体..）</p>'
+		'<p>Michael Scofield:这个U盘需要插入在监控室的主机端，让客户在通过完全第二道封锁线时“完全隐形”。</p>'
+		'<p>我:那我要做什么呢？</p>'
+		'<p>Michael Scofield:我们哥俩必须要夺取监控室以及事后销毁证据，我们需要你去弄脏一件射精执行官的衣服！我们在洗涤室等你！</p>'
+		end
+		if $YDM_Event_free=2:
+		'<p>Michael Scofield:射精执行官的衣服已经被我们调包拿到手了，就是这件！我们需要你把它放进客户的囚室里！我想你知道该怎么做！去A区的囚室支开那些看门狗！</p>'
+		end
+		if $YDM_Event_free=3 or $YDM_Event_free=4:
+		'<p>Michael Scofield:<<$EDM.name>>又托人运来了新的物资。我们需要你把它交给客户。客户被羁押在A区。</p>'
+		'<p>我:这是...一把手枪？！</p>'
+		'<p>Michael Scofield:冷静点，这只是一把模型枪，虽然我不知道她的意图是什么。但一个射精执行官配一把手枪，也合理。</p>'
+		$YDM_Event_free=4
+		end
+		if $YDM_Event_free=5:
+		'<p>Michael Scofield:差点忘了你还需要带一把万能钥匙给她...在囚犯商店里应该有售卖。客户被羁押在A区。</p>'
+		end
+		if $YDM_Event_free=6:
+		'<p>Michael Scofield:客户被羁押在A区。行动随时可以开始，你只需召集射精执行官前来就行了！我们有方法辅助客户安全离开！！</p>'
+		end
+	'</div>'
+end
+
+if $ARGS[0]="一代目入狱":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\入狱1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''一代目_事件'',''YDM_Fuck_入狱''">观看审讯</a></div>'
+		'<div class="button"><a href="exec:gt ''监狱日常'',''等待''">等待结束</a></div>'
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·迎面走来一位女性囚徒，喜怒不形于色。她应该就是我要协助的人了。</p>'
+		'<p>警犬队:囚犯编号：9X0813！准备接受审讯！入列！</p>'
+		'<p><<$YDM.name>>:……</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="等待":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''监狱日常'',''悄悄话''">悄悄话</a></div>'
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>警犬队:你的嘴巴比我的前妻的嘴巴还硬！下次有你好看的！我们走！</p>'
+		'<p>·警犬队的审讯结束了，<<$YDM.name>>仍然不断痉挛着。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="悄悄话":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $YDM_Event_free=1:'<div class="button"><a href="exec:$YDM对话=1 &gt ''监狱日常'',''悄悄话''">安慰</a></div>'
+		if $YDM_Event_free=2:'<div class="button"><a href="exec:gt ''监狱日常'',''引开守卫''">引开守卫</a></div>'
+		if $YDM_Event_free=4:'<div class="button"><a href="exec:gt ''监狱日常'',''故技重施''">故技重施</a></div>'
+		if $YDM_Event_free=5 and 肥皂钥匙>0:'<div class="button"><a href="exec:$YDM对话=4 &gt ''监狱日常'',''悄悄话''">屁股抬高</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''监狱日常''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $YDM对话=1:
+			'<p>我:咳咳，<<$EDM.name>>找了Michael Scofield,他是一流的越狱专家！你再稍作忍耐就可以出去了！加油！出去了还有..一流的重金属乐队！</p>'
+			'<p><<$YDM.name>>:………</p>'
+			'<p>我:我们会搞一件制服给你，趁着射精执行官的访问就能绕过【警犬队】的眼线，离开第一道封锁线。Michael Scofield会夺取监控室并且事后销毁证据。你听我们的信号就行了！</p>'
+		 end
+		if $YDM_Event_free=2:
+			'<p>我:射精执行官的制服现在就藏在我身上，我需要你引开守卫，我会把衣服放在你的床垫里！你可要保管好了！</p>'
+			'<p><<$YDM.name>>:………*大喊：喂！我说你们这帮看门狗！平时看警犬队肏我是什么心情？今天他们没肏够我，你们谁能满足一下我？</p>'
+		 end
+		if $YDM_Event_free=4:
+			'<p>我:嘿，上次你引开守卫的法子还需要再用一次，又有新东西了。</p>'
+			'<p><<$YDM.name>>:…喂！你们这帮看门狗！果然比不上警犬队的大鸡巴！上次第三根肉棒是谁的？真是可笑！一点感觉都没！</p>'
+		 end
+		if $YDM对话=4:
+			'<p>我:咳咳，失礼了...这是一把肥皂做的万能钥匙。就先用你的屁眼保管吧....</p>'
+			肥皂钥匙-=1
+			$YDM_Event_free=6
+		 end
+			'<p><<$YDM.name>>:……</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="故技重施":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-3~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''监狱日常''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p>看门狗:囚犯编号：……*涨红了脸？！囚犯编号：9X0813你在说什么？是不是又欠操了？兄弟们！上！</p>'
+			'<p>·你见机行事，趁着<<$YDM.name>>的口穴被众人奸淫的空档将模型枪放在她的床垫里！</p>'
+			$YDM_Event_free=5
+	'</div>'
+end
+
+if $ARGS[0]="引开守卫":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''监狱日常''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p>看门狗:囚犯编号：9X0813！早就想肏你这个骚逼了！兄弟们！今天射得最少的请客喝酒！</p>'
+			'<p>·你见机行事，趁着<<$YDM.name>>被众人奸淫的空档将制服放在她的床垫里！</p>'
+			$YDM_Event_free=3
+	'</div>'
+end
+
+
+
+
+
+
+--- 监狱日常 ---------------------------------
+

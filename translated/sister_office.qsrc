@@ -1,0 +1,382 @@
+# sister_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "mugou_pharmacy_map"
+
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\姐姐办公室.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''sister_office''">Kill time</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>In the office, there are a lot of cup noodles and takeaways in the trash can. It seems that my sister works very late every day!</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="sister`s_office_conversation":
+	if $JJ.bad<30:
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐办公室.jpg" width="854"></div>'
+	end
+	
+	if 30<=$JJ.bad and $JJ.bad<60:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\101~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	
+	if 60<=$JJ.bad:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\102~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	
+	if $jj.event_commission=0:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & $jj.event_commission=1 & gt ''sister_office'',''sister`s_office_conversation''">agree</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>-<<$jj.name>>: Brother!You came just in time!I have something to ask you!I need you to help me study the C-137 project!</p>'
+			'<p>-Me: Uh, what is item C-137?</p>'
+			'<p>-<<$jj.name>>: This is my first major discovery after returning home!The research result of the C-137 project is that a substance called MacGuffin has been extracted from natural plants.Oddly enough, only plants in the [Mountain R&M area] extract this substance.</p>'
+			'<p>-<<$jj.name>>: But<<$JM.name>>Knowing that I was studying MacGuffin, I immediately stopped the research project, and now I can only ask for your help.</p>'
+			'<p>-Me: So what do you want me to do?</p>'
+			'<p>-<<$jj.name>>: I will give you some experimental plants. I need you to secretly plant them in the [Mountain R&M area] and bring back the ripe fruits.I will give you some remuneration.</p>'
+		'</div>'
+	end 
+	
+	if $jj.event_commission=1:
+		'<div class="button_menu">'
+			if $jj.event_shopping=2:
+			'<div class="button"><a href="exec:minutes+=5 & gt ''sister_event'',''secretly_trading''">Secretly trading</a></div>'
+			end
+			
+			if $insemination_room=1 and $JJ.bad>=200 and $jj.insemination=0:'<div class="buttonS"><a href="exec:$jj.insemination=1 & gt ''sister_office''">Invite artificial insemination</a></div>'
+			
+			if $heterochromatic_plant_report=0 and $heterochromatic_plants>0 and $heterochromatic_progress=0:'<div class="buttonGn5"><a href="exec:$heterochromatic_plants-=1 & gt ''sister_office'',''detection_of_heterochromatic_plants''">Detection of heterochromatic plants</a></div>'
+			if $heterochromatic_plant_report=0 and $heterochromatic_progress>0:'<div class="buttonGn5"><a href="exec:gt ''sister_office'',''detection_of_heterochromatic_plants_2''">Detection of heterochromatic plants</a></div>'
+			
+			'<div class="button"><a href="exec:minutes+=5 & gt ''sister_office'',''hand_in_plant_fruits''">Hand in plant fruits</a></div>'
+			
+			'<div class="buttonB1"><a href="exec:minutes+=5 & gt ''sister_office'',''fruit_research_and_development_status''">Fruit research and development status</a></div>'
+			
+			if $jj.bad>=100:
+			'<div class="buttonP"><a href="exec:minutes+=5 & gt ''sister_office'',''ask_for_mcgovern_extract''">Ask for McGovern extract</a></div>'
+			end
+			
+			if $plant_number_of_studies>=30:
+			'<div class="buttonR3"><a href="exec:minutes+=5 & gt ''sister_office'',''human_experiment''">Human experiment</a></div>'
+			end
+			
+			if $jj.bad>=200 and $jj.love>=200 and $jm.love>=200 and $jm.bad>=200:
+			'<div class="buttonS"><a href="exec:minutes+=5 & gt ''sister_office'',''mother-daughter_experiment''">Mother-daughter experiment</a></div>'
+			end
+			if $jj.confession=0 and $bishopschoice=1:'<div class="buttonG2"><a href="exec:$jj.confession=1 & $m=''JJ'' & $ma=$JJ.name & gt ''nun_event'',''xn_fuck_confession''">Invitation to church for baptism</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>-<<$jj.name>>: Brother!How many plant fruits have been collected?</p>'
+			'<p>-Me: Now I have<<plant>>A plant fruit.</p>'
+			'<p>-<<$jj.name>>: I will give you some more experimental plants. I need you to plant them in the [Mountain R&M area] and bring back the ripe fruits.I will give you some remuneration.</p>'
+			'<p></p>'
+			if 30<=$JJ.bad:'<p>-<<$jj.name>>: Give you a little reward, can it make you work harder?~</p>'
+			if 60<=$JJ.bad:'<p>-<<$jj.name>>: or....Just stare at my sister....Could it be that my sister is here...Can`t it attract you?</p>'
+		'</div>'
+	end 
+	
+end
+
+
+!ok
+if $args[0]="hand_in_plant_fruits":
+	money+=plant*100
+	$plant_number_of_studies+=plant
+	$jj.love+=plant
+	$jj.bad+=plant * 2
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\上缴~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Turned in<<plant>>One, got it<<plant>> X 100 cash!</p>'
+		'<p><<$jj.name>>:Has been handed in cumulatively<<$plant_number_of_studies>>a......Come on!Let`s work hard together!</p>'
+	'</div>'
+	plant=0
+	
+end
+!ok
+if $args[0]="fruit_research_and_development_status":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\上缴2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $plant_number_of_studies>=5:
+		'<div class="buttonB1"><a href="exec:minutes+=5 & $filename_reference=''001'' & gt ''sister_office'',''general_research'',''001''">Preliminary study of 5 trees</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Preliminary study of 5 trees</a></div>'
+		end
+		if $plant_number_of_studies>=15:
+		'<div class="buttonB2"><a href="exec:minutes+=5 & $filename_reference=''002'' & gt ''sister_office'',''general_research'',''002''">In-depth study of 15 trees</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Need to study 15 trees</a></div>'
+		end
+		if $plant_number_of_studies>=30:
+		'<div class="buttonB3"><a href="exec:minutes+=5 & $filename_reference=''003'' & gt ''sister_office'',''general_research'',''003''">30 clinical studies</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Need to study 30 trees</a></div>'
+		end
+		if $plant_number_of_studies>=50:
+		'<div class="buttonB4"><a href="exec:minutes+=5 & $filename_reference=''007'' & gt ''sister_office'',''general_research'',''007''">50 clinical trials</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Need to study 50 trees</a></div>'
+		end
+		if $JJ.love>=30 and $plant_number_of_studies>=5 and $dz.event_meet=0:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''sister_office'',''geological_meeting''">Conjecture</a></div>'
+		if $dz.event_meet!0:'<div class="buttonGr"><a href="exec:">Proposed conjecture·proposed</a></div>'
+		
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>:Thanks to you, I have accumulated research<<$plant_number_of_studies>>One piece!You can ask me any questions you have!But let me sort out the information first.</p>'
+	'</div>'
+	
+end
+
+!ok
+if $args[0]="general_research":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究<<$filename_reference>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $plant_number_of_studies>=5:
+		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''001'' & gt ''sister_office'',''general_research'',''001''">Preliminary study of 5 trees</a></div>'
+		end
+		if $plant_number_of_studies>=15:
+		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''002'' & gt ''sister_office'',''general_research'',''002''">In-depth study of 15 trees</a></div>'
+		end
+		if $plant_number_of_studies>=30:
+		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''003'' & gt ''sister_office'',''general_research'',''003''">30 clinical studies</a></div>'
+		end
+		if $plant_number_of_studies>=50:
+		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''007'' & gt ''sister_office'',''general_research'',''007''">50 clinical trials</a></div>'
+		end
+		if $args[1]=007:
+		'<div class="button"><a href="exec:minutes+=5 &a=0 & q=0 &$filename_reference=''巨大化0开幕'' & gt ''sister_event'',''jj_fuck_huge'',''huge_0_opening''">Challenge: Research Enhanced Version!</a></div>'
+		end
+	'</div>'
+
+		
+	'<div class="dialog_menu">'
+		if $args[1]=001:
+		'<p><<$jj.name>>:Preliminary report: When the amount of extraction was small, I combined McGovern with oxytocin and was surprised to find that it solved the problem of excessive administration, causing tonic or spasmodic uterine contraction, leading to heavy bleeding in pregnant women and hypoxia in the fetus.</p>'
+		end
+		if $args[1]=002:
+		'<p><<$jj.name>>: In-depth research report: After purification, it is a solid white powder and has a certain hormonal stimulating effect.It is mainly manifested in euphoria and excitement, changes in sensory consciousness, and increased appetite.Hmm?The more I look at you now, the more pleasing to the eye, you look very to my sister`s taste~~</p>'
+		end
+		if $args[1]=003:
+		'<p><<$jj.name>>:Preclinical studies have found that it is volatile when it is liquid and has extremely high solubility.Its essence is a transformed, strong natural central stimulant...Just being looked at like this by you..Not good..My sister is getting more and more excited now...！My good brother!</p>'
+		end
+		if $args[1]=007:
+		'<p><<$jj.name>>: I did a clinical experiment with myself and ingested 1g of MacGuffin every day, and found that it is somewhat addictive...！</p>'
+		'<p><<$jj.name>>: I am very curious now...What is the transformation of MacGuffin in the human body?Oh, my sister can`t wait to study you...！</p>'
+		end
+	'</div>'
+	
+end
+
+!ok
+if $args[0]="human_experiment":
+	q=0
+	a=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究007~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	'<div class="button_menu">'
+	
+		'<div class="buttonB1"><a href="exec:minutes+=5 & q=0 &$filename_reference=''巨诱惑0开幕'' & gt ''sister_event'',''ejaculation_test'',''giant_temptation_0_opening''">Swallowing test</a></div>'
+		
+		if $jj.bad>=75:
+		'<div class="buttonB2"><a href="exec:minutes+=5 & q=0 &$filename_reference=''005'' & gt ''sister_event'',''autologous_cycle'',''005''">Swallow Lightweight Edition</a></div>'
+		end
+		
+		if $jj.bad>=100:
+		'<div class="buttonR3"><a href="exec:minutes+=5 & q=0 &$filename_reference=''巨大化0开幕'' & gt ''sister_event'',''jj_fuck_huge'',''huge_0_opening''">Challenge: Swallow the Enhanced Version</a></div>'
+		end
+		
+		if $jj.bad>=150 and $jj.love>=150:
+		'<div class="buttonS"><a href="exec:minutes+=5 & q=0 &$filename_reference=''巨做0开幕'' & gt ''sister_event'',''jj_fuck_jusco'',''giant_do_0_opening''">Sex test</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>: Quickly drink the MacGuffin essence extract and let my sister see its conversion rate after circulating in the body.It is said that people with a high assimilation rate can ejaculate without restriction...！</p>'
+		'<p><<$jj.name>>: My sister will use you as the first experimental body for men....Female experimental body..It`s my sister!</p>'
+	'</div>'
+	
+end
+
+
+if $args[0]="ask_for_mcgovern_extract":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\药~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=0 & q=0 &$filename_reference=''巨大化0开幕'' & gt ''sister_event'',''jj_fuck_huge'',''huge_0_opening''">Challenge: Swallow the enhanced crystal</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>: This is an enhanced version of MacGuffin crystals that I extracted through technology. Try it.！</p>'
+		'<p>·Sister, can I have some McGovern extract?·</p>'
+		'<p><<$jj.name>>: Yes, but you have to test the effect of the enhanced version of MacGuffin crystals for me first!I am sure this will be the Nobel Prize in the future!</p>'
+		'<p><<$jj.name>>:but!！If you don`t make it to the end, I won`t give it to you!</p>'
+	'</div>'
+	
+end
+
+
+if $args[0]="geological_meeting":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">Write down and leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Why can this substance called MacGuffin only be extracted from plants in the [Mountain R&M Area]?</p>'
+		'<p><<$jj.name>>:This has always been my research!</p>'
+		'<p>Me: Does it have anything to do with geology and landform?By the way, I saw a green light in the soil during the fertilization process....</p>'
+		'<p><<$jj.name>>: The soil is exposed to radiation, so the plants mutate?！But soil is not my field of research....By the way, I know an expert in geological research!I asked her to meet, just in time to take you to get to know her!</p>'
+		'<p><<$jj.name>>: Waiting for you in the restaurant of the mall at 1pm!She is a woman who is preoccupied with time, don`t be late!</p>'
+		$dz.event_meet=1
+	'</div>'
+	
+end
+
+if $args[0]="mother-daughter_experiment":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\母姐1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=0 &q=0 & gt ''sister_event'',''jj_fuck_丨''">Participate in the experiment (start operation)</a></div>'
+	'</div>'
+
+ if JM_JJ<5:
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>: I just happen to be free today, come and see you...of..research..Results...Oh?..<<$protagonists_name>>Also there...？</p>'
+		'<p><<$jj.name>>: Mom!Please!Just help me~~McGovern, I really want to study!！</p>'
+		'<p><<$jm.name>>: You have a good relationship..？...Why are you looking at me straight...？</p>'
+		'<p><<$jj.name>>: This is the result of my research!(*Whispered: Mom`s eyes....Sure enough, the voice I heard outside the door last time was real....You took them all down a long time ago, didn`t you?)</p>'
+	'</div>'
+	end
+ if JM_JJ>=5:
+ 	'<div class="dialog_menu">'
+		'<p><<$jj.name>>: Mom!Please!Just help me~~McGovern, I really want to study!！</p>'
+		'<p><<$jm.name>>: It`s not impossible to help you, let me check your research results first.....<<$protagonists_name>>..Humph!Why did you take off your pants?！</p>'
+		'<p><<$jj.name>>:good!brother!Shall we finish it with our mother in a while and go home to do it with our sister?I asked my sister to suck your dick, and you shot all the semen in my mouth.</p>'
+	'</div>'
+	end
+end
+
+if $args[0]="detection_of_heterochromatic_plants":
+	$heterochromatic_progress+=rand(10,25)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Sister, do you have time to help me test the composition of this heterochromatic plant?</p>'
+		'<p><<$jj.name>>:I see, you can put it in this drawer. I`ll take a look for you when you have time.</p>'
+		'<p>·————·</p>'
+		!'<p>研究进度·<<异色进度>>%</p>'
+	'</div>'
+end
+
+if $args[0]="detection_of_heterochromatic_plants_2":
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JJ\vids\研究001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $heterochromatic_plants>0:'<div class="buttonGn1"><a href="exec:$heterochromatic_progress+=rand(10,20) & $heterochromatic_plants-=1 & gt ''sister_office'',''detection_of_heterochromatic_plants_2''">Natural heterochromatic plants</a></div>'else:'<div class="buttonGr"><a href="exec:">Natural heterochromatic plants</a></div>'
+		if $heterochromatic_progress>99:'<div class="buttonGn3"><a href="exec:$heterochromatic_plant_report+=1 & gt ''mugou_pharmaceutical''">Receive report</a></div>'
+		if $jj.bad>=100:
+		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''sister_office'',''ask_for_mcgovern_extract''">Ask for McGovern extract</a></div>'
+		end
+		if $jj.bad>=200 and $jj.love>=200 and $jm.love>=200 and $jm.bad>=200:
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''sister_office'',''mother-daughter_experiment''">Summon mother and daughter Donburi</a></div>'
+		end
+		if $jj.love>=200 and $jj.bad>=200 and $DZ.love>=200 and $DZ.bad>=200:
+		'<div class="buttonS"><a href="exec: $filename_reference=''3P0开幕'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p0_opening''">Summon girlfriends</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Sister, how is the progress of the research on the composition of heterochromatic plants?</p>'
+		'<p><<$jj.name>>:I still need more plant samples and bring more leaves.</p>'
+		'<p>·————·</p>'
+		'<p>Research progress·<<$heterochromatic_progress>>%</p>'
+	'</div>'
+end
+--- sister_office ---------------------------------
+

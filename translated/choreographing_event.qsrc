@@ -1,0 +1,1488 @@
+# choreographing_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+if $ARGS[0]="come_to_pick_up_the_reality_show":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\拿真人秀<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a<3:'<div class="button"><a href="exec:a+=1 & gt ''choreographing_event'',''come_to_pick_up_the_reality_show''">Mouth her</a></div>'
+		if a=3:'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if a=0:
+		'<p><<$BD.name>>:What are you shooting? It`s a piece of shit. My sister is almost exhausted from cutting it for you.</p>'
+		'<p>Me: It`s really hard for you, it`s all because I have added an extra workload to you.</p>'
+		'<p><<$BD.name>>:What you say with your mouth can`t relieve my fatigue. It`s best that your mouth has other abilities.</p>'
+		'<p>I: …… </p>'
+		end
+		
+		if a=1:
+		'<p><<$BD.name>>:I understand... but I don`t work for you for nothing.</p>'
+		'<p>·Worked hard to help her for fifteen minutes</p>'
+		end
+		if a=2:
+		'<p><<$BD.name>>:It`s a good job, stretch it in a little bit more.Your tongue is quite flexible... don`t suck so hard…</p>'
+		'<p>·Worked hard to help her for fifteen minutes</p>'
+		end
+		if a=3:
+		'<p><<$BD.name>>:fuck!I`m so comfortable!My old lady`s body is about to be swollen by you, and today`s matter will be clear.</p>'
+		'<p>I: ……</p>'
+		'<p><<$BD.name>>:After I edit the reality show, I will hand it over to the director directly. You can just go home and watch the TV.</p>'
+		 $BD.love+=10
+		 $BD.bad+=15
+		 $reality_show_front=4
+		end
+	'</div>'
+end
+
+if $ARGS[0]="go_out":
+		a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\外出.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if $BD.love<25:
+			'<div class="buttonG"><a href="exec:$choose_rice=''快餐'' & money-=25 & gt ''choreographing_event'',''eat''">Eat fast food 25￥</a></div>'
+			'<div class="buttonG"><a href="exec:$choose_rice=''拉面'' & money-=50 & gt ''choreographing_event'',''eat''">Eat ramen 50￥</a></div>'
+			'<div class="buttonG"><a href="exec:$choose_rice=''寿司'' & money-=200 & gt ''choreographing_event'',''eat''">Eat sushi 200￥</a></div>'
+			'<div class="buttonG"><a href="exec:$choose_rice=''自助餐'' & money-=400 & gt ''choreographing_event'',''eat''">Eat buffet 400￥</a></div>'
+		end
+		if $BD.love>=25:'<div class="buttonP"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''her_house''">Go to her house</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		if $dailyeditor_and_director=0:
+		if $BD.love>=130:'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''parking''">Stop and rest</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		if $BD.love>=150 and $BD.bad>=150:'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''hotel''">Go to the hotel</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''residential_area''">Get off alone</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: Fasten your seat belt!I`m going to run a red light!</p>'
+		'<p><<$BD.name>>:No, no, no, in fact, there is a lot of time. I deliberately made him difficult. The reason is... I have seen him lazy and unhappy at work.</p>'
+		'<p>Me: It turned out to be like this... so is the meeting also fake?</p>'
+		'<p><<$BD.name>>:The meeting is real, it`s just a video conference.</p>'
+		'<p>Me: Okay... it`s lunch time now, why don`t we go have a meal together?</p>'
+		if $BD.love>=25:'<p><<$BD.name>>:Why don`t you go to my house, you should be able to cook, right?</p>'
+	'</div>'
+end
+
+if $ARGS[0]="eat":
+	'<div class ="show_menu"><img src="images\NPC\BD\pics\<<$choose_rice>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">Return to city hall</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $choose_rice='快餐':'<p><<$BD.name>>:Bring me to eat fast food?Forget it, it`s not bad to make a quick decision to prepare for a video conference.</p>' & $BD.love+=1
+		if $choose_rice='拉面':'<p><<$BD.name>>:It tastes good, much better than what my sister cooks, and I still have some insights into ramen.</p>'& $BD.love+=3
+		if $choose_rice='寿司':'<p><<$BD.name>>:Don`t you know that I hate eating rice... never again.</p>'& $BD.love-=3
+		if $choose_rice='自助餐':'<p><<$BD.name>>:You can`t help but be a little whimsical, there will be a video conference in a while!Is it appropriate to eat a buffet now?！</p>'& $BD.love-=5
+	'</div>'
+end
+
+if $ARGS[0]="her_house":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\叉烧面<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $BD.love>=120 and a=0:'<div class="buttonS2"><a href="exec:a=1 & gt ''choreographing_event'',''her_house''">Can`t wait</a></div>'
+		if a=1:'<div class="buttonS3"><a href="exec:a=2 & gt ''choreographing_event'',''her_house''">Ejaculation</a></div>'
+		'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''after_a_meal''">Wait a moment</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:
+		'<p>Me: I painted the gourd the same way, and cooked a bowl of char siu noodles according to the recipe.</p>'
+		'<p><<$BD.name>>:Doesn`t it look good?……</p>'
+		end
+		if a=1:
+		'<p><<$BD.name>>:Let me have some appetizers first…</p>'
+		end
+		if a=2:
+		'<p>Me: Are you full?I`ll give you something to eat if you`re not full.</p>'
+		$BD.love+=$my.charm
+		$BD.bad+=5
+		end
+	'</div>'
+end
+
+if $ARGS[0]="after_a_meal":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\饭后<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $BD.love>=50 and a=0:'<div class="buttonS2"><a href="exec:a=1 & gt ''choreographing_event'',''after_a_meal''">Four eyes opposite</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''after_a_meal''">？！！！</a></div>'
+		if a=2:'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''after_a_meal''">Sitting upright</a></div>'
+		if a=3:'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''after_a_meal''">Peeking at her sister</a></div>'
+		if a=3 and $BD.love>=250-$BD.bad:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Exercise after a meal</a></div>'else:'<div class="buttonGr"><a href="exec:">Exercise after a meal</a></div>'
+		if a=4 :'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Go to the bathroom door</a></div>'else:'<div class="buttonGr"><a href="exec:">bathroom?？？</a></div>'
+		
+		'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''video_conference''">Prepare for video conference</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if a=0:
+		'<p><<$BD.name>>:I didn`t expect it to taste good... why are you looking at me?Eating some sweets after a meal helps digestion!</p>'
+		'<p>Me: You are not as strong at home as you are in the stage.</p>'
+		'<p><<$BD.name>>:nonsense!Do you think I want to be flat-faced all day long?It`s not because the station is under too much pressure on ratings.</p>'
+		end
+		if a=1:
+		'<p><<$BD.name>>:If you don`t eat sweets... you have to do some exercise to help digestion!</p>'
+		'<p>Me: You haven`t been “fed” yet, have you?</p>'
+		end
+		if a=2:
+		'<p>？？？: Sister!Are you cooking?Why is it so fragrant?</p>'
+		'<p><<$BD.name>>:Ah...uh...not good!Hurry up, hurry up, put on your pants!</p>'
+		end
+		if a=3:
+		'<p><<$BD.name>>:Uh...this is my...uh...new colleague...we will have a video conference at home later, don`t come in and disturb us!</p>'
+		'<p>？？？: I got it, I got it, why are you so jumpy.Do you want to use the bathroom?I`m going to take a shower if I don`t need it!</p>'
+		'<p>Me: Do you have a younger sister?</p>'
+		end
+		if a=4:
+		'<p>？？？: In order to catch up with the progress of the Spring Festival version, it has not been produced yet.(Sister 3P will cut or fill the pit in the future, listen to everyone`s opinions)</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="choreographing_fuck_after-meal_exercise":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\饭后运动<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<10:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Tongue kiss</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Lick the horse`s eyes</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Oral sex</a></div>'
+			end
+			if a!4 and 6>=q and q>=3:
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Pick her</a></div>'
+			end
+			if a!5 and 7>=q and q>=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Fuck her</a></div>'
+			end
+			if a!6 and 8>=q and q>=5:
+			'<div class="buttonS3"><a href="exec:a=6 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Back in</a></div>'
+			end
+			if a!7 and q>=6:
+			'<div class="buttonS4"><a href="exec:a=7 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Hold it on the table</a></div>'
+			end
+			if a=7:
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Accelerate the explosion</a></div>'
+			end
+			if a=8:
+			'<div class="buttonR4"><a href="exec:a=9 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Internal injection</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if a=10:
+					'<div class="button"><a href="exec:a=11 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">mouth</a></div>'
+					'<div class="button"><a href="exec:a=11 & gt ''choreographing_event'',''choreographing_fuck_after-meal_exercise''">Small hole</a></div>'
+				end
+				if a=11:
+					'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''video_conference''">Prepare for video conference</a></div>'
+					'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+				end
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: My sister has gone to take a shower, no one will bother us for the time being❤</p>'
+			 '<p>Me: What if she finds out?</p>'
+			 '<p><<$BD.name>>: As long as we keep it down on the right, Boo--now!</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$panting_2>></p>'
+		 '</div>'
+	end
+
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>Me: Have you completely fed you now?</p>'
+			 '<p><<$BD.name>>:Shot so much?What should I do if I am pregnant?</p>'
+		 '</div>'
+	end
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:You said... my mouth and pussy, which one is more comfortable ❤?</p>'
+		 '</div>'
+	end
+	if a=11:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:wrong!The answer is that both are comfortable!</p>'
+			 '<p>Me: That`s right!I like both!When can I see the third one?</p>'
+			 '<p><<$BD.name>>:No way!I have never been touched by anyone there!Oh, it`s too late for the video conference!！</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+if $args[0]="choreographing_fuck_bathroom_entrance":
+	if $BD.bad<5+a*10:gt'choreographing_event','choreographing_fuck_bathroom_settlement'
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\浴室门口<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<10:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Tongue kiss</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">FAP</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">serve</a></div>'
+			end
+			if a!4 and 6>=q and q>=3:
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Oral sex</a></div>'
+			end
+			if a!5 and 7>=q and q>=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Ride up</a></div>'
+			end
+			if a!6 and 8>=q and q>=5:
+			'<div class="buttonS3"><a href="exec:a=6 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Move fast!</a></div>'
+			end
+			if a!7 and q>=6:
+			'<div class="buttonS4"><a href="exec:a=7 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Fuck her</a></div>'
+			end
+			if a=7:
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Let her beg for mercy</a></div>'
+			end
+			if a=8:
+			'<div class="buttonR"><a href="exec:a=9 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">Internal injection</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''choreographing_event'',''choreographing_fuck_bathroom_entrance''">dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''video_conference''">Prepare for video conference</a></div>'
+					'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: What are you doing here?Peeping at my sister, right?</p>'
+			 '<p>Me: No... no.</p>'
+			 '<p><<$BD.name>>: Huh, what do you want to do?</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$panting>></p>'
+			 '<p>Me: What`s wrong, don`t you like it?</p>'
+			 '<p><<$BD.name>>:It`s really... so exciting, I like it so much.</p>'
+		 '</div>'
+	end
+
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$words>></p>'
+			 if a=8:'<p><<$BD.name>>:It`s not working...it`s not working... It`s going to be called out comfortably...Give me a break... hurry up and shoot in... It`s going to be... it`s going to be smashed.…</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Your semen is all in the womb, if I get pregnant, you will be dead!</p>'
+			 '<p>Me: That`s not what you said when you just begged for mercy…</p>'
+		 '</div>'
+	end
+	if a=10:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q+5
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:？！Huh, but you are so good at it, you actually fucked my mother to beg for mercy... No wonder the director listened to you so much, have you fucked her too?</p>'
+			 '<p>Me: Uh………</p>'
+			 '<p><<$BD.name>>:It`s terrible, it`s terrible, it`s too late for the video conference!It`s all your fault!</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="choreographing_fuck_bathroom_settlement":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\浴室门口1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+					'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''video_conference''">Prepare for video conference</a></div>'
+					'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$BD.name>>:Stop, stop, stop, stop, stop, stop, stop!</p>'
+		'<p><<$BD.name>>:Explain in advance, it`s not that I`m afraid of being discovered, it`s time for me to prepare for the video conference, understand?</p>'
+		'<p>Me: Really?Why do I think you are afraid?</p>'
+		'<p><<$BD.name>>:Too lazy to care about you.</p>'
+		$BD.love+=3
+		$BD.bad+=9+a+$my.charm/2
+	'</div>'
+end
+
+if $args[0]="video_conference":
+	if $BD.love<a*12:gt'choreographing_event','choreographing_fuck_conference_settlement'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\视频会议A<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''video_conference''">Lick her feet</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''video_conference''">Lick her force</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''video_conference''">Show cock</a></div>'
+			end
+			if a=3:
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''choreographing_event'',''video_conference''">Help me roll</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''choreographing_event'',''video_conference''">Secretly blowjob</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS3"><a href="exec:a=6 & gt ''choreographing_event'',''video_conference''">Speed up the frequency</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS4"><a href="exec:a=7 & gt ''choreographing_event'',''video_conference''">Shoot her in the mouth</a></div>'
+			end
+			if a=7:
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''choreographing_event'',''video_conference''">Molest her</a></div>'
+			'<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''video_conference_2''">Take off her panties</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: So close, I almost missed it……</p>'
+			 '<p>Conference speaker: Regarding this matter, I will say a few simple words, you can understand it. All in all, this matter is now the situation. Everyone can see the specific ones, and they can also say a few words. Maybe, you don`t understand it very well, but the meaning is what it means. If you don`t know it, you don`t have to guess it. I have seen a lot of this kind of thing. I just want to say that I understand everything I know, and I don`t explain much if I don`t understand it. After all, it`s good to know it by yourself. Savor it carefully.Don`t ask me what`s wrong. The interests are too involved. It`s not good for you and me to say it. Just don`t know. For the rest, I can only say that the water is very deep and many things are involved.</p>'
+			 '<p><<$BD.name>>：……</p>'
+			 '<p><<$BD.name>>: Why is he here to host again?Every time I speak, it`s stinky and long, and it`s bullshit for a long time.</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:？！What are you doing?Don`t do it, it`s a meeting!</p>'
+			 '<p>Me: It`s okay, they can`t see... Director, don`t you want to relax and enjoy it?</p>'
+			 '<p><<$BD.name>>:Why are you so messy?hello!</p>'
+			 if a>=2:'<p>Me: Obviously you enjoyed it when I asked you to make a reality show.</p>'
+		 '</div>'
+	end
+
+
+	if 7>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Forget it... don`t make trouble if you help you out!</p>'
+			 if a>=6:'<p>Me: OKOK, it`s a deal!</p>'
+
+		 '</div>'
+	end
+
+	if a=8:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>Conference speaker：<<$BD.name>>, Do you have anything to add?</p>'
+			 '<p><<$BD.name>>:No...there is.</p>'
+			 '<p>Speaker of the meeting: Okay, at the end of the meeting, let me add a few more words.……</p>'
+			 '<p><<$BD.name>>:Uh... give me the tissue... the semen is still in my mouth.…</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="choreographing_fuck_conference_settlement":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\视频会议B2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Conference speaker：<<$BD.name>>, Do you have anything to add?</p>'
+		'<p><<$BD.name>>:Wait a minute wait a minute wait a minute!Stop it, I`m going to speak.Put your dick away!</p>'
+		'<p>Me: Really?Why do I think you are afraid?</p>'
+		'<p><<$BD.name>>:Crazy you!My job is much more important than your dick!</p>'
+		$BD.love+=8+$my.charm+a/2
+		$BD.bad+=3
+	'</div>'
+end
+
+if $args[0]="video_conference_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\视频会议B<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<7:
+		'<div class="button_menu">'
+			if a!0 and q<=2:
+			'<div class="buttonS1"><a href="exec:a=0 & gt ''choreographing_event'',''video_conference_2''">Take off her panties</a></div>'
+			end
+			if a=0:
+			'<div class="buttonS2"><a href="exec:a=1 & gt ''choreographing_event'',''video_conference_2''">Buckle her</a></div>'
+			end
+			if a=1:
+			'<div class="buttonR"><a href="exec:a=2 & gt ''choreographing_event'',''video_conference_2''">stop it!</a></div>'
+			end
+			if a=2:
+			'<div class="buttonR1"><a href="exec:a=3 & gt ''choreographing_event'',''video_conference_2''">Forcibly insert her</a></div>'
+			end
+			if a>=3:
+			if a!4 and 6>=q and q>=3:
+			'<div class="buttonR2"><a href="exec:a=4 & gt ''choreographing_event'',''video_conference_2''">Leg lift and thrusting</a></div>'
+			end
+			if a!5 and 7>=q and q>=4:
+			'<div class="buttonR3"><a href="exec:a=5 & gt ''choreographing_event'',''video_conference_2''">Back-in thrusting</a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="buttonR4"><a href="exec:a=6 & gt ''choreographing_event'',''video_conference_2''">Press on the table</a></div>'
+			end
+			if a=6:
+			'<div class="buttonR5"><a href="exec:a=7 & gt ''choreographing_event'',''video_conference_2''">Shoot her inside</a></div>'
+			end
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''residential_area''">Run away</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: Stop it... Why do you still miss my panties... are you finished or not?！</p>'
+		 '</div>'
+	end
+
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:？！Why don`t you keep your word?I`m going to be angry if you do this again!</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:stop it!Do you hear me?If I do this again, I will sue you for sexual harassment... no, it`s rape!！</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p>Me: No way!I`m going to rape you here!</p>'
+			 '<p><<$BD.name>>:Oh yo!Give me a break!Will be seen by others…<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $BD.love-=25
+		 $BD.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>Conference speaker：<<$BD.name>>, are you still there?Why is the camera blocked by clothes?</p>'
+			 '<p><<$BD.name>>:Uh... I have something going on... well, it`s being processed!</p>'
+			 '<p>·You calmed down in an instant when you entered the Sage time... looking at her at a loss.…</p>'
+			 '<p><<$BD.name>>:Before I get angry, you`d better disappear from my eyes quickly!</p>'
+			 '<p>· <<$BD.name>>The favorability has dropped!But more obedient.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="parking":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\车<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''parking''">kiss</a></div>'
+			end
+			if a!2 and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''parking''">Finger insertion</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''parking''">Ride up</a></div>'
+			end
+
+			if a!4 and 7>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''parking''">Back-in thrusting</a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''choreographing_event'',''parking''">Normal bit insertion</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''choreographing_event'',''parking''">sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''choreographing_event'',''parking''">Shoot her inside</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''choreographing_event'',''parking''">dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''choreographing_event'',''go_out''">Keep driving</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Since there is still plenty of time... why don`t we……</p>'
+			 '<p><<$BD.name>>: How do you know I want it…</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: You really want to be released in the station, right?……</p>'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Is it comfortable to be fucked by me?</p>'
+			 '<p><<$BD.name>>:comfortable…<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $BD.love+=q
+		 $BD.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:I feel much more relaxed at once, it`s really comfortable.</p>'
+			 $dailyeditor_and_director=1
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="hotel":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\旅馆<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	$dailyeditor_and_director=1
+	if a<7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''hotel''">Throw her down</a></div>'
+				if $BD.bad>=200 and $BD.love>=200 and MGF>0:
+				'<div class="buttonR3"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''medicine''">Obedience test</a></div>'
+				else:
+				'<div class="buttonGr"><a href="exec:">Obedience test: (McGovern + Gaofen)</a></div>'
+				end
+			end
+			if a!2 and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''hotel''">Type 69</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''hotel''">Back position</a></div>'
+			end
+
+			if a!4 and 6>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''hotel''">Normal bit</a></div>'
+			end
+			if a<5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''choreographing_event'',''hotel''">High-speed thrusting</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''choreographing_event'',''hotel''">Internal injection</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''choreographing_event'',''hotel''">dialogue</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''choreographing_event'',''go_out''">Keep driving</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: It`s all here... it`s not necessarily here for dinner, is it?What are you still doing in a daze, why don`t you go take a shower?</p>'
+			 '<p>I：……</p>'
+			 '<p><<$BD.name>>: What`s the matter?</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I, I can`t wait……</p>'
+			 '<p><<$BD.name>>: <<$panting>>What`s your hurry, it`s not that you won`t let you fuck……</p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $BD.love-=q
+		 $BD.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:It`s so dirty, get out of the bath next time, do you hear me?</p>'
+			 '<p>·The favorability is slightly reduced, but it is more obedient.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="medicine":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\药物<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	$dailyeditor_and_director=1
+	if a<8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''medicine''">Passionate kiss</a></div>'
+			end
+			if a!2 and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''medicine''">Lick and force</a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''medicine''">69 oral sex</a></div>'
+			end
+
+			if a!4 and 6>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''medicine''">Ride up</a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''choreographing_event'',''medicine''">Crazy waist</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''choreographing_event'',''medicine''">Top her!</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''choreographing_event'',''medicine''">Plug in to lose your mind</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''choreographing_event'',''medicine''">Internal injection</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: This is my sister`s medicine……</p>'
+			 '<p><<$BD.name>>: Cuckoo cuckoo.</p>'
+			 '<p>·Before she finished speaking, she had already drunk the essence of McGovern.</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>>What is this... every cell in the whole body is orgasm ah ah ah ah…</p>'
+		 '</div>'
+	end
+
+
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+			 '<p><<$BD.name>>: <<$words>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>She was convulsing and trembling... It seems that she can`t attend the meeting today... It will take a long time for her to wake up.</p>'
+			 minutes+=360
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="office_white":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\办公室白<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<4:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''office_white''">Slow down</a></div>'
+			end
+			if a<2 and 1<=q:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''office_white''">Speed up</a></div>'
+			end
+			if a<3 and 2<=q:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''office_white''">Mouth explosion</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''office_white''">dialogue</a></div>'
+			end
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''tv_station''">Cannot be set no</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: It seems that only you know what I want... it`s too timely…</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>>Do you like me giving you oral sex like this... just shoot more if you like it.</p>'
+		 '</div>'
+	end
+
+
+	if a=4:
+		 $BD.love+=q
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:I now understand the concept of Imperial Health a little bit. Do you think I should also order their services?</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="office_night_c":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\办公室夜C<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			if a!0 and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''choreographing_event'',''office_night_c''">Get started directly</a></div>'
+			end	
+			if a!1 and q<=4:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''office_night_c''">Tongue kiss</a></div>'
+			end
+			if a!2 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''office_night_c''">Sit up</a></div>'
+			end
+			if a!3 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''office_night_c''">Female riding position</a></div>'
+			end
+			if a<4 and  q>=4:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''office_night_c''">Crazy waist</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS"><a href="exec:a=5 & gt ''choreographing_event'',''office_night_c''">Internal injection</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''choreographing_event'',''office_night_c''">Clean up the meat stick</a></div>'
+			end
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''go_home_at_night''">Take her home</a></div>'
+					'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>：<<$panting>>…...dead ghost❤</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+			 '<p><<$BD.name>>: <<$words>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Is it cool?I have to work overtime to make up for the time you delayed!！</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="office_night_a":
+	if $BD.bad<20+a*10 and a>0 : gt'choreographing_event','office_night_settlement'
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\办公室夜A<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''choreographing_event'',''office_night_a''">Keep touching</a></div>'
+			end
+			if a=1:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''choreographing_event'',''office_night_a''">Reach in and touch</a></div>'
+			end
+			if a=2:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''choreographing_event'',''office_night_a''">Stick your finger in her</a></div>'
+			end
+			if a!4 and 6>=q and q>=3:
+			'<div class="buttonR"><a href="exec:a=4 & gt ''choreographing_event'',''office_night_a''">Someone is coming</a></div>'
+			end
+			if a=4:
+			'<div class="buttonP"><a href="exec:a=5 & gt ''choreographing_event'',''office_night_a''">Hide</a></div>'
+			end
+			if a=5:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''choreographing_event'',''office_night_a''">Secretly blowjob</a></div>'
+			end
+			if a=6:
+			'<div class="buttonGn"><a href="exec:a=7 & gt ''choreographing_event'',''office_night_a''">People are gone</a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''choreographing_event'',''office_night_a''">Ejaculation</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if 3>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:At work... and there are still a few people who haven`t gotten off work yet!！</p>'
+		 '</div>'
+	end
+
+
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+			 if a=4:'<p><<$BD.name>>:Someone is coming?Shhh!</p>'
+			 if a=5:'<p>staff: <<$BD.name>>Where did they go?Have I finished the ledger and put it on her desk?</p>'
+			 if a=6:'<p>Me: Hmm... hmm?No way!You`d better give it to her tomorrow...in person…</p>'
+			 if a=7:'<p>staff: <<$BD.name>>Isn`t it an overtime madman?Why are you not here?This kind of woman has no sex life at first glance!Let`s not talk about it, I`ll get off work first!</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $BD.love+=q
+		 $BD.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Dare to say that to me... who doesn`t have sex?！</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="office_night_settlement":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\办公室夜A4.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''subway''">Slip away</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$BD.name>>:Stop, stop, stop!Someone is coming, I don`t believe they found out... just slip through the back door.…</p>'
+		'<p>Me: ... (I need her to be more depraved)</p>'
+	'</div>'
+end
+
+if $args[0]="office_night_b":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\办公室夜B<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<3:
+		'<div class="button_menu">'
+			if a!0 and q<=3 and a!2:
+			'<div class="button"><a href="exec:a=0 & gt ''choreographing_event'',''office_night_b''">Lift her legs and fuck her</a></div>'
+			end
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''office_night_b''">Press on the table to fuck</a></div>'
+			end
+			if q>=3:
+			'<div class="buttonS"><a href="exec:a=2 & gt ''choreographing_event'',''office_night_b''">Internal injection</a></div>'
+			end
+			if a=2:
+			'<div class="buttonR"><a href="exec:a=3 & gt ''choreographing_event'',''office_night_b''">Someone is coming</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:a=0 & q=0 &gt ''choreographing_event'',''go_home_at_night''">Take her home</a></div>'
+					'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if 2>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>>There are still people there……<<$words>></p>'
+		 '</div>'
+	end
+
+
+
+
+
+	if a=3:
+		 $BD.love+=q
+		 $BD.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>Staff: Hello!Is it true or false?！Actually it is<<$BD.name>>Having sex in the office?！</p>'
+			 '<p><<$BD.name>>:What`s happened?... Didn`t someone say that my mother has no sex life?！</p>'
+			 '<p>Staff: Huh?！Who said that!So courageous!I don`t know anything!</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="go_home_at_night":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\家沙<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<7:
+		'<div class="button_menu">'
+
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''go_home_at_night''">Tease her</a></div>'
+			end
+			if a!2 and 1<=q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''go_home_at_night''">Continue oral sex</a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''go_home_at_night''">Back in</a></div>'
+			end
+
+			if a!4 and 7>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''go_home_at_night''">Normal bit insertion</a></div>'
+			end
+			if a!5 and a!6 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''choreographing_event'',''go_home_at_night''">Accelerate the sprint</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''choreographing_event'',''go_home_at_night''">Internal injection</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''choreographing_event'',''go_home_at_night''">Lick clean</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:a=0 & q=0 &gt ''choreographing_event'',''overnight''">Spend the night here</a></div>'
+					'<div class="button"><a href="exec:$BD.love-=25 & gt ''residential_area''">Excuse to leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: Thank you for sending me back...or...stay tonight?</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Do you still want to do it... you are really...dissatisfied.……</p>'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Is it comfortable to be fucked by me?</p>'
+			 '<p><<$BD.name>>:comfortable…<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $BD.love+=q
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Don`t go, sleep with me tonight.If you want to leave, I will be angry.</p>'
+			 '<p>·An energetic woman gives you a headache for the first time.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="overnight":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\家卧<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	$choreographer_lien_zhan=1
+	if a<9:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''overnight''">Close</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''overnight''">dialogue</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''overnight''">tease</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''overnight''">Oral sex</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''choreographing_event'',''overnight''">Sideways thrusting</a></div>'
+			end
+			if a!6 and 10>=q and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''choreographing_event'',''overnight''">Let her ride up</a></div>'
+			end
+			if q>=6:
+			'<div class="buttonR2"><a href="exec:a=7 & gt ''choreographing_event'',''overnight''">Fuck to exhaustion</a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''choreographing_event'',''overnight''">Ejaculation</a></div>'
+			end
+			if a=8:
+			'<div class="buttonR4"><a href="exec:a=9 & gt ''choreographing_event'',''overnight''">A little tired</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''choreographing_event'',''the_next_day''">Sleep upside down</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: Come on, sleep by my side……</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:What are you worried about?Are you afraid that I will eat you?</p>'
+			 '<p>Me: I want to sleep……</p>'
+			 if a=2:'<p><<$BD.name>>:Before going to bed... you can still be hard once, right?</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Sure enough, it`s still hard, do you know why I don`t have an assistant anymore?They were all scared away by me!</p>'
+		 '</div>'
+	end
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:So cool<<$words>></p>'
+		 '</div>'
+	end
+	if a=9:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Don`t underestimate women.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="the_next_day":
+	 $choreographer_lien_zhan=0
+	 minutes+=1440
+	 $my.energy = mymax[$energy]
+	 hour=7
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\第二天.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=0 & q=0 & gt ''choreographing_event'',''soy_milk''">agree</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$BD.name>>:Why did you just sleep to death yesterday...?</p>'
+		'<p>Me: Uh... maybe... too tired.</p>'
+		'<p><<$BD.name>>:Are you going to have breakfast together?I know a good soy milk shop.</p>'
+	'</div>'
+end
+
+if $args[0]="soy_milk":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\内口<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''choreographing_event'',''soy_milk''">Touch your pocket</a></div>'
+			end
+			if a!2 and q>0:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''soy_milk''">Roll with panties</a></div>'
+			end
+			if a!3 and q>1:
+			'<div class="button"><a href="exec:a=3 & gt ''choreographing_event'',''soy_milk''">Oral sex with open mouth</a></div>'
+			end
+			if a!4 and q>2:
+			'<div class="button"><a href="exec:a=4 & gt ''choreographing_event'',''soy_milk''">Wrapped in blowjob</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS"><a href="exec:a=5 & gt ''choreographing_event'',''soy_milk''">Ejaculation</a></div>'
+			end
+			if a=5:
+			'<div class="buttonR4"><a href="exec:a=6 & gt ''choreographing_event'',''soy_milk''">Begging for mercy</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+					'<div class="button"><a href="exec:gt ''residential_area''">Go out</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: Ah, have you seen my panties?...it`s not okay to go out without underwear…</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me:?！？！？？</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:I told you before... I`m good at oral sex❤</p>'
+			 '<p><<$BD.name>>:<<$panting>>Since you like this... I will satisfy you❤</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: The delicious &quot;soy milk” is freshly baked❤</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>Me: Give me a break.</p>'
+			 '<p>？？？: Sister!！</p>'
+			 '<p><<$BD.name>>：？！？！wait!</p>'
+			 '<p>Me: Call-saved……</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="referrals":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\引荐.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: This is the host of a reality show. Her previous work experience can be well adapted to this job.…</p>'
+		'<p><<$BD.name>>:Fortunately, I am the editor-in-chief of the TV station. I want to hire you as the official host for the second season of &quot;If you are a Man, stick to it for Ten Minutes&quot;.</p>'
+		'<p><<$LY.name>>:Do you mean to turn me positive?Can I work in a TV station too?</p>'
+		'<p><<$BD.name>>:Yes... let`s talk in the conference room about specific admission matters.</p>'
+		'<p><<$LY.name>>:Great!</p>'
+		$ly.turn_positive=1
+	'</div>'
+end
+
+if $args[0]="choreographing_fuck_3pl":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\3PL<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<19:
+		'<div class="button_menu">'
+			if a=0:
+			$bd_attribute_special_requirements=200+$my.charm*20
+			if $BD.love>=200+$my.charm*20 and $BD.bad>=200+$my.charm*20:'<div class="buttonS"><a href="exec:a=1 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Enter the demonstration</a></div>'else:'<div class="buttonGr"><a href="exec:">❤Insufficient relationship<<$bd_attribute_special_requirements>>？？</a></div>'
+			'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Hug left and right</a></div>'
+			end
+			
+			if a!4 and 5>=q and q>=2:
+			'<div class="buttonR2"><a href="exec:a=4 & gt ''choreographing_event'',''choreographing_fuck_3pl''">buckle<<$BD.name>></a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="buttonB2"><a href="exec:a=3 & gt ''choreographing_event'',''choreographing_fuck_3pl''">buckle<<$LY.name>></a></div>'
+			end
+
+			if a!5 and 7>=q and q>=3:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Squirting at the same time</a></div>'
+			end
+			if a!6 and 8>=q and q>=4:
+			'<div class="buttonS3"><a href="exec:a=6 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Double blowjob</a></div>'
+			end
+			
+			if 7<=a and a<=10:
+			'<div class="buttonB2"><a href="exec:a+=1 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Keep fucking</a></div>'
+			end
+			if 13<=a and a<=16:
+			'<div class="buttonR2"><a href="exec:a+=1 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Keep fucking</a></div>'
+			end
+			if a=11 or a=17:
+			'<div class="buttonR4"><a href="exec:a+=1 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Ejaculation</a></div>'
+			end
+			if a!13 and q>=6:
+			'<div class="buttonR2"><a href="exec:a=13 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Fuck<<$BD.name>></a></div>'
+			end
+			if a!7 and q>=6:
+			'<div class="buttonB2"><a href="exec:a=7 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Fuck<<$LY.name>></a></div>'
+			end
+
+
+			if a=12 or a=18:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Blow me hard again!</a></div>'
+			'<div class="buttonR"><a href="exec:a=19 & gt ''choreographing_event'',''choreographing_fuck_3pl''">Can`t do it anymore</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: According to the Taiwan version, the girlfriend of the male guest will be introduced next time to compete with you for the control of the male guest.…</p>'
+			 '<p><<$LY.name>>: Competing for control of the male guests...?</p>'
+			 '<p><<$BD.name>>: That`s right.</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Let me demonstrate!Just let<<$BD.name>>Come be my girlfriend!</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$panting_2>>Have you locked the door yet?</p>'
+			 '<p><<$LY.name>>: Then how can it be regarded as a victory?<<$panting>></p>'
+		 '</div>'
+	end
+
+
+	if 12>=a and a>=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>:<<$words>></p>'
+			 '<p><<$BD.name>>:Is it so comfortable?Hurry up and plug me in!</p>'
+			 '<p><<$LY.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 18>=a and a>=13:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>:I can see the way the cunt is inserted clearly.…</p>'
+			 '<p><<$BD.name>>:<<$words>></p>'
+			 '<p><<$LY.name>>:Hurry up... the person who saw it wants it again…</p>'
+		 '</div>'
+	end
+
+
+	if a=19:
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 $LY.love+=q+$my.charm
+		 $LY.bad+=q
+		 BDLY+=1
+		 '<div class="dialog_menu">'
+			 '<p>Me: Huh----I`m exhausted.</p>'
+			 '<p><<$LY.name>>:？！I understand!Isn`t this 3P?</p>'	 
+			 '<p><<$BD.name>>:You are quite smart... I am optimistic about your performance in the second season.…</p>'
+			 '<p>(As for when will the second season be released?I don`t know...)</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $ARGS[0]="thanks":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\拿真人秀<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if a<=2:'<div class="button"><a href="exec:a+=1 & gt ''choreographing_event'',''thanks''">Mouth her</a></div>'
+		if a=3:'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$BD.name>>:Tell me what you plan to do?Be specific!</p>'
+		'<p>Me: It`s very simple... citizens pay to submit... as long as they are willing to spend money, we will play the submission video for him.…</p>'
+		if a>=1:'<p><<$BD.name>>:So simple?Then I just need to modify the program list for you...?</p>'
+		if a>=2:'<p>Me: The review of the submitted program... you are also responsible for the pre-payment.…</p>'
+		if a>=3:'<p><<$BD.name>>: <<$panting>>Okay... okay, I get it…</p>' & $paid_program_pre_=2  
+	'</div>'
+end
+
+--- choreographing_event ---------------------------------
+

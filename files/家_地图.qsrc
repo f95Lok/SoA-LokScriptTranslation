@@ -1,0 +1,124 @@
+# 家_地图
+
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="我的卧室" href="exec:minutes+=5 & gt ''家_卧室''"><img class="img_stretch" src="images\place\房间_<<$times_of_day>>.jpg"></a>
+		</div>'
+
+	 if (hour >=23 or hour <7) :
+		'<div class="action">
+			<a class="photo" data-title="继母房间" href="exec:minutes+=5 & gt ''继母_事件'',''JM_Fuck_夜袭''"><img class="img_stretch" src="images\NPC\JM\pics\继母房间_睡觉.jpg"></a>
+		</div>'
+		elseif  (21<= hour  and  hour <23) or (8<=hour and hour<20 and week_day >=6 ):
+		'<div class="action">
+			<a class="photo" data-title="继母房间" href="exec:minutes+=5 & gt ''家_继母房间'',''关门''"><img class="img_stretch" src="images\NPC\JM\pics\继母房间2.jpg"></a>
+		</div>'
+		else:
+		'<div class="action">
+			<a class="photo" data-title="继母房间" href="exec:minutes+=5 & gt ''家_继母房间''"><img class="img_stretch" src="images\place\继母房间.jpg"></a>
+		</div>'
+	 end if
+	 
+	 if hour >=23 or hour <8:
+		'<div class="action">
+			<a class="photo" data-title="姐姐房间" href="exec:minutes+=5 & gt ''家_姐姐房间'',''姐姐睡觉''"><img class="img_stretch" src="images\NPC\JJ\pics\姐姐睡觉.jpg"></a>
+		</div>'
+	 elseif  9<=hour  and hour <10 and week_day >=6:
+		'<div class="action">
+			<a class="photo" data-title="姐姐房间" href="exec:minutes+=5 & gt ''家_姐姐房间'',''姐姐周末房间''"><img class="img_stretch" src="images\NPC\JJ\pics\姐姐房间.jpg"></a>
+		</div>'
+	 elseif  22<=hour  and hour <23 :
+		'<div class="action">
+			<a class="photo" data-title="姐姐房间" href="exec:minutes+=5 & gt ''家_姐姐房间'',''姐姐晚上房间''"><img class="img_stretch" src="images\NPC\JJ\pics\姐姐房间.jpg"></a>
+		</div>'
+		else:
+		'<div class="action">
+			<a class="photo" data-title="姐姐房间" href="exec:minutes+=5 & gt ''家_姐姐房间''"><img class="img_stretch" src="images\place\姐姐房间.jpg"></a>
+		</div>'
+	 end if
+		
+		if hour=0 or hour >=20:
+		'<div class="action">
+			<a class="photo" data-title="妹妹房间" href="exec:minutes+=5 & gt ''家_妹妹房间'',''房间对话''"><img class="img_stretch" src="images\NPC\MM\pics\妹妹房间2.jpg"></a>
+		</div>'
+		 elseif  1<=hour  and hour <8 :
+		'<div class="action">
+			<a class="photo" data-title="妹妹房间" href="exec:minutes+=5 & gt ''家_妹妹房间'',''睡觉''"><img class="img_stretch" src="images\NPC\MM\pics\妹妹房间睡觉.jpg"></a>
+		</div>'
+		else:
+		'<div class="action">
+			<a class="photo" data-title="妹妹房间" href="exec:minutes+=5 & gt ''家_妹妹房间''"><img class="img_stretch" src="images\place\妹妹房间.jpg"></a>
+		</div>'
+		end if
+		
+	 if hour >=8 and hour <9 and week_day <=5:
+		'<div class="action">
+			<a class="photo" data-title="大厅" href="exec:minutes+=5 & gt ''大厅_事件'',''继母_大厅外出''"><img class="img_stretch" src="images\NPC\JM\pics\家1.jpg"></a>
+		</div>'
+	 elseif hour =12  and week_day >=6:
+		'<div class="action">
+			<a class="photo" data-title="大厅" href="exec:minutes+=5 &a=0& q=0& gt ''妹妹_事件'',''MM_Fuck_大厅''"><img class="img_stretch" src="images\NPC\MM\pics\家1.jpg"></a>
+		</div>'
+	 else:
+		'<div class="action">
+			<a class="photo" data-title="大厅" href="exec:minutes+=5 & gt ''家''"><img class="img_stretch" src="images\place\家.jpg"></a>
+		</div>'
+	 end if
+	 
+	 if (8<=hour and hour <9) or (21<=hour and hour <22):
+		'<div class="action">
+			<a class="photo" data-title="浴室" href="exec:minutes+=5 & gt ''姐姐_事件'',''姐姐_浴室'',''浴室0''"><img class="img_stretch" src="images\place\家_浴室_人.jpg"></a>
+		</div>'
+		elseif  (20<=hour and hour <21) or   (7<=hour and hour <8)  :
+			'<div class="action">
+				<a class="photo" data-title="浴室" href="exec:minutes+=5 & gt ''继母_事件'',''继母_浴室''"><img class="img_stretch" src="images\place\家_浴室_人.jpg"></a>
+			</div>'
+		elseif  (19<=hour and hour <20)  :
+			'<div class="action">
+				<a class="photo" data-title="浴室" href="exec:minutes+=5 & gt ''妹妹_事件'',''妹妹_浴室''"><img class="img_stretch" src="images\place\家_浴室_人.jpg"></a>
+			</div>'
+	 else:
+		'<div class="action">
+			<a class="photo" data-title="浴室" href="exec:minutes+=5 & gt ''家_浴室''"><img class="img_stretch" src="images\place\家_浴室.jpg"></a>
+		</div>'
+	 end if
+	 
+	 if 4>$JM_Event_grandpa and  $JM_Event_grandpa >=1:
+		'<div class="action">
+			<a class="photo" data-title="客房" href="exec:minutes+=5 & gt ''家_客房''"><img class="img_stretch" src="images\place\客房.jpg"></a>
+		</div>'
+	 end
+	 
+	 if 6>$JM_Event_grandpa and  $JM_Event_grandpa >=4:
+		'<div class="action">
+			<a class="photo" data-title="客房" href="exec:minutes+=5 & gt ''家_客房'',''外公1''"><img class="img_stretch" src="images\place\客房2.jpg"></a>
+		</div>'
+	 end 
+	 
+	 if 7>$JM_Event_grandpa and  $JM_Event_grandpa >=6:
+		'<div class="action">
+			<a class="photo" data-title="客房" href="exec:minutes+=5 & gt ''家_客房'',''苦肉计''"><img class="img_stretch" src="images\place\客房2.jpg"></a>
+		</div>'
+	 end 
+	 
+	 if $JM_Event_grandpa>=7:
+		'<div class="action">
+			<a class="photo" data-title="客房"><img class="img_stretch" src="images\place\客房3.jpg"></a>
+		</div>'
+	 end 
+	 
+		'<div class="action">
+			<a class="photo" data-title="居民区" href="exec:minutes+=5 & gt ''居民区''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>
+		</div>'
+		
+	 if 保时捷=1:
+		'<div class="action">
+			<a class="photo" data-title="驾车"href="exec:minutes+=5 & gt ''驾车''"><img class="img_stretch" src="images\place\车.jpg"></a>
+		</div>'
+	 end 
+	'</div>'
+
+
+
+--- 家_地图 ---------------------------------
+

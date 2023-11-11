@@ -1,0 +1,136 @@
+# deep_alley
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+$ZL_num=RAND(2,4)
+$my.energy-=1
+$sledgehammer_gang=rand(0,15)
+if $sledgehammer_gang>=14 and $bigvillaforthefirsttime>=3 and $sledgehammer<2:gt'deep_alley','deep_alley_fighting'
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if $ZL.room=1:
+				if $ZL_Event_face!2:
+				'<a class="photo" data-title="<<$ZL.name>>" href="exec:minutes+=5 & gt ''aid_event'',''ZL_Fuck_home''"><img class="img_stretch" src="images\NPC\ZL\pics\1.jpg"></a>'
+				else:
+				'<a class="photo" data-title="<<$ZL.name>>" href="exec:minutes+=5 & gt ''aid_event'',''ZL_Fuck_home<<$ZL_num>>''"><img class="img_stretch" src="images\NPC\ZL\pics\1.jpg"></a>'
+				end
+				else:'<a class="photo" data-title="Empty room"><img class="img_stretch" src="images\NPC\ZL\pics\1.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if $LY.room=1:'<a class="photo" data-title="<<$LY.name>>" href="exec: gt ''anchor_event'',''room''"><img class="img_stretch" src="images\NPC\ZL\pics\2.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $OX.room=1:'<a class="photo" data-title="<<$OX.name>>" href="exec:minutes+=5 & a=1 & gt ''idol_event'',''OXroom''"><img class="img_stretch" src="images\NPC\ZL\pics\3.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $SS.room=1 and $ss_arrest=0:'<div class="action"><a class="photo" data-title="<<$SS.name>>" href="exec:minutes+=5 & gt ''killer_event'',''ss_event_room''"><img class="img_stretch" src="images\NPC\ZL\pics\4.jpg"></a></div>'
+			if $SS.room=1 and $ss_arrest=2:'<div class="action"><a class="photo" data-title="<<$SS.name>>" href="exec:minutes+=5 & $killer_dialogue=0 & gt ''killer_event'',''ss_event_home''"><img class="img_stretch" src="images\NPC\ZL\pics\4.jpg"></a></div>'
+		'</div>'
+
+		'<div class="action">'
+			if $porsche=1:'<a class="photo" data-title="<<$XS.name>>" href="exec:minutes+=5 &   gt ''sales_event'',''sales_fuck_she_home''"><img class="img_stretch" src="images\NPC\ZL\pics\5.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $QT.room=1:'<a class="photo" data-title="<<$QT.name>>" href="exec:minutes+=5 &  gt ''foreground_event'',''front_desk_jia''"><img class="img_stretch" src="images\NPC\ZL\pics\6.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $SX.room=1:'<a class="photo" data-title="<<$SX.name>>" href="exec:minutes+=5 &  gt ''lost_hometown_incident'',''lost_home''"><img class="img_stretch" src="images\NPC\ZL\pics\7.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $inspector_event_chain>=7:'<a class="photo" data-title="<<$DC.name>>" href="exec:minutes+=5 &  gt ''inspector_event'',''inspector`s_house''"><img class="img_stretch" src="images\NPC\ZL\pics\8.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $director_xs_house=1:'<a class="photo" data-title="Safe house" href="exec:minutes+=5 & $search_location=0 &  gt ''director2_event'',''director`s_house''"><img class="img_stretch" src="images\NPC\ZL\pics\9.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $LXS.available=1:'<a class="photo" data-title="<<$LXS.name>>" href="exec:$dialogue_with_international_students=0 &  gt ''study_abroad_event'',''international_student_home''"><img class="img_stretch" src="images\NPC\ZL\pics\10.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if $WH.available=1:'<a class="photo" data-title="<<$WH.name>>" href="exec:$net_celebrity_dialogue=0 &  gt ''net_celebrity_event'',''net_celebrity_home''"><img class="img_stretch" src="images\NPC\ZL\pics\11.jpg"></a>'
+		'</div>'
+
+			if my.basement>=1:'<div class="action"><a class="photo" data-title="Basement (remaining<<my.basement>>day)" href="exec:minutes+=5 & gt ''basement''"><img class="img_stretch" src="images\place\地下室.jpg"></a></div>'
+
+	'</div>'
+'</div>'
+
+
+
+if $args[0] ='':
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if  money>=1000:
+		'<div class="buttonG"><a href="exec:minutes+=15 &money-=1000 & my.basement+=30 & gt ''deep_alley''">Rent a basement ￥1000/month</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Rent a basement ￥1000/month</a></div>'
+		end
+		if $XM.bad>=300 and $XM.job=1 and 2>hour and hour>=0 and $ZL_num=4 and $xm_videotape<=1:'<div class="buttonPu2"><a href="exec:gt ''school_girl_event'',''familiar_figure''">Familiar figure</a></div>'
+		if $qb_event_chain=3:'<div class="buttonPu3"><a href="exec:gt ''hashimoto_event'',''the_manager`s_rental_house''">The manager`s rental house</a></div>'
+		if $chain_of_lost_hometown_events=1:'<div class="buttonB1"><a href="exec:gt ''lost_hometown_incident'',''deep_alley''"><<$SX.name>></a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Under the shining skyscrapers, there are cramped, damp and dirty slums.The women who come to the big cities to fight, the men who evade taxes, are crowded like mice in dark, dilapidated and chaotic deep alleys.</p>'
+	'</div>'
+
+end
+
+if $args[0] ='deep_alley_fighting':
+    '<div class ="show_menu"><img src="images\place\大别墅\深巷X.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+       '<div class="buttonG"><a href="exec:money=0 & gt ''deep_alley''">Pay obediently</a></div>'
+        if $i_am_fighting_force_1>$enemy_combat_power_1:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''deep_alley'',''deep_alley_fighting_2''">If you don`t accept it, do it</a></div>'else:'<div class="buttonGr"><a href="exec:">Swallow it</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·As soon as he entered the deep alley, a group of people surrounded him.</p>'
+        '<p>Sledgehammer Gang leader: Hand over all the money on your body!Otherwise, there will be no good fruit to eat!</p>'
+        '<p>·——————·</p>'
+        $i_am_fighting_force_1=$my.intelligence+$my.physical_strength
+        '<p>·My intelligence: Lv<<$my.intelligence>>; Physical fitness: Lv<<$my.physical_strength>>;Combat effectiveness=<<$i_am_fighting_force_1>></p>'
+        $enemy_combat_power_1=15+rand(3,10)
+        '<p>·Number of opponents: 4; comprehensive combat effectiveness=<<$enemy_combat_power_1>></p>'
+        $sledgehammer_drop_rate=50/($i_am_fighting_force_1-$enemy_combat_power_1)
+        $number_of_sledgehammers_dropped=rand(19,100)
+        '<p>·Sledgehammer drop rate (<<$sledgehammer_drop_rate>>%)=50/(combat effectiveness difference)</p>'
+    '</div>'
+end
+
+if $args[0] ='deep_alley_fighting_2':
+    '<div class ="show_menu"><img src="images\place\大别墅\深巷X.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if $number_of_sledgehammers_dropped<=$sledgehammer_drop_rate:'<div class="button"><a href="exec:minutes+=15 & $sledgehammer+=1 & gt ''deep_alley''">Confiscate the hammer</a></div>'
+        '<div class="button"><a href="exec:minutes+=60 & gt ''deep_alley''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·Two fists are hard to beat four hands, but you did it.</p>'
+        '<p>Sledgehammer Gang leader: Damn it, I stepped on a hard stubble this time!We withdraw!</p>'
+        '<p>·——————·</p>'
+        '<p>·Sledgehammer drop rate (<<$sledgehammer_drop_rate>>%)=50/(combat effectiveness difference)</p>'
+        if $number_of_sledgehammers_dropped<=$sledgehammer_drop_rate:'<p>·In the process of fighting, they left behind a sledgehammer.</p>'else:'<p>·They fled quickly, leaving nothing behind.</p>'
+    '</div>'
+end
+
+--- deep_alley ---------------------------------
+

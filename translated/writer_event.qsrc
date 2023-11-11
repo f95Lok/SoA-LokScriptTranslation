@@ -1,0 +1,959 @@
+# writer_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+
+if $args[0]="":
+	if $ZJ.bad>=30:
+	 $zja=11
+	 else:
+	 $zja=10
+	 end 
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿0<<$zja>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''enter''">enter</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''vice_principal_house''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·You open the door lightly with your hands and feet...<<$ZJ.name>>Masturbating in the room...</p>'
+		'<p><<$ZJ.name>>: No, I can`t fantasize about him anymore...</p>'
+		'<p>·His mouth groaned like this, but his legs couldn`t help rubbing against each other. The vibrator squirmed with the smooth and tender acupuncture flesh, and the crystal clear lewd water slowly flowed out.</p>'
+	'</div>'
+
+End
+
+
+
+if $args[0]="enter":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿012~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=5 & a=3 & gt ''writer_event'',''zj_fuck_tuning''">Service guidance</a></div>'
+		if $ZJ.bad>=110-$ZJ.love:'<div class="buttonS2"><a href="exec:minutes+=5 & a=1 & gt ''writer_event'',''zj_fuck_actual_combat''">Practical guidance</a></div>'else: '<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if $ZJ.bad>=190-$ZJ.love:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''writer_event'',''zj_fuck_go_out''">Outing guidance</a></div>'else: '<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if $ZJ.love>=200 and $ZJ.bad>=200 and  $FXZ.love>=200 and $FXZ.bad>=200:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Mother and daughter rice bowl: materials are taken in situ</a></div>'else: '<div class="buttonGr"><a href="exec:">❤？❤？❤？</a></div>'
+		if week_day =7 and $ZJ.bad>=200-$ZJ.love:'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''writer_event'',''zj_fuck_editor''">Weekend deadline</a></div>'
+		if $cartoon_front=1 and $ZJ.bad>=200-$ZJ.love:'<div class="buttonS"><a href="exec:gt ''writer_event'',''ask_for_light_changes''">Ask for light changes</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''vice_principal_house''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: Ahem, who are you fantasizing about?</p>'
+		'<p><<$ZJ.name>>: Blush...After that happened to us last time...My readers all said they watched the explosion..So I think......For the novel to be written more truthfully....Let me like it more when I read it...me...I want to have more experience!</p>'
+		'<p><<$ZJ.name>>: Please guide me in depth!I will treat you as the brother in the novel!In this way, you can write the most authentic article!</p>'
+	'</div>'
+
+End
+
+if $args[0]="ask_for_light_changes":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿003~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $ZJ.love>=200 and $ZJ.bad>=200:'<div class="buttonS"><a href="exec:$cartoon_front=2 & gt ''residential_area''">Authorized</a></div>'else:'<div class="buttonGr"><a href="exec: ">Insufficient favorability</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''residential_area''">Talk next time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Are there any popular light comics now?</p>'
+		'<p><<$ZJ.name>>: Of course there is!</p>'
+		'<p>Me: What is it?</p>'
+		'<p><<$ZJ.name>>: Don`t you know?！It`s my `Little story about my sister who is a fornication erotic novelist, who was fucked 24 hours after I found out and finally became a bitch Sex Slave`!</p>'
+		'<p>Me: Can you authorize me to broadcast on TV?</p>'
+		'<p><<$ZJ.name>>: Uh……</p>'
+		if $ZJ.love>=200 and $ZJ.bad>=200:'<p><<$ZJ.name>>: Of course it`s okay!</p>'
+	'</div>'
+End
+
+
+if $args[0]="first_meeting":
+	$ZJ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\母女000~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_2''">Follow up</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·When I came to the vice principal`s house, the atmosphere dropped to freezing point.</p>'
+		'<p><<$FXZ.name>>: If you don`t want to talk to your mother, you can talk to this brother.Mom is worried that if you don`t have anyone to talk, your psychology will go wrong...</p>'
+		'<p><<$ZJ.name>>: What?！Do you think I have a mental problem?！</p>'
+		'<p><<$FXZ.name>>: You refuse to tell your mother anything, are you going to piss me off?！</p>'
+		'<p><<$ZJ.name>>: I`m so annoying, I told you to leave me alone!If it`s okay, I`m going back to my room!</p>'
+		'<p><<$FXZ.name>>：<<$protagonists_name>>！You hurry up and think of a way!</p>'
+	'</div>'
+End
+
+
+if $args[0]="first_meeting_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Light novel</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Romance novels</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_4''">Erotic novels</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Horror novels</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·In the room, she was reading something to herself alone.</p>'
+		'<p>Me: What are you doing?</p>'
+		'<p><<$ZJ.name>>: Quiet!This lady is reading the comments!</p>'
+		'<p>Me: Read the comments....Are you a writer?</p>'
+		'<p><<$ZJ.name>>: So what!The person my mother brought back was really the same as her, and she was so annoying!</p>'
+		'<p>Me: Can you show me the work you wrote?</p>'
+		'<p><<$ZJ.name>>: Absolutely not!*Looked at you for a while.What novels do you like to read?</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="first_meeting_3":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''residential_area''">Talk next time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZJ.name>>: Well, there is really no reference...</p>'
+		'<p>Me: Then what novels do you like to read?</p>'
+		'<p><<$ZJ.name>>: What does it matter to you?</p>'
+	'</div>'
+End
+
+
+if $args[0]="first_meeting_4":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Mother and child</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Green hat</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Pure love</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_5''">Brother and sister</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Doujin</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Compared with those serious novels, I like to read erotic novels more.</p>'
+		'<p><<$ZJ.name>>: What what?What is your favorite erotic novel?</p>'
+	'</div>'
+End
+
+
+if $args[0]="first_meeting_5":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿003~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_6''">Honesty: Yes</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event'',''first_meeting_3''">Lie: No</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Of course it`s the subject of brothers and sisters!</p>'
+		'<p><<$ZJ.name>>: Then that?Do you have a sister?</p>'
+	'</div>'
+End
+
+if $args[0]="first_meeting_6":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''residential_area''">Talk next time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZJ.name>>: That`s great!actually...My occupation is..Erotic novelist..Shhh!...Don`t be so surprised!</p>'
+		'<p>Me: So your mother thought your psychological problems didn`t exist at all, right?....</p>'
+		'<p><<$ZJ.name>>: Of course, how could I tell her that I am writing erotic novels!My mother is the vice president of the university!I have been strictly disciplined by me since I was a child, how can I accept this kind of thing....</p>'
+		'<p>Me: Since there is no need for psychological counseling, there is nothing I can do to help you.</p>'
+		'<p><<$ZJ.name>>: Yes, yes!The response of readers is not very good now....Maybe you can help me see what the problem is...This is what I wrote...`A short story about my sister, a fornication erotic novelist, who was fucked 24 hours after I found out and finally became a bitch sex slave`..</p>'
+		'<p>Me: The name is really long...</p>'
+		'<p><<$ZJ.name>>: If you have a younger sister, you will definitely be able to help me with the plot!Let`s talk about it after you go back and watch it, and talk about it next time.</p>'
+		if $fxz_event_daughter=1:$fxz_event_daughter=2
+	'</div>'
+End
+
+if $args[0]="second_meeting":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿003~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if  $ZJ_Event_count=0:'<div class="button"><a href="exec:minutes+=5 & a=4 & gt ''writer_event'',''second_meeting_1''">First: substitute the role</a></div>'
+		if  $ZJ_Event_count=1:'<div class="button"><a href="exec:minutes+=5 & a=5 & gt ''writer_event'',''second_meeting_2''">Second: a larger scale</a></div>'
+		if  $ZJ_Event_count=2:'<div class="button"><a href="exec:minutes+=5 & a=7 & gt ''writer_event'',''second_meeting_3''">The key: more erotic</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZJ.name>>: You came just in time!How do you think you should adjust `The little story about my sister who is a fornication erotic novelist and was fucked 24 hours after I found out and finally became a bitch sex slave`?</p>'
+		'<p><<$ZJ.name>>: You are a person with a younger sister!You can definitely help me!</p>'
+	'</div>'
+End
+
+
+if $args[0]="second_meeting_1":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿00<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=4:'<div class="button"><a href="exec:minutes+=5 & a=5 & gt ''writer_event'',''second_meeting_1''">Continue to guide</a></div>'
+		if a=5:'<div class="button"><a href="exec:minutes+=5 & gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=4:
+		'<p>Me: The writing is too fake, it is obviously made up, and the sense of substitution is not strong enough.</p>'
+		'<p><<$ZJ.name>>: What should I do?After all, I don`t have such a perverted brother....</p>'
+		'<p>Me: Let`s start with the heroine masturbating. While you read it, you fantasize that you are the heroine.</p>'
+		'<p><<$ZJ.name>>: `I put my hand under....The first orgasm as a woman came...Waves of pleasure kept pushing me to the peak...”</p>'
+		'<p>Me: What is written here is not clear enough, where is the following?Why did you suddenly have an orgasm?You don`t have a boyfriend, do you?</p>'
+		'<p><<$ZJ.name>>: Hmm...I have no experience at all...After all, there is a mother who is the vice principal, and many boys have been persuaded to withdraw.</p>'
+		'<p>Me: Well, every time you fantasize about yourself as the protagonist, and then tell your feelings, I will write it down for you, and then you will polish it yourself afterwards.</p>'
+		end
+		if a=5:
+		'<p>Me: Let`s start with masturbation.</p>'
+		'<p><<$ZJ.name>>: What?In front of you..Masturbate?</p>'
+		'<p>Me: Just imagine it in your mind.</p>'
+		'<p><<$ZJ.name>>: Then I`ll try it.</p>'
+		'<p><<$ZJ.name>>: `My brother rubbed my chest with his huge hands....brother..Hurry up....My nipples have stood up...Hurry up..continue...The bottom is already wet...brother..I want you to reach in....I really want it...”</p>'
+		'<p>Me: Look, isn`t this great?</p>'
+		'<p><<$ZJ.name>>：！！！really?！This lady is now full of inspiration!！I want to update the chapter right away!！Thank you!！</p>'
+		'<p>·He closed the door abruptly, and it seemed that he could only continue next time.</p>'
+		$ZJ_Event_count=1
+		$ZJ.love+=5+$my.charm
+		$ZJ.bad+=2
+		end
+	'</div>'
+End
+
+
+if $args[0]="second_meeting_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿00<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=5:'<div class="button"><a href="exec:minutes+=5 & a=6 & gt ''writer_event'',''second_meeting_2''">Continue to guide</a></div>'
+		if a=6:'<div class="button"><a href="exec:minutes+=5 & gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=5:
+		'<p>Me: Your character is a bitch, a crazy girl who wants to be used as a meat toilet by her brother.But your text is too conservative and does not highlight her character at all.</p>'
+		'<p><<$ZJ.name>>: What should I do?After adjusting the number of subscribers last time, the number of subscribers has increased by 500!I must listen to your suggestions more.</p>'
+		'<p>Me: Try to let go of your scale a little bit first.</p>'
+		'<p><<$ZJ.name>>: What should I do?Continue to fantasize?</p>'
+		'<p>Me: Yes!But you took off your top this time, leaving only your underwear.</p>'
+		'<p><<$ZJ.name>>: What?！Don`t!So shy!</p>'
+		'<p>Me: Look, this is where you can`t shape good characters.You can`t let it go by yourself...</p>'
+		'<p><<$ZJ.name>>: Good, good!I listen to you!</p>'
+		end
+		if a=6:
+		'<p>Me: Say your sexual fantasies out loud, how do you want your brother to play with you?</p>'
+		'<p><<$ZJ.name>>: I took off all my underwear in front of the mirror, fantasizing that my brother suddenly used his thick cock to push into my pussy at this time. At this time, I suddenly turned around and found that my brother was looking straight at me from outside the bathroom....</p>'
+		'<p>Me: Go on!</p>'
+		'<p><<$ZJ.name>>: My sister`s bottom is already wet...brother..I want you to plug in....I really want it....brother....I really want your big meat stick..</p>'
+		'<p>Me: Look, isn`t this great?</p>'
+		'<p><<$ZJ.name>>：！！！really?！This lady is now full of inspiration!！I want to update the chapter right away!！Thank you!！</p>'
+		'<p>·He closed the door abruptly, and it seemed that he could only continue next time.</p>'
+		$ZJ_Event_count=2
+		$ZJ.love+=5+$my.charm
+		$ZJ.bad+=2
+		end
+	'</div>'
+End
+
+
+if $args[0]="second_meeting_3":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿00<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=7:'<div class="button"><a href="exec:minutes+=5 & a=8 & gt ''writer_event'',''second_meeting_3''">Calm down: keep listening</a></div>'
+		if a=7:'<div class="button"><a href="exec:minutes+=5 & a=9 & gt ''writer_event'',''second_meeting_3''">Impulse: Rub her chest</a></div>'
+		if a!7:'<div class="button"><a href="exec:minutes+=5 & gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=7:
+		'<p><<$ZJ.name>>: Do you know?After the last adjustment, the number of onlookers directly exceeded the 10,000 mark!You are so amazing!What else can I do next?</p>'
+		'<p>Me: Let me think about it...Now the plot is that my sister is about to be fucked by my brother!You can substitute it first!</p>'
+		'<p>·Talking and talking<<$ZJ.name>>I started to take off my clothes, and unknowingly even my underwear was untied.</p>'
+		'<p><<$ZJ.name>>: What?！Ah!Oh, shit, why did I take off my bra so easily..I didn`t take it off on purpose..</p>'
+		'<p>Me: It`s okay, so you can write a bolder and more exciting plot!</p>'
+		'<p><<$ZJ.name>>: Okay then....I thought“ `Brother, rubbing my tits unscrupulously, teasing my nipples repeatedly with my mouth...”</p>'
+		end
+		
+		if a=8:
+		'<p><<$ZJ.name>>: Hello!you...You help me...Let me substitute a little more......I want to be touched too!I also want to be rubbed tits!</p>'
+		'<p>Me: That would be rude!</p>'
+		'<p><<$ZJ.name>>: Yes, that`s it, yes, rub my tits hard...*Ah, so cool, so comfortable...My head is about to melt...</p>'
+		'<p>Me: Is it comfortable to be touched by my brother?</p>'
+		'<p><<$ZJ.name>>: Comfortable, so comfortable....you...What a meeting...can..It`s okay...That`s it, stop it!No way...It`s not working anymore...Go on like this...It`s going to be...It`s about to climax..</p>'
+		'<p>·She suddenly pushed you away and closed the door with a blushing face.</p>'
+		$ZJ_Event_count=3
+		$ZJ.love+=10+$my.charm
+		$ZJ.bad+=6
+		end
+		
+		if a=9:
+		'<p><<$ZJ.name>>: No way!What are you going to do?Hurry up...Hurry up and stop...(Ah...So cool..Being rubbed so vigorously by a man...It turned out to be so comfortable...）</p>'
+		'<p>Me: This is “rubbing your tits unscrupulously”. Do you have a deeper understanding now?This is a realistic drill!</p>'
+		'<p><<$ZJ.name>>: Hurry up and let me go!stop it!(Go on like this...It`s going to be...It`s about to climax..）</p>'
+		'<p>·She suddenly pushed you away and drove you out.</p>'
+		'<p>·He closed the door abruptly, and it seemed that he could only continue next time.</p>'
+		end
+		
+	'</div>'
+End
+
+
+if $args[0]="zj_fuck_tuning":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\调教<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a<7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''writer_event'',''zj_fuck_tuning''">kiss</a></div>'
+			end
+			if a!2 and  6>q and q>2:
+			'<div class="button"><a href="exec:a=2 & gt ''writer_event'',''zj_fuck_tuning''">serve</a></div>'
+			end
+			if a!3 and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''writer_event'',''zj_fuck_tuning''">Kneading milk</a></div>'
+			end
+			if a!4 and $ZJ.bad>=15 and 6>q and q>=2:
+			'<div class="button"><a href="exec:a=4 & gt ''writer_event'',''zj_fuck_tuning''">FAP</a></div>'
+			end
+			if a!5 and $ZJ.bad>=24 and 7>q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''writer_event'',''zj_fuck_tuning''">Poisonous dragon</a></div>'
+			end
+			if a!6 and $ZJ.bad>=30 and 8>q and q>=4:
+			'<div class="button"><a href="exec:a=6 & gt ''writer_event'',''zj_fuck_tuning''">Oral sex masturbation</a></div>'
+			end
+			if a!7 and q>=5 and $ZJ.bad>=35:
+			'<div class="button"><a href="exec:a=7 & gt ''writer_event'',''zj_fuck_tuning''">Buckle</a></div>'
+			end
+			if a!8 and q>0:
+			'<div class="button"><a href="exec:a=8 & gt ''writer_event'',''zj_fuck_tuning''">end</a></div>'
+			end
+			if $ZJ.bad<35:
+			'<div class="buttonS"><a href="exec:">？？？</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:...come on...I`m ready, brother!</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>She keeps stirring your tongue, but she can`t restrain her thin waist from twisting constantly, and her little ass rubs against your crotch.</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>She began to lick your nipples seriously, and the transparent saliva was ground back and forth into milky foam.</p>'
+		 '</div>'
+	end
+
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>You played with the two masses of snow milk on her chest flushed, and rubbed vigorously to make her little nipple red, swollen and upright, and your big hands were still squeezing constantly.</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>She licked the whole penis wet with her tongue, and the moist meat stick became thicker, harder, and lewd, and she quickly set it on.</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>She stuck out her tongue and made the chrysanthemum wet too.Chrysanthemum shrank fiercely, longing for her to treat her more deeply.</p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:…...It was so itchy inside, she stretched out her hand between her legs, rubbed her clitoris, and inserted a finger into her pussy to tease.</p>'
+		 '</div>'
+	end
+	if a=7:
+		 $ZJ.love+=5+$my.charm
+		 $ZJ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>·Her thighs were convulsing fiercely, her small mouth was talking nonsense, she was squirting and trembling non-stop, and she was so played with that she lost her mind...</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $ZJ.love+=q+$my.charm
+		 $ZJ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>·That`s it for the time being, the guidance is over.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="zj_fuck_actual_combat":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\实战B<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a<6:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonP"><a href="exec:a=1 & gt ''writer_event'',''zj_fuck_actual_combat''">Oral sex masturbation</a></div>'
+			end
+			if a!2 and  10>q and q>3:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''writer_event'',''zj_fuck_actual_combat''">Normal bit</a></div>'
+			end
+			if a!3 and q<=4:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''writer_event'',''zj_fuck_actual_combat''">Female upper</a></div>'
+			end
+			if a!4 and $ZJ.bad>=20 and 10>q and q>=2:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''writer_event'',''zj_fuck_actual_combat''">Back position</a></div>'
+			end
+			if a!5 and $ZJ.bad>34 and q>3:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''writer_event'',''zj_fuck_actual_combat''">V-shaped open legs</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''writer_event'',''zj_fuck_actual_combat''">Bukkake</a></div>'
+			end
+			if a=5:
+			'<div class="buttonR3"><a href="exec:a=7 & gt ''writer_event'',''zj_fuck_actual_combat''">Creampie</a></div>'
+			else:
+			'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">Stop there</a></div>'
+			end
+			
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:...come on...I`m ready, brother!</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>She consciously held your meat stick whole, and kept rubbing her clitoris, rubbing her wet pussy.The itchy and numb feeling is constantly torturing her, and the slippery mucus has begun to flow out of the tender acupuncture points, ready to open yourself to your cock at any time.</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>For the girl`s tender cunt, the big chicken inserted in her flower cunt that was constantly stirring and pumping was too big. Every time it was deeply inserted into the heart of the flower, she half-opened her mouth and spit out intermittent moans, watching how her cunt was dried by you. White pulp came out.</p>'
+		 '</div>'
+	end
+
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>She rode between your crotch and swayed her ass hard.Your cock is forcefully pounding hard in the small pussy, and the huge and hard glans are deeply pushed in every time, forcing her little tender to open out, and the beautiful flesh in the vagina keeps trembling.“You are necrotic, don`t top me...”</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 $ZJ.love+=2
+		 $ZJ.bad+=2
+		 '<div class="dialog_menu">'
+			 '<p>She was hit and kept swaying forward, and her two snow-white tits also swayed back and forth. The brutal collision almost made her unsteady. The huge penis stretched her flower hole to the limit, and the heavy force made her whine: ...Don`t be like this...Ah...so deep...`</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>You separate her legs, and the hot, thick and long meat stick is vigorously pumped in the delicate hole. The violent friction makes her two thin legs tremble weakly, “...The big meat stick dries to the deepest part of the small hole...Give me...Hurry up and give me the semen...It`s so deep...”</p>'
+		 '</div>'
+	end
+	if a=6:
+		 $ZJ.love+=q+$my.charm
+		 $ZJ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>It shot thickly and forcefully on her face, and the hot semen brought her a hot pleasure....She seemed to have more than enough..</p>'
+		 '</div>'
+	end
+	if a=7:
+		 $ZJ.love+=q+$my.charm
+		 $ZJ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p>·Finally, hot semen shot out from the depths of the flower hole, the small hole was so hot that it trembled, a lot of lewd water poured out, and the whole body was taut and reached a climax.</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="zj_fuck_go_out":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\吃饭1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a<3:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a=3 & gt ''writer_event'',''zj_fuck_go_out''">Cheers</a></div>'
+			'<div class="button"><a href="exec:a+=2 & gt ''writer_event'',''zj_fuck_go_out''">Play darts</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 &a=0&q=0 & gt ''writer_event'',''zj_fuck_hostel''">Go open a room and have sex</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:I haven`t drunk an alcoholic drink in a long time.My mother never let me drink drinks other than mineral water.</p>'
+			 '<p>Me: You should also come out and stroll around more, don`t keep staying at home and worry about your mother.</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:What are you looking at me for?Is there anything on my face?</p>'
+			 '<p>Me: I found out....You are more tempting than food...</p>'
+			 '<p><<$ZJ.name>>:.....Then let`s go.Take me, eat, drop.</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>: Spend over 300 and get 3 darts to play，<<$protagonists_name>>, Let`s go play!</p>'
+			 '<p>Me: You seem to be a lot more cheerful~</p>'
+		 '</div>'
+	end
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>Me:?!!?!Actually right in the bull`s-eye?！If you hit the bull`s-eye, you can get a free order!！</p>'
+			 '<p><<$ZJ.name>>:really?！<<$protagonists_name>>Praise me!Let me see, can you still choose a set of Lolita`s clothes?</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+if $args[0]="zj_fuck_hostel":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\旅馆1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''writer_event'',''zj_fuck_hostel''">Lick the glans</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''writer_event'',''zj_fuck_hostel''">Suck balls</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''writer_event'',''zj_fuck_hostel''">Interrupt</a></div>'
+			end
+			if a!11 and 7>=q and q>=3:
+			'<div class="button"><a href="exec:a=11 & gt ''writer_event'',''zj_fuck_hostel''">Rub the pussy</a></div>'
+			end
+			if a!4 and 10>=q and q>=4:         
+			'<div class="button"><a href="exec:a=4 & gt ''writer_event'',''zj_fuck_hostel''">Female upper</a></div>'
+			end
+			if a!5 and 11>=q and q>=5:  
+			'<div class="button"><a href="exec:a=5 & gt ''writer_event'',''zj_fuck_hostel''">Turn around</a></div>'
+			end
+			if (a!9 and 12>=q and q>=6) or (a=10):       
+			'<div class="button"><a href="exec:a=9 & gt ''writer_event'',''zj_fuck_hostel''">Back in</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''writer_event'',''zj_fuck_hostel''">dialogue</a></div>'
+			end
+			if a<=9 and q>=7: 
+			'<div class="button"><a href="exec:a=6 & gt ''writer_event'',''zj_fuck_hostel''">sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''writer_event'',''zj_fuck_hostel''">Shoot her and force her in</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''writer_event'',''zj_fuck_hostel''">One hour later</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if ZJcos=0 :'<div class="buttonPu3"><a href="exec:minutes+=30 & ZJcos=1 & gt ''company''">COS invitation</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>: When I just opened the room, the front desk heard me calling your brother, thinking that we were perverted brothers and sisters who came to incest....It feels so exciting!</p>'
+			 '<p><<$ZJ.name>>:It suddenly occurred to me that I could draw on local materials for the latest chapter, `The lustful sister who Loves to wear Lolita, the first time she gave all her holes for her brother.`</p>'
+			 '<p>Me: Does the name have to be so long?</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:......ah……<<$panting>>… </p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:...…<<$panting>>…<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p>·The tight flower acupuncture points twitched frantically, and large masses of white pulp flowed out from the depths of Mei acupuncture points, emerging from the mouth of the acupuncture points that were too red and swollen to close.</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:<<$panting>>...I want you to be my brother for the rest of my life, and I will be your lascivious sister, okay?……</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p>You separate her legs, and the hot, thick and long meat stick is vigorously pumped in the delicate hole. The violent friction makes her two thin legs tremble weakly, “...The big meat stick dries to the deepest part of the small hole...Give me...Hurry up and give me the semen...It`s so deep...”</p>'
+		 '</div>'
+	end
+	if a=11:
+		 '<div class="dialog_menu">'
+			 '<p>It shot thickly and forcefully on her face, and the hot semen brought her a hot pleasure....She seemed to have more than enough..</p>'
+		 '</div>'
+	end
+	if a=8:
+		 $ZJ.love+=q*2+$my.charm
+		 $ZJ.bad+=q
+		 minutes+=60
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:I was fucked by you so easily, will you not cherish me?</p>'
+			 '<p>Me: My sister is so capable, how could I not cherish it.</p>'
+			 '<p><<$ZJ.name>>:...I am so happy.I like it so much<<$protagonists_name>>Brother, you.I just want to talk to<<$protagonists_name>>Brother does.Well, I just want to.</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="zj_fuck_editor":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿003~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec: gt ''writer_event'',''zj_fuck_edit_1''">Go together</a></div>'
+			'<div class="button"><a href="exec: gt ''residential_area''">leave</a></div>'
+		'</div>'
+		
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>: Today is the weekly weekend deadline.....I am going to meet with the editor-in-chief of my erotic literature section to negotiate and finalize the draft....</p>'
+		 '</div>'
+End
+
+
+
+if $args[0]="zj_fuck_edit_1":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\编辑0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+		'<div class="button_menu">'
+			'<div class="buttonGn"><a href="exec: gt ''writer_event'',''zj_fuck_edit_sex''">Peeping from outside the door</a></div>'
+			'<div class="button"><a href="exec: minutes+=60 & gt ''writer_event'',''zj_fuck_edit_2''">Wait 1h</a></div>'
+		'</div>'
+		
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: The performance last month was good, and the number of subscriptions has exceeded a record high.(Although I don`t understand why, obviously all<<Year>>Years later, why do people still love to read Huang Wen?）</p>'
+			 '<p><<$ZJ.name>>:Then I can go back, right?(It seems that the guidance is still effective.）</p>'
+			 '<p>Editor-in-chief: Wait a minute, this month`s champion cover magazine shoot.....</p>'
+			 '<p><<$ZJ.name>>:Oh.....I almost forgot，<<$protagonists_name>>You go outside and wait for me first. I want to take a picture of Huang Wen`s propaganda with the editor-in-chief.Don`t worry, it will code my face.</p>'
+			 '<p>Me: The current Huang Wen propaganda picture is taken by the author himself?The more you think about it, the weirder it gets?</p>'
+		 '</div>'
+End
+
+
+if $args[0]="zj_fuck_edit_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\女儿000~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec: minutes+=15 & gt ''writer_event'',''zj_fuck_go_out''">Let`s go</a></div>'
+			'<div class="button"><a href="exec: minutes+=15 & gt ''residential_area''">Not today</a></div>'
+		'</div>'
+		
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: Look at the camera!correct!The shooting went smoothly!</p>'
+			 '<p>·After 1 hour....<<$ZJ.name>>Came out sweating profusely.</p>'
+			 '<p><<$ZJ.name>>:The manuscript fee was paid today, let`s go eat and drink!Brother~~o(>_<)o ~~</p>'
+		 '</div>'
+End
+
+
+if $args[0]="zj_fuck_edit_sex":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\编辑1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	if  a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''writer_event'',''zj_fuck_edit_sex''">Nipple suction</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''writer_event'',''zj_fuck_edit_sex''">Pull force</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''writer_event'',''zj_fuck_edit_sex''">Deep throat</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:         
+			'<div class="button"><a href="exec:a=4 & gt ''writer_event'',''zj_fuck_edit_sex''">Violent thrusting</a></div>'
+			end
+			if a!5 and 12>=q and q>=4:  
+			'<div class="button"><a href="exec:a=5 & gt ''writer_event'',''zj_fuck_edit_sex''">Female upper</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''writer_event'',''zj_fuck_edit_sex''">Fuck to spray water</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''writer_event'',''zj_fuck_edit_sex''">Oral ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''writer_event'',''zj_fuck_edit_sex''">One hour later</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=10 & gt ''writer_event'',''zj_fuck_go_out''">Wait for her to come out to eat</a></div>'
+				'<div class="button"><a href="exec:minutes+=10 & gt ''residential_area''">Angry and leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: Readers are very dissatisfied with your rape scene. The number of clicks on the serialized Fanwai article `The weak me was trained as a stuffy bitch by the editor-in-chief but squirted again` has not been able to go up.</p>'
+			 '<p><<$ZJ.name>>: Do you still have to do it?.....But my brother is outside.....</p>'
+		 '</div>'
+	end
+
+	if a=1 or a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>:......ah……<<$panting>>… </p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: Why did you spray so much water?To be honest, did you deliberately abstain from sex for a long time for today?</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>: You can`t do this!！The small hole will be dried loose...If my brother doesn`t like my tight pussy anymore, he will......but....ah...</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: I said no, but now you have been twisting your crotch.Do you want to be fucked to orgasm by me?You slut.</p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZJ.name>>: So top!！Can`t stand it anymore!！I was sprayed with water by the editor-in-chief.....</p>'
+		 '</div>'
+	end
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: You don`t want to kiss your little boyfriend with a stinky mouth, do you?Swallow it all for me, do you hear me?</p>'
+			 '<p><<$ZJ.name>>:I swallow, I swallow!Please don`t tell him!</p>'
+		 '</div>'
+	end
+	if a=8:
+		 minutes+=60
+		 '<div class="dialog_menu">'
+			 '<p>Editor-in-chief: Say!Me and yours....<<$protagonists_name>>Brother than, whose meat stick can satisfy your sorrows better?</p>'
+			 '<p><<$ZJ.name>>: My Lord Editor-in-chief.....My Lord Editor-in-chief.....The meat stick.....sorry...<<$protagonists_name>>brother..I was fucked and lost my mind again....Woohoo....But it`s really comfortable.....</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="zj_fuck_mother_and_daughter_material":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZJ\vids\母女取材<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!9:
+		'<div class="button_menu">'
+			if a!0 and q<3:
+			'<div class="button"><a href="exec:a=0 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Mother and daughter serve</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Mother and daughter butt sex</a></div>'
+			end
+			if a!2 and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Mother and daughter blowjob</a></div>'
+			end
+			if a!3 and q>=3:
+			'<div class="button"><a href="exec:a=3 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Fuck daughter</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Fuck her mom</a></div>'
+			end
+			if 3<=a and a<=4:
+			'<div class="button"><a href="exec:a+=2 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Keep fucking</a></div>'
+			end
+			if 5<=a and a<=6:
+			'<div class="button"><a href="exec:a+=2 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Ejaculation</a></div>'
+			end
+			if q>=7:
+			'<div class="button"><a href="exec:a=9 & gt ''writer_event'',''zj_fuck_mother_and_daughter_material''">Female ♂female salvo</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=10 & gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: Do you want to experience something more exciting?For example..Daughter and mother share a man together?Readers should like it!It just so happens that you and your mother seem to be a bit separated directly...Why don`t you take this opportunity to untie each other`s knots first... </p>'
+			 '<p><<$ZJ.name>>:........(When did my brother take care of my mother too?） </p>'
+			 '<p><<$FXZ.name>>:........(This kid actually fucked my daughter?）</p>'
+			 '<p><<$ZJ.name>>: Mom, I have a lonely and unbearable desire in my bones. The moment I opened an erotic novel one day, this desire completely broke out...Thank you for helping me “draw materials` today. </p>'
+			 '<p><<$FXZ.name>>:Come on, how can I help you!Mom will do her best!</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$words>>... </p>'
+			 '<p><<$ZJ.name>>:...<<$panting>>... </p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $FXZ.love+=q*2+$my.charm
+		 $FXZ.bad+=q
+		 $ZJ.love+=q*2+$my.charm
+		 $ZJ.bad+=q
+		 $FXZ_ZJ+=1
+		 '<div class="dialog_menu">'
+			 '<p>·They were limp on the carpet, their cunt trembling every time they shot semen, their eyes facing each other, their eyes still hot.</p>'
+			 '<p><<$FXZ.name>>:(I glanced at you and pursed my lips) It deserves to be my daughter...</p>'
+			 '<p><<$ZJ.name>>:...<<$panting>>... </p>'
+			 '<p>·This kind of perverted nondescript relationship has made the connection between mother and daughter closer.The relationship has become more promiscuous!</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+
+
+
+--- writer_event ---------------------------------
+

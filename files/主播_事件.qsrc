@@ -1,0 +1,1457 @@
+# 主播_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+		if $摄像头_LY=0 and 摄像头>0 and $args[0]="厨房":
+		'<div class="action">
+			<a class="photo" data-title="安装摄像头" href="exec:$摄像头_LY=1 & 摄像头-=1 & gt ''主播_事件'',''厨房''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
+		</div>'
+		end
+'</div>'
+
+
+
+if $args[0]="LY_Event_入境前置":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\入境0-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!3:
+		'<div class="button_menu">'
+			if a>=0:
+			'<div class="button"><a href="exec:a+=1 & gt ''主播_事件'',''LY_Event_入境前置''">继续</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+			 	'<div class="button"><a href="exec:minutes+=15 &q=0 & a=0 & gt ''主播_事件'',''LY_Event_入境''">单独审核</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>男人: 只要女优通行证顺利办下来你就可以跟我一起生活了！</p>'
+			 '<p>女人: 嗯呐！没想到我的梦想这么快就能成真了呢！我们以后住哪？（怎么会是这种糟老头子呢？我还以为起码是个事业有成的中年离异富豪呢。）</p>'
+			 '<p>男人:额，不急不急。饭要一口一口吃，先去出入境管理局把通行证办下来再说！ </p>'
+			 '<p>女人: 你说的对！不过从捷运站下来一路都是走过来的，还说什么司机生病了，你不会连车都没有吧？</p>'
+			 '<p>我: 来办女优通行证的？她怎么有点眼熟呢。</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>男人: 呃呃...这些就是全部的材料了..</p>'
+			 '<p>材料审核员: 不对啊，资金流水怎么在短期内突然增加了这么多？而且胸围才只有A罩杯，还是填充的假奶。你在糊弄谁呢！</p>'
+			 '<p>男人:啊..这...我是真的不清楚啊..呵呵呵..不如就看在我们都是本地人的情况上网开一面吧！ </p>'
+			 '<p>材料审核员: 这可不行，我们的主体审核员来了。</p>'
+			 '<p>我: 材料存疑，收入不清是吗？先把人控制住吧。</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>女人: 放开我，别碰我，你们这群臭狗！</p>'
+			 '<p>男人: 诶诶？！各位官老爷，这可不管我的事啊。小弟还有别的急事，先走一步！</p>'
+			 '<p>材料审核员: 按住她！</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>材料审核员: 这下老实了吧！</p>'
+			 '<p>我: 你们都走吧，我要对她进行单独的身体审核！</p>'
+			 '<p>·众人面色古怪地看了你一眼，但基于你和<<$RION.name>>的关系，没多说什么。</p>'
+		 '</div>'
+		 $LY_Event_入境前置=1
+	end
+  q+=1
+End
+
+if $args[0]="LY_Event_入境":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\入境1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<10:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_入境''">面容检查 </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_入境''">胸围检查 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_入境''">臀部检查 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_入境''">私处检查 </a></div>'
+			end
+			if a!5 and a>=4 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_入境''">阴道深度 </a></div>'
+			end
+			if a!6 and a>=4 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_入境''">用力抽插 </a></div>'
+			end
+			if a!7 and a>=4 and 10>=q and q>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_入境''">口腔检查 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonP"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_入境''">继续 </a></div>'
+			end
+			if a=8:
+			'<div class="buttonS"><a href="exec:a=9 & gt ''主播_事件'',''LY_Event_入境''">射精 </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''主播_事件'',''LY_Event_入境''">审核结果 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if a=10:'<div class="buttonP"><a href="exec:a=11 & gt ''主播_事件'',''LY_Event_入境''">签署女优通行证 </a></div>'
+				if a=10:'<div class="buttonB"><a href="exec:a=11 & gt ''市政厅''">暂缓处理 </a></div>'
+				if a=11:'<div class="buttonB"><a href="exec:a=11 & gt ''市政厅''">离开 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 希望你明白自己的立场，你涉嫌藐视女性领导法案！袭击公务人员！如果你再不配合身体审核！我们有权利对你进行严厉警告,并被驱逐出城！</p>'
+			 '<p>·（我们算个屁的公务人员..吓唬吓唬你罢了。）</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我: 面容尚可，有整形痕迹。</p>'
+
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我: 啧啧，害羞什么，你的身体报告山已经写明了是硅胶填充的假奶了。</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>我: 既不够翘，肉量也不够多。</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>我: 小阴唇已经黑了，看来性经历丰富啊。总体的户型尚可，深度有待测量。</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>女人: ..可以了，已经插到底了。顶到子宫口了，身体要发抖了...</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>女人: ....不行了...不行了....救命啊..要丢了..</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p>我: 嘴巴张大！一口气含到底！</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=8:
+		 '<div class="dialog_menu">'
+			 '<p>女人:<<$娇喘声>></p>'
+		 '</div>'
+	end
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p>女人: ...已经检查的够仔细了吧！....我的审核结果呢..？！</p>'
+		 '</div>'
+	end
+	if a=11:
+		 '<div class="dialog_menu">'
+			 '<p>我: 确认个人信息无误后，在这里签字。</p>'
+			 '<p><<$LY.name>>: ..总算解决了...下一步是找房子住，哪里有便宜的房租呢。</p>'
+			 '<p>我: 歌舞伎町的深巷里有不少。*你随口回了一句</p>'
+			 '<p><<$LY.name>>: 好的，我知道了。</p>'
+			 '<p>我: （你好面熟，我是不是在哪里见过你呢？）</p>'
+			 $LY_Event_入境前置=2
+			 $LY.room=1
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="房间":
+ if $LY初次租房=0:gt'主播_事件','初见'
+ if $times_of_day='night':gt'主播_事件','晚归'
+ if $times_of_day='':gt'主播_事件','白天'
+end
+
+
+if $ARGS[0]="初见":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\租房~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''深巷''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>房东 :喂喂，这可不好办啊。我租给你的时候明明说清楚了的。这是单人单间！</p>'
+		'<p>男人 :拜托了，通融一下吧！这是我新找的女朋友，她刚来这里。</p>'
+		'<p>房东 :房租多收你50%，不同意的话你就搬走吧！</p>'
+		'<p>男人 :唉，那好吧。都怪我自己没有房子，害你要和我挤在这里。</p>'
+		'<p><<$LY.name>> : 亲爱的，你对我真好，我不嫌弃。</p>'
+		'<p>我:（喔？又换了？不过眼光不怎么行啊，钓到的都是穷鬼）</p>'
+		$LY初次租房=1
+	'</div>'
+end
+
+if $ARGS[0]="白天":
+	$随机数=rand(0,100)
+	if $LY.监控看完=1:
+		if $LY.风俗=1 and $随机数<=30:gt '主播_事件','出门'
+		if $LY.监控二看完=0 and $随机数<=50:gt '主播_事件','紧锁2'
+		if $LY.监控二看完=1 and week_day =7 :gt '主播_事件','LY_Event_群P2'
+		gt '主播_事件','LY_Event_交易2'
+	end
+	'<div class ="show_menu"><img src="images\NPC\LY\pics\无人.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''深巷''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>房门紧锁，无人在家。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="晚归":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\交易0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''主播_事件'',''道歉''">打招呼</a></div>'
+		'<div class="button"><a href="exec: gt ''深巷''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$LY.name>> :...真倒霉，诸事不顺，是碰到水逆了吗...大城市果然不好混呐。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="道歉":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\交易1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if money>=500:'<div class="buttonG"><a href="exec:money-=500 & a=0 & q=0 & gt ''主播_事件'',''LY_Event_交易''">同意500￥</a></div>'else:'<div class="buttonGr"><a href="exec:">500￥</a></div>'
+		if $LY.风俗>=1 and $真人秀前置=1:'<div class="buttonP"><a href="exec:gt ''主播_事件'',''真人秀邀请''">真人秀邀请</a></div>'
+		'<div class="button"><a href="exec: gt ''深巷''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我 :嘿，我认出你了。还记得是谁给你刷了100个火箭吗？</p>'
+		'<p><<$LY.name>> :是…是你！你居然也在这个城市！</p>'
+		'<p>我 :呃，之前的事……</p>'
+		'<p><<$LY.name>> :别放在心上…呐，现在我的经济压力有点大…要不要约我？一次一个火箭的价格…这是榜一的优惠价！</p>'
+	'</div>'
+end
+
+if $args[0]="LY_Event_交易":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\交易1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_交易''">舔屌 </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_交易''">毒龙 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_交易''">口交 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_交易''">女上位 </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_交易''">后背位 </a></div>'
+			end
+			if a<6 and q>=5:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_交易''">冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_交易''">射精 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_交易''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $LY_Event_燃气阀=0 or $摄像头_LY=0: '<div class="button"><a href="exec:a=11 & gt ''主播_事件'',''厨房''">去厨房 </a></div>'
+				'<div class="button"><a href="exec:a=11 & gt ''深巷''">离开 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 还是你靠谱...进屋吧。我..室友还在工作...*唉，到头来还是得靠我自己</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $LY.love+=q+my.魅力-5
+		 $LY.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 把钱拿来！我们可以继续保持这种关系....</p>'
+			 '<p>我: 什么时候复播？</p>'
+			 '<p><<$LY.name>>: 线下搞了女主播还不满足嘛?现在的经济压力有点大，再过段时间吧。</p>'
+			 '<p>我: 好吧。</p>'
+			 if $LY_Event_燃气阀=0 or $摄像头_LY=0:'<p><<$LY.name>>: 嘿，你会修燃气阀吗？厨房里的燃气阀老是失灵。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="LY_Event_交易2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\交易2-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_交易2''">拥抱 </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_交易2''">侍奉 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_交易2''">毒龙 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_交易2''">口交 </a></div>'
+			end
+			if a!5 and 10>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_交易2''">女上位抽插 </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_交易2''">潮吹 </a></div>'
+			end
+			if a!7 and q>=5:
+			'<div class="buttonP"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_交易2''">后背位冲刺 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_交易2''">射精 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''主播_事件'',''LY_Event_交易2''">事后 </a></div>'
+			end
+			if a=0:'<div class="button"><a href="exec:a=11 & gt ''深巷''">离开 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=11 & gt ''深巷''">离开 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 进来吧，他干活去了。白天我不收费…</p>'
+			 '<p>我:……（自从被那样强奸过了以后好像更加开放了？）</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 平时有没有想我？*唉，怎么才能傍上你呢。我想要的不只是嫖客和妓女的关系...</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $LY.love+=q+my.魅力
+		 $LY.bad+=q*5/2
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 好厉害！射了这么多，比我那个男朋友厉害多了..</p>'
+			 '<p>我: 你技术也不错嘛，如果在风俗店工作应该能赚不少吧。</p>'
+			 '<p><<$LY.name>>: 风俗店……?这里也有吗?</p>'
+			 $LY.风俗=1
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="厨房":
+	'<div class ="show_menu"><img src="images\NPC\LY\pics\厨房.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			if 燃气阀>0:'<div class="button"><a href="exec:$LY_Event_燃气阀=1 & 燃气阀-=1 &gt ''主播_事件'',''厨房''">维修燃气阀</a></div>'else:'<div class="buttonGr"><a href="exec:">需要燃气阀</a></div>'
+			if 摄像头=0:'<div class="buttonGr"><a href="exec:">需要摄像头</a></div>'
+			'<div class="button"><a href="exec:gt ''深巷''">离开</a></div>'
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>> :听说这栋楼都有这个毛病。我室友什么忙都派不上，老板帮帮我嘛(｡ŏ﹏ŏ)</p>'
+			 '<p>我 :我去商店里转转。（你注意到一个不起眼的视野死角，是安装摄像头的好位置。）</p>'
+			 if $LY_Event_燃气阀=1: '<p>·【燃气阀已修好】</p>'
+		 '</div>'
+End
+
+if $args[0]="厨房监控":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\监控1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''主播_事件'',''厨房监控''">快进▶▶▶ </a></div>'
+			if a!0:'<div class="button"><a href="exec:a-=1 & gt ''主播_事件'',''厨房监控''">后退▶▶▶ </a></div>'
+			if $风俗工作=1:	'<div class="buttonR1"><a href="exec:gt ''主播_事件'',''LY_Event_群P1''">某天下午</a></div>'else:'<div class="buttonGr"><a href="exec:">未触发</a></div>'
+			'<div class="button"><a href="exec:gt ''家_电脑''">返回 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''家_电脑''">返回 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 怎么喝了这么多？您是线长吧？谢谢你把他送回来...</p>'
+			 '<p>组长: 流水线线长？我是生产组组长！</p>'
+			 '<p><<$LY.name>>: 真是麻烦你了，组长，我去倒杯水！</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: ？！！？！！</p>'
+			 '<p>组长: 嘘，安静点，别发出声音就不会受伤。</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 早就听他吹嘘交了个女朋友，这次终于要破处了。不如先让我尝尝吧！</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: ？！不可以这么大力的揉啊...快住手！</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 救命~！快醒醒啊！快点起来啊！我要在你面前被人强奸了！他已经勃起了！</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 呵呵。我跟你说，以他懦弱的性格，即使醒着也会继续装睡的。你与其跟这种窝囊废，不如从了我，做我的女人！</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 救命啊~！你这个废物快给我起来啊！！他在强奸啊我..我被他干死了！！你快醒醒啊！！</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 什么嘛，还没拔出来就漏了一地精了。喂喂！你可要知道现在政府正在高价收购优质精源啊！</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 你应该是外地人吧？就是因为有你们这么多外地女人我才会被挤了工作！我本来都应该是总工程师了！</p>'
+			 '<p><<$LY.name>>: 呜呜………………</p>'	 
+			 '<p>组长: 你可以试试告诉他，看看他的下场会是怎么样的。在厂里要拿捏他简直轻而易举。</p>'
+			 $LY.监控看完=1
+		 '</div>'
+	end
+  q+=1
+End
+
+if $ARGS[0]="出门":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\出门~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $LY.风俗>=1 and $真人秀前置=1:'<div class="buttonP"><a href="exec:gt ''主播_事件'',''真人秀邀请''">真人秀邀请</a></div>'
+		'<div class="button"><a href="exec: gt ''深巷''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我 :嗨。</p>'
+		'<p><<$LY.name>> :嗨~我正打算出门，今天天气真不错呢。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="真人秀邀请":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\真人秀.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if money>=3000:'<div class="buttonG"><a href="exec: $真人秀前置=2 & money-=3000 & gt ''主播_事件'',''真人秀邀请2''">付钱拍摄3000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">付钱拍摄3000￥</a></div>'
+		'<div class="button"><a href="exec: gt ''郊外''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我 :你有主播和风俗店工作的经验，这些职业经验完成这样的真人秀应该是最佳人选！</p>'
+		'<p><<$LY.name>> :…那需要我怎么演？？</p>'
+		'<p>我 :不需要演！真人秀，最重要的是“真实”！我们的真人秀叫做《是男人就坚持10分钟》，你就用各种手段勾引男嘉宾！</p>'
+		'<p><<$LY.name>> :…我明白了，那报酬呢，我觉得￥3000……可以吗？</p>'
+	'</div>'
+end
+
+if $ARGS[0]="真人秀邀请2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\news\TV\真人秀1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''郊外''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$LY.name>> :既然你们这么恩爱的话，应该能够接受考验吧？《是男人就坚持10分钟》</p>'
+		'<p>男嘉宾 :当然！10分钟？20分钟我都行！</p>'
+		'<p>·没过多久拍摄就结束了…</p>'
+		'<p>我应该把拍摄好的素材拿给<<$BD.name>>，让她编辑一下。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="风俗":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LY\vids\风俗.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''主播_事件'',''LY_Event_风俗''">快餐788￥</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''主播_事件'',''LY_Event_风俗2''">全套1688￥</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>人模人样的经理 :哥！你来了，这是我们最新的妓女。我们这边支持现金刷卡贷款，您看要不要先给你泡壶茶？</p>'
+		'<p>我 :她果然来这工作了……</p>'
+		$风俗工作=1
+	'</div>'
+end
+
+if $args[0]="LY_Event_风俗":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\风俗1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_风俗''">侍奉 </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_风俗''">口交 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5 and a<6: 
+			'<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_风俗''">加速 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7 and a<6:
+			'<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_风俗''">口爆 </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_风俗''">商量价格 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonG"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_风俗''">继续500￥ </a></div>'
+			end
+			if a=5:
+			'<div class="buttonG"><a href="exec:money-=788 & gt ''夜色精巢'',''风俗区''">结账788￥ </a></div>'
+			end
+			if a!7 and a>=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_风俗''">肏逼 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_风俗''">冲刺 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''主播_事件'',''LY_Event_风俗''">射精 </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''主播_事件'',''LY_Event_风俗''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonG"><a href="exec:money-=1288 & gt ''夜色精巢'',''风俗区''">结账1288￥ </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:你果然在这……</p>'
+			 '<p><<$LY.name>>: 那你呢?…是来特意照顾我生意的嘛?</p>'
+		 '</div>'
+	end
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 如果要插入的话，是要额外加钱的。</p>'
+			 '<p>我:榜一的优惠价呢…?</p>'
+			 '<p><<$LY.name>>: 现在我又不是主播，你只是一个来操我的嫖客而已。</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 $LY.love+=q+my.魅力
+		 $LY.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: 对了，我在这里工作的事不要告诉我的……我的室友。</p>'
+			 '<p>我: 你打算瞒他多久？</p>'
+			 '<p><<$LY.name>>: 起码等我攒够了钱，还完了贷款。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="LY_Event_风俗2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\风俗2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_风俗2''">舔屌 </a></div>'
+			end
+			if a!2 and 1<=q and q<=3: 
+			'<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_风俗2''">口交 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5 : 
+			'<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_风俗2''">肏逼 </a></div>'
+			end
+			if a!4 and 3<=q and q<=7 :
+			'<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_风俗2''">大力抽插 </a></div>'
+			end
+			if a!5 and 10>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_风俗2''">加速冲刺 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_风俗2''">颜射 </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_风俗2''">舔干净 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonG"><a href="exec:money-=1688 & gt ''夜色精巢'',''风俗区''">结账1688￥ </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:我来照顾你生意了，你的屁股翘了不少嘛。</p>'
+			 '<p><<$LY.name>>: 还不是老板们天天摸出来的。</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$娇喘声>>老板，你的鸡巴越来越咸了。</p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $LY.love+=q+my.魅力
+		 $LY.bad+=q*5/2
+		 '<div class="dialog_menu">'
+			 '<p>我: 大城市不容易吧。</p>'
+			 '<p><<$LY.name>>: 如果不是被黑中介骗了，说不定我已经过上好日子了，我本来是想做个老师什么的。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="LY_Event_群P1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\群P1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''主播_事件'',''LY_Event_群P1''">快进▶▶▶ </a></div>'
+			if a!0:'<div class="button"><a href="exec:a-=1 & gt ''主播_事件'',''LY_Event_群P1''">后退▶▶▶ </a></div>'
+
+			'<div class="button"><a href="exec:gt ''家_电脑''">返回 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''家_电脑''">返回 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 今天那个废物被我安排了强制加班，他居然拜托我和副组长来照顾你呢！</p>'
+			 '<p><<$LY.name>>: 我不信，我要给他打电话！</p>'
+			 '<p>副组长:  哈哈！我们是骗了你，他不是拜托我们来照顾你，是拜托我们来操你！</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: ？！又要…强奸…我！这次…绝对！？住手啊！！</p>'
+			 '<p>组长: 嘘，安静点，别发出声音就不会受伤。</p>'
+			 '<p>副组长:  组长，你先来！</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 你个骚逼的穴怎么越来越松了，说是不是整天和他在操逼啊？！</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: ？！没有，才没有……快住手…！</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>副组长:  哟西！现在轮到我了，组长的精液我会更加用力地捅进你子宫里的！</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: …不要…射进来…呜呜…求你了…！</p>'
+		 '</div>'
+	end
+
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>组长: 骚逼，被我们操的开心吗？！</p>'
+			 '<p><<$LY.name>>: 呜呜………………</p>'	 
+			 '<p>组长: 看来没有满足嘛，那星期天我带着整个组来操你好不好？记得提前吃避孕药喔！</p>'
+			 $LY.监控二看完=1
+		 '</div>'
+	end
+  q+=1
+End
+
+if $ARGS[0]="紧锁2":
+	'<div class ="show_menu"><img src="images\NPC\LY\pics\无人.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''深巷''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>房间内传来了呻吟声，如果安装了摄像头，应该能捕捉到画面吧。</p>'
+	'</div>'
+end
+
+if $args[0]="LY_Event_群P2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\群P2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a<=1:
+			'<div class="buttonS2"><a href="exec:a+=1 & gt ''主播_事件'',''LY_Event_群P2''">轮奸 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS2"><a href="exec:a=0 & gt ''主播_事件'',''LY_Event_群P2''">轮奸 </a></div>'
+			end
+			if a!3 and q>=3 : 
+			'<div class="buttonR2"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_群P2''">肛交 </a></div>'
+			end
+			if a=3 :
+			'<div class="buttonR4"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_群P2''">肛内中出 </a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="buttonS1"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_群P2''">插逼 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_群P2''">轮奸 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_群P2''">内射 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_群P2''">舔干净 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:money-=1688 & gt ''深巷''">不看了 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·透过窗玻璃你观察着屋内</p>'
+			 '<p>组长:不介意我来给你们示范一下吧？让我来肏她给你看看，女人骨子里都是希望男人更粗暴一点的，如果你们舍不得太粗暴的对待她，明天不用来上班了！</p>'
+			 '<p><<$LY.name>>: <<$娇喘声>>不要…会让我一下子就泄出来的……啊……不要啊…</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>副组长:女人嘴上说不要的时候，其实就是在让男人给她更多，给我好好记着这种感觉，一会要是能从人群里认出我，就把你干得爽上天。</p>'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>组员:别一副被玩坏的样子啊，小姐，正戏还没正式开始呢。</p>'
+			 '<p><<$LY.name>>: <<$娇喘声>>呜啊……太多了……不要再射进去……啊啊……太舒服了……</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p>组员:老大，万一她报警说我们强奸她怎么办？新法规可是重罪...</p>'
+			 '<p>组长: 哈哈！被强迫的女人这么骚的给你舔干净吗？</p>'
+			 '<p><<$LY.name>>: ……你们这群人渣…再不走我就要报警了…</p>'
+			 '<p>组员: 女人都这么口不对心吗？</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="LY_Fuck_仓库":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\仓库<<LY仓库>>-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a!0:
+			'<div class="button"><a href="exec:a=0 & gt ''主播_事件'',''LY_Fuck_仓库''">按住操 </a></div>'
+			end
+			if a!1 and q>=0: 
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Fuck_仓库''">大力抽插 </a></div>'
+			end
+			if a!2 and q>=2: 
+			'<div class="buttonS"><a href="exec:a=2 & gt ''主播_事件'',''LY_Fuck_仓库''">射精 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''电视台''">离开 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:那就在这里嫖吧！</p>'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$话>>你要把我干死了！</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 $LY.love+=2
+		 $LY.bad+=2
+		 '<div class="dialog_menu">'
+			 '<p>我: 舒服了。</p>'
+			 '<p><<$LY.name>>: 呼————感觉回来了。</p>'
+		 '</div>'
+	end
+ q+=1
+End
+
+if $args[0]="LY_Fuck_台长室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\台长室1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if a!0 and 3>=q and q>=0: 
+			'<div class="button"><a href="exec:a=0 & gt ''主播_事件'',''LY_Fuck_台长室''">口交 </a></div>'
+			end
+			if a!1 and 4>=q and q>=0: 
+			'<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Fuck_台长室''">抠逼 </a></div>'
+			end
+			if a!2 and 5>=q and q>=2: 
+			'<div class="buttonR3"><a href="exec:a=2 & gt ''主播_事件'',''LY_Fuck_台长室''">潮吹 </a></div>'
+			end
+			if a!3 and 6>=q and q>=3: 
+			'<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Fuck_台长室''">开操 </a></div>'
+			end
+			if a!4 and q>=4: 
+			'<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Fuck_台长室''">加速抽插 </a></div>'
+			end
+			if a=4: 
+			'<div class="buttonS"><a href="exec:a=5 & gt ''主播_事件'',''LY_Fuck_台长室''">射精 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''电视台''">离开 </a></div>'
+			'</div>'
+	end
+
+
+	if 1>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:台长出去了，在这里做爱刺激吧？！</p>'
+			 '<p><<$LY.name>>: <<$娇喘声>>我们速战速决…</p>'
+		 '</div>'
+	end
+
+
+	if 4>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$话>></p>'
+			 if a=2:'<p>我:你怎么能？！喷的到处都是…这下完蛋了…</p>'
+		 '</div>'
+	end
+
+
+	if a=5:
+		 $LY.love+=q
+		 $LY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+			 '<p>我:把你喷出来的淫水和精液擦干净，我去外面帮你望风。</p>'
+		 '</div>'
+	end
+ q+=1
+End
+
+if $args[0]="LY_Event_女仆":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\女仆1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_女仆''">应聘能力 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3: 
+            '<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_女仆''">脱裤子 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5 : 
+            '<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_女仆''">口交 </a></div>'
+            end
+            if a!4 and 3<=q and q<=7 : 
+            '<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_女仆''">舔蛋蛋 </a></div>'
+            end
+            if a=4:
+            '<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_女仆''">撩起裙子 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_女仆''">玩弄小穴 </a></div>'
+            end
+            if a=5 or a=6 or a=8:
+            '<div class="buttonS"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_女仆''">骚逼直插 </a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_女仆''">打开腿 </a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''主播_事件'',''LY_Event_女仆''">加速冲刺 </a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''主播_事件'',''LY_Event_女仆''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''大别墅''">先干着吧 </a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:喔？</p>'
+             '<p><<$LY.name>>: 喂?有人在吗？我是来应聘女仆的！</p>'
+             '<p>我:我寻思着你白天要在电视台工作，晚上了还要去风俗店，怎么会想到还来给我做居家女佣？</p>'
+             '<p><<$LY.name>>: 嗨，还不是钱不够花嘛！</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 怎么样，基础的卫生我做的还可以吗？</p>'
+             '<p>我:光做好表面的清洁可不够……</p>'
+         '</div>'
+    end
+
+
+    if 9>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: <<$娇喘声>></p>'
+             if a>=3:'<p>我:挺能干的嘛…</p>'
+             if a>=7:'<p><<$LY.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=10:
+         $LY.love+=q+my.魅力
+         $LY.bad+=q*2
+         if 蓝牙女仆=0:蓝牙女仆=1
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 对了，我在这里工作的事不要告诉我的……我的室友。</p>'
+             '<p>我: 你的室友？我都快忘了还有这回事呢，打算瞒他多久？</p>'
+             '<p><<$LY.name>>: 再说吧。</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="LY_Event_房委托":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\女仆2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_房委托''">稍后再聊 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3: 
+            '<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_房委托''">直插到底 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5 : 
+            '<div class="button"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_房委托''">取悦我 </a></div>'
+            end
+            if a!4 and 3<=q and q<=7 : 
+            '<div class="button"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_房委托''">自己干 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8 : 
+            '<div class="button"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_房委托''">加速抽插 </a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_房委托''">射精 </a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_房委托''">什么事？ </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:蓝牙女仆=2 & gt ''大别墅'',''主卧''">答应她 </a></div>'
+                '<div class="button"><a href="exec:gt ''大别墅'',''主卧''">再说吧 </a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:嗯？怎么这么主动？</p>'
+             '<p><<$LY.name>>: 我有一件私事想拜托你！</p>'
+         '</div>'
+    end
+
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:先不着急说私事，我们先办私事…</p>'
+             '<p><<$LY.name>>: 嗯<<$娇喘声>></p>'
+             if a>=3:'<p>我:你知道该怎么做！</p>'
+             if a>=3:'<p><<$LY.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=7:
+         $LY.love+=q+my.魅力
+         $LY.bad+=q*2
+         '<div class="dialog_menu">'
+             '<p>我: 说吧，什么事？</p>'
+             '<p><<$LY.name>>: 你和帝国娱乐很熟对吧…我想…加入帝国娱乐，你能做我的介绍人嘛？</p>'
+             '<p>我: 这件事？今天太晚了…我需要先休息了…</p>'
+             '<p><<$LY.name>>: 别呀！那明天下午，我们在赤色餐厅里边吃边谈吧…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="LY_Event_邀约":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\邀约1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!2:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_邀约''">我的好处呢？ </a></div>'
+            end
+            if a=1: 
+            '<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_邀约''">射精 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & q=0 & gt ''主播_事件'',''LY_Event_N面试''">出发面试 </a></div>'
+            '</div>'
+    end
+
+
+    if 1>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>我:具体说说吧，怎么突然想进帝国娱乐了？</p>'
+             '<p><<$LY.name>>: 你知道的嘛，我本来就是主播出身，而且现在真人秀板块我也负责的不错……就考虑进军一下娱乐公司，朝着正规的艺人发展看看嘛！</p>'
+             if a>=1:'<p>我:我的忙可不是瞎帮的！</p>'
+             if a>=1:'<p><<$LY.name>>: 我明白<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+    if a=2:
+         $LY.love+=q+my.魅力
+         $LY.bad+=q*2
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 私底下，我就是你的肉便器，你可以随时随地肏弄我，从今往后你就是我的主人…你让我做什么就做什么，你让我和谁干我就和谁干！</p>'
+             '<p>我: 这个条件还不错…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="LY_Event_N面试":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\面试O1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''主播_事件'',''LY_Event_N面试''">缓解紧张 </a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''主播_事件'',''LY_Event_N面试''">上去面试吧 </a></div>'
+            end
+            if a!3 and 2<=q and q<=6 : 
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''主播_事件'',''LY_Event_N面试''">命令取悦我 </a></div>'
+            end
+            if a!4 and 3<=q and q<=8 : 
+            '<div class="buttonS1"><a href="exec:a=4 & gt ''主播_事件'',''LY_Event_N面试''">口我 </a></div>'
+            end
+            if a!5 and 4<=q and q<=9 : 
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''主播_事件'',''LY_Event_N面试''">用心舔！ </a></div>'
+            end
+            if a!6 and 5<=q and q<=10 : 
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''主播_事件'',''LY_Event_N面试''">吮吸睾丸 </a></div>'
+            end
+            if a!7 and 6<=q and q<=11 : 
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_N面试''">享受口交 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_N面试''">射精 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''帝国集团''">离开 </a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 应该能顺利成功对吧？你和<<$TS.name>>关系超级好的！</p>'
+             '<p>我:呃…还行吧？你不要太紧张应该没事的。</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>我:喂？你这是在干什么？</p>'
+             '<p><<$LY.name>>: 缓解紧张情绪啊！这里面装的是你的精液，每次我紧张的时候都拿出来舔几下就好了……</p>'
+             '<p>我:真的有效吗？</p>'
+             '<p><<$LY.name>>: 你要不要试试看？现在我都把它当护身符一样随身带着…</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p>·15分钟后</p>'
+             '<p>我:怎么样？顺利吗？</p>'
+             '<p><<$LY.name>>: OK！一次就过了！</p>'
+             '<p>我:酷~</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=3:
+         '<div class="dialog_menu">'
+             '<p>我:按照条件，现在我要你在这里让我射出来！</p>'
+             '<p><<$LY.name>>: 好的主人<<$娇喘声>></p>'
+             if a>=5:'<p>我:以前怎么没发现你的口活这么好？</p>'
+             if a>=5:'<p><<$LY.name>>: 是主人不断调教的好<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=8:
+         $LY.love+=q+my.魅力
+         $LY.bad+=q*2
+         if 蓝牙女仆=2:蓝牙女仆=3
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 主人射的真多呀，小母狗好开心呢！</p>'
+             '<p>我: 嘴巴甜了不少嘛…</p>'
+             '<p><<$LY.name>>: <<$MM.name>>和我分在同一个练习室了！我会照顾好她的！</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $ARGS[0]="妹循环0":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\妹双1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    '<div class="button_menu">'
+        '<div class="buttonB1"><a href="exec:a=3 & q=3 & gt ''主播_事件'',''LY_Event_N面试''">叫<<$LY.name>>出来</a></div>'
+        '<div class="buttonS2"><a href="exec:minutes+=60 & gt ''主播_事件'',''妹循环1''">偷窥她们</a></div>'
+        if 妹双完成=1:'<div class="buttonS4"><a href="exec:minutes+=60 & gt ''主播_事件'',''LY_Event_妹搞''">送她们礼物</a></div>'else:'<div class="buttonGr"><a href="exec:">她们不够熟</a></div>'
+        '<div class="button"><a href="exec:minutes+=60 & gt ''帝国娱乐''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$MM.name>>:虽然你的年纪比我大，但你是我的第一个后辈呢！放心啦，我会好好照顾你的！</p>'
+        '<p><<$LY.name>>:那我们就以好姐妹相称咯？</p>'
+        '<p>我:……（这么快就和我妹妹处好关系了）</p>'
+    '</div>'
+end
+
+if $ARGS[0]="妹循环1":
+     妹双num+=1
+     if 妹双num>=6:妹双完成=1 & 妹双num=1
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\妹双1-<<妹双num>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    '<div class="button_menu">'
+        if q=0:'<div class="buttonP"><a href="exec:minutes+=60 & gt ''主播_事件'',''妹循环1''">看一会吧</a></div>'else:'<div class="buttonGr"><a href="exec:">下次再来看看吧</a></div>'
+        '<div class="button"><a href="exec:minutes+=60 & gt ''帝国娱乐''">离开</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·看来她们的感情很好</p>'
+    '</div>'
+    q+=1
+end
+
+if $args[0]="LY_Event_妹搞":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LY\vids\妹搞1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if 5>=a and a>=0:
+            '<div class="button"><a href="exec:a+=1 & gt ''主播_事件'',''LY_Event_妹搞''">看下去 </a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''主播_事件'',''LY_Event_妹搞''">不看了 </a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''主播_事件'',''LY_Event_妹搞''"><<$LY.name>>的信息 </a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''主播_事件'',''LY_Event_妹搞''">又有新消息 </a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''主播_事件'',''LY_Event_妹搞''"><<$MM.name>>的信息 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''帝国集团''">笑而不语 </a></div>'
+            '</div>'
+    end
+
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 这是什么？是粉丝团寄来的礼物吗？</p>'
+             '<p><<$MM.name>>: 我看看…“我猜这是你们会喜欢的东西，祝你们玩的开心。”</p>'
+             if a>=1:'<p><<$MM.name>>: 啊？！怎么是一大箱子情趣玩具啊？！也太搞了吧！</p>'
+             if a>=1:'<p><<$LY.name>>: 你，你想试试嘛？</p>'
+             if a>=1:'<p><<$MM.name>>: 喔？</p>'
+             if a>=2:'<p><<$MM.name>>: <<$娇喘声>></p>'
+             if a>=3:'<p><<$LY.name>>: <<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+             '<p>·刚走出去没几步，手机响了</p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         '<div class="dialog_menu">'
+             '<p><<$LY.name>>: 主人，你妹妹我照顾的很好，请你放心。我们相处得很愉快。</p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p>·刚放下手机，铃声又响了</p>'
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+             '<p><<$MM.name>>: 嘿！笨蛋老哥！我有新的后辈啦！怎么样，她的身材是不是没我好呀？我知道你爱看这个！嘘——千万别告诉她是我拍的！</p>'
+         '</div>'
+    end
+  q+=1
+End
+--- 主播_事件 ---------------------------------
+

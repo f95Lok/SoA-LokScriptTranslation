@@ -1,0 +1,40 @@
+# vice_principal_house
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+'<div class ="show_menu"><img src="images\place\副校长家.jpg" width="854"></div>'
+
+'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''writer_event''"><<$ZJ.name>>room</a></div>'
+	if hour>=18:'<div class="button"><a href="exec:minutes+=5 & gt ''vice_principal_event'',''in_the_room''"><<$FXZ.name>>room</a></div>'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''residential_area''">leave</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p><<$FXZ.name>>The home is full of historical and cultural atmosphere.</p>'
+	$FXZhomeEvent=rand(0,10)
+	if hour>=18 or week_day >=6:
+		if  $FXZhomeEvent=0:'<p><<$FXZ.name>>In the living room.'
+		if  $FXZhomeEvent=1:'<p><<$FXZ.name>>In the toilet.'
+		if  $FXZhomeEvent<=1:'<a href="exec:minutes+=5 & gt ''vice_principal_event'',''random_home''">←Go fuck her!</a></p>'
+	end
+'</div>'
+
+
+
+
+--- vice_principal_house ---------------------------------
+

@@ -1,0 +1,315 @@
+# 继母办公室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+$继母办公室NUM=RAND(1,3)
+if $督察事件链=0 and $JM.love>=400-$JM.bad :gt'督察_事件','第一幕初见'
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "姆苟制药_地图"
+
+'</div>'
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\继母办公室.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''继母办公室''">消磨时间</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>的办公室，更像一个小型会议厅！作为姆苟制药的CEO一定有不少麻烦。</p>'
+	'</div>'
+End
+
+if $args[0]="办公室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好<<$继母办公室NUM>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''继母办公室'',''故事补充''">交谈</a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''继母办公室'',''三个要求''">三个要求</a></div>'
+		if MGF>0 and $JM_Event_mgf=0:
+		'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''继母办公室'',''使用麦高芬''">使用麦高芬</a></div>'
+		end
+		if $JM_Event_mgf>0:
+		'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''继母办公室'',''观察''">观察</a></div>'
+		end
+		if $JM.LOVE>=100 and $JM.BAD>=100:
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''继母办公室'',''提出约会''">温泉旅行</a></div>'
+		end
+		
+		if $JM.LOVE>=150 and $JM.BAD>=150 and $JM_Event_3p=0:
+		'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''继母办公室'',''圣母抉择''">圣母心</a></div>'
+		end
+		
+		if $JM.LOVE>=150 and $JM.BAD>=150 and $JM_Event_3p=1:
+		'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''继母_事件'',''JM_Fuck_3P'',''3P0开幕''">与助手3P</a></div>'
+		end
+		if JM.忏悔=0 and 主教选择=1:'<div class="buttonG1"><a href="exec:JM.忏悔=1 & $m=''JM'' & $ma=$JM.name & gt ''修女_事件'',''XN_Fuck_忏悔''">邀请去教堂洗礼</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：呃....<<$主角姓名>>...有什么事吗..</p>'
+	'</div>'
+End
+
+
+if $args[0]="人在":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\公司开场~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if  $JM_Event_grandpa <7:
+		'<div class="button"><a href="exec:minutes+=5 & $B=''员工'' & C=0 & gt ''继母_事件'',''临时工''">临时工</a></div>'
+		 end
+		if $JM_Event_grandpa>=5 and $JM_Event_new=1 and $JM_Event_store>=1 and 2>=$JM_Event_store:
+		 '<div class="button"><a href="exec: gt ''继母_事件'',''处理麻烦''">处理麻烦</a></div>'
+		 end
+		if $JM_Event_store=3:
+		 '<div class="button"><a href="exec: gt ''继母_事件'',''邀功''">邀功</a></div>'
+		 end
+		 if $JM_Event_grandpa>=5 and $JM_Event_new=1 and $JM_Event_store=4 and $JM_Event_grandpa <7:
+		 '<div class="button"><a href="exec:minutes+=5 & gt ''继母办公室'',''苦肉计''">苦肉计</a></div>'
+		 end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>-<<$jm.name>>看上去忧心忡忡.......</p>'
+		'<p>-<<$jm.name>>：....麻烦事一件接着一件.......</p>'
+
+	'</div>'
+End
+
+if $args[0]="故事补充":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''继母办公室'',''关于父亲''">关于父亲</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''继母办公室'',''关于麦高芬''">关于麦高芬</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：你想知道什么？</p>'
+	'</div>'
+End
+
+
+if $args[0]="关于父亲":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好<<$继母办公室NUM>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：  我和你爸只不过是财阀之间的企业联姻而已，他自己在公司里也养着情人....形婚罢了。</p>'
+		'<p>我： 那姐姐和妹妹的生父是谁？</p>'
+		'<p><<$jm.name>>：  ....是几个能一手遮天的大人物...具体是谁的我也不知道...</p>'
+		'<p>我： 关于父亲的昏迷住院....有没有什么阴谋论？</p>'
+		'<p><<$jm.name>>：  ....我不知道，虽然这件事的最大获利者是我，但我也要承担1000万的亏损.....</p>'
+	'</div>'
+End
+
+
+if $args[0]="关于麦高芬":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好<<$继母办公室NUM>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：  我着手B-137项目的研究成果是从天然植物中提取出了一种叫麦高芬的纯天然神经抑制剂，催情剂，中枢兴奋剂。
+		因为后续的市场投入出了严重的问题。我不得不让我的助手背锅，他也因此用B-137的研发责任人一事来要挟我，对我做了那种事...我听说<<$jj.name>>
+		还在偷偷研究，唉。它就是一个潘多拉的魔盒，只会让人沉沦与痴狂。</p>'
+	'</div>'
+End
+
+if $args[0]="苦肉计":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好3~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我：  下午你回家一趟，既然外公已经和你撕破脸皮了，就得心狠手辣一点。</p>'
+		'<p><<$jm.name>>：  你想要我做什么？</p>'
+		'<p>我：  我要看着被外公侵犯，这样我们就有动手的理由了....</p>'
+		'<p><<$jm.name>>：  动手...？你.....想做什么？......</p>'
+		'<p>我：  ....就是你现在所想的！.......再晚就来不及了....断绝父女关系....被董事会除名....新闻会怎么写？...身败名裂....如丧家之犬....</p>'
+		'<p><<$jm.name>>：  够了！....我...我....如果法官不相信我们怎么办？...你..你会坐牢的...</p>'
+		'<p>我：  你做好你的分内事就行了，越是头脑发热的人，越是喜欢逞英雄。</p>'
+		$JM_Event_grandpa=6
+	'</div>'
+End
+
+if $args[0]="三个要求":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\办公室友好2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & $B=''口交''  &C=0  & gt ''继母_事件'',''第一个要求''">第一个要求：口交</a></div>'
+		if  $jm.love>=-$jm.bad+120:
+		'<div class="buttonS"><a href="exec:minutes+=5 &  gt ''继母_事件'',''继母_公司_日常'',''公司日常0''">第二个要求：在这干</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:minutes+=5 &  gt ''继母办公室'',''三个要求''">第二个要求：？？？</a></div>'
+		end
+		if soil_b>0:
+		'<div class="buttonG"><a href="exec:minutes+=5 & gt ''继母办公室'',''要求提升地质分析设备''">第三个要求：升级地质分析设备</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:minutes+=5 &  gt ''继母办公室'',''三个要求''">第三个要求：？？？</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：...我答应过你.....帮我处理三个麻烦.....答应你三个要求....</p>'
+	'</div>'
+End
+
+
+if $args[0]="要求提升地质分析设备":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\家友好~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我：能批一点资金多购入几台土壤地质分析仪吗？最好是最新款能检测微量金属元素的.......</p>'
+		'<p><<$jm.name>>：.....既然你这么说了，那这就算其中的一个要求了。我这就去订购，你不能反悔了！....</p>'
+		$DZ.event_设备=1
+	'</div>'
+End
+
+if $args[0]="使用麦高芬":
+	'<div class ="show_menu"><img src="images\NPC\JM\pics\下药.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>你将从<<$jj.name>>那里搞来的麦高芬混入了<<$jm.name>>的杯子里。</p>'
+		$JM_Event_mgf=1
+		MGF-=1
+	'</div>'
+End
+
+if $args[0]="观察":
+		$继母观察NUM=RAND(0,10)
+		if  $JM_Event_mgfs < $继母观察NUM:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\JM\vids\办公室友好<<$继母办公室NUM>>~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		 else:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\JM\vids\首药0~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		end
+
+		
+	'<div class="button_menu">'
+		if  $JM_Event_mgfs < $继母观察NUM:
+			'<div class="button"><a href="exec:minutes+=30 & gt ''姆苟制药''">再等等...</a></div>'
+		 else:
+		  	'<div class="button"><a href="exec:a=1 & gt ''继母_事件'',''JM_Fuck_首药'',''首药1''">带她去休息</a></div>'
+		  	end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：(￢_￢)瞄...</p>'
+	'</div>'
+End
+
+if $args[0]="提出约会":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\家友好~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''姆苟制药''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我：听说新开了一家温泉馆，你想去泡澡吗？......</p>'
+		'<p><<$jm.name>>：.....你是想去泡澡，还是想去泡我？</p>'
+		'<p>我：看妈妈的意思咯....？</p>'
+		'<p><<$jm.name>>：.....我这周还有几个会议要开，不过应该能抽出时间。星期五下午三点，你去大厅里等我开完会出来。</p>'
+		$JM_Event_date=1
+	'</div>'
+End
+
+if $args[0]="圣母抉择":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JM\vids\HM交谈~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$JM_Event_3p=1 & minutes+=5 & gt ''姆苟制药''">留下他3P</a></div>'
+		'<div class="button"><a href="exec:$JM_Event_3p=2 & minutes+=5 & gt ''姆苟制药''">让他滚</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$jm.name>>：.....之前那个助手，我把他返聘了....其实这件事我对他也是于心有愧的...听说他之前是倾其所有投入的研究工作..</p>'
+		'<p>我：什么....？他手上已经没有你的把柄了。B-137文件我不是给你了吗？？</p>'
+		'<p><<$jm.name>>：.....嗯..但他是初代麦高芬受体志愿者，既然他对我不构成威胁了，不如留着他........</p>'
+		'<p>我：我看你是被他奸得上瘾了吧。</p>'
+		'<p><<$jm.name>>：.....如果你同意留下他的话......我们可以3P.....</p>'
+	'</div>'
+End
+
+
+
+ 
+--- 继母办公室 ---------------------------------
+

@@ -1,0 +1,353 @@
+# 4S店
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "商场_地图"
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class ="show_menu"><img src="images\place\4S店内.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''对话''">对话</a></div>'
+		if 保时捷=1:'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''贵宾休息室''">贵宾休息室</a></div>'
+		if $CH.展台=1:'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''摩托车展台''">摩托车展台</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·刚迈入展厅，几位销售员便开始从上至下不断打量着你。</p>'
+	'</div>'
+
+end
+
+ 
+if $ARGS[0] ="对话":
+	$XS.available=1
+	'<div class ="show_menu"><img src="images\place\4S店内.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $销售_Event_买车=0:'<div class="buttonG"><a href="exec:minutes+=5 & gt ''4S店'',''车里谈''"><<Year>>款718</a></div>'
+		if $销售_Event_买车=2:'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''继续选配''">继续选配</a></div>'
+		if $销售_Event_买车=3:'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''支付尾款''">支付尾款</a></div>'
+		if $销售_Event_买车=4:'<div class="button"><a href="exec:minutes+=5 & gt ''销售_事件'',''销售_提车''">提车</a></div>'
+		if $销售_Event_买车=5:'<div class="button"><a href="exec:minutes+=5 & gt ''销售_事件'',''销售_Fuck_车内''">介绍车辆</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">没事</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if $销售_Event_买车=0:
+		'<p><<$XS.NAME>>:先生您好❤下面由我来为您介绍几款车型。</p>'
+		'<p><<$XS.NAME>>:718 Cayman是一款热门的中型跑车，拥有高性能的发动机和复杂的车身结构，能够提供出色的动力性能和较高的转弯灵敏度。718有多种发动机选择，包括2.0升四缸涡轮增压发动机和4.0升六缸涡轮增压发动机。它们的最大功率分别为300马力和414马力…</p>'
+		end
+		if 3>=$销售_Event_买车 and $销售_Event_买车>=1:
+		'<p>我:我可以提车了吗？</p>'
+		'<p><<$XS.NAME>>:先生…您先不要着急，手续在审核中…等老板回来了…我会给您打电话通知的</p>'
+		if  $销售电话1=1 and $销售_Event_买车=1:'<p><<$XS.name>>*突然小声道:?我在电话里说了…让您周六21点后在赤色餐厅见面…</p>'
+		
+		
+		end
+		if $销售_Event_买车=4:
+		'<p>我:我可以提车了吗？</p>'
+		'<p><<$XS.NAME>>:我们已经为您准备好了！请跟随我移步至VIP室。</p>'
+		end
+	'</div>'
+end
+ 
+ 
+ 
+ 
+if $ARGS[0] ="车里谈":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\讲解.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:minutes+=5 & gt ''4S店'',''全款购买''">考虑全款购买</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">太贵了</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$XS.NAME>>:先生您的眼光真好❤718的内饰采用了高品质的材料，包括真皮、铝和高级软织物。车内的座椅配备了电动调节和加热功能，可以帮助您在不同的气候条件下保持舒适…</p>'
+		'<p>我:我可以试驾吗？</p>'
+		'<p><<$XS.NAME>>:一般情况下，您需要先签署试驾协议，然后在经销商的指导下进行试驾，但如果您有购买意向的话…我可以破例让您跳过流程直接试驾喔❤</p>'
+		'<p>我:你不会对每个客人都这么说吧？</p>'
+		'<p><<$XS.NAME>>:怎么会呢❤您有购买意向吗❤目前<<Year>>款718的指导价是￥718,000❤现在我们有优惠活动，今日订车可享受40%的折扣呢❤</p>'
+	'</div>'
+end
+ 
+ 
+if $ARGS[0] ="全款购买":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\讲解.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if money>=70000:'<div class="buttonG"><a href="exec:minutes+=5 & money-=70000 & gt ''4S店'',''支付定金''">支付定金</a></div>'else:'<div class="buttonGr"><a href="exec:">支付定金</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">再说吧</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$XS.NAME>>:呃…全款？先生❤没想到您年纪轻轻❤就…事业有成呢❤</p>'
+		'<p>我:那我们签合同吧。</p>'
+		'<p><<$XS.NAME>>:先生❤今天我们老板不在，不如您把定金先交一下…等老板回来了…我就给您打电话。</p>'
+		'<p>我:定金是多少钱？</p>'
+		'<p><<$XS.NAME>>:定金是￥70,000❤今日支付还赠送车载冰箱一个❤</p>'
+	'</div>'
+end
+
+if $ARGS[0] ="支付定金":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\谈.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$XS.NAME>>:好嘞！<<$主角姓>>先生，请您填写一下自己完整的个人信息，一旦老板回来了…我就给您打电话。</p>'
+		'<p>我:好的。</p>'
+		$销售_Event_买车=1
+	'</div>'
+end
+ 
+if $ARGS[0] ="继续选配":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\讲解.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''销售_事件'',''诱惑''">和她去家里拿</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$XS.NAME>>:<<$主角姓>>先生！实在是万分抱歉……我把之前的选配单忘在家里了！</p>'
+		'<p>我:也不怪你，毕竟你喝多了。</p>'
+		'<p><<$XS.NAME>>:<<$主角姓>>先生！不耽误的话请和我一起去家里拿吧。</p>'
+	'</div>'
+end
+ 
+ 
+if $ARGS[0] ="支付尾款":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\支付尾款.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if money>=415000:'<div class="buttonG"><a href="exec:money-=415000 & gt ''销售_事件'',''销售_尾款''">支付￥415,000</a></div>'else:'<div class="buttonGr"><a href="exec:">支付￥415,000</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">下次再付</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>店长:<<$主角姓>>先生！刚下飞机！招待不周！招待不周！</p>'
+		'<p><<$XS.NAME>>:<<$主角姓>>先生！尾款一共是……￥415,000！其中包含了5000￥的VIP增值服务</p>'
+		'<p>店长:<<$XS.NAME>>！做的不错！你的业务越来越精通了…*哈欠</p>'
+	'</div>'
+end
+ 
+ 
+
+if $ARGS[0] ="贵宾休息室":
+		if $CH事件链=1:gt'4S店','事件一'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\CH\vids\立绘0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		
+		'<div class="button_menu">'
+			if $车载音响=0 and money>=50000:'<div class="buttonG"><a href="exec:$车载音响=1 & money-=50000 & gt ''驾车''">升级音响系统￥50,000</a></div>'
+			if $CH.available=0:'<div class="button"><a href="exec:$CH.available=1 & gt ''4S店'',''贵宾休息室''">打招呼</a></div>'
+			if ($CH.available=1 and  $CH事件链<=2) or $CH.饭>=1:'<div class="buttonP"><a href="exec: gt ''4S店'',''车行对话''">对话</a></div>'
+			if $CH事件链>=3 and $CH.饭=0:'<div class="buttonG1"><a href="exec: gt ''车行_事件'',''市场营销''">市场营销</a></div>'
+			
+			if $CH事件链>=3 and $CH.饭>=1:'<div class="buttonS2"><a href="exec: gt ''车行_事件'',''车行_Fuck_办公室1''">市场营销</a></div>'
+			if $CH.电话=1:'<div class="buttonS2"><a href="exec: gt ''车行_事件'',''车行_Fuck_oil1''">精油按摩</a></div>'
+
+
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">离开</a></div>'
+		'</div>'
+
+
+		'<div class="dialog_menu">'
+			if $CH.available=0:
+			'<p><<$CH.NAME>>: 我是这家车行的代理负责人，这里是我的临时办公室。</p>'
+			else:
+			'<p>我: 嗨~</p>'
+			'<p><<$CH.name>>: <<$主角姓>>先生！您是尊贵的保时捷车主，有什么我能效劳的？</p>'
+			if $CH事件链>=3:'<p>我: 别这样说，我还有一个身份是你的下属。</p>'
+			end
+		'</div>'
+end
+
+
+if $ARGS[0] ="车行对话":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\CH\vids\立绘1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">没事</a></div>'
+			if $车载音响=0 and money>=50000:'<div class="buttonG"><a href="exec:$车载音响=1 & money-=50000 & gt ''驾车''">升级音响系统￥50,000</a></div>'
+			if $CH事件链=2:'<div class="button"><a href="exec:gt ''车行_事件'',''毛遂自荐''">毛遂自荐</a></div>'
+			if $CH.饭>=1:'<div class="button"><a href="exec:gt ''车行_事件'',''车行_Fuck_感谢0''">谈判技巧</a></div>'
+			if $CH.广告>=10:'<div class="buttonS"><a href="exec:$CH.展台=1 & gt ''4S店''">推出摩托车展台</a></div>'
+		'</div>'
+
+
+		'<div class="dialog_menu">'
+			'<p><<$CH.name>>: <<$主角姓>>先生，有什么事？</p>'
+			if  $CH事件链=0:$CH事件链=1
+		'</div>'
+end
+
+if $ARGS[0] ="事件一":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\CH\vids\对话.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">不再偷听</a></div>'
+		'</div>'
+
+
+		'<div class="dialog_menu">'
+			'<p><<$CH.name>>: 爸爸的意思呢？</p>'
+			'<p>秘书: 老总的意思是，如果不能将【新能源摩托车】顺利推广的话，那你哥哥会接手整个车行业务。</p>'
+			'<p><<$CH.name>>: 请再给我一点时间好吗？</p>'
+			'<p>秘书: 小姐，你这样子我也很为难。</p>'
+			'<p><<$CH.name>>: 拜托了！</p>'
+			'<p>秘书: 那我再给你宽限几周时间，你现在只能寄希望于【新能源摩托车】的销售额了。</p>'
+			'<p><<$CH.name>>: 我会努力的！</p>'
+			if  $CH事件链=1:$CH事件链=2
+		'</div>'
+end
+
+if $ARGS[0] ="摩托车展台":
+	 if week_day =1 or week_day =3 or week_day =3 or week_day =5 or week_day =7:
+		$车模.name='若菜奈央(双休车模)'
+		$车模num='A'
+	 else:
+		$车模.name='美月恋(单休车模)'
+		$车模num='B'
+	 end
+
+	 if $CH.车模A=1 and $车模num='A':
+		'<div class ="show_menu"><img src="images\NPC\CH\pics\摩托展台A.jpg" width="854"></div>'
+		
+		'<div class="button_menu">'
+			'<div class="buttonB3"><a href="exec:minutes+=5 & gt ''车行_事件'',''车行_Fuck_店车A1''">去安全通道</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$车模.name>>: 新能源摩托车是一种使用电能、太阳能、氢能等替代传统燃料的摩托车，具有多重优势和广阔的前景…*哈欠。</p>'
+			'<p>我: 工作真划水。</p>'
+		'</div>'
+	end
+
+	 if $CH.车模B=1 and $车模num='B':
+		'<div class ="show_menu"><img src="images\NPC\CH\pics\摩托展台B.jpg" width="854"></div>'
+		
+		'<div class="button_menu">'
+			'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''车行_事件'',''车行_Fuck_店车B1''">模拟签单</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$车模.name>>: 新能源摩托车是一种使用电能、太阳能、氢能等替代传统燃料的摩托车…本周下订单可享帝国能源的三年闪充优惠。</p>'
+			'<p>我: 没想到工作挺卖力的。</p>'
+		'</div>'
+	end
+
+	 if $CH.车模A=0  or $CH.车模B=0:
+		'<div class ="show_menu"><img src="images\NPC\CH\pics\摩托展台.jpg" width="854"></div>'
+		
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''身后的人''">身后的人</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店''">离开</a></div>'
+		'</div>'
+
+
+		'<div class="dialog_menu">'
+			'<p><<$CH.name>>: 新能源摩托车是一种使用电能、太阳能、氢能等替代传统燃料的摩托车，具有多重优势和广阔的前景。首先，由于它们不会产生有害气体和污染物，符合现代社会对环保的要求，本周下订单可享帝国能源的三年闪充优惠。</p>'
+			'<p>我: 你亲自站台啊，真是太敬业了。</p>'
+			'<p><<$CH.name>>: 啊！？哥哥！</p>'
+		'</div>'
+	end
+end
+
+
+if $ARGS[0] ="身后的人":
+		'<div class ="show_menu"><img src="images\NPC\CH\pics\maleB.jpg" height="480"></div>'
+		
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4S店'',''去喝酒''">好吧</a></div>'
+		'</div>'
+
+
+		'<div class="dialog_menu">'
+			'<p>Patrick Bateman: 是谁让你穿成这样的？</p>'
+			'<p><<$CH.name>>: 啊！？哥哥！你不喜欢吗？</p>'
+			'<p>Patrick Bateman: 你知道吗，我真的很失望。你的那种不负责任的着装和不专业的行为真的让我感到很不满。我需要你能够以专业的态度来对待这份工作，并且时刻保持高度的警惕性和责任感。</p>'
+			'<p>我: 呃…是我的主意。</p>'
+			'<p>Patrick Bateman: 我不能容忍你愚蠢的主意对我的妹妹造成任何负面影响，马上停止否则我会毫不犹豫地找别人来完成这项任务。</p>'
+			'<p><<$CH.name>>: 哥哥！！你说的太过分了！</p>'
+			'<p>Patrick Bateman: 快点把衣服穿上！这是命令！</p>'
+		'</div>'
+end
+
+
+if $ARGS[0] ="去喝酒":
+		'<div class ="show_menu"><img src="images\NPC\CH\pics\喝酒.jpg" width="854"></div>'
+		
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''车行_事件'',''车行_Fuck_旅馆1''">喝下烈酒</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$CH.name>>: 你没事吧？我哥哥，呃。他说话就是这样子的，你别放在心上，这不怪你。是我自愿的。</p>'
+			'<p>我: 对不起，害你被你哥哥讨厌了。</p>'
+			'<p><<$CH.name>>: 我是他最喜欢的妹妹，怎么会讨厌我呢？哎，不说这个了，干杯！</p>'
+			'<p>我: 你不是不喝酒的嘛。</p>'
+			'<p><<$CH.name>>: 骗你的！我的酒量很好喔❤</p>'
+		'</div>'
+end
+
+
+
+--- 4S店 ---------------------------------
+

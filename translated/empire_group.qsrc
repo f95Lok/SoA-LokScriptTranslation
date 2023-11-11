@@ -1,0 +1,99 @@
+# empire_group
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+if $school_flower_event_chain=1 and 13<=hour and hour<=16 and week_day =6:gt'student_group_event','school_flower_interview_1'
+if $school_flower_event_chain=3 and 13<=hour and hour<=16 and week_day =6:gt'student_group_event','school_flower_interview_2'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		   if $CT.available=0:
+			'<a class="photo" data-title="100th floor: No authority""><img class="img_stretch" src="images\place\帝国穹顶.jpg"></a>'
+			else:
+			'<a class="photo" data-title="100th floor: Empire Dome" href="exec:minutes+=5 & gt ''empire_dome''"><img class="img_stretch" src="images\place\帝国穹顶.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $empire_level>=3:
+			'<a class="photo" data-title="99th floor: Imperial Health" href="exec:minutes+=5 & gt ''empire_health_cmo''"><img class="img_stretch" src="images\place\帝国健康.jpg"></a>'
+			else:
+			'<a class="photo" data-title="99th floor: Imperial Health (Level 3 and above)" href="exec:"><img class="img_stretch" src="images\place\帝国健康.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $empire_level>=7:
+			'<a class="photo" data-title="100th floor: Imperial Energy" href="exec:minutes+=5 & gt ''imperial_energy''"><img class="img_stretch" src="images\place\帝国能源.jpg"></a>'
+			else:
+			'<a class="photo" data-title="100th floor: Imperial Energy (Level 7 and above)" href="exec:"><img class="img_stretch" src="images\place\帝国能源.jpg"></a>'
+			end
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="Underground transportation" href="exec:minutes+=15 & gt ''subway''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Imperial Group Hall" href="exec:minutes+=15 & gt ''empire_group''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="69th floor: Empire Entertainment" href="exec:minutes+=5 & gt ''empire_entertainment''"><img class="img_stretch" src="images\place\帝国娱乐.jpg"></a>'
+		'</div>'
+		
+
+		
+
+
+
+		
+
+		
+	'</div>'
+'</div>'
+
+'<div class ="show_menu"><img src="images\place\帝国集团_大厅.jpg" width="854"></div>'
+
+'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=15 & gt ''empire_group''">Kill time</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p>·Mechanical AI voice: Welcome to the Imperial Group. The group is actively expanding electric vehicles, solar panels, and integrated renewable energy solutions for households and businesses to accelerate the world`s transition to sustainable energy.</p>'
+	'<p>·Mechanical AI voice: The sub-groups of the Empire Group are recruiting people.The monthly salary is 20k~25k, from nine to five, no overtime requirements, and annual leave exceeds 30 days. People with lofty ideals are welcome (women only)</p>'
+'</div>'
+
+
+
+
+
+ 
+--- empire_group ---------------------------------
+

@@ -1,0 +1,368 @@
+# daily_drug_test
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+$my.energy-=1
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show_half'
+	gs "bug_prolapse"
+'</div>'
+
+
+if D<=0:
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5  &money+=MED & medicine=0 & $exp_figure-=RAND(3,10) & gt ''hospital''">Discharged from the hospital</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>AI broadcast: Well done, the drug experiment is over, and we have collected enough data.Total commissions received：<<MED>>Yes, but the muscles were damaged.</p>'
+		'</div>'
+End
+
+if $args[0]="":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & $note=1 & gt ''daily_drug_test''">Instructions for admission to hospital</a></div>'
+			if $Q="一级" and  15>=hour  and  hour>=12 :'<div class="buttonQ"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_first-class_nurse''">Call the nurse</a></div>'
+			if $Q="二级" and $HS_Event_trouble=10 and $HS.love>=5:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''nurse_event'',''hs_fuck_room_blowjob''">call<<$HS.name>></a></div>'
+			if $Q="三级":
+				if  6>hour  and  hour>=0 :'<div class="buttonR"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_a''">Call the nurse</a></div>'
+				if  12>hour  and  hour>=6 :'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_b''">Call the nurse</a></div>'
+				if  18>hour  and  hour>=12 :'<div class="buttonB"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_c''">Call the nurse</a></div>'
+				if  24>=hour  and  hour>=18 :'<div class="buttonS"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_d''">Call the nurse</a></div>'
+			End
+			
+			'<div class="button"><a href="exec:  gt ''daily_drug_test'',''walk_around''">Walk around</a></div>'
+			if  rand(0,101)>=100 :'<div class="buttonPu2"><a href="exec:minutes+=5 & gt ''andrology_event'',''nk_fuck_ward_inspection''">Random spot check</a></div>'
+			'<div class="button"><a href="exec:minutes+=45 & $note=0 & gt ''daily_drug_test''">In a daze for 1h</a></div>'
+			if hour >=18:
+			'<div class="button"><a href="exec:minutes+=480 &  $my.energy=mymax[$energy] &D-=1 &gt ''daily_drug_test''">Sign in, take medicine and sleep</a></div>'
+			end
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·Electronic bracelet: ♦Drug grade：<<$Q>>♦Remaining trial period：<<D>>day.*Please strictly abide by the rules of the hospitalization instructions. If you do not sign in to take the medicine, it will be deemed an invalid trial.</p>'
+			if $Q="一级" and $note=1:'<p>·If there is no treatment item from 8:00 to 21:00 every day, you can walk around the hospital area at will, but please do not leave the jurisdiction of the hospital.</p>'
+			if $Q="二级" and $note=1:'<p>·1. It is strictly forbidden for experimenters to leave the jurisdiction of the hospital without permission.2. The dean promised that the hospital will be able to treat every patient`s disease well.3. All large-scale and important operations in the hospital were performed by the dean himself, and none of them failed.</p>'
+			if $Q="三级" and $note=1:'<p><font color="#FF0000">·■■8:■0-2■:00■■ cure■■■，■■■■■■ Gone, but■■■■■■■■■■ range.</font></p>'
+			if $my.energy<=0:'<p><font color="#FF0000">I was exhausted and was forcibly summoned back.But when it`s not time to sleep, the electronic bracelet will always emit an electric current to wake me up.</font></p>'
+		'</div>'
+End
+
+if $args[0]="walk_around":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房通道.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''daily_drug_test'',''turn_left''">←Turn left</a></div>'
+			'<div class="button"><a href="exec: gt ''daily_drug_test'',''nurse_station''">Turn right→</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·AI broadcast: ♦Warning♦Turn right in front</p>'
+		'</div>'
+End
+
+
+if $args[0]="turn_left":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			if uniform>0 and $Q!"三级":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''j3_area''">Put on a doctor`s uniform</a></div>'
+			if uniform>0 and $Q="三级":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''j3_region_li''">Put on a doctor`s uniform</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·AI broadcast: ♦Warning♦ Non-researchers on the way have been detected in the J3 area, please leave the area quickly.</p>'
+		'</div>'
+End
+
+if $args[0]="nurse_station":
+		if  hour>=21 or hour<=5:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\护士站2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\护士站~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		End
+		
+		'<div class="button_menu">'
+			if  hour>=21 or hour<=5:
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''locker_room''">Locker room</a></div>'
+			else:
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''there_are_people_in_the_locker_room''">Locker room</a></div>'
+			end
+			if $Q="二级":
+			'<div class="button"><a href="exec:minutes+=15 & gt ''independent_front_desk''">←Front desk</a></div>'
+			else:
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''front_desk''">←Front desk</a></div>'
+			End
+			if $times_of_day="":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''outpatient_department''">Outpatient department→</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			if 5< hour and hour<21:
+			'<p>Nurse: Sisters, bring your own playmates, gather at my house tonight, let`s have a good time!</p>'
+			else:
+			'<p>The lights are turned off and there is no one</p>'
+			end
+		'</div>'
+End
+
+if $args[0]="locker_room":
+	 '<div class ="show_menu"><img src="images\place\医院场景\护士间.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			if  uniform=0:'<div class="button"><a href="exec:uniform=1 & gt ''daily_drug_test'',''locker_room''">Take away the doctor`s overalls</a></div>'
+			if  uniform!0:'<div class="button"><a href="exec:uniform=0 & gt ''daily_drug_test'',''locker_room''">Return ■Doctor`s overalls</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>A few of these doctor`s suits have not been sent for cleaning, so you should be able to pass through the J3 area by putting them on!？Why is it full of the smell of semen?..</p>'
+			if $bigvillaforthefirsttime>=1 and $nurse_hammer=0:'<p>·A bloody sledgehammer was found in someone`s closet.<a href="exec:$sledgehammer+=1 & $nurse_hammer=1 &  gt ''daily_drug_test'',''locker_room''">-Take it away</a></p>'
+		'</div>'
+End
+
+if $args[0]="there_are_people_in_the_locker_room":
+	 '<div class ="show_menu"><img src="images\place\医院场景\护士间<<$Q>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>Someone is resting inside...</p>'
+		'</div>'
+End
+
+if $args[0]="j3_area":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转一级.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''archives''">Archives</a></div>'
+			'<div class="button"><a href="exec:minutes+=15& gt ''group_performation_event'',''hospital_fuck_before_sleep''">Sleep therapy room</a></div>'
+			if $SS_Event_free>=3:'<div class="button"><a href="exec:minutes+=15 & gt ''sperm_donation_room'',''voyeur_experiment''">Jingyuan Project Room</a></div>'else:'<div class="buttonGr"><a href="exec:">Jingyuan Project Room</a></div>'
+			if $inspector_event_chain>=8:'<div class="button"><a href="exec:minutes+=15 & gt ''inspector_event'',''dc_fuck_biological_laboratory''">Biological laboratory</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>Passing a security scan.....You can enter the experimental area.</p>'
+		'</div>'
+End
+
+if $args[0]="j3_region_li":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转三级.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''archive_li''">室室room</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15& gt ''group_performation_event'',''hospital_fuck_before_sleep''">眠Sleep疗treatment room</a></div>'
+			if $SS_Event_free>=3:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''sperm_donation_room'',''voyeur_experiment''">Precision Engineering Project Room</a></div>'else:'<div class="buttonR"><a href="exec:">项目项目Project room</a></div>'
+			if $inspector_event_chain>=8:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''inspector_event'',''dc_fuck_biological_laboratory''">Biological laboratory</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">回回back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p><font color="#FF0000">My head hurts so much.....There seems to be something wrong....</font></p>'
+		'</div>'
+End
+
+if $args[0]="archives":
+	 $password = $TRIM($LCASE($input('Please enter the archive password')))
+	 '<div class ="show_menu"><img src="images\place\医院场景\医院密码.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''enter_password''">Confirm password</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·You have entered your password</p>'
+		'</div>'
+End
+
+if $args[0]="enter_password":
+	 if $password!"935888":
+		 '<div class ="show_menu"><img src="images\place\医院场景\医院密码.jpg" width="854"></div>'
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+			'</div>'
+			'<div class="dialog_menu">'
+				'<p>·Wrong password</p>'
+			'</div>'
+	 end 
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转科技.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''enter_password'',''drug_selection''">Drug selection</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''enter_password'',''experimental_record''">Experimental record</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''enter_password'',''registered_items''">Registered items</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			if $args[1]="drug_selection":
+			'<p>·First-class drugs: selected and delivered by Mugou Pharmaceutical to treat erectile dysfunction combined with benign prostatic hyperplasia.By inhibiting PDE5, the level of cGMP in the cavernous body of the penis is increased, causing the smooth muscles to relax and blood to flow into the penis tissue, which has an effect.The most common side effects are usually headache and indigestion. Swelling of the eyelids or described as eye pain and conjunctival congestion are rare side effects.</p>'
+			'<p>·Secondary drugs: selected and delivered by Imperial Health, mixed with folic acid, zinc sulfate, L-arginine, I-lysine, and I-carnitine in a ratio of 1:10:99, each intake is 100 mg.While significantly increasing the amount of semen, sperm is produced in an average amount of 5,000 per second.The most common side effects are usually pale complexion, godless eyes, haggard expression, thin body, and mild nausea.</p>'
+			'<p>·Tier 3 drugs: selected and delivered by the municipal government, the specific ingredients are composed of███ and at least 67 different virus strains.The most common side effects are usually hallucinations and serious perceptual disorders.Because its feelings are often lifelike and vivid, it can cause anger, sadness, panic, evasion, and even a strong sexual desire or behavioral response.</p>'
+			end
+			if $args[1]="experimental_record":
+			'<p>·Tester: C-310-01 (employed individual) test: After the tester receivedmlml of tertiary drug injection, the tester was observed for█hours.Result: The tester developed a cough a few hours later and complained of “a little pain” when asked, although he attributed it to the wrong sleeping position.</p>'
+			'<p>·Tester: C-310-02 (former Doctor of Neuroscience) Test: The tester injectedmlmlml of tertiary drugs without his knowledge.And observe.Result: The tester developed stubborn cough symptoms and began to scratch no less than 5 parts of his body repeatedly.</p>'
+			'<p>·Tester: C-█?-?? (Employed individual)<Data has been deleted></p>'
+			'<p>·Tester:----99 (employed individual) Test: After the tester received 4.371ml of tertiary drug injection, the tester was observed for not less than 576 hours (7 days).Comprehensive assessment: The tester has one or more grotesque delusions and does not have any other symptoms of the disease.Tests have shown that the cure rate of other diseases is 99.997%, and whether it is effective can be determined by the number of病毒病毒病毒 virus strains in semen.</p>'
+			'<p>·Appendix#C-310-999-01 : [Dialogue begins] French) `So how do we start, introduce ourselves?Russian) “Devil!demon......What a joke!You are all demons!`Russian) `Let`s get back to the topic, the cancer cells in your body have completely disappeared.`French) `Doctor!Broaden your horizons!Life and death, disease and health, are all amateur terms for amateur doctors.There is only one disease in the world!”</p>'
+			'<p>·Appendix#C-310-999-0：: [Dialogue begins] French) `Dean, what do you think?”“Peu importe, continue à essayer.”[End of conversation]</p>'
+			end
+			if $args[1]="registered_items":
+			'<p>·Happy dream plan: Through quasi-biological radio wave technology, when the experimenter enters the stage of rapid eye movement sleep, he will first experience a vivid warm dream without exception.Because of the 1984-Alpha technology, the negative emotions and negative thoughts in my mind have been erased.After waking up, the object will have a strong sense of relief and spiritual pleasure.Within the next three days, the subjects will report that they feel happier and more willing to participate in social activities.—— </p>'
+			'<p>*Jingyuan Plan: A government-enterprise project led by the municipal government and undertaken by Imperial Group.It aims to provide a customizable in vitro fertilization sperm bank for women with high social status through a large-scale screening of male sperm in the city, and the selection of Alpha-grade sperm on the best basis.Due to the large number of inferior sperm and no production costs, they are processed into `high-protein foods` such as protein blocks/protein liquids/nutritional supplements/ and flow into the market, vigorously advocating the use and consumption of sperm by the public.It is used to improve the physique of citizens and expand domestic demand.</p>'
+			end
+		'</div>'
+End
+
+
+if $args[0]="archive_li":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转科技.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''archive_li'',''drug_selection''">选选Selection</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''archive_li'',''experimental_record''">记录记录Record</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''group_performation_event'',''st_fuck_succubus''">██？？❤</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''archive_li'',''registered_items''">项目项目Project</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>由于由于由于由于Because the entry is highly encrypted, even if you use a knife or█。██, you can`t cut through the shady part of the screen.</p>'
+			if $args[1]="drug_selection":
+			'<p>·First-class medicine█: Selected and delivered by Mugou Pharmaceutical to treat功能功能dysfunction死亡死亡death。。。。█.By inhibiting阴茎阴茎阴茎 ，,阴茎penis萎缩萎缩 atrophyDDIE提高提高 increases, resulting in allergies，沸腾沸腾, blood沸腾沸腾boiling沸腾，,产生产生 production产生。.The most common疾病疾病疾病 diseases are睑和 and疯狂疯狂 madness, swelling of the eyelids痛痛痛痛痛 pain and充充 congestion are rare█。。.</p>'
+			'<p>·Two药物drugs: selected and delivered by帝国帝国帝国,叶酸folic acid, sulfur硫硫, L-refined叶酸叶酸, I-酸酸 acid, I-酸按 According to 1:10:99致死致死Mortality rate,44444444。.增加增加Increase敏敏 sensitize精子哈哈, haha数量哈哈数量 The number of 9,999精子精子sperm.The反应反应反应反应reaction is usually苍白苍白苍白pale, two eyes█、,癫痫癫痫epilepsy,疯狂疯狂madness, and感死亡sense of death.</p>'
+			'<p>·Grade物Object: by█████，████ Sixty different virus strains are included by█和和 and六十包括包括.The side effect of █为 is to make people produce严重,, and there is a serious臆臆臆臆 imagination.From感受感受 feeling逼真逼真逼真逼真逼真, you can愤怒愤怒 anger,恐惧、, fear,乃至乃至 and even produce strong性欲性欲 libido or幻觉幻觉 hallucinations.</p>'
+			end
+			if $args[1]="experimental_record":
+			'<p>·Surgical record: 202█-0--██, night██:15 minutes.“Doctor!I order you to immediately stop the treatment of a bed of wounded people!Priority is given to the rescue of the injured in the second bed!`Life is equal, he is not my patient!`You let the medical director deal with the wounded in the second bed!` `The director is still hungover.The second-bed injured person is from the企业企业企业 enterprise!”It has nothing to do with me who he is”` `Dean!The director is almost awake from drinking!The patient has severe intracranial bleeding and needs immediate surgery!”</p>'
+			'<p>*Appendix#Postoperative Records: One-bed injured person: Frank Gallagher (unpaid medical expenses, theft of prescription drugs, blacklisted) [#Dr.█ advances the medical expenses and assumes full responsibility and corresponding penalties] Two-bed injured person：<<$protagonists_surname>>（ （ (Recovery after hemorrhagic stroke is not ideal, he has fallen into a coma)</p>'
+			'<p>·Tester: C-█?-?? (Employed individual)<Data has been deleted></p>'
+			end
+			if $args[1]="registered_items":
+			'<p>·梦梦Dream Plan: Through恐惧恐惧Fear术术 Technique进入进入进入进入Enter the阶段窒息suffocation阶段阶段stage无体验无体验without exception体验体验Experience the nightmare of动动动动 movement.111984-Alpha脑脑脑Brain负面负面负面negative负面和 and negative抹抹 obliterated.After waking up, the object will be强烈强烈强烈 strong濒near death精神精神精神mentally happy.█Within the next天days, the subject will称称say感到feel more更并 and lose consciousness after saying the key word `██`.——`InCCePttIOn Spirit Controller`</p>'
+			'<p>*Jing计划 Plan: Led by the government, the Imperial Group性性性性性 project.通过通过Through the screening of male sperm in the榨榨 squeeze内内, select the bestAlphaAlphaAlpha-level sperm, and provide conception精子婴儿baby sperm具有with high social status。。婴儿提供.The amount of inferior sperm is huge and there is no cost. The processing of protein/egg/liquid/liquid/liquid/`Food` flows into the market, and the citizens eat sperm.扩扩扩扩，，，, expansion需sex needs求requirements.</p>'
+			end
+		'</div>'
+End
+
+if $args[0]="front_desk":
+	 '<div class ="show_menu"><img src="images\place\医院场景\前台<<$Q>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="buttonB"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''relatives_and_friends_visit''">↑Relatives and friends visit</a></div>'
+			if $Q="一级":'<div class="buttonQ"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_1''">←<<$Q>>Physical examination</a></div>'
+			if $Q="二级":'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_2''">←<<$Q>>Physical examination</a></div>'
+			if $Q="三级":'<div class="buttonR"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_3''">←<<$Q>>Physical examination</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·Front desk nurse: When can I change shifts?..</p>'
+		'</div>'
+End
+
+if $args[0]="outpatient_department":
+	 mzzl=rand(0,2)
+	 '<div class ="show_menu"><img src="images\place\医院场景\门诊走廊<<mzzl>>.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''breast_surgery''">J2-Breast Surgery</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>*AI broadcast: We are heading to the nearest emergency room.The whole process only takes four minutes from the beginning to the end.Our slogan is [Seven minutes to save lives, otherwise there will be a refund]</p>'
+		'</div>'
+End
+
+if $args[0]="breast_surgery":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\医院人妻A1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''breast_surgery_1''">Close</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>Man: Xiao Yi, I checked. This male doctor was an expert in breast surgery before the new policy and medical reform.There is no other better male doctor for the time being. Although the grade is a bit older, the skills are still old and strong after all.</p>'
+			'<p>Woman: Husband....I`m still a little scared....Although I have done many inspections, is it really effective?</p>'
+			'<p>Man: Don`t think about it, just do what I say.*Muttering: It`s up to him if we can give birth to a big fat boy!</p>'
+		'</div>'
+End
+
+if $args[0]="breast_surgery_1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\医院人妻A1-14~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''breast_surgery_2''">Sit next to him</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>AI broadcast: A0308 patient, Miss Tianhaiyi, is invited to the clinic.</p>'
+			'<p>Woman: Then I`m going, husband....</p>'
+		'</div>'
+End
+
+if $args[0]="breast_surgery_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\hospital\医院人妻A1-1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 &a=2& gt ''group_performation_event'',''hospital_fuck_wife_examination''">Peeping at his wife</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>*You sat next to him.He edited the video on his phone intently.</p>'
+			'<p>Me: Buddy...What are you looking at?</p>'
+			'<p>Man: Hehe......Hmm?！What are you looking at!Get out of here!This is all for a fee!</p>'
+		'</div>'
+End
+
+if $args[0]="relatives_and_friends_visit":
+	 $random_number=rand(0,100)
+	 '<div class ="show_menu"><img src="images\place\医院场景\访客登记0.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="buttonB"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''relatives_and_friends_visit_2''">View list</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·Nurse: patient：<<$protagonists_name>>, In order to prevent cross-infection, the number of visitors per hospital bed should not exceed 2 people.</p>'
+		'</div>'
+End
+
+if $args[0]="relatives_and_friends_visit_2":
+	 '<div class ="show_menu"><img src="images\place\医院场景\访客登记1.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			if $HZ.bad>=250-$HZ.love:'<div class="buttonB"><a href="exec:gt ''president_event'',''hz_fuck_hospital_visit''">Neatly written hot girl</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？The hot girl</a></div>'
+			if $EDM.love>=100:'<div class="buttonB"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_hospital_visit''">Hot girl with scribbled handwriting</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？The hot girl</a></div>'
+			if $SF.bad>=270-$SF.love:'<div class="buttonB"><a href="exec:gt ''young_woman_event'',''sf_fuck_ward_conception''"><<$SF.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A young woman</a></div>'
+			if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec:$m=''TZ'' & $ma=$TZ.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain director</a></div>'
+            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain announcer</a></div>'
+            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain stepmother</a></div>'
+            if $ZX.bad>=500-$ZX.love:'<div class="buttonB"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain doctor</a></div>'
+
+			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>*Nurse: Did the medicine affect your vision?Can you see the words above clearly?Please sign here after confirmation.*Pointed to the private parts.</p>'
+		'</div>'
+End
+--- daily_drug_test ---------------------------------
+

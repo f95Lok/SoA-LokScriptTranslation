@@ -1,0 +1,274 @@
+# 遗孀家
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+		 '<a class="photo" data-title="返回大门" href="exec:gt ''遗孀家''"><img class="img_stretch" src="images\place\YS家.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+
+
+
+if $args[0]="":
+	if $看过平面图=2: a=1 & gt'遗孀_事件','争执'
+'<div class ="show_menu"><img src="images\place\遗孀家.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $看过平面图<3:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''不能进入''">敲门</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''背面''">绕到背面</a></div>'
+		end
+		if $看过平面图=3:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''看门者''">进入</a></div>'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''背面''">绕到背面</a></div>'
+		end
+		if $看过平面图>3:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''客厅2''">进入</a></div>'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''背面''">绕到背面</a></div>'
+		end
+		
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''居民区''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·与周围的建筑风格不同，是完全的日式风格。</p>'
+	'</div>'
+
+end
+
+if $args[0]="不能进入":
+ msg'她并不欢迎你'  & gt '遗孀家'
+end
+
+if $args[0]="看门者":
+ '<div class ="show_menu"><img src="images\NPC\YS\pics\DX99.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>新组员：老大有令，我们作为新龙口组的新进人员要把手好这里的大门！一只苍蝇都不能让它飞进去！都听明白了吗？！</p>'
+		'<p>新组员A：收到！</p>'
+		'<p>新组员B：明白！</p>'
+		'<p>新组员C：日结群里的充场怎么是假扮黑社会*哈欠<a href="exec:money-=200 & gt ''遗孀家'',''客厅''">-贿赂他￥200</a></p>'
+	'</div>'
+end
+
+if $args[0]="卧室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\主卧_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $times_of_day!'':'<div class="buttonS"><a href="exec:a=2 & gt ''遗孀_事件'',''YS_Fuck_安慰''">进去操她</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $times_of_day='':
+		'<p>·<<$YS.name>>白天不在卧室里。</p>'
+		else:
+		'<p><<$YS.name>>: 想要…好像被操…无论是谁…快来操我…我是不是被他们监禁得太久了…还是我本身就喜欢被人凌辱？不管了…快来……快点高潮……</p>'
+		end
+	'</div>'
+end
+
+
+
+
+if $args[0]="客厅":
+ '<div class ="show_menu"><img src="images\place\遗孀家客厅.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''卧室''">卧室</a></div>'
+		if $看过平面图=3:'<div class="buttonGr"><a href="exec:">马冬霉在里面</a></div>'
+		if $看过平面图>3:'<div class="button"><a href="exec:gt ''遗孀家'',''卧室''">卧室</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''书房''">书房</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·客厅空无一人</p>'
+	'</div>'
+end
+
+if $args[0]="客厅2":
+		if $主厨招呼=2:gt'遗孀_事件','YS_Fuck_离婚'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\遗孀家客厅_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $times_of_day='':'<div class="buttonS1"><a href="exec:报复对话=0 & gt ''遗孀家'',''客厅2对话''">靠近对话</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''卧室''">卧室</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''书房''">书房</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $times_of_day='':
+		'<p>·客厅里<<$YS.name>>正在愣愣地发呆。</p>'
+		else:
+		'<p>·晚上客厅里没有人，她应该已经睡了…</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="客厅2对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\遗孀家客厅0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR2"><a href="exec:报复对话=1 & gt ''遗孀家'',''客厅2对话2''">主厨：懦夫</a></div>'
+		'<div class="buttonR3"><a href="exec:报复对话=2 & gt ''遗孀家'',''客厅2对话2''"><<$JZ.name>></a></div>'
+		'<div class="buttonR4"><a href="exec:报复对话=3 & gt ''遗孀家'',''客厅2对话2''">马冬霉：罪魁祸首</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''遗孀家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YS.name>>:可恶的混蛋，我一定要报复他们，我实在无法忍受这种屈辱。</p>'
+		'<p>我: 你要报复谁？</p>'
+	'</div>'
+end
+
+if $args[0]="客厅2对话2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\遗孀家客厅1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_沙发''">我会支持你</a></div>'
+		if $警长招呼=2 and 报复对话=2:'<div class="buttonR2"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_同警长''">报警:谎称失窃</a></div>'
+		if $主厨招呼=3:'<div class="buttonG4"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_股份''">代管她的20%股份</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 理由是？</p>'
+		if 报复对话=1:
+		'<p><<$YS.name>>:那个混蛋厨子，表面上凶横其实是个软弱的懦夫！我一定要让他对我的见死不救视而不见付出代价！</p>'
+		'<p>我: 你想怎么做？</p>'
+		'<p><<$YS.name>>:我要毁了他的餐厅！那是他的毕生心血！我要让他眼睁睁地看着他的赤色餐厅落入别人的手里！</p>'
+		'<p><B><span class =''red''>我: 他拥有80%的股份…只要离婚的话就会损失一半对吧…</p>'
+			if $主厨招呼!3:
+				'<p><<$YS.name>>:对啊！！！你提醒我了，我有一个好主意，你去帮我把他叫过来❤</p>'
+				 if $主厨招呼=0:$主厨招呼=1
+			 else:
+				'<p><<$YS.name>>:经过2次离婚，他现在只有80%的一半又一半，只有20%了哈哈哈哈哈❤</p>'
+			 end
+		end
+		if 报复对话=2:
+		'<p><<$YS.name>>:我是纳税人！保护每个公民是她的职责！我一定要让她对我的见死不救视而不见付出代价！</p>'
+		'<p>我: 你想怎么做？</p>'
+		'<p><<$YS.name>>:我不知道…在没有周密的计划之前挑战她不是一个明智之举…</p>'
+		'<p><B><span class =''red''>我: 如果我和<<$JZ.name>>提前打个招呼，希望会有和平的方式平息她的愤怒…</p>'
+		 if $警长招呼=0:$警长招呼=1
+		end
+		if 报复对话=3:
+		'<p><<$YS.name>>:可恶的罪魁祸首！凭什么让他新招募的马仔侵犯我！他一定是个阳痿…不…他肯定是个太监！</p>'
+		'<p>我: 你想怎么做？</p>'
+		'<p><<$YS.name>>:我要把他禁锢在地牢里…在每个我想要的夜晚尽情地凌辱他的鸡巴！</p>'
+		'<p>我: 希望你能成功……</p>'
+		'<p><B><span class =''red''>·当前版本无法完成对他的复仇</p>'
+		end
+		'<p><<$YS.name>>:你会不会觉得我是个恶毒的女人？但睚眦必报是我的性格…</p>'
+	'</div>'
+end
+
+
+if $args[0]="书房":
+	$指南针[0]="东方"
+	$指南针[1]="西方"
+	$指南针[2]="南方"
+	$指南针[3]="北方"
+	$指南针="<<$指南针[rand(0,3)]>>"
+	$指南针A=$指南针
+
+	'<div class ="show_menu"><img src="images\place\遗孀家书房<<煤油灯熄灭>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn4"><a href="exec:gt ''遗孀家'',''什么都没发生''">按下突兀的按钮</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''客厅''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·书房，这间房间给人一种拥挤的感觉。</p>'
+		'<p>·————————————</p>'
+		'<p>·坏掉手表指向<<坏手表时间>>点 ✮ <a href="exec:坏手表时间+=1 & gt ''遗孀家'',''书房''">拨快一小时</a> ✮ <a href="exec:坏手表时间-=1 & gt ''遗孀家'',''书房''">拨慢一小时</a>            </p>'
+		'<p>·指南针的朝向<<$指南针>> ✮ <a href="exec:gt ''遗孀家'',''书房''">摇晃</a>            </p>'
+		if 煤油灯熄灭=0:
+			'<p>·古老的煤油灯点亮✮ <a href="exec:煤油灯熄灭=1 & gt ''遗孀家'',''书房''">熄灭</a>            </p>'
+			'<p>·十字架倒影长度<<影子的长度>>米 ✮ <a href="exec:影子的长度+=1 & gt ''遗孀家'',''书房''">往前挪</a> ✮ <a href="exec:影子的长度-=1 & gt ''遗孀家'',''书房''">往后挪</a>            </p>'
+		end
+		if 煤油灯熄灭=1:
+			'<p>·古老的煤油灯熄灭✮ <a href="exec:煤油灯熄灭=0 & gt ''遗孀家'',''书房''">点亮</a>            </p>'
+		end
+	'</div>'
+end
+
+if $args[0]="什么都没发生":
+ if  坏手表时间=3 and $指南针A="北方" and 影子的长度=3:gt'遗孀家','隐藏房间'
+ msg'什么都没发生'  & gt '遗孀家','书房'
+end
+
+if $args[0]="隐藏房间":
+ '<div class ="show_menu"><img src="images\place\暗间0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $看过平面图=3:'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''隐藏房间2''">监视武器</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·嗡————一扇隐藏的活板门打开了</p>'
+		'<p>我：这里应该就是那个尘封多年的秘密隔间了…</p>'
+	'</div>'
+end 
+
+if $args[0]="隐藏房间2":
+ '<div class ="show_menu"><img src="images\place\暗间1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$黄金AK=1 & gt ''居民区''">拿走</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：真有一把黄金AK啊…</p>'
+	'</div>'
+end 
+
+
+
+if $args[0]="背面":
+ '<div class ="show_menu"><img src="images\place\遗孀家背面.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $看过平面图<3:'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀_事件'',''YS_Fuck_厨睡''">透过窗户看</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p></p>'
+	'</div>'
+end 
+
+--- 遗孀家 ---------------------------------
+

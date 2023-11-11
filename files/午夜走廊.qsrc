@@ -1,0 +1,111 @@
+# 午夜走廊
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=30
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+
+if $args[0]="":
+	 $走廊num=rand (0,4)
+	 if $悠亚事件链>=2:$走廊num=rand (0,3)
+	  '<div class ="show_menu"><img src="images\place\午夜走廊.jpg" width="854"></div>'
+
+	  
+	'<div class="button_menu">'
+		if $XZ_Event_ghost<=1:
+		'<div class="button"><a href="exec:minutes+=25 &$XZ_Event_ghost+=1& gt ''午夜走廊'',''鬼影''">远处的鬼影</a></div>'
+		elseif $XZ_Event_ghost<=4:'<div class="button"><a href="exec:minutes+=25 &$XZ_Event_ghost+=1& gt ''午夜走廊'',''鬼影''">躲进男厕所</a></div>'
+		elseif $XZ_Event_ghost=6:'<div class="button"><a href="exec:minutes+=25 & $XZ_Event_ghost=6  & gt ''午夜走廊'',''鬼影2''">窈窕的倩影</a></div>'
+		elseif $XZ_Event_ghost>=7:'<div class="button"><a href="exec:minutes+=25 & $XZ_Event_ghost+=1& gt ''午夜走廊'',''鬼影2''">赤裸的酮体</a></div>'
+		end
+		if $秘书学校偷拍=1:'<div class="buttonPu3"><a href="exec:gt ''秘书_事件'',''MS_Fuck_学校''">等待<<$MS.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>(漆黑的尽头仿佛有一只眼睛正在盯着你)</p>'
+		if  $走廊num>=4 or $悠亚事件链=1:'<p>楼上传来<a href="exec:minutes+=5 &gt ''午夜走廊'',''呻吟声''">呻吟声</a></p>'
+	'</div>'
+End
+
+
+if $args[0]="鬼影":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\事件<<$XZ_Event_ghost>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &$XZ.bad+=2& gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $XZ_Event_ghost=1:'<p>...会是谁呢...不会真的是鬼吧.....前面是男厕所...鬼也要上厕所吗？我得看看TA的真面目。</p>'
+		if $XZ_Event_ghost=2:'<p>？！居然是<<$XZ.name>>？！她这么晚了来学校的男厕所做什么？看来我得好好调查一下了。</p>'
+		if $XZ_Event_ghost>=3:'<p>你躲在门后，一双眼睛出现在了黑暗中.....你观察着<<$XZ.name>>渐渐脱下了大衣，露出了全裸的姿态。你既兴奋又害怕。</p><p><<$XZ.name>>:呼————终于能够放松了————这座属于我的学校————现在我想干什么就干什么————</p>'
+		if $XZ_Event_ghost>=4:'<p><<$XZ.name>>:这种快感是那些性偶玩具制造不了的....这可真是太爽了。</p>'
+		if $XZ_Event_ghost>=5:
+			'<p><<$XZ.name>>:等把那几个投诉解决了，奖励自己做一次更大胆地露出吧。</p>'
+		 $XZ_Event_ghost=5
+		 end 
+	'</div>'
+End
+
+if $args[0]="鬼影2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\事件<<$XZ_Event_ghost>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $XZ_Event_ghost.completed<2:
+			if  $XZ_Event_ghost>=9 and 相机>0 and $XZ_Event_ghost.completed=0 :
+				'<div class="button"><a href="exec:minutes+=5 & $XZ_Event_ghost.completed=1 & gt ''大学''">拍下来</a></div>'
+			 else:
+				'<div class="buttonGr"><a href="exec:">需要相机+处理新投诉</a></div>'
+			 end
+		 end
+		 
+		if  $XZ_Event_ghost.completed=2:
+			'<div class="buttonS"><a href="exec:minutes+=5 &  gt ''校长_事件'',''XZ_Fuck_凌晨调教''">现身</a></div>'
+		 else:
+			'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		 end
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $XZ_Event_ghost=6:
+			'<p><<$XZ.name>>:<<$主角姓名>>这家伙有点可靠，下次也交给他吧。啊——之后就奖励自己在这里自慰吧。</p>'
+			if  $LJ_Event_Steal=0: $LJ_Event_Steal=1
+		end
+		if $XZ_Event_ghost>=8:'<p><<$XZ.name>>:呼———自由自在地在我的学校里畅快地露出——冷空气让我的小穴收缩更激烈了呢....</p>'
+		if $XZ_Event_ghost>=9:'<p>她不知道的是黑暗中有一只眼睛正看着她。对于她即将任人摆布的命运一无所知。</p>'& $XZ_Event_ghost=8
+	'</div>'
+End
+
+if $args[0]="呻吟声":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\走廊4~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			if $悠亚事件链=1:'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''悠亚_事件'',''走廊偷看''">偷看</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+		'</div>'
+	'<div class="dialog_menu">'
+		'<p>(居然有人在安全通道里打野战，究竟会是谁呢...)</p>'
+	'</div>'
+End
+--- 午夜走廊 ---------------------------------
+

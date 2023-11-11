@@ -1,0 +1,280 @@
+# 护士_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $args[0]="HS_Fuck_口交":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\前台口交<<hsa>>-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!4:
+		'<div class="button_menu">'
+			if a!0 and a!3:
+			'<div class="button"><a href="exec:a-=1 & gt ''护士_事件'',''HS_Fuck_口交''">慢一点</a></div>'
+			end
+			if a!2 and a!3:
+			'<div class="button"><a href="exec:a+=1 & gt ''护士_事件'',''HS_Fuck_口交''">快一点</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''护士_事件'',''HS_Fuck_口交''">射精</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''护士_事件'',''HS_Fuck_口交''">精液检查</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if hsa=2 or hsa=4:
+				'<div class="buttonS"><a href="exec:minutes+=30 &a=0 &q=0&gt ''护士_事件'',''HS_Fuck_口交SEX''">挑逗她</a></div>'
+				end
+				'<div class="button"><a href="exec:minutes+=30 & gt ''试药日常''">回房休息</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:好的，我们就近处理吧。请您深呼吸并放松下体，之后的事交给我就可以了。</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=4:
+		 $HS.love+=q+my.魅力
+		 $HS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我:辛苦你了。</p>'
+			 '<p><<$HS.name>>:刚射完需要静养恢复，我送你回去休息。<<$主角姓>>先生，您真是一个温柔的人呢。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HS_Fuck_口交SEX":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\前台口交SEX<<hsa>>-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if a!0 and a!4:
+			'<div class="button"><a href="exec:a-=1 & gt ''护士_事件'',''HS_Fuck_口交SEX''">慢一点</a></div>'
+			end
+			if a!3 and a!4:
+			'<div class="button"><a href="exec:a+=1 & gt ''护士_事件'',''HS_Fuck_口交SEX''">快一点</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''护士_事件'',''HS_Fuck_口交SEX''">内射</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''护士_事件'',''HS_Fuck_口交SEX''">表达爱意</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=120 & gt ''试药日常''">休息</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:啊..这样的话..我也...会有感觉...</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=5:
+		 $HS.love+=q+q+my.魅力
+		 $HS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我:辛苦你了。</p>'
+			 '<p><<$HS.name>>:我只对你一个人这样做过....其他人都是用手和嘴巴....只有对你.......是特别的..</p>'
+			 '<p>我:我知道，你对我最好了。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HS_Fuck_房间口交":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\口罩1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!1:
+		'<div class="button_menu">'
+			if a=0:
+			if $HS.按摩院邀请=0:'<div class="buttonP"><a href="exec:a+=1 & $HS.按摩院邀请=1 & gt ''护士_事件'',''HS_Fuck_房间口交''">按摩店推荐</a></div>'
+			'<div class="button"><a href="exec:a+=1 & gt ''护士_事件'',''HS_Fuck_房间口交''">拜托你了</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonP"><a href="exec:minutes+=30 &a=1 &q=0&gt ''护士_事件'',''HS_Fuck_房间口交不摘''">不摘</a></div>'
+				'<div class="buttonP"><a href="exec:minutes+=30 &a=1 &q=0&gt ''护士_事件'',''HS_Fuck_房间口交摘''">摘了</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:我来啦~你的专属口交护士~是要进行口交吗？（头疼的病人消失了，工作一下轻松了不少呢~）</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 $HS.love+=q+my.魅力
+		 $HS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:好的<<$主角姓>>先生,需要我摘掉口罩吗？也有患者喜欢不摘，总是意淫我的样子~</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HS_Fuck_房间口交不摘":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\口罩1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!3:
+		'<div class="button_menu">'
+			if a=1:
+			'<div class="buttonP"><a href="exec:a=1 & gt ''护士_事件'',''HS_Fuck_房间口交不摘''">继续口</a></div>'
+			end
+			if a=1:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''护士_事件'',''HS_Fuck_房间口交不摘''">射嘴里</a></div>'
+			end
+			if a=2:
+			'<div class="buttonP"><a href="exec:a=3 & gt ''护士_事件'',''HS_Fuck_房间口交不摘''">清理干净</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=120 & gt ''试药日常''">休息</a></div>'
+			'</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:您真厉害呢，射精量是同龄人的2-3倍呢！</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 $HS.love+=q+q+my.魅力
+		 $HS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:我会把精液好好保存给实验室的，请您放心。我就不打扰您了，刚射完好好休息吧。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="HS_Fuck_房间口交摘":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\口交1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="buttonP"><a href="exec:a=1 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">慢一点</a></div>'
+			end
+			if a!2 and 0<=q and q<=3:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">快一点</a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonP"><a href="exec:a=3 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">完整口交</a></div>'
+			end
+			if a!4 and 3<=q and q<=8:
+			'<div class="buttonP"><a href="exec:a=4 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">正面骑乘</a></div>'
+			end
+			if a!5 and 4<=q and q<=9:
+			'<div class="buttonP"><a href="exec:a=5 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">侧坐骑乘</a></div>'
+			end
+			if a!6 and q>=5:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">后背骑乘</a></div>'
+			end
+			if a=6:
+			'<div class="buttonP"><a href="exec:a=7 & gt ''护士_事件'',''HS_Fuck_房间口交摘''">射精</a></div>'
+			end
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonP"><a href="exec:minutes+=30 & gt ''试药日常''">zzZ</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:好的，没问题。这个速度是不是太慢了？</p>'
+		 '</div>'
+	end
+
+
+	if 6>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $HS.love+=q+q+my.魅力
+		 $HS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$HS.name>>:我会把精液好好保存给实验室的，请您放心。我就不打扰您了，刚射完好好休息吧。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+--- 护士_事件 ---------------------------------
+

@@ -1,0 +1,137 @@
+# sex_doll
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+gs'menu_gif'
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Kabukicho" href="exec:minutes+=5 & gt ''kabukicho''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''sex_doll'',''pick_up''">Pick up</a></div>'
+		if $set_printing_card>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''sex_doll'',''set_printing_card''">Set_printing_card</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">Get out</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Madam boss: Men and dogs are not allowed to enter!This is a custom shop for the lowest-level male prostitutes serving female guests!If you are here to work as a part-time sex doll, go and pick up the guests!Otherwise get out of here!</p>'
+	'</div>'
+End
+
+if $args[0]="pick_up":
+	xop=rand(1,7)
+	xopm=rand(1,100)
+	if xop=1:xopm+=38 & $xopxxx="Use your hands to maintain the customer`s labia and massage the private parts until the customer is satisfied."
+	if xop=2:xopm+=68 & $xopxxx="Use the tip of the tongue to massage the client`s labia and clitoris until the client is satisfied."
+	if xop=3:xopm+=128 & $xopxxx="Use the penis to rub the guest`s labia and clitoris until the guest is satisfied."
+	if xop=4:xopm+=128 & $xopxxx="Use the penis to rub the guest`s labia and clitoris until the guest is satisfied."
+	if xop=5:xopm+=148 & $xopxxx="Use the glans to rub the guest`s large and small labia and clitoris, and insert it until the guest has an orgasm."
+	if xop=6:xopm+=168 & $xopxxx="Use the glans to rub the guest`s large and small labia and clitoris, shoot on the guest`s underwear, and let the guest take it away."
+	if xop=7:xopm+=188 & $xopxxx="Use the penis to rub the guest`s large and small labia and clitoris, and insert it completely until the guest has an orgasm and ejaculates."
+	xojl=xopm/4
+
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & money+=xopm &$my.energy-=xojl& gt ''sex_doll'',''accept''">accept</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$my.energy-=10 & gt ''sex_doll'',''pick_up''">Waiting for the next one</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Service content:<<$xopxxx>> </p>'
+		'<p>·Guest bid (after tax): ￥<<xopm>> </p>'
+		'<p>·Energy required:<<xojl>> </p>'
+	'</div>'
+End
+
+
+if $args[0]="accept":
+	 $my.ethics-=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\接客<<xop>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''sex_doll'',''pick_up''">Continue to pick up customers</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Completed the service and got ￥<<xopm>>.</p>'
+
+	'</div>'
+End
+
+
+
+ if $args[0]="set_printing_card":
+   if card1=0:$c1show='<span class =''red''>◌</span>'else:$c1show='<span class =''green''>◉</span>'
+   if card2=0:$c2show='<span class =''red''>◌</span>'else:$c2show='<span class =''green''>◉</span>'
+   if card3=0:$c3show='<span class =''red''>◌</span>'else:$c3show='<span class =''green''>◉</span>'
+   if card4=0:$c4show='<span class =''red''>◌</span>'else:$c4show='<span class =''green''>◉</span>'
+   if card5=0:$c5show='<span class =''red''>◌</span>'else:$c5show='<span class =''green''>◉</span>'
+   if card6=0:$c6show='<span class =''red''>◌</span>'else:$c6show='<span class =''green''>◉</span>'
+   if card7=0:$c7show='<span class =''red''>◌</span>'else:$c7show='<span class =''green''>◉</span>'
+   if card8=0:$c8show='<span class =''red''>◌</span>'else:$c8show='<span class =''green''>◉</span>'
+   if card9=0:$c9show='<span class =''red''>◌</span>'else:$c9show='<span class =''green''>◉</span>'
+   if card10=0:$c10show='<span class =''red''>◌</span>'else:$c10show='<span class =''green''>◉</span>'
+   if card11=0:$c11show='<span class =''red''>◌</span>'else:$c11show='<span class =''green''>◉</span>'
+   if card12=0:$c12show='<span class =''red''>◌</span>'else:$c12show='<span class =''green''>◉</span>'
+   if card13=0:$c13show='<span class =''red''>◌</span>'else:$c13show='<span class =''green''>◉</span>'
+   if card14=0:$c14show='<span class =''red''>◌</span>'else:$c14show='<span class =''green''>◉</span>'
+   if card15=0:$c15show='<span class =''red''>◌</span>'else:$c15show='<span class =''green''>◉</span>'
+   if card1>0 and card2>0 and card3>0 and card4>0 and card5>0 and card6>0 and card7>0 and card8>0 and card9>0 and card10>0 and card11>0 and card12>0 and card13>0 and card14>0 and card15>0 :$set_printing_is_complete=1
+	'<div class ="show_menu"><img src="images\place\集印卡.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''sex_doll''">Got it</a></div>'
+		if $set_printing_is_complete=1 and $duck_king_medal=0:'<div class="buttonG"><a href="exec:$duck_king_medal+=1 & gt ''sex_doll''">Reward: Duck King Medal</a></div>'
+		if  $duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP''">Duck King: SVIP Order</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP Order</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>· Madam boss: This is the threshold to become the “duck King” of our shop. Come to me when you print the entire card with the labia of the opposite sex!</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩</p>'
+		'<p>✦✩㊛ <<$c1show>>¹  ㊝ <<$c2show>>²  ㊛ <<$c3show>>³  ㊝ <<$c4show>>⁴ ㊛ <<$c5show>>⁵ ㊝<<$c6show>>⁶ ㊛ <<$c7show>>⁷ ㊝ <<$c8show>>⁸ ㊛ <<$c9show>>⁹ ㊝ <<$c10show>>¹⁰</$LB <<$c11show>>¹ ㊕ <<$c12show>>² ㊕ <<$c13show>>³ ㊕ <<$c14show>>⁴ ㊕ <<$c15show>>⁵ ✧✩</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩✦✧</p>'
+		if $set_printing_is_complete=1:'<p>·Madam boss: Unbelievable!You actually finished it?！</p>'
+	'</div>'
+End
+
+if $args[0]="SVIP":
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Madam boss: Listen up, even if you have the qualifications of Duck King.These SVIP orders are also served to the old lady, don`t smash the old lady`s signboard!</p>'
+		if $hundred_days_banquet=0: '<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:$hundred_days_banquet=1 &  gt ''sex_doll'',''SVIP''">-Take orders</a></p>'
+		if $hundred_days_banquet!0:'<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:$hundred_days_banquet=0 &  gt ''sex_doll'',''SVIP''">-Chargeback</a></p>'
+	'</div>'
+End
+
+
+
+--- sex_doll ---------------------------------
+

@@ -1,0 +1,80 @@
+# second_shift_in_three_years
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Class roster" href="exec:gt ''menu_charac_student'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
+		</div>'
+		if $new_library=1:
+		'<div class="action">
+			<a class="photo" data-title="New library" href="exec:gt ''student_group_event'',''tram_library''"><img class="img_stretch" src="images\place\图书馆_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+		if $new_stadium=1:
+		'<div class="action">
+			<a class="photo" data-title="new_stadium" href="exec:gt ''student_group_event'',''school_flower_f15''"><img class="img_stretch" src="images\place\体育馆_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+		if $new_swimming_pool=1:
+		'<div class="action">
+			<a class="photo" data-title="New swimming pool" href="exec:gt ''gymnasium'',''swimming_pool''"><img class="img_stretch" src="images\place\游泳馆_<<$times_of_day>>.jpg"></a>
+		</div>'
+		end
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\三年二班.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if $matsumoto_event_chain=0:'<div class="button"><a href="exec:gt ''matsumoto_event'',''SB_Fuck_km''">Look at the podium</a></div>'
+		if $matsumoto_event_chain=1:'<div class="button"><a href="exec:gt ''matsumoto_event'',''sb_fuck_opening''">Look at the podium</a></div>'
+		if $matsumoto_event_chain=2:'<div class="button"><a href="exec:gt ''matsumoto_event'',''SB_Fuck_km2''">Look at the podium</a></div>'
+		if $matsumoto_event_chain=3:'<div class="buttonP"><a href="exec:a=6 & gt ''matsumoto_event'',''SB_Fuck_km2''"><<$SB.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·This class is simply a completely depraved collective, and the enthusiasm of the students only exists outside the classroom.They ignore the importance of learning, indulge in and develop a variety of unlimited entertainment activities.As for how to ensure that the graduation rate of this school reaches the highest level, it has become a difficult problem for the principal.</p>'
+		if $BZ.available=1:
+		  if $squad_leader_event_chain_b<=2 and $squad_leader_event_chain_g<7:'<p>·On the podium in the front row：<a href="exec:gt ''student_group_event'',''squad_leader_liyi''">-<<$BZ.name>></a></p>'
+		end
+
+		if $DCM.available=1 and $tram_event_chain<10:
+			if $dcm_study=0:'<p>·Unmanned seat against the wall：<a href="exec:$tram_role=''B'' & gt''subway_event'',''subway_harassment_0''">-Go pick her up</a></p>'
+			if $dcm_study=1:'<p>·Sultry seat against the wall：<a href="exec:gt''student_group_event'',''tram_classroom_vertical_painting''">-<<$DCM.name>></a></p>'
+		end
+		if $XH.available=1 and $school_flower_event_chain<10:
+			if $school_flower_event_chain<=1:'<p>·Last row：<a href="exec:gt ''student_group_event'',''school_flower_opening''">-<<$XH.name>></a></p>'
+			if $school_flower_event_chain>=2:'<p>·Last row：<a href="exec:gt ''student_group_event'',''school_flower_dialogue''">-<<$XH.name>></a></p>'
+		end
+		
+	'</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- second_shift_in_three_years ---------------------------------
+

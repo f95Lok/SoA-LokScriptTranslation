@@ -1,0 +1,1917 @@
+# hot_spring_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+$hot_spring_comfort-=1
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+$random_number=rand(0,100)
+
+
+if $args[0]="fang_liyi":
+	'<div class ="show_menu"><img src="images\NPC\WQ\pics\主屋_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if  $times_of_day='night':
+			if $hot_spring_comfort>=60:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''open_a_seam''">Open a seam</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
+			if $random_number>=60:'<div class="buttonS2"><a href="exec:minutes+=60 &  gt ''hot_spring_event'',''peeping''">Panting?</a></div>'
+			if $random_number<60 and $WQ.bad>200 and $wq.photo_destruction>=1:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''wq_fuck_force''">Forced entry</a></div>'
+		end
+		
+		if  $times_of_day='':
+			if $wq.photo=1 and 		 $wq.photo_destruction!1:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''knock_on_the_door''">Knock on the door</a></div>'
+			if  $wq.photo_destruction=1:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''knock_on_the_door_2''">Knock on the door</a></div>'
+			if $random_number>=70 and $wq_event_chain>=6:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''hot_spring_event'',''WQ_Fuck_QJJ''">Group tourists</a></div>'
+			
+		end
+		'<div class="buttonGn"><a href="exec:minutes+=60 & $my.energy+=30 & gt ''hot_spring'',''suite''">Go back to the room to rest</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The door is closed</p>'
+		'<p>I: …………</p>'
+		if $random_number>=70 and $wq_event_chain>=6:'<p>？？？: Ok<<$panting>></p>'
+	'</div>'
+
+end
+
+
+if $args[0]="peeping":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\tk (<<rand(1,3)>>).webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+					if  $wq.photo_destruction=1 and $WQ.BAD>=$my.charm*15:'<div class="buttonS"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_room4''">Go in and satisfy her</a></div>'else:'<div class="buttonGr"><a href="exec: ">Go in?？？</a></div>'
+					
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:want<<$panting>></p>'
+             '<p>Me: ... (I still don`t bother her)</p>'
+             
+         '</div>'
+
+
+End
+
+if $args[0]="knock_on_the_door":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\q1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if a=0:'<div class="button"><a href="exec:a+=1 & gt ''hot_spring_event'',''knock_on_the_door''">Take out the photo</a></div>'
+                    if a=1:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Hold her</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:Can I help you?</p>'
+             if a=1:'<p>Me: [This hot spring prohibits any guests from bringing secret filming equipment. It is our only purpose to ensure the privacy and safety of every guest.] It doesn`t seem good for the boss to do this kind of thing, right?</p>'
+             if a=1:'<p><<$WQ.name>>:……</p>'
+             if a=1:'<p>Me: If it gets out... the business will be completely yellow?</p>'
+             if a=1:'<p><<$WQ.name>>:What do you want to do?</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="knock_on_the_door_2":
+		a=0 & q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\q1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Fuck her here</a></div>'
+                    if $daily_tz_wq=0:'<div class="buttonG3"><a href="exec:$daily_tz_wq=1 & gt ''hot_spring_event'',''talk_about_investment''">Operating hot springs</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:Can I help you?</p>'
+         '</div>'
+
+
+End
+
+
+if $args[0]="talk_about_investment":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if $wq.shares=0:'<div class="buttonG3"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_2''">Purchase of shares</a></div>'
+                    if $wq.shares>=1 and $wq.manpower>=0:'<div class="buttonG2"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_5''">Recruit manpower</a></div>'
+                    if $hot_spring_oil_pressure_hall=1 and $wq_event_chain<=1:'<div class="buttonG1"><a href="exec:gt ''hot_spring_event'',''talk_about_investment_4''">Operating oil pressure hall</a></div>'
+					if $wq_event_chain>=2:'<div class="buttonS1"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA0''">Field trip</a></div>'
+					if $wq_event_chain>=3:'<div class="buttonS2"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Oil pressure guidance</a></div>'
+					if $wq_event_chain>=4:'<div class="buttonS3"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">Simulation operation</a></div>'
+					if $wq_event_chain>=5:'<div class="buttonS4"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Excuse 3P</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:The benefits of hot springs are really not ideal now, do you have any good ideas?</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="talk_about_investment_2":
+		WQ.money1=money*3/2+200000
+		WQ.money2=WQ.money1/10000
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+						'<div class="buttonGr"><a href="exec:">Purchase of personal funds</a></div>'
+						if Cmoney>=WQ.money2:'<div class="buttonG3"><a href="exec:Cmoney-=WQ.money2 & $wq.shares=1 & gt ''hot_spring_event'',''talk_about_investment_3''">Company funds purchase</a></div>'else:'<div class="buttonGr"><a href="exec:">Company funds purchase</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p>Me: I think this is a good investment project. After the airport is built in the future, tourism will definitely drive economic consumption.</p>'
+				'<p><<$WQ.name>>:That`s the future too…</p>'
+				'<p>Me: Then let me buy some shares. How many shares do you have?</p>'
+				'<p><<$WQ.name>>: My husband accounts for 51%, I account for 49%... I can sell 19% of the shares…</p>'
+				'<p>Me: You can make an offer!</p>'
+				'<p><<$WQ.name>>:  <<WQ.money1>>￥...is it okay?</p>'
+				'<p>Me: Uh……</p>'
+				if  $wq.manpower=0: $wq.manpower=1
+         '</div>'
+
+
+End
+
+if $args[0]="talk_about_investment_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p><<$WQ.name>>:Thank you so much!</p>'
+				'<p>Me: As a shareholder, can I propose to update the facilities here?</p>'
+				'<p><<$WQ.name>>:of course!As long as you pay for it yourself…</p>'
+				'<p>Me: OK…</p>'
+				$wq.shareholder=1
+         '</div>'
+
+
+End
+
+if $args[0]="talk_about_investment_4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">Leave it to me</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p><<$WQ.name>>:Did you get an oil pressure hall?</p>'
+				'<p>Me: Yeah, do you know what the guests who come here are doing in the room?</p>'
+				'<p><<$WQ.name>>:Hmm……</p>'
+				'<p>Me: If...we can do some advertising, we can attract those single guests to come and spend.…</p>'
+				'<p><<$WQ.name>>:If you advertise... we have to know some media people, right?</p>'
+				'<p>Me: Is the director of the TV station qualified?</p>'
+				if $wq_event_chain=0:$wq_event_chain=1
+         '</div>'
+
+
+End
+
+if $args[0]="talk_about_investment_5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">I`m going to find someone</a></div>'
+                    if WQ.A202=1: '<div class="button"><a href="exec:gt ''hot_spring_event'',''recruit_202''">Recruit 202 guests</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p>Me: I found that the quality of service has declined now. Guests often complain that the hot water temperature is not enough, no one hands towels, and there is no waiter to guide them.…</p>'
+				'<p><<$WQ.name>>:Um...there are insufficient manpower now…</p>'
+				'<p>Me: Apart from you, are there any other service personnel in this hot spring?</p>'
+				'<p><<$WQ.name>>:…………</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="open_a_seam":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\lg1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if a<4:'<div class="button"><a href="exec:a+=1 & gt ''hot_spring_event'',''open_a_seam''">Keep peeping</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$WQ.name>>:Husband, hard work❤</p>'
+             if a=1:'<p>？？？: I`m very sleepy... I have to work tomorrow...zzZ</p>'
+             if a=2:'<p><<$WQ.name>>: <<$panting>></p>'
+             if a=3:'<p>？？？: Stop it!I`m going to bed!</p>'
+             if a=4:'<p>？？？: Are you satisfied, I`ll rest first!</p>'
+             if a=4:'<p><<$WQ.name>>:Husband... we haven`t done it for a long time…</p>'
+             if a=4:'<p>？？？: Wait for me to have time, I haven`t been energetic lately…</p>'
+             if a=4:'<p>I：……</p>'& $WQ.LG=1
+             
+         '</div>'
+
+
+End
+
+if $args[0]="recruit_202":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\DSJ-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">OK</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p>Me: This is...?</p>'
+				'<p>She: This is my cousin. She heard that people are hiring here and she also came over.…</p>'
+				'<p>Me: Can she bear hardships and stand hard work?The guests here are not easy to deal with?</p>'
+				'<p>She: I believe she can do a great job under your guidance.</p>'
+				$wq.manpower_202=1
+         '</div>'
+
+
+End
+
+
+
+
+if $args[0]="WQ_Fuck_kitchen1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\餐1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!0 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=0 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Play with her</a></div>'
+            end
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Kneel down and lick me</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Enjoy oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Deep throat</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Brush your teeth by head</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Masturbate to me</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Stick your finger in her</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">？？？？</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+					'<div class="buttonS5"><a href="exec:a=0  & q=0 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Follow me!</a></div>'
+                    '<div class="button"><a href="exec:gt ''suburbs''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:Stop it…</p>'
+           if a>=1:'<p>Me: You obviously enjoy this process…</p>'
+           if a>=2:'<p><<$WQ.name>>:<<$panting>></p>'
+           if a>=3:'<p>Me: Go deeper... baby…</p>'
+           if a>=5:'<p><<$WQ.name>>:Can`t help it... hurry up and fuck me…</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p>？？？: Honey, are you in the kitchen?I heard that a lot of guests have come, so I came back early to help!</p>'
+             '<p>Me: Your husband is back?？</p>'
+             '<p><<$WQ.name>>:Come on, come on, you go!</p>'
+             '<p>Me: Then we will do it next time?</p>'
+             '<p><<$WQ.name>>:……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="wq_bureau_stairs":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\SJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if a<=4:'<div class="button"><a href="exec:a+=1 & gt ''hot_spring_event'',''wq_bureau_stairs''">Silence</a></div>'
+		if a=5:'<div class="button"><a href="exec:a=6 & gt ''hot_spring_event'',''wq_bureau_stairs''">Provide hot spring work</a></div>'
+		if a=6:'<div class="button"><a href="exec:gt ''police_station''">See you soon</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 5>= a and a>=0:
+		'<p>Girl: Not today... I`m here for my aunt…</p>'
+		if a>=1:'<p>Former director (Nakata Ichihei): Then use your mouth, or I will let someone teach your brother tomorrow. Who told him to commit a crime?</p>'
+		if a>=2:'<p>girl: <<$panting>></p>'
+		if a>=3:'<p>Former Director (Nakata Ichihei): You`d better hurry up, I still have a meeting.</p>'
+		if a>=4:'<p>girl: <<$panting>></p>'
+		if a>=5:'<p>Former Director (Nakata Ichihei): Ah ah ah ah!Sure enough, it`s much more comfortable than that yellow-faced woman!Come to me again when you are short of money!</p>'
+		end
+		if a>=6:'<p>Me: The hot spring museum may have a job suitable for you!</p>'
+		if a>=6:'<p>Girl: I will go and have a look</p>'& $WQ_HP=1
+	'</div>'
+
+end
+
+if $args[0]="clean_the_room":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\gsj1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if a!10:'<div class="button"><a href="exec:a+=1 & gt ''hot_spring_event'',''clean_the_room''">Watch it</a></div>'
+		'<div class="button"><a href="exec:a=0 & q=0 & gt ''hot_spring_event'',''clean_the_room_2''">Stop and criticize her</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>She: Guest... please stop<<$panting>></p>'
+		'<p>Guests: *Laughter</p>'
+	'</div>'
+
+end
+
+if $args[0]="clean_the_room_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\FA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''hot_spring_event'',''clean_the_room_2''">Drop wax</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''hot_spring_event'',''clean_the_room_2''">Forced oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=6:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''hot_spring_event'',''clean_the_room_2''">Are you fucked?</a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''hot_spring_event'',''clean_the_room_2''">Have you fucked enough?</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''hot_spring_event'',''clean_the_room_2''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0 :
+         '<div class="dialog_menu">'
+             '<p>Me: What are you doing?Are you something that guests can insert casually?Are you here to be a waiter or a meat toilet?</p>'
+             if a=1:'<p>She: Boss... sorry<<$panting>></p>'
+             if a=2:'<p>She: I was wrong... Woohoo❤</p>'
+             if a=3:
+                '<p>Me: Isn`t it cool to be fucked by others in turns?</p>'
+                '<p>She: Yes<<$panting>>❤</p>'
+             end
+             if a=4:
+                '<p>Me: Do you want to be fucked by someone else?</p>'
+                '<p>She: Enough... enough... it hurts inside<<$panting>></p>'
+             end
+         '</div>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>Me: Never again!</p>'
+             '<p>She: Hmm…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="indoor_sound_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\SJSJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''hot_spring_event'',''indoor_sound_3''">Pat her</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''hot_spring_event'',''indoor_sound_3''">Go to the shower area</a></div>'
+            end
+            if a=2 or a=4:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''hot_spring_event'',''indoor_sound_3''">Touch her</a></div>'
+            end
+            if a=2 or a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''hot_spring_event'',''indoor_sound_3''">Touch her friend</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''hot_spring_event'',''indoor_sound_3''">Work for me</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''hot_spring_corridor''">Of course</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0 :
+         '<div class="dialog_menu">'
+             
+             '<p><<$LJ.name>>:It`s so comfortable to take a bath. After a while, we will go over the wall and go out without anyone noticing.</p>'
+             if a>=1:'<p>Me: Why are you here?Did you pay for the ticket?</p>'
+             if a>=2:'<p>Me: Why don`t you reply to me?Pretend you don`t know me, do you?</p>'
+             if a=3:
+                '<p><<$LJ.name>>:Who are you?</p>'
+                '<p>Me: Don`t want to be fucked anymore?</p>'
+                '<p><<$LJ.name>>:Hehe❤Just kidding!</p>'
+             end
+             if a=4:
+                '<p>Me: You feel better❤</p>'
+                '<p>She: Um... that`s for sure❤</p>'
+             end
+         '</div>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>Me: If you don`t want me to blacklist you, just stay and work here.</p>'
+             '<p><<$LJ.name>>:Oh?May I?</p>'
+             '<p>Me: The content of the work is very simple.</p>'
+             '<p><<$LJ.name>>:Can you make extra money❤</p>'
+            $WQ_LJ=1
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="WQ_Fuck_room1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\房1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a!0 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=0 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Continue oral sex</a></div>'
+            end
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Use buttocks</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Hip wave</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Front riding</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Back into the sprint</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Ejaculation</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Lick clean</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">White prostitute accommodation</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:Hurry up... no one will bother us here…</p>'
+           if a>=1:'<p>Me: Your ass is awesome…</p>'
+           if a>=2:'<p><<$WQ.name>>:<<$panting>></p>'
+           if a>=3:'<p>Me: So comfortable... baby…</p>'
+           if a>=4:'<p><<$WQ.name>>: <<$words>>...</p>'
+         '</div>'
+    end
+
+    if a=6:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p>Me: How am I doing?</p>'
+             '<p><<$WQ.name>>:Very satisfied…</p>'
+             '<p>Me: Can that make me prostitute for nothing all night?</p>'
+             '<p><<$WQ.name>>:Oh, didn`t you already let you prostitute me for nothing?</p>'
+             '<p>？？？: My dear?Where have you been?</p>'
+             '<p><<$WQ.name>>:Come on, let`s go!</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="wq_fuck_force":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\qz1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''wq_fuck_force''">Command masturbation</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''wq_fuck_force''">Blowjob for me</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''wq_fuck_force''">Insert the vibrating egg</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''wq_fuck_force''">Turn on the switch!</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''wq_fuck_force''">Sit up</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''wq_fuck_force''">Work hard</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''wq_fuck_force''">Hit the heart of the flower</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''hot_spring_event'',''wq_fuck_force''">Ejaculation</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''hot_spring_event'',''wq_fuck_force''">Lick clean</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Go back to the room</a></div>'
+                    !'<div class="button"><a href="exec:gt ''温泉'',''套间''">在这过夜</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$WQ.name>>:Hello-what are you doing in here?Didn`t you see me changing clothes?</p>'
+           if a>=1:'<p>Me: Rub your pussy wet, hurry up!This is an order!</p>'
+           if a>=2:'<p><<$WQ.name>>:You know to bully me…</p>'
+           if a>=4:'<p><<$WQ.name>>:Yeah<<$words>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p>Me: What?Don`t you like it?</p>'
+             '<p><<$WQ.name>>:Can`t you like it?！</p>'
+             if $times_of_day!'':
+             '<p>Me: Is your husband coming back tonight?</p>'
+             '<p><<$WQ.name>>:What do you want to do?！</p>'
+             '<p>Me: Sleep with you!</p>'
+             '<p><<$WQ.name>>:Don`t dream, it`s too dangerous!</p>'
+             end
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\WSPA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<13:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Massage the legs</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Shiatsu chest</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">dialogue</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Private service</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Chest push</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Milk cannon</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Tongue kiss</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Turn around</a></div>'
+            end
+            if a!9 and 8<=q and q<=11:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Sit up</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Turn around</a></div>'
+            end
+            if a=10 and 10<=q:
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Vigorously pump</a></div>'
+            end
+            if a=11:
+            '<div class="buttonS5"><a href="exec:a=12 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">Shoot her inside</a></div>'
+            end
+            if a=12:
+            '<div class="buttonS2"><a href="exec:a=13 & gt ''hot_spring_event'',''WQ_Fuck_WSPA''">dialogue</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Go back to the room</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 12>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:According to your request, I am wearing a transparent cheongsam.</p>'
+           if a=1:'<p><<$WQ.name>>:Is the strength still appropriate?</p>'
+           if a=2:'<p><<$WQ.name>>:Tell me if it hurts.</p>'
+           if a=3:'<p>Me: Don`t I have a special service?</p>'
+           if a>=4:'<p><<$WQ.name>>: I think you are too hard, so I will give you a private service~</p>'
+           if a>=5:'<p><<$WQ.name>>:Do you like it?<<$panting>></p>'
+           if a>=6:'<p>Me: So comfortable!</p>'
+           if a>=8:'<p><<$WQ.name>>:Then you can`t shoot easily<<$words>></p>'
+         '</div>'
+    end
+
+    if a=13:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:How?Are you satisfied with the private exclusive service?</p>'
+             '<p>Me: Great!</p>'
+             '<p><<$WQ.name>>:Shot me inside……</p>'
+             '<p>Me: Didn`t you say that?Divorced her husband when she was pregnant.</p>'
+             '<p><<$WQ.name>>:Will you marry me?</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_cook2":
+	 if WQ_cook>=3:WQ_cook=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\cook2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    
+        '<div class="button_menu">'
+            if WQ_cook>= a :'<div class="buttonS1"><a href="exec:a+=1 & gt ''hot_spring_event'',''WQ_Fuck_cook2''">Go on</a></div>'
+            if WQ_cook < a:'<div class="buttonGr"><a href="exec:">Talk about it next time</a></div>'
+
+         '<div class="button"><a href="exec:q=0 & gt ''hot_spring_event'',''WQ_Fuck_cook3''">Collect tuition</a></div>'
+        '</div>'
+
+
+
+
+
+
+    if 4>=a and a>=0:
+		
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$WQ.name>>:I will listen carefully!</p>'
+           if a>=0:'<p>Me: No matter what green leafy vegetables are fried, stir-fry them over high heat so that the vegetables can be green without discoloration and reduce water loss.</p>'
+           if a>=1:'<p>Me: It is generally better to use animal oil for frying vegetarian dishes, such as the common lard, so that the taste of frying is more fragrant.It is better to use vegetable oil for frying meat dishes, so that the fried dishes are more delicious.</p>'
+           if a>=2:'<p>Me: Dishes that need to be stir-fried must be cooked quickly with fierce firepower. When the food is cooked at extremely high temperatures (more than 200℃), the coking reaction and Maillard reaction will occur.</p>'
+           if a>=3:'<p>Me: When stewing soup, it is recommended to wait for the soup to be cooked before adding salt. This can maximize the umami flavor of the meat.</p>'
+           if a>=4:'<p>Me: If you want to become a good cook with superb cooking skills, it is not enough to rely on the above introductory skills.You have to do more, see more, accumulate more, learn more, and understand more. One day, you will succeed naturally, and everything will no longer be difficult!</p>'
+           '<p><<$WQ.name>>: Hmm!*Thoughtfully…</p>'
+         '</div>'
+    end
+
+
+
+ q=0
+
+End
+
+
+if $args[0]="WQ_Fuck_cook3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\cook3-<<q>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    
+        '<div class="button_menu">'
+            if q< a:'<div class="buttonS1"><a href="exec:q+=1 & gt ''hot_spring_event'',''WQ_Fuck_cook3''">Go on</a></div>'
+
+            if q<= 3:'<div class="button"><a href="exec:WQ_cook+=1 & gt''hot_spring''">leave</a></div>'
+
+            if q>=4:'<div class="buttonS5"><a href="exec:a=0  & q=0 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Change place</a></div>'
+        '</div>'
+
+
+
+
+         '<div class="dialog_menu">'
+           if q>=0:'<p><<$WQ.name>>: <<$protagonists_surname>>Teacher, tuition is free of charge❤</p>'
+           if q>=0:'<p>Me:…………</p>'
+           if q>=1:'<p><<$WQ.name>>:Do you like it❤</p>'
+           if q>=4:'<p><<$WQ.name>>:Why don`t we change places?</p>'
+         '</div>'
+
+End
+
+
+if $args[0]="WQ_Fuck_room3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\zh1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_room3''">kiss</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Kneading milk</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Kneel down and have oral sex</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Deep throat</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Press the head to insert</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Fuck her homeopathy</a></div>'
+            end
+            if a!7 and 6=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Front riding</a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Back into the sprint</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''hot_spring_event'',''WQ_Fuck_room3''">Ejaculation</a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''hot_spring_event'',''WQ_Fuck_room3''">dialogue</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">agree</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: Is it here?</p>'
+           if a>=1:'<p>Me: I know you can`t wait…</p>'
+           if a>=2:'<p><<$WQ.name>>:<<$panting>></p>'
+           if a>=3:'<p>Me: You are really good at licking…</p>'
+           if a>=6:'<p><<$WQ.name>>:So big<<$words>></p>'
+           if a=9:'<p>Me: Shot!！！</p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+		 $wq.photo_destruction=1
+         '<div class="dialog_menu">'
+             '<p>Me: You know, I actually don`t want to threaten others.</p>'
+             '<p><<$WQ.name>>:As long as my husband doesn`t find out, I can play whatever you want.…</p>'
+             '<p>Me: Oh?</p>'
+             '<p><<$WQ.name>>:As a condition, you have to destroy the photos…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_room4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\JC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_room4''">dialogue</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_room4''">Jingle bell</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_room4''">Answer the phone</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_room4''">tease</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_room4''">Deep throat blowjob</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_room4''">Ejaculation</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_room4''">dialogue</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+					'<div class="buttonS5"><a href="exec:a=0  & q=0 & gt ''hot_spring_event'',''WQ_Fuck_room1''">Of course</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Enjoy your mask</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p>Me: Is your husband not here today?</p>'
+           if a>=1:'<p><<$WQ.name>>:Don`t mention him, I love your stick so much.</p>'
+           if a=2:'<p>·【Phone bell】</p>'
+           if a=3:'<p><<$WQ.name>>:Hello?Husband?Excuse me?Is there a guest who is drunk and crazy and wants to come back later?Great!</p>'
+           if a=4:'<p><<$WQ.name>>:Ah, it`s nothing, I have nothing here, it`s okay to hang up!</p>'
+           if a>=5:'<p>Me: Why do you hang up so fast?</p>'
+           if a>=6:'<p><<$WQ.name>>:Shoot me quickly!Shoot me in the face!</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p>Me: Don`t you wipe it off?</p>'
+             '<p><<$WQ.name>>: I like sperm mask... This is a project that costs more than 5,000 ￥ to experience in Imperial Health!</p>'
+             '<p>Me: Oh?Really bad taste…</p>'
+             '<p><<$WQ.name>>:Do you want me to wash my face and come back for the second round?</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="wq_fuck_early_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\早1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''wq_fuck_early_1''">serve</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''wq_fuck_early_1''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''wq_fuck_early_1''">Lactation</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''wq_fuck_early_1''">Morning cannon</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''wq_fuck_early_1''">Accelerate thrusting</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''wq_fuck_early_1''">Ejaculation</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''wq_fuck_early_1''">Lick clean</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$WQ.name>>:Shhh——</p>'
+           if a>=1:'<p>Me: Huh?*Confused</p>'
+           if a>=2:'<p><<$WQ.name>>:Awake?Are you sleeping comfortably?</p>'
+           if a>=4:'<p><<$WQ.name>>:Slow down<<$words>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p>Me: What?Looking for me early in the morning?</p>'
+             '<p><<$WQ.name>>:Can`t you find you if it`s okay?I came to you as soon as my husband went out!</p>'
+             '<p>Me: When will you divorce your husband?</p>'
+             '<p><<$WQ.name>>:After you fuck me pregnant!</p>'
+             '<p>Me: *Smile without saying a word</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<12:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''hot_spring_event'',''WQ_Fuck_WSPA0''">Continue to guide</a></div>'
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Go back to the room</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 11>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$TZ.name>>:It reminds me of when I used to work part-time to make a living……</p>'
+           if a=1:'<p>Me: Have you done this before?</p>'
+           if a=2:'<p><<$TZ.name>>:What else am I doing here?</p>'
+           if a=3:'<p>Me: Are you sure it`s like this?</p>'
+           if a>=4:'<p><<$TZ.name>>:Do you like it?<<$panting>></p>'
+           if a>=5:'<p><<$TZ.name>>:Here too❤</p>'
+           if a=6:'<p><<$TZ.name>>:Help me take off my clothes❤</p>'
+           if a>=7:'<p><<$TZ.name>>:This is the real oil pressure massage❤</p>'
+           if a=9:'<p><<$TZ.name>>:Tell me when you want to shoot ❤</p>'
+         '</div>'
+    end
+
+    if a=12:
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:Hey, I said?Can such a service work?</p>'
+             '<p><<$TZ.name>>:The ratings are still high now, and I have the final say in what advertisements are broadcast!</p>'
+             '<p>Me: *Shrug</p>'
+             '<p><<$WQ.name>>:OK?How much advertising does it cost?</p>'
+             '<p><<$TZ.name>>:free!But as a condition, you also have to learn this skill.</p>'
+             '<p><<$WQ.name>>:I want it too?</p>'
+            if $wq_event_chain=2:$wq_event_chain=3
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<11:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Oiled</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Paint each other</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Double wave push</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Tongue kiss</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">kiss<<$TZ.name>></a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">mouth<<$TZ.name>></a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">kiss<<$WQ.name>></a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">mouth<<$WQ.name>></a></div>'
+            end
+            if a!9 and 8<=q and q<=11:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Fap with both hands</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">Ejaculation</a></div>'
+            end
+            if a=10 :
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''hot_spring_event'',''WQ_Fuck_WSPA1''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Go back to the room</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$TZ.name>>:Okay, we have started class. The first step is to apply oil to the guests.</p>'
+           if a=1:'<p><<$WQ.name>>:Am I going to fall too?</p>'
+           if a=2:'<p><<$TZ.name>>:Of course, I divide a little bit on my breasts.</p>'
+           if a=3:'<p><<$TZ.name>>:Keep up with my movements and learn well.</p>'
+           if a>=4:'<p><<$TZ.name>>: Look carefully~</p>'
+           if a>=5:'<p><<$WQ.name>>: <<$panting>></p>'
+           if a>=6:'<p>Me: So comfortable!</p>'
+           if a>=7:'<p><<$TZ.name>>: <<$panting_2>></p>'
+         '</div>'
+    end
+
+    if a=11:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+         if $wq_event_chain=3:$wq_event_chain=4
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>:How?Have you learned?</p>'
+             '<p><<$WQ.name>>:Maybe...?</p>'
+             '<p><<$TZ.name>>:Then I will test you next time I come…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">massage</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''"><<$TZ.name>>demo</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''"><<$WQ.name>>demo</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">Double blowjob</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">accelerate</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">Oral ejaculation</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">One more shot</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">Lick clean</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''hot_spring_event'',''WQ_Fuck_WSPA2''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonGn"><a href="exec:gt ''hot_spring'',''suite''">Can</a></div>'
+                    !'<div class="buttonR"><a href="exec:gt ''温泉'',''套间''">不行</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:Hello guests, this is our new project, please experience it.</p>'
+           if a=1:'<p><<$WQ.name>>:Click here first?Click here again?</p>'
+           if a=2:'<p><<$TZ.name>>:I`m welcome.</p>'
+           if a=3:'<p><<$WQ.name>>:Wait a minute, I want to do it too……</p>'
+           if a>=4:'<p><<$TZ.name>>: <<$panting_2>></p>'
+           if a>=5:'<p><<$WQ.name>>: <<$panting>></p>'
+         '</div>'
+    end
+
+    if a=9:
+		if $wq_event_chain=4:$wq_event_chain=5
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>:How?Can she open the business?</p>'
+             '<p><<$WQ.name>>: <<$protagonists_name>>What do you think...?</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Front and rear attack</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Two people serve</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''"><<$WQ.name>>Oral sex</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Riding position</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Face me</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">After entering her</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Accelerate the sprint</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Ejaculation</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">Lick clean</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS2"><a href="exec:a=10 & gt ''hot_spring_event'',''WQ_Fuck_WSPA3''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonGn"><a href="exec:gt ''hot_spring'',''suite''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:What are you doing here?</p>'
+           if a=1:'<p><<$TZ.name>>:Can`t I come and check the quality of service?</p>'
+           if a=2:'<p><<$WQ.name>>:Is that how you checked?</p>'
+           if a=3:'<p><<$TZ.name>>:Are you jealous?Then give you his dick……</p>'
+           if a>=4:'<p><<$WQ.name>>:Okay, then you can only watch us do it today…</p>'
+           if a>=5:'<p><<$WQ.name>>: <<$words>></p>'
+           if a=9:'<p><<$TZ.name>>:I usually do it with you a lot, right?Actually shot so many…</p>'
+         '</div>'
+    end
+
+    if a=10:
+				if $wq_event_chain=5:$wq_event_chain=6
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:How?Is the quality of service in place?</p>'
+             '<p><<$TZ.name>>:No problem at all!</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_wll":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\bf1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_wll''">Lick me</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_wll''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_wll''">Ride up</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_wll''">After entering her</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_wll''">Vigorously pump</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_wll''">Ejaculation</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''WQ_Fuck_wll''">Lick clean</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonGn"><a href="exec:gt ''big_villa''">Enough</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>Me: Why are you here?</p>'
+           if a>=1:'<p><<$WQ.name>>:Can`t I come to see my shareholders?</p>'
+           if a>=2:'<p><<$WQ.name>>: <<$panting>></p>'
+           if a>=3:'<p>Me: Do you miss me?</p>'
+           if a>=4:'<p><<$WQ.name>>:No<<$words>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q*2
+         '<div class="dialog_menu">'
+             '<p>Me: Really not?</p>'
+             '<p><<$WQ.name>>: No!*Don`t want to talk to you</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_QJJ":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\wllj1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''hot_spring_event'',''WQ_Fuck_QJJ''">Watch it</a></div>'
+            '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Go back to the room</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring'',''suite''">Go back to the room</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:Wait, there are a little too many people!</p>'
+           if a=0:'<p>？？？: Madam boss, the advertisement is good... we came in a group!</p>'
+           if a=1:'<p><<$WQ.name>>:Will you slow down?One by one…</p>'
+           if a=2:'<p>？？？: You won`t lose less money!Hurry up!</p>'
+           if a>=3:'<p><<$WQ.name>>:Slow down<<$panting>></p>'
+           if a>=4:'<p>？？？: Here too❤</p>'
+           if a>=5:'<p><<$WQ.name>>:wait<<$words>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:What`s this?</p>'
+             '<p>？？？: A hundred people cut the pennant!</p>'
+             '<p><<$WQ.name>>:Stop it, pay quickly.My husband will be back in a while…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="room_102":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JK\vids\旅馆1-9~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$JK.name>>:Fuck my mother hard!！！</p>'
+             '<p>？？？: Boss... I`m dying of exhaustion…</p>'
+         '</div>'
+		end
+		
+		
+	if $times_of_day!'':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\gb1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if a!9:'<div class="buttonS"><a href="exec:a+=1 & gt ''hot_spring_event'',''room_102''">Keep peeping</a></div>'
+                     '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>Guest (102): Are you so sexy?</p>'
+             '<p><<$WQ.name>>:Doesn`t the boss like it?</p>'
+             if a>=1:'<p>Guest (102): Hahaha!Of course!</p>'
+             if a>=2:'<p><<$WQ.name>>:<<$panting>></p>'
+             if a>=3:'<p>Guest (102): Hurry up!Skank!</p>'
+             if a>=4:'<p><<$WQ.name>>: <<$words>></p>'
+             if a>=9:'<p>Guest (102): The water and electricity bills for the hot spring this month!I will help you avoid it!</p>'
+             if a>=9:'<p><<$WQ.name>>:Boss, you are so kind!</p>'
+         '</div>'
+		end
+
+End
+
+if $args[0]="room_103":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MS\vids\访客2-<<rand(0,13)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZL\vids\电话<<rand(0,1)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		end
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: Bosses... give me a break…</p>'
+             '<p>*Make a big laugh</p>'
+         '</div>'
+
+End
+
+if $args[0]="room_104":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\underground\电车B4-<<rand(0,10)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\under\地下<<rand(1,5)>>-<<rand(3,7)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		end
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: <<$panting>></p>'
+         '</div>'
+
+End
+
+if $args[0]="room_201":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\RD-<<rand(0,7)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: <<$panting>></p>'
+         '</div>'
+
+		else:
+		
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\WQ1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		
+            '<div class="button_menu">'
+					if $SY.bad>=100:'<div class="buttonS"><a href="exec: gt ''uehara_event'',''SY_Fuck_WQ''">dialogue</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: <<$panting>></p>'
+         '</div>'
+		end
+
+
+End
+
+if $args[0]="room_202":
+		$WQ202R=rand(0,2)
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\A202-<<$WQ202R>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+					if $WQ202R=2:'<div class="button"><a href="exec:gt ''hot_spring_event'',''WQ_Fuck_202''">Play with her</a></div>'else:'<div class="buttonGr"><a href="exec:">Not the time</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>She: Someone is watching us…</p>'
+             '<p>Man: Are you a slut who is afraid of being seen by others?</p>'
+             if $WQ202R=2:
+             '<p>She: Hmm<<$panting>></p>'
+             '<p>Man: I`ll go out for a cigarette and come back to fuck you!</p>'
+             end
+         '</div>'
+
+End
+
+if $args[0]="room_203":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\混浴1-<<rand(6,9)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+         '<div class="dialog_menu">'
+             '<p>Woman: Brother, do you want to fuck me❤</p>'
+         '</div>'
+         
+         else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XYBZC3-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+                    if $XY.bad>=300:'<div class="buttonS"><a href="exec: gt ''hot_spring_event'',''WQ_Fuck_XY''">Eavesdropping</a></div>'else:'<div class="buttonGr"><a href="exec:">Eavesdropping</a></div>'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+         '<div class="dialog_menu">'
+             '<p><<$XY.name>>: As long as you study well, the teacher will reward you❤</p>'
+             '<p>？？？: Uh... teacher…</p>'
+         '</div>'
+         
+         end
+
+End
+
+if $args[0]="room_204":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\QGD1-<<RAND(0,3)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\QGD1-<<RAND(4,6)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		end
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>Man: I`ll keep looking for you next time I have a new payment!</p>'
+             '<p>？？？: Ok<<$panting>></p>'
+         '</div>'
+
+End
+
+if $args[0]="WQ_Fuck_202":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\SJ202-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_202''">Train her</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_202''">Forced oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=6:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_202''">Ejaculation</a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_202''">Lick clean</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_202''">Plug it back in</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0 :
+         '<div class="dialog_menu">'
+             '<p>she: <<$panting>></p>'
+             if a=1:'<p>Me: You really are a slut…</p>'
+             if a=2:'<p>She: No, it`s not ❤</p>'
+         '</div>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>Me: Don`t be discovered by your husband…</p>'
+             '<p>She: He is not my husband!</p>'
+             WQ.A202=1
+         '</div>'
+    end
+  q+=1
+End
+
+
+if $args[0]="WQ_Fuck_XY":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XYBZC3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''hot_spring_event'',''WQ_Fuck_XY''">Go in and plug her in</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''hot_spring_event'',''WQ_Fuck_XY''">Plug in to the end</a></div>'
+            end
+            if a!3 and 2<=q and q<=6:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''hot_spring_event'',''WQ_Fuck_XY''">Play something exciting</a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''hot_spring_event'',''WQ_Fuck_XY''">Thigh lift exercise</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''hot_spring_event'',''WQ_Fuck_XY''">Internal injection</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''hot_spring_event'',''WQ_Fuck_XY''">Front desk invitation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0 :
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$XY.name>>: Your father paid a lot of private teaching money, you have to learn from me❤</p>'
+             if a=0:'<p>？？？: Teacher...you have always been like this...wait!I`m going to the toilet!</p>'
+             if a>=1:'<p>Me: You are really a slut... what kind of tricks are you doing with students?</p>'
+             if a>=2:'<p><<$XY.name>>: I don`t have<<$panting>></p>'
+             if a=3:'<p>Student: Teacher?What`s wrong with you?</p>'
+             if a=3:'<p><<$XY.name>>: You go to study for a while!I`ll teach you to memorize words in a while!</p>'
+             if a>=4:'<p>Me: Tell me before you spray.</p>'
+             if a>=4:'<p><<$XY.name>>: Don`t<<$panting>></p>'
+         '</div>'
+    end
+
+
+    if a=6:
+         '<div class="dialog_menu">'
+             '<p><<$XY.name>>: Hurry up and get out!My class fees are very expensive.</p>'
+             '<p>Me: Are you interested in coming here to work part-time as a front desk?Anyway, I think you are letting him study for most of the time.…</p>'
+             '<p><<$XY.name>>: You give me money?</p>'
+             '<p>Me: I have shares in this hot spring…</p>'
+             '<p><<$XY.name>>: Ok!*Eyes glow</p>'
+            $xy.hot_spring_front_desk=1
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="wq_fuck_home_visit":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\家访1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''wq_fuck_home_visit''">Touch her</a></div>'
+            end
+            if q=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''wq_fuck_home_visit''">Homeopathic insertion</a></div>'
+            end
+            if q=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''hot_spring_event'',''wq_fuck_home_visit''">Pinch nipples</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''wq_fuck_home_visit''">After violence</a></div>'
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''hot_spring_event'',''wq_fuck_home_visit''">Quick sprint</a></div>'
+            end
+            if q=3:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''hot_spring_event'',''wq_fuck_home_visit''">Ejaculation</a></div>'
+            end
+            if q=4:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''hot_spring_event'',''wq_fuck_home_visit''">Lick clean</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''big_villa''">Send her away</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:Hello-husband, oh, I went to the city to see a friend, he is hospitalized❤</p>'
+           if a=1:'<p><<$WQ.name>>:You don`t have to come to pick me up!I can go back by myself.I`m now ❤hmm--here ❤ I`m going up the stairs, it`s coming soon ❤Hmm ❤It`s coming soon❤</p>'
+           if a=2:'<p><<$WQ.name>>:Ah...if there are many guests, you can call me again!I am very busy!now!Hang up first!</p>'
+           if a>=3:'<p><<$WQ.name>>:You know to bully me…</p>'
+           if a=5:'<p><<$WQ.name>>:Yeah<<$words>></p>'
+           if a=6:'<p>Me: Huh-you won`t get pregnant without a condom, will you?</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+$my.charm
+         $WQ.bad+=q+$my.charm
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>:I`m going back!</p>'
+             '<p>Me: What?Don`t you like it?Do a good job of cleaning up before leaving ❤</p>'
+             '<p><<$WQ.name>>:Huh huh?！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="hot_spring_fuck_wq_collar":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XWBZC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!13:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Kneading nipples </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Oral sex </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Bukkake </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">dialogue </a></div>'
+            end
+            if a=4:
+            '<div class="buttonR3"><a href="exec:a=5 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Pretend to leave </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Clear the field </a></div>'
+            end
+            
+            if a>=6:
+            
+				if a!7 and 6<=q and q<=12:
+				'<div class="buttonR4"><a href="exec:a=7 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Plug her in </a></div>'
+				end
+				if a!8 and 7<=q and q<=13:
+				'<div class="buttonS4"><a href="exec:a=8 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Back into the sprint </a></div>'
+				end
+				if a!9 and 8<=q and q<=14:
+				'<div class="buttonS5"><a href="exec:a=9 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">accelerate </a></div>'
+				end
+				if a!10 and 10<=q :
+				'<div class="buttonS4"><a href="exec:a=10 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Change posture </a></div>'
+				end
+				if a=10:
+				'<div class="buttonR4"><a href="exec:a=11 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Ejaculation </a></div>'
+				end
+				if a=11:
+				'<div class="buttonS4"><a href="exec:a=12 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Clean up </a></div>'
+				end
+				if a=12:
+				'<div class="buttonGn"><a href="exec:a=13 & gt ''hot_spring_event'',''hot_spring_fuck_wq_collar''">Back to work </a></div>'
+				end
+			end
+
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>Me: I know you want this, what should you call me next?</p>'
+             '<p><<$XY.name>>:Master, please vent freely❤</p>'
+             if a>=1:'<p><<$XY.name>>: <<$panting_2>></p>'
+             if a>=2:'<p>Me: You are a bitch, right?</p>'
+             if a>=3:'<p><<$XY.name>>:That`s right<<$words>></p>'
+             if a>=4:'<p>Me: I`m a little tired today…</p>'
+         '</div>'
+    end
+
+    if 12>=a and a>=5:
+         '<div class="dialog_menu">'
+             '<p><<$XY.name>>:Master, hurry up and fuck the little bitch ❤ Please, pump it hard here!</p>'
+             if a>=6:'<p>Me: Sorry, everyone, this place needs to be cleaned thoroughly!</p>'
+             if a>=7:'<p><<$XY.name>>:Hmm<<$words>></p>'
+             if a=12:'<p><<$XY.name>>:When will my salary be settled for me?</p>'
+         '</div>'
+    end
+
+    if a=13:
+		 $XY.love+=q+$my.charm
+		 $XY.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:When will my salary be settled for me?</p>'
+             '<p>Me: Today`s reward should have been shot to you❤</p>'
+             '<p><<$XY.name>>:Damn❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+--- hot_spring_event ---------------------------------
+

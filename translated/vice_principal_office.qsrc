@@ -1,0 +1,154 @@
+# vice_principal_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+if $args[0]="":
+	$FXZ.available=1
+	if  $FXZ.bad>=200: $FXZLH=4
+	if  $FXZ.bad<=200: $FXZLH=3
+	if  $FXZ.bad<=150: $FXZLH=2
+	if  $FXZ.bad<=125: $FXZLH=1
+	if  $FXZ.bad<=100: $FXZLH=0
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室<<$FXZLH>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if  $XZ_Event_3t=1:'<div class="button"><a href="exec:minutes+=5 & gt ''vice_principal_office'',''dialogue''">dialogue</a></div>'
+		if $fxz_event_counseling=1:'<div class="button"><a href="exec:minutes+=50 & gt ''vice_principal_office'',''competition_counseling''">Competition counseling</a></div>'
+		if $fxz_event_counseling=2 and  $fxz_event_daughter<=1:'<div class="button"><a href="exec:minutes+=15 & gt ''vice_principal_office'',''what`s_on_her_mind''">What`s on her mind</a></div>'
+		if $fxz_event_counseling<2:'<div class="buttonGr"><a href="exec:">Not yet gained trust</a></div>'
+		if  day>=28:'<div class="buttonS1"><a href="exec:minutes+=15 &  gt ''vice_principal_event'',''home_visit''">Home visit at the end of the month</a></div>'else:'<div class="buttonGr"><a href="exec:">At the end of the month?？</a></div>'
+		if hour=17 and $fxz_event_daughter=1: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''writer_event'',''first_meeting''">Go to her house</a></div>'
+		if  $fxz_event_daughter=2 and $ZJ_Event_count<3: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''writer_event'',''second_meeting''">Free</a></div>'
+		if $fxz_event_counseling>=2:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">Winning reward</a></div>'else:'<div class="buttonGr"><a href="exec:">？？reward</a></div>'
+		if  $FXZ.bad>=150:'<div class="buttonS4"><a href="exec:minutes+=15 &  gt ''vice_principal_event'',''fxz_fuck_office''">Fuck her</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+	    if  $FXZ.bad>=330-$FXZ.love and hour=17:'<div class="buttonS5"><a href="exec:minutes+=15 &  gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">Go to the principal`s office to have sex</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+        if $insemination_room=1 and $FXZ.bad>=200 and $fxz.insemination=0:'<div class="buttonS"><a href="exec:$fxz.insemination=1 & gt ''vice_principal_office''">Invite artificial insemination</a></div>'
+
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Hello teacher!</p>'
+		'<p><<$FXZ.name>>: Oh, pay attention to the title!Call me the vice principal!Huh, vice principal?Who is rare!</p>'
+		'<p>Me: Hello, vice principal!</p>'
+		if  $fxz_event_daughter=2 and $ZJ_Event_count<3:  '<p><<$FXZ.name>>: The effect is good!My daughter keeps asking when you will go, are you free now?</p>'
+		if  $fxz_event_daughter=2 and $ZJ_Event_count>=3: 
+		'<p><<$FXZ.name>>: My daughter has become more cheerful recently, and she told me what she wants to do as a full-time novelist...You helped her a lot...This is the backup key to my house. You usually go and chat with her more when I`m away!</p>'
+	    if $FXZ.key=0:'<p><a href="exec:minutes+=15 & $FXZ.KEY=1 & gt ''vice_principal_office''">Take the key</a></p>'
+	    end 
+	    if  $FXZ.bad>=330-$FXZ.love and  hour!17 :'<p><<$FXZ.name>>: Remember to come to me after school, I will take you to a good place!</p>'
+	    if $picket_mission=1:'<p>·The members of the school picket team behind the door arrived, and they motioned to her<a href="exec:minutes+=15 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Sign the abstention statement</a></p>'
+	'</div>'
+End
+
+if $args[0]="dialogue":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &fxzdh=1& gt ''vice_principal_office'',''dialogue''">How many years have you taught?</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &fxzdh=2& gt ''vice_principal_office'',''dialogue''">You are right<<$xz.name>>Are you satisfied?</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if fxzdh=1:
+		'<p>Me: How many years have you taught?</p>'
+		'<p><<$FXZ.name>>: 15 years and 3 months.I am very responsible to tell you that the teaching age of the teachers in the entire school is not as much as mine!</p>'
+		'<p>Me: Then you should be the most capable teacher in the whole school!</p>'
+		'<p><<$FXZ.name>>: Hehe, the current level of young teachers is also good.</p>'
+	 end
+	 if fxzdh=2:
+		'<p>Me: You are right<<$xz.name>>Are you satisfied?</p>'
+		'<p><<$FXZ.name>>:*Weird eyes* That woman was appointed by the mayor.You ask, are you from the school picket team?</p>'
+		'<p>Me: You are not answering your question.</p>'
+		'<p><<$FXZ.name>>: Sometimes if you don`t answer the question, you just answer it. You are still young and don`t understand this principal, and I won`t care about you.</p>'
+		'<p>Me: Principal?You are still the vice principal.</p>'
+		'<p><<$FXZ.name>>: I have a lot of prestige within the teacher, and the next election is about to come.At that time, I will abolish the picket line on campus, and I advise you not to cause me trouble.</p>'
+		$XZ_Event_3tf=1
+	 end
+	'</div>'
+End
+
+
+if $args[0]="competition_counseling":
+	$review_progress+=$my.intelligence+20
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\测试.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $review_progress>=100:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''vice_principal_event'',''additional_requirements''">Additional requirements</a></div>'
+		else
+		'<div class="buttonGr"><a href="exec:">Review progress<<$review_progress>>%</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·I reviewed it carefully.</p>'
+		'<p><<$FXZ.name>>：<<$protagonists_surname>>Classmate!The teacher will seriously tutor you!(Alas!What`s the matter.You are the only one who signed up..This is too difficult to do..）</p>'
+		'<p>Me: It seems that I am a lone seedling?</p>'
+		if $review_progress>=40:'<p><<$FXZ.name>>: Not bad, not bad, the big framework has been thoroughly combed.I also submitted your name.You can go to the game after a while.During this time, we will continue to go through the little knowledge.</p>'
+		if $review_progress>=60:'<p>Me: Can this name be changed after it is submitted?</p>'
+		if $review_progress>=80:'<p><<$FXZ.name>>: Of course not!If you don`t go<<$XZ.name>>But it`s going to trouble me.</p>'
+		if $review_progress>=100:'<p>Me: Uh...My stomach hurts a little, I have to go back first today!Once someone is exposed.They are at your mercy.</p>'
+	'</div>'
+End
+
+if $args[0]="what`s_on_her_mind":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $fxz_event_daughter=1 &  gt ''university''">Ok then</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$FXZ.name>>: Oh~ Now she refuses to tell her mother anything....She was originally a sensitive and fragile child....What should I do..</p>'
+		'<p>Me: You seem to have something on your mind?</p>'
+		'<p><<$FXZ.name>>: Actually, the teacher has a daughter who has suddenly become very introverted recently and always locks herself in the room. I am a little worried about whether her psychology will go wrong....</p>'
+		'<p>Me: Adolescent children are like this, so you don`t have to worry too much.</p>'
+		'<p><<$FXZ.name>>: But...Why don`t you go home with me after school? If she is of the same age, she might be willing to say something.</p>'
+	'</div>'
+End
+
+if $args[0]="win_over":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\温泉前置.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &   gt ''residential_area''">No problem</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Before leaving, she suddenly stopped you.</p>'
+		'<p><<$FXZ.name>>: The teacher has a task that I want to ask you. You know that the teacher still needs some neutral votes.<<$SW.name>>It would be bad if you fell to the side of the principal....</p>'
+		'<p>Me: Then what do you need me to do?</p>'
+		'<p><<$FXZ.name>>: Actually, the teacher has already planned it. I have an appointment tomorrow night.<<$SW.name>>If you go to the suburbs to soak in hot springs, you need to help the teacher take a side look.</p>'
+		$FXZ_Event_SW=1 
+	'</div>'
+End
+
+--- vice_principal_office ---------------------------------
+

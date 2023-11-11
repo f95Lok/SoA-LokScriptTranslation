@@ -1,0 +1,128 @@
+# 出入境管理局
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="市政大厅" href="exec:minutes+=15 & gt ''市政厅''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	$RION.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\介绍0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+
+		if $RION_面试!3:'<div class="button"><a href="exec:  gt ''出入境管理局'',''审核要求''">询问审核要求</a></div>'
+		if $RION_面试!3:'<div class="button"><a href="exec:  gt ''出入境管理局'',''面试''">面试审核员</a></div>'
+		if $RION_面试=3:
+			'<div class="buttonR1"><a href="exec:$聊天=''RION''& $出去的位置 = ''市政厅'' & addlove=0 &addbad=0 & gt ''通用聊天''">互动</a></div>'
+			'<div class="buttonR2"><a href="exec: gt ''RION_事件'',''RION_Event_观摩''">观摩审核</a></div>'
+			'<div class="buttonR3"><a href="exec: gt ''二代目_事件'',''EDM_Fuck_威胁''">非常规审核</a></div>'
+			if 失乡事件链=0:
+				if $审核level>=5:'<div class="buttonB2"><a href="exec: gt ''失乡_事件'',''进城女孩''">抽泣声</a></div>'else:'<div class="buttonGr"><a href="exec:">审核等级不足</a></div>'
+			end
+			if $LY.available=1:
+			 if $LY_Event_入境前置=0:'<div class="buttonB3"><a href="exec:  gt ''主播_事件'',''LY_Event_入境前置''">熟悉的声音</a></div>'
+			 if $LY_Event_入境前置=1:'<div class="buttonB4"><a href="exec:  gt ''主播_事件'',''LY_Event_入境''">重新审核</a></div>'
+			end
+			
+			if $LXS.available=1 and 留学生面试=0:
+				if $审核level>=5:'<div class="buttonPu3"><a href="exec:  gt ''留学_事件'',''留学_Fuck_入境11''">审核外国人</a></div>'else:'<div class="buttonGr"><a href="exec:">审核等级不足</a></div>'
+			end
+			
+			
+			if $RION.bad>0:'<div class="buttonB3"><a href="exec: 锁定审核=1 & gt ''日常审核''">开始审核</a></div>'
+			if hour>=16 :
+				if $RION.撞见=1 and $RION.love>=100 :'<div class="buttonS"><a href="exec: a=-2 & q=0 & gt ''RION_事件'',''RION_Fuck_晚餐''">家庭聚餐</a></div>'else:'<div class="buttonGr"><a href="exec:">家庭聚餐</a></div>'
+			end
+		end
+		
+
+		
+		'<div class="button"><a href="exec: & gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$Rion.name>> : 大家好，这届的入境审核由我负责。你们可以叫我安齋拉拉，宇都宫紫苑或者Rion。</p>'
+		'<p><<$Rion.name>> : 还有什么问题吗？*叹气（最近申请女优通行证的人数也太多了，都快审核不过来了）</p>'
+	'</div>'
+end
+
+if $ARGS[0]="审核要求":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\介绍1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''出入境管理局''">明白了</a></div>'
+		'<div class="button"><a href="exec: gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我 : 打扰一下，请问出入境管理的审核要求是什么？</p>'
+		'<p><<$Rion.name>> : 外地居民前往我市工作、探亲或应邀参加经济、科技、文化、教育、学术等活动，需向出入境管理部门提出申请，经审核后男性签发暂住证，女性签发女优通行证。</p>'
+		'<p><<$Rion.name>> : 女性要求面容姣好、身高160+、C罩杯以上、无妇科疾病、秉持自信开放拥护女性领导主义者优先。</p>'
+		'<p><<$Rion.name>> : 男性要求自愿放弃被选举权、坚决拥护女性领导主义。年收入一千万以上，或有评级S级以上的女性作为担保人者优先。</p>'
+		'<p>我 :那审核员还有什么权利吗？</p>'
+		'<p><<$Rion.name>> : 不同的审核等级有不同的权限，最高级的审核员可以对居民进行强制人身检查，这是完全合法合规的。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="面试":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\面试0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $RION_面试=0:'<div class="button"><a href="exec: gt ''出入境管理局'',''第一轮''">第一轮：申论</a></div>'
+		if $RION_面试=1:'<div class="button"><a href="exec:a=1 & 面试num=0 & gt ''RION_事件'',''第二轮''">第二轮：笔试</a></div>'
+		if $RION_面试=2:'<div class="button"><a href="exec: gt ''RION_事件'',''第三轮''">第三轮：面试</a></div>'
+		'<div class="button"><a href="exec: gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$Rion.name>> : 男性居民只能以兼职的身份参与，并且是纯自愿的义务劳动....当然在此之前还得经过三轮面试。</p>'
+		'<p>我 :那通过后审核员还有什么权利吗？</p>'
+		'<p><<$Rion.name>> : 不同的审核等级有不同的权限，最高级的审核员可以对居民进行强制人身检查，这是居民们必须配合的义务。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="第一轮":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\RION\vids\面试0-1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if my.智力>=4:'<div class="button"><a href="exec:$RION_面试=1 & gt ''出入境管理局'',''第一轮''">对答如流</a></div>'else:'<div class="buttonGr"><a href="exec: ">智力不够<<my.智力>>/4</a></div>'
+		'<div class="button"><a href="exec: gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>第一轮：申论</p>'
+		'<p><<$Rion.name>> : 在面对材料不齐全、隐瞒事实、目的不明确、拒不配合的申请人时，正确的做法是什么？</p>'
+		if $RION_面试=1:
+		'<p>我 : 应当视为她放弃了自己的入境申请，视情节严重程度酌情处理，必要时上报您亲自处理。</p>'
+		'<p><<$Rion.name>> : 很好，下一次的笔试为试错题，必须全部答对。</p>'
+		
+		end
+		
+	'</div>'
+end
+
+
+
+--- 出入境管理局 ---------------------------------
+

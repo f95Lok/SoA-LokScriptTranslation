@@ -1,0 +1,199 @@
+# 按摩房
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'公司_地图'
+'</div>'
+
+ if spa<10:$spa_name="平平无奇"
+ if 10<=spa and spa<25:$spa_name="小有名气"
+ if 25<=spa and spa<50:$spa_name="名声鹊起"
+ if 50<=spa and spa<75:$spa_name="声名大噪"
+ if 75<=spa and spa<100:$spa_name="鼎鼎有名"
+ if 100<=spa and spa<10000:$spa_name="声名远扬"
+ if 10000<=spa:$spa_name="扬名立万"
+ Cmoney_按摩+=Cmoney_按摩*spa/1000000
+
+if  $args[0]="":
+	'<div class ="show_menu"><img src="images\place\按摩房.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:n=rand(1,2)& gt ''群演_事件'',''SPA_Fuck_小众按摩''">小众按摩</a></div>'
+		if spa>10:'<div class="buttonS2"><a href="exec:n=rand(-1,3)& gt ''群演_事件'',''SPA_Fuck_轻奢按摩''">轻奢按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">轻奢按摩</a></div>'
+		if spa>=50:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''按摩房'',''私人按摩''">私人按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">私人按摩</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''按摩房'',''提现''">提现</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>> ➤ 处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+	'</div>'
+
+end
+
+
+if  $args[0]="私人按摩":
+	'<div class ="show_menu"><img src="images\place\按摩房里.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $NY.SPA=1:'<div class="button"><a href="exec:gt ''按摩房'',''NY''">㊕<<$NY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">㊕？？？</a></div>'
+		if $XZ.love>=200 and $XZ.bad>=200:'<div class="button"><a href="exec:$m=''XZ'' & $ma=$XZ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①<<$XZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①？？？</a></div>'
+		if $FXZ.love>=200 and $FXZ.bad>=200:'<div class="button"><a href="exec:$m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②<<$FXZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②？？？</a></div>'
+		if $TZ.按过=1:'<div class="button"><a href="exec:$m=''TZ'' & $ma=$TZ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">③<<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">③？？？</a></div>'
+		if $XM.按摩=1:'<div class="button"><a href="exec:$m=''XM'' & $ma=$XM.name & gt ''群演_事件'',''按摩店_Fuck_专属''">④<<$XM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">④？？？</a></div>'
+		if ($HS.love>=200 and $HS.bad>=200) or ($HS.按摩院邀请=1):'<div class="button"><a href="exec:$m=''HS'' & $ma=$HS.name & gt ''群演_事件'',''按摩店_Fuck_专属''">⑤<<$HS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑤？？？</a></div>'
+		if $CJ.倾向G=1:'<div class="buttonP"><a href="exec:gt ''城建_事件'',''城建_Fuck_按摩1''">㊕<<$CJ.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩2''">▶下一页</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>>。处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>——————————</p>'
+		'<p>·私人按摩仅接待VIP客户。我们对潜在客户的身份充分保密。</p>'
+	'</div>'
+
+end
+
+if  $args[0]="提现":
+	TXM=MS.power*100/(100+MS.power)
+	'<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & money+=Cmoney_按摩*TXM/100  & Cmoney+=Cmoney_按摩/10000 & Cmoney_按摩=0 &  gt ''按摩房'',''提现''">提现</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>·提现规则，每次提现，只能提现超过1万￥的数额，低于1万￥的数额将作为企业税，支援给市政厅中女性职员的养老金。</p>'
+		'<p>☺基于秘书的能力【<<MS.power>>】可以进行合法避税，并转移<<TXM>>%至个人账户。</p>'
+	'</div>'
+
+end
+
+if  $args[0]="NY":
+	if $NY_Event_监禁=1:
+		'<div class ="show_menu"><img src="images\place\按摩房里.jpg" width="854"></div>'
+	else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\按摩0-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+
+	'<div class="button_menu">'
+		if $NY_Event_监禁=1:
+			'<div class="buttonR"><a href="exec:gt''能源_事件'', ''NY_Fuck_监禁''">拷问她</a></div>'
+		else:
+			'<div class="button"><a href="exec:gt ''能源_事件'',''NY_Fuck_按摩''">按摩服务</a></div>'
+			if $NY.bad>=50:'<div class="button"><a href="exec:gt ''能源_事件'',''NY_家''">上门服务</a></div>'
+			if $NY_Event_监禁=0:'<div class="button"><a href="exec:gt''能源_事件'', ''NY_Fuck_询问''">厕所偷听</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>>。处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>——————————</p>'
+		'<p>·私人按摩仅接待VIP客户。</p>'
+		
+	'</div>'
+
+end
+
+if  $args[0]="私人按摩2":
+	'<div class ="show_menu"><img src="images\place\按摩房里.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩''">▶上一页</a></div>'
+        if $SSYY按过=1:'<div class="button"><a href="exec:$m=''SSYY'' & $ma=$SSYY.name & gt ''群演_事件'',''按摩店_Fuck_专属''">⑥<<$SSYY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑥？？？</a></div>'
+        if $QB按过=1:'<div class="button"><a href="exec:$m=''QB'' & $ma=$QB.name & gt ''群演_事件'',''按摩店_Fuck_专属''">⑦<<$QB.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑦？？？</a></div>'
+        if $TS.love>=200 and $TS.bad>=200:'<div class="button"><a href="exec:$m=''TS'' & $ma=$TS.name & gt ''群演_事件'',''按摩店_Fuck_专属''">⑧<<$TS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑧？？？</a></div>'
+        if  $JZ.按摩=1:'<div class="button"><a href="exec:$m=''JZ'' & $ma=$JZ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">⑨<<$JZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑨？？？</a></div>'
+        if  $JY.按过=1:'<div class="button"><a href="exec:$m=''JY'' & $ma=$JY.name & gt ''群演_事件'',''按摩店_Fuck_专属''">⑩<<$JY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑩？？？</a></div>'
+		if $CJ.倾向B=1:'<div class="buttonS"><a href="exec:gt ''城建_事件'',''城建_Fuck_按摩2''">㊕<<$CJ.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩3''">▶下一页</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>>。处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>——————————</p>'
+		'<p>·私人按摩仅接待VIP客户。我们对潜在客户的身份充分保密。</p>'
+	'</div>'
+
+end
+
+if  $args[0]="私人按摩3":
+	'<div class ="show_menu"><img src="images\place\按摩房里.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩2''">▶上一页</a></div>'
+        if  $SY.按摩=1:'<div class="button"><a href="exec:$m=''SY'' & $ma=$SY.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①①<<$SY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①①？？？</a></div>'
+        if $CH.按过=1:'<div class="button"><a href="exec:$m=''CH'' & $ma=$CH.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①②<<$CH.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①②？？？</a></div>'
+        if  $ZX.按摩=1:'<div class="button"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①③<<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①③？？？</a></div>'
+		if $LXS.按过=1:'<div class="button"><a href="exec:$m=''LXS'' & $ma=$LXS.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①④<<$LXS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①④？？？</a></div>'
+        if $YS.按摩=1:'<div class="button"><a href="exec:$m=''YS'' & $ma=$YS.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①⑤<<$YS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑤？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩4''">▶下一页</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>>。处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>——————————</p>'
+		'<p>·私人按摩仅接待VIP客户。我们对潜在客户的身份充分保密。</p>'
+	'</div>'
+end
+
+if  $args[0]="私人按摩4":
+	'<div class ="show_menu"><img src="images\place\按摩房里.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩3''">▶上一页</a></div>'
+        if $YY.按摩=1:'<div class="button"><a href="exec:$m=''YY'' & $ma=$YY.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①⑥<<$YY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑥？？？</a></div>'
+        if $QJ.按摩=1:'<div class="button"><a href="exec:$m=''QJ'' & $ma=$QJ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①⑦<<$QJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑦？？？</a></div>'
+        if $CT.按摩=1:'<div class="button"><a href="exec:$m=''CT'' & $ma=$CT.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①⑧<<$CT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑧？？？</a></div>'
+        if $LEI.按摩=1:'<div class="button"><a href="exec:$m=''LEI'' & $ma=$LEI.name & gt ''群演_事件'',''按摩店_Fuck_专属''">①⑨<<$LEI.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①⑨？？？</a></div>'
+        if $XN.按摩=1:'<div class="button"><a href="exec:$m=''XN'' & $ma=$XN.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②⓪<<$XN.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②⓪？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩5''">▶下一页</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>>。处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>——————————</p>'
+		'<p>·私人按摩仅接待VIP客户。我们对潜在客户的身份充分保密。</p>'
+	'</div>'
+end
+
+if  $args[0]="私人按摩5":
+	'<div class ="show_menu"><img src="images\place\按摩房里.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''按摩房'',''私人按摩4''">▶上一页</a></div>'
+        if $DY.按摩=1:'<div class="button"><a href="exec:$m=''DY'' & $ma=$DY.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②①<<$DY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②①？？？</a></div>'
+	   if $SWD.按摩=1:'<div class="button"><a href="exec:$m=''SWD'' & $ma=$SWD.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②②<<$SWD.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②②？？？</a></div>'
+       if $YH.按摩=1:'<div class="button"><a href="exec:$m=''YH'' & $ma=$YH.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②③<<$YH.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②③？？？</a></div>'
+       if $MZ.按摩=1:'<div class="button"><a href="exec:$m=''MZ'' & $ma=$MZ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②④<<$MZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②④？？？</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·目前按摩院的声望为：<<spa>>。处于<<$spa_name>>阶段。</p>'
+		'<p>·按摩院的累计收益为：<<Cmoney_按摩>>￥</p>'
+		'<p>——————————</p>'
+		'<p>·私人按摩仅接待VIP客户。我们对潜在客户的身份充分保密。</p>'
+	'</div>'
+end
+--- 按摩房 ---------------------------------
+

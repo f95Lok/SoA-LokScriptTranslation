@@ -1,0 +1,293 @@
+# mayors_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="City Hall" href="exec:minutes+=15 & gt ''city_hall''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\市长办公室.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''mayors_office'',''wuchang_conference_room''">Wuchang Conference Room</a></div>'
+		'<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">Mayor`s Office</a></div>'
+		'<div class="button"><a href="exec:gt ''mayors_office'',''urban_construction_minister`s_office''">Urban Construction Minister`s Office</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>`The 20-character core values proposed by the mayor`</p>'
+		'<p>·Equal competition: based on fairness, abandon privileges, and never go through the back door for personal gain</p>'
+		'<p>·Scientific decision-making: adhere to science and democracy, avoid subjectivity and arbitrariness, and ensure reasonable and stable decision-making</p>'
+		'<p>·Due diligence: honesty, consistency in words and deeds, and stay away from false promises</p>'
+		'<p>·Plan ahead: plan ahead, avoid regrets, take responsibility, and don`t run away</p>'
+		'<p>·Dare to take responsibility: we will not evade responsibility for wrong decisions, but take it bravely and make necessary changes.</p>'
+		'<p>·——————————————</p>'
+		'<p>·However, it was ridiculed by the citizens as a typical brainless person, and its 20-character values were misinterpreted as：</p>'
+		'<p>·Flatter the upper echelons; pat your forehead to decide; pat your chest to guarantee; pat your thighs to regret, pat your ass and leave</p>'
+	'</div>'
+end
+
+if $ARGS[0]="mayor`s_office":
+	'<div class ="show_menu"><img src="images\place\不开放.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonR2"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p></p>'
+	'</div>'
+end
+
+if $ARGS[0]="wuchang_conference_room":
+
+	'<div class ="show_menu"><img src="images\place\五常会议室0.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''mayors_office'',''read_the_notice''">Read the notice</a></div>'
+		if $can_be_proposed=1:'<div class="button"><a href="exec:gt ''mayors_office'',''proposal''">Citizen proposal</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·The Fifth Standing Committee meeting is being held as scheduled, and the security guard stopped you and pointed to the notice next to you.</p>'
+		'<p>·As you can see, the five permanent decision-making officers in the conference room are from left to right, the Minister of Justice, the Minister of Urban Construction (acting), the Minister of the Interior, the Minister of Education, and the Minister of Economic and Trade.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="read_the_notice":
+
+	'<div class ="show_menu"><img src="images\place\五常会议室0.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''mayors_office''">return</a></div>'
+		'<div class="buttonR2"><a href="exec:gt ''city_hall''">leave</a></div>'
+		
+		
+		
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>· <notice></p>'
+		'<p>·The Minister of Justice is composed of<<$DYZ.name>>Re-election、<<$CJ.name>>Replace the original Minister of Foreign Affairs and Minister of the Interior by<<$SZ.name>>Part-time、<<$JYB.name>>The Minister of Economic and Trade who is presiding over the meeting is<<$CT.name>>Concurrently.</p>'
+		'<p>————Warning————</p>'
+		'<p>During the meeting, all participants are required to put mobile phones and other electronic devices in designated storage boxes to prevent any risk of information leakage or eavesdropping.No recording or video recording equipment is allowed in the meeting room.</p>'
+		'<p>Discussions and document exchanges between participants are conducted in a strictly confidential environment.Files are encrypted, encapsulated, or transmitted in other secure ways to ensure that sensitive information is not leaked.The content of the discussion is also subject to a confidentiality agreement. Participants must strictly abide by their confidentiality responsibilities and destroy or return all documents and materials related to the meeting after the meeting.</p>'
+		
+	'</div>'
+end
+
+
+if $ARGS[0]="urban_construction_minister`s_office":
+	 $CJ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\立绘<<rand(0,3)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $boss_event_chain=6 and $boss_on_the_top<=1:'<div class="button"><a href="exec:gt ''boss_event'',''boss_fuck_drama_1''">Eavesdropping: Minister`s room</a></div>'
+		if $cj.report_up>=1:'<div class="buttonR5"><a href="exec:gt ''urban_construction_event'',''urban_building_fuck_report''">Wuchang Meeting: Camping Area</a></div>'
+		if  $the_boss_suspended_the_investigation=1 and $boss_on_the_top>=3 and $the_thief_was_caught>=2 :'<div class="buttonR3"><a href="exec:gt ''boss_event'',''boss_fuck_drama_2''">Description: Camping area</a></div>'
+
+		
+		if $cj.report_up>=2 and $YJB_CJ=0:'<div class="buttonB5"><a href="exec:gt ''urban_construction_event'',''urban_building_fuck_clearance_1''">Clear the field：<<$JYB.name>></a></div>'
+		if $cj.report_up>=2 and $YJB_CJ>0 and rand(0,100)>=95:'<div class="buttonB5"><a href="exec:a=4 & gt ''urban_construction_event'',''urban_building_fuck_clearance_1''">Clear the field：<<$JYB.name>></a></div>'
+
+		if $boss_on_the_top=999:
+			if $cj.tendency_b!1:'<div class="buttonS"><a href="exec:gt ''urban_construction_event'',''urban_building_fuck_jia_1''">Buoyancy: Skip work and make an appointment</a></div>'else:'<div class="buttonGr"><a href="exec:"><del>Buoyancy: Skip work and make an appointment</del></a></div>'
+			if $cj.tendency_g!1:
+				if hour>=17:
+					'<div class="buttonPu2"><a href="exec:gt ''urban_construction_event'',''urban_building_fuck_e0''">Ready to get off work</a></div>'
+				else:
+					'<div class="button"><a href="exec:minutes+=50 & gt ''mayors_office'',''urban_construction_minister`s_office''">Patience: Wait for her to get off work</a></div>'
+				end
+			end
+		end
+		if $cj.report_up>=2:'<div class="buttonB5"><a href="exec:$adjutant_dialogue=0 & gt ''mayors_office'',''adjutant`s_office''">Adjutant`s Office</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$CJ.name>>: What`s the matter?</p>'
+		'<p>· <a href="exec:gt ''mayors_office'',''prompt''">【?？？】</a></p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="prompt":
+	'<div class ="show_menu"><img src="images\NPC\CJ\pics\变数.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''mayors_office'',''urban_construction_minister`s_office''">return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·The character will have two different branches, and the relationship with you can be innocent or debauchery.</p>'
+		'<p>·Debauchery----Relationship & tendency----innocence·</p>'
+		if $cj.tendency>0:
+		'<p>·↑←—————❤<font color=#FF7F50><<$cj.tendency>>❤—————→↑·</font></p>'
+		else:
+		'<p><font color=#FF00FF>·↑←—————❤<<$cj.tendency>></font>❤—————→↑·</p>'
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="adjutant`s_office":
+	if $urban_construction_satisfaction<=-100:gt 'boss_event','boss_fuck_evil_punishment'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\立绘.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$adjutant_dialogue=1 & gt ''mayors_office'',''adjutant`s_office''">处理Handling complaints from citizens↓</a></div>'
+		if $camping_garbage=2:'<div class="buttonGn"><a href="exec:$urban_construction_satisfaction+=rand(30,40) & gt ''boss_event'',''boss_fuck_garbage_s''">↑I`ve cleaned it all up↑</a></div>'
+		if $camping_garbage=3:'<div class="buttonR4"><a href="exec:$urban_construction_satisfaction-=rand(50,60) & gt ''boss_event'',''boss_fuck_fuck_defeat''">耽误Delayed by the woman↑</a></div>'
+		if $urban_construction_satisfaction>=100:'<div class="buttonGn"><a href="exec:gt ''boss_event'',''boss_fuck_next_home_1''">↑You can get off work early↑</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$LB.name>>：<<$protagonists_name>>, Help me eat the urban construction department together❤</p>'
+		if $adjutant_dialogue=1:
+		'<p>Me: Happy to help.</p>'
+		'<p><<$LB.name>>: Since the fire in the camping area, the citizens have paid special attention to the problem of cleaning up flammable garbage. Go and see the garbage removal situation in the camping area.</p>'
+		if $camping_garbage=0:$camping_garbage=1
+		end
+		'<p>·Citizens` satisfaction with the Ministry of Urban Construction：<<$urban_construction_satisfaction>>%</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="proposal":
+
+	'<div class ="show_menu"><img src="images\place\提案.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $restaurant_management=1 and $the_restaurant_can_propose=1:'<div class="buttonB1"><a href="exec:$proposed_content=''&quot;The restaurant provides sexual services&quot;'' & gt ''mayors_office'',''dark_council''">&quot;The restaurant provides sexual services&quot;</a></div>'
+		if $open_coast!1:'<div class="buttonR1"><a href="exec:$proposed_content=''&quot;Open the coast to the public&quot;'' & $parliament.empire=1  & gt ''mayors_office'',''dark_council''">&quot;Open the coast to the public&quot;</a></div>'
+		if $airport_progress=2:'<div class="buttonS"><a href="exec:$proposed_content=''&quot;Aerial sex Service&quot;'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">&quot;Aerial sex Service&quot;</a></div>'
+		if $the_gym_passed=0 and $new_stadium=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school gymnasium is open to the public`'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">`Open the gymnasium to the public`</a></div>'
+		if $swimming_pool_through=0 and $new_swimming_pool=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school swimming pool is open to the public`'' & $parliament.warden=1  & gt ''mayors_office'',''dark_council''">`Open swimming pool to the public`</a></div>'
+          if $the_library_passed=0 and $new_library=1:'<div class="buttonS"><a href="exec:$proposed_content=''`The school library is open to the public`'' & $parliament.empire=1  & gt ''mayors_office'',''dark_council''">`Open the library to the public`</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·Rule: I can put forward a certain proposal, but each minister has a veto system…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="dark_council":
+	'<div class ="show_menu"><img src="images\place\黑暗议会.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$JYB.name>>: The next proposal is…<<$proposed_content>></p>'
+		if $proposed_content='&quot;The restaurant provides sexual services&quot;':
+		'<p><<$SZ.name>>: Clam?It`s really interesting, the proposer is<<$QJ.name>>What, do you mean?</p>'
+		'<p><<$CT.name>>: If she believes that adding new elements will help develop and increase competitiveness, then supporting this view may bring more opportunities and success to the restaurant. As a mother, I will fully support her.</p>'
+		'<p><<$DYZ.name>>: Is there any benefit in getting me to agree?</p>'
+		'<p><<$CT.name>>: I will reduce the total amount of semen handed over in prison by 10%.And everyone here can continue to enjoy the one-year Imperial Group SVIP private jet service.</p>'
+		'<p><<$CJ.name>>: It seems that everyone has reached an agreement...Let`s vote by show of hands…</p>'
+		'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
+		$restaurant_management=2
+		end
+		
+		if $proposed_content='&quot;Open the coast to the public&quot;':
+		'<p><<$CT.name>>: This is my private beach, I would never agree.</p>'
+		'<p><<$SZ.name>>: Isn`t this public property?When is your private beach?</p>'
+		'<p><<$DYZ.name>>: I don`t care.</p>'
+		'<p><<$CJ.name>>: Uh...first...let`s vote by show of hands…</p>'
+		if $parliament.empire=1:'<p>【Agree】【Agree】【Reject】【Agree】【Agree】·One vote rejected<a href="exec:gt ''empire_event'',''imperial_fuck_book_book_booking''">-Private conversation</a></p>'
+		if $parliament.empire=0:
+			'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
+			$open_coast=1
+			end
+		end
+		
+		if $proposed_content='&quot;Aerial sex Service&quot;':
+		'<p><<$SZ.name>>: Look at this, is it your baby daughter`s idea again?At the end of the table, read me the rules.</p>'
+		'<p><<$CJ.name>>: Sex is a way to relieve anxiety and stress. Providing sexual services on an airplane can help passengers relax and generate revenue.At the same time, sex can show the openness and tolerance of our city, and enhance passengers` first impression of our city.</p>'
+		'<p><<$DYZ.name>>: Isn`t this nonsense? Is there any benefit in letting me agree?</p>'
+		'<p><<$CT.name>>: What do you want?</p>'
+		if $parliament.warden=1:'<p><<$DYZ.name>>: Let me take a break and let me think about it... I will never agree easily.…<a href="exec:gt ''warden_incident'',''warden_fuck_buy''">-Private conversation</a></p>'
+		if $parliament.warden=0:
+			'<p><<$DYZ.name>>: I don`t need anything, just give you a favor.</p>'
+			'<p><<$CJ.name>>: It seems that everyone has reached an agreement...Let`s vote by show of hands…</p>'
+			'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
+			if $airport_progress=2:$airport_progress=3
+		 end
+			
+		end
+		
+		if $proposed_content='`The school gymnasium is open to the public`':
+		'<p><<$SZ.name>>: Clam?It`s really interesting that it is such a meaningful proposal.</p>'
+		'<p><<$JYB.name>>: As the Minister of Education, I have no reason to veto it. Physical fitness is what everyone wants.</p>'
+		'<p><<$CT.name>>: I have no problem.</p>'
+		'<p><<$DYZ.name>>: Sorry, I don`t think it`s a good thing. Why are you so strong?It`s too dangerous, it just takes a thin dog as weak as a chicken to make it easy for us to catch ❤</p>'
+		'<p><<$CJ.name>>: Uh...let`s vote by show of hands first…</p>'
+			if $parliament.warden=1:'<p>【Agree】【Agree】【Reject】【Agree】【Agree】·One vote to reject<a href="exec:gt ''warden_incident'',''warden_fuck_buy''">-Private conversation</a></p>'
+			if $parliament.warden=0:
+				'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
+				$the_gym_passed=1
+			end
+		end
+		
+        if $proposed_content='`The school swimming pool is open to the public`':
+        '<p><<$SZ.name>>: Clam?Swimming pool?How can those flat-chested students live with this kind of facility?*Laugh</p>'
+        '<p><<$JYB.name>>: As the Minister of Education, I have no reason to veto it. Physical fitness is what everyone wants.</p>'
+        '<p><<$CT.name>>: I have no problem.</p>'
+        '<p><<$DYZ.name>>: Sorry, I don`t think it`s a good thing. Who is it if you drown someone?</p>'
+        '<p><<$CJ.name>>: Uh...let`s vote by show of hands first…</p>'
+            if $parliament.warden=1:'<p>【Agree】【Agree】【Reject】【Agree】【Agree】·One vote to reject<a href="exec:gt ''warden_incident'',''warden_fuck_buy''">-Private conversation</a></p>'
+            if $parliament.warden=0:
+                '<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
+                $swimming_pool_through=1
+            end
+        end
+		
+		if $proposed_content='`The school library is open to the public`':
+		'<p><<$SZ.name>>: Clam?It`s really interesting that it is such a meaningful proposal.</p>'
+		'<p><<$JYB.name>>: As the Minister of Education, I have no reason to veto.</p>'
+		'<p><<$DYZ.name>>: Indeed, if the public`s education level rises, the crime rate will decrease, which is a good thing.</p>'
+		'<p><<$CT.name>>: Sorry, I object.We should maintain our absolute dominance by limiting and weakening the level of knowledge of citizens.I don`t want to face more elites. It`s enough for us to have a few elites.</p>'
+		'<p><<$CJ.name>>: Uh...let`s vote by show of hands first…</p>'
+			if $parliament.empire=1:'<p>【Agree】【Agree】【Reject】【Agree】【Agree】·One vote rejected<a href="exec:gt ''empire_event'',''imperial_fuck_book_book_booking''">-Private conversation</a></p>'
+			if $parliament.empire=0:
+				'<p>【Agree】【Agree】【Agree】【Agree】【Agree】*Unanimously approved</p>'
+				$the_library_passed=1
+			end
+		end
+	'</div>'
+end
+
+
+
+--- mayors_office ---------------------------------
+

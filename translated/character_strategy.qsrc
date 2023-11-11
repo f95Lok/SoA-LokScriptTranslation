@@ -1,0 +1,565 @@
+# character_strategy
+cls
+gs'menu_time_calc'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs'menu_act_hidden'
+'</div>'
+
+
+
+if $args[3]>$strategy_unlock and $args[3]!$v48_raiders_unlock:gt'strategy_sponsorship'
+
+
+
+if $args[0]='<<$YS.name>>':
+ '<div class="charac_nps_info999">'
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 '<div id="left-column999">'
+			'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+			'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+			'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+			
+			'<font color="#FFE4B5">Pre-: You need to complete the convenience store indicator and start from<<$CT.name>>The office took over the task of acquiring the restaurant</p>'
+
+			if $rescue_ys=0:
+				if $YS.key=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'1 You can meet her for the second time when communicating with the chef in the restaurant. After the conversation is completed, the town house area unlocks her residence.</p>'
+				if $have_seen_the_floor_plan>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'2 Go around to the back of the villa, we can finally see the complete drawing through peeping</p>'
+				if $have_seen_the_floor_plan>=3:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'3 After reading the drawings, you will meet a gangster wandering around the town house area. If you go to her house again, you will find that the two are arguing fiercely.</p>'
+				if $try_to_rescue_ys>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'4 I told the chef about this, and he was discouraged.Go to the police station with<<$JZ.name>>Call the police, she said it didn`t matter.I can only go to Kabukicho alone-Ryukuchi Group-to try to rescue her</p>'
+				if $golden_ak=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'5 After understanding Ma Dongmao`s needs, she returned to her villa and bribed Ma Zi to enter the study. When the lights were turned off, clues would appear. Follow the prompts to open the secret compartment and take it away. AK</p>'
+				if $have_seen_the_floor_plan>=4:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'6 Go back to the Longkou group and exchange her with AK, she will also surrender her heart to you and let go of her defenses.</p>'
+			else:
+			'<font color="#BBFFBB">·Then she will appear in the living room during the day and in the bedroom at night</p>'
+			'*Interact with it in the bedroom, you can make massage and COS invitations</p>'
+			'·To talk to it in the living room, you can choose three revenge targets</p>'
+			'①the chef: Go to the restaurant to have a conversation with him, return to her villa to trigger the plot, and then you can take care of her shares (note: She has 20%; 40% of the chef`s ex-wife can go to the talent apartment to get custody)</p>'
+			'②The chief: Go to the police station to collude with her, and return to her villa to trigger the plot. After all the anger is gone, you can 3P</p>'
+			'马Ma Dongmao: Currently unable to retaliate</p>'
+			'·The above is all the plot content</p>'
+			end
+	 '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$QJ.name>>':
+ '<div class="charac_nps_info999">'
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 '<div id="left-column999">'
+			'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+			'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+			'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+			
+			'<font color="#FFE4B5">Front: Completed the acquisition of 60% of the shares of Red Restaurant</p>'
+
+			if $restaurant_management>=2:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'1 I met her for the first time in the red Restaurant and participated in her civic proposal.</p>'
+			if $ct.home=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'2 When she returned to the restaurant, she found that the restaurant business was properly managed by her.After returning to life, you can enter the mansion on the West coast.</p>'
+			if $yy.agree=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'3 In the mansion on the West Coast, the places where we can interact with her are the swimming pool, gym, and second bedroom. Our primary goal is to solve the swimming coach (after solving the swimming coach, you can salvage dead leaves and make cocktails at the underground bar.Note: There is not the only way to obtain plant raw materials here)</p>'
+			if $airport_progress>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'5 Return to the 100th floor of the Empire Group to assist and cooperate with her in the rectification of the Empire Group</p>'
+			if $airport_progress>=3:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'6. After the investigation is completed, the air service will be submitted to the fifth regular meeting and approved.</p>'
+			if $internal_schedule>=5:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'7 After the proposal is passed, go back to the airport to deploy the reforms. After all the reforms are completed, she can be sent home at night. At this time, she can use cocktails to increase her attributes.</p>'
+			if $internal_schedule>=5:
+			'<font color="#BBFFBB">·Now you can freely plan strategies, mainly by using cocktails to increase her favorability when sending her home in the early stage.</p>'
+			'①training guidance in the swimming pool and gym</p>'
+			'②You can be invited to the massage shop after the second bedroom massage</p>'
+			'③Blind date incident and follow-up face-to-face NTR</p>'
+			'④Maid outfit needs to pass<<$CT.name>>unlock</p>'
+			'⑤After completion③, there will be the final event between her and the director in the second bedroom</p>'
+			end
+			
+			
+	 '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$YY.name>>':
+ '<div class="charac_nps_info999">'
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 '<div id="left-column999">'
+			'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+			'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+			'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+			
+			'<font color="#FFE4B5">Front: Enter the Imperial mansion on the West Coast to unlock</p>'
+
+			if $imperial_swimming_coach>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'1 Exercise power in the dressing room of the Imperial mansion and coerce to go to the park toilet.</p>'
+			if $yy.massage=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'2 At 21 o`clock in the evening, he threatened again in the park toilet and took it back to the company for a massage.</p>'
+			if $yy.home_can_be_entered=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'3 I took it back to the company and chose to go to her house after the massage. After learning that her husband is a waste wood, I unlocked her house A202.</p>'
+			if $yy.agree>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+			'4 After a drink at her house, make an appointment for the next trip for two people</p>'
+
+			if $yy.agree>=1:
+			'<font color="#BBFFBB">·This is followed by an optional event</p>'
+			'Part-time job in an on-campus swimming pool (if a swimming pool is built)'
+			'①self-review level 5 or above, you can take her for review</p>'
+			'② You can blindfold and lie to her husband to play</p>'
+			'③After the strategy, the fitness coach in the Imperial mansion and you can make an appointment with them 3P</p>'
+			'④After completing③, you can invite her to COS</p>'
+			'⑤After completing ②②, you can go to her house after shooting COS to unlock the plot of the final husband`s former crime</p>'
+			end
+
+	 '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$CT.name>>':
+ '<div class="charac_nps_info999">'
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 '<div id="left-column999">'
+			'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+			'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+			'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+			
+			'<font color="#FFE4B5">Front: Go to the airport to pick up after the welcome party in the big villa</p>'
+			if $blood_relatives_medal=0:
+				if $ct_test_2>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'1 Accept the task of operating a convenience store in the Empire Dome and complete the planned profit</p>'
+				if $ct.home>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'2 After returning to life, he took over the task of seizing the shares of the Red Restaurant, successfully acquired more than half of the shares and successfully operated.</p>'
+				if $empire_fitness_coach>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'3 In the mansion on the West Coast, the place where we can interact with her is the underground gym and the master bedroom. Our primary goal is to solve the fitness coach (after solving the fitness coach, you can take the ladder and get the heterochromatic plant leaves in the living room and make cocktails at the underground bar)</p>'
+				if $heterochromatic_plant_report>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'4 When you have heterochromatic plant leaves, give<<$JJ.name>>Conduct multiple tests and obtain reports.</p>'
+
+				if $heterochromaticplantseeds>=1:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'5 Check the report and return to the Imperial Mansion at this time<<$CT.name>>Will ask you to cultivate heterochromatic plant seedlings on the mountain R&M plot</p>'
+				
+				if $hand_in_seedlings>=15:'<font color="#D8BFD8">√'else:'<font color="#BBFFBB">'
+				'After obtaining the seedlings of heterochromatic plants, go to the Imperial Dome or the imperial mansion and deliver them to her.</p>'
+			end
+			
+			if $hand_in_seedlings>=1:
+			'<font color="#BBFFBB">'
+			'·Now you can freely strategy, at the beginning, mainly through cocktails in the master bedroom at 18 o`clock to increase your favorability</p>'
+			'①The delivery of heterochromatic plant seedlings can recommend others to serve as maids in the imperial mansion</p>'
+			'② After she personally serves as the maid, she can recommend to the COS store</p>'
+			'③Massage can be performed if the attribute requirements are met at the Imperial Dome and it is recommended to enter the massage shop</p>'
+			'④After both mother and daughter have completed the maid incident, they can turn on the mother and daughter 3P after eating together after the side dishes at 18 o`clock.</p>'
+			'⑤After completing④, you can get a blood relative medal and move to a higher level.</p>'
+			end
+			if $blood_relatives_medal>=1:
+			'<font color="#BBFFBB">·Superstructure：</p>'
+			'·There are some inside stories in the office</p>'
+			'·Researchers in the laboratory can be forced to mass produce 5 copies of McGovern for you each time</p>'
+			'·Drink 5 servings of McGovern at once in the project room to complete<<$CT.name>>All the plot, and can open a new room in your own company.</p>'
+			end
+	 '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$XN.name>>':
+ '<div class="charac_nps_info999">'
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 '<div id="left-column999">'
+			'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+			'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+			'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+			'<font color="#FFE4B5">Front: Go to the church to unlock</font></p>'
+				if $xn.mark=1:'<font color="#BBFFBB">1 After peeping into the process of the bishop`s adultery with her; you can choose →2 consecration or →3 blasphemy to talk to the bishop during the day</p>'
+				if $xn.mark=2:'<font color="#BBFFBB">2 Dedication: Invite one by one<<$JM.name>>(Pharmaceutical company)；<<$JJ.name>>(Pharmaceutical company)；<<$MM.name>>(Home) Come to the church to accept NTR</p>'
+				if $xn.mark=3:'<font color="#BBFFBB">2 Dedication: After witnessing the forced trial of the nun, he talked to the sitting man outside the church and took a polaroid.</font></p>'
+				if $xn.mark=10:'<font color="#BBFFBB">3 Blasphemy: After spitting phlegm on his face, he talked to the sitting man outside the church and took a polaroid.</font></p>'
+				if $xn.mark=11:
+					'<font color="#BBFFBB">4 Blasphemy: Go back to the church at night to take pictures of the bishop`s rape<<$XN.name>></font></p>'
+					if $evidence_one=1:'<font color="#BBFFBB">5 Blasphemy: Talk to a sitting man outside the church and expose evil deeds</font></p>'
+				end
+				
+				if $polaroid>0 and ($xn.mark=12 or $xn.mark=4) and $xn.trial<2:
+					if $xn.mark=12:'<font color="#BBFFBB">Expose failure: Talk to the sitting man again outside the church.</font></p>'
+					'<font color="#BBFFBB">Collecting evidence: Go back to the church at night and ask the people in the correctional hall<<$XN.name>>It can be seen：</font></p>'
+					if $xn.asked=1:
+						if $evidence_one=0:'<font color="#BBFFBB">Evidence 1: Candid photo of the bishop`s rape<<$XN.name>></font></p>'else:'<font color="#D8BFD8"><s>Evidence 1: Candid photo of the bishop`s rape<<$XN.name>></s></font></p>'
+						if $evidence_two=0:'<font color="#BBFFBB">Evidence 2: Follow the bishop to the restaurant at 18:00 on Saturday night</font></p>'else:'<font color="#D8BFD8"><s>Evidence 2: Follow the bishop to the restaurant at 18:00 on Saturday night</s></font></p>'
+						if $evidence_three=0:'<font color="#BBFFBB">Evidence three: Take pictures of the custom of the bishop patronizing the club on Friday.<<$SY.name>></font></p>'else:'<font color="#D8BFD8"><s>Evidence three: Take pictures of the custom of the bishop patronizing the club on Friday.</s></font></p>'
+						if $evidence_four=0:'<font color="#BBFFBB">Evidence 4: Follow the bishop to the hot spring at 13:00 on Sunday afternoon</font></p>'else:'<font color="#D8BFD8"><s>Evidence 4: Follow the bishop to the hot spring at 13:00 on Sunday afternoon</s></font></p>'
+						if $evidence_five=0:'<font color="#BBFFBB">Evidence 5: Candid photos of the bishop accepting the consecration of female believers during the day</font></p>'else:'<font color="#D8BFD8"><s>Evidence 5: Candid photos of the bishop accepting the consecration of female believers during the day</s></font></p>'
+						if $evidence_one*$evidence_two*$evidence_three*$evidence_four*$evidence_five=1:'<font color="#BBFFBB">Complete evidence: dialogue with men outside the church</font></p>'
+					end
+				end
+				
+				if $xn.trial=2:
+					if $my_bishop=0:'<font color="#BBFFBB">The original leader was expelled and went back to the church to see the situation.</font></p>'
+					if $my_bishop=1:
+						'<font color="#BBFFBB">The original leader was expelled，<<$XN.name>>Yes, I was recommended to be the new bishop</p>'
+						'·After that, it is the free strategy stage</p>'
+						'·When taking her out, you can choose to take her to a hot spring or nightclub; after the value is up to standard, massage and COS will be invited.</p>'
+						'·When taking her out, all purple and red options will increase her guilt.</p>'
+						'·When she feels guilty, she can choose to repent of her sins in the church, and each repentance will increase her depravity.</p>'
+						'·After repenting of sins to the final stage, you can become a private bitch and a church bitch.</p>'
+						'·After becoming a church bitch, you can participate in the auxiliary work of the confessional.</p>'
+						'·After completing the confession work of the four of them, you can unlock the final fallen nun ending.</p>'
+					 end
+				end
+				
+	 '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$LEI.name>>':
+ '<div class="charac_nps_info999">'
+	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 '<div id="left-column999">'
+			'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+			'<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+			'<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+			'<font color="#FFE4B5">Preface: The trial is over<<$XN.name>></font></p>'
+				if $xn.trial<2:'<font color="#BBFFBB">Need to take down the dominance of the bishop first</font></p>'
+				if $xn.trial=2:
+				if $lei_video_event_chain=0:'<font color="#BBFFBB">Talk to your fiance outside the church first</p>'
+				if $lei_video_event_chain=0:'<font color="#BBFFBB">Then with<<$LEI.name>>Dialogue, accept the ring</p>'
+				end
+				if $lei_video_event_chain=1:'<font color="#BBFFBB">Return the engagement ring to the man outside the church and bet on him</p>'
+				if $lei_video_event_chain=2:'<font color="#BBFFBB">Go home and watch the gambling video ①</p>'
+				if $lei_video_event_chain=3:'<font color="#BBFFBB">After watching the video ①, go and<<$LEI.name>>dialogue</p>'
+				if $lei_video_event_chain=4:'<font color="#BBFFBB">He was photographed by a man, and he hopes to take another gamble.</p>'
+				if $lei_video_event_chain=5:'<font color="#BBFFBB">Go home and watch the gambling video ②</p>'
+				if $lei_video_event_chain=6:'<font color="#BBFFBB">give<<$LEI.name>>Massage to relax and introduce<<$JJ.name>></p>'
+				if $lei_video_event_chain=7:'<font color="#BBFFBB">He was photographed by a man again, and he hopes to take another gamble.</p>'
+				if $lei_video_event_chain=8:'<font color="#BBFFBB">First go home and watch the gambling video, and then go back to the church.</p>'
+				if $lei_video_event_chain=9:
+					'<font color="#BBFFBB">After her fiance was expelled, it was the stage of freedom raiders：</p>'
+					'1 Celebrate this with her</p>'
+					'2. Become a teaching assistant in the confession room after meeting the standards</p>'
+					'3 Complete the confession work of 5 people + in the confession room</p>'
+					if $lei.finally=1:'<font color="#FF1493">Finally, you can see the changes when she guides believers</p>'
+				end
+	 '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$DY.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Pre-: Complete the demand receivable from convenience stores</font></p>'
+            '<font color="#BBFFBB">Build an intimate relationship with her in the daily work of the convenience store❤</font></p>'
+                if $DY.love>=50:
+                    if $DY1!1:'<font color="#BBFFBB">①Invite a date in your daily work❤→Spend the night together</font></p>'
+                    if DYcos!1:'<font color="#BBFFBB">②Need more favorability to invite amusement park ❤→Invite COS</font></p>'
+                    if $dy_nightclub!1:'<font color="#BBFFBB">③Need more favorability to invite nightclubs ❤→Promise to go to the hot spring</font></p>'
+                    if $dy.massage!1:'<font color="#BBFFBB">④Need more favorability to invite hot springs ❤→Invite massage</font></p>'
+                    if $dy.sea!1:'<font color="#BBFFBB">⑤Need more goodwill to invite home ❤→Enter the boudoir</font></p>'
+                end
+                if $dy.sea=1:'<font color="#BBFFBB">I took her to see the sea❤</font></p>'
+                if $DY.GE=1:
+                    '<font color="#BBFFBB">Memory recall: Daily work<a href="exec:a=0 & q=0 & gt ''clerk_event'',''dy_fuck_water_bar''">Clumsy</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: Sweet Date<a href="exec:a=0 & q=0 & gt ''clerk_event'',''dy_fuck_aquarium''">aquarium</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: Sweet Date<a href="exec:a=0 & q=0 & gt ''clerk_event'',''dy_fuck_hotel_a''">Amusement park</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: Sweet Date<a href="exec:a=0 & q=0 & gt ''clerk_event'',''dy_fuck_nightclub''">Nightclubs for fun</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: Sweet Date<a href="exec:a=0 & q=0 & gt ''clerk_event'',''dy_fuck_hot_spring_1''">Onsen Ryokan</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: from her home<a href="exec:a=0 & q=0 & gt ''clerk_event'',''dy_fuck_home_1''">Couple daily</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: in the eyes<a href="exec:a=0 & q=0 & gt ''clerk_event'',''sea''">Little happiness</a></font></p>'
+                    '<font color="#FFFFFF">There may be BUGS in the memory recall of this character, if there are any, please report the BUG to the mailbox</font></p>'
+                end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$WH.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Go home and swipe the vibrato to her</font></p>'
+            if $WH.love=0:'<font color="#BBFFBB">Ask her out and take her home❤</font></p>'
+            if $WH.love>=1 and $wh.boyfriend=0:'<font color="#BBFFBB">Go to the deep alley and ask her out❤</font></p>'
+            if $wh.boyfriend=1:'<font color="#BBFFBB">Go to her house in Shenxiang to find her →knock on the door → have dinner together</font></p>'
+            if $wh.boyfriend=2:'<font color="#BBFFBB">Go to her house in the deep alley to find her → knock on the door → drive him away</font></p>'
+            if $wh.boyfriend=3:'<font color="#BBFFBB">Go to her house in Shenxiang to find her → go out on a date → train with him</font></p>'
+            if $wh.boyfriend>=3 and $wh.hot_spring_process!1:'<font color="#BBFFBB">Go to her house in Shenxiang to find her→ go out on a date → go to the hot spring→ agree to shoot</font></p>'
+            if $wh.hot_spring_process=1:'<font color="#BBFFBB">Go to her house in Shenxiang to find her → Shoot Douyin one by one</font></p>'
+            if $wh.shooting_is_complete=3 and $wh.wedding_dress!1:'<font color="#BBFFBB">Go to her house in the deep alley to find her→ go out on a date→ go straight to the hotel to fuck her</font></p>'
+            if $wh.wedding_dress=1:'<font color="#BBFFBB">Go to her house in Shenxiang to find her→ wedding shooting</font></p>'
+            if $WH.GE=1:
+                '<font color="#BBFFBB">Memory recall: In the cinema<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''wh_fuck_cinema''">Stimulating dating</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: with her boyfriend<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''wh_fuck_dinner''">Have dinner together</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: On the football field<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''wh_fuck_football''">Face-to-face provocation</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: Lying to her boyfriend<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''wh_fuck_they_goes''">Do it after going out</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: Sweet Date<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''go_to_the_hot_spring''">Onsen Ryokan</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: In her house<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''take_douyin''">Shooting vibrato</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: While answering the phone<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''WH_Fuck_HTL''">While being fucked by me</a></font></p>'
+                '<font color="#BBFFBB">Memory recall: unlimited<a href="exec:a=0 & q=0 & gt ''net_celebrity_event'',''WH_Fuck_hun''">Wedding shooting</a></font></p>'
+                '<font color="#FFFFFF">There may be BUGS in the memory recall of this character, if there are any, please report the BUG to the mailbox</font></p>'
+            end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SWD.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Go to the store to unlock</font></p>'
+            if $stockings_event_chain=0:'<font color="#BBFFBB">Talk to her and understand that she is looking for a star platform</font></p>'
+            if $stockings_event_chain=1:'<font color="#BBFFBB">Go back to the big villa during the day to find<<$SSYY.name>>Talk about work [You need to complete the idol competition first]</font></p>'
+            if $stockings_event_chain=2:'<font color="#BBFFBB">Go back to the stockings shop to watch<<$SSYY.name>>Platform catwalk</font></p>'
+            if $stockings_event_chain=3:'<font color="#BBFFBB">Talk to her again to understand that she wants to find more celebrity endorsements</font></p>'
+            if $stockings_event_chain=4:'<font color="#BBFFBB">Go back to the big villa during the day to find<<$QB.name>>Wait for her to finish putting on makeup and talk about endorsement work</font></p>'
+            if $stockings_event_chain=5:'<font color="#BBFFBB">Go back to the stockings shop to watch<<$QB.name>>Endorsement advertising shooting</font></p>'
+            if $stockings_event_chain=6:'<font color="#BBFFBB">Talk to her and test the quality of the new stockings</font></p>'
+            if $stockings_event_chain=7:'<font color="#BBFFBB">After the launch of the limited edition stockings, the dialogue asked about the sales of the limited edition</font></p>'
+            if $stockings_event_chain=8:'<font color="#BBFFBB">Go out with her and reward limited edition buyers<<$XY.name>></font></p>'
+            if $stockings_event_chain=9:'<font color="#BBFFBB">Treat her McGovern more than three times in a day, and then go out together</font></p>'
+            if $stockings_event_chain=10:'<font color="#BBFFBB">He gave her McGovern more than three times in a day, witnessed her in estrus in the car, and visited<<$JJ.name>></font></p>'
+            if $stockings_event_chain=11:'<font color="#BBFFBB">Talk to her, go back to her house together, and give her a massage.</font></p>'
+            if $stockings_event_chain=12:'<font color="#BBFFBB">Participate in the sales of stockings stores and get small gifts from customers.</font></p>'
+            if $stockings_event_chain=13:'<font color="#BBFFBB">At her house, she transferred a small gift to her to achieve the ending of the role.</font></p>'
+            if $SWD.GE=1:
+                '<font color="#FFFF99">Memory recall: Stockings platform<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_you_ya''"><<$SSYY.name>></a></font></p>' 
+                '<font color="#FFFF99">Memory recall: Stockings endorsement<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_qb''"><<$QB.name>></a></font></p>'
+                '<font color="#FFFF99">Memory recall: in the office<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_office''">Research material</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: Assist in completion<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_r&d''">Test new products</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: Thank you together<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_visit_xy''"><<$XY.name>></a></font></p>' 
+                '<font color="#FFFF99">Memory recall: In the hotel<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_kfc''">Runaway estrus</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: Visit together<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_visit_jj''"><<$JJ.name>></a></font></p>' 
+                '<font color="#FFFF99">Memory recall: In her home<a href="exec:a=0 & q=0 & gt ''stockings_shop_event'',''stockings_shop_fuck_home''">Silk hip heat wave</a></font></p>' 
+            end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$YH.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Financial center purchases wealth management products</font></p>'
+            if $bank_event_chain=0:'<font color="#BBFFBB">Talk to her and go to see the vice president together</font></p>'
+            if $bank_event_chain=1:'<font color="#BBFFBB">Talk to her, the credit manager has reliable information to tell her</font></p>'
+            if $bank_event_chain=2:'<font color="#BBFFBB">Eavesdropping on their conversation in Kabukicho-Paradise Escorts</font></p>'
+            if $bank_event_chain=3:'<font color="#BBFFBB">You have made a choice, don`t worry, you can achieve a double ending at the same time.</font></p>'
+            if $bank_event_chain_a>0:
+                if $bank_event_chain_a=1:'<font color="#FF3939">·Go to the steel mill on the outskirts and spy on her and the factory director`s debt collection process in the bankruptcy office</font></p>'
+                if $bank_event_chain_a=2:'<font color="#FF3939">·On Thursday, I went to the steel mill on the outskirts and peeped at her and the factory director`s debt collection process again in the bankruptcy office.</font></p>'
+                if $bank_event_chain_a=3:'<font color="#FF3939">·On Wednesday, I went to the steel mill on the outskirts and peeped at her and the factory director`s debt collection process for the last time in the bankruptcy office to learn the truth.</font></p>'
+                if $bank_event_chain_a=4:'<font color="#FF3939">·Go back to the bank and have a bad ending with her</font></p>'
+                if $YH.BE=1:
+                    '<font color="#BBFFBB">Memory recall: by the credit manager<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_A1''">Rape after drugging</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: In the steel mill<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_A2''">First sexual harassment</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: In the steel mill<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_A3''">Second sexual assault</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: In the steel mill<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_A4''">The third 4P group sex</a></font></p>'
+                    '<font color="#BBFFBB">Memory recall: Inside the bank<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_be''">Handling of complaints</a></font></p>'
+                end
+            end
+            if $bank_event_chain_b>0:
+                if $bank_event_chain_b=1:'<font color="#FFFF99">·Go to the bank to investigate bad debts with her</font></p>'
+                if $bank_event_chain_b=2:'<font color="#FFFF99">·Go to the steel mill on the outskirts and get secret information through hypnosis in the secretary`s office</font></p>'
+                if $bank_event_chain_b=3:'<font color="#FFFF99">·Back at the bank, he ambushed and eavesdropped with her in the toilet.The credit manager will appear on Wednesday.</font></p>'
+                if $bank_event_chain_b=4:'<font color="#FFFF99">·At 14:00 in the afternoon, take the transfer contract first from the locker A9522 of the underground transportation.</font></p>'
+                if $bank_event_chain_b=5:'<font color="#FFFF99">·Go to the steel mill on the outskirts and control the factory director in the secretary`s office to prevent him from escaping.</font></p>'
+                if $bank_event_chain_b=6:'<font color="#FFFF99">·Back to the bank to catch up with the head office board of directors</font></p>'
+                if $bank_event_chain_b=7:'<font color="#FFFF99">·After assuming the post of interim Vice President，<<$YH.name>>Come to thank you</font></p>'
+                if $bank_event_chain_b>=8:'<font color="#FFFF99">·Complete a good ending in the church (pre-required<<$LEI.name>>Opening of the confessional with a completed number of 5+ people: church wedding business)</font></p>'
+                if $YH.GE=1:
+                    '<font color="#FFFF99">Memory recall: from the credit manager<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_B1''">Forcibly taken away</a></font></p>'
+                    '<font color="#FFFF99">Memory recall: In the steel plant<a href="exec:a=0 & q=0 & gt ''bank_event'',''yh_fuck_secretary_c''">Hypnotic secretary</a></font></p>'
+                    '<font color="#FFFF99">Memory recall: in the bank toilet<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_B4''">Secretly having sex</a></font></p>'
+                    '<font color="#FFFF99">Memory recall: After obtaining the contract<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_B5''">Celebrate wantonly</a></font></p>'
+                    '<font color="#FFFF99">Memory recall: The Board of Directors of the head office<a href="exec:a=0 & q=0 & gt ''bank_event'',''board_of_directors_of_the_head_office''">The following grams are on</a></font></p>'
+                    '<font color="#FFFF99">Memory recall: Within the Vice President<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_B7''">Female student wear</a></font></p>'
+                    '<font color="#FFFF99">Memory recall: Hosted by the church<a href="exec:a=0 & q=0 & gt ''bank_event'',''YH_Fuck_B8''">Wedding sex</a></font></p>'
+                end
+            end
+            if $YH.GE+$YH.BE>0:'<font color="#FFFFFF">It`s a bit difficult to make this memory recall/recall house. It must be designed in advance during the development phase. This is already the limit of my ability... If I can come out later, I will try my best.</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$XH.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Go to the university-unlock in the second class of three years</font></p>'
+            if $school_flower_event_chain=0:'<font color="#BBFFBB">with<<$SB.name>>After the conversation, talk to her in the back row of the class</font></p>'
+            if $school_flower_event_chain=1:'<font color="#BBFFBB">After listening to her talking to herself, she waited for her to audition for an interview at the Empire Group from 13 to 16 o`clock on Saturday, and paid bribes.<<$TS.name>></font></p>'
+            if $school_flower_event_chain=2:'<font color="#BBFFBB">Go back to the back row of the class and tell her that she has qualified for the retest</font></p>'
+            if $school_flower_event_chain=3:'<font color="#BBFFBB">Accompany her to the retest in the Empire Group from 13 to 16 o`clock on Saturday</font></p>'
+            if $school_flower_event_chain=4:'<font color="#BBFFBB">Go back to the back of the class and tell her that she passed the retest</font></p>'
+            if $school_flower_event_chain=5:'<font color="#BBFFBB">Talk to her and conduct courage training</font></p>'
+            if $school_flower_event_chain=6:'<font color="#BBFFBB">Talk to her, go home and train with her</font></p>'
+            if $school_flower_event_chain=7:'<font color="#BBFFBB">After many training sessions, you can invite her to participate in the shooting in the class, or participate in the shooting in the Empire Entertainment studio.</font></p>'
+            if $school_flower_event_chain=8:'<font color="#BBFFBB">Continue to improve the sense of lens, unlock all the shooting content, and invite you to her house again after the sexy advertisement.</font></p>'
+            if $school_flower_event_chain=9:'<font color="#BBFFBB">Talk to her in the back row of the class and find it together<<$SB.name>></font></p>'
+            if $school_flower_event_chain=10:'<font color="#BBFFBB">She was<<$SB.name>>Arranged to do locker room cleaning in the gym.</font></p>'
+            if $school_flower_event_chain>=11:'<font color="#BBFFBB">She accepted the locker room cleaning job that could be suspended while retaining the title of “school flower”, and at the same time the new gymnasium was also opened.</font></p>' 
+            if $XH.GE=1:
+                '<font color="#FFFF99">Memory recall: ❤Accompany her to retake the exam❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_interview_2''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Oral sex in the classroom❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_a6''">←click</a></font></p>'
+                '<font color="#FFFF99">Memory recall: ❤Desensitization training❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_a16''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Shooting content❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_work''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Her idea❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_b16''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Negotiate together❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_zxl''">❤<<$SB.name>>❤</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Hotel comfort❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_c14''">❤Adjust your mentality❤</a></font></p>' 
+            end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$DCM.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Go to the university-unlock in the second class of three years</font></p>'
+            if $tram_event_chain>=0:'<font color="#BBFFBB">with<<$SB.name>>After the conversation, she was picked up by no one in the class until she was brought back to the classroom.</font></p>'
+            if $tram_event_chain=1:'<font color="#BBFFBB">Take her to change clothes in the classroom and promise to go to her house❤</font></p>'
+            if $tram_event_chain=2:'<font color="#BBFFBB">Talk to her house❤</font></p>'
+            if $tram_event_chain=3:'<font color="#BBFFBB">Her sister won`t be back on Wednesday, that day will be a good opportunity❤</font></p>'
+            if $tram_event_chain=4:'<font color="#BBFFBB">Her sister won`t be back on Friday. She made an appointment with two male netizens to meet. This time it`s true.</font></p>'
+            if $tram_event_chain=5:'<font color="#BBFFBB">Her sister is back again, but she promised you can bring<<$DCM.name>>Go out to open a room</font></p>'
+            if $tram_event_chain=6:'<font color="#BBFFBB">After the morning gun, she told you that she delivered the maid interview email to the town house-the big villa. If I can, I should go to the office in the big villa to check this email.</font></p>'
+            if $tram_event_chain=7:'<font color="#BBFFBB">After admission, she will arrange breakfast, which I can enjoy in the morning.</font></p>'
+            if $tram_event_chain=8:'<font color="#BBFFBB">She will provide sleep aid services in the master bedroom at night.</font></p>'
+            if $tram_event_chain=9:'<font color="#BBFFBB">She wants to do an easy job like a librarian.I should talk to her in the class and go find it together<<$SB.name>></font></p>'
+            if $tram_event_chain=10:'<font color="#BBFFBB">She was<<$SB.name>>It was arranged to work as a librarian in the library, and at the same time the new library was also opened.</font></p>'
+            if $tram_event_chain=11:'<font color="#BBFFBB">She asked me to go to the swimming pool to have sex, I need to let<<$SB.name>>Build a new swimming pool…</font></p>' 
+            if $tram_event_chain=12:'<font color="#BBFFBB">She is still not addicted, she asked me to go to the gym to have sex, I need to let<<$SB.name>>Build a new stadium…</font></p>'   
+            if $tram_event_chain=13:'<font color="#BBFFBB">In the end, she was satisfied on the crowded tram❤</font></p>'   
+            if $DCM.GE=1:
+                '<font color="#FFFF99">Memory recall: ❤First sight of the tram❤<a href="exec:a=0 & q=0 & $tram_role=''B'' & gt''subway_event'',''subway_harassment_0''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Toilet change❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a4''">←click</a></font></p>'
+                '<font color="#FFFF99">Memory recall: ❤Study in the boudoir❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a5''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Sister is not here❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_b6''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Really not here❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_b5''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Go out to open a room❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a7''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Maid interview❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a8''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Breakfast time❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_b8''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Sleep aid service❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_c8''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤In the library❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a9''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤In the swimming pool❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_tyyg''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤In the gym❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_tgym''">←click</a></font></p>' 
+            end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$MZ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Unlock in the beauty store in the mall</font></p>'
+            if $beauty_event_chain=0:'<font color="#BBFFBB">Talk to me in the beauty shop</font></p>'
+            if $beauty_event_chain=1:'<font color="#BBFFBB">Help her achieve the sales target for the month, at least 2 months</font></p>'
+            if $beauty_event_chain=2:'<font color="#BBFFBB">Dialogue and discussion on the promotion of new body lotion</font></p>'
+            if $beauty_event_chain=3:'<font color="#BBFFBB">Find it in the big villa<<$SSYY.name>>Endorsement</font></p>'
+            if $beauty_event_chain=4:'<font color="#BBFFBB">Go back to the beauty store to watch the endorsement advertisement</font></p>'
+            if $beauty_event_chain=5:'<font color="#BBFFBB">Talk to her and ask about needs</font></p>'
+            if $beauty_event_chain=6:'<font color="#BBFFBB">She seems to have new troubles</font></p>'
+            if $beauty_event_chain=7:'<font color="#BBFFBB">Waiting for sampling at 17 o`clock on Friday night</font></p>'
+            if $beauty_event_chain=8:'<font color="#BBFFBB">Celebrate her promotion and salary increase and officially become the regional manager</font></p>'
+            if $beauty_event_chain>=9:'<font color="#BBFFBB">Take her to the hot spring for a date</font></p>'
+            if $MZ.GE=1:
+                '<font color="#FFFF99">Memory recall: ❤Sales indicators❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_a2''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤New product promotion❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_a3''">←click</a></font></p>'
+                '<font color="#FFFF99">Memory recall: ❤Body lotion endorsement❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_makeup_fuck_you_ya''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Massage shop promotion❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_d6''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Executive sampling❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_a8''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Celebrate the opening of the room❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_a7''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Hot spring date❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_f8''">←click</a></font></p>' 
+            end
+            if $beauty_event_chain>=11:'<font color="#FFFF99">Memory recall: ❤Go to the wind and rain together❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_z9''">←Hidden ending</a></font></p>' 
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SB.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Complete the podium plot</font></p>'
+            if $matsumoto_event_chain<3:'<font color="#BBFFBB">Looking at the podium in the second class of three years</font></p>'
+            if $matsumoto_event_chain=3:'<font color="#BBFFBB">Stage 1: Remove the 3 students she doesn`t like from the class roster, and talk to her after they are all completed</font></p>'
+            !if 新图书馆*新体育馆*新游泳馆=1:'<font color="#BBFFBB">阶段二：未实装·等待下个版本</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$BZ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Favorability:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Unlocked in the second shift of three years</font></p>'
+            if $squad_leader_event_chain=0:'<font color="#BBFFBB">done<<$SB.name>>The pre-task, listen to her speech on the podium and follow her.</font></p>'
+            if $squad_leader_event_chain=1:'<font color="#BBFFBB">Listen to her on the podium and find<<$SB.name>>Build a swimming pool</font></p>'
+            if $squad_leader_event_chain=2:'<font color="#BBFFBB">Peeping in the locker room after the swimming pool is built</font></p>'
+            if $squad_leader_g>0:'<font color="#BBFFBB">After the hero saved the United States more than three times</font></p>'
+            if $squad_leader_g>=3 and $squad_leader_event_chain_g=0:'<font color="#BBFFBB">Go with her to find her boyfriend</font></p>'
+            if $squad_leader_event_chain_g=1:'<font color="#BBFFBB">Continue to increase favorability to complete the massage</font></p>'
+            if $squad_leader_event_chain_g=2:'<font color="#BBFFBB">Talk to her and go to her house</font></p>'
+            if $squad_leader_event_chain_g=3:'<font color="#BBFFBB">Go to her house and take her to the hot spring</font></p>'
+            if $squad_leader_event_chain_g=4:'<font color="#BBFFBB">Go to her house</font></p>'
+            if $squad_leader_event_chain_g=5:'<font color="#BBFFBB">Go to her house to give her a warm-up massage before the game</font></p>'
+            if $squad_leader_event_chain_g=6:'<font color="#BBFFBB">Go to the school swimming pool to watch the freestyle competition</font></p>'
+            if $BZ.GE=1:
+                '<font color="#FFFF99">Memory recall: ❤Cramp massage❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_g3''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Water pipe explosion❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_g4''">←click</a></font></p>'
+                '<font color="#FFFF99">Memory recall: ❤Hot spring date❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_g5''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Direct operation at home❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_g6''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Pre-match massage❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_g7''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Swimming competition❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_ge1''">←click</a></font></p>' 
+            end
+		  '<font color="#FF3939">——————</font></p>'
+            if $squad_leader_b>0:'<font color="#FF3939">After watching it change more than three times</font></p>'
+            if $squad_leader_b>=3 and $squad_leader_event_chain_b=0:'<font color="#FF3939">Watch her wear sexy clothes for her boyfriend</font></p>'
+            if $squad_leader_event_chain_b=1:'<font color="#FF3939">Wait for her in the red restaurant at 17 o`clock to see what happens</font></p>'
+            if $squad_leader_event_chain_b=2:'<font color="#FF3939">See what happens in the outpatient department of the hospital at night</font></p>'
+            if $squad_leader_event_chain_b=3:'<font color="#FF3939">Wait for her in the red restaurant at 17 o`clock to see what happens</font></p>'
+            if $squad_leader_event_chain_b=4:'<font color="#FF3939">See what happens at the financial center in the city hall at 12 noon on Sunday</font></p>'
+            if $squad_leader_event_chain_b=5:'<font color="#FF3939">Go to the temporary detention center of the police station to see her</font></p>'
+            if $BZ.BE=1:
+                '<font color="#FFFF99">Memory recall: ❤Restaurant exposed❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b3''">←click</a></font></p>'
+                '<font color="#FFFF99">Memory recall: ❤Hotel follow❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b4a''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Cover the theft❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b5''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Movie exposed❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b6''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Bank cover❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b7''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Interrogation and torture❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b8''">←click</a></font></p>' 
+            end
+     '</div>'
+ '</div>'
+end
+
+'<div class="options_back"><a href="exec:gt''menu_charac_nps''"><div class="settings_back_menu"></div></a></div>'
+--- character_strategy ---------------------------------
+

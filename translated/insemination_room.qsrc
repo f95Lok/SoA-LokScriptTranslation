@@ -1,0 +1,100 @@
+# insemination_room
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'company_map'
+'</div>'
+
+ if sheshop<10:$sheshop_name="No one cares"
+ if 10<=sheshop and sheshop<25:$sheshop_name="Little famous"
+ if 25<=sheshop and sheshop<50:$sheshop_name="Fame"
+ if 50<=sheshop and sheshop<75:$sheshop_name="Famous"
+ if 75<=sheshop and sheshop<100:$sheshop_name="Famous"
+ if 100<=sheshop and sheshop<10000:$sheshop_name="Well-known"
+ if 10000<=sheshop:$sheshop_name="Become famous"
+ $cmoney_insemination+=$cmoney_insemination*sheshop/1000000
+
+$insemination_room=1
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''insemination_room'',''insemination_list_1''">Invitation list</a></div>'
+		'<div class="buttonG"><a href="exec:gt ''insemination_room'',''withdraw''">Withdraw</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''company''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The weight of life is the markings on the abdomen.</p>'
+		'<p>·The current method of artificial insemination is：<<sheshop>> 处于 In<<$sheshop_name>>stage.</p>'
+		'<p>·The cumulative income of the massage parlor is：<<$cmoney_insemination>>￥</p>'
+		'·<a href="exec:$m=''FT_1'' & $ma=''Experimenter'' & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">Imperial Group Experimenter</a>'
+	'</div>'
+End
+
+
+if $ARGS[0]="insemination_list_1":
+	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$m=''CT'' & $ma=$CT.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">㊕<<$CT.name>></a></div>'
+        if  $jj.insemination=1:'<div class="buttonS"><a href="exec:$m=''JJ'' & $ma=$JJ.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">①<<$JJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">①<<$JJ.name>></a></div>'
+        if  $xz.insemination=1:'<div class="buttonS"><a href="exec:$m=''XZ'' & $ma=$XZ.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">②<<$XZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②<<$XZ.name>></a></div>'
+        if  $fxz.insemination=1:'<div class="buttonS"><a href="exec:$m=''FXZ'' & $ma=$FXZ.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">③<<$FXZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">③<<$FXZ.name>></a></div>'
+        if  $xy.insemination=1:'<div class="buttonS"><a href="exec:$m=''XY'' & $ma=$XY.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">④<<$XY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">④<<$XY.name>></a></div>'
+        if  $ss.insemination=1:'<div class="buttonS"><a href="exec:$m=''SS'' & $ma=$SS.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">⑤<<$SS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑤<<$SS.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''insemination_room'',''insemination_list_2''">▶Next page</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The current method of artificial insemination is：<<sheshop>> 处于 In<<$sheshop_name>>stage.</p>'
+		'<p>·The cumulative income of the massage parlor is：<<$cmoney_insemination>>￥</p>'
+	'</div>'
+End
+
+if $ARGS[0]="insemination_list_2":
+	'<div class ="show_menu"><img src="images\place\授精室0.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''insemination_room'',''insemination_list_1''">▶Previous page</a></div>'
+        if  $zl.insemination=1:'<div class="buttonS"><a href="exec:$m=''ZL'' & $ma=$ZL.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">⑥<<$ZL.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑥<<$ZL.name>></a></div>'
+        if  $zx.insemination=1:'<div class="buttonS"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">⑦<<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑦<<$ZX.name>></a></div>'
+        if  $swd.insemination=1:'<div class="buttonS"><a href="exec:$m=''SWD'' & $ma=$SWD.name & gt ''group_performation_event'',''insemination_shop_fuck_exclusive''">⑧<<$SWD.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">⑧<<$SWD.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The current method of artificial insemination is：<<sheshop>> 处于 In<<$sheshop_name>>stage.</p>'
+		'<p>·The cumulative income of the massage parlor is：<<$cmoney_insemination>>￥</p>'
+	'</div>'
+End
+
+
+
+if  $args[0]="withdraw":
+    TXM=MS.power*100/(100+MS.power)
+    '<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:minutes+=15 & money+=$cmoney_insemination*TXM/100  & Cmoney+=$cmoney_insemination/10000 & $cmoney_insemination=0 &  gt ''insemination_room'',''withdraw''">Withdraw</a></div>'
+        '<div class="button"><a href="exec:minutes+=15 & gt ''company''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·The cumulative benefits of artificial insemination are：<<$cmoney_insemination>>￥</p>'
+        '<p>·Withdrawal rules, each time you withdraw, you can only withdraw an amount of more than 10,000 ￥. The amount below 10,000 ￥ will be used as a corporate tax to support the pensions of female employees in the city hall.</p>'
+        '<p>☺Based on the ability of the secretary【<<MS.power>>】 Can legally avoid taxes and transfer<<TXM>>% to personal account.</p>'
+    '</div>'
+
+end
+--- insemination_room ---------------------------------
+

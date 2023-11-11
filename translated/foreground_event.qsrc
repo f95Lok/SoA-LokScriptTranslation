@@ -1,0 +1,1180 @@
+# foreground_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+
+
+if $ARGS[0]="accompany_her_off_work":
+		$get_off_work_num=rand(0,1)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\下班<<$get_off_work_num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''residential_area''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if $get_off_work_num=0:
+		'<p><<$QT.name>>I don`t seem to be in a very good mood today...</p>'
+		$QT.love+=1
+		else:
+		'<p><<$QT.name>>:Are you waiting for me to get off work?You are also free enough. Friendly reminder, now I put my career first.</p>'
+		'<p>Me: Then I just stopped by home.</p>'
+		'<p>·Laughter and laughter on the way back..Favorability rose slightly.</p>'
+		$QT.love+=2+$my.charm
+		end
+	'</div>'
+end
+
+if $ARGS[0]="go_to_the_beach":
+		$seaside_num=rand(0,2)
+		if $QT.BAD<40:$seaside_num=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\沙滩<<$seaside_num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''foreground_event'',''chat''">chat</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Ahem, it`s so nice to be able to come out for a break!</p>'
+		'<p>·You are deeply attracted by her posture.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="chat":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\沙滩聊天~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if money>=50:'<div class="buttonG"><a href="exec:money-=50 & gt ''foreground_event'',''eat''">Invite her to eat 50￥</a></div>'else:'<div class="buttonGr"><a href="exec:">Invite her to eat 50￥</a></div>'
+		if bag > 0:'<div class="buttonR2"><a href="exec:bag -=1 & gt ''foreground_event'',''give_her_a_bag''">Give her a designer bag</a></div>'else:'<div class="buttonGr"><a href="exec:">Give her a designer bag</a></div>'
+		if $QT.love >= 50:'<div class="buttonP"><a href="exec:minutes+=20 & gt ''foreground_event'',''talk_about_occupation''">Talk about the future</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		'<div class="button"><a href="exec:gt ''suburbs''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p> Spent a little time and chatted a little about<<$content_a[RAND(0,17)]>>The topic.</p>'
+		'<p><<$QT.name>>:Ahem, I`m so shy T T I`m hungry T T</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="eat":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\吃饭.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''deep_alley''">Take her home</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Then I`m welcome ❤Wow❤ That`s a good time❤</p>'
+		$QT.LOVE+=5+$my.charm
+		$QT.date=0
+	'</div>'
+end
+
+
+
+if $ARGS[0]="give_her_a_bag":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\送礼物.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''deep_alley''">Take her home</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Wow oh oh oh ❤ This is a limited edition POCHETTE MÉTIS EAST WEST handbag!You are so attractive❤</p>'
+		'<p>Me: You are quite knowledgeable... but I spent a lot of effort.…</p>'
+		'<p><<$QT.name>>:Ahem, thanks!</p>'
+		$QT.LOVE+=25+$my.charm
+		$QT.date=0
+	'</div>'
+end
+
+
+if $ARGS[0]="talk_about_occupation":
+	'<div class ="show_menu"><img src="images\\NPC\QT\pics\对话.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''deep_alley''">Take her home</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>Me: Do you have any career plans?</p>'
+		'<p><<$QT.name>>:Don`t talk about it, just because I am not a household registration in this city, the personnel department seems to be very dissatisfied with me...Alas.I don`t want to be the front desk either. I originally applied for a broadcast host.…</p>'
+		'<p>Me: Sometimes, people cannot live in the anxiety of the future and forget the way in front of them, nor can they give up the right to choose because they are eager to succeed.We have to thank fate, never public, but also treat us well.</p>'
+		'<p><<$QT.name>>:Stop pouring chicken soup, everyone`s situation is different after all, and those who can`t solve practical problems are empty talk!Ahem ahem…</p>'
+		'<p>Me: Is your throat okay?</p>'
+		'<p><<$QT.name>>:Ahem...Ahem, ahem, ahem...it`s okay... I`m talking hard now...Ahem.…</p>'
+		$QT.LOVE-=1+$my.charm
+		$QT.date=0
+		if $front_desk_event_throat=0:$front_desk_event_throat=1
+	'</div>'
+end
+
+if $ARGS[0]="throat_department":
+	if $qt.reply>=1:gt'foreground_event','laryngology_2'
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\咽喉科.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if money>=5000:'<div class="buttonG"><a href="exec:money-=5000 & gt ''foreground_event'',''intraoperative''">Pay 5000￥ for her</a></div>'else:'<div class="buttonGr"><a href="exec:">Pay 5000￥ for her</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''hospital''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Ahem...ahem...ahem…</p>'
+		'<p>Doctor: Hello, vocal cord nodule surgery needs to be performed in the operating room of the hospital and anesthesia is required.After the operation, the patient usually needs to be hospitalized for a few days for observation and recovery.During recovery, the patient may feel hoarse, but this usually disappears within a few weeks.After surgery, patients usually need to receive treatment and rehabilitation training to help their voice return to normal.</p>'
+		'<p><<$QT.name>>: Ahem... the operation fee... is 3000, right... I`m ready.</p>'
+		'<p>Doctor: The cost of the operation is 3000, focusing on postoperative treatment and rehabilitation training, which total 5000 ￥.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="intraoperative":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\手术.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''hospital''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>Doctor: After the operation, the patient usually needs to be hospitalized for a period of time in order to observe and recover.It usually takes 30 days to receive treatment and rehabilitation training to help the voice return to normal.</p>'
+		'<p>Me: 30 days... okay.</p>'
+		$qt.reply=1
+	'</div>'
+end
+
+if $ARGS[0]="laryngology_2":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\咽喉科.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $qt.reply>=30:'<div class="button"><a href="exec:$front_desk_event_throat=5 & QT.love+=50 & gt ''foreground_event'',''front_desk_jia''">Take her home</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''hospital''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>I am practicing coughing, phlegm, exhaling and singing skills with a speech therapist.</p>'
+		'<p>Doctor: After the operation, the patient usually needs to be hospitalized for a period of time in order to observe and recover.It usually takes 30 days to receive treatment and rehabilitation training to help the voice return to normal.</p>'
+		'<p>·This is the first<<$qt.reply>>day</p>'
+	'</div>'
+end
+
+
+if $args[0]="front_desk_jia":
+	 a=0
+	 q=0
+	 $QT.room=1
+	 $qt_random_number=rand(1,2)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\拜访~<<$qt_random_number>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_this_is_it''">kiss</a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_eat''">Eat</a></div>'
+		'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_bath''">Take a bath</a></div>'
+		if $QT.BAD>=60:'<div class="buttonS4"><a href="exec:minutes+=15 & gt ''foreground_event'',''qt_fuck_papa''">Pop pop</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+		if $essential_oil>0:'<div class="buttonS3"><a href="exec:$essential_oil-=1 & gt ''foreground_event'',''qt_fuck_oiled''">Essential oil massage</a></div>'else:'<div class="buttonGr"><a href="exec:">Essential oil massage</a></div>'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''deep_alley''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:You are so kind to me... From now on, I want to live in the same house with you, cook porridge in the morning, drink tea in the afternoon, and bring me a bouquet of flowers in the evening if you get home later than me.</p>'
+		'<p>Me: Don`t you need to rest?</p>'
+		'<p><<$QT.name>>:Is it eating, taking a shower, or...?</p>'
+	'</div>'
+end
+
+if $args[0]="qt_fuck_eat":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\吃饭1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!4:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_eat''">kiss </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_eat''">Rub </a></div>'
+			end
+			if a!3 and 2<=q :
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_eat''">insert </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_eat''">External shot </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''foreground_event'',''qt_overnight''">overnight</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Stop it, I`m cooking……</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Stop it... cooking...<<$panting>>…</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 $QT.love+=5
+		 $QT.bad+=5+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:<<$protagonists_name>>...<<$panting>>...</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="qt_fuck_this_is_it":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\就这1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''foreground_event'',''qt_fuck_this_is_it''">kiss </a></div>'
+			end
+			if a!1 and 0<=q :
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_this_is_it''">Oral sex </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_this_is_it''">Bukkake </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''foreground_event'',''qt_overnight''">overnight</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…Mua</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:You don`t think I`m the kind of casual woman, do you?…</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 $QT.love+=5
+		 $QT.bad+=5+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Shot a lot!Love like this every day from now on, okay?…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="qt_fuck_bath":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\洗澡1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''foreground_event'',''qt_fuck_bath''">kiss </a></div>'
+			end
+			if a!1 and 0<=q :
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_bath''">Oral sex </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_bath''">Mouth explosion </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''foreground_event'',''qt_overnight''">overnight</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...take a bath carefully……</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Don`t go tonight, okay…</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 $QT.love+=5
+		 $QT.bad+=5+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Shot a lot…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="qt_fuck_papa":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\啪啪1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_papa''">kiss </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_papa''">Lick each other </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_papa''">Poisonous dragon </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_papa''">ride </a></div>'
+			end
+			if a!5 and 4<=q and q<=7:
+			'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_papa''">Back body </a></div>'
+			end
+			if a!6 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_papa''">sprint </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''foreground_event'',''qt_fuck_papa''">Internal injection </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''foreground_event'',''qt_overnight''">overnight</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...how is it?……</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...<<$panting>>...</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Shot a lot!Will you love like this every day from now on?</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $ARGS[0]="qt_overnight":
+	'<div class ="show_menu"><img src="images\place\睡觉.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''foreground_event'',''qt_the_next_day''">The next day</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>Entered a sweet dreamland....</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="qt_the_next_day":
+	$my.energy = mymax[$energy]
+	minutes+=1440
+	hour=8
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\早上~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">Send her to work</a></div>'
+		'<div class="button"><a href="exec:gt ''deep_alley''">Sleep a little longer</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Awake?Seeing your face, I couldn`t help but kiss my tongue.</p>'
+	'</div>'
+end
+
+if $args[0]="qt_fuck_powder_room":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\化妆室1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<4:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''foreground_event'',''qt_fuck_powder_room''">Footjob </a></div>'
+			end
+			if a!1 and 0<=q and q<=5:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_powder_room''">Sit up </a></div>'
+			end
+			if a!2 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_powder_room''">After entering her </a></div>'
+			end
+			if a!3 and 3<=q :
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_powder_room''">Accelerate the sprint </a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_powder_room''">Ejaculation </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if a=4:'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_powder_room''">Coughing</a></div>'
+				'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...do you want to do it here with me... you have a lot of guts.…</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...<<$panting>>...what if someone comes?You pay me if you lose your job!</p>'
+			 '<p>Me: ...then you have to move faster and let me shoot it out…</p>'
+			 if a=3:'<p><<$QT.name>>:...someone is coming?！Shoot it out!</p>'
+		 '</div>'
+	end
+
+
+
+	if a=4:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Fortunately, no one found out... huh…</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Huh!It seems that someone used this place as a gun room!</p>'
+			 '<p><<$QT.name>>:...Station, director...I can explain…</p>'
+			 '<p>I:………</p>'
+			 '<p><<$TZ.name>>:Listen, as long as your ratings are up to standard, I can turn a blind eye.But if the ratings are bad, don`t blame me for settling the accounts after the autumn!</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+if $ARGS[0]="restaurant":
+	 $qt_new_meeting=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\新约会1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''foreground_event'',''qt_fuck_hostel''">Go open a room</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & $qt.hot_spring=1 & gt ''foreground_event'',''restaurant''">Go to the hot spring</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Is this the restaurant you thought about before?The taste is really not bad!</p>'
+		'<p>·Accompanied by the delicacy, chatted a little about<<$content_a[RAND(0,17)]>>The topic.</p>'
+		'<p>Me: Boss, pay the bill!</p>'
+		'<p><<$QT.name>>:I bought it!You have helped me so much, I haven`t thanked you yet.</p>'
+		'<p>Me: Thanks... I have a good idea!</p>'
+		if $qt.hot_spring=1:
+		'<p><<$QT.name>>:Hot springs?Good!I have long wanted to go.It may be too late today, so it`s better to have the weekend!</p>'
+		'<p>Me: Okay, then I`ll see you at the hot spring this weekend!</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="qt_fuck_hostel":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\旅馆1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_hostel''">Oral sex </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_hostel''">Normal bit </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_hostel''">Riding position </a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_hostel''">Hip wave </a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_hostel''">Accelerate the sprint </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_hostel''">Ejaculation </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''foreground_event'',''qt_fuck_hostel''">Lick clean </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...is this the good idea you said?</p>'
+			 '<p>Me: ... is there a more attractive gift than you?</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...<<$panting>></p>'
+			 if a>2:'<p>Me: Do you want to stop?…</p>'
+			 if a>3:'<p><<$QT.name>>:...don`t want to!Give it to me……</p>'
+			 if a>4:'<p><<$QT.name>>:...it`s going to be shot...my dear...don`t be patient, shoot it all to me!</p>'
+			 if a=6:'<p>Me: ...ah...huh...comfortable!</p>'
+		 '</div>'
+	end
+
+
+
+	if a=7:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...Let`s go back to the TV station... I`ve been out for too long...I`ll be scolded by the director...Just say help me move things.…</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $ARGS[0]="hot_spring_tour":
+	 $qt.hot_spring=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\新约会0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Enter the bath</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:Sorry, the temporary meeting in the station, I`m not late, am I?！</p>'
+		'<p>Me: It`s okay, I just arrived too.</p>'
+	'</div>'
+end
+
+
+if $args[0]="qt_fuck_hot_spring_dinner":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\温泉吃饭1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Tear her down </a></div>'
+			'<div class="button"><a href="exec:a=0 & q=0 & gt ''foreground_event'',''qt_fuck_hot_spring_bath''">Go to the open-air hot spring </a></div>'
+			end
+
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Pinch nipples </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Oral sex </a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Ride up </a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Back in </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Accelerate the sprint </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">Ejaculation </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''foreground_event'',''qt_fuck_hot_spring_dinner''">kiss </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if hour>=18:'<div class="button"><a href="exec:a=0 & q=0 &gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Spend the night here </a></div>'else:'<div class="buttonGr"><a href="exec:">Overnight-before night </a></div>'
+				'<div class="button"><a href="exec:gt ''suburbs''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...Ah, I`m really starving to death. The director held a three-hour meeting because of the ratings.</p>'
+			 '<p>Me: It`s really hard.</p>'
+			 '<p><<$QT.name>>:...let`s make a fist!The loser must meet one of the opponent`s requirements!</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...what are you doing, you`re cheating!Obviously you lost!Are you so anxious to eat me?</p>'
+			 if a>1:'<p>Me: Your nipples are hard, you obviously want to be eaten by me.</p>'
+			 if a>2:'<p><<$QT.name>>:...<<$panting>>Where is it?</p>'
+			 if a>3:'<p>Me: It`s really dishonest... it`s all wet under you.</p>'
+			 if a>4:'<p><<$QT.name>>:...<<$words>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...eat delicious food, have sex with people you like... it feels awesome…</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+if $args[0]="qt_fuck_hot_spring_bath":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\温泉洗澡1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!3:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_hot_spring_bath''">Fuck her </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_hot_spring_bath''">Ejaculation </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_hot_spring_bath''">dialogue </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if hour>=18:'<div class="button"><a href="exec:a=0 & q=0 &gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Spend the night here </a></div>'else:'<div class="buttonGr"><a href="exec:">Overnight-before night </a></div>'
+				'<div class="button"><a href="exec:gt ''suburbs''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Is this open air?...I use my tongue to help you clean up the cock, be careful that someone is peeping at us.</p>'
+			 '<p>Me: If someone finds out, tomorrow`s headlines will be indecent photos of the big anchor.</p>'
+			 '<p><<$QT.name>>:Then why don`t you spoil me?Isn`t it like drinking water for a big anchor to change her boyfriend?</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Then I can only break the jar and let others discover our affair!</p>'
+			 '<p><<$QT.name>>:<<$panting>>People are wrong, take it easy!If you don`t change, if you don`t change your boyfriend, I`ll fuck you for the rest of your life, slow down!</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>Me: You just said that you will fuck me for the rest of your life, is it true?</p>'
+			 '<p><<$QT.name>>:Did I say that?</p>'
+		 '</div>'
+	end
+
+
+
+	if a=3:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>Me: Then I don`t think I heard it?</p>'
+			 '<p><<$QT.name>>:…...don`t pretend you didn`t hear it!</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+if $args[0]="qt_fuck_hot_spring_overnight":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\温泉过夜1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<9:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">serve </a></div>'
+			end
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Oral sex </a></div>'
+			end
+			if a!2 and 1<=q and q<=6:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Fuck her </a></div>'
+			end
+			if a!3 and 2<=q and q<=7:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">High-speed piling </a></div>'
+			end
+			if a!4 and 3<=q and q<=9:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Slow down </a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Vigorously pump </a></div>'
+			end
+			if a=5:
+			'<div class="buttonGn"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Outdoor situation </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Accelerate the sprint </a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Ejaculation </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">Clean mouth </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if a=9:'<div class="button"><a href="exec:a=10 & minutes+=1440 & hour=8 & $my.energy = mymax[$energy] & gt ''foreground_event'',''qt_fuck_hot_spring_overnight''">zzZ-the next day</a></div>'
+				if a=10:'<div class="button"><a href="exec:gt ''city_hall''">Leave together</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...do you think I am a very casual woman?But actually you are my second man…</p>'
+			 '<p>Me: Who is the first one?</p>'
+			 '<p><<$QT.name>>:...give people a little private secret!</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=1 and a!6:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...Well, do you like it…</p>'
+			 if a>1:'<p>Me: Your show is so comfortable.</p>'
+			 if a>2:'<p><<$QT.name>>:...If you are comfortable, just insert it deeper... Fuck me……</p>'
+			 if a>3:'<p><<$QT.name>>:<<$panting>></p>'
+			 if a>4:'<p><<$QT.name>>:...<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $WQ.love+=1
+		 $WQ.bad+=1
+		 '<div class="dialog_menu">'
+			 '<p>？？？: Damn it...it feels so cool...I want to be fucked by a big dick too……</p>'
+		 '</div>'
+	end
+
+
+	if a=9:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...so comfortable...let`s sleep together❤</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p>·第二天>阳光照进了屋内，温暖了你的下体…</p>'
+			 '<p><<$QT.name>>:Are you awake ❤ The director just sent me a text message and asked me to go back to the meeting. Do you want to sleep a little longer?</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+if $args[0]="qt_fuck_oiled":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\涂油1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!1 and a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_oiled''">Normal massage </a></div>'
+			if MGF>0:'<div class="button"><a href="exec:a=2 & MGF-=1 & gt ''foreground_event'',''qt_fuck_oiled''">Add McGovern </a></div>'else:'<div class="buttonGr"><a href="exec:">Add McGovern </a></div>'
+			end
+
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_oiled''">Keep oiling </a></div>'
+			end
+			if a!4 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_oiled''">Massage buttocks </a></div>'
+			end
+			if a!5 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_oiled''">Massage </a></div>'
+			end
+			if a!6 and 4<=q and q<=6:
+			'<div class="button"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_oiled''">Come and talk to me </a></div>'
+			end
+			if a!7 and 5<=q and q<=10:
+			'<div class="button"><a href="exec:a=7 & gt ''foreground_event'',''qt_fuck_oiled''">Normal sexual intercourse </a></div>'
+			end
+			if a!8 and 6<=q :
+			'<div class="button"><a href="exec:a=8 & gt ''foreground_event'',''qt_fuck_oiled''">Back position </a></div>'
+			end
+			if a=8:
+			'<div class="buttonR3"><a href="exec:a=9 & gt ''foreground_event'',''qt_fuck_oiled''">Fuck her </a></div>'
+			end
+			if a=8:
+			'<div class="buttonS3"><a href="exec:a=10 & gt ''foreground_event'',''qt_fuck_oiled''">Ejaculation </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & minutes+=45 & gt ''foreground_event'',''qt_fuck_oiled''">One hour later </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''deep_alley''">Satisfied to leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I`ve worked hard... Proper massage can relieve fatigue!</p>'
+			 '<p><<$QT.name>>:...you won`t paint me anything weird, will you?…</p>'
+
+		 '</div>'
+	end
+
+	if a=1:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>Me: How could it be?This is just the most common essential oil……</p>'
+			 '<p><<$QT.name>>:...okay...I`m looking forward to it for nothing❤</p>'
+		 '</div>'
+	end
+
+
+	if 3>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:...Well, the body is starting to get slightly hotter…</p>'
+			 if a=3:'<p><<$QT.name>>:It feels crisp and numb... it`s weird……</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Sure enough, something strange was added!</p>'
+			 '<p>Me: No, no!</p>'
+			 if a>4:'<p><<$QT.name>>:Liar... you made me... want it.</p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $QT.love+=q
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>·McGovern`s effect is outstanding!</p>'
+			 '<p>·Watching her limp on the floor and squirting like a stall of beautiful meat, you feel great.</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="qt_fuck_excellent_host":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QT\vids\QTZ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            if $TZ.bad>=$my.charm*25 and $QT.bad>=$my.charm*25 :'<div class="buttonG"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_excellent_host''">Want you guys! </a></div>'else:'<div class="buttonGr"><a href="exec:">Someone can`t let it go </a></div>'
+            '<div class="button"><a href="exec:a=1 & gt ''tv_station''">leave </a></div>'
+            end
+            if a!0:
+            '<div class="buttonR1"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_excellent_host''">Let`s spray together! </a></div>'
+            end
+            if a>=2:
+            '<div class="buttonPu1"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_excellent_host''">Fuck<<$TZ.name>> </a></div>'
+            end
+            if a>=2:
+            '<div class="buttonB1"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_excellent_host''">Fuck<<$QT.name>> </a></div>'
+            end
+            if a=3 or a=4:
+            '<div class="buttonPu2"><a href="exec:a+=1 & gt ''foreground_event'',''qt_fuck_excellent_host''">❤Continue❤ </a></div>'
+            end
+            if a=6 or a=7:
+            '<div class="buttonB2"><a href="exec:a+=1 & gt ''foreground_event'',''qt_fuck_excellent_host''">❤Don`t stop❤ </a></div>'
+            end
+            if a=5 or a=8:
+            '<div class="buttonS3"><a href="exec:a=9 & gt ''foreground_event'',''qt_fuck_excellent_host''">❤Ejaculation❤ </a></div>'
+            end
+            if a=9:
+            '<div class="buttonS4"><a href="exec:a=10 & gt ''foreground_event'',''qt_fuck_excellent_host''">Are you satisfied? </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS5"><a href="exec:a=rand(2,8) & gt ''foreground_event'',''qt_fuck_excellent_host''">Then come again! </a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''tv_station''">Lick it clean❤</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>:Director, I won the best host award this time, and it`s better for you to cultivate it.</p>'
+             '<p><<$TZ.name>>:Don`t praise me, or<<$protagonists_name>>You who introduced you to me, you should thank him.</p>'
+             '<p>Me: Ahem…</p>'
+             '<p><<$QT.name>>: <<$protagonists_name>>❤</p>'
+             '<p><<$TZ.name>>:What a coincidence... are you here to take credit?What do you want?</p>'
+         '</div>'
+    end
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>: <<$panting>></p>'
+             '<p><<$TZ.name>>: <<$panting_2>></p>' 
+             if 5>=a and a>=2:'<p><<$TZ.name>>: <<$words>></p>'
+             if 8>=a and a>=6:'<p><<$QT.name>>: <<$words_2>></p>'
+             if a=9:'<p>Me: Convex (fuck, fuck) I can`t help it!Pick it up for me!</p>' 
+         '</div>'
+    end
+
+
+    if a=10:
+         $QT.love+=q
+         $QT.bad+=q
+         $TZ.love+=q
+         $TZ.bad+=q
+         QTTZ=1
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>:Are you satisfied❤</p>' 
+             '<p><<$QT.name>>:Director, if you are not satisfied, I can only enjoy him alone ❤</p>'
+             '<p>·The relationship between the two has deepened❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="qt_fuck_visit":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\拜访1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!12:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''foreground_event'',''qt_fuck_visit''">Hold it in one bite </a></div>'
+			end
+
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''foreground_event'',''qt_fuck_visit''">Ride up </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''foreground_event'',''qt_fuck_visit''">accelerate </a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''foreground_event'',''qt_fuck_visit''">Ejaculation </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''foreground_event'',''qt_fuck_visit''">Order to drink </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''foreground_event'',''qt_fuck_visit''">Second Battle </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''foreground_event'',''qt_fuck_visit''">accelerate </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''foreground_event'',''qt_fuck_visit''">Ejaculate again </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''foreground_event'',''qt_fuck_visit''">Order to drink </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''foreground_event'',''qt_fuck_visit''">Not over yet </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''foreground_event'',''qt_fuck_visit''">Last shot </a></div>'
+			end
+			if a=11:
+			'<div class="button"><a href="exec:a=12 & gt ''foreground_event'',''qt_fuck_visit''">Order to drink </a></div>'
+			end
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''big_villa''">Send her away</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·When she was drunk, she pulled you into the bedroom and threw you down frantically.</p>'
+			 '<p><<$QT.name>>:Do you know, how long has it been since you came to my house?</p>'
+			 '<p>Me: Uh... you drank too much…</p>'
+			 '<p><<$QT.name>>:Today I want to drain you!</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Today I want to drain you!</p>'
+			 if a>1:'<p>Me: You won`t do it first, will you?</p>'
+			 if a>2:'<p><<$QT.name>>:I will fuck you until you beg for mercy!</p>'
+			 if a>=5:'<p><<$QT.name>>:Begging for mercy?</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Beg for mercy<<$panting>></p>'
+			 if a>6:'<p>Me: Impossible!</p>'
+			 if a>=9:'<p><<$QT.name>>:I can come again ❤</p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:Give me a break<<$panting>></p>'
+			 if a>=11:'<p>Me: I`m almost reaching the limit❤</p>'
+		 '</div>'
+	end
+
+	if a=12:
+		 $QT.love+=q+$my.charm
+		 $QT.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:wait!This one won`t work!</p>'
+			 '<p>Me: What are you doing?I thought you were going to drink it…</p>'
+			 '<p><<$QT.name>>:It`s very popular now... use a condom filled with the essence of the person you love to make an amulet and carry it with you ❤</p>'
+			 '<p>Me: Is it really useful?…</p>'
+			 '<p><<$QT.name>>:Yes<<$LY.name>>Tell me, who knows!</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+
+
+
+
+
+
+
+--- foreground_event ---------------------------------
+

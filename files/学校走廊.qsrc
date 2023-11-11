@@ -1,0 +1,156 @@
+# 学校走廊
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+swhour=rand(12,16)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+if $args[0]="":
+	校园随机数=rand(0,100)
+	 '<div class ="show_menu"><img src="images\place\学校走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if hour=17 and $XM.available=0 and week_day <=5:'<div class="button"><a href="exec:gt ''学妹_事件'',''偷听''">偷听</a></div>'
+		if hour=16 and $XM.available=1 and week_day <=5:'<div class="button"><a href="exec:gt ''学妹_事件'',''穿过走廊''">穿过走廊</a></div>'
+		if $寻枪事件链=1:
+			if $杂物室调查=0:'<div class="button"><a href="exec:gt ''警员_事件'',''询问教师''">✣询问路过教师</a></div>'
+			if $杂物室调查!0:'<div class="buttonS"><a href="exec:gt ''警员_事件'',''JY_Fuck_女教师卡''">✣询问路过教师</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>静怡祥和的校园走廊，<a href="exec:minutes+=5 & gt ''学校走廊'',''告示栏''">告示栏</a>在最醒目的位置。</p>'
+		if 校园随机数>=94 and $新闻节目前置=1:'<p>电视台的外派记者正在采访<a href="exec:minutes+=5 & gt ''学校走廊'',''新闻采访''">游泳社</a></p>'
+		if 校园随机数<=6 and $新闻节目前置=1:'<p>电视台的外派记者正在采访<a href="exec:minutes+=5 & gt ''学校走廊'',''新闻采访''">篮球社</a></p>'
+		if 校园随机数<=5 and hour<=15 and $学校_Event_希望<2:'<p>教委办公室外的<a href="exec:minutes+=5 & gt ''学校走廊'',''争吵声''">争吵声</a></p>'
+		if 校园随机数<=5 and hour<=15 and $学校_Event_希望=2:'<p>校内纠察队的<a href="exec:minutes+=5 & gt ''群演_事件'',''群演_Fuck_希望A''">集体行动</a></p>'
+		if 校园随机数<=50 and hour<=15 and $学校_Event_希望=3:'<p>召集纠察队成员<a href="exec:minutes+=5 & gt ''群演_事件'',''群演_Fuck_希望B''">矫正举报</a></p>'
+		if $ZL_Event_face=2 and hour =17:'<p><<$ZL.name>>和她的好友在<a href="exec:minutes+=5 & gt ''援交_事件'',''自习室''">自习室</a>里。</p>'
+		if $ZL.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad and 13<=hour and hour<=14 :'<p><<$ZL.name>>和<<$LJ.name>>在<a href="exec:minutes+=5 & gt ''留级_事件'',''LJZL_Fuck_逆3P''">阅览室</a>里。</p>'
+		if $HZ.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad and hour=12:'<p><<$LJ.name>>被学生会请去<a href="exec:minutes+=5 & gt ''会长_事件'',''喝茶警告''">喝茶</a>了。</p>'
+		if $XZ_classroomB=1and hour =17:'<p>几个男生正被<<$XZ.name>>惩罚去打扫<a href="exec:minutes+=5 &gt ''校长_事件'',''XZ_Fuck_空教室B''">器材室</a></p>'
+		if $SW.bad>=10 and hour=swhour:'<p><<$SW.name>>居然去了一楼的<a href="exec:minutes+=5 &gt ''生物办公室'',''男厕''">男厕里</a></p>'
+		if FXZ_XY>=3 and 10<=hour and hour<=12 :'<p><<$FXZ.name>>和<<$XY.name>>正在<a href="exec:minutes+=5 & gt ''西语_事件'',''FXZ_Fuck_党羽''">职工休息室</a>里讨论着什么。</p>'
+		if $SW_Event_XZ=2 and hour >=17:'<p><<$SW.name>>和<<$XZ.name>>正在<a href="exec:minutes+=5 & gt ''生物_事件'',''SW_Fuck_保健室''">性保健室</a>里讨论着什么。</p>'
+		if  $XM事件链>=2 and 13>hour and hour>=11:'<p><<$XM.name>>和她的朋友们正在<a href="exec:gt ''学妹_事件'',''XM_Fuck_图书馆''">图书馆里</a></p>'
+		if 校园随机数<=20 and hour>=15:'<p>走廊里传来弥生みづき的<a href="exec:minutes+=5 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">高跟鞋声</a></p>'
+		if 校园随机数<=25 and hour=10 and $SY.接制服=1:'<p>体检室里传来的<a href="exec:minutes+=5 & gt ''学校走廊'',''体检室''">嘈杂声</a></p>'
+		if 校园随机数>=75 and hour>=17 and $SY.制服>=1:'<p>二楼男厕所里<a href="exec:minutes+=5 & gt ''上原_事件'',''SY_Fuck_WC''">聚集的人群</a></p>'
+		if $LXS.bad>100 and hour>=17 and 校园随机数<=25:'<p>二楼保健室里传来了<a href="exec:gt ''留学_事件'',''留学_Fuck_偷偷''">娇喘声</a></p>'
+		
+	'</div>'
+End
+
+
+if $args[0]="告示栏":
+	支持率差值=RAND(2,6)
+	其他支持率=16
+	XZ支持率=50+支持率差值-其他支持率/2
+	FXZ支持率=50-支持率差值-其他支持率/2
+	 '<div class ="show_menu"><img src="images\place\学校走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if FXZ_XY>=10 and SW_XZ>=10:'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''校长_事件'',''XZ_Fuck_FXZ''">✩校园话事人✩</a></div>'else:'<div class="buttonGr"><a href="exec:">成就：？？？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·实时支持率：</p>'
+		'<p>▍<<$XZ.name>>支持率：<<XZ支持率>>%▼	▍<<$FXZ.name>>支持率：<<FXZ支持率>>%▲	▍其他支持率：<<其他支持率>>%</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✦✧✩✦✧✩✦✧✩✦✧</p>'
+		'<p>✩ <<$FXZ.name>>❤<<$XY.name>>=<<FXZ_XY>>/10✧</p>'    
+		'<p>✩ <<$XZ.name>>❤<<$SW.name>> =<<SW_XZ>>/10✧</p>'    
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✦✧✩✦✧✩✦✧✩✦✧</p>'
+		
+	'</div>'
+End
+
+if $args[0]="争吵声":
+		if $学校_Event_希望=1:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\杂\教师投诉2.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>女教师：你说过有想法可以和您沟通对吧？校内纠察队的做法是我不能容忍的，他们凭什么可以……</p>'
+			'<p>男教师：哈？纠察队的权利和职责取决于校长亲自设立的学校规章制度，还有市政厅的特许。如果你觉得纠察队的权利有些过分，你可以自己去和校长说！</p>'
+		'</div>'
+		$学校_Event_希望=2
+	end
+	
+		if $学校_Event_希望=0:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\杂\教师投诉1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>男教师：小石啊，你刚参加工作，有不懂地方不懂可以来问我哟。这个学校里的女老师，如果不站队，会很危险喔…</p>'
+			'<p>女教师：我并不担心某些派系压力或不公平的待遇，我相信只要我认真教学，就能帮助学生们提高他们的学习兴趣和成绩。</p>'
+			'<p>男教师：你嘛…还是太年轻了…话别说的太早嘛，有什么想法，都可以和我沟通嘛！</p>'
+		'</div>'
+		$学校_Event_希望=1
+	end
+End
+
+if $args[0]="新闻采访":
+		 if 校园随机数<=6:a+=1
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\杂\采访<<a>>.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>新闻主持人：<<$娇喘声>>下面为大家带来现场报道…</p>'
+			'<p>我：《新闻潮吹忍耐赛》居然都蔓延到外景了？</p>'
+		'</div>'
+
+End
+
+
+if $args[0]="体检室":
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\SY\vids\XXNK.webm" type=''video/webm;''></video></div>'
+			'</div>'
+
+		'<div class="button_menu">'
+			if $SY.制服=0:'<div class="button"><a href="exec:$SY.制服=1 & gt ''大学''">偷一件校服</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>男医生：屁股撅起来，把屁眼掰开…</p>'
+		'</div>'
+
+End
+
+
+
+
+--- 学校走廊 ---------------------------------
+

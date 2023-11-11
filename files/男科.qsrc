@@ -1,0 +1,71 @@
+# 男科
+ cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="私立医院" href="exec:minutes+=5 & gt ''医院''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	$NK.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NK\vids\医生开场~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''男科'',''身体检查''">身体检查</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''男科'',''没事''">没事</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·你看了看墙上名牌，她的荣誉介绍是：<<$NK.name>>，一口气发表了三篇重磅研究论文,使得我们能超越固有观念,对男性勃起障碍产生全新的认知。</p>'
+		'<p><<$NK.name>>:有什么事吗？OS：真想尝尝你鸡巴的味道。</p>'
+	'</div>'
+End
+
+
+if $args[0]="身体检查":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NK\vids\医生诱惑~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=1& gt ''男科_事件'',''NK_Fuck_检查''">咽口水</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$NK.name>>:目前看来，你的身体很健康。不过....不知道你射出来的东西健不健康呢..</p>'
+	'</div>'
+End
+
+if $args[0]="没事":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NK\vids\医生自慰~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=0& gt ''男科_事件'',''大胆进入''">大胆:进入</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &a=0& gt ''男科_事件'',''邪恶偷窥''">邪恶:偷窥</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·离去的时候看到医生在自慰。</p>'
+	'</div>'
+End
+--- 男科 ---------------------------------
+

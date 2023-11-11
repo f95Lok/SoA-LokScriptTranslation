@@ -1,0 +1,574 @@
+# lost_hometown_incident
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="girl_in_town":
+	$SX.available=1
+	 '<div class ="show_menu"><img src="images\NPC\SX\pics\进城女孩<<a>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:a=1 & gt ''lost_hometown_incident'',''girl_in_town''">Next one!</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & gt ''lost_hometown_incident'',''girl_in_town''">Near get off work</a></div>'
+		if a=2:'<div class="button"><a href="exec:a=2 & gt ''subway''">Get off work</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if a=0:
+		'<p>Me: The application is rejected!</p>'
+		'<p><<$SX.name>>:Please do your best and let me enter the country.You can do whatever you want me to do……</p>'
+		'<p>·The girl starts to undress </p>'
+		'<p>Me: It`s useless for you to do this, please go back…</p>'
+		'<p>·I returned the application form and inadvertently clicked on the reason for entry and the city with my fingers. </p>'
+		'<p><<$SX.name>>:Well, I have nowhere to go, thank you…</p>'
+	 end
+	 if a=1:
+		'<p>Me: Next one!</p>'
+		'<p>Woman: Hi, me and<<$RION.name>>It`s an old friend, let me in!</p>'
+	 end
+	 if a=2:
+		'<p>Me: Next one!</p>'
+		'<p>·When it was almost time to get off work, the girl walked into the office again</p>'
+		'<p><<$SX.name>>:Please help me... woohoohoohoohoohoohoohoohoohoohoo…</p>'
+		'<p>Me: Oh, let me ask again, did you come here from the Magic Capital to visit relatives?</p>'
+		'<p><<$SX.name>>:Magic City?No... ah, yes, yes!I came here from the Magic Capital to visit relatives! You, you are such a good person.</p>'
+		'<p>Me: The application is approved!Let`s go before the leader comes to blame me!The word good person is not auspicious.By the way, if you are okay tonight, you can go to Kabukicho to see, where there are usually low-cost rental houses.</p>'
+		'<p><<$SX.name>>:Thank you…</p>'
+		if $chain_of_lost_hometown_events=0:$chain_of_lost_hometown_events=1
+	 end
+	 
+	'</div>'
+End
+
+if $args[0]="deep_alley":
+
+	 '<div class ="show_menu"><img src="images\NPC\SX\pics\深巷.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonG"><a href="exec:money-=1500 &a=1& gt ''lost_hometown_incident'',''deep_alley''">Help her rent a house for 1500￥</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & gt ''deep_alley''">leave</a></div>'
+
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if a=0:
+		'<p>Me: Oh?Are you really looking for a house here?</p>'
+		'<p><<$SX.name>>:Thanks to your care, I am in a bit of trouble now.</p>'
+		'<p>Me: What`s the trouble?</p>'
+		'<p><<$SX.name>>:I am worried that I will be found out about filling in false information in the entry declaration... Can you rent a room for me?Don`t worry, I will pay you back the rent when I make money from my part-time job…</p>'
+	 end
+	 if a=1:
+		'<p>Me: This is simple, I have rented it for you, this is the key.</p>'
+		'<p><<$SX.name>>:Thank you so much!</p>'
+		'<p>Me: You should go up and see how the environment of the single room is. If you are not satisfied, it is still too late to refund the rent.</p>'
+		'<p><<$SX.name>>:good!</p>'
+		$chain_of_lost_hometown_events=2
+		$SX.room=1
+	 end
+
+	 
+	'</div>'
+End
+
+
+
+if $args[0]="lost_home":
+	a=0 & q=0
+	 '<div class ="show_menu"><img src="images\NPC\SX\pics\邀请.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''lost_hometown_incident'',''shopping''">Go shopping together</a></div>'
+		if $SX.love>=50:'<div class="buttonS2"><a href="exec:gt ''lost_hometown_incident'',''sx_fuck_sofa''">Sit on the sofa</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		if $SX.love>=100:'<div class="buttonS3"><a href="exec:gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Day trip to hot springs</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+		if $SX.bad>=100:'<div class="buttonS4"><a href="exec:gt ''lost_hometown_incident'',''sx_fuck_hotel''">Hotel room opening operation</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+		if $SX.bad>=150:'<div class="buttonS5"><a href="exec:gt ''lost_hometown_incident'',''sx_fuck_massage''">Massage guide</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+		if $SX.bad>=150 and SXcos=0:'<div class="buttonP"><a href="exec:SXcos=1 &  $m=''SX'' & $ma=$SX.name & gt ''group_performation_event'',''group_performation_fuck_coser_exclusive''">cos appointment</a></div>'
+		'<div class="buttonPu1"><a href="exec:$m=''SX'' & $mcat=$SX.name & gt ''task_event'',''feeding_task''">Help feed meow</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: How is it?Are you still used to living?</p>'
+		'<p><<$SX.name>>:Very comfortable, much larger than my previous home, thank you for your care during this time.</p>'
+		if $SX.love>=50:'<p>·When you walked up to her, she blushed and greeted you to the sofa.</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="shopping":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\逛街<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if a<2:'<div class="button"><a href="exec:a+=1 & gt ''lost_hometown_incident'',''shopping''">Keep shopping</a></div>'
+	    if a=2:'<div class="buttonG"><a href="exec:money-=500 & a+=1 & gt ''lost_hometown_incident'',''shopping''">Buy all 500￥</a></div>'
+	    if a=3:'<div class="button"><a href="exec:gt ''kabukicho''">Excuse to leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if a<=2:
+		'<p>Me: The three religions and nine streams of fish and dragons are mixed here. If you don`t want to attract attention, you have to dress up like a local!</p>'
+		'<p><<$SX.name>>:Got it, thank you for your reminder.</p>'
+		 end
+	   if a=1:
+		'<p>Me: How about this one?Try this one!</p>'
+		'<p><<$SX.name>>:This dress is so beautiful.</p>'
+	   end
+	   if a=2:
+		'<p>Me: Try this one again</p>'
+		'<p><<$SX.name>>:This one is so beautiful, but I…</p>'
+	   end
+	   if a=3:
+		'<p><<$SX.name>>:I didn`t expect you to spend so much money, I... I`ll pay you back after I make money.……</p>'
+		'<p>Me: It`s not easy to be alone in a foreign land. I just want you to have hope in life. Cheer up and life will get better.</p>'
+		'<p>·Her eyes were a little red, and when you turned around, a few small pearls slipped from her cheeks.</p>'
+		$SX.LOVE+=10
+	   end
+	   
+	'</div>'
+End
+
+
+if $args[0]="sx_fuck_sofa":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\SF1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">FAP </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Oral sex </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Sit up </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Accelerate the ride </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Play with nipples </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Leg lift and thrusting </a></div>'
+            end
+            if a!7 and 6<=q and q<=13:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Go to bed </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Accelerate the sprint </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">Ejaculation </a></div>'
+            end
+            if a=9:
+            '<div class="buttonB"><a href="exec:a=10 & gt ''lost_hometown_incident'',''sx_fuck_sofa''">dialogue </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:No one has ever treated me so gently...I seem to...like...you.</p>'
+             '<p>Me: Hey?！A sudden confession!</p>'
+             '<p><<$SX.name>>:I want to repay you well...with my body……</p>'
+         '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>·Her eyes gradually blurred</p>'
+             if a>=2:'<p><<$SX.name>>:<<$panting>></p>'
+             if a=3:'<p>Me: Are you a virgin?Your pussy is so tight, my dick is completely wrapped in you!</p>'
+             if a>=4:'<p><<$SX.name>>:Can`t do it anymore<<$words>></p>'
+             if a=6:'<p>·You lifted one of her legs and fucked hard, her face was already intoxicated with loss of sanity, completely addicted to lust.…</p>'
+             if a=9:'<p>·The continuous pleasure made her panting and venting, and a large stream of lewd water overflowed from the tender acupuncture point, and she was fucked to orgasm in just a few minutes.…</p>'
+
+         '</div>'
+    end
+
+
+    if a=10:
+         $SX.bad+=q+$my.charm
+         $SX.love+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:Ah❤ah❤so cool...why are you...so amazing❤</p>'
+             '<p>Me: My philosophy in life is to live 100%, the one that remains the same is to love you, and the remaining 90% is to do you seriously ❤</p>'
+             '<p><<$SX.name>>: HAAA❤ The hot touch on your face ❤ This is the feeling of happiness❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="sx_fuck_hot_spring":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\WQ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!14:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Go back to the room </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">tease </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Oral sex </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Riding position </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Back position </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">M-leg </a></div>'
+            end
+            if a!7 and 6<=q and q<=13:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Accelerate the sprint </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Ejaculation </a></div>'
+            end
+            if a=8:
+            '<div class="buttonB1"><a href="exec:a=9 & $my.energy+=999 &  gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Sleep together </a></div>'
+            end
+            if a=9:
+            '<div class="buttonB1"><a href="exec:a=10 & minutes+=1440 & hour=7 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Early the next morning </a></div>'
+            end
+            if a=10:
+            '<div class="buttonS1"><a href="exec:a=11 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Hot spring blowjob </a></div>'
+            end
+            if a=11:
+            '<div class="buttonS3"><a href="exec:a=12 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Insert her </a></div>'
+            end
+            if a=12:
+            '<div class="buttonS5"><a href="exec:a=13 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">Ejaculation </a></div>'
+            end
+            if a=13:
+            '<div class="buttonB1"><a href="exec:a=14 & gt ''lost_hometown_incident'',''sx_fuck_hot_spring''">dialogue </a></div>'
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">Leave together</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:Wow❤ It feels so Suhu to soak in the hot spring❤</p>'
+             '<p>Me: After working for so long, I really need to enjoy it❤</p>'
+         '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a=1:'<p>·As soon as she returned to the room, she held your meat stick</p>'
+             if a>=2:'<p><<$SX.name>>:<<$panting>></p>'
+             if a>=4:'<p>·Her legs were full of lewd water pounded out by the big chicken bar, and every time that stout stick of meat dripped into her heart, the pussy was scalded and melted quickly, making her tremble with comfort.</p>'
+             if a>=5:'<p><<$SX.name>>:Can`t do it anymore<<$words>></p>'
+             if a>=7:'<p>·The ultimate pleasure made her shrink the beautiful meat, and she wanted to keep this big chicken that brought her happiness in the cunt forever.…</p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>It seems to be exhausted, and I fell asleep soon❤</p>'
+             '<p>Me: zzZ</p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=10:
+         '<div class="dialog_menu">'
+             if a=10:'<p>·Early the next morning, I saw no one around the hot spring.…</p>'
+             if a>=11:'<p><<$SX.name>>:<<$panting>></p>'
+             if a>=12:'<p><<$SX.name>>:Yeah<<$words>></p>'
+             if a>=13:'<p>Me: Shot!</p>'
+         '</div>'
+    end
+
+
+
+    if a=14:
+         $SX.bad+=q+q+$my.charm
+         $SX.love+=q+q+$my.charm
+         '<div class="dialog_menu">'
+             '<p>Me: How is it ❤ Are you satisfied with the day trip to the hot spring?</p>'
+             '<p><<$SX.name>>:The hot springs are great ❤The day trip is also great ❤I look forward to coming again next time!</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="sx_fuck_hotel":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\JD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Tease nipples </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Playing with Sao force </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Oral sex </a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Slow thrusting </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Quick thrusting </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Vigorously pump </a></div>'
+            end
+            if a!7 and 6<=q and q<=13:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Leg lift sex </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Accelerate the sprint </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">Ejaculation </a></div>'
+            end
+            if a=9:
+            '<div class="buttonB"><a href="exec:a=10 & gt ''lost_hometown_incident'',''sx_fuck_hotel''">dialogue </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:How expensive it is to bring me to the hotel, just do it at home next time.</p>'
+             if a=1:'<p>Me: As long as you like it, no matter how much it is, it`s not expensive!</p>'
+             if a>=2:'<p><<$SX.name>>:<<$panting>></p>'
+             if a=3:'<p>Me: You are getting better and better at oral sex!</p>'
+             if a>=5:'<p><<$SX.name>>:So cool<<$words>></p>'
+             if a>=7:'<p>·She hung one leg in the air, one leg was close to the inside of the bed, the small flower hole was dried by the big chicken bar, and the thick purple-black genitals refused to let go, squirming desperately.</p>'
+             if a=9:'<p>·Bursts of convulsions in the flower hole spewed out lewd water, and the convulsions reached a climax.</p>'
+         '</div>'
+    end
+
+
+
+    if a=10:
+         $SX.bad+=q+$my.charm
+         $SX.love+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:Let`s go back, I`m still used to doing it at home❤</p>'
+             '<p>Me: I listen to you ❤</p>'
+
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="sx_fuck_massage":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\AM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Massage the lower abdomen </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Massage buttocks </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Can`t bear it </a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Active riding </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Service essentials </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Vigorously pump </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''lost_hometown_incident'',''sx_fuck_massage''">Ejaculation </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''lost_hometown_incident'',''sx_fuck_massage''">dialogue </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a<=2:'<p>Me: I have a massage stunt, do you want to try it!</p>'
+             if a<=2:'<p><<$SX.name>>:Okay, I happen to want to learn massage too</p>'
+             if a<=2:'<p>Me: The most important thing in massage is the choice of essential oils and delicate techniques!</p>'
+             if a=3:'<p><<$SX.name>>:Don`t tease me, I can`t stand it anymore... It`s crisp and itchy below…</p>'
+             if a>=4:'<p><<$SX.name>>:<<$panting>></p>'
+             if a=5:'<p>Me: The essentials of serving guests are-excellence!</p>'
+             if a>=6:'<p><<$SX.name>>:Got it<<$words>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SX.bad+=q+$my.charm
+         $SX.love+=q
+         $sx_massage_num+=1
+         '<div class="dialog_menu">'
+             if $sx_massage_num<3:
+             '<p><<$SX.name>>:I think ❤I know what to do ❤This is the first<<$sx_massage_num>>/3 times guidance</p>'
+             '<p>Me: Practice a few more times ❤ You will be able to master it soon❤</p>'
+             else:
+             '<p><<$SX.name>>:Under the guidance of these few times ❤ I have completely mastered it!</p>'
+             '<p>Me: Although I don`t really want to recommend it, the night bar is recruiting female waiters❤</p>'
+             '<p><<$SX.name>>:I will go and have a look❤</p>'
+             end
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="sx_fuck_custom":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\FS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Custom lower body </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Special service </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Top her </a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Open leg thrusting </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Accelerate thrusting </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Ready to launch </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''lost_hometown_incident'',''sx_fuck_custom''">Ejaculation </a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''lost_hometown_incident'',''sx_fuck_custom''">dialogue </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:minutes+=30 & money-=2000 & gt ''the_night_is_fine''">Pay 2000￥</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a<=1:'<p>Me: Are you really here to work?</p>'
+             if a<=1:'<p><<$SX.name>>:Hmm…</p>'
+             if a=1:'<p>Me: Do you provide special services?</p>'
+             if a=2:'<p><<$SX.name>>:If it`s you…</p>'
+             if a>=3:'<p>Me: Don`t lie to me!Say have you ever been fucked by other guests like this?</p>'
+             if a>=4:'<p><<$SX.name>>:No<<$panting>></p>'
+             if a>=5:'<p>Me: Should I trust you?</p>'
+             if a>=6:'<p><<$SX.name>>:Hmm<<$words>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SX.bad+=q+$my.charm
+         $SX.love+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:What I said is true... I`m vegetarian... I only fly at most.…</p>'
+             '<p>Me:彳亍. </p>'
+             '<p>[Here is the final content of the current version] </p>'    
+             '<p>[This character is contributed by friends in the group. If you have a passion for creation, you can add a group contribution] </p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+--- lost_hometown_incident ---------------------------------
+

@@ -1,0 +1,216 @@
+# classroom
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+if hour<8:
+	'<div class ="show_menu"><img src="images\place\教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Unmanned empty classroom</p>'
+	'</div>'
+End
+
+
+if hour=12:
+	'<div class ="show_menu"><img src="images\place\教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It may be force majeure factors, such as laziness, that caused the classroom at noon to be empty.</p>'
+		if $international_student_school=1:'<p>·There are exceptions, just trying to make up for it after class<<$LXS.name>><a href="exec:$dialogue_with_international_students=0 & gt ''study_abroad_event'',''school_counseling''">-Come forward for counseling</a></p>'
+	'</div>'
+End
+!校长
+if 8<=hour and hour <10:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\上课~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''universal_reading''">Listen carefully for 2h</a></div>'
+		if $XZ.bad>=10:
+		 '<div class="buttonS"><a href="exec:minutes+=15 & gt ''principal_event'',''xz_fuck_sexual_harassment''">Sexual harassment</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">Sexual harassment</a></div>'
+		 end
+	 	 if $XZ.bad>=300-$XZ.love:
+		 '<div class="buttonS"><a href="exec:minutes+=30 &a=0&q=0& gt ''principal_event'',''xz_fuck_empty_classroom_a''">Go to the next classroom</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		 end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$xz.name>>: Please open the laws of the &quot;New Bill&quot; and read the &quot;Women`s Rights Amendment Bill&quot; aloud.</p>'
+		'<p>·Paragraph 1* stipulates: Establish the primacy of the women`s leadership Bill, all judicial interpretation rights belong to the city hall, and all provisions need to be voted on by the women`s leadership Council.</p>'
+		'<p>·Paragraph 2*Taxation: residence tax, breathing tax, ejaculation tax, and other taxes are levied on all male residents.It is used to provide social welfare for female residents of the city.</p>'
+		'<p>·Paragraph 3*Rights: All female residents have a number of freedom rights, including but not limited to: freedom of speech, freedom to dress, freedom of marriage, and other 69 freedom rights.</p>'
+		'<p>·Paragraph 4*Punishment: All female residents have immunity from 10 crimes, which is applicable to minor crimes, including but not limited to: abuse, abuse, imprisonment, and intentional injury against men.</p>'
+		'<p>……</p>'
+End
+
+
+!生物
+if 10<=hour and hour <12:
+	if $SW.love<20:
+		$swlove=0
+	elseif $SW.love>=20:$swlove=1
+	elseif $SW.love>=50:$swlove=2
+	end
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\上课00<<$swlove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''universal_reading''">Listen carefully for 2h</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''sister2_event'',''skip_school''">and<<$MM.name>>Skip school</a></div>'
+		if $SW.bad>=50:'<div class="buttonS"><a href="exec:minutes+=5 & a=3 & gt ''biology_event'',''sw_fuck_outside_the_classroom''">Go out and have sex</a></div>'else:'<div class="buttonGr"><a href="exec:">Go out?？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>: In the last class in the morning, please open the textbook `Biology`.Today we are going to talk about the second characteristic... (yawning)</p>'
+		'<p>……</p>'
+	'</div>'
+End
+
+!西语
+if 13<=hour and hour <15:
+	if $xy.love<100:
+		$xylove=-1
+	elseif $xy.love>=100:$xylove=0
+	elseif $xy.love>=200:$xylove=1
+	end
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\课后00<<$xylove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & gt ''universal_reading''">Listen carefully for 2h</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''sister2_event'',''skip_school''">and<<$MM.name>>Skip school</a></div>'
+		if $spanish_class_agreement=1 or $XY.bad>=150:'<div class="buttonS1"><a href="exec:a=1 & gt ''spanish_event'',''xy_fuck_sexual_harassment''">Sexual harassment</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if $XY.love>=100 and hour>=14:'<div class="buttonS2"><a href="exec:minutes+=25 &a=2 &  gt ''spanish_event'',''xy_fuck_after-school_tutoring''">After-school counseling</a></div>'else:'<div class="buttonGr"><a href="exec:">After class?？</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：Buenos días a todos.Bienvenido a aprender español. Nuestra clase es de 13: 00 a 15: 00. No quiero que nadie cuelgue.</p>'
+		'<p>……</p>'
+	'</div>'
+End
+
+!副校长
+if 15<=hour and hour <17:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\教室000~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=120 & $historical_chapters=0 & gt ''universal_reading''">Listen carefully for 2h</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & $historical_chapters=0 & gt ''sister2_event'',''skip_school''">and<<$MM.name>>Skip school</a></div>'
+		if $FXZ.love>=100:'<div class="buttonS2"><a href="exec:minutes+=15  & gt ''vice_principal_event'',''have_a_shot''">Have a shot</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & $historical_chapters=0 &gt ''university''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$FXZ.name>>: History is boring, but modern history is the most worthy of everyone to learn!</p>'
+		if $historical_chapters=0:
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $historical_chapters=1 & gt ''classroom''">Chapter One: The Budding of Female Leadership</a></p>'
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $historical_chapters=2 & gt ''classroom''">Chapter 2: The Rise of Female Leaders</a></p>'
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $historical_chapters=3 & gt ''classroom''">Chapter 3: The Upgrade of Female Leaders</a></p>'
+		 '<p><<$FXZ.name>>：<a href="exec:minutes+=60 & $historical_chapters=4 & gt ''classroom''">Chapter 4: The Perversion of Female Leadership</a></p>'
+		end 
+		if $historical_chapters=1:
+		 '<p>· <Chapter One: The Budding of Female Leadership>From 2018 to 2020, the women`s leadership movement has emerged from the city to the surrounding areas.Female leadership believes that modern society is based on a male-centered patriarchal system.As a result, the social theory and political movements founded and initiated to promote the equality of the sex classes ushered in three waves.</p>'
+		 '<p>·The first wave of female leadership: emphasize social rights and strive for social equality for women.</p>'
+		 '<p>·The second wave of female leadership: emphasize economic rights and strive for economic equality for women.</p>'
+		 '<p>·The third wave of female leadership: emphasize political rights and strive for political equality for women.</p>'
+		 '<p><<$FXZ.name>>: Do you remember clearly?These are all test centers!*It`s a shame that I am a reformer who teaches modern Western history.When I become the principal, I will definitely not let her go!</p>'
+		end 
+		if $historical_chapters=2:
+		 '<p>· <Chapter 2: The Rise of Female Leaders>The real rise of female leadership is in 2020.The city`s female mayor implemented the [2020 New Policy] through a narrow vote, and our city was used as a pilot city.It is worth noting that the [2020 New Policy] mainly puts forward three requirements</p>'
+		 '<p>·1.It is required that 50% of high-precision and certain social status occupations in society must be given up to women to engage in, in order to reflect social equality.</p>'
+		 '<p>·2.It is required that large and medium-sized enterprises in the economy be wholly owned by women or operated in a 50% joint venture between men and women to reflect economic equality.</p>'
+		 '<p>·3.It is required that more than 50% of women in politics have the right to vote, vote, and be elected to reflect political equality.</p>'
+		 '<p><<$FXZ.name>>: Do you remember clearly?These are all test centers!Huh, no one is arguing with me for the title selection this time, as long as I can bring out the highest score in the city, haha!The principal`s seat..She has been sitting for a long time!</p>'
+		 '<p>You are sleepy again.It seems<<$FXZ.name>>It is very necessary to get the highest score in the city to win the title selection for her...</p>'
+		end 
+		if $historical_chapters=3:
+		 '<p>· <Chapter 3: The Upgrade of Female Leaders>Since the promotion of the [2020 New Policy], the social response has been strong. Due to the sharp decline in male jobs, many men have chosen to go to other cities for development; while female citizens in other cities have chosen to go to this city to fight for job opportunities.</p>'
+		 '<p>>Over time, new social problems have formed.As there are more and more women, there are fewer and fewer men.The allocation of social resources has been deflected, which has triggered an imbalance in the entire social structure.</p>'
+		 '<p>>The upgrading of female leadership began from this, the rights and interests of male citizens continued to decrease, and the rights and interests of female citizens continued to increase. The evolution has spawned three results so far.</p>'
+		 '<p>·1.Women completely occupy all high-precision and certain social status jobs, and only the lowest-level jobs are provided to male citizens.</p>'
+		 '<p>·2.All companies are wholly owned by female entrepreneurs.A large number of companies were unable to pass various “female leadership protection” regulations and had to close or relocate.</p>'
+		 '<p>·3.The total proportion of female politicians is as high as 90%.And introduced a series of new regulations on “protection of female leaders”.</p>'
+		 '<p><<$FXZ.name>>: Do you remember clearly?These are all test centers!If you want to sign up for the [Citywide History Competition], find a teacher to sign up for the exam.*I don`t know if there will be a good seedling. The current female leadership is intensifying. If a boy can stand out, will my title selection be more gold-containing?</p>'
+		 '<p>You are almost asleep.(Do not know<<$FXZ.name>>What are you willing to pay for this good seedling?）</p>'
+		end 
+		if $historical_chapters=4:
+		 '<p><<$FXZ.name>>:Students, this chapter does not exist in textbooks, it is an expansion by the teacher in combination with current events.After studying the first three chapters, we already know that the women`s leadership movement has become the master of our city.The &quot;Characteristic Female Leadership Policy&quot; currently being implemented is also proceeding in an unstoppable trend.</p>'
+		 '<p>>&quot;Characteristic Female Leadership Policy&quot; One-wife multi-husband system: Due to the sharp decline in the number of male citizens, in order to ensure the fertility rate of high-quality women, a female citizen can fully enjoy the freedom of marriage and become a sexual spouse with multiple men.</p>'
+		 '<p>>1.1 Supplement to the Regulations: In order to ensure that all female citizens have the full right to choose a spouse, female spouses shall not monopolize their male spouses. 1.2 Supplement to the Regulations: In order to ensure the status of women, the direct relationship between the sexual spouse can be terminated by the woman in the form of “divorce” at any time.</p>'
+		 '<p>>&quot;Characteristic Female Leadership Policy&quot; Actress pass: &quot;The large influx of women from outside the city will deprive the city of women`s resources, so every woman who comes to our city privately will first undergo high-quality screening.</p>'
+		 '<p>>2.1 Supplementary regulations: The screening content consists of a series of requirements such as appearance, height, cup, sexual openness, and acceptance of the new rules to ensure that every new person in our city is an outstanding high-quality woman.</p>'
+		 '<p>>&quot;Characteristic Female Leadership Policy&quot; Characteristic ID card: Although there are still a small number of anti-female leadership forces, it is proposed to promote a citizen`s characteristic ID card, which will record the detailed information of the citizen and grade it.</p>'
+		end 
+		if $historical_chapters>0:$FXZ.love+=1
+		if $FXZ.love>=4 and $fxz_event_counseling=0:'<p><<$FXZ.name>>: By the way...If any students are interested in participating<a href="exec:minutes+=20 &a=1&  gt ''vice_principal_event'',''competition_test''">【Citywide History Competition】</a>You can find me to sign up.</p>'
+	'</div>'
+End
+
+
+!妹妹
+if hour>=17:
+	if mm_fans<=10:
+		$mmclass=0
+	 elseif mm_fans <100:
+		$mmclass=1
+	 else:
+	   $mmclass=2
+	  end
+	  
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\00<<$mmclass>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $mm.love>=100 and $mm.bad>=125:
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''sister2_event'',''mm_fuck_after_class''">After-school practice</a></div>'
+		end
+		'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''sister2_event'',''pick_you_up_home''">Pick you up home</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>· <<$mm.name>>: Yo, isn`t this my brother, who came to me on purpose?</p>'
+		if  mm_fans >=10:
+		'<p>·Me: It seems that it is already popular!</p>'
+		end
+		if  mm_fans >=100:
+		'<p>· <<$mm.name>>: I`m a big star now, okay!</p>'
+		end
+		'<p>·————————————</p>'
+		if $LXS.bad>100 and 18>=hour and hour>=17  and $porsche=1:'<p>· <<$LXS.name>>Packing up schoolbags<a href="exec:$dialogue_with_international_students=0 & gt ''study_abroad_event'',''get_in_the_car''">-Give her a ride</a></p>'
+	'</div>'
+End
+
+
+
+ 
+--- classroom ---------------------------------
+

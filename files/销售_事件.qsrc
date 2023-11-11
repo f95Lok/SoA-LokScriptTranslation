@@ -1,0 +1,619 @@
+# 销售_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+
+
+
+if $args[0]="电话1":
+	 '<div class ="show_menu"><img src="images\place\打电话.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''家_卧室''">明白了</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'	
+		'<p><<$XS.name>>:你好呀❤<<$主角姓名>>先生❤…周六晚上有时间吗？方便的话请来4S店隔壁的…餐厅，由我帮助您个性化定制车辆。718的选配包括不同的发动机选择、车身颜色、轮毂和轮胎、座椅材料和颜色、内饰材料和颜色、多媒体系统和导航系统、驾驶辅助系统和安全配置、以及各种外部装饰套件。</p>'
+		'<p>我:周六晚上…4S店隔壁的…餐厅嘛，好的。</p>'
+		'<p><<$XS.name>>:是的❤<<$主角姓名>>先生❤总的来说，718的选配项目丰富，我可以帮助您根据自己的喜好和需求定制车辆。</p>'
+		'<p>我:周六晚上…具体是几点？</p>'
+		'<p><<$XS.name>>:21:00以后我都有时间！</p>'
+		$销售电话1=1
+	'</div>'
+End
+
+if $args[0]="餐厅":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\餐厅1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''销售_事件'',''餐厅2''">开始选配</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'	
+		'<p><<$XS.name>>:你好呀❤<<$主角姓名>>先生❤我将为您提供最优质的服务。</p>'
+		'<p>我:为什么在这选配？</p>'
+		'<p><<$XS.name>>:呃，是这样的❤<<$主角姓名>>先生❤店里停电了。</p>'
+		'<p>我:是这样嘛？</p>'
+		'<p><<$XS.name>>:对！我们边喝鸡尾酒边选配吧！</p>'
+	'</div>'
+End
+
+if $args[0]="餐厅2":
+	 minutes+=25
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\餐厅2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''销售_事件'',''送她回家''">送她回家</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'	
+		'<p><<$XS.name>>:免钥匙进入、座椅压花、转向助力、电动后视镜、防眩目后视镜…座椅加热、通风功能、BOSE®音响系统、以及各种驾驶辅助系统和安全配置……没错吧…</p>'
+		'<p>我:你不要紧吧？还有20英寸Carrera Sport车轮…</p>'
+		'<p><<$XS.name>>:哦哦哦……❤<<$主角姓名>>先生❤您的记性可真好。</p>'
+	'</div>'
+End
+
+if $args[0]="送她回家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\欲擒故纵1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if a<2:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''送她回家''">送她回家</a></div>'
+		if 4>=a and a>=2:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''送她回家''">摸一把</a></div>'
+		if a=5:'<div class="button"><a href="exec:a+=1& gt ''居民区''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'	
+		if a=0:
+		'<p><<$XS.name>>:20…英寸Carrera Spo…rt车轮…20英寸Carrera Sport车轮…</p>'
+		'<p>我:你喝醉了…选配的事情择日再谈吧。</p>'
+		'<p><<$XS.name>>:❤<<$主角姓名>>先生❤…20英…寸Carrera Sport车轮…我的公寓在那边…前面直走…</p>'
+		end
+		if a=1:
+		'<p>我:是这里吧，小心点别磕到了。</p>'
+		'<p><<$XS.name>>:谢谢你❤<<$主角姓>>先生❤…你…你真是个好人…</p>'
+		end
+		if a=2:
+		'<p>我:喝点水……吧</p>'
+		end
+		if a=3 or a=4:
+		'<p>·我想她应该不会察觉吧……</p>'
+		end
+		if a=5:
+		'<p><<$XS.name>>:❤<<$主角姓>>先生…大灯也要选配嘛❤</p>'
+		'<p>我:我…我先告辞了。</p>'
+		$销售_Event_买车=2
+		end
+	'</div>'
+End
+
+if $args[0]="诱惑":
+	 '<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''销售_事件'',''诱惑2''">在楼下等她</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'	
+		'<p><<$XS.name>>:<<$主角姓名>>先生…请您稍等，我马上就下来。</p>'
+	'</div>'
+End
+
+if $args[0]="诱惑2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\诱惑<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''诱惑2''">。。。</a></div>'
+		if a=1:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''诱惑2''">上楼</a></div>'
+		if a=2:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''诱惑2''">是吗</a></div>'
+		if a=3:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''诱惑2''">点头</a></div>'
+		if a=4:'<div class="button"><a href="exec:a+=1& gt ''销售_事件'',''诱惑2''">点头</a></div>'
+		if a=5:'<div class="button"><a href="exec:a+=1& gt ''4S店''">回去</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'	
+		if a=0:
+		'<p><<$XS.name>>:………</p>'
+		end
+		if a=1:
+		'<p>我:……？！</p>'
+		'<p><<$XS.name>>:<<$主角姓>>先生❤可以帮我捡回来吗❤</p>'
+		end
+		if a=2:
+		'<p>我:…你的内衣…真性感…</p>'
+		'<p><<$XS.name>>:❤<<$主角姓>>先生…上次你送我回来的时候…摸我了吧？</p>'
+		'<p>我:…呃…</p>'
+		'<p><<$XS.name>>:我今天穿了更性感的❤<<$主角姓>>先生❤</p>'
+		end
+		if a=3:
+		'<p><<$XS.name>>:❤<<$主角姓>>先生…想摸吗？人家希望您购买5000￥的VIP增值服务呢。</p>'
+		'<p>我:……</p>'
+		'<p><<$XS.name>>:❤全款购车人家拿不到提成的啦❤你摸我的时候…我也很兴奋喔❤</p>'
+		end
+		if a=4:
+		'<p><<$XS.name>>:是真丝的喔，手感不错吧❤<<$主角姓>>先生？</p>'
+		'<p>我:……</p>'
+		end
+		if a=5:
+		'<p><<$XS.name>>:<<$主角姓>>先生…回去太晚的话，我会被扣工资的…</p>'
+		$销售_Event_买车=3
+		end
+	'</div>'
+End
+
+
+
+if $args[0]="销售_尾款":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\尾款1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''销售_事件'',''销售_尾款''">揉她的奶</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''销售_事件'',''销售_尾款''">摸屁股</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''销售_事件'',''销售_尾款''">舔我</a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''销售_事件'',''销售_尾款''">口交</a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''销售_事件'',''销售_尾款''">从后面操</a></div>'
+			end
+			if a!6 and 10>=q and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''销售_事件'',''销售_尾款''">骑上来</a></div>'
+			end
+			if a!7 and q>=6:
+			'<div class="button"><a href="exec:a=7 & gt ''销售_事件'',''销售_尾款''">正面操</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''销售_事件'',''销售_尾款''">加速冲刺</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''销售_事件'',''销售_尾款''">射精</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''销售_事件'',''销售_尾款''">对话</a></div>'
+			end
+
+
+
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''商场''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>：店长，请您签字……</p>'
+			 '<p>店长：……zzZ…zzZ</p>'
+			 '<p><<$XS.name>>：店长…店长？</p>'
+			 '<p>我：嘘…</p>'
+		 '</div>'
+	end
+
+	if a=1 or a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我:我们继续在你家没做完的事吧❤</p>'
+			 '<p><<$XS.name>>:<<$娇喘声>>❤店长会醒的！<<$主角姓名>>先生❤</p>'
+		 '</div>'
+	end
+
+
+	if 4>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$主角姓名>>先生❤<<$娇喘声>>❤</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$主角姓名>>先生❤<<$话>>❤</p>'
+		 '</div>'
+	end
+
+	if a=10 :
+		 $XS.love+=q+my.魅力
+		 $XS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$主角姓名>>先生❤你差点害我工作丢了！</p>'
+			 '<p>我:抱歉，我什么时候可以提车？</p>'
+			 '<p><<$XS.name>>:等店长醒了……你先出去吧！</p>'
+			 $销售_Event_买车=4
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+if $args[0]="销售_提车":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\提车2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''销售_事件'',''销售_提车''">为我服务</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''销售_事件'',''销售_提车''">侍奉</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''销售_事件'',''销售_提车''">口交</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''销售_事件'',''销售_提车''">撸管</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''销售_事件'',''销售_提车''">射精</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''销售_事件'',''销售_提车''">对话</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''驾车''">驾车离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>：<<$主角姓名>>先生❤这就当做5000￥的VIP增值服务吧…具体的礼遇我就当做回扣吃掉啦❤您不会有意见吧❤</p>'
+			 '<p>我：…好吧…不会有人来吧？</p>'
+			 '<p><<$XS.name>>：当然❤</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$娇喘声>>❤喜欢吗❤<<$主角姓名>>先生❤</p>'
+			 '<p>我：……喜欢。</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$主角姓>>先生❤有机会的话❤我们可以进一步发展❤</p>'
+		 '</div>'
+	end
+
+
+	if a=6 :
+		 $XS.love+=q+my.魅力
+		 $XS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我:你是指哪一种发展？</p>'
+			 '<p><<$XS.name>>:<<$主角姓名>>先生❤我还单身❤如果你或者你的朋友有择偶需求的话❤你知道在哪可以找到我❤</p>'
+			 $销售_Event_买车=5
+			 保时捷=1
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+if $args[0]="销售_Fuck_她家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\她家1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''销售_事件'',''销售_Fuck_她家''">为我口交</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''销售_事件'',''销售_Fuck_她家''">舔鸡巴</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''销售_事件'',''销售_Fuck_她家''">口交</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''销售_事件'',''销售_Fuck_她家''">加速</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''销售_事件'',''销售_Fuck_她家''">口爆</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''销售_事件'',''销售_Fuck_她家''">吞精</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''销售_事件'',''销售_Fuck_她家''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if a=7:
+					'<div class="button"><a href="exec:a=0 &q=0 & gt ''销售_事件'',''销售_Fuck_她家2''">去房间里做</a></div>'
+				end
+				'<div class="button"><a href="exec:minutes+=30 & gt ''驾车''">驾车离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>：<<$主角姓名>>先生❤是打算给我介绍对象吗？</p>'
+			 '<p>我：你这么好看应该不缺对象吧……</p>'
+			 '<p><<$XS.name>>：当然不缺❤但灰姑娘总想嫁给王子的❤</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$娇喘声>>❤像<<$主角姓名>>先生这类的“王子”能否看上人家呢？❤</p>'
+			 '<p>我：看你的表现咯…</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:好腥!<<$主角姓名>>先生，我的表现怎么样❤</p>'
+			 '<p>我：真有你的…</p>'
+		 '</div>'
+	end
+
+
+	if a=7 :
+		 $XS.love+=q+my.魅力
+		 $XS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我:你说实话，当初你喝醉什么的…是不是你一开始就计划好的？</p>'
+			 '<p><<$XS.name>>:<<$主角姓名>>先生❤你在说什么咧❤明明是你趁着人家喝醉了占我便宜❤</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+if $args[0]="销售_Fuck_她家2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\她家2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''销售_事件'',''销售_Fuck_她家2''">侍奉</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''销售_事件'',''销售_Fuck_她家2''">女上位</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''销售_事件'',''销售_Fuck_她家2''">后背位</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''销售_事件'',''销售_Fuck_她家2''">正常位</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''销售_事件'',''销售_Fuck_她家2''">冲刺</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''销售_事件'',''销售_Fuck_她家2''">射精</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''销售_事件'',''销售_Fuck_她家2''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''驾车''">驾车离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>：<<$主角姓名>>先生❤我说过吧❤我还有更加性感的内衣喔❤</p>'
+			 '<p>我：哇塞❤</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:人家从小学习就不灵光❤只会用这种方式取悦你❤你不会笑话我吧❤</p>'
+			 '<p>我：怎么会呢…</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:❤那你就帮帮人家嘛❤人家不想每天站辣么久❤想每天坐在你身上❤</p>'
+			 '<p>我：……</p>'
+			 '<p><<$XS.name>>:❤暂时的炮友人家也是可以接受的❤<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=7 :
+		 $XS.love+=q+my.魅力
+		 $XS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:听懂了的话…下次就射进我逼里❤亲爱的❤</p>'
+			 '<p>我：…我尽量……</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+if $args[0]="销售_Fuck_车内":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\车内1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''销售_事件'',''销售_Fuck_车内''">试试</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''销售_事件'',''销售_Fuck_车内''">舔我</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''销售_事件'',''销售_Fuck_车内''">慢一点</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''销售_事件'',''销售_Fuck_车内''">快一点</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS"><a href="exec:a=5 & gt ''销售_事件'',''销售_Fuck_车内''">口爆</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''销售_事件'',''销售_Fuck_车内''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $XS.love>=50:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''销售_事件'',''销售_Fuck_旅馆''">带她翘班</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''驾车''">驾车离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>：<<$主角姓名>>先生❤你不会是想再买一台车吧❤</p>'
+			 '<p>我：找你的话有特殊服务吗？</p>'
+			 '<p><<$XS.name>>:那当然了❤要试试吗❤</p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$娇喘声>>❤</p>'
+		 '</div>'
+	end
+
+
+	if a=6:
+		 $XS.love+=q+my.魅力
+		 $XS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:人家服务的到位吗❤</p>'
+			 '<p>我：真是不错…</p>'
+			 '<p><<$XS.name>>:还有事吗❤</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+
+if $args[0]="销售_Fuck_旅馆":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XS\vids\旅馆1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''销售_事件'',''销售_Fuck_旅馆''">舔我</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''销售_事件'',''销售_Fuck_旅馆''">录影</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''销售_事件'',''销售_Fuck_旅馆''">骑上来</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''销售_事件'',''销售_Fuck_旅馆''">开发后门</a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''销售_事件'',''销售_Fuck_旅馆''">爆肏</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''销售_事件'',''销售_Fuck_旅馆''">射精</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''销售_事件'',''销售_Fuck_旅馆''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''驾车''">驾车离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我：来到旅馆也要自拍吗？</p>'
+			 '<p><<$XS.name>>：当然了❤要记录下我们甜美的时光呀❤</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$娇喘声2>>❤你也要为我好好记录才行喔❤</p>'
+		 '</div>'
+	end
+
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:<<$话>>❤</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $XS.love+=q+my.魅力
+		 $XS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XS.name>>:如果怀孕了的话❤你会娶我吗？</p>'
+			 '<p>我：………</p>'
+			 '<p><<$XS.name>>:瞧你紧张的❤你给我钱❤我打掉也是可以的喔❤</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+--- 销售_事件 ---------------------------------
+

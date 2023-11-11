@@ -1,0 +1,55 @@
+# menu_time
+'<div class="time_menu">'
+	 gs'menu_time_calc'
+	 
+	 
+	 if $daily_weather=0:
+	  $weather[0]='Sunny'
+	  $weather[1]='Sunny'
+	  $weather[2]='Sunny'
+	  $weather[3]='Sunny'
+	  $weather[4]='Sunny'
+	  $weather[5]='☁ cloud'
+	  $weather[6]='☁ yin'
+	  $weather[7]='☁ yin'
+	  $weather[8]='☂ rain'
+	  $weather[9]='☂ rain'
+	  $weather=$weather[rand(0,9)]
+	  $daily_weather=1
+	 end
+	 
+
+	 
+	 
+	 
+		'<p> <<$weather>> <<year>> <<$month_name[month]>> <<day>> <<$week_day[week_day]>>'
+		if  $customs_clearance_reward_collection>0:
+		'✌'
+		else:
+		''
+		end
+		if  $devils_pupil>0:
+		'♕'
+		else:
+		''
+		end
+		'</p>'
+		'<p> </p>'
+
+
+
+
+	if hour < 10 and minutes<10: '<p class ="timer">0<<hour>>:0<<minutes>></p>'
+	if hour >= 10 and minutes<10: '<p class ="timer"><<hour>>:0<<minutes>></p>'
+	if hour < 10 and minutes=>10: '<p class ="timer">0<<hour>>:<<minutes>></p>'
+	if hour => 10 and minutes=>10: '<p class ="timer"><<hour>>:<<minutes>></p>'
+	
+
+'</div>'
+
+
+gs "general_thesaurus"
+gs"multi_ability_judgment"
+gs"npc_attributes"
+--- menu_time ---------------------------------
+

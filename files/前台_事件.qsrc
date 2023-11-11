@@ -1,0 +1,1180 @@
+# 前台_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+
+
+if $ARGS[0]="陪她下班":
+		$下班num=rand(0,1)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\下班<<$下班num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''居民区''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if $下班num=0:
+		'<p><<$QT.name>>今天好像心情并不是很好...</p>'
+		$QT.love+=1
+		else:
+		'<p><<$QT.name>>:特地等我下班嘛？你也是有够闲的，友情提示现在我可是把事业放在第一位喔。</p>'
+		'<p>我:那我也只是顺路回家而已。</p>'
+		'<p>·回去的路上欢声笑语..好感度小幅上升。</p>'
+		$QT.love+=2+my.魅力
+		end
+	'</div>'
+end
+
+if $ARGS[0]="去海边":
+		$海边num=rand(0,2)
+		if $QT.BAD<40:$海边num=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\沙滩<<$海边num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''前台_事件'',''聊天''">聊天</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:咳咳，难得能出来散散心可真好！</p>'
+		'<p>·你被她的身姿深深吸引了。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="聊天":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\沙滩聊天~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if money>=50:'<div class="buttonG"><a href="exec:money-=50 & gt ''前台_事件'',''吃东西''">请她吃东西50￥</a></div>'else:'<div class="buttonGr"><a href="exec:">请她吃东西50￥</a></div>'
+		if bag > 0:'<div class="buttonR2"><a href="exec:bag -=1 & gt ''前台_事件'',''送她包包''">送她名牌包</a></div>'else:'<div class="buttonGr"><a href="exec:">送她名牌包</a></div>'
+		if $QT.love >= 50:'<div class="buttonP"><a href="exec:minutes+=20 & gt ''前台_事件'',''聊聊职业''">聊聊未来</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+		'<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p> 花费了一点时间，聊了一些关于<<$内容A[RAND(0,17)]>>的话题。</p>'
+		'<p><<$QT.name>>:咳咳，好害羞喔T T 肚子饿了T T</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="吃东西":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\吃饭.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''深巷''">送她回家</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:那我就不客气啦❤哇偶❤真好次❤</p>'
+		$QT.LOVE+=5+MY.魅力
+		$QT.date=0
+	'</div>'
+end
+
+
+
+if $ARGS[0]="送她包包":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\送礼物.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''深巷''">送她回家</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:哇哦哦哦哦❤这是限量款POCHETTE MÉTIS EAST WEST 手袋！你真是太有魅力了❤</p>'
+		'<p>我:你还挺识货的…我可是费了不少功夫呢…</p>'
+		'<p><<$QT.name>>:咳咳，谢啦！</p>'
+		$QT.LOVE+=25+MY.魅力
+		$QT.date=0
+	'</div>'
+end
+
+
+if $ARGS[0]="聊聊职业":
+	'<div class ="show_menu"><img src="images\\NPC\QT\pics\对话.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''深巷''">送她回家</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:你有啥职业规划吗？</p>'
+		'<p><<$QT.name>>:别谈了，就因为我不是本市户籍，人事部好像对我很不满意…唉。我也不想做前台呐，我本来应聘的可是播音主持…</p>'
+		'<p>我:有时候，人不能活在未来的焦虑中，而忘了眼前的路，也不能因为急于求成而放弃了选择的权利。我们要感谢命运，从来不公，但也待我们不薄。</p>'
+		'<p><<$QT.name>>:别再灌鸡汤了，每个人的处境终究是不同的，不能解决实际问题的都是空谈！咳咳咳咳…</p>'
+		'<p>我:你嗓子没事吧？</p>'
+		'<p><<$QT.name>>:咳咳…咳咳咳咳…没事…我现在说话一用力就…咳咳…</p>'
+		$QT.LOVE-=1+MY.魅力
+		$QT.date=0
+		if $前台_Event_喉咙=0:$前台_Event_喉咙=1
+	'</div>'
+end
+
+if $ARGS[0]="咽喉科":
+	if QT.回复>=1:gt'前台_事件','咽喉科2'
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\咽喉科.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if money>=5000:'<div class="buttonG"><a href="exec:money-=5000 & gt ''前台_事件'',''术中''">替她支付5000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">替她支付5000￥</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''医院''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 咳咳…咳咳…咳咳…</p>'
+		'<p>医生: 您好，声带结节手术需要在医院的手术室进行，并且需要使用麻醉。在手术后，患者通常需要住院几天，以便观察和恢复。在恢复期间，患者可能会感到声音嘶哑，但这通常会在几周内消失。手术后，患者通常需要接受治疗和康复训练，以帮助声音恢复正常。</p>'
+		'<p><<$QT.name>>: 咳咳…手术费…是3000对吧…我准备好了。</p>'
+		'<p>医生: 手术费是3000，重点是术后治疗和康复训练，合计需要5000￥。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="术中":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\手术.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''医院''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>医生: 在手术后，患者通常需要住院一段时间，以便观察和恢复。通常需要30天接受治疗和康复训练，以帮助声音恢复正常。</p>'
+		'<p>我: 30天…好的。</p>'
+		QT.回复=1
+	'</div>'
+end
+
+if $ARGS[0]="咽喉科2":
+	'<div class ="show_menu"><img src="images\NPC\QT\pics\咽喉科.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if QT.回复>=30:'<div class="button"><a href="exec:$前台_Event_喉咙=5 & QT.love+=50 & gt ''前台_事件'',''前台_家''">送她回家</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''医院''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>正在和语言治疗师一起练习咳嗽、咳痰、呼气和唱歌等技巧。</p>'
+		'<p>医生: 在手术后，患者通常需要住院一段时间，以便观察和恢复。通常需要30天接受治疗和康复训练，以帮助声音恢复正常。</p>'
+		'<p>·这是第<<QT.回复>>天</p>'
+	'</div>'
+end
+
+
+if $args[0]="前台_家":
+	 a=0
+	 q=0
+	 $QT.room=1
+	 $QT随机数=rand(1,2)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\拜访~<<$QT随机数>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''前台_事件'',''QT_Fuck_就这''">接吻</a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''前台_事件'',''QT_Fuck_吃饭''">吃饭</a></div>'
+		'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''前台_事件'',''QT_Fuck_洗澡''">洗澡</a></div>'
+		if $QT.BAD>=60:'<div class="buttonS4"><a href="exec:minutes+=15 & gt ''前台_事件'',''QT_Fuck_啪啪''">啪啪</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+		if 精油>0:'<div class="buttonS3"><a href="exec:精油-=1 & gt ''前台_事件'',''QT_Fuck_涂油''">精油按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">精油按摩</a></div>'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''深巷''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:  你对我真好…以后我想和你住在一间房子里，晨起煮粥，过午饮茶，傍晚倘若你比我晚到家，就为我带一束花。</p>'
+		'<p>我:  你不需要休息吗？</p>'
+		'<p><<$QT.name>>:  现在是吃饭，还是洗澡，还是…？</p>'
+	'</div>'
+end
+
+if $args[0]="QT_Fuck_吃饭":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\吃饭1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!4:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_吃饭''">接吻 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_吃饭''">蹭蹭 </a></div>'
+			end
+			if a!3 and 2<=q :
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_吃饭''">插入 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_吃饭''">外射 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''前台_事件'',''QT过夜''">过夜</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:别闹，在做饭呢……</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:别闹…做饭呢…<<$娇喘声>>…</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 $QT.love+=5
+		 $QT.bad+=5+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:<<$主角姓名>>…<<$娇喘声>>…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="QT_Fuck_就这":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\就这1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''前台_事件'',''QT_Fuck_就这''">接吻 </a></div>'
+			end
+			if a!1 and 0<=q :
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_就这''">口交 </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_就这''">颜射 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''前台_事件'',''QT过夜''">过夜</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…Mua~</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:你不会觉得我是那种很随便的女人吧…</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 $QT.love+=5
+		 $QT.bad+=5+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:射了好多呢！以后每天都这样爱爱好不好…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="QT_Fuck_洗澡":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\洗澡1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''前台_事件'',''QT_Fuck_洗澡''">接吻 </a></div>'
+			end
+			if a!1 and 0<=q :
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_洗澡''">口交 </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_洗澡''">口爆 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''前台_事件'',''QT过夜''">过夜</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…洗澡要认真洗……</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:今晚别走了好嘛…</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 $QT.love+=5
+		 $QT.bad+=5+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:射了好多呢…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="QT_Fuck_啪啪":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\啪啪1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_啪啪''">接吻 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_啪啪''">互舔 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_啪啪''">毒龙 </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_啪啪''">骑乘 </a></div>'
+			end
+			if a!5 and 4<=q and q<=7:
+			'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_啪啪''">背身 </a></div>'
+			end
+			if a!6 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_啪啪''">冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''前台_事件'',''QT_Fuck_啪啪''">内射 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''前台_事件'',''QT过夜''">过夜</a></div>'
+				'<div class="button"><a href="exec:a=0 & q=0 & gt ''深巷''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…怎么样？……</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…<<$娇喘声>>…</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:射了好多呢！以后每天都这样爱爱好不好？</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $ARGS[0]="QT过夜":
+	'<div class ="show_menu"><img src="images\place\睡觉.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''前台_事件'',''QT第二天''">第二天</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>进入了甜美的梦乡....</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="QT第二天":
+	my.精力 = mymax[精力]
+	minutes+=1440
+	hour=8
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\早上~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">送她上班</a></div>'
+		'<div class="button"><a href="exec:gt ''深巷''">再睡会儿</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>:醒啦？看到你的脸就忍不住舌吻上来了。</p>'
+	'</div>'
+end
+
+if $args[0]="QT_Fuck_化妆室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\化妆室1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<4:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''前台_事件'',''QT_Fuck_化妆室''">足交 </a></div>'
+			end
+			if a!1 and 0<=q and q<=5:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_化妆室''">坐上来 </a></div>'
+			end
+			if a!2 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_化妆室''">后入她 </a></div>'
+			end
+			if a!3 and 3<=q :
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_化妆室''">加速冲刺 </a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_化妆室''">射精 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if a=4:'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_化妆室''">咳嗽声</a></div>'
+				'<div class="button"><a href="exec:gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…要和我在这里做吗…你胆子真不小啊…</p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…<<$娇喘声>>…万一来人了怎么办？工作丢了你赔我！</p>'
+			 '<p>我:……那你就动得快点，让我射出来…</p>'
+			 if a=3:'<p><<$QT.name>>:…有人要来了？！快射出来！</p>'
+		 '</div>'
+	end
+
+
+
+	if a=4:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:还好没被人发现……呼…</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:嗯哼！看来是有人把这里当做炮房了！</p>'
+			 '<p><<$QT.name>>:…台，台长…我可以解释…</p>'
+			 '<p>我:………</p>'
+			 '<p><<$TZ.name>>:听着，只要你的收视率达标，我可以睁一只眼闭一只眼。但如果收视率唱衰，别怪我秋后算账！</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+if $ARGS[0]="餐厅":
+	 $QT新约会=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\新约会1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''前台_事件'',''QT_Fuck_旅馆''">去开房</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & $QT.温泉=1 & gt ''前台_事件'',''餐厅''">去温泉</a></div>'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''商场''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 这就是你之前心心念念的餐厅？味道真不赖嘛！</p>'
+		'<p>·伴随着美味，聊了一些关于<<$内容A[RAND(0,17)]>>的话题。</p>'
+		'<p>我: 老板，埋单！</p>'
+		'<p><<$QT.name>>: 我买过了！你帮了我这么多忙，我还没好好感谢过你呢。</p>'
+		'<p>我: 感谢的话…我有个好主意！</p>'
+		if $QT.温泉=1:
+		'<p><<$QT.name>>: 温泉？好诶！我早就想去了。今天可能来不及了，不如周末吧！</p>'
+		'<p>我: 好耶，那我们周末温泉见！</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="QT_Fuck_旅馆":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\旅馆1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_旅馆''">口交 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_旅馆''">正常位 </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_旅馆''">骑乘位 </a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_旅馆''">臀浪 </a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_旅馆''">加速冲刺 </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_旅馆''">射精 </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''前台_事件'',''QT_Fuck_旅馆''">舔干净 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…这就是你说的好主意？</p>'
+			 '<p>我:……难道还有比你更有魅力的礼物嘛？</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…<<$娇喘声>></p>'
+			 if a>2:'<p>我:想停下吗…</p>'
+			 if a>3:'<p><<$QT.name>>:…不想！快给我……</p>'
+			 if a>4:'<p><<$QT.name>>:…要射了嘛…亲爱的…不用忍耐，全部射给我！</p>'
+			 if a=6:'<p>我:…啊…呼……舒服了！</p>'
+		 '</div>'
+	end
+
+
+
+	if a=7:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…我们回电视台吧…出来太久了…会被台长骂的…你就说帮我去搬东西了…</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $ARGS[0]="温泉游":
+	 $QT.温泉=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\新约会0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">进入浴池</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 抱歉，台里临时会议，我没来晚吧？！</p>'
+		'<p>我: 没事，我也刚到。</p>'
+	'</div>'
+end
+
+
+if $args[0]="QT_Fuck_温泉吃饭":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\温泉吃饭1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">推倒她 </a></div>'
+			'<div class="button"><a href="exec:a=0 & q=0 & gt ''前台_事件'',''QT_Fuck_温泉洗澡''">去露天温泉 </a></div>'
+			end
+
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">捏乳头 </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">口交 </a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">骑上来 </a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">后入 </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">加速冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">射精 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''前台_事件'',''QT_Fuck_温泉吃饭''">接吻 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if hour>=18:'<div class="button"><a href="exec:a=0 & q=0 &gt ''前台_事件'',''QT_Fuck_温泉过夜''">在此过夜 </a></div>'else:'<div class="buttonGr"><a href="exec:">过夜-未到晚上 </a></div>'
+				'<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…啊，真是饿死我了，台长因为收视率的问题连开了三小时的会。</p>'
+			 '<p>我:真是辛苦呢。</p>'
+			 '<p><<$QT.name>>:…来划拳吧！输的人要满足对方一个要求！</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…干嘛啦，你耍赖！明明是你输了！你就这么急的想吃掉我？</p>'
+			 if a>1:'<p>我:你的乳头都硬了，明明是想被我吃吧。</p>'
+			 if a>2:'<p><<$QT.name>>:…<<$娇喘声>>哪有？</p>'
+			 if a>3:'<p>我:真是不诚实呢…你下面都湿成一片了。</p>'
+			 if a>4:'<p><<$QT.name>>:…<<$话>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…吃美味的食物，和喜欢的人做爱…这感觉真棒呢…</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+if $args[0]="QT_Fuck_温泉洗澡":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\温泉洗澡1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!3:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_温泉洗澡''">操她 </a></div>'
+			end
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_温泉洗澡''">射精 </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_温泉洗澡''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if hour>=18:'<div class="button"><a href="exec:a=0 & q=0 &gt ''前台_事件'',''QT_Fuck_温泉过夜''">在此过夜 </a></div>'else:'<div class="buttonGr"><a href="exec:">过夜-未到晚上 </a></div>'
+				'<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:这里是露天的诶？…我用舌头帮你清理肉屌，你小心有人在偷窥我们。</p>'
+			 '<p>我:被人发现的话，明天的头条可是大主播的不雅照喔。</p>'
+			 '<p><<$QT.name>>:那你还不快宠幸我？大主播换男友不是像喝水一样？</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:那我只能破罐子破摔了，让别人发现我们的奸情吧！</p>'
+			 '<p><<$QT.name>>:<<$娇喘声>>人家错了啦，你轻点！不换，不换男友，一辈子都给你操，你慢点！</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我:你刚才说一辈子都给我操，是真心话吗？</p>'
+			 '<p><<$QT.name>>:我有说过吗？</p>'
+		 '</div>'
+	end
+
+
+
+	if a=3:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>我:那我就当没听见咯？</p>'
+			 '<p><<$QT.name>>:……不准装作没听见！</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+if $args[0]="QT_Fuck_温泉过夜":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\温泉过夜1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<9:
+		'<div class="button_menu">'
+			if a!0 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=0 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">侍奉 </a></div>'
+			end
+			if a!1 and 0<=q and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">口交 </a></div>'
+			end
+			if a!2 and 1<=q and q<=6:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">操她 </a></div>'
+			end
+			if a!3 and 2<=q and q<=7:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">高速打桩 </a></div>'
+			end
+			if a!4 and 3<=q and q<=9:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">放慢速度 </a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">大力抽插 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonGn"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">室外情况 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">加速冲刺 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">射精 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''前台_事件'',''QT_Fuck_温泉过夜''">口干净 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if a=9:'<div class="button"><a href="exec:a=10 & minutes+=1440 & hour=8 & my.精力 = mymax[精力] & gt ''前台_事件'',''QT_Fuck_温泉过夜''">zzZ-第二天</a></div>'
+				if a=10:'<div class="button"><a href="exec:gt ''市政厅''">一起离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…你会不会觉得我是个很随便的女人?但其实你是我第二个男人…</p>'
+			 '<p>我:第一个是谁？</p>'
+			 '<p><<$QT.name>>:…给人家一点私人的小秘密啦！</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=1 and a!6:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…嗯，喜欢嘛…</p>'
+			 if a>1:'<p>我:你的骚逼可真舒服。</p>'
+			 if a>2:'<p><<$QT.name>>:…舒服就插得深一点…把我操爽……</p>'
+			 if a>3:'<p><<$QT.name>>:<<$娇喘声>></p>'
+			 if a>4:'<p><<$QT.name>>:…<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $WQ.love+=1
+		 $WQ.bad+=1
+		 '<div class="dialog_menu">'
+			 '<p>？？？:可恶……感觉好爽…我也想被大鸡巴操……</p>'
+		 '</div>'
+	end
+
+
+	if a=9:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…真舒服…让我们一起睡觉觉吧❤</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p>·第二天>阳光照进了屋内，温暖了你的下体…</p>'
+			 '<p><<$QT.name>>:你醒啦❤刚刚台长给我发了简讯，让我回去开会，你要多睡一会嘛？</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+if $args[0]="QT_Fuck_涂油":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\涂油1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!1 and a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_涂油''">正常按摩 </a></div>'
+			if MGF>0:'<div class="button"><a href="exec:a=2 & MGF-=1 & gt ''前台_事件'',''QT_Fuck_涂油''">添加麦高芬 </a></div>'else:'<div class="buttonGr"><a href="exec:">添加麦高芬 </a></div>'
+			end
+
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_涂油''">继续涂油 </a></div>'
+			end
+			if a!4 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_涂油''">按摩翘臀 </a></div>'
+			end
+			if a!5 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_涂油''">按摩骚逼 </a></div>'
+			end
+			if a!6 and 4<=q and q<=6:
+			'<div class="button"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_涂油''">过来口我 </a></div>'
+			end
+			if a!7 and 5<=q and q<=10:
+			'<div class="button"><a href="exec:a=7 & gt ''前台_事件'',''QT_Fuck_涂油''">正常位性交 </a></div>'
+			end
+			if a!8 and 6<=q :
+			'<div class="button"><a href="exec:a=8 & gt ''前台_事件'',''QT_Fuck_涂油''">后背位 </a></div>'
+			end
+			if a=8:
+			'<div class="buttonR3"><a href="exec:a=9 & gt ''前台_事件'',''QT_Fuck_涂油''">操喷她 </a></div>'
+			end
+			if a=8:
+			'<div class="buttonS3"><a href="exec:a=10 & gt ''前台_事件'',''QT_Fuck_涂油''">射精 </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & minutes+=45 & gt ''前台_事件'',''QT_Fuck_涂油''">一小时后 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''深巷''">满意离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:工作辛苦了…适当地按摩可以减缓疲劳喔！</p>'
+			 '<p><<$QT.name>>:…你不会给我涂什么怪东西吧…</p>'
+
+		 '</div>'
+	end
+
+	if a=1:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>我:怎么会呢？这就是最普通的精油而已……</p>'
+			 '<p><<$QT.name>>:…好吧…我还白期待了呢❤</p>'
+		 '</div>'
+	end
+
+
+	if 3>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:…嗯，身体开始微微变热了…</p>'
+			 if a=3:'<p><<$QT.name>>:感觉酥酥麻麻的…好奇怪……</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:果然加了奇怪的东西吧！</p>'
+			 '<p>我:没，没有啊！</p>'
+			 if a>4:'<p><<$QT.name>>:骗子…你弄得我……想要了。</p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $QT.love+=q
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>·麦高芬的效果拔群！</p>'
+			 '<p>·看着她如同一摊媚肉一样瘫软在地板上潮吹着，你感觉好极了。</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="QT_Fuck_优秀主持":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QT\vids\QTZ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            if $TZ.bad>=my.魅力*25 and $QT.bad>=my.魅力*25 :'<div class="buttonG"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_优秀主持''">想要你们！ </a></div>'else:'<div class="buttonGr"><a href="exec:">有人放不开 </a></div>'
+            '<div class="button"><a href="exec:a=1 & gt ''电视台''">离开 </a></div>'
+            end
+            if a!0:
+            '<div class="buttonR1"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_优秀主持''">一起喷吧！ </a></div>'
+            end
+            if a>=2:
+            '<div class="buttonPu1"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_优秀主持''">肏<<$TZ.name>> </a></div>'
+            end
+            if a>=2:
+            '<div class="buttonB1"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_优秀主持''">肏<<$QT.name>> </a></div>'
+            end
+            if a=3 or a=4:
+            '<div class="buttonPu2"><a href="exec:a+=1 & gt ''前台_事件'',''QT_Fuck_优秀主持''">❤继续❤ </a></div>'
+            end
+            if a=6 or a=7:
+            '<div class="buttonB2"><a href="exec:a+=1 & gt ''前台_事件'',''QT_Fuck_优秀主持''">❤别停❤ </a></div>'
+            end
+            if a=5 or a=8:
+            '<div class="buttonS3"><a href="exec:a=9 & gt ''前台_事件'',''QT_Fuck_优秀主持''">❤射精❤ </a></div>'
+            end
+            if a=9:
+            '<div class="buttonS4"><a href="exec:a=10 & gt ''前台_事件'',''QT_Fuck_优秀主持''">满足了吗？ </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS5"><a href="exec:a=rand(2,8) & gt ''前台_事件'',''QT_Fuck_优秀主持''">那就再来！ </a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">舔干净吧❤</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>: 台长，这次我夺得了最佳主持人奖，还是您栽培的好。</p>'
+             '<p><<$TZ.name>>: 别夸我了，还是<<$主角姓名>>向我引荐的你，你应该去感谢他。</p>'
+             '<p>我:咳咳…</p>'
+             '<p><<$QT.name>>: <<$主角姓名>>❤</p>'
+             '<p><<$TZ.name>>: 真巧呢…你是来邀功的？想要什么？</p>'
+         '</div>'
+    end
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>: <<$娇喘声>></p>'
+             '<p><<$TZ.name>>: <<$娇喘声2>></p>' 
+             if 5>=a and a>=2:'<p><<$TZ.name>>: <<$话>></p>'
+             if 8>=a and a>=6:'<p><<$QT.name>>: <<$话2>></p>'
+             if a=9:'<p>我: 凸(艹皿艹 )忍不住了啊啊啊！给我接好了！</p>' 
+         '</div>'
+    end
+
+
+    if a=10:
+         $QT.love+=q
+         $QT.bad+=q
+         $TZ.love+=q
+         $TZ.bad+=q
+         QTTZ=1
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: 你满足了吗❤</p>' 
+             '<p><<$QT.name>>: 台长你还没满足的话只能我独享他了❤</p>'
+             '<p>·二人的关系加深了❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="QT_Fuck_拜访":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\拜访1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!12:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''前台_事件'',''QT_Fuck_拜访''">一口含住 </a></div>'
+			end
+
+			if a!2 and 1<=q and q<=4:
+			'<div class="button"><a href="exec:a=2 & gt ''前台_事件'',''QT_Fuck_拜访''">骑上来 </a></div>'
+			end
+			if a!3 and 2<=q and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''前台_事件'',''QT_Fuck_拜访''">加速 </a></div>'
+			end
+			if a!4 and 3<=q and q<=5:
+			'<div class="button"><a href="exec:a=4 & gt ''前台_事件'',''QT_Fuck_拜访''">射精 </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''前台_事件'',''QT_Fuck_拜访''">命令喝掉 </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''前台_事件'',''QT_Fuck_拜访''">二番战 </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''前台_事件'',''QT_Fuck_拜访''">加速 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''前台_事件'',''QT_Fuck_拜访''">再次射精 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''前台_事件'',''QT_Fuck_拜访''">命令喝掉 </a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''前台_事件'',''QT_Fuck_拜访''">还没完 </a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''前台_事件'',''QT_Fuck_拜访''">最后一发 </a></div>'
+			end
+			if a=11:
+			'<div class="button"><a href="exec:a=12 & gt ''前台_事件'',''QT_Fuck_拜访''">命令喝掉 </a></div>'
+			end
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''大别墅''">送她离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·醉酒后的她把你拉进了卧室疯狂地扑倒你</p>'
+			 '<p><<$QT.name>>:你到底知不知道，你有多久没来我家了？</p>'
+			 '<p>我:呃…你喝多了…</p>'
+			 '<p><<$QT.name>>:今天我要榨干你！</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:今天我要榨干你！</p>'
+			 if a>1:'<p>我:你不会先不行吧？</p>'
+			 if a>2:'<p><<$QT.name>>:我会肏到你求饶为止！</p>'
+			 if a>=5:'<p><<$QT.name>>:求饶吗？</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:求饶吧<<$娇喘声>></p>'
+			 if a>6:'<p>我:不可能！</p>'
+			 if a>=9:'<p><<$QT.name>>:我还可以再来❤</p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:饶了我吧<<$娇喘声>></p>'
+			 if a>=11:'<p>我:我也快到极限了❤</p>'
+		 '</div>'
+	end
+
+	if a=12:
+		 $QT.love+=q+my.魅力
+		 $QT.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$QT.name>>:等等！这一发不行！</p>'
+			 '<p>我:你这是在做什么？我还以为你要喝掉…</p>'
+			 '<p><<$QT.name>>:现在很流行这样…用灌满心爱之人精液的套套做成护身符随身携带❤</p>'
+			 '<p>我:真的有用吗…</p>'
+			 '<p><<$QT.name>>:是<<$LY.name>>告诉我的，谁知道呢！</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+
+
+
+
+
+
+
+--- 前台_事件 ---------------------------------
+

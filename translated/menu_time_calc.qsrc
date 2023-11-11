@@ -1,0 +1,110 @@
+# menu_time_calc
+
+if minutes >= 60:
+	:loop_minutes
+	minutes -= 60
+	
+	hour += 1
+	gs'menu_time_calc'
+
+	if minutes >= 60:
+		jump 'loop_minutes'
+	end
+end
+
+if minutes < 0:
+	:loop_minutes_
+	minutes += 60
+	
+	hour -= 1
+	gs'menu_time_calc'
+
+	if minutes < 0:
+		jump 'loop_minutes_'
+	end
+end
+
+if hour >= 24:
+	:loop_hour
+	hour -= 24	
+	day += 1
+	week_day += 1
+	if week_day = 8: 
+		week_day = 1 
+	end if
+	gs 'game_new_day'
+	
+	
+	if hour >= 24:
+		jump'loop_hour'
+	end
+end
+
+if hour < 0:
+	:loop_hour_
+	hour += 24	
+	day -= 1
+	week_day -= 1
+	if week_day = 0: 
+		week_day = 7 
+	end if
+	gs 'game_new_day'
+	
+	
+	if hour < 0:
+		jump'loop_hour_'
+	end
+end
+
+
+if (month = 1 or month = 3 or month = 5 or month = 7 or month = 8 or month = 10 or month = 12) and  day > 31:
+	day -= 31
+	month += 1
+	if month = 13:
+		month = 1
+		year += 1
+	end
+end if
+if (month = 4 or month = 6 or month = 9 or month = 11 ) and  day > 30:
+	day -= 30
+	month += 1
+end if
+if  month = 2 and  day > 28:
+	day -= 28	
+	month += 1
+end if
+
+if (month = 2 or month = 4 or month = 6 or month = 8 or month = 9 or month = 11 or month = 1) and  day = 0:
+	day += 31
+	month -= 1
+	if month = 0:
+		month = 12
+		year -= 1
+	end
+end if
+if (month = 5 or month = 7 or month = 10 or month = 12 ) and  day = 0:
+	day += 30
+	month -= 1
+end if
+if  month = 3 and  day = 0:
+	day += 28	
+	month -= 1
+end if
+
+if hour >= 21 or hour <= 6:
+	$times_of_day = 'night'
+else
+	$times_of_day = ''
+end
+
+
+if 13<=hour and hour <=16:
+	$time = '下午'
+else
+	$time = ''
+end
+
+if  day<=1:$my_mental_power=0 & $significant_cumulative_profit_this_month=0 & $beauty_of_the_month=0
+
+--- menu_time_calc ---------------------------------
+

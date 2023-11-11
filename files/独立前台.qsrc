@@ -1,0 +1,235 @@
+# 独立前台
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+my.精力-=1
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $args[0]="":
+	if $HS.available=0:
+		 if HS介绍=1:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\HS\vids\介绍~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+			
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=5 &$HS.available=1 & gt ''独立前台''">明白了</a></div>'
+			'</div>'
+			'<div class="dialog_menu">'
+				'<p><<$HS.name>>：您是二级实验人员，<<$主角姓>>先生，只要按下这个键，就会有24小时专属口交护士来协助你射精。</p>'
+			'</div>'
+		 end
+		 
+		 if HS介绍=0:
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\NPC\HS\vids\前台11~1.webm" type=''video/webm;''></video></div>'
+			'</div>'
+			
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=5 &HS介绍=1& gt ''独立前台''">你好</a></div>'
+			'</div>'
+			'<div class="dialog_menu">'
+				'<p><<$HS.name>>：您好，<<$主角姓>>先生，我是负责二级患者/实验人员的24小时专属口交护士!你可以叫我<<$HS.name>>。</p>'
+			'</div>'
+		 end
+	End
+	
+		if  0<= hour and hour <=5:hsa=0
+		if  6<= hour and hour <=10:hsa=1
+		if  11<= hour and hour <=13:hsa=2
+		if  14<= hour and hour <=17:hsa=3
+		if  18<= hour and hour <=24:hsa=4
+
+	 if $HS_Event_trouble!10 :
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\前台0<<hsa>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''独立前台'',''寻声而去''">寻声而去</a></div>'
+			'<div class="buttonB"><a href="exec:minutes+=15 & gt ''试药日常'',''亲友探视''">↑亲友探视</a></div>'
+			if $Q="二级":'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''群演_事件'',''医院_Fuck_医生检查2级''">←<<$Q>>身体检查</a></div>'
+			if 18>=hour and hour>=13:'<div class="button"><a href="exec:minutes+=5 & gt ''独立前台'',''310房间''">310房间→</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>310患者：咳咳！喂，小护士，我屁股上好痒能过来一下吗？*咳嗽</p>'
+			'<p><<$HS.name>>：我马上就来，还请..请别这样.......唉，又来骚扰我了。</p>'
+			'<p>我：一直给他服务都没时间服务我了！</p>'
+		'</div>'
+	 end
+	 
+	 if $HS_Event_trouble=10 :
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\前台1<<hsa>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''护士_事件'',''HS_Fuck_口交''">口交请求</a></div>'
+			if $Q="二级":'<div class="button"><a href="exec:minutes+=15 & gt ''群演_事件'',''医院_Fuck_医生检查2级''">←身体检查</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p><<$HS.name>>：310患者居然一声不吭地就出院了，虽然他挺过分的但是不知道他能不能一个人独立生活呢~</p>'
+		'</div>'
+	 end
+End
+
+if $args[0]="寻声而去":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\前台后续0<<hsa>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=45 & gt ''试药日常'',''护士站''">↓返回↓</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>310患者：你这是什么态度啊？！咳咳！为二级患者做精液检查难道不是你的本职工作吗？*咳嗽</p>'
+			'<p><<$HS.name>>：请你温柔一点.....*呜呜*</p>'
+		'</div>'
+End
+
+if $args[0]="310房间":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\交涉~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310房间'',''偷窥手写信''">偷窥手写信</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310房间'',''尝试交谈''">尝试交谈</a></div>'
+			if $args[1]="尝试交谈":
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310房间选择''">瞪着你</a></div>'
+			end
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>310患者：你有什么事？你又是哪路货色？赶紧滚蛋！*咳嗽</p>'
+			if $args[1]="偷窥手写信":
+			'<p>工工整整的字迹：致亡妻：曾经的辉煌已经褪色，如今的我身败名裂。过去的我前景一片黯淡不想连累你。但我不知道为什么，失去你以后这每一天都过得无精打采。</p>'
+			'<p>断断续续的字迹：生命中总有无数的选择，我却要为我的善良背负沉重的伤害。这一切都是那个女人的阴谋.....现在我的原发性帕金森病无法医治，已经再也拿不了手术刀了....</p>'
+			'<p>模模糊糊的字迹：昨天晚上，我梦见了你，你白发苍苍说要带我去梦想中的象塔....</p>'
+			end
+			if $args[1]="尝试交谈":
+			'<p>我：这里的护士和医生都挺负责的，您的病有好转了吗？</p>'
+			'<p>310患者：帕金森病最主要的病理改变是中脑黑质多巴胺（dopamine, DA）能神经元的变性死亡，由此而引起纹状体DA含量显著性减少而致病。导致这一病理改变的确切病因仍不清楚，遗传因素、环境因素、年龄老化、氧化应激等均可能参与PD多巴胺能神经元的变性死亡过程。</p>'
+			'<p>310患者：你告诉我怎么好转？*咳嗽</p>'
+			'<p>我：不要那么悲观嘛...说不定现在已经有特效药了.....</p>'
+			end
+		'</div>'
+End
+
+if $args[0]="310房间选择":
+	 $HS_Event_trouble=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\交涉~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310房间选择'',''富豪''">救富豪</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310房间选择'',''流浪汉''">救流浪汉</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台''">离开</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>310患者：呵呵，我问你。你在抢救一个因为酒精中毒引发器官衰竭的流浪汉时，送来一个突发脑溢血的富豪，你的上司要求你先就富豪。你怎么办？</p>'
+			if $args[1]="富豪":
+			'<p>我：从对社会的价值来看，富豪吧。</p>'
+			'<p>310患者：生命是不平等的对吧。你觉得我这样一个老头，凭什么使用特效药？*咳嗽</p>'
+			'<p>310患者：赶紧滚吧！我还有别的事要做！我不需要你的帮忙！*咳嗽*神也好，我亲眼见过的神明啊.....无论你是我亲眼见过的神明啊.....无论你是神也好，恶魔也好，，求你再次降临...实现我的愿望...让我解脱吧.....</p>'
+			end
+			if $args[1]="流浪汉":
+			'<p>我：先来后到，我会选择流浪汉。</p>'
+			'<p>310患者：哈哈，流浪汉被救治后为了逃避高额的医疗费私自跑路了，富豪则因为救治不及时变成植物人了。</p>'
+			'<p>我：那只是运气不好。</p>'
+			'<p>310患者：运气不好是有代价的！你懂什么！！哪有什么运气！所有人都是罪有应得！*咳嗽</p>'
+			'<p>我：所以你是那个医生？</p>'
+			'<p>310患者：不关你的事。*他凝望着颤抖不止的双手。可恶的新政策改革！！我的名誉！地位！是她夺走了我的一切!!我就不应该去救他！我要毁了这座医院，让它成为我们的坟墓！</p>'
+			'<p>310患者：赶紧滚吧！我还有别的事要做！我不需要你的帮忙！*咳嗽*我亲眼见过的神明啊.....无论你是神也好，恶魔也好，求你再次降临...实现我的愿望...让我解脱吧.....</p>'
+			end
+		'</div>'
+End
+
+
+if $args[0]="310患者治疗":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HS\vids\交涉~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310患者治疗'',''失眠''">失眠</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''310患者治疗'',''帕金森''">帕金森</a></div>'
+			if $args[1]="帕金森":'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''出发''">和他一起去</a></div>'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常''">离开</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>我：您能来一下吗？</p>'
+			'<p>310患者：不能！我昨晚一整夜都没睡！烦死了！快滚！</p>'
+			'<p>我：那个仪器是.....专门治疗..</p>'
+			if $args[1]="失眠":
+			'<p>我：专门治疗失眠的！</p>'
+			'<p>310患者：我才没有失眠！我只是让那个小护士给我口了一整夜。*咳嗽</p>'
+			'<p>310患者：赶紧滚吧！我还有别的事要做！我不需要你的帮忙！*咳嗽*我亲眼见过的神明啊.....无论你是神也好，恶魔也好，求你再次降临...实现我的愿望...让我解脱吧.....</p>'
+			end
+			if $args[1]="帕金森":
+			'<p>我：专门治疗帕金森的！</p>'
+			'<p>310患者：不可能！这绝对不可能！</p>'
+			'<p>我：这次你运气好了！现在正好医生都出去了！</p>'
+			'<p>310患者：真的？你是不是也要骗我？现在的科技已经这么发达了？</p>'
+			'<p>我：你去试一试就知道了。</p>'
+			end
+		'</div>'
+End
+
+if $args[0]="出发":
+		 '<div class ="show_menu"><img src="images\place\医院场景\病房左转.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=15 & gt ''独立前台'',''出发'',''给他医生服''">给他医生服</a></div>'
+			if $args[1]!"给他医生服":'<div class="button"><a href="exec:minutes+=15 &  gt ''独立前台'',''出发'',''说谎''">说谎：没有医生服</a></div>'
+			if $args[1]!"":'<div class="button"><a href="exec:minutes+=15 & gt ''试药日常''">离开</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>AI警告：J3区域检测到在途的非科研人员，请迅速离开该区域。</p>'
+			'<p>*你突然想起来只有一件医生制服。意味着只有一个人能通过....</p>'
+			'<p>310患者：拿来！我知道你偷偷藏了一件医生服！</p>'
+			if $args[1]="给他医生服":
+			'<p>我：穿上这个。先直走，然后左转第......</p>'
+			'<p>310患者：小子 。*回头看你……这里我比你家还熟悉！*咳嗽</p>'
+			'<p>·····他的背影消失在了尽头</p>'
+			'<p>·····门重重得关上了</p>'
+			'<p>·····慢慢的，尽头的房间里传来男人的哭声</p>'
+			'<p>·····你有一种感觉，他不会再回来了</p>'
+			uniform=0
+			$HS_Event_trouble=10
+			end
+			if $args[1]="说谎":
+			'<p>310患者：神经病，浪费我的时间！你和她们一样，都是骗子！</p>'
+			end
+		'</div>'
+End
+
+
+
+
+
+
+
+
+
+
+
+--- 独立前台 ---------------------------------
+

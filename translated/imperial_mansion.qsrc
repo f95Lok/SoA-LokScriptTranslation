@@ -1,0 +1,580 @@
+# imperial_mansion
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+$random_number=rand(0,100)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="view" href="exec:gt''imperial_mansion'',''view''"><img class="img_stretch" src="images\NPC\CT\pics\景色.jpg"></a>
+			<a class="photo" data-title="Master bedroom" href="exec:gt''imperial_mansion'',''master_bedroom''"><img class="img_stretch" src="images\NPC\CT\pics\主卧.jpg"></a>
+			<a class="photo" data-title="Underground security room" href="exec:gt''imperial_mansion'',''underground_security_room''"><img class="img_stretch" src="images\NPC\CT\pics\地下安保室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="office" href="exec:gt''imperial_mansion'',''office''"><img class="img_stretch" src="images\NPC\CT\pics\办公室.jpg"></a>
+			<a class="photo" data-title="Large living room" href="exec:gt''imperial_mansion'',''large_living_room''"><img class="img_stretch" src="images\NPC\CT\pics\大客厅.jpg"></a>
+			<a class="photo" data-title="Underground swimming pool" href="exec:gt''imperial_mansion'',''underground_swimming_pool''"><img class="img_stretch" src="images\NPC\CT\pics\地下游泳池.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Green plants" href="exec:gt''imperial_mansion'',''green_plants''"><img class="img_stretch" src="images\NPC\CT\pics\绿植.jpg"></a>
+			<a class="photo" data-title="Bifurcated stairs" href="exec:gt''imperial_mansion'',''bifurcated_stairs''"><img class="img_stretch" src="images\NPC\CT\pics\分叉楼梯.jpg"></a>
+			<a class="photo" data-title="Underground gym" href="exec:gt''imperial_mansion'',''underground_gym''"><img class="img_stretch" src="images\NPC\CT\pics\地下健身房.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="？？？" href="exec:gt''imperial_mansion'',''right_channel''"><img class="img_stretch" src="images\NPC\CT\pics\右通道.jpg"></a>
+			<a class="photo" data-title="Second bedroom" href="exec:gt''imperial_mansion'',''second_bedroom''"><img class="img_stretch" src="images\NPC\CT\pics\次卧.jpg"></a>
+			<a class="photo" data-title="Underground bar" href="exec:gt''imperial_mansion'',''underground_bar''"><img class="img_stretch" src="images\NPC\CT\pics\地下吧台.jpg"></a>
+		</div>'
+		
+	'</div>'
+'</div>'
+
+if $heterochromatic_plant_report>0 and $heterochromaticplantseeds=0:gt'empire_event','ct_mountain_dialogue'
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\0-0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''west_coast''">Go out</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·Passing through the door of the mansion, his eyes suddenly opened, as if he had entered a brand new world.</p>'
+		'<p>·The pool in the mansion is wide, clear and transparent, as calm as a mirror.The brilliance of the sun shines down, reflecting a charming light on the water.This pool is not only an ornament, but also adds a peaceful and elegant atmosphere to the entire mansion.Every plant that surrounds it exudes a fascinating aura.These vegetation are all over the corners of the mansion, making the entire space full of vitality and vitality.I stared at these plants, as if I could hear them swaying gently in the breeze.</p>'
+		'<p>·Looking up, the scene in front of me was even more unbelievable.The ceiling in the mansion is towering and extends to the end of my vision.This made me realize that this mansion is not just a luxury villa, but a huge building with an immeasurable vertical height.</p>'
+	'</div>'
+End
+
+if $args[0] = "view":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\景色.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if $blood_relatives_medal>0:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_in_front_of_the_floor-to-ceiling_window''">Fuck here<<$QJ.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the view of the mansion, where you can directly overlook the Empire State Building.</p>'
+    '</div>'
+End
+
+if $args[0] = "master_bedroom":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\主卧.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonR4"><a href="exec:gt ''imperial_mansion'',''ct_vertical_painting''"><<$CT.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the master bedroom of the mansion.</p>'
+         if $random_number<=15:'<p>·Several maids are cleaning<a href="exec:$imperial_maid=rand(0,3) & gt ''empire_event'',''empire_fuck_random_maid''">视察Inspection work</a></p>'
+         if $secretary_pushes_inward=1: '<p>➤<<$MS.name>>Immersed in luxury<a href="exec:$push_number_within_the_empire=3 & gt ''empire_event'',''empires_fuck_internal_push_universal''">·In the locker room</a></p>'
+    '</div>'
+End
+
+if $args[0] = "ct_vertical_painting":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\家卧<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+		if $heterochromaticplantseeds>0:
+			if $heterochromatic_plant_seedlings>0:'<div class="buttonGn5"><a href="exec:$heterochromatic_plant_seedlings-=1 & gt ''empire_event'',''empire_fuck_heterochromatic_seedlings''">Give her heterochromatic plant seedlings</a></div>'else:'<div class="buttonGr"><a href="exec:">No heterochromatic plant seedlings</a></div>'
+		end
+        if hour=18:'<div class="buttonGn2"><a href="exec:gt ''imperial_mansion'',''help_with_side_dishes''">Help with side dishes</a></div>'
+        if $maid_okita=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_ctl''">Change into a maid outfit</a></div>'else:'<div class="buttonGr"><a href="exec:">Maid service</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$CT.name>>:I wear it more casually in my own home... it has nothing to do with you, right?</p>'
+        '<p>Me: Of course.</p>'
+        '<p><<$CT.name>>: I cook by myself at 18:00 every night. If you have time, come and help me.</p>'
+    '</div>'
+End
+
+if $args[0] = "help_with_side_dishes":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\配菜0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB2"><a href="exec:gt ''imperial_mansion'',''help_with_side_dishes_1''">Use ordinary cooking wine</a></div>'
+        if $green_muffin_wine>0:'<div class="buttonGn4"><a href="exec:$green_muffin_wine-=1 & $m=''CT'' & $ma=$CT.name & $CT.love+=10 &  $m.love=$CT.love & gt ''empire_event'',''empire_fuck_purpose_2_bottles''">Use secret cocktails</a></div>'else:'<div class="buttonGr"><a href="exec:">No cocktail</a></div>'
+
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$CT.name>>:Can you help me marinate the beef?Cooking wine is on your right hand.</p>'
+        '<p>Me: OK.</p>'
+    '</div>'
+End
+
+if $args[0] = "help_with_side_dishes_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\配菜1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:gt ''imperial_mansion'',''eat_together''">Dessert</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$QJ.name>>:Mom, what did you do secretly again?Why is it so fragrant?</p>'
+        '<p><<$CT.name>>:As expected of me, my cooking skills have reached another level.</p>'
+        '<p>Me: Congratulations!</p>'
+    '</div>'
+End
+
+if $args[0] = "eat_together":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\TE.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        if $imperial_mother_and_maid_f=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_muress_3p''">3P mother and daughter rice bowl</a></div>'else:'<div class="buttonGr"><a href="exec:">Ultimate goal·3P mother and daughter bowl</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$QJ.name>>:This kind of black tea should be allowed to cool before it is good to drink.</p>'
+        '<p>Me: Then you give me a blow?</p>'
+        '<p><<$QJ.name>>:Do you want me to blow slower or faster?</p>'
+        '<p><<$CT.name>>Watching you open each other`s yellow cavities and cough a few times</p>'
+
+    '</div>'
+End
+
+
+
+if $args[0] = "underground_security_room":
+	$characters_in_the_underground_security_room=rand(1,10)
+    '<div class="show_menu"><img src="images\NPC\CT\pics\dd<<$characters_in_the_underground_security_room>>.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+     if $characters_in_the_underground_security_room<=2:'<div class="buttonR4"><a href="exec:gt ''empire_event'',''imperial_fuck_guard1''">Talk again</a></div>'
+     if 3<=$characters_in_the_underground_security_room and $characters_in_the_underground_security_room<=5:'<div class="buttonS4"><a href="exec:gt ''empire_event'',''imperial_fuck_guardsman_2''">That`s right</a></div>'
+     if 6<=$characters_in_the_underground_security_room and $characters_in_the_underground_security_room<=9:'<div class="buttonS"><a href="exec:gt ''empire_event'',''imperial_fuck_guardsman_3''">exactly</a></div>'
+     if $characters_in_the_underground_security_room=10:'<div class="buttonPu3"><a href="exec:gt ''imperial_mansion'',''underground_security_room_10''">Is she asleep?</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the underground security room of the mansion.</p>'
+        if $characters_in_the_underground_security_room=10:'<p>Security for deep sleep: Zzz~Zzz~want to go❤</p>'else:'<p>Security: It`s so boring❤ In addition to watching porn with surveillance every day, you masturbate, huh?<<$protagonists_name>>Little boss ❤, are you here to fuck me?</p>'
+    '</div>'
+End
+
+if $args[0] = "underground_security_room_10":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\dd10.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion'',''underground_security_room_10_box''">View the box</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>Me: Hey, wake up, don`t catch a cold if you wear so little to sleep.</p>'
+        '<p>Deep sleep security: Zzz~Zzz~don`t bother me❤</p>'
+    '</div>'
+End
+
+if $args[0] = "underground_security_room_10_box":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\dd0.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·The contents of the box are all your monitoring records from the first second you stepped into this mansion.</p>'
+        '<p>'
+		if $bar_shuangfei_num>0:'·吧台双飞次数：<<吧台双飞num>>次'else:'·—未—知—·'
+		if $security_num>0:'·安保性爱次数：<<安保num>>次'else:'·—未—知—·'
+		if  $empire_fitness_num>0:'·侵犯健身教练：<<帝国健身num>>次'else:'·—未—知—·'
+		if $imperial_maid_num>0:'·侵犯家政女仆：<<帝国女仆num>>次'else:'·—未—知—·'
+		'</p>'
+        '<p>#Anything about<<$CT.name>>and<<$QJ.name>>The ones are erased</p>'
+    '</div>'
+End
+
+if $args[0] = "office":
+	if $blood_relatives_medal=0:msg'我应该走楼梯上去'  & gt 'imperial_mansion','bifurcated_stairs'
+    '<div class="show_menu"><img src="images\NPC\CT\pics\办公室.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion'',''enter_the_office''">enter</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the office of the mansion.</p>'
+    '</div>'
+End
+
+if $args[0] = "enter_the_office":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\进办公室.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:$empire_computer_content=0 & gt ''imperial_mansion'',''look_at_the_computer''">Browse computer files</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is inside the office and is a good place for secret meetings.</p>'
+    '</div>'
+End
+
+
+if $args[0] = "look_at_the_computer":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\电脑信息.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:$empire_computer_content=1 & gt ''imperial_mansion'',''look_at_the_computer''">Behind-the-scenes operation of the idol contest</a></div>'
+        '<div class="button"><a href="exec:$empire_computer_content=2 & gt ''imperial_mansion'',''look_at_the_computer''">Insider trading with the former mayor</a></div>'
+        '<div class="button"><a href="exec:$empire_computer_content=3 & gt ''imperial_mansion'',''look_at_the_computer''">The true purpose of the Jingyuan Project</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion'',''enter_the_office''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+		if $empire_computer_content=0:
+        '<p>·What do I want to see?</p>'
+        end
+		if $empire_computer_content=1:
+        '<p>·The real vote situation：</p>'
+        '<p>· <<$SSYY.name>>543714 votes；<<$QB.name>>431741 votes；<<$SF.name>>214560 votes</p>'
+        end
+        
+		if $empire_computer_content=2:
+			'<p><Courier receipt></p>'
+			'<p>Item description: Medical medicine Item weight: 10 grams</p>'
+			'<p>Receipt date: March 1, 2019</p>'
+			'<p>Item description: Building materials (gold) Item weight: 50 kg</p>'
+			'<p>Receipt date: April 2, 2019</p>'
+			'<p>Item description: Medical medicine Item weight: 20 grams</p>'
+			'<p>Receipt date: September 9, 2019</p>'
+			'<p>Item description: Medical medicine Item weight: 50 grams</p>'
+			'<p>Receipt date: December 20, 2019</p>'
+			'<p>·————·</p>'
+			'<p><Private mail></p>'
+			'<p>·Dear Lord Mayor, how have you slept recently?I found that [Mugou Pharmaceutical] has serious violations. They are planning to mine the mountain R&M area illegally. If you want to continue to “rest easy”, please follow the instructions on the attachment and remember to destroy it afterwards.</p>'
+			'<p>·Email date: April 1, 2019</p>'
+			'<p><Attachment></p>'
+			'<p>·Contact the project leader<<$JM.name>>Immediately shut down the factory and strictly check the financial reports and tax situation of Mugou Pharmaceutical.</p>'
+			'<p><reply></p>'
+			'<p>·Thank you, Lord Mayor, for your help. The political contributions owed to you have been offered to you.In the future, our government and enterprises will continue to cooperate to achieve prosperity and win-win situation!</p>'
+			'<p>·Email date: April 2, 2019</p>'
+        end
+        
+		if $empire_computer_content=3:
+		    '<p>*Jingyuan Plan: A government-enterprise project led by the municipal government and undertaken by Imperial Group.It aims to provide a customizable in vitro fertilization sperm bank for women with high social status through a large-scale screening of male sperm in the city, and the selection of Alpha-grade sperm on the best basis.</p>'
+			'<p>The first stage goal: strict control of men with Alpha-level sperm-completed</p>'
+			'<p>The second stage goal: To conduct a large number of multiple fertilization experiments, aiming to select men with the highest conception rate and the most active Alpha-level sperm-in progress</p>'
+			'<p>The three-stage goal: to issue a pregnancy license for it, and to perform artificial insemination for all women in the city with the pregnancy license-planned</p>'
+			'<p>The ultimate goal: After the pregnancy project is mature, complete and risk-free, it will be<<$SZ.name>>Artificial insemination-planned</p>'
+        end
+    '</div>'
+End
+
+if $args[0] = "large_living_room":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\大客厅.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the large living room of the mansion.</p>'
+        if $random_number<=50:'·有一股刺鼻但又让人感到舒适和放松的气味<a href="exec:gt ''imperial_mansion'',''main_light''">▲Look up</a></p>'
+        if $random_number>50:'·女仆们正在打扫卫生<a href="exec:gt ''imperial_mansion'',''housekeeping_maid''">观看Watch</a></p>'
+        if $random_number<=15:'·几位女仆正在打扫卫生<a href="exec:$imperial_maid=rand(0,3) & gt ''empire_event'',''empire_fuck_random_maid''">视察Inspection work</a></p>'
+         if $thief_2_push_inside=1:'<p>椿Sannomiya Tsubaki (arrogant wife) is working<a href="exec:$push_number_within_the_empire=2 & gt ''empire_event'',''empires_fuck_internal_push_universal''">·Moaning and lazy</a></p>'
+    '</div>'
+End
+
+if $args[0] = "underground_swimming_pool":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\地下游泳池.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB4"><a href="exec:gt ''imperial_mansion'',''swimming_pool_dialogue''">Look around</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the underground swimming pool of the mansion.</p>'
+    '</div>'
+End
+
+if $args[0] = "swimming_pool_dialogue":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YY\vids\swim0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_swimming_coach''">Peek into the locker room</a></div>'
+        if $yy.agree=1:'<div class="buttonB5"><a href="exec:gt ''empire_event'',''empire_fuck_daughter_pool''">with<<$QJ.name>>Alone</a></div>'else:'<div class="buttonGr"><a href="exec:">with<<$QJ.name>>Alone</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the underground swimming pool of the mansion.</p>'
+        '<p>· <<$QJ.name>>I am preparing to wait for the guidance of the swimming coach.</p>'
+    '</div>'
+End
+
+if $args[0] = "green_plants":
+	if $blood_relatives_medal=0:msg'我应该走楼梯上去'  & gt 'imperial_mansion','bifurcated_stairs'
+    '<div class="show_menu"><img src="images\NPC\CT\pics\绿植.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·Here are the green plants in the mansion.</p>'
+    '</div>'
+End
+
+if $args[0] = "bifurcated_stairs":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\分叉楼梯<<rand(0,2)>>.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonS"><a href="exec:gt ''empire_event'',''imperial_fuck_guardsman_2''">Fuck her</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the bifurcated staircase in the mansion.</p>'
+        '<p>Security: Sorry，<<$protagonists_surname>>Sir, you don`t have any more<<$CT.NAME>>I can`t let you pass until I regard you as the [Blood Relatives Medal] of a family.</p>'
+        '<p>Me: What`s upstairs?It looks quite mysterious.</p>'
+        '<p>Security: Do you think I will know? It`s really funny.</p>'
+    '</div>'
+End
+
+if $args[0] = "underground_gym":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\地下健身房.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonR1"><a href="exec:gt ''imperial_mansion'',''gym_conversation''">Look around</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the underground gym of the mansion.</p>'
+    '</div>'
+End
+
+
+if $args[0] = "gym_conversation":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\GYMS0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        if $empire_fitness_coach=0:'<div class="buttonG"><a href="exec:gt ''empire_event'',''empire_fuck_fitness_trainer''">Challenge her</a></div>'
+        if $empire_fitness_coach=1:
+			'<div class="buttonR"><a href="exec:gt ''empire_event'',''empire_fuck_fitness_meat_toilet''">Meat toilet, come here!</a></div>'
+			'<div class="buttonR2"><a href="exec:gt ''empire_event'',''empire_fuck_ct_gym''">guide<<$CT.name>></a></div>'
+			'<div class="buttonB2"><a href="exec:gt ''empire_event'',''empire_fuck_daughter_gym''">guide<<$QJ.name>></a></div>'
+			'<div class="buttonGn2"><a href="exec:$simple_ladder=1 & gt ''imperial_mansion'',''large_living_room''">Borrow the ladder</a></div>'
+        end
+        
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        if $empire_fitness_coach=0:'<p>Wakamiya Yeyue (Fitness coach): Mr. President, please continue to do these squats with me.…</p>'
+        if $empire_fitness_coach=1:'<p>Wakamiya Yeyue (Fitness meat toilet): Thank you, Mr. President, for continuing to give me this job. Please continue to do these squats with me.…<<$protagonists_name>>...you...me…</p>'
+        '<p><<$CT.name>>: I can`t lift it up all the time...*yawn</p>'
+    '</div>'
+End
+
+
+if $args[0] = "right_channel":
+	if $blood_relatives_medal=0:msg'我应该走楼梯上去'  & gt 'imperial_mansion','bifurcated_stairs'
+    '<div class="show_menu"><img src="images\NPC\CT\pics\右通道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonGn5"><a href="exec:gt ''high-rise_imperial_mansion''">forward</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the secret right passage of the mansion.</p>'
+    '</div>'
+End
+
+if $args[0] = "second_bedroom":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\次卧.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:gt ''empire_event'',''empire_fuck_peeping_daughter''"><<$QJ.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the second bedroom of the mansion.</p>'
+         if $random_number<=15:'<p>·Several maids are cleaning<a href="exec:$imperial_maid=rand(0,3) & gt ''empire_event'',''empire_fuck_random_maid''">视察Inspection work</a></p>'
+         if $thief_1_push_inside=1:'<p>穂Hodaka Yuhua (weak wife) is working<a href="exec:$push_number_within_the_empire=1 & gt ''empire_event'',''empires_fuck_internal_push_universal''">·Clean the bathroom</a></p>'
+    '</div>'
+End
+
+if $args[0] = "daughter_bedroom_conversation":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\进卧室.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:gt ''empire_event'',''empire_fuck_daughter_massage''">Give her a massage</a></div>'
+       if $imperial_mother_and_maid=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_muress_maid''">Change into a maid outfit</a></div>'else:'<div class="buttonGr"><a href="exec:">Maid service</a></div>'
+        if $qj.blind_date=1:'<div class="buttonR"><a href="exec:gt ''empire_event'',''empire_fuck_director_female_3p''"><<$JZ.name>></a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p><<$QJ.name>>:Ahem...what`s the matter... is there anything wrong?</p>'
+    '</div>'
+End
+
+
+
+if $args[0] = "underground_bar":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\地下吧台.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''empire_event'',''empire_fuck_bar''">Visit the bar</a></div>'
+        '<div class="buttonGn3"><a href="exec:gt ''imperial_mansion'',''making_cocktails''">Making cocktails</a></div>'
+        '<div class="button"><a href="exec:gt ''imperial_mansion''">leave</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·This is the underground bar of the mansion.</p>'
+    '</div>'
+End
+
+
+if $args[0] = "housekeeping_maid":
+	 a=0 & q=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\CT\vids\家政0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+    '<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''imperial_mansion'',''housekeeping_maid_2''">Cough twice</a></div>'
+		!'<div class="button"><a href="exec:gt ''帝国豪宅'',''主体灯''">抬头看</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·The maids are busy…</p>'
+    '</div>'
+End
+
+if $args[0] = "housekeeping_maid_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\家政1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonR3"><a href="exec:gt ''empire_event'',''empire_fuck_find_a_few''">Pick a few chicks and send them over</a></div>'
+		'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_clean''">Exercise of power</a></div>'
+		'<div class="buttonGn1"><a href="exec:gt ''empire_event'',''empire_fuck_restaurant''">I`m hungry</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>Maid chief：<<$protagonists_surname>>Sir, what are your orders?</p>'
+    '</div>'
+End
+
+if $args[0] = "main_light":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\主体灯.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+		if $simple_ladder=0:'<div class="buttonGr"><a href="exec:gt ''imperial_mansion'',''large_living_room''">I don`t have a ladder</a></div>'else:'<div class="button"><a href="exec:$simple_ladder=0 & gt ''imperial_mansion'',''main_light_1''">Step on the temporary ladder</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·A plant in the chandelier at the highest point of the living room is rotting…</p>'
+        '<p>Maid chief：<<$protagonists_surname>>Sir!We will deal with this plant, so you don`t need to bother with it yourself. </p>'
+    '</div>'
+End
+
+if $args[0] = "main_light_1":
+    '<div class="show_menu"><img src="images\NPC\CT\pics\主体灯1.jpg" width="854"></div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS5"><a href="exec:$heterochromatic_plants+=2 & gt ''imperial_mansion'',''large_living_room''">Sneak it into the bag</a></div>'
+            '<div class="button"><a href="exec:gt ''imperial_mansion''">Throw it all away</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			'<p>Me: When you trimmed the ceiling lights, you found that* These plants are all you have never seen before.</p>'
+			'<p>Maid chief：<<$protagonists_surname>>Sir!You hurry down!It`s too dangerous!Just leave these things to us!Please throw the plants you cut into the [green plant Recycling & Incineration box], and we will destroy them uniformly! </p>'
+			'<p>I：……</p>'
+			'<p>Maid chief: Don`t do this in the future，<<$protagonists_surname>>Sir!I will also put back the ladder you moved. </p>'
+         '</div>'
+End
+
+
+if $args[0] = "making_cocktails":
+	if $heterochromatic_plants<=0:
+		msg'我没有原材料'  & gt 'imperial_mansion','underground_bar'
+	else:
+		$heterochromatic_plants-=1
+		$green_muffin_wine+=1
+	end
+    '<div class="show_menu"><img src="images\NPC\CT\pics\制作台.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonGn5"><a href="exec:gt ''imperial_mansion'',''making_cocktails''">Make another bottle</a></div>'
+		'<div class="buttonS"><a href="exec:gt ''imperial_mansion'',''bar_deacon''">The bar deacon is here</a></div>'
+		'<div class="button"><a href="exec:gt ''imperial_mansion'',''underground_bar''">Back to the bar</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>Me: Cool!Original cocktail!I can see its effect in my backpack!</p>'
+    '</div>'
+End
+
+if $args[0] = "bar_deacon":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\bars1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:$green_muffin_wine-=1 & gt ''empire_event'',''empire_fuck_bar_deacon_i_drink''">Drink it yourself</a></div>'
+		'<div class="buttonS"><a href="exec:$green_muffin_wine-=1 & gt ''empire_event'',''empire_fuck_bar_deacon_drink''">Give her a taste</a></div>'
+		'<div class="button"><a href="exec:gt ''imperial_mansion'',''underground_bar''">Back to the bar</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>Me: Cool!Original cocktail!I can see its effect in my backpack!</p>'
+		'<p>Eikawa Noa (Bar Deacon): Yo❤<<$protagonists_surname>>Sir, what are you doing sneakily here❤ </p>'
+		'<p>Ichijo Miao (bar deacon): I have a new cocktail ❤ Can you give me a taste❤ </p>' 
+    '</div>'
+End
+
+
+--- imperial_mansion ---------------------------------
+

@@ -1,0 +1,92 @@
+# 家_姐姐房间
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+	a=0
+	q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'家_地图'
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class ="show_menu"><img src="images\place\姐姐房间.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''家_姐姐房间''">消磨时间</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>....</p>'
+	'</div>'
+end
+
+if $ARGS[0] ="姐姐睡觉":
+	a=0
+	q=0
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐睡觉.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if my.道德<0:
+		'<div class="button"><a href="exec:gt ''姐姐_事件'',''夜袭''">夜袭</a></div>'
+		end
+		
+		
+		
+		'<div class="button"><a href="exec:gt ''家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>正在睡觉....如果我足够邪恶的话应该能做什么....</p>'
+	'</div>'
+end
+
+
+
+if $ARGS[0] ="姐姐周末房间":
+	a=0
+	q=0
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐房间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$聊天=''JJ''& $出去的位置 = ''家'' & addlove=0 &addbad=0 & gt ''通用聊天''">互动</a></div>'
+		if  $jj.bad>=50 and plant_研究数>=15:'<div class="buttonGn"><a href="exec:  gt ''姐姐_事件'',''JJ_Fuck_家中''">释放压力</a></div>'else:'<div class="buttonGr"><a href="exec:">释放？？</a></div>'
+		if $JJ.event_购物!3:
+		'<div class="button"><a href="exec:minutes+=60 & $JJ.event_购物=1 & gt ''家''">日常任务</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>洗漱完正准备去办公室，双休日只比平时晚去一个小时，看来科研工作对她很重要。</p>'
+		if $JJ.event_购物!3:
+		'<p>————————————————日常任务———————</p>'
+		'<p><<$jj.name>>:弟弟！能帮我去商场买尿素1.1千克，普钙3.17千克，硫酸钾3.17千克，硫酸镁0.45千克吗？</p>'
+		'<p><<$jj.name>>:对了，这件事不要告诉任何人。买好了偷偷去我的办公室给我。</p>'
+		'<p>————————————————日常任务———————</p>'
+		end
+	'</div>'
+end
+
+if $ARGS[0] ="姐姐晚上房间":
+	$随机数=rand(1,100)
+	 if  $jj.bad>=50 and $随机数<=15:gt'姐姐_事件','JJ_Fuck_前辈'
+	'<div class ="show_menu"><img src="images\NPC\JJ\pics\姐姐房间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	  if  $jj.bad>=50 and plant_研究数>=15:'<div class="buttonS"><a href="exec:  gt ''姐姐_事件'',''JJ_Fuck_家中''">释放压力</a></div>'else:'<div class="buttonGr"><a href="exec:">释放？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jj.name>>在卧室里看书《科研》，看来工作对她很重要。</p>'
+	'</div>'
+end
+
+--- 家_姐姐房间 ---------------------------------
+

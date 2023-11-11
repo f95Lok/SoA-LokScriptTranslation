@@ -1,0 +1,115 @@
+# 机场
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\机场.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $迎新会=1 and $CT.available=0:'<div class="buttonG"><a href="exec:gt ''帝国_事件'',''休息室''">VIP休息室</a></div>'
+		if 1<=$机场进度 and $机场进度<=2:'<div class="buttonR3"><a href="exec:gt ''机场'',''机组办公室''">机组办公室</a></div>'
+		if $机场进度>=3:'<div class="buttonR3"><a href="exec:gt ''机场'',''机组办公室2''">机组办公室</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·由于新法案的推出，无数的女性从世界各地乘坐航班来到此处，每位女性都可以在这里释放天性。</p>'
+		'<p>——————————</p>'
+		if $LXS.available=0:'<p>·着火的客机<a href="exec:gt ''机场'',''着火的客机''">-查看</a></p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="着火的客机":
+	'<div class ="show_menu"><img src="images\place\mayday2.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">我能拯救她们吗？</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''机场''">R.I.P</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·LB615航班因为不明原因导致双发失效，目前与塔台已失去联系。</p>'
+		'<p>·LB615的故事内容请访问下方链接单独下载↓不需要翻墙，打不开换浏览器</p>'
+		'<p><a href="https://airtable.com/appZwBEUmnRghFhgz/shrwhq3RAtOAfEDbo"> https://airtable.com/appZwBEUmnRghFhgz/shrwhq3RAtOAfEDbo</a></p>'
+		'<p>·懒得玩同样可以直接购买通关码</p>'
+	'</div>'
+End
+
+if $ARGS[0]="机组办公室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\开幕1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国_事件'',''帝国_Fuck_乔装''">暗中调查</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QJ.NAME>>:  首先，我们需要了解导致乘客满意度和服务态度下降的根本原因，大家都不认识你，拜托你去乔装调查一下吧。</p>'
+		'<p>我:  明白了。</p>'
+	'</div>'
+End
+
+if $ARGS[0]="机组办公室2":
+		内定进度=内定机长+内定经济舱+内定卧铺+内定辣妹+内定保洁
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\机场办公_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:minutes+=15 & gt ''帝国_事件'',''帝国_Fuck_空姐培训''">招募&培训<<$培训进度>>/3</a></div>'
+		if $机场进度>=4 and $培训进度>=3:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_内定人选''">视察内定人选<<内定进度>>/5</a></div>'
+		if 内定进度>=5:
+			if $times_of_day!'':'<div class="buttonS2"><a href="exec:$QJ.love+=1 & gt ''帝国_事件'',''帝国_Fuck_送她回家''">送她回家</a></div>'else:'<div class="buttonGr"><a href="exec:">等她忙完</a></div>'
+			if $QJ.bad>=100+my.魅力*15:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_女办公1''">关上门操她</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<my.魅力*15+100>></a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''机场''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QJ.NAME>>:  看来会议通过我们的提案了？挺好的，那开始下一步吧。</p>'
+		'<p>我:  请说。</p>'
+		'<p><<$QJ.NAME>>:  首先是裁掉不愿意提供性服务的空姐。</p>'
+		'<p><<$QJ.NAME>>:  其次招募愿意兼职的社会女性并进行培训。</p>'
+		'<p><<$QJ.NAME>>:  最后不断暗访优化机组人员配置，从而提升乘客的满意度和航空公司的运营收益。通过精细的人员配置管理，我们可以确保机组成员在不同任务和场景下能够充分发挥自己的优势，提供出色的服务和解决方案，为航空公司赢得更多好评和回头客。</p>'
+		if 内定进度>=5:'<p>我:  看来事情完成的差不多了呢，乘客的满意度和乘务人员的积极性都明显上升了。</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- 机场 ---------------------------------
+

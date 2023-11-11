@@ -1,0 +1,150 @@
+# 家_妹妹房间
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+suiji=rand(0,2)
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'家_地图'
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\妹妹房间.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''家_妹妹房间''">消磨时间</a></div>'
+	if $悠亚任务=3:'<div class="button"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_反1''">约见<<$SSYY.name>></a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	'<p>空无一人....</p>'
+	'</div>'
+End
+
+if $args[0]="房间对话":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MM\vids\辅导开幕<<suiji>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	 '<div class="button"><a href="exec:$聊天=''MM''& $出去的位置 = ''家'' & addlove=0 &addbad=0 & gt ''通用聊天''">互动</a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''家_妹妹房间'',''辅导功课''">辅导功课</a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''家_妹妹房间'',''成为偶像''">心愿：成为偶像</a></div>'
+	if hour >=22 and hour<23 and $MM.love>=150 and $MM.bad>=150 and  $jj.love>=150 and $jj.bad>=150:
+	'<div class="buttonS"><a href="exec:minutes+=30 & gt ''妹妹_事件'',''MM_Fuck_姐妹''">姐姐辅导</a></div>'
+	end
+	if $mm.love>=320-$mm.bad:
+	'<div class="buttonS4"><a href="exec:minutes+=30 &  gt ''妹妹_事件'',''MM_Fuck_厅''">直接操她！</a></div>'
+	if TSMM=1:'<div class="buttonS5"><a href="exec:minutes+=30 &  gt ''天使_事件'',''TS_Fuck_TSM1''">摇<<$TS.NAME>>！</a></div>'
+	end
+	
+	if MM.忏悔=0 and 主教选择=1:'<div class="buttonG1"><a href="exec:MM.忏悔=1 & $m=''MM'' & $ma=$MM.name & gt ''修女_事件'',''XN_Fuck_忏悔''">邀请去教堂洗礼</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	'<p>我：都几点了怎么还不睡觉....？</p>'
+	'<p><<$mm.name>>：你是老头子吗？这么早睡。懂不懂年轻人的作息啊！</p>'
+	'</div>'
+End
+
+if $args[0]="睡觉":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MM\vids\睡觉~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	if my.道德<-10 and $mm.love>=-$mm.bad+220:
+	'<div class="button"><a href="exec:minutes+=30 & a=5 &gt ''妹妹_事件'',''MM_Fuck_夜袭''">闯入</a></div>'
+	end 
+	'<div class="button"><a href="exec:minutes+=5 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	'<p>·正值这个年纪自慰也很正常...我还是别打扰她了...?</p>'
+	'</div>'
+End
+
+if $args[0]="辅导功课":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MM\vids\辅导开幕<<suiji>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	'<p><<$mm.name>>：这题..噢...你也不会？....</p>'
+	'<p><<$mm.name>>：还有这题...emmmmmm你眼睛在看哪里？！...</p>'
+	'<p>辅导了一会功课....虽然没教会什么，但是好感度上升了！</p>'
+	'</div>'
+	$MM.love+=RAND(1,my.魅力)
+End
+
+if $args[0]="成为偶像":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MM\vids\辅导开幕3~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	if $MM_Event_idol>=2:
+	'<div class="button"><a href="exec:minutes+=5 & gt ''家_妹妹房间'',''好消息''">好消息</a></div>'
+	end
+	'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	'<p><<$mm.name>>：因为新政策的关系，入读的男性学生人数骤减。我突然想到一条妙计————成为偶像！只要我成为偶像，学校的名气便会增加，而入读学生的人数亦会上升！</p>'
+	'<p>我：哇偶...</p>'
+	'<p><<$mm.name>>：妹妹的心愿就是哥哥的心愿！你也要来帮我！</p>'
+	'<p>我：那你的长处是什么呢？（这不是lovelive的剧情吗？）</p>'
+	'<p><<$mm.name>>：根据直觉和一时兴起展开行动，一旦决定了就埋头猛冲的一根筋。面对困难也能凭着天生的超乐观精神一个个突破!</p>'
+	'<p>我：呃....好吧....那我去帮你打听打听哪里招募偶像练习生吧...</p>'
+	'</div>'
+	if $MM_Event_idol=0:
+		$MM_Event_idol=1
+		end
+End
+
+if $args[0]="好消息":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MM\vids\辅导开幕3~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''家''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	'<p><<$mm.name>>：什么？真的吗？我被【帝国娱乐】的<<$ts.name>>直接招募了？！</p>'
+	'<p>我：是的，虽然只是以练习生的身份..</p>'
+	'<p><<$mm.name>>：<<$ts.name>>可是我的偶像！她在荧幕上的模样完全是天使降临!</p>'
+	'<p>我：那你也要以她为榜样，努力成为她那样的偶像喔。</p>'
+	'<p><<$mm.name>>：好！以后放学了和周末我就去舞蹈房练习了！</p>'
+	'</div>'
+	if $MM_Event_idol=2:
+		$MM_Event_idol=3
+		end
+End
+
+ 
+--- 家_妹妹房间 ---------------------------------
+

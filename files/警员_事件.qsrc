@@ -1,0 +1,1995 @@
+# 警员_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $args[0]="JY_Event_酒吧":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\卧底<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''JY_Event_酒吧''">察言观色 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">离开 </a></div>'
+			'</div>'
+	end
+
+	if a=-1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>身着便衣，看上去充满青春活力，边上的人是局里的线人。</p>'
+			 '<p>线人:走吧，行动开始！</p>'
+		 '</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·他轻车熟路地带你们来到了传闻中的地下练习生。</p>'
+			 '<p>陌生男人:废物东西？！你是干什么吃的？！</p>'
+			 '<p><<$JY.name>>:住手！你这是殴打女性！</p>'
+			 '<p>陌生男人:喂喂喂！你是哪冒出来的啊？我只是在“赏赐”我的下属。*色眯眯地打量。</p>'
+			 '<p><<$JY.name>>:我是新来的练习生！</p>'
+			 '<p>陌生男人:噢，这样啊，嗯？！那这个男人呢？我们这里的偶像必须是单身！</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>:他是我的经纪人！</p>'
+			 '<p>陌生男人:喂喂喂！经纪人？！滚一边去！要想在这里混，就得听我的。</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>·你们俩对视一眼。</p>'
+			 '<p><<$JY.name>>:那你先走吧，经纪人。如果我有危险的话...会联络你的。</p>'
+			 $JZ_Event_gun=50
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="JY_Event_来电":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\卧底<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!4:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''JY_Event_来电''">听下去 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''家''">挂电话 </a></div>'
+			'</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>·<<$JY.name>>来电！</p>'
+			 '<p>><<$JY.name>>:喂喂，你在听吗？我有重大发现！</p>'
+			 '<p>我:我在听，怎么样了！</p>'
+			 '<p>><<$JY.name>>:果然不出所料，所有的黑料全被我找到了，你说该怎么夸我？</p>'
+			 '<p>我:好极了！那我马上来接你出来！</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>>陌生男人:喂喂，把你的U盘给我放回去，你这个臭条子！</p>'
+			 '<p>><<$JY.name>>:*可恶，我暴露了，你快去警局搬援兵来！</p>'
+			 '<p>我:坚持住！我马上就来救你！！</p>'
+			 $JZ_Event_gun=90
+		 '</div>'
+	end
+
+
+
+
+ q+=1
+
+End
+
+if $args[0]="JY_Event_救援":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\卧底5~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a=0 & gt ''杀手_事件'',''SS_Event_偷窃''">直奔办公室 </a></div>'
+		'</div>'
+
+
+
+		 '<div class="dialog_menu">'
+			 '<p>·等你匆匆赶到时.....<<$JY.name>>已经把敌人制服了。</p>'
+			 '<p>><<$JY.name>>:可别小看了我！蠢货！</p>'
+			 '<p>我:呼————你没事就好了....</p>'
+			 '<p>><<$JY.name>>:怎么才来？！快去办公室把U盘拿回来！那里面都是证据！</p>'
+		 '</div>'
+
+
+ q+=1
+
+End
+
+if $args[0]="寻枪开始":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\起因.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a=0:'<div class="button"><a href="exec:a=1 & gt ''警员_事件'',''寻枪开始''">✣开始回忆 </a></div>'
+			if a=1 and $美发店调查=1 and $学校调查=111 and $健身房调查=1:'<div class="button"><a href="exec:a=2 & gt ''警员_事件'',''寻枪开始''">✣都找过了 </a></div>'
+			if $寻枪事件链=4:'<div class="button"><a href="exec:gt ''警员_事件'',''配枪交付''">✣配枪呢？ </a></div>'
+			'<div class="button"><a href="exec:gt ''地铁''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 if a=0:
+			 '<p><<$JY.name>>: 不好了不好了！怎么哪里都找不到？！</p>'
+			 '<p>我: 怎么了？</p>'
+			 '<p><<$JY.name>>: 我…我我我…我的配枪不见了！</p>'
+			 '<p>我: 什么？！你的枪丢了？</p>'
+			 '<p><<$JY.name>>: 怎么办啊？我会被革职还会遭到处分的…*眼泪在打转</p>'
+			 '<p>我: 别急…你先冷静下来…</p>'
+			 end
+			 if a=1:
+			 $学校调查=$杂物室调查+$羽毛球调查+$心理室调查
+			 '<p>我: 发现配枪不见之前，你都去过哪里？</p>'
+			 '<p><<$JY.name>>: 我…我先去了美发店做了个头发…然后去了学校走廊检查了消防安全…最后健完身就回家睡觉了…</p>'
+			 '<p>我: 那你先回家找找，我替你去这些地方打探一下…</p>'
+			 '<p>————————</p>'
+			 '<p>【美发店：<<$美发店调查>>/1】✣【学校：<<$学校调查>>/111】✣【健身房：<<$健身房调查>>/1】</p>'
+			 if $寻枪事件链=0:$寻枪事件链=1
+			 end
+			 if a=2:
+			 '<p>我: 美发店，学校，健身房我都找过了，都没有，你在家里有找到吗？</p>'
+			 '<p><<$JY.name>>: 没有…*眼泪在打转</p>'
+			 '<p>我: 别急…你再好好想想…</p>'
+			 '<p><<$JY.name>>: 我……对了！健完身以后，我去赤色餐厅吃了一份超大杯的特色冰沙！</p>'
+			 '<p>我:这么重要的事，你会不记得？</p>'
+			 '<p><<$JY.name>>: 谁知道那份特色冰沙里居然加了龙舌兰和伏特加！吃完我就迷迷糊糊地回家了…</p>'
+			 if $寻枪事件链=1:$寻枪事件链=2
+			 end
+			 
+		 '</div>'
+End
+
+if $args[0]="JY_Fuck_理发师":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\T0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_理发师''">低下头</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_理发师''">好吧…</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_理发师''">口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_理发师''">悄悄插入</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_理发师''">换姿势</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_理发师''">快速抽插</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_理发师''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_理发师''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''商场''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>我：我向你打听一个事，你有没有见过，呃，类似一个黑黑的，硬硬的东西？</p>'
+           '<p>理发师: ？！我想我明白你的意思了…</p>'
+           if a>=1:'<p>理发师: 你说的是这个吧？是老客户推荐你来的吧？</p>'
+           if a>=2:'<p>我：呃……好吧，我说的就是这个…</p>'
+           if a>=3:'<p>理发师: <<$娇喘声>></p>'
+           if a>=4:'<p>理发师: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $美发店调查=1
+         '<div class="dialog_menu">'
+             '<p>我：除了这个…你还见过其他的东西吗？我提示你一下，比如说手枪？</p>'
+             '<p>理发师: 手枪？我也会为客人打手枪…</p>'
+             '<p>我：好吧…（看来不是在这丢的…）</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_健身者":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\T6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_健身者''">询问她</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_健身者''">没错！</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_健身者''">口我</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_健身者''">深喉</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_健身者''">让她骑乘</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_健身者''">换姿势</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_健身者''">抬腿爆肏</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_健身者''">加速抽插</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_健身者''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''警员_事件'',''JY_Fuck_健身者''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''商场''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>健身者: 1,2,3,4,5……</p>'
+           if a=1:'<p>我：你好，这里有没有出现过一个坚硬的、危险的东西？</p>'
+           if a=1:'<p>健身者: 我不明白，你指的东西会擦枪走火吗？</p>'
+           if a=2:'<p>健身者: 你的搭讪套路也太俗了，趁现在没人，我们可以让它走火一次！</p>'
+           if a=2:'<p>我：呃……等等，我说的不是这个…</p>'
+           if a=2:'<p>健身者: 那就算咯？</p>'
+           if a>=3:'<p>健身者: <<$娇喘声>></p>'
+           if a>=5:'<p>健身者: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=10:
+         $健身房调查=1
+         '<div class="dialog_menu">'
+             '<p>我：你真的没看到过一个黑又硬，还能射出子弹的东西吗？</p>'
+             '<p>健身者: 那东西不就在你的裤裆里吗？</p>'
+             '<p>我：好吧…（看来不是在这丢的…）</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_教师偶遇":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\T4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">？！？！</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">上前询问</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">去医务室</a></div>'
+			if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''FT_1'' & $ma=''女教师'' &a=0&q=0& gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">检查伤势</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">突然插入</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">大力抽插</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">强制口交</a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">加速抽插</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''警员_事件'',''JY_Fuck_教师偶遇''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>女教师: 今天可以提前下班…真开心~啊啊啊啊！</p>'
+           if a=1:'<p>我：哇偶！</p>'
+           if a=1:'<p>女教师: 痛痛痛…</p>'
+           if a=2:'<p>我：呃…你没事吧？？</p>'
+           if a=4:'<p>我: 看上去没伤到…（这就是肥臀的缓冲吗？）</p>'
+           if a>=4:'<p>女教师: 等等<<$娇喘声>></p>'
+           if a>=9:'<p>我: 射了！</p>'
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+             '<p>我：你没有生气吧？</p>'
+             '<p>女教师: 生气？你猜猜我为什么没有穿内裤？</p>'
+             '<p>我：好吧…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="询问教师":
+		a=0 & q=0
+		if $杂物室调查=0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\R0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\R1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec: gt ''警员_事件'',''JY_Fuck_杂物室''">带我去杂物室 </a></div>'
+			if (week_day=3 or week_day=5) and hour>=16:'<div class="button"><a href="exec: gt ''警员_事件'',''JY_Fuck_羽毛球''">带我去羽毛球部 </a></div>'else:'<div class="buttonGr"><a href="exec: ">带我去羽毛球部 </a></div>'
+			if week_day=7:'<div class="button"><a href="exec: gt ''警员_事件'',''JY_Fuck_心理室''">带我去心理辅导室 </a></div>'else:'<div class="buttonGr"><a href="exec: ">带我去心理辅导室 </a></div>'
+			'<div class="button"><a href="exec:gt ''大学''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>我: 我问一下，之前是不是有一位女警官来检查消防安全？</p>'
+			 '<p>女教师: 是啊，怎么了？</p>'
+			 '<p>我: 她检查了那些地方？</p>'
+			 '<p>女教师: 检查了杂物室、羽毛球部、心理辅导室…</p>'
+			 '<p>我: 可以带我去吗？</p>'
+			 '<p>女教师: 我现在可以带你去杂物室，羽毛球部只在礼拜三、周五下午16点后开放；心理辅导室只在周日开放。</p>'
+			 '<p>我: 好吧。</p>'
+		 '</div>'
+End
+
+
+if $args[0]="JY_Fuck_羽毛球":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\T1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_羽毛球''">危险？！</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_羽毛球''">占便宜</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_羽毛球''">为我口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_羽毛球''">顺势插入</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_羽毛球''">换姿势</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_羽毛球''">继续抽插</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_羽毛球''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_羽毛球''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>羽毛球社员: 为什么前辈总要把球放在这么高的地方……啊啊啊啊！</p>'
+           if a=1:'<p>我：你没事吧？！</p>'
+           if a=2:'<p>羽毛球社员:住手<<$娇喘声>></p>'
+           if a=3:'<p>我：你不是要我住手吗？怎么自己吸上了？</p>'
+           if a>=3:'<p>羽毛球社员:和你练习一下技巧，下次让前辈好好爽爽…</p>'
+           if a>=4:'<p>我: 那我不客气了！</p>'
+           if a>=4:'<p>羽毛球社员:<<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+            $羽毛球调查=1
+         '<div class="dialog_menu">'
+             '<p>我：对了，你有见到过什么奇怪的东西吗？比如长得很像手枪的东西？</p>'
+             '<p>羽毛球社员: 没有…我们还能再来一次吗…</p>'
+             '<p>我：呃，我还有点事…（看来不是在这丢的…）</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_心理室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\T2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_心理室''">上前帮忙</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_心理室''">摸一下</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_心理室''">掰开肉穴</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_心理室''">手指插入</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_心理室''">转头口交</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_心理室''">后入抽插</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_心理室''">抬腿加速</a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_心理室''">猛肏</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_心理室''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''警员_事件'',''JY_Fuck_心理室''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>保洁员: 每次擦这里都会被卡住！</p>'
+           if a=1:'<p>我：卡的很紧呢，看来得用什么东西润滑一下！</p>'
+           if a=1:'<p>保洁员: 痛痛痛…</p>'
+           if a=2:'<p>我：呃…你这里的爱液又湿又滑…</p>'
+           if a=3:'<p>保洁员: 那你…快点让我潮吹…</p>'
+           if a=4:'<p>我: 我试试…</p>'
+           if a>=5:'<p>保洁员: 嗯？怎么<<$娇喘声>></p>'
+           if a>=6:'<p>我: 是不是不想拔出来了？！</p>'
+           if a>=7:'<p>保洁员: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=10:
+            $心理室调查=1
+         '<div class="dialog_menu">'
+             '<p>我：你还好吗？你有在这里见到过，什么不属于这里的东西吗？呃，给你点提示，如果被它射击了的话，就会像你现在这样…</p>'
+             '<p>保洁员: 你在说什么？我讨厌双关语！</p>'
+             '<p>我：好吧…（看来不是在这丢的…）</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_杂物室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\T3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_杂物室''">扶住她</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_杂物室''">没忍住</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_杂物室''">强行插入</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_杂物室''">加速抽插</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_杂物室''">射精</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_杂物室''">对话</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>女教师: 她就检查了这里，还有这里，还有……</p>'
+           if a=1:'<p>我：没事吧？</p>'
+           if a=1:'<p>女教师: 我只是腿有点麻…</p>'
+           if a>=2:'<p>女教师: 你干嘛<<$娇喘声>></p>'
+           if a>=3:'<p>我: 你的屁股太诱人了！</p>'
+           if a>=3:'<p>女教师: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=6:
+            $杂物室调查=1
+         '<div class="dialog_menu">'
+             '<p>女教师: 你刚刚说我的屁股太诱人了，是真的嘛？</p>'
+             '<p>我：当然了。</p>'
+             '<p>女教师: 那我就原谅你了，年轻人一时冲动嘛，很正常。</p>'
+             '<p>我：那这里没有什么可疑的东西吧？</p>'
+             '<p>女教师: 最可疑的应该就是我为什么没穿内裤吧？*笑</p>'
+             '<p>我：*环顾四周…（看来不是在这丢的…）</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_女教师卡":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\R1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_女教师卡''">靠近点</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_女教师卡''">掰开肥臀</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_女教师卡''">口她</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_女教师卡''">顺势插入</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_女教师卡''">九浅一深</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_女教师卡''">顶到底</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_女教师卡''">射精</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''警员_事件'',''询问教师''">藏起来</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>女教师: 是谁把门关了？谁来帮一下老师？</p>'
+           if a=1:'<p>我：你没事吧？！</p>'
+           if a>=2:'<p>女教师:住手<<$娇喘声>></p>'
+           if a>=3:'<p>我: 你的肉臀简直是在犯罪啊！</p>'
+           if a>=4:'<p>女教师:<<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+             '<p>我：啊啊啊啊！射了！</p>'
+             '<p>女教师: 呼——不好…校内纠察队来巡逻了！快躲起来！不然就惨了…</p>'
+             '<p>我：………</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="寻枪嫌疑人":
+		$my.精力+=3
+		if a=0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\起因.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JB\vids\酒保.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+
+		'<div class="button_menu">'
+			if a=0:'<div class="buttonG"><a href="exec:money/=2 & a=1 & gt ''警员_事件'',''寻枪嫌疑人''">付钱<<money/2>> </a></div>'
+			if a=1:'<div class="button"><a href="exec:a=0 & gt ''警员_事件'',''准备出发''">准备出发 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+		  if a=0:
+			 '<p><<$JY.name>>: 你还记得我吗？！</p>'
+			 '<p><<$JB.name>>: 怎么了？我记得你吐了一地。</p>'
+			 '<p><<$JY.name>>: 不是哪个啦 ！你还记得我有把什么东西忘在这了吗？</p>'
+			 '<p>我: 一个黑色的，又硬又长 的东西。</p>'
+			 '<p><<$JB.name>>: 丢的东西是一把手枪对吗？</p>'
+			 '<p><<$JY.name>>: 没错！！它在哪？</p>'
+			 '<p><<$JB.name>>: 这个嘛，我欠了不少高利贷，如果你能为我支付一部分的话…</p>'
+		 else:
+			 '<p><<$JB.name>>: 谢谢老板！</p>'
+			 '<p>我: 收了钱，嘴巴动快点。</p>'
+			 '<p><<$JB.name>>: 凶什么？</p>'
+			 '<p><<$JY.name>>: 快点告诉我啦！</p>'
+			 '<p><<$JB.name>>: 深巷的斧头帮知道吧？就是大锤帮的死对头…斧头帮的二当家打算玩一票大的，如果用斧头的话太明显了，所以他最近搞了一把枪。</p>'
+			 '<p>我: 枪是你卖给他的？！</p>'
+			 '<p><<$JB.name>>:  这是他的住址，为什么不从他的嘴里问呢？</p>'
+			 if $寻枪事件链=2:$寻枪事件链=3
+		 end
+		 '</div>'
+End
+
+if $args[0]="准备出发":
+		$my.精力+=10
+	'<div class ="show_menu"><img src="images\NPC\JY\pics\出发<<a>>.jpg" width="854"></div>'
+
+
+		'<div class="button_menu">'
+			if a=0:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''准备出发''">妥协 </a></div>'
+			if a=1:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''准备出发''">深入搜索 </a></div>'
+			if a=2:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''准备出发''">？？？ </a></div>'
+			if a=3:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''准备出发''">尝试对话 </a></div>'
+			if a=4:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''准备出发''">偷袭她 </a></div>'
+			if a=5:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''准备出发''">拼死反抗 </a></div>'
+			if a=6:'<div class="buttonR3"><a href="exec:gt ''警员_事件'',''处决前''">举手偷袭 </a></div>'
+			if a=6:'<div class="buttonGn"><a href="exec:a=0 & gt ''警员_事件'',''JY_Fuck_强迫''">举手投降【NTR】 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			if a=0:
+			 '<p><<$JY.name>>: <<$主角姓名>>，这次可能有危险…我不敢去…</p>'
+			 '<p>我: 我知道，对方有枪。</p>'
+			 '<p><<$JY.name>>: 算了吧，我们不要冒险了？*握紧了你的手</p>'
+			 '<p>我: 怎么了？你在担心我吗？</p>'
+			 '<p><<$JY.name>>: 我…我…不想再失去搭档了。</p>'
+			 '<p>我: 放心，我会没事的。你就在这里等我的好消息。</p>'
+			 '<p><<$JY.name>>: 不行…这次我要和你一起去…我不想一无所知地就失去你…</p>'
+			 '<p>我: ……(她好像有故事？)</p>'
+			 end
+			if a=1:
+			 '<p><<$JY.name>>: <<$主角姓名>>，我有点紧张…</p>'
+			 '<p>我: 有我在。</p>'
+			 end
+			if a=2:
+			 '<p><<$JY.name>>: 这里好阴森啊…</p>'
+			 '<p>我: 嘘，有人来了。</p>'
+			 end
+			if a=3:
+			 '<p>？？？: 你们是谁？这里是私人领地！</p>'
+			 '<p>我: 你手上拿着的…是手枪吧？</p>'
+			 '<p><<$JY.name>>: 就是他…</p>'
+			 end
+			if a=4:
+			 '<p>我: 喔？居然是个女的？</p>'
+			 '<p>？？？: 她是条子吧！我认得她！</p>'
+			 '<p>我: 你能把手上的家伙先收起来吗？她可是警务人员，走火了很危险的。</p>'
+			 '<p><<$JY.name>>: ………</p>'
+			 '<p>？？？: 你算老几？</p>'
+			 end
+			if a=5:
+			 '<p>？？？: 你为什么不回头看看呢？别以为我不知道你在想什么！</p>'
+			 '<p>小弟A: 大姐头！这个妞就交给我了！</p>'
+			 '<p><<$JY.name>>: 啊！！</p>'
+			 '<p>我: 可恶……</p>'
+			 end
+			if a=6:
+			 '<p>小弟A: 真是个可爱的小姑娘！</p>'
+			 '<p>小弟B: 大哥！也有我的份吧？</p>'
+			 '<p><<$JY.name>>: <<$主角姓名>>！我们要死也死在一起！跟你们拼了！</p>'
+			 '<p>我: ……</p>'
+			 '<p>·该怎么办？</p>'
+			 end
+			 
+		 '</div>'
+End
+
+if $args[0]="JY_Fuck_催眠":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\催眠1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<13:
+        '<div class="button_menu">'
+            if q=0:
+            if $魅魔能量>=1:'<div class="buttonPu3"><a href="exec:$魅魔能量-=1 & a=1 & gt ''警员_事件'',''JY_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+            '<div class="button"><a href="exec:gt ''电视台''">离开</a></div>'
+            end
+            if q=1:
+            '<div class="buttonPu4"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_催眠''">调试敏感度</a></div>'
+            '<div class="buttonPu4"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_催眠''">为我口交</a></div>'
+            if $魅魔能量>=1:'<div class="buttonPu4"><a href="exec:$魅魔能量-=1 & a=4 & gt ''警员_事件'',''JY_Fuck_催眠''"><font color="#FF00FF">抠喷她♈❤</font></a></div>'else:else:'<div class="buttonGr"><a href="exec:">抠喷她♈❤</a></div>'
+ 
+            end
+            if q=2:
+            '<div class="buttonPu5"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_催眠''">抱起大腿</a></div>'
+            '<div class="buttonPu5"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_催眠''">M字女上位</a></div>'
+            '<div class="buttonPu5"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_催眠''">按在桌上肏</a></div>'
+            end
+            if q=3:
+            if $魅魔能量>=2:'<div class="buttonPu5"><a href="exec:$魅魔能量-=2 & a=9 & gt ''警员_事件'',''JY_Fuck_催眠''"><font color="#FF00FF">内射♈❤❤</font></a></div>'else:else:'<div class="buttonGr"><a href="exec:">内射♈❤❤</a></div>'
+            if $魅魔能量>=1:'<div class="buttonPu5"><a href="exec:$魅魔能量-=1 & a=8 & gt ''警员_事件'',''JY_Fuck_催眠''"><font color="#FF00FF">肏喷她♈❤</font></a></div>'else:else:'<div class="buttonGr"><a href="exec:">肏喷她♈❤</a></div>'
+            '<div class="buttonPu5"><a href="exec:a=10 & gt ''警员_事件'',''JY_Fuck_催眠''">颜射</a></div>'
+
+            end
+            if q=4:
+            '<div class="buttonB2"><a href="exec:a=11 & gt ''警员_事件'',''JY_Fuck_催眠''">穿好衣服</a></div>'
+            end
+            if q=5:
+            '<div class="button"><a href="exec:a=12 & gt ''警员_事件'',''JY_Fuck_催眠''">录制节目</a></div>'
+            end
+            if q=6:
+            '<div class="button"><a href="exec:a=13 & gt ''警员_事件'',''JY_Fuck_催眠''">暗示她张开腿</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''电视台''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+           '<p>主持人: 我们先进一段广告，稍后带来《谈谈交通》……</p>'
+           '<p>我：没事吧？</p>'
+           '<p><<$JY.name>>：稿子都没背熟，好紧张…</p>'
+         '</div>'
+    end
+
+    if 10>=a and a>=1:
+         '<div class="dialog_menu">'
+           '<p>我：紧张什么，先做点能放轻松的事吧！</p>'
+           '<p><font color="#FF00FF">❤催眠成功了！</font></p>'
+			'<p><font color="#FF00FF"><<$JY.name>>：嗯<<$娇喘声>></font></p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=11:
+         '<div class="dialog_menu">'
+             if a=11:'<p>我：来，穿上这个。</p>'
+             if a=12:'<p><<$JY.name>>：今天…嗯❤交通不再拥堵…是因为……航道疏通完毕了❤</p>'
+             if a=13:'<p>·她缓缓张开了双腿，在镜头之下的肉穴内，自慰棒嗡嗡地响着…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JY_Fuck_强迫":
+	 $my.精力+=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\N1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            '<div class="buttonGn"><a href="exec:a+=1 & gt ''警员_事件'',''JY_Fuck_强迫''">强制观看</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''警员_事件'',''处决前''">。。。</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>？？？: 真是个小美女，让我们哥俩好好爽爽！</p>'
+           '<p><<$JY.name>>:<<$主角姓名>>…别看我…</p>'
+            if a>=1:
+           '<p>？？？: 准备好被我们操上黄泉了吗？！</p>'
+           '<p><<$JY.name>>:住手<<$娇喘声>></p>'
+            end
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p>？？？: 那个男的怎么办？</p>'
+           '<p><<$JY.name>>:<<$主角姓>>…<<$主角姓名>>……快跑…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="处决前":
+		$my.精力+=3
+		a=0
+		'<div class ="show_menu"><img src="images\NPC\JY\pics\出发7.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''警员_事件'',''处决前2''">。。。 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>小弟A: 别想耍花招，就先拿你练练准头吧！准备见阎王爷吧！</p>'
+			 '<p>我: ……</p>'
+		 '</div>'
+End
+
+if $args[0]="处决前2":
+		$my.精力+=3
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\枪1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+		'<div class="button_menu">'
+			if a!3:'<div class="button"><a href="exec:a+=1 & gt ''警员_事件'',''处决前2''">。。。 </a></div>'
+			if a>=3:
+			if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec:$m=''TZ'' & $ma=$TZ.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位台长</a></div>'
+            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位播音员</a></div>'
+            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位继母</a></div>'
+			'<div class="button"><a href="exec:a+=1 & gt ''医院''">出院 </a></div>'
+			end
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>小弟A: 什么声音？！有人触发了门口的警报，你出去看看！</p>'
+			 '<p><<$DC.name>>: 不许动！</p>'
+			 '<p>小弟B: 啊啊啊！</p>'
+			 if a=1:'<p><<$DC.name>>: 格洛克17型手枪？你为什么会有这个？</p>'
+			 if a=2:'<p><<$DC.name>>: 你还好吗？醒醒！</p>'
+			 if a=3:
+				'<p>我: 这是医院的天花板吗？</p>'
+				'<p>护士: 你醒了？正好有人来探视你了！</p>'
+				if $寻枪事件链=3:$寻枪事件链=4
+				a=0 & q=0
+			 end
+		 '</div>'
+End
+
+if $args[0]="配枪交付":
+		a=0
+		'<div class ="show_menu"><img src="images\NPC\JY\pics\枪.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonP"><a href="exec:$对话a=''为了你我可以做任何事，死而无憾。''  & gt ''警员_事件'',''寻枪结束''">死而无憾 </a></div>'
+			'<div class="buttonR"><a href="exec:$对话a=''都怪你，你要怎么补偿我？''  & gt ''警员_事件'',''寻枪结束''">都怪你 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>: 看！在这里！这次我把它放在这个箱子里了！</p>'
+			 '<p>我: 能失而复得就是万幸了…</p>'
+			 '<p><<$JY.name>>: 谢谢你！要不是<<$DC.name>>及时赶到…你可能真的会死…</p>'
+			 '<p>我: ……（该怎么回答？）</p>'
+		 '</div>'
+End
+
+
+if $args[0]="寻枪结束":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\X1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a=0:
+        '<div class="button_menu">'
+            '<div class="buttonP"><a href="exec:a+=1 & gt ''警员_事件'',''寻枪结束''">闭上眼睛</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我: <<$对话a>></p>'
+           '<p><<$JY.name>>:<<$主角姓名>>…把眼睛闭上…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>我: ………</p>'
+           '<p><<$JY.name>>:<<$主角姓>>…<<$主角姓名>>…谢谢你…</p>'
+           $JY.love+=50
+           if $寻枪事件链=4:$寻枪事件链=5
+           $寻枪结束=1
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JY_Fuck_约会后2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\X1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_约会后2''">闭上眼睛</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_约会后2''">揉胸</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_约会后2''">为我口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_约会后2''">口内射精</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_约会后2''">对话</a></div>'
+            end
+            if a=5:
+
+            if $JY.bad>=50:'<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_约会后2''">插入肉穴</a></div>'else:'<div class="button"><a href="exec:gt ''居民区''">停手</a></div>'
+            end
+
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_约会后2''">大力抽插</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_约会后2''">射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_约会后2''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 把眼睛闭上…</p>'
+           if a>=1:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a>=2:'<p>我：你脸红了？</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>我：我想更进一步…</p>'
+             '<p><<$JY.name>>: 我…我还没有做好准备……</p>'
+             '<p>我：呃…</p>'
+             if $JY.bad>=50:'<p><<$JY.name>>: 那就…温柔一点…求你了…</p>'
+            $JY.bad+=q
+            $JY.love+=q
+         '</div>'
+    end
+
+    if 8>=a and a>=6:
+         '<div class="dialog_menu">'
+           '<p><<$JY.name>>: 温柔一点……</p>'
+           if a>=7:'<p><<$JY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=9:
+            $JY.bad+=q
+            $JY.love+=q
+            $JY.上垒=1
+         '<div class="dialog_menu">'
+             '<p>我：舒服吗？</p>'
+             '<p><<$JY.name>>: 嗯…抱一下…</p>'
+             '<p>我：好。*拥抱</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="约会":
+		a=0 & q=0
+		'<div class ="show_menu"><img src="images\NPC\JY\pics\摸鱼<<rand(0,5)>>.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:gt ''警员_事件'',''JY_Fuck_冰激凌''">去吃冰激凌 </a></div>'
+			'<div class="buttonS2"><a href="exec:gt ''警员_事件'',''JY_Fuck_喝一杯''">去喝一杯 </a></div>'
+			if $JY.bad>=50:'<div class="buttonS3"><a href="exec:gt ''警员_事件'',''JY_Fuck_约会后2''">去酒店 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			if $JY.上垒=1:'<div class="buttonS4"><a href="exec:gt ''警员_事件'',''摸鱼到晚上''">摸鱼到晚上 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			'<div class="button"><a href="exec:gt ''地铁''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>: 和你在一起的时候好开心呢！</p>'
+			 '<p>我: 我也是。</p>'
+			 $JY.love+=5
+		 '</div>'
+End
+
+
+if $args[0]="JY_Fuck_冰激凌":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\date1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_冰激凌''">请客</a></div>'
+            end
+            if a=1:
+
+            if $JY.bad>=30:'<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_冰激凌''">俯下身</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''商场''">离开</a></div>'
+
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_冰激凌''">继续口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_冰激凌''">按住她的头</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_冰激凌''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''商场''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 这家的冰激凌里应该不含酒精吧？</p>'
+           if a>=1:'<p><<$JY.name>>:你盯着我看干嘛？</p>'
+           if a>=2:'<p>我：你越来越大胆了呢？</p>'
+         '</div>'
+    end
+
+    if a=5:
+            $JY.bad+=q
+            $JY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 我…我的表现怎么样…</p>'
+             '<p>我：呃…非常好！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JY_Fuck_办公室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\B1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_办公室''">温柔点</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_办公室''">再深点</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_办公室''">温柔插入</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_办公室''">抬起大腿</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_办公室''">按在桌上</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_办公室''">有人来了？</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_办公室''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_办公室''">情话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 现在很晚了，应该没人会打扰我们了。</p>'
+           if a=1:'<p>我：你的口活越来越好了…</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我：我等不及了！</p>'
+           if a>=3:'<p><<$JY.name>>:<<$话>></p>'
+           if a>=6:'<p>我: 喂喂，刚刚是不是有个人走过去？</p>'
+           if a>=6:'<p><<$JY.name>>:你在担心什么？</p>'
+         '</div>'
+    end
+
+    if a=8:
+		 $JY.love+=q+my.魅力
+		 $JY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 你有多爱我？</p>'
+             '<p>我：比昨天多一点，比明天少一点。</p>'
+             '<p><<$JY.name>>: #^_^#</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_喝一杯":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\醉1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_喝一杯''">去酒店</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_喝一杯''">揉奶</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_喝一杯''">摸奶头</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_喝一杯''">玩弄小穴</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_喝一杯''">插嘴巴</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_喝一杯''">丝袜足交</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_喝一杯''">射精</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 我都说了…我不能喝酒，会醉哒！</p>'
+           if a=1:'<p>我：醒醒…需要我帮你脱衣服吗？</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $JY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: <<$娇喘声>></p>'
+             '<p>我：射了这么多一定会被她发现的吧…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_车上":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\车1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_车上''">接吻</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_车上''">侍奉</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_车上''">口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_车上''">按住头</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_车上''">口内射精</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_车上''">调情</a></div>'
+            end
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonP"><a href="exec:gt ''警员_事件'',''约会''">继续约会</a></div>'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$JY.name>>: 我越来越喜欢你了！</p>'
+           if a>=1:'<p>我：真的嘛？</p>'
+           if a>=2:'<p><<$JY.name>>:嗯<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         $JY.love+=q+my.魅力
+         $JY.bad+=10
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 干嘛这样盯着我的眼睛看？</p>'
+             '<p>我：你的眼睛太美了…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="摸鱼到晚上":
+		a=0 & q=0
+		if hour<21:hour=21
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\晚车.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+		'<div class="button_menu">'
+			'<div class="buttonP"><a href="exec:gt ''警员_事件'',''去她家''">去她家 </a></div>'
+			if $JY.bad>=150:'<div class="buttonR2"><a href="exec:gt ''警员_事件'',''JY_Fuck_惩戒室''">偷偷回惩戒室 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			if $JY.bad>=250:'<div class="buttonR4"><a href="exec:gt ''警员_事件'',''JY_Fuck_WC''">去公共厕所做 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			'<div class="button"><a href="exec:gt ''居民区''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>: 不知不觉这么晚了呢…我们要不要……</p>'
+			 '<p>·做什么？ </p>'
+			 $JY.love+=5
+		 '</div>'
+End
+
+
+if $args[0]="JY_Fuck_惩戒室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\TRY1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_惩戒室''">玩奶头</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_惩戒室''">玩小穴</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_惩戒室''">插入道具</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_惩戒室''">持续刺激</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_惩戒室''">让她高潮</a></div>'
+            end
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''警察局''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$JY.name>>: 你好变态！居然想玩这个…万一有人进来了怎么办啊？！</p>'
+           if a>=1:'<p>我：那你就小声点？</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $JY.love+=q+my.魅力
+         $JY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 我们快走吧……我不害羞的啊？</p>'
+             '<p>我：总感觉你在口是心非呢…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_WC":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\WC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_WC''">口她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_WC''">抠她</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_WC''">口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_WC''">抬起开肏</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_WC''">抱起来肏</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_WC''">加速冲刺</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_WC''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_WC''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 你你你……你进来干嘛？！</p>'
+           if a=1:'<p>我：让我检查一下…果然已经湿透了……</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我：你也很想要对吧？！</p>'
+           if a>=4:'<p><<$JY.name>>:肏我<<$话>></p>'
+
+         '</div>'
+    end
+
+    if a=8:
+         $JY.love+=q+my.魅力
+         $JY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我：很刺激吧？</p>'
+             '<p><<$JY.name>>: 偶尔一次还不错……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+
+if $args[0]="去她家":
+		a=0 & q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\入1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:$T地点=1 & gt ''警员_事件'',''JY_Fuck_泛用口''">在这 </a></div>'
+			if $JY.bad>=200:'<div class="buttonS3"><a href="exec:$T地点=2 &gt ''警员_事件'',''JY_Fuck_泛用口''">去做饭 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			if $JY.bad>=300:'<div class="buttonS5"><a href="exec:$T地点=3 &gt ''警员_事件'',''JY_Fuck_泛用口''">去洗澡 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			'<div class="button"><a href="exec:gt ''居民区''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>: 这里能不能变成我们两个的小家呢？</p>'
+			 '<p>我: 来…</p>'
+			 $JY.love+=5
+		 '</div>'
+End
+
+
+if $args[0]="JY_Fuck_泛用口":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\入<<$T地点>>-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_泛用口''">口我</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_泛用口''">射精</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_泛用口''">调情</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec: gt ''警员_事件'',''休息一会''">去客厅休息</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+           if $T地点=3:'<p>我：你好像变得越来越淫乱了…</p>'
+           if a=0:'<p><<$JY.name>>: 我会为你全心全意服务的，因为我爱你。</p>'
+           if a=1:'<p>我：我也爱你。</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=3:
+         $JY.love+=q+my.魅力
+         $JY.bad+=q
+         '<div class="dialog_menu">'
+             if $T地点=3:'<p>我：你好像变得越来越淫乱了…</p>'
+             '<p><<$JY.name>>: 嘿嘿…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="休息一会":
+		a=0 & q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\S1-<<rand(0,3)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		'<div class="button_menu">'
+			if $JY.love>=200:'<div class="buttonS1"><a href="exec:gt ''警员_事件'',''JY_Fuck_纯爱''">纯爱SEX </a></div>'
+			if $JY.bad>=400-$JY.love:'<div class="buttonS2"><a href="exec:gt ''警员_事件'',''JY_Fuck_JK''">穿情趣JK </a></div>'else:'<div class="buttonGr"><a href="exec:">情趣？？ </a></div>'
+			if 精油>0 and MGF>0:'<div class="buttonS3"><a href="exec:MGF-=1 & 精油-=1 &gt ''警员_事件'',''JY_Fuck_精油''">涂精油&麦高芬 </a></div>'else:'<div class="buttonGr"><a href="exec:">涂精油&麦高芬 </a></div>'
+			if $JY.love>=my.魅力*25 and $JY.bad>=my.魅力*25:'<div class="buttonS5"><a href="exec:gt ''警员_事件'',''JY_Fuck_ZZ''">终极性爱 </a></div>'else:'<div class="buttonGr"><a href="exec:">终极？？ </a></div>'
+			'<div class="button"><a href="exec:gt ''居民区''">离开 </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>我: 让我休息一下啦…</p>'
+			 '<p><<$JY.name>>: 不行<<$娇喘声>></p>'
+			 $JY.love+=5
+		 '</div>'
+End
+
+
+if $args[0]="JY_Fuck_JK":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\JK1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_JK''">侍奉</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_JK''">接吻</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_JK''">口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_JK''">插入</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_JK''">自己动</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_JK''">加速冲刺</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_JK''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_JK''">调情</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 喜欢我穿成这样嘛？我可只给你一个男人穿过！</p>'
+           if a=1:'<p>我：哇偶…好有感觉…</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我：你也很想要对吧？！</p>'
+           if a>=3:'<p><<$JY.name>>:老师操我<<$话>></p>'
+
+         '</div>'
+    end
+
+    if a=8:
+         $JY.love+=q+my.魅力
+         $JY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 辛苦了…老师！Mua！</p>'
+             '<p>我：我的学生可没你这么骚的！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_纯爱":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\家1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_纯爱''">口我</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_纯爱''">侍奉</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_纯爱''">挑逗她</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_纯爱''">直接插入</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_纯爱''">摩擦阴蒂</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_纯爱''">大力冲刺</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_纯爱''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_纯爱''">为我舔干净</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_纯爱''">替她擦干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 要不要我去换件衣服？</p>'
+           if a=1:'<p>我：不用，我你穿什么都没有你的酮体有魅力…</p>'
+           if a>=2:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我：想插进来吗？</p>'
+           if a>=4:'<p><<$JY.name>>:嗯<<$话>></p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         $JY.love+=q*2+my.魅力
+         $JY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 你好温柔啊，亲爱的！</p>'
+             '<p>我：其实我一直很羡慕像普通情侣那样的日常…我一直觉得这是我可望而不可及的事…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JY_Fuck_精油":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\油1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_精油''">口她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_精油''">口我</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_精油''">后入她</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_精油''">抬腿插</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_精油''">女上位</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_精油''">大力冲刺</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_精油''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_精油''">接吻</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 亲爱的，这个精油好有感觉……</p>'
+           if a>=1:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a=2:'<p><<$JY.name>>:亲爱的舒服吗？</p>'
+           if a>=3:'<p><<$JY.name>>:嗯<<$话>></p>'
+
+         '</div>'
+    end
+
+    if a=8:
+         $JY.love+=q+my.魅力
+         $JY.bad+=q*2+my.魅力
+         $JY.按过=1
+         '<div class="dialog_menu">'
+             '<p><<$JY.name>>: 我的大脑好乱！我只想和你一辈子在一起！</p>'
+             '<p>我：那就什么事都不要想，抱紧我。</p>'
+             '<p><<$JY.name>>: 我想你的时候可以去店里找你吗？</p>'
+             '<p>我：当然，我会为你服务。</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JY_Fuck_ZZ":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JY\vids\ZZ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_ZZ''">打开跳蛋</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_ZZ''">G点猛攻</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_ZZ''">来口我</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_ZZ''">抬起来操</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_ZZ''">操爽她</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_ZZ''">让她自己动</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_ZZ''">高潮前夕</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_ZZ''">射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_ZZ''">事后</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JY.name>>: 亲爱的，快点来玩弄我…我的小穴想被大肉棒插了…</p>'
+           if a>=1:'<p><<$JY.name>>:<<$娇喘声>></p>'
+           if a>=2:'<p>我:是这样吗？要不要再粗暴点？</p>'
+           if a>=4:'<p><<$JY.name>>:要<<$话>></p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         $JY.love+=q*2+my.魅力
+         $JY.bad+=q*2+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p>我：你还好吗？</p>'
+             '<p><<$JY.name>>: 我想一辈子都做老公的母狗…老公…我爱你❤</p>'
+             '<p>我：我也爱你❤你先休息一会吧…</p>'
+             '<p>·此事件为该人物的最终事件</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JY_Fuck_地下室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JY\vids\地下室D1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<10:
+		'<div class="button_menu">'
+			if q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''警员_事件'',''JY_Fuck_地下室''">振动棒玩弄</a></div>'
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''警员_事件'',''JY_Fuck_地下室''">舌尖挑逗</a></div>'
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''警员_事件'',''JY_Fuck_地下室''">指尖潮吹</a></div>'
+			'<div class="buttonS2"><a href="exec:a=4 & gt ''警员_事件'',''JY_Fuck_地下室''">反复玩弄</a></div>'
+			end
+			if q=4:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''警员_事件'',''JY_Fuck_地下室''">肉棒插入</a></div>'
+			end
+
+			if q=5 or q=6:
+			'<div class="buttonS2"><a href="exec:a=6 & gt ''警员_事件'',''JY_Fuck_地下室''">在木马上做</a></div>'
+			'<div class="buttonS3"><a href="exec:a=7 & gt ''警员_事件'',''JY_Fuck_地下室''">去镜子前做</a></div>'
+			'<div class="buttonR4"><a href="exec:a=8 & gt ''警员_事件'',''JY_Fuck_地下室''">去床上做</a></div>'
+			end
+
+			if q=7:
+			'<div class="buttonS5"><a href="exec:a=9 & gt ''警员_事件'',''JY_Fuck_地下室''">射精</a></div>'
+			end
+
+			if a=9:
+			'<div class="buttonP"><a href="exec:a=10 & gt ''警员_事件'',''JY_Fuck_地下室''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''警察局'',''摸鱼''">带她去吃东西</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>：你的地下室，怎么是这样的？</p>'
+			 '<p>我： 是你说要参观的❤</p>'
+			 '<p><<$JY.name>>：放开我啦❤</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>：舒服<<$娇喘声2>>哦哦哦❤</p>'
+			 if a>=2:'<p>我：果然多多少少沾点M属性的吧！</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=5:
+		 '<div class="dialog_menu">'
+		 	 '<p>我：我厉害吗？！</p>'
+			 '<p><<$JY.name>>：讨厌大坏蛋<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=10:
+		$JY.love+=q+my.魅力
+		$JY.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p>·<<$JY.name>>： 好了，肚子又饿了呢，陪我去吃东西吧。</p>'
+			 '<p>我： 你真是个小吃货。</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+--- 警员_事件 ---------------------------------
+

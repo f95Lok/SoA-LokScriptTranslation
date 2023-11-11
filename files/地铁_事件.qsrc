@@ -1,0 +1,74 @@
+# 地铁_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=2
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'地铁_地图'
+'</div>'
+
+if $ARGS[0]="地铁骚扰0":
+!这是一个判断
+ 电车随机数=rand(4,55) 
+ if $电车角色='A': 
+	if 电车A_内置num>=电车随机数:gt '地铁_事件','地铁骚扰2'
+	if 电车A_内置num<=电车随机数:gt '地铁_事件','地铁骚扰1'
+ end
+ if $电车角色='B': 
+	if 电车B_内置num>=电车随机数:gt '地铁_事件','地铁骚扰2'
+	if 电车B_内置num<=电车随机数:gt '地铁_事件','地铁骚扰1'
+ end
+ 
+end
+
+if $ARGS[0]="地铁骚扰1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\underground\电车<<$电车角色>>2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+	'<div class="button_menu">'
+		if a!4:'<div class="buttonP"><a href="exec:a+=1 & my.道德-=3 & gt ''地铁_事件'',''地铁骚扰1''">轮到我了</a></div>'
+		gs'地铁_选项'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我:她好像是那种不会反抗的类型……</p>'
+		if $电车角色='A': 电车A_内置num+=1
+		if $电车角色='B': 电车B_内置num+=1
+	'</div>'
+end
+
+if $ARGS[0]="地铁骚扰2":
+		a=0
+		q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\underground\电车<<$电车角色>>3-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+	'<div class="button_menu">'
+		 if $电车角色='A': '<div class="buttonP"><a href="exec:gt ''群演_事件'',''群演_Fuck_地铁A''">带她走</a></div>'
+		 if $电车角色='B': '<div class="buttonS"><a href="exec:gt ''群演_事件'',''群演_Fuck_地铁B''">跟她走</a></div>'
+		gs'地铁_选项'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我:是她……</p>'
+		'<p>女学生:是你……</p>'
+		'<p>·你们俩人目光对视的一瞬间…仿佛心领神会…</p>'
+	'</div>'
+end
+
+
+
+--- 地铁_事件 ---------------------------------
+

@@ -1,0 +1,386 @@
+# 辣妹帮
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$辣妹事件=0
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'辣妹帮_地图'
+'</div>'
+
+
+if $args[0]="":
+	$随机数=rand(1,100)
+	$辣妹事件=rand(0,2)
+	if $随机数>=85:
+		$辣妹事件=rand(1,2)
+	else:
+		$辣妹事件=0
+	end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\EDM\vids\辣妹群<<$辣妹事件>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $辣妹事件!0:
+			if $EDM.love>=200-$EDM.bad:'<div class="buttonS"><a href="exec:gt ''二代目_事件'',''EDM_Fuck_辣妹群2''">加入她们</a></div>'else:'<div class="buttonGr"><a href="exec:">加入她们</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·辣妹帮的大本营，时不时能见到穿着清凉的辣妹们。</p>'
+		if $辣妹事件!0:'<p>辣妹:好无聊诶，不如我们找点乐子吧。是去叫个性偶还是去找个处男？</p>'
+	'</div>'
+End
+
+if $args[0]="走廊":
+	'<div class ="show_menu"><img src="images\place\辣妹帮走廊.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if hour>=19:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''会长房间''"><<$hz.name>>的房间</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$hz.name>>的房间:上锁</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·辣妹帮的走廊，各处是辣妹们的娱乐室和起居室。</p>'
+	'</div>'
+End
+
+if $args[0]="二层":
+	'<div class ="show_menu"><img src="images\place\辣妹帮二楼<<$时间>>.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $时间='下午':'<div class="button"><a href="exec:minutes+=15 & gt ''群演_事件'',''辣妹_Fuck_群''">对视</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·辣妹帮的二层，干部们的活动区域。</p>'
+	'</div>'
+End
+
+if $args[0]="顶层":
+	'<div class ="show_menu"><img src="images\place\辣妹帮顶楼.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·辣妹帮的顶层，辣妹帮头目的活动区域。</p>'
+	'</div>'
+End
+
+if $args[0]="顶层2":
+	if hour<7:gt'辣妹帮','顶层'
+	$EDM.available=1
+
+	if hour<=8:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\EDM\vids\白1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	if 9<=hour and hour<=21:'<div class ="show_menu"><img src="images\place\辣妹帮顶楼2.jpg" width="854"></div>'
+
+	if hour>=22:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\EDM\vids\黑1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	
+	
+	
+	'<div class="button_menu">'
+		if $YDM_Event_free=0:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''对话''">解释</a></div>'
+		if $YDM_Event_free>0 and $格斗前置=2:'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''辣妹帮'',''格斗比赛''">格斗比赛</a></div>'
+		if $YDM_Event_free=10:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''越狱尾款''">越狱尾款</a></div>'
+		if $YDM_Event_free>=11:'<div class="buttonR2"><a href="exec:minutes+=15 & gt ''辣妹帮'',''一代目''">对话<<$YDM.name>></a></div>'
+		if $YDM.room=1:
+			'<div class="button"><a href="exec:minutes+=15 &$EDM对话=0& gt ''辣妹帮'',''喝点什么''">喝点什么</a></div>'
+			if $EDM_Event_friend=1:
+				if hour<=8 and $EDM.love>=100:'<div class="buttonR1"><a href="exec:minutes+=15 & gt ''二代目_事件'',''EDM_Fuck_白''">对话</a></div>'
+				if hour>=22 and $EDM.bad>=150:'<div class="buttonR1"><a href="exec:minutes+=15 & gt ''二代目_事件'',''EDM_Fuck_黑''">靠近</a></div>'
+				if hour=12 or hour=13:'<div class="button"><a href="exec:minutes+=15 & gt ''一代目_事件'',''午饭时间''">午饭时间</a></div>'else:'<div class="buttonGr"><a href="exec:">午饭时间</a></div>'
+				if hour>=22:'<div class="button"><a href="exec:minutes+=15 & gt ''一代目_事件'',''YDM_Fuck_安静3P''">请求留宿</a></div>'else:'<div class="buttonGr"><a href="exec:">请求留宿</a></div>'
+				if hour>=18:'<div class="buttonGn"><a href="exec:gt ''二代目_事件'',''开车''">一同出去</a></div>'else:'<div class="buttonGr"><a href="exec:">一同出去</a></div>'
+			end
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·辣妹帮的顶层，辣妹帮头目的活动区域。</p>'
+		'<p><<$EDM.name>>:喂喂，你怎么自说自话进来了？</p>'
+	'</div>'
+End
+
+if $args[0]="对话":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''二代目_事件'',''忤逆''">忤逆</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">顺从</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：冒昧打扰了...我是来拿取学校食材的路上被邀请上来的..我叫<<$主角姓名>>。</p>'
+		'<p><<$EDM.name>>:哼...是这样嘛...要不是看在你是客人的份上，我立马就把你揍翻了！</p>'
+		'<p>我：原来您就是头目，幸会了。</p>'
+		'<p><<$EDM.name>>:现在，滚出我的房子！男性都是污秽的生物，事实就是如此。喋喋不休，想法下流肮脏。但对于唯一会同类相残的哺乳动物而言，这也是生命进化的过程之一...</p>'
+	'</div>'
+End
+
+if $args[0]="格斗比赛":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">那电视台见</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：不知道有没有人感兴趣参加电视台举办的女子格斗大赛……？</p>'
+		'<p><<$EDM.name>>: 哼...女子格斗大赛……？奖金是多少？</p>'
+		'<p>我：奖金……？大概是10万…</p>'
+		'<p><<$EDM.name>>: 才区区10万…？我可不感兴趣呢！</p>'
+		'<p>我：好吧…</p>'
+		'<p><<$EDM.name>>: 不过！这是个向外界展示我们强大的绝好机会！我会挑选几个能打的！电视台是吧*喔呼呼呼呼呼呼~</p>'
+		$格斗前置=3
+	'</div>'
+End
+
+
+if $args[0]="越狱尾款":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & money+=50000 & gt ''辣妹帮''">收下</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+         $YDM_Event_free+=1
+         $YDM.room=1
+		'<p><<$EDM.name>>:得不错！我见识到了...你的决心！这是5万！（那个混蛋居然卖我一把假枪！看我不宰了他！）</p>'
+	'</div>'
+End
+
+if $args[0]="喝点什么":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if $EDM对话=0:
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=1& gt ''辣妹帮'',''喝点什么''">茶</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=2& gt ''辣妹帮'',''喝点什么''">热巧克力</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=3& gt ''辣妹帮'',''喝点什么''">橘子汽水</a></div>'
+		else:
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=0& gt ''辣妹帮'',''聊天''">聊天</a></div>'
+		if $EDM_Event_friend=1:'<div class="buttonR3"><a href="exec:minutes+=15 &$EDM对话=0& gt ''辣妹帮'',''死党挑战''">死党挑战</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $EDM对话=0:'<p><<$EDM.name>>:我看看....呃..我有茶..热巧克力...和橘子汽水！</p>'
+		if $EDM对话=1:
+			'<p><<$EDM.name>>:你是老古董吗？居然喜欢喝茶？</p>'
+			'<p>我:....</p>'
+			'<p><<$EDM.name>>:稍等一下，如果追究红茶的回甘及耐泡，建议使用95℃高温的水，这才是最适合红茶的温度~（被我的博学惊倒了吧！喔呼呼呼呼呼呼~）</p>'
+			'<p>我:....</p>'
+			'<p><<$EDM.name>>:嘿？！自古往来，泡茶水老、水嫩都是大忌！快给我坐下！（啊啊啊啊啊，难道是我煮的太慢了他不耐烦了吗？）</p>'
+			'<p>我:....十分钟后。</p>'
+			'<p><<$EDM.name>>:好了，都搞定了，请慢用！*喔呼呼呼呼呼呼~</p>'
+		end
+		if $EDM对话=2:
+			'<p><<$EDM.name>>:喂！等等！小，心，烫!</p>'
+			'<p>我:呲溜————*嘬了一小口。</p>'
+			'<p><<$EDM.name>>:好喝吧？关键在于第一选用纯脱脂牛奶，奶香十足。第二要选用最优质的的巧克力，我用的是烘焙专用的巧克力豆，你的话可以用最平常的巧克力来做.....</p>'
+			'<p>我:....*再喝一口。</p>'
+			'<p><<$EDM.name>>:只是用之前要切成碎屑以便容易融化，如果家里有打发的多余鲜奶油！放上一块！就会更美味了！（你这个弱鸡，我可是有认真上烹饪课的！凸(艹皿艹 )）</p>'
+			'<p>我:.......*喝大一口..</p>'
+			'<p><<$EDM.name>>:如果你没有这些，可以用..喂喂！你怎么一口气喝完了！不是说要小心烫吗？*等等，难道说是在向我证明你痛饮的...决心吗？</p>'
+		end
+		if $EDM对话=3:
+			'<p><<$EDM.name>>:橘子汽水？只有孩子和情景剧<柯南与凯尔>里凯尔才爱喝橘子汽水！你居然想尝尝这个？冰镇的味道像是冬天用舌头去舔铁锈！</p>'
+			'<p>我:你也喜欢喝吗？*嘁————————打开易拉罐。</p>'
+			'<p><<$EDM.name>>:哼？！这种便宜、易得，以及高糖和二氧化碳引发的血清素快速释放快感的饮料，只是广大年轻消费者产生强大共鸣的情感象征物罢了。（我怎么会喜欢上这种东西呢？）</p>'
+			'<p>我:哦。*吨吨吨————ε=(>ο<*)))啊~~</p>'
+			'<p><<$EDM.name>>:*咂咂嘴————*喝完了就快...走吧！希望这种碳酸饮料能腐蚀完你的牙齿，还有你的骨头和灵魂！我截胡了橘子汽水的供应渠道，如果你想喝的话，只有我这有喔~喔呼呼呼呼呼呼~</p>'
+		end
+		if $EDM对话!0:
+			'<p>我:呃...多谢款待。我还以为全是伏特加威士忌这种烈酒呢。</p>'
+			'<p><<$EDM.name>>:..哦哦，不客气.....</p>'
+			'<p><<$YDM.name>>:*噗嗤——*你的性格果然还是不适合当老大呢。</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="聊天":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if $EDM对话=0:
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=1& gt ''辣妹帮'',''聊天''">交朋友</a></div>'
+		if $EDM.love>=10:'<div class="button"><a href="exec:minutes+=15 &$EDM对话=2& gt ''辣妹帮'',''聊天''">喜欢的类型</a></div>'else:'<div class="buttonGr"><a href="exec:">隐私话题</a></div>'
+		if $EDM.love>=20:'<div class="button"><a href="exec:minutes+=15 &$EDM对话=3& gt ''辣妹帮'',''聊天''">你的决心是？</a></div>'else:'<div class="buttonGr"><a href="exec:">隐私话题</a></div>'
+		else:
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=0& gt ''辣妹帮''">离开</a></div>'
+		end
+		if $EDM对话=1:'<div class="buttonR"><a href="exec:gt ''二代目_事件'',''EDM_Fuck_交友''">等等！</a></div>'
+		 
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $EDM对话=0:'<p><<$EDM.name>>:很好喝吧！</p>'
+		if $EDM对话=1:
+			'<p><<$EDM.name>>:？！！真的吗？我好高兴啊！我接受了....个屁！ 凸(艹皿艹 )我怎么可能和你这种喋喋不休，想法下流肮脏。自私软弱的怂货交朋友？</p>'
+			'<p><<$EDM.name>>:要不是看在你帮助<<$YDM.name>>脱狱的份上....当然！你也是为了钱才愿意做的！</p>'
+			'<p><<$YDM.name>>:说起来，<<$主角姓名>>先生，我还没好好地感谢你呢。<<$EDM.name>>的性格就是这样，你别理她。她打算回避这场挑战！</p>'
+			'<p><<$EDM.name>>:挑战！？姐姐！你刚才是不是说了【挑战】？你觉得我没法和他成为朋友？ 凸(艹皿艹 )喔呼呼呼呼呼呼~开什么玩笑！</p>'
+			'<p><<$YDM.name>>:我不信，你做不到的。*u_u</p>'
+			'<p><<$EDM.name>>:哼！我们不光要成为朋友！还要成为....死党！</p>'
+			'<p><<$YDM.name>>:你们都没有出生入死过，怎么能成为死党呢。而我和<<$主角姓名>>已经经历过了，某种程度上。他甚至都捅进了我的肛门里。*u_u</p>'
+			'<p><<$EDM.name>>:什么？！？！！你和姐姐已经做了那种事了吗？！你觉得我没法和你捅肛门？好！我们也来做吧！这样才算是公平竞争！</p>'
+			$EDM_Event_friend=1
+			end
+		if $EDM对话=2:
+			'<p><<$EDM.name>>:？！！？.....怎么突然聊这个了？说实话，我对男人不怎么挑剔。如果只是...上床的话。</p>'
+			'<p><<$YDM.name>>:噢？是吗？那你和多少男人上过床了</p>'
+			'<p><<$EDM.name>>:姐姐！好吧！我喜欢不爱嫉妒，不爱惹事，有责任心的男人....还有不能有纹身和穿孔，我其实不喜欢那些.....如果他能穿着精心熨烫过的衬衫搭配协调的外套，那肯定会吸引我的注意力。有点肌肉也不错，会更引起我的好感。就算外表酷似小孩，有一颗成熟的心也可以！</p>'
+			'<p><<$EDM.name>>:当然，最重要的还是....坚毅不倒的决心</p>'
+			'<p>·发现你们正津津有味地看着她。</p>'
+			'<p><<$EDM.name>>:嗯！？！？！？！我胡说的。</p>'
+			end
+		if $EDM对话=3:
+			'<p><<$EDM.name>>:小时候，我为了证明在铁娘子军里自己是最强的，就去尝试和团长单挑。重点是尝试二字...我压根连一下都打不中她！更糟的是，从头到尾，她都不肯反击！我被羞辱地无地自容！之后，她摸着我的头，对我说了一些傻话。“想知道怎么打败我吗？”我说了想！从那之后，她就开始训练我。她也成了我奋斗的目标。</p>'
+			'<p><<$YDM.name>>:三年前，我终于打败了她。但在那一刻，我感觉....非常糟糕。她却笑的很开心。我从没见过哪个人因为输了而感到荣幸。</p>'
+			'<p>我:她可真是位好老师。</p>'
+			'<p><<$EDM.name>>:但她...却因为反对【女性领导法案】坚持主张两性平等被革除公职，依法逮捕，而那天....正是我亲手击败了她。我成了新任的团长....整日训练着那些毫无斗志，毫无决心的pussy cat！</p>'
+			'<p><<$YDM.name>>:最终，她受够了！来投奔我了。顺便一提，我可不是那位铁娘子军的团长。别误会了。那位团长从此下落不明，音讯全无。</p>'
+			'<p><<$EDM.name>>:为了给团长正名平反！我们要推翻政府！重塑一个男女平等的城市！这就是我的决心！</p>'
+			'<p><<$YDM.name>>:唉...其实我建立辣妹帮的初衷只是为了找一个地方寻欢作乐而已。没想到入狱这段时间居然被发展成反政府组织了。还好并没有什么实质性的进展~</p>'
+			end
+
+	'</div>'
+End
+
+if $args[0]="一代目":
+	$YDM.available=1
+	n=rand(1,2)
+	随机数=rand(0,3)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YDM\vids\对话<<n>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonR1"><a href="exec:gt ''一代目_事件'',''YDM_Fuck_奖励''">犒劳</a></div>'
+		if week_day >5:'<div class="buttonR2"><a href="exec:gt ''一代目_事件'',''YDM_Fuck_乐队''">重金属乐队</a></div>'else:'<div class="buttonGr"><a href="exec:">周末派对</a></div>'
+		'<div class="buttonGn"><a href="exec:gt ''一代目_事件'',''出去''">一同出去</a></div>'
+		if $YDM_Event_XZ>0 and 随机数=1:'<div class="button"><a href="exec:gt ''一代目_事件'',''YDM_Fuck_和校长''"><<$XZ.name>>来访</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XZ.name>>来访</a></div>'
+		if $FXZ.bad>=200 and 随机数=2:'<div class="button"><a href="exec:gt ''一代目_事件'',''YDM_Fuck_副校长''"><<$FXZ.name>>来访</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$FXZ.name>>来访</a></div>'
+		if $XY.bad>=200 and 随机数=3:'<div class="button"><a href="exec:gt ''一代目_事件'',''YDM_Fuck_考核''"><<$XY.name>>来访</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$XY.name>>来访</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YDM.name>>:啊咧咧，现在是时候犒赏犒赏你的英勇行为了，监狱里的时候我就想干了。</p>'
+		if 随机数>0:'<p><<$YDM.name>>:我还约了别人，你可不要来偷看喔。</p>'
+	'</div>'
+End
+
+if $args[0]="死党挑战":
+	'<div class ="show_menu"><img src="images\NPC\EDM\pics\二代目.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''二代目_事件'',''EDM_Fuck_交友''">肛门挑战</a></div>'
+		if 精油>0:'<div class="buttonS2"><a href="exec:精油-=1 & m= 0& gt ''二代目_事件'',''EDM_Fuck_按摩''">按摩挑战</a></div>'else:'<div class="buttonGr"><a href="exec:">按摩挑战</a></div>'
+		if $EDM.love>=20:'<div class="buttonS3"><a href="exec:a=-1 & gt ''二代目_事件'',''EDM_Fuck_奶牛装''">约会挑战</a></div>'else:'<div class="buttonGr"><a href="exec:">约会挑战</a></div>'
+		if $SW.love>=250-$SW.bad:'<div class="buttonS4"><a href="exec:a=-1 & gt ''二代目_事件'',''EDM_Fuck_生物意面''">烹饪挑战</a></div>'else:'<div class="buttonGr"><a href="exec:">烹饪挑战</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &$EDM对话=0& gt ''辣妹帮''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$EDM.name>>:苏格拉底曾经说过！成为死党的必经之路就是.....一起做坏事！！呃！我记错了...是一起完成挑战！！凸(艹皿艹 )</p>'
+	'</div>'
+End
+
+if $args[0]="会长房间":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\HZ吃~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:minutes+=15 & gt ''辣妹帮'',''会长房间过夜''">在这过夜</a></div>'
+		if MGF>0:'<div class="buttonS"><a href="exec:minutes+=15 & MGF-=1 & gt ''辣妹帮'',''会长房间药''">试试麦高芬</a></div>'else:'<div class="buttonGr"><a href="exec:">缺少麦高芬</a></div>'
+		if $HZ.love>=250:'<div class="buttonS2"><a href="exec:minutes+=15 & gt ''会长_事件'',''HZ_Fuck_玩具''">展示收藏</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+		if $HZ.音乐节约会=0:'<div class="buttonP"><a href="exec:minutes+=15 & $HZ.音乐节约会=1 & gt ''辣妹帮'',''会长房间''">同意约会</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:怎么样，这里的环境还不错吧，你可是我第一个带回来的男人……</p>'
+		'<p>我:看来辣妹帮的住宿条件真不一般啊…</p>'
+		'<p><<$HZ.name>>:那当然！</p>'
+		if $HZ.音乐节约会=0:
+		'<p><<$HZ.name>>:宝贝！公园里每周六都会举行音乐节，我也想去玩，你陪我去好不好？</p>'
+		'<p>我:音乐节？我想想…</p>'
+		'<p><<$HZ.name>>:宝贝！求求你啦❤</p>'
+		end
+		if $HZ.音乐节约会=1:
+		'<p><<$HZ.name>>:宝贝！周六我们早点去吧！听说搭舞台的时候还可以和歌手签名合约喔！</p>'
+		'<p>我:当然可以。</p>'
+		'<p><<$HZ.name>>:你最好啦！Mua❤</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0]="会长房间药":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\下药~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''会长_事件'',''HZ_Fuck_药干''">开搞</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:这是我姐姐研制的新药物……有兴趣尝试吗…？</p>'
+		'<p><<$HZ.name>>:我可不会碰毒品的！</p>'
+		'<p>我:主要作用是催情，激发荷尔蒙，提高性能力。</p>'
+		'<p><<$HZ.name>>:喔？那可以试试喔！</p>'
+	'</div>'
+End
+
+if $args[0]="会长房间过夜":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\房间开心~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''会长_事件'',''HZ_Fuck_浴室''">一起洗</a></div>'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''会长_事件'',''HZ_Fuck_床上''">床上等你</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我可以在这过夜吗…？</p>'
+		'<p><<$HZ.name>>:好啊，在学校我忍了好久，看那些骚逼看你的样子，我就在想你什么时候才肯来找我……</p>'
+		'<p>我:你为什么衣服湿湿的？</p>'
+		'<p><<$HZ.name>>:我正打算洗澡…要一起洗吗……</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+
+--- 辣妹帮 ---------------------------------
+

@@ -1,0 +1,862 @@
+# aid_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+if $ARGS[0]="":
+	$ZL.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:money-=299 &a=1& gt ''aid_event'',''ZL_Fuck_brohome''">join!299￥</a></div>'
+		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Student union cadre: Here, just the hillbilly squatting on the wall, you know.</p>'
+		'<p>Another man: Yo, Comrade cadre of the student Union!How are you, this is bringing me business!It`s the same as 299 an hour!Drive with 4 people or more!Do whatever you want, unlimited internal shooting!</p>'
+		'<p>Cadre of the Student Union: Lao Tzu introduced you to the guests, so you can`t give me a 20% discount?</p>'
+		'<p>Me: What if I get caught by the school picket team?</p>'
+		'<p>Another man: Picket team on campus?We are doing it in a rental room opposite the school. Can the picket team still manage things outside the school?Hahaha!</p>'
+	'</div>'
+
+end
+
+
+if $args[0]="ZL_Fuck_brohome":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\卖<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!2  and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''ZL_Fuck_brohome''">Vibrator</a></div>'
+			end
+			if a!3 and 1<=q and q<=5:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''ZL_Fuck_brohome''">Multiplayer to play with</a></div>'
+			end
+			if a!4 and 3<=q and q<=8:
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''ZL_Fuck_brohome''">Buckle the hole</a></div>'
+			end
+			if a!5 and 4<=q and q<=9:
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''ZL_Fuck_brohome''">Watch them do</a></div>'
+			end
+			if a!6 and a>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''ZL_Fuck_brohome''">Take a break</a></div>'
+			end
+			if a!7 and a>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''aid_event'',''ZL_Fuck_brohome''">Go by yourself</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''aid_event'',''ZL_Fuck_brohome''">Ejaculation</a></div>'
+			end
+			if a>=4 and q>=3:
+			'<div class="button"><a href="exec:a=9 & gt ''aid_event'',''ZL_Fuck_brohome''">Last shot</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 &a=0 &q=0&$ZL.love+=5 & gt ''aid_event'',''dialogue''">Take a break</a></div>'
+			'</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Man: Everyone is here, let`s start fucking her!Everyone has to have fun!Within an hour from now<<$ZL.name>>It`s your toy.</p>'
+		 '</div>'
+	end
+
+
+
+	if 8>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p>As the last semen shot into her face, the prostitutes hummed and left one by one.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $ARGS[0]="dialogue":
+	$my.energy+=15
+	$ZL.bad+=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖10~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $ARGS[1]="":'<div class="buttonG"><a href="exec: gt ''aid_event'',''dialogue'',''reason''">Touch her head</a></div>'
+		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZL.name>>Why don`t you leave yet...?</p>'
+		if $ARGS[1]="reason":
+			if $ZL.love>=5:'<p>Me: Why aid diplomatic relations?</p><p><<$ZL.name>>:Because i need money……</p><p>Me: Why do you need money?</p>'
+			if $ZL.love>=10:'<p><<$ZL.name>>:.I owe a lot of money to my cousin..…</p><p>Me: Who is your cousin?..Why do you owe money?</p>'
+			if $ZL.love>=15:'<p><<$ZL.name>>:...It`s the one who collects the money....It took a lot of money to get a characteristic ID card and apply for admission...</p><p>Me: So your cousin asked you to pay back the money through aid?</p>'
+			if $ZL.love>=20:'<p><<$ZL.name>>:..Hmm..Deduct the rent and food expenses...It`s better to have more than 500 left at a time than to work in the country..…</p><p>Me: How much is the difference?</p>'
+			if $ZL.love>=30:'<p><<$ZL.name>>:..About 50,000....</p><p>Me: Do you want to get rid of your cousin`s control?</p><p><<$ZL.name>>: Yes, but I dare not be alone...</p>'
+			if $ZL.love>=35:
+				'<p><<$ZL.name>>:..help me...</p><p>Me:<a href="exec:gt ''aid_event'',''cousin''">I`m going to negotiate with your cousin</a></p>'
+				'<p>Me: Don`t be afraid</p>'
+				'<p><<$ZL.name>>:Hmm</p>'
+			end
+		    if $ZL.love<=30:'<p><<$ZL.name>>:(I swallowed it again when I got to my mouth)..Let`s talk about it next time</p>'
+		End
+	'</div>'
+end
+
+if $ARGS[0]="cousin":
+	 
+	 '<div class ="show_menu"><img src="images\NPC\ZL\pics\表哥对话.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if money>=250000:
+		'<div class="buttonG"><a href="exec:money-=50000 &$XZ_Event_ZL=2 & gt ''aid_event'',''cousin'',''redemption''">Redeem yourself!250000￥</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Redeem yourself!250000￥</a></div>'
+		end
+		if $my.physical_strength>=4:
+		'<div class="buttonR"><a href="exec:$XZ_Event_ZL=2& gt ''aid_event'',''cousin'',''start_fighting''">Start fighting</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Start fighting</a></div>'
+		end
+		if $XZ_Event_ZL=2:
+		'<div class="buttonGn"><a href="exec:minutes+=120 & gt ''aid_event'',''looking_for_a_house''">Take her to find a house</a></div>'
+		else:
+		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Cousin: What`s the matter, do you want to have another shot?One-on-one requires additional money!Hey, don`t you kid have real feelings for my prostitute sister, right?</p>'
+		'<p>Me: I just communicated with your cousin, and she said she didn`t want to do it anymore!I want to take her away.</p>'
+		'<p>Cousin: Take her away?She still owes me a lot of money.Either you pay or you beat me.Otherwise, hold it for me!</p>'
+		if $ARGS[1]="redemption":'<p>Cousin: Huh?You are still refreshing!Just take my sister away!</p>' 
+		if $ARGS[1]="start_fighting":'<p>Cousin: Fuck you!Punch you!</p><p>Me: Boom-I`m going to take her away today, I see which one dares to stop me!</p><p>Cousin: Oh, oh, brother, I was wrong, because I don`t know Taishan with my eyes.</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="looking_for_a_house":
+	 '<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>It took a few hours to finally find a suitable house.When she paid the rent, she couldn`t even believe that she could live in such a great room for as long as 1000/month.The heart she raised finally let go, and at the same time fell into your heart.</p>'
+		'<p><<$ZL.name>>:It seems that you can pay the rent by doing ordinary odd jobs!Which...thank you…</p>'
+		$ZL.room=1
+		$ZL.love+=35
+	'</div>'
+
+end
+
+
+if $args[0]="ZL_Fuck_home":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1  and q<=7:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''ZL_Fuck_home''">Hug your waist and fuck</a></div>'
+			end
+			if a!2  and 1<=q and q<=8:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''ZL_Fuck_home''">Lift your legs and fuck hard</a></div>'
+			end
+			if a!3 and 2<=q and q<=9:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''ZL_Fuck_home''">Heel thrust</a></div>'
+			end
+			if a!4 and 3<=q and q<=10:
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''ZL_Fuck_home''">Swing waist and top</a></div>'
+			end
+			if a!5 and 4<=q :
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''ZL_Fuck_home''">Extreme sprint</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''ZL_Fuck_home''">Inward shot out</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 &gt ''aid_event'',''ZL_Fuck_home''">Post-mortem dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: I`m so happy to live in such a good room~ it`s rare to have space for us to be alone...</p>'
+		 '</div>'
+	end
+
+
+
+	if 6>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$panting>><<$words>></p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:Although my pussy has been played loose by promiscuity all day and all night, I can`t stand your violent thrusting, I will get hurt!</p>'
+			 '<p>Me: Then I`ll be gentle next time!</p>'
+			 '<p><<$ZL.name>>:...I want to have hymen repair surgery...There is also labia maintenance...Tighten the pussy a little bit more...But I don`t have enough money...It would be better if you could open the corner of your eye slightly..</p>'
+			 '<p>Me: Why?Do you care so much about your appearance?</p>'
+			 '<p><<$ZL.name>>: I want you to be better when you fuck me.and...I still hope that I will become better, so that I can accept the likes of others confidently, so that I never have to worry about the deadline for this liking...o(╥﹏╥)o</p>'
+			 '<p>Me: I will think about it. Let`s go to the hospital another day and ask.</p>'
+			 '<p><<$ZL.name>>:Really?She jumped up happily!</p>'
+			 $ZL_Event_face=1
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+
+if $args[0]="pay":
+	'<div class ="show_menu"><img src="images\NPC\ZL\pics\手术.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & minutes+=4320 & gt ''aid_event'',''plastic_surgery_completed''">Three days later</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:emmmmmmm...It`s really rare for a man like you.</p>'
+		'<p>·You made a call, soon<<$ZL.name>>Just bounced over.</p>'
+		'<p>·The operation went smoothly, and she is worthy of being a sister in the plastic surgery industry.Three days later, she was discharged from the hospital after successfully removing the stitches. The speed was comparable to a miracle.</p>'
+	'</div>'
+End
+
+if $args[0]="plastic_surgery_completed":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\整形完成~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & minutes+=20 & gt ''aid_event'',''ZL_Fuck_home3''">Go to her house</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZL.name>>:..How does it look good?..</p>'
+		'<p>Me: My eyes are bigger, my skin is whiter, my nose is stiffer, my chin is sharper, and I`m more sexy.</p>'
+		'<p><<$ZL.name>>:Hate it!You are necrotic!Let`s go home!Favorability is soaring..</p>'
+		if $ZL.love<=150:$ZL.love=150
+		if $ZL.bad<=75:$ZL.bad=75
+		$ZL_Event_face=2
+	'</div>'
+End
+
+
+if $args[0]="ZL_Fuck_home2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\整形完成家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''ZL_Fuck_home2''">Play with nipples</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''ZL_Fuck_home2''">Oral work</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''ZL_Fuck_home2''">Female upper</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''ZL_Fuck_home2''">ride</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''ZL_Fuck_home2''">Back in</a></div>'
+			end
+			if a!6 and 5<=q and a!6:
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''ZL_Fuck_home2''">sprint</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''aid_event'',''ZL_Fuck_home2''">Inward shot out</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''aid_event'',''ZL_Fuck_home2''">Pull out the semen</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=60 &$my.energy+=30 &a=0& q=0& gt ''aid_event'',''ZL_Fuck_home3''">Take a break and have another shot</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">Kiss goodbye</a></div>'
+				if ZLcos=0 and tuc_level3=1:'<div class="buttonS3"><a href="exec: ZLcos=1 & gt ''company''">Invite cos to shoot</a></div>'
+				if $insemination_room=1 and $zl.insemination=0:'<div class="buttonS"><a href="exec:$zl.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: People like you so much, hurry up and fuck me~</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$words>><<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: My dear has been poured so much in the small hole....It`s okay, I will take medicine.</p>'
+			 '<p>Me: A slut like you, sure enough, the whole content is even more slut!</p>'
+			 '<p><<$ZL.name>>:Really?It`s good that my husband likes my show!</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="ZL_Fuck_home3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\整形家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''ZL_Fuck_home3''">Use a vibrator</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''ZL_Fuck_home3''">Play with each other</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''ZL_Fuck_home3''">Oral sex</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''ZL_Fuck_home3''">Normal bit</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''ZL_Fuck_home3''">Back in</a></div>'
+			end
+			if a!6 and 4<=q:
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''ZL_Fuck_home3''">Sprint sideways</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''aid_event'',''ZL_Fuck_home3''">Inward shot out</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''aid_event'',''ZL_Fuck_home3''">Post-mortem dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=60 &$my.energy+=30 &a=0& q=0 & gt ''aid_event'',''ZL_Fuck_home2''">Take a break and have another shot</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">Kiss goodbye</a></div>'
+				if ZLcos=0 and tuc_level3=1:'<div class="buttonS3"><a href="exec: ZLcos=1 & gt ''company''">Invite cos to shoot</a></div>'
+				if $insemination_room=1 and $zl.insemination=0:'<div class="buttonS"><a href="exec:$zl.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: My pussy is so itchy, hurry up and plug it in for me~</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$words>><<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:Do I look good?Do you like to fuck me every day like this?</p>'
+			 '<p>Me: It looks good!</p>'
+			 '<p><<$ZL.name>>:Really?It`s good that my husband likes my show!</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $ARGS[0]="ZL_Fuck_home4":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\电话0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''aid_event'',''ZL_Fuck_home5''">Pay attention to safety</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>She was not at home, you dialed her phone.</p>'
+		'<p><<$ZL.name>>:Hello?<<$protagonists_name>>？I`ll be back later, I have something to do now<<$panting>></p>'
+	'</div>'
+end
+
+if $ARGS[0]="ZL_Fuck_home5":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\电话1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''deep_alley''">。。。</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>？？？: I haven`t patronized your business for so long. Have you ever thought about Dad`s meat stick?</p>'
+		'<p><<$ZL.name>>:I love my father`s meat stick the most. Sure enough, it`s still the old business that makes money fast.</p>'
+		'<p>？？？: Hurry up, there are still more than two dozen people in line behind!</p>'
+	'</div>'
+end
+
+if $ARGS[0]="study_room":
+	$ZLclass=rand(1,2)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\教室 (<<$ZLclass>>).webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec: gt ''aid_event'',''before_sex_with_friends''">go<<$ZL.name>>home</a></div>'
+		if $ZL.friend>=5:'<div class="buttonS"><a href="exec: gt ''aid_event'',''classroom_sex''">In this 3P</a></div>'
+		'<div class="button"><a href="exec:gt ''university''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Friend: We are good friends, right?..?</p>'
+		'<p><<$ZL.name>>:Yes, you have been tutoring me with homework, and we are the best of friends.</p>'
+		'<p>Friend: I...me...My tutor is very strict...I want to know...What does sexual intercourse look like...</p>'
+		'<p><<$ZL.name>>: Sex....Sexual intercourse?</p>'
+		'<p>Friend: Yes!I have always been very curious about sexual intercourse. My mother strictly censored my audiovisual readings because of the Women`s Leadership Act....I heard you are very experienced....There are also fixed sex friends...So i....Please!</p>'
+		'<p><<$ZL.name>>:Well, then let me give you counseling knowledge!</p>'
+	'</div>'
+end
+
+if $ARGS[0]="before_sex_with_friends":
+	a=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\双家开始.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''aid_event'',''ZL_Fuck_Outside''">Go outside and do it</a></div>'
+		if $ZL.friend>=1:'<div class="button"><a href="exec:gt ''aid_event'',''ZL_Fuck_Inside''">When she does it in front of her</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZL.name>>:Just use this to solve it. I will do it outside with my boyfriend. If you want, you can also do it in front of you.</p>'
+		'<p>Friend: Follow...Whatever you want!</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="ZL_Fuck_Outside":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\A (<<a>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''ZL_Fuck_Outside''">serve</a></div>'
+			end
+			if a!2  and 0<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''ZL_Fuck_Outside''">Licking feet</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''ZL_Fuck_Outside''">Lick butthole</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''ZL_Fuck_Outside''">Riding position</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''ZL_Fuck_Outside''">Turn around</a></div>'
+			end
+			if a!6 and 5<=q :
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''ZL_Fuck_Outside''">Back in</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 &gt ''aid_event'',''ZL_Fuck_Outside''">sprint</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''aid_event'',''ZL_Fuck_Outside''">Ejaculation</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 &gt ''aid_event'',''ZL_Fuck_Outside''">afterwards</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">Go home</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: My pussy is so itchy, hurry up and plug it in for me~</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$words>><<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=9:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 $ZL.friend+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:See, this is a man`s semen.</p>'
+			 '<p>Friend: Hmm!It feels so weird... the heartbeat is so fast……</p>'
+			 '<p><<$ZL.name>>:Next time, you have to masturbate while looking at us.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="ZL_Fuck_Inside":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\B (<<a>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''ZL_Fuck_Inside''">Slow down</a></div>'
+			end
+			if a!2  and 0<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''ZL_Fuck_Inside''">Roll for a while</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''ZL_Fuck_Inside''">accelerate</a></div>'
+			end
+			if a!4 and 3<=q :
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''ZL_Fuck_Inside''">Hurry up</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''ZL_Fuck_Inside''">Ejaculation</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''ZL_Fuck_Inside''">afterwards</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">Go home</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: My pussy is so itchy, hurry up and plug it in for me~</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:It turns out that you will be shy in front of others, but you shouldn`t mind, right?</p>'
+			 '<p>friend:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+
+
+	if a=6:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 $ZL.friend+=4
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:Is it far from being as cool as practicing by yourself?Next time, hehe.</p>'
+			 '<p>Friend: Hmm!Please...please...give me a chance to practice…</p>'
+			 '<p>· <<$ZL.name>>Winked at you.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="classroom_sex":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\教室SEX<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''classroom_sex''">Watch her masturbate</a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''aid_event'',''classroom_sex''">Licking wet cock</a></div>'
+			end
+			if a!3 and 2<=q and a<8:
+			'<div class="button"><a href="exec:a=3 & gt ''aid_event'',''classroom_sex''">Plug in her friend</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''aid_event'',''classroom_sex''">Fuck her friend to orgasm</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=5 & gt ''aid_event'',''classroom_sex''">Turn around</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''aid_event'',''classroom_sex''">let<<$ZL.name>>Sit up</a></div>'
+			end
+			if a!7 and 7<=q and a<8:
+			'<div class="button"><a href="exec:a=7 & gt ''aid_event'',''classroom_sex''">Change posture</a></div>'
+			end
+			if a=7 and a<8:
+			'<div class="button"><a href="exec:a=8 & gt ''aid_event'',''classroom_sex''">Accelerate thrusting</a></div>'
+			end
+			if a=8 and a<9:
+			'<div class="button"><a href="exec:a=9 & gt ''aid_event'',''classroom_sex''">Ejaculation</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''aid_event'',''classroom_sex''">Lick clean</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''aid_event'',''classroom_sex''">dialogue</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: Honey, last time you watched her shoot me in the face~ today you can finally fuck her.</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Friend: Such a big dick, such a close distance.I feel it just by looking at it!！</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: Look at your anxious look, I`ll help you lick it wet a little bit, and slide in directly in a while.</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=3 :
+		 '<div class="dialog_menu">'
+			 '<p>friend:<<$panting>><<$words>></p>'
+			 '<p><<$ZL.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: Husband~ You are so kind~ (Huh, did you see it.It`s useful to scream so loudly, didn`t you shoot me in the face in the end?）</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>: I licked it clean for you, it was full of the smell of her show water.</p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q*2+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:How?Are you satisfied?</p>'
+			 '<p>Friend: So comfortable...I still want it.....Will you shoot me next time?</p>'
+			 '<p><<$ZL.name>>:Hey hey!This is my man!</p>'
+			 '<p>·You smiled slightly.</p>'
+		 '</div>'
+	end
+
+		
+ 
+ q+=1
+
+End
+
+if $args[0]="zl_fuck_home_visit":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZL\vids\LLI1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''aid_event'',''zl_fuck_home_visit''">Touch your ass</a></div>'
+			end
+			if q=1:
+			'<div class="button"><a href="exec:$ma=$LJ.name & a=2 & gt ''aid_event'',''zl_fuck_home_visit''">Plug in<<$LJ.name>></a></div>'
+			'<div class="button"><a href="exec:$ma=$ZL.name & a=6 & gt ''aid_event'',''zl_fuck_home_visit''">Plug in<<$ZL.name>></a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a+=1 & gt ''aid_event'',''zl_fuck_home_visit''">Female upper</a></div>'
+			end
+			if q=3:
+			'<div class="button"><a href="exec:a+=1 & gt ''aid_event'',''zl_fuck_home_visit''">Pull it out and plug it in</a></div>'
+			end
+			if q=4:
+			'<div class="button"><a href="exec:a+=1 & gt ''aid_event'',''zl_fuck_home_visit''">Mouth explosion</a></div>'
+			end
+			if q=5:
+			'<div class="button"><a href="exec:a=10 & gt ''aid_event'',''zl_fuck_home_visit''">Lick clean</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''big_villa''">Send them away</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$LJ.name>>: What`s the matter❤Don`t you welcome us?</p>'
+			 '<p><<$ZL.name>>: My pussy is so itchy, hurry up and plug it in for me~</p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=q and q>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$ma>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=10 :
+		 $ZL.love+=q+$my.charm
+		 $ZL.bad+=q+$my.charm
+		 $LJ.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$ZL.name>>:Shall we come back tomorrow?</p>'
+			 '<p><<$LJ.name>>:Or you come to school to find us❤</p>'
+		 '</div>'
+	end
+
+
+ 
+ q+=1
+
+End
+--- aid_event ---------------------------------
+

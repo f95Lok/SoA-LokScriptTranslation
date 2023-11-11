@@ -1,0 +1,293 @@
+# 市长办公室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="市政大厅" href="exec:minutes+=15 & gt ''市政厅''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\市长办公室.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市长办公室'',''五常会议室''">五常会议室</a></div>'
+		'<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">市长办公室</a></div>'
+		'<div class="button"><a href="exec:gt ''市长办公室'',''城建部长室''">城建部长室</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>『市长提出的20字核心价值观』</p>'
+		'<p>·平等竞争： 立足公平，摒弃特权，决不走后门谋求私利</p>'
+		'<p>·科学决策： 坚持科学、民主，避免主观随意，确保决策合理稳定</p>'
+		'<p>·恪尽职守： 诚信为本，言行一致，远离虚假承诺</p>'
+		'<p>·未雨绸缪： 前瞻规划，避免后悔，承担责任，不逃避</p>'
+		'<p>·敢于承担： 不会因错误决策逃避责任，而是勇敢承担，并作出必要的改变。</p>'
+		'<p>·——————————————</p>'
+		'<p>·然而却被市民们调侃是胸大无脑的典型，其20字价值观被曲解为：</p>'
+		'<p>·拍马屁上位；拍脑门决定；拍胸脯保证；拍大腿后悔，拍屁股走人</p>'
+	'</div>'
+end
+
+if $ARGS[0]="市长室":
+	'<div class ="show_menu"><img src="images\place\不开放.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonR2"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p></p>'
+	'</div>'
+end
+
+if $ARGS[0]="五常会议室":
+
+	'<div class ="show_menu"><img src="images\place\五常会议室0.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市长办公室'',''阅读告示''">阅读告示</a></div>'
+		if $可提案=1:'<div class="button"><a href="exec:gt ''市长办公室'',''提案''">市民提案</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·五常会议正在如期召开，警卫员拦住了你，指了指身旁的告示。</p>'
+		'<p>·如你所见会议室内的五大常任决策官从左到右依次为司法部长、城建部长(代理)、内政部长、教育部长和经贸部长。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="阅读告示":
+
+	'<div class ="show_menu"><img src="images\place\五常会议室0.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''市长办公室''">返回</a></div>'
+		'<div class="buttonR2"><a href="exec:gt ''市政厅''">离开</a></div>'
+		
+		
+		
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·<告示></p>'
+		'<p>·司法部长由<<$DYZ.name>>连任、<<$CJ.name>>顶替原先的外交部长、内政部长由<<$SZ.name>>兼任、<<$JYB.name>>正在主持会议、经贸部长由<<$CT.name>>兼任。</p>'
+		'<p>————警告————</p>'
+		'<p>会议进行期间，所有与会者被要求将手机和其他电子设备放在指定的存放箱中，以防止任何信息泄露或窃听的风险。会议室内不允许使用任何录音或录像设备。</p>'
+		'<p>与会者之间的讨论和文件交换都在严格的保密环境下进行。文件被加密、封装或以其他安全方式传递，确保敏感信息不被泄露。讨论内容也受到保密协议的约束，参与者必须严守保密责任，并在会后销毁或归还所有与会相关的文件和资料。</p>'
+		
+	'</div>'
+end
+
+
+if $ARGS[0]="城建部长室":
+	 $CJ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\立绘<<rand(0,3)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $老板事件链=6 and $老板上位<=1:'<div class="button"><a href="exec:gt ''老板_事件'',''老板_Fuck_剧1''">偷听：部长室内</a></div>'
+		if $CJ.向上汇报>=1:'<div class="buttonR5"><a href="exec:gt ''城建_事件'',''城建_Fuck_汇报''">五常会议：露营区</a></div>'
+		if  $老板暂缓调查=1 and $老板上位>=3 and $贼被抓>=2 :'<div class="buttonR3"><a href="exec:gt ''老板_事件'',''老板_Fuck_剧2''">交代：露营区</a></div>'
+
+		
+		if $CJ.向上汇报>=2 and $YJB_CJ=0:'<div class="buttonB5"><a href="exec:gt ''城建_事件'',''城建_Fuck_清场1''">清场：<<$JYB.name>></a></div>'
+		if $CJ.向上汇报>=2 and $YJB_CJ>0 and rand(0,100)>=95:'<div class="buttonB5"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_清场1''">清场：<<$JYB.name>></a></div>'
+
+		if $老板上位=999:
+			if $CJ.倾向B!1:'<div class="buttonS"><a href="exec:gt ''城建_事件'',''城建_Fuck_家1''">浮气：翘班约炮</a></div>'else:'<div class="buttonGr"><a href="exec:"><del>浮气：翘班约炮</del></a></div>'
+			if $CJ.倾向G!1:
+				if hour>=17:
+					'<div class="buttonPu2"><a href="exec:gt ''城建_事件'',''城建_Fuck_E0''">准备下班</a></div>'
+				else:
+					'<div class="button"><a href="exec:minutes+=50 & gt ''市长办公室'',''城建部长室''">耐心：等她下班</a></div>'
+				end
+			end
+		end
+		if $CJ.向上汇报>=2:'<div class="buttonB5"><a href="exec:$副官对话=0 & gt ''市长办公室'',''副官办公室''">副官办公室</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$CJ.name>>：有什么事？</p>'
+		'<p>·<a href="exec:gt ''市长办公室'',''提示''">【？？？】</a></p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="提示":
+	'<div class ="show_menu"><img src="images\NPC\CJ\pics\变数.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市长办公室'',''城建部长室''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·该角色会有两种不同的分支，与你的关系可以是纯情或者放荡。</p>'
+		'<p>·放荡————关系&倾向————纯情·</p>'
+		if $CJ.倾向>0:
+		'<p>·↑←—————❤<font color=#FF7F50><<$CJ.倾向>>❤—————→↑·</font></p>'
+		else:
+		'<p><font color=#FF00FF>·↑←—————❤<<$CJ.倾向>></font>❤—————→↑·</p>'
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="副官办公室":
+	if 城建满意度<=-100:gt '老板_事件','老板_Fuck_恶罚'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\立绘.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$副官对话=1 & gt ''市长办公室'',''副官办公室''">↓处理市民投诉↓</a></div>'
+		if $露营垃圾=2:'<div class="buttonGn"><a href="exec:城建满意度+=rand(30,40) & gt ''老板_事件'',''老板_Fuck_垃圾S''">↑我都清理完了↑</a></div>'
+		if $露营垃圾=3:'<div class="buttonR4"><a href="exec:城建满意度-=rand(50,60) & gt ''老板_事件'',''老板_Fuck_垃圾败''">↑被女的耽误了↑</a></div>'
+		if 城建满意度>=100:'<div class="buttonGn"><a href="exec:gt ''老板_事件'',''老板_Fuck_下家1''">↑可以提前下班↑</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$LB.name>>：<<$主角姓名>>，协助我一起把城建部门吃下来吧❤</p>'
+		if $副官对话=1:
+		'<p>我：乐意效劳。</p>'
+		'<p><<$LB.name>>：露营区自从失火以后市民们特别关注哪里的易燃垃圾清理问题，你去看看露营区的垃圾清运情况吧。</p>'
+		if $露营垃圾=0:$露营垃圾=1
+		end
+		'<p>·市民对城建部的满意度：<<城建满意度>>%</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="提案":
+
+	'<div class ="show_menu"><img src="images\place\提案.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if 餐厅经营=1 and 餐厅可以提议=1:'<div class="buttonB1"><a href="exec:$提议内容=''『餐厅提供性服务』'' & gt ''市长办公室'',''黑暗议会''">『餐厅提供性服务』</a></div>'
+		if 开放海岸!1:'<div class="buttonR1"><a href="exec:$提议内容=''『对市民开放海岸』'' & $议会.帝国=1  & gt ''市长办公室'',''黑暗议会''">『对市民开放海岸』</a></div>'
+		if $机场进度=2:'<div class="buttonS"><a href="exec:$提议内容=''『空中性爱服务』'' & $议会.典狱长=1  & gt ''市长办公室'',''黑暗议会''">『空中性爱服务』</a></div>'
+		if $体育馆通过=0 and 新体育馆=1:'<div class="buttonS"><a href="exec:$提议内容=''『学校体育馆对市民开放』'' & $议会.典狱长=1  & gt ''市长办公室'',''黑暗议会''">『对市民开放体育馆』</a></div>'
+		if $游泳馆通过=0 and 新游泳馆=1:'<div class="buttonS"><a href="exec:$提议内容=''『学校游泳馆对市民开放』'' & $议会.典狱长=1  & gt ''市长办公室'',''黑暗议会''">『对市民开放游泳馆』</a></div>'
+          if $图书馆通过=0 and 新图书馆=1:'<div class="buttonS"><a href="exec:$提议内容=''『学校图书馆对市民开放』'' & $议会.帝国=1  & gt ''市长办公室'',''黑暗议会''">『对市民开放图书馆』</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·规则：我可以提出某一项提案，但每位部长都有一票否决制…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="黑暗议会":
+	'<div class ="show_menu"><img src="images\place\黑暗议会.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$JYB.name>>：下一个提议是…<<$提议内容>></p>'
+		if $提议内容='『餐厅提供性服务』':
+		'<p><<$SZ.name>>：蛤？真是有趣，提议人是<<$QJ.name>>呢，是你的意思嘛？</p>'
+		'<p><<$CT.name>>：如果她认为加入新的元素有助于发展和增加竞争力，那么支持这一观点可能会为餐厅带来更多机会和成功，作为母亲，我会全力支持她的。</p>'
+		'<p><<$DYZ.name>>：那让我同意有什么好处吗？</p>'
+		'<p><<$CT.name>>：我会降低10%的监狱精液上缴总量。并且在座的各位都可以继续享受一年期的帝国集团SVIP私人飞机服务。</p>'
+		'<p><<$CJ.name>>：看来大家达成一致了…举手表决吧…</p>'
+		'<p>【同意】【同意】【同意】【同意】【同意】·一致通过</p>'
+		餐厅经营=2
+		end
+		
+		if $提议内容='『对市民开放海岸』':
+		'<p><<$CT.name>>：这是属于我的私人海滩，我绝不会同意。</p>'
+		'<p><<$SZ.name>>：这难道不是公共财产吗？什么时候是你的私人海滩了？</p>'
+		'<p><<$DYZ.name>>：我是无所谓。</p>'
+		'<p><<$CJ.name>>：呃…先…举手表决吧…</p>'
+		if $议会.帝国=1:'<p>【同意】【同意】【拒绝】【同意】【同意】·一票否决<a href="exec:gt ''帝国_事件'',''帝国_Fuck_收买''">-私下交谈</a></p>'
+		if $议会.帝国=0:
+			'<p>【同意】【同意】【同意】【同意】【同意】·一致通过</p>'
+			开放海岸=1
+			end
+		end
+		
+		if $提议内容='『空中性爱服务』':
+		'<p><<$SZ.name>>：看看这个，又是你的宝贝女儿的主意？末席，把细则给我念一下。</p>'
+		'<p><<$CJ.name>>：性爱是一种缓解焦虑和压力的方式，在飞机上提供性服务可以帮助乘客放松身心，创造营收。同时通过性爱可以展现出我市开放和包容态度，提升乘客对我市的第一印象。</p>'
+		'<p><<$DYZ.name>>：这不是胡扯么，让我同意有什么好处吗？</p>'
+		'<p><<$CT.name>>：你想要什么？</p>'
+		if $议会.典狱长=1:'<p><<$DYZ.name>>：先小休一下让我好好想想…我是绝对不会轻易同意的…<a href="exec:gt ''典狱长_事件'',''典狱长_Fuck_收买''">-私下交谈</a></p>'
+		if $议会.典狱长=0:
+			'<p><<$DYZ.name>>：我什么都不需要，就当给你一个人情好了。</p>'
+			'<p><<$CJ.name>>：看来大家达成一致了…举手表决吧…</p>'
+			'<p>【同意】【同意】【同意】【同意】【同意】·一致通过</p>'
+			if $机场进度=2:$机场进度=3
+		 end
+			
+		end
+		
+		if $提议内容='『学校体育馆对市民开放』':
+		'<p><<$SZ.name>>：蛤？真是有趣，居然是如此具有意义的提案。</p>'
+		'<p><<$JYB.name>>：作为教育部长，我没有否决的理由，强身健体是每个人都希望的。</p>'
+		'<p><<$CT.name>>：我没意见。</p>'
+		'<p><<$DYZ.name>>：抱歉，我可不觉得是件好事，练那么壮干什么？太危险了，就是要弱得像小鸡一样的细狗才方便我们抓捕❤</p>'
+		'<p><<$CJ.name>>：呃…先举手表决吧…</p>'
+			if $议会.典狱长=1:'<p>【同意】【同意】【否决】【同意】【同意】·一票否决<a href="exec:gt ''典狱长_事件'',''典狱长_Fuck_收买''">-私下交谈</a></p>'
+			if $议会.典狱长=0:
+				'<p>【同意】【同意】【同意】【同意】【同意】·一致通过</p>'
+				$体育馆通过=1
+			end
+		end
+		
+        if $提议内容='『学校游泳馆对市民开放』':
+        '<p><<$SZ.name>>：蛤？游泳馆？这种设施让那些平胸的学生还怎么活？*嬉笑</p>'
+        '<p><<$JYB.name>>：作为教育部长，我没有否决的理由，强身健体是每个人都希望的。</p>'
+        '<p><<$CT.name>>：我没意见。</p>'
+        '<p><<$DYZ.name>>：抱歉，我可不觉得是件好事，淹死人了算谁的？</p>'
+        '<p><<$CJ.name>>：呃…先举手表决吧…</p>'
+            if $议会.典狱长=1:'<p>【同意】【同意】【否决】【同意】【同意】·一票否决<a href="exec:gt ''典狱长_事件'',''典狱长_Fuck_收买''">-私下交谈</a></p>'
+            if $议会.典狱长=0:
+                '<p>【同意】【同意】【同意】【同意】【同意】·一致通过</p>'
+                $游泳馆通过=1
+            end
+        end
+		
+		if $提议内容='『学校图书馆对市民开放』':
+		'<p><<$SZ.name>>：蛤？真是有趣，居然是如此具有意义的提案。</p>'
+		'<p><<$JYB.name>>：作为教育部长，我没有否决的理由。</p>'
+		'<p><<$DYZ.name>>：确实如此，市民的受教育度上升了的话，犯罪率会减少，是件好事。</p>'
+		'<p><<$CT.name>>：抱歉，我反对。我们应该通过限制和削弱市民的知识水平来维持我们的绝对主导地位。我可不想面对更多的精英，精英有我们几个就够了。</p>'
+		'<p><<$CJ.name>>：呃…先举手表决吧…</p>'
+			if $议会.帝国=1:'<p>【同意】【同意】【拒绝】【同意】【同意】·一票否决<a href="exec:gt ''帝国_事件'',''帝国_Fuck_收买''">-私下交谈</a></p>'
+			if $议会.帝国=0:
+				'<p>【同意】【同意】【同意】【同意】【同意】·一致通过</p>'
+				$图书馆通过=1
+			end
+		end
+	'</div>'
+end
+
+
+
+--- 市长办公室 ---------------------------------
+

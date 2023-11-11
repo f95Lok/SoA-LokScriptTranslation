@@ -1,0 +1,967 @@
+# 少妇_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $args[0]="":
+	if $SF.love<100:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SF\vids\SF说话0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	else:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SF\vids\SF说话1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	
+	'<div class="button_menu">'
+		 if act_不满=0:
+			'<div class="button"><a href="exec:minutes+=45 &act_不满=1& gt ''少妇_事件''">安慰</a></div>'
+			if money>=5000:'<div class="button"><a href="exec:minutes+=45 &act_不满=2& gt ''少妇_事件''">资金帮助5000￥</a></div>'
+			if money<5000:'<div class="buttonGr"><a href="exec:">资金帮助5000￥</a></div>'
+			'<div class="button"><a href="exec:minutes+=45 &act_不满=3& gt ''少妇_事件''">恐吓她老公</a></div>'
+		 end
+		 if $SF.love>=25:
+			'<div class="button"><a href="exec:minutes+=45 & gt ''少妇_事件'',''和她外出''">和她外出</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">和她外出</a></div>'
+		end
+
+		'<div class="button"><a href="exec:minutes+=45  & gt ''医院''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $SF.love<100:
+		'<p><<$SF.name>>:不好意思吵到你了吧。</p>'
+		else:
+		'<p><<$SF.name>>:我们别理那个傻逼了。</p>'
+		end
+		if act_不满=1:
+		 '<p>我:没事的，忍忍就过去了，小不忍则乱大谋！</p>'
+		 '<p><<$SF.name>>:唉...小声*照顾那个傻逼真累，等分到钱了就把他踹了。</p>'
+		 $SF.love+=1+my.魅力
+		end
+		if act_不满=2:
+		 '<p>我:这点钱你先拿去花吧，以后慢慢还！</p>'
+		 '<p><<$SF.name>>:哇..谢谢你了！嘀咕*唉，我老公大手大脚惯了，怕成不了多久..</p>'
+		 $SF.love+=RAND(7,12)+my.魅力
+		 money-=5000
+		end
+		if act_不满=3:
+		 '<p>我:喂！你这个臭傻逼，再骂她一句试试！按照女性领导条例，辱骂女性，有我作证，她随时能把你告到破产！</p>'
+		 '<p>律茂南:有你什么事？！傻逼东西你算老几？我教训我老婆还用得着你管？臭垃圾叫嚣什么，出去一个电话就把你废了。</p>'
+		  if my.体力>=4:'<p>我:别等到出去了，我现在就把你废了信不信？</p>'
+		  if my.体力<4:'<p>你看了看自己羸弱的身材....沉默了</p>'
+		 '<p>律茂南:切！</p>'
+		 $SF.love+=my.体力+my.魅力
+		end
+	'</div>'
+	
+End
+
+if $args[0]="和她外出":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''少妇_事件'',''去吃饭'',''吃饭''">去吃饭</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''少妇_事件'',''去天台'',''天台''">去天台</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$SF.name>>:老公，我出去一会哈。</p>'
+		'<p>律茂南:搞不到钱你就别指望我分你遗产了！</p>'
+	'</div>'
+End
+
+if $args[0]="去吃饭":
+
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SF\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if a!1 :
+		'<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''去吃饭'',''吃饭''">聊天</a></div>'
+		end
+		if a!2 :
+		'<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''去吃饭'',''喝酒''">干杯</a></div>'
+		end
+		if a!3 and $SF.love>=40:
+		'<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''去吃饭'',''喂食''">喂食</a></div>'
+		end
+		if a!4 and $SF_Event_gold=10:
+		'<div class="buttonS"><a href="exec:a=0 &q=0& gt ''少妇_事件'',''SF_Fuck_厕所受孕''">去厕所</a></div>'
+		end
+		if a!5 :
+		'<div class="button"><a href="exec:a=5 &$SF.love+=rand(1,5) & gt ''医院''">结束</a></div>'
+		end
+	'</div>'
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>:终于不用见到那个蠢货的脸了，心情一下子好起来了....</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:遗产的进度怎么样了？</p>'
+			 '<p><<$SF.name>>: 信用卡已经快刷爆了...遗产分割还遥遥无期...不过...我看了一下遗嘱，如果现在还能再生个“孙子”的话还能再多分一份钱。</p>'
+			 '<p><<$SF.name>>: 但以我老公这个半身不遂的状态，别说做爱了，勃起都费劲...</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我:你和他的夫妻感情...</p>'
+			 '<p><<$SF.name>>: 夫妻感情..?其实我和他也就认识了三个月。如果不是出了这次意外，可能都没想过结婚。他家里也算是城里小有名气的黑道，是不会像我们这样吃这种路边摊的。</p>'
+			 '<p>我:黑...黑道？</p>'
+			 '<p><<$SF.name>>:你不会不知道吧？他老爹生前可是收保护费起家的...虽然【新市长】出台强硬政策导致黑道没落了，不过听说他老爹走私了不少稀土~</p>'
+			 '<p>我:看来你还得再委屈一阵子了。</p>'
+			 '<p><<$SF.name>>: 是啊。再被他使唤一阵咯，反正他要的是我的身体，我要的是他的钱。嘻嘻。不说啦！干杯！</p>'
+		 '</div>'
+	end
+	
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>: 啊~~~~~~(#^.^#)</p>'
+			 '<p><<$SF.name>>: 有人喂的就是好吃！</p>'
+		 '</div>'
+	end
+		
+
+ q+=1
+
+end
+
+if $args[0]="SF_Fuck_厕所受孕":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SF\vids\厕所<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">舔我</a></div>'
+			end
+			if a!2 and 0<q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">舔蛋</a></div>'
+			end
+			if a!3 and 1<q and q<5:
+			'<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">口交</a></div>'
+			end
+			if a!4 and 3<q and q<9:
+			'<div class="button"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">整根插入</a></div>'
+			end
+			if a!5 and 4<q and q<10:
+			'<div class="button"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">侧身位</a></div>'
+			end
+			if a!6 and 4<q and q<13:
+			'<div class="button"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">后入</a></div>'
+			end
+			if a!7 and 9<q and a!8:
+			'<div class="button"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">冲刺</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">♂射精</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''少妇_事件'',''SF_Fuck_厕所受孕''">看着她</a></div>'
+			end
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">吻别</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>:做你想对我做的任何事吧，只要是你，我都可以。</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=4 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $SF.love+=q/2+my.魅力
+		 $SF.bad+=q+q+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>:下次射进小穴里~我想要怀上你的孩子。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="去天台":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SF\vids\<<$ARGS[1]>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $SF_Event_gold=0:'<div class="button"><a href="exec:minutes+=5 & $SF_Event_gold=1 & gt ''少妇_事件'',''去天台'',''天台''">小金表</a></div>'
+		if $SF_Event_gold=2:'<div class="button"><a href="exec:minutes+=5 & $SF_Event_gold=3 & gt ''少妇_事件'',''去天台'',''天台''">惊喜</a></div>'
+		if $SF_Event_gold=10:'<div class="button"><a href="exec:minutes+=5 & $SF_Event_gold=10 & gt ''少妇_事件'',''去天台'',''接吻''">接吻</a></div>'
+		'<div class="button"><a href="exec:minutes+=15  & gt ''少妇_事件'',''去天台'',''天台''">吹吹风</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$SF.name>>:不知道这种日子还要持续多久...</p>'
+	  if $SF_Event_gold=1:
+		'<p>我:你上次戴的小金表呢？怎么不戴了，虽然看上去有点老旧，但是蛮精致的诶！</p>'
+		'<p><<$SF.name>>:啊？你注意到了啊。我老公觉得太老土，大吵一架后，我就没戴了。*小声*其实是被他当掉换钱了...</p>'
+	  end
+	  if $SF_Event_gold=3:
+		'<p>我:生活不是电影 没有那么多的不期而遇。有的只是，有心人。（你拿出了手表）</p>'
+		'<p>我:听说它对你很重要，我担心被人买走了，就替你赎回来了。</p>'
+		'<p>·她看着手表...摸了摸表盘..泪水在眼眶里晶莹o(╥﹏╥)o，良久没有说话。</p>'
+		$SF.love+=50
+		$SF_Event_gold=10
+	  end
+	  if $SF_Event_gold=10:
+		'<p>·她用行动回应了你。</p>'
+		'<p><<$SF.name>>:我们做吧，让我怀孕，生完孩子钱分你一半。我爱你。</p>'
+		'<p>·夜色的衬托下，眼神与气氛愈加朦胧。</p>'
+	  end
+	'</div>'
+End
+
+
+if $args[0]="SF_Fuck_病房受孕":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SF\vids\病房<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!12:
+		'<div class="button_menu">'
+			if a!0 and q<4:
+			'<div class="button"><a href="exec:a=0 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">揉胸</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">接吻</a></div>'
+			end
+			if a!2 and 2=<q and q<6 and a!11:
+			'<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">掰开♂小穴</a></div>'
+			end
+			if a!3 and 3<q and q<7 and a!11:
+			'<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">揉搓♂阴蒂</a></div>'
+			end
+			if a!4 and 3<q and q<9 and a!11:
+			'<div class="button"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">指尖♂高潮</a></div>'
+			end
+			if a!5 and 5<q and q<10 and a!11:
+			'<div class="button"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">舔舐♂肉棒</a></div>'
+			end
+			if a!6 and 5<q and q<13 and a!11:
+			'<div class="button"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">专心♂口交</a></div>'
+			end
+			if a!7 and 8<q and q<17 and a!11:
+			'<div class="button"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">骑乘♂乳摇</a></div>'
+			end
+			if a!8 and 9<q and q<18 and a!11:
+			'<div class="button"><a href="exec:a=8 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">抬腿♂侧入</a></div>'
+			end
+			if a!9 and 9<q and q<19 and a!11:
+			'<div class="button"><a href="exec:a=9 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">开腿♂深入</a></div>'
+			end
+			if a!10 and 10<q and a!11:
+			'<div class="button"><a href="exec:a=10 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">暴力♂冲刺</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">♂射精</a></div>'
+			end
+			if a=11:
+			'<div class="button"><a href="exec:a=12 & gt ''少妇_事件'',''SF_Fuck_病房受孕''">事后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if medicine=1:
+				'<div class="button"><a href="exec:minutes+=30 & gt ''试药日常''">吻别</a></div>'
+				else:
+				'<div class="button"><a href="exec:minutes+=30 & gt ''医院''">吻别</a></div>'
+				end
+			'</div>'
+	end
+
+
+
+
+	if 6>=a and a>=0 :
+		 '<div class="dialog_menu">'
+			 if  medicine=1:'<p><<$SF.name>>: 我看到你的名字了，就来看看你。想我了吗？</p>'
+			 '<p><<$SF.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=7 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=12:
+		 $SF.love+=q/2+my.魅力
+		 $SF.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>:嘘——！可别被他发现了喔，我要怀上你的宝宝，下次射进小穴里。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="去她家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SF\vids\家开始<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!3:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 &my.道德-=1 & gt ''少妇_事件'',''去她家''">看下去</a></div>'
+			'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 &a=0&q=0& gt ''少妇_事件'',''SF_Fuck_家''">没事，我不要紧的</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>律茂南:在医院里快憋坏我了....好不容易溜出来..喔？这不是隔壁床的吗？难道这婊子说的朋友就是他？她什么时候胆子这么大了？</p>'
+			 '<p><<$SF.name>>:啊老公，你怎么也在家里？<<$主角姓名>>，你快走吧.....</p>'
+			 '<p>律茂南:来的正好，我看你在医院里对我老婆心怀不轨，这次让你看个够。</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>律茂南:意淫了很久的大奶子看到了没？哈哈，好好记在脑子里回家撸管的时候别忘了！</p>'
+			 '<p><<$SF.name>>:求你了，你快走吧....o(╥﹏╥)o</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>律茂南:记住她的母狗样了没？像她这种货色，只要我想干，随时可以把她的穴搞烂！</p>'
+			 '<p><<$SF.name>>:啊啊啊...别看我...你快走..o(╥﹏╥)o..o(╥﹏╥)o</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>只过了5分钟，律茂南就缴械投降，然后昏昏沉沉地睡去了。</p>'
+			 '<p><<$SF.name>>:我错了，我不是存心的o(╥﹏╥)o 我也不知道他会跟着我回家..求求你不要离开我好嘛？o(╥﹏╥)o求求你不要离开我！内射我让我怀孕吧！</p>'
+		 '</div>'
+	end
+
+End
+
+if $args[0]="SF_Fuck_家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SF\vids\家<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if  q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_家''">继续口交</a></div>'
+			end
+			if a!2 and 0<q and q<6:
+			'<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_家''">骑上来</a></div>'
+			end
+			if a!3 and 1<q and q<7:
+			'<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_家''">后背位</a></div>'
+			end
+			if a!4 and 2<q and q<8:
+			'<div class="button"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_家''">后入</a></div>'
+			end
+			if a!5 and 4<q and q<10 :
+			'<div class="button"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_家''">冲刺</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_家''">射精</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''医院''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>: 他不会醒的，我们就当着我丈夫的面在这做吧！</p>'
+		 '</div>'
+	end
+
+
+	if a=1 :
+		 '<div class="dialog_menu">'
+			 '<p> 她一把将你扑倒，卖力地口交着，全然不顾一旁熟睡的丈夫。</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=2 :
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $SF.love+=q+my.魅力
+		 $SF.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$SF.name>>:为什么不射进小穴里？！呜呜呜……我要怀上你的宝宝，呜呜呜…为什么呜……</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="电吉他":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\旬果礼物.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">一言为定</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$SF.name>>: 这是……？！你怎么知道我想要做个？！</p>'
+		'<p>我: 你给帝国娱乐写的邮件，我看到了。</p>'
+		'<p><<$SF.name>>: 你怎么不早说！害我还写邮件过去，丢死人了！</p>'
+		'<p>我: 这也不是白给你的，你要帮我一个忙，帮我说服<<$QB.name>>参与一档选秀节目。</p>'
+		'<p><<$SF.name>>: 那档选秀节目我也能参加吗？！别看我这个样子，我还是有点实力的喔！</p>'
+		'<p>我: 当然了，只要你能说服<<$QB.name>>，我会向<<$TS.name>>推荐你的。</p>'
+		$选秀事件链=3
+	'</div>'
+End
+
+
+if $args[0]="SF_Fuck_地下室":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SF\vids\SF地下室1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_地下室''">挑逗 </a></div>'
+            end
+            if a!2 and 0<q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_地下室''">足交 </a></div>'
+            end
+            if a!3 and 1<q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_地下室''">乳交 </a></div>'
+            end
+            if a!4 and 2<q and q<=6:
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_地下室''">再激烈点  </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_地下室''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''大别墅''">休息</a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$ma>>:不把窗帘打开吗？虽然是地下室采光也很好呢。</p>'
+         '</div>'
+    end
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$ma>>:<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>我:大白天…这么主动？</p>'
+             '<p><<$ma>>:还不是因为…你嘛❤</p>'
+         '</div>'
+         if $ma=$SF.name:$SF.love+=q & $SF.bad+=q 
+    end
+  q+=1
+End
+
+if $args[0]="工作拍摄":
+	 $旬果房间num=rand(0,3)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SF\vids\工作1-<<$旬果房间num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $times_of_day='':'<div class="buttonS1"><a href="exec:minutes+=105 & gt ''少妇_事件'',''工作拍摄''">耐心等待</a></div>'
+		'<div class="buttonS2"><a href="exec:gt ''少妇_事件'',''SF_Fuck_厕所受孕''">去厕所来一发</a></div>'
+		if $SF.多面>=15:'<div class="buttonS3"><a href="exec:gt ''少妇_事件'',''SF_Fuck_海边''">去海边拍摄</a></div>'else:'<div class="buttonGr"><a href="exec:">多面能力不足</a></div>'
+		if $times_of_day!'':'<div class="buttonS4"><a href="exec:gt ''少妇_事件'',''SF_Fuck_情人节''">神秘惊喜</a></div>'else:'<div class="buttonGr"><a href="exec:">拍摄未结束</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$SF.name>>对着镜头，一股自信和坚毅的魅力由内而外地散发了出来！</p>'
+		 '<p>㊖获得了少量报酬，积累了一些人气</p>'
+		 OMoney+=SF_fans*$SF.多面/10
+		 SF_fans+=rand(1,3)
+	 '</div>'
+End
+
+if $args[0]="SF_Fuck_情人节":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SF\vids\情人节1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_情人节''">去酒店</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_情人节''">祝贺她</a></div>'
+            end
+            if a!3 and 1<q and q<4:
+            '<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_情人节''">情人节？</a></div>'
+            end
+            if a!4 and 2<q and q<9:
+            '<div class="button"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_情人节''">口交</a></div>'
+            end
+            if a!5 and 3<q and q<11:
+            '<div class="buttonS1"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_情人节''">自己骑上来</a></div>'
+            end
+            if a!6 and 4<q and q<13:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_情人节''">换姿势</a></div>'
+            end
+            if a!7 and 5<q and q<14:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_情人节''">窗前做爱</a></div>'
+            end
+            if a!8 and 7<q and q<16:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''少妇_事件'',''SF_Fuck_情人节''">大力冲刺</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''少妇_事件'',''SF_Fuck_情人节''">♂射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''少妇_事件'',''SF_Fuck_情人节''">猛操一整晚</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:my.精力=0 & gt ''少妇_事件'',''SF_Fuck_情人节''">第二天</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:还没祝贺你首次出道就取得季军的好成绩呢！</p>'
+             '<p><<$SF.name>>:哇？！！这是给我的嘛？</p>'
+         '</div>'
+    end
+
+
+
+    if 2>=a and a>=1 :
+         '<div class="dialog_menu">'
+             '<p>我:闭上眼睛！我说睁开才可以睁开！3,2,1…</p>'
+             '<p><<$SF.name>>:哇噻！！？天哪，这可太好看了吧！</p>'
+             if a=2:'<p>我:祝贺你偶像出道！干杯，情人节快乐。</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=3 :
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>: 情人节？情人节不是今天吧？</p>'
+             '<p>我:你不是我的情人吗？有你在我身边…我想每天都当成节日来宠坏你。</p>'
+             if a>=4:'<p><<$SF.name>>: 呜…我老公都没这样对待过我…你真好…呜呜</p>'
+         '</div>'
+    end
+
+    if 9>=a and a>=5 :
+         '<div class="dialog_menu">'
+             '<p>我:你爱我吗？</p>'
+             '<p><<$SF.name>>: 爱<<$娇喘声>></p>'
+             if a>=7:'<p>我:我是你的谁？</p>'
+             if a>=7:'<p><<$SF.name>>: 大鸡巴老公<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=10:
+         $SF.love+=q+my.魅力*3
+         $SF.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>:大鸡巴老公肏死我<<$话>></p>'
+             '<p>·于是今晚在疯狂的性爱中落下了帷幕</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SF_Fuck_夜袭":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SF\vids\事件1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a!1 and q<4:
+            '<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_夜袭''">舌吻</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_夜袭''">舔我</a></div>'
+            end
+            if a!3 and 1<q and q<4:
+            '<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_夜袭''">毒龙</a></div>'
+            end
+            if a!4 and 2<q and q<9:
+            '<div class="buttonS1"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_夜袭''">口交</a></div>'
+            end
+            if a!5 and 3<q and q<11:
+            '<div class="buttonS1"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_夜袭''">自己骑上来</a></div>'
+            end
+            if a!6 and 4<q and q<13:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_夜袭''">换姿势</a></div>'
+            end
+            if a!7 and 5<q and q<16:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_夜袭''">大力冲刺</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''少妇_事件'',''SF_Fuck_夜袭''">♂射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''少妇_事件'',''SF_Fuck_夜袭''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu2"><a href="exec:my.精力=0 & gt ''少妇_事件'',''SF_Fuck_夜袭''">晚安</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:你怎么来我房间了？</p>'
+             '<p><<$SF.name>>:你好久没来找我了！有没有想我？</p>'
+         '</div>'
+    end
+
+
+
+    if 8>=a and a>=1 :
+         '<div class="dialog_menu">'
+             '<p>我: 是你想我了吧？</p>'
+             '<p><<$SF.name>>: 我每天都在想你<<$娇喘声>></p>'
+             if a>=5:'<p>我: 想我干什么？</p>'
+             if a>=5:'<p><<$SF.name>>: 想要你操我<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=9:
+         旬果CD=0
+         $SF.love+=q+my.魅力
+         $SF.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>: 爽吗…我们已经好久没有做了呢…</p>'
+             '<p>我: 和你做爱每次都很爽！(看来是太久没找她了)</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SF_Fuck_来一发":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SF\vids\事件2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a!1 and q<5:
+            '<div class="buttonPu1"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_来一发''">揉奶</a></div>'
+            end
+            if a=1:
+            '<div class="buttonPu1"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_来一发''">揉臀</a></div>'
+            end
+            if a!3 and 1<q and q<6:
+            '<div class="buttonPu2"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_来一发''">舔舐肉棒</a></div>'
+            end
+            if a!4 and 2<q and q<9:
+            '<div class="buttonPu3"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_来一发''">开始抽插</a></div>'
+            end
+            if a!5 and 3<q and q<11:
+            '<div class="buttonPu4"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_来一发''">大力抽插</a></div>'
+            end
+            if a!6 and 4<q and q<99:
+            '<div class="buttonPu5"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_来一发''">颜射</a></div>'
+            end
+            if a=6:
+            '<div class="buttonP"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_来一发''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_来一发''">接着插</a></div>'
+                '<div class="button"><a href="exec:gt ''大别墅'',''主卧''">回房间</a></div>'
+            '</div>'
+    end
+
+    if 6>=a and a>=0 :
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>:想做啦？我也是…放心…我会让你舒服的。</p>'
+             if a>=1:'<p>我: 你的身材真是越来越色了…</p>'
+             if a>=3:'<p><<$SF.name>>:还不是为你才穿成这样的。</p>'
+             if a>=4:'<p><<$SF.name>>:<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=7:
+         $SF.love+=q
+         $SF.bad+=q
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>: 我还想要更多…</p>'
+             '<p>我: ………</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SF_Fuck_不速之客":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SF\vids\FL1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_不速之客''">看下去</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_不速之客''">那戴眼罩吧</a></div>'
+            end
+            if a=2:
+            '<div class="button"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_不速之客''">没感觉</a></div>'
+            end
+            if a=3:
+            '<div class="buttonPu4"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_不速之客''">扫兴离开</a></div>'
+            end
+            if a!5 and 3<q and q<6:
+            '<div class="buttonS"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_不速之客''">换我了！</a></div>'
+            end
+            if a!6 and 4<q and q<13:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_不速之客''">给点提示</a></div>'
+            end
+            if a!7 and 5<q and q<16:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_不速之客''">大力冲刺</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''少妇_事件'',''SF_Fuck_不速之客''">♂射精</a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''少妇_事件'',''SF_Fuck_不速之客''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''大别墅''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>:老公？！你…你怎么出院了？</p>'
+             '<p>律茂南:我的花屏老婆学会自己赚钱了？</p>'
+             '<p><<$SF.name>>:你…你又靠不住…我指望你我自己吃饭都困难！</p>'
+             '<p>律茂南:不指望我分你遗产了？那最好了！</p>'
+             '<p><<$SF.name>>:你来做什么…</p>'
+             '<p>律茂南:来肏我的宝贝老婆，法律没有规定不允许吧？</p>' 
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>:你…！？</p>'
+             '<p>律茂南:你笑什么？几天不见就不认识你老公的鸡巴了？</p>'
+             '<p><<$SF.name>>:我…我怕看了长针眼…</p>'
+             '<p>律茂南:会赚钱了有能耐了？！</p>'
+             '<p><<$SF.name>>:我戴个眼罩没关系吧…</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=2 :
+         '<div class="dialog_menu">'
+             '<p>律茂南:妈的？！现在叫都不叫几声，你最好感觉给老子怀孕！我们再分多点遗产！</p>'
+             '<p><<$SF.name>>: …………</p>'
+             if a=4:'<p>律茂南:今天状态不好！一点感觉都没，下次再来找你！</p>'
+         '</div>'
+    end
+
+
+
+    if 8>=a and a>=5 :
+         '<div class="dialog_menu">'
+             '<p>我: 猜猜我是谁？</p>'
+             '<p><<$SF.name>>: <<$娇喘声>></p>'
+             if a>=6:'<p>我: 给你点提示！</p>'
+             if a>=7:'<p><<$SF.name>>: 是…是大鸡巴老公<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=9:
+         $SF.love+=q+my.魅力
+         $SF.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我: 你老公来找你干嘛？</p>'
+             '<p><<$SF.name>>: 还不是想我怀孕了多分点遗产…</p>'
+             '<p>我: 那我要努努力了？</p>'
+             '<p><<$SF.name>>:知道就好！下次射进小穴里~我想要怀上你的孩子。</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="SF_Fuck_海边":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SF\vids\海边1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS"><a href="exec:a=1 & gt ''少妇_事件'',''SF_Fuck_海边''">拍摄间隙</a></div>'
+            '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''少妇_事件'',''SF_Fuck_海边''">打野战</a></div>'
+            end
+            if a!3 and 1<q and q<4:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''少妇_事件'',''SF_Fuck_海边''">乳交</a></div>'
+            end
+            if a!4 and 2<q and q<9:
+            '<div class="buttonS1"><a href="exec:a=4 & gt ''少妇_事件'',''SF_Fuck_海边''">口交</a></div>'
+            end
+            if a!5 and 3<q and q<11:
+            '<div class="buttonS1"><a href="exec:a=5 & gt ''少妇_事件'',''SF_Fuck_海边''">相互手淫</a></div>'
+            end
+            if a!6 and 4<q and q<13:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''少妇_事件'',''SF_Fuck_海边''">自己扭</a></div>'
+            end
+            if a!7 and 5<q and q<14:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''少妇_事件'',''SF_Fuck_海边''">狠狠抽插</a></div>'
+            end
+            if a!8 and 7<q and q<16:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''少妇_事件'',''SF_Fuck_海边''">大力冲刺</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''少妇_事件'',''SF_Fuck_海边''">♂射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''少妇_事件'',''SF_Fuck_海边''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">回去拍摄</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>摄影师:来！看镜头，很好，非常完美！</p>'
+         '</div>'
+    end
+
+
+
+    if a=1 :
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>:哇噻！大海！蓝天！好喜欢！</p>'
+             '<p>我:喜欢的话以后我经常带你来。</p>'
+         '</div>'
+    end
+
+    if 9>=a and a>=2 :
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>: 那你要说到做到！不许骗我！</p>'
+             '<p>我: 当然。</p>'
+             if a>=3:'<p><<$SF.name>>: 呜你真好<<$娇喘声>></p>'
+             if a>=6:'<p><<$SF.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=10:
+         $SF.love+=q+my.魅力
+         $SF.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SF.name>>:居然过了这么久！糟糕！一做起来就完全忘了时间！我得马上回去了！</p>'
+             '<p>我: 那你快回去吧。</p>'
+         '</div>'
+    end
+  q+=1
+End
+--- 少妇_事件 ---------------------------------
+

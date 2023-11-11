@@ -1,0 +1,193 @@
+# student_union
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=55
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+if $args[0]="":
+	 '<div class ="show_menu"><img src="images\place\学生会1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $HZ.available=0:'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''looking_for_a_peek''">Looking for a peek</a></div>'
+		if $HZ_Event_coser=1 and $HZ.available=1 and week_day >5:'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''student_council_president''">Come to take pictures</a></div>'
+		if $HZ_Event_coser>=8 :'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''dialogue_with_student_president''">Go straight in</a></div>'
+		if $HZ_Event_coser=4:'<div class="button"><a href="exec:minutes+=5 & gt ''president_event'',''take_a_picture_again''">Take a picture again</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Cadres of the student union: If you don`t have the qualifications of the student union, don`t look around.</p>'
+		if $XZ_Event_ZL=1:'<p>Student Union cadre: Ahem, if you want<a href="exec:gt ''aid_event''">Have some fun</a>Just follow me.</p>'
+	'</div>'
+End
+
+if $args[0]="looking_for_a_peek":
+	$HZ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\打脸~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Student Union cadre: Hello!You can`t go in!</p>'
+		'<p><<$HZ.name>>:Pop--pop--what is my order?！Pa-pa-are you a man?Waste grasshopper!…...huh?</p>'
+		'<p>Student Union cadre: Sorry!<<$HZ.name>>My lord!I`ll take him out right away!</p>'
+	'</div>'
+End
+
+if $args[0]="student_council_president":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\踢裆~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=1& gt ''president_event'',''pick_her_up_and_take_pictures''">Pick her up and take pictures</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:Pa--pa--stinky idiot, I`m so happy to be kicked out of office.Sure enough, it`s a waste!You fat pig, see if I don`t kick your cock!</p>'
+		'<p>Male student: Ah!Ah!Pain pain!Pain----!It`s so cool, the president will continue to kick me hard!Alas!If the president is not sick...That`s it...</p>'
+	'</div>'
+End
+
+
+if $args[0]="dialogue_with_student_president":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\舔脚~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &a=0& gt ''student_union'',''ask''">ask</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &ac=0& $ask=0 &gt ''student_union'',''let_them_out''">Let them out</a></div>'
+		if $fighting_front=1:'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''student_union'',''fighting_game''">Fighting game</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:Pop--pop--here you are!I`ve been waiting for you for a long time.Looking at the two idiots I recently received, compared with you, they are not worthy of licking your shoes.I miss you a little bit today..In fact, there is more than one point..It`s not just today..</p>'
+	'</div>'
+End
+
+
+if $args[0]="ask":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\询问~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $ask=1 & gt ''student_union'',''ask''">Rabbit graffiti in the student union</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & $ask=2 & gt ''student_union'',''ask''">About violent tendencies</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & $ask=3 & gt ''student_union'',''ask''">The super right of the student union</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''dialogue_with_student_president''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:...I hate it....What do you want to ask...</p>'
+		if $ask=1:
+		'<p><<$HZ.name>>: Which pink rabbit are you talking about?That is....The logo of the Hot girl Group..</p>'
+		'<p>Me:...Hot girl group?</p>'
+		'<p><<$HZ.name>>: Yes, the Hot Girls Group or the Hot Girls Gang is a female gangster organization entrenched in the suburbs...I am also one of the members..</p>'
+		'<p>Me: It`s not dangerous, is it?</p>'
+		'<p><<$HZ.name>>:It`s not what you think it is!Although women were usually marginalized in gangs in the past, even the wives and daughters of gang members could only get slightly higher treatment than their subordinates, and sometimes they became tools for gang members to have fun.However, since the introduction of the new policy, the Hot Girl Gang, composed of female members, has been quickly nurtured and has become the only gang to gain legitimacy.The rest of the male gangsters were severely cracked down as criminal groups.</p>'
+		'<p><<$HZ.name>>:(ｷ｀ﾟДﾟ´)!!I won`t tell you more!Everyone is a very good person, this is my door card, when you come to play with me...Introduce them to you!</p>'
+		end
+		if $ask=2:
+		'<p>Me:...Do you have a tendency to violence?</p>'
+		'<p><<$HZ.name>>: Actually I..Still a very gentle person....Those are all what they asked for, this group of grasshoppers..man..They are all shaking M masochists, and they still want to kick them.</p>'
+		end
+		if $ask=3:
+		'<p>Me: What are the super rights of the student union?</p>'
+		'<p><<$HZ.name>>:1. The student union is responsible for planning all school activities.2. The student union can support and match ordinary male students at will.3. The Student union will take care of students` disciplinary violations, including but not limited to punishment, suspension, and withdrawal.</p>'
+		'<p><<$HZ.name>>:Finally and most importantly, the student union also has the right to vote on school personnel.so<<$XZ.name>>Will open up to us.</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="let_them_out":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\学生会<<ac>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=5  & ac=1 & $ask=1 & gt ''student_union'',''let_them_out''">Blowjob for me</a></div>'
+		if ac=1:'<div class="buttonS2"><a href="exec:minutes+=5 & $ask=2 &  ac=2 & gt ''student_union'',''let_them_out''">Come quickly</a></div>'
+		if ac=0:'<div class="buttonS3"><a href="exec:minutes+=5 &  a=0 & gt ''president_event'',''hz_fuck_student_union''">Take off your pants</a></div>'
+		if $HZ.love>=500-$HZ.bad:'<div class="buttonS4"><a href="exec:minutes+=5 &  a=0 & gt ''president_event'',''hz_fuck_exercise''">Hot dog race</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+		if $hz.hot_dog>0:'<div class="buttonS5"><a href="exec:minutes+=5 &  a=0 & gt ''president_event'',''hz_fuck_exercise_2''">Additional special training</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+		
+		if ac=1:'<div class="buttonG2"><a href="exec:minutes+=5 & $ask=3 & ac=1 & gt ''student_union'',''let_them_out''">Her commission</a></div>'
+		if $ask=3 and $freshingredients>0:'<div class="buttonG3"><a href="exec:minutes+=5 & $ask=3 & ac=1 & money+=200 & $freshingredients-=1 & gt ''student_union'',''let_them_out''">Give her the goods</a></div>'
+		if HZcos=0:'<div class="buttonS"><a href="exec:minutes+=5  & HZcos=1 & ac=1 & $ask=4 & gt ''student_union'',''let_them_out''">cos appointment</a></div>'
+
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $ask=0:
+		'<p><<$HZ.name>>: Wear it like this..Is it too ladylike?.Do you like it?This is a benefit that is only for you.</p>'
+		end
+		if $ask=1:
+		'<p><<$HZ.name>>: Now everyone regards you as the vice president..Not only do you not thank me..And I want to serve you all the time...</p>'
+		'<p>Me:...Then how do you want me to serve you?</p>'
+		end
+		if $ask=2:
+		'<p>·A sweet time was spent in a symphony of groans and orgasms.</p>'
+		'<p><<$HZ.name>>: I hate it, you work so hard, your legs will soften after you finish it..</p>'
+		end
+		if $ask=3:
+		'<p><<$HZ.name>>: Actually, it`s not a big deal. A student union M slave was expelled for masturbating in the principal`s office. No one is doing what he was originally responsible for.</p>'
+		'<p>Me: What`s the matter?Were you kicked in the balls?</p>'
+		'<p><<$HZ.name>>:Haha, it is responsible for docking supplies with the Hot Girl Gang located in the suburbs. It is mainly the hot girl Gang that has taken over the supply of school canteen materials.In layman`s terms, it is to ship the goods.</p>'
+		'<p>Me: Can`t it be delivered directly to your door?What age is it?</p>'
+		'<p><<$HZ.name>>: Of course I won`t let you work for nothing!I can reward you in the name of a scholarship~ let me think about it, 200 ￥ at a time!If you want to treat yourself with your body, you can do it anytime..</p>'
+		'<p>Me: No problem, it`s not about money or not, it`s mainly about loving you.(There won`t be any contraband in it, right?..）</p>'
+		$hz_event_goods=1
+		end
+		if $ask=4:
+		'<p>Me: I opened a photo studio dedicated to taking private photos for cos. Come and have a show?</p>'
+		'<p><<$HZ.name>>:really!Am I not enough to join in now?</p>'
+		end
+		
+	'</div>'
+End
+
+if $args[0]="fighting_game":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\踢裆~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HZ.name>>:Pop-pop-fighting game?This is my strength!</p>'
+		'<p>Me: That`s great, I plan to hold a women`s fighting competition…</p>'
+		'<p><<$HZ.name>>:What?Women`s fighting competition...?I`m only interested in beating men……</p>'
+		'<p>Me: Uh……</p>'
+		'<p><<$HZ.name>>:Don`t worry... I`ll ask for you in the student union.By the way, the members of the Hot Girls Gang should be interested in participating. Go and ask to see the second generation.</p>'
+		$fighting_front=2
+	'</div>'
+End
+
+--- student_union ---------------------------------
+

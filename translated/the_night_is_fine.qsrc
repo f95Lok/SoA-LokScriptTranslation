@@ -1,0 +1,369 @@
+# the_night_is_fine
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+gs'menu_gif'
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Main stage" href="exec:minutes+=5 & gt ''the_night_is_fine'',''main_stage''"><img class="img_stretch" src="images\place\主舞台.gif"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Striptease area" href="exec:minutes+=5 & gt ''the_night_is_fine'',''striptease_area''"><img class="img_stretch" src="images\place\脱衣舞区.gif"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Custom area" href="exec:minutes+=5 & gt ''the_night_is_fine'',''custom_area''"><img class="img_stretch" src="images\place\VIP包间.gif"></a>
+		</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="Kabukicho" href="exec:minutes+=5 & gt ''kabukicho''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+		
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\夜色精巢开幕~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+	'<div class="button_menu">'
+	
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''main_stage''">Look at the main stage</a></div>'
+		if $OX.available=1 and $JZ_Event_rape=0: '<div class="button"><a href="exec:minutes+=15 & gt ''killer_event'',''ss_event_bar''">Investigation: Disappearance <<$JZ_Event_rape>>﹪</a></div>'
+		if  $JZ_Event_rape=15: '<div class="button"><a href="exec:minutes+=15 & gt ''killer_event'',''ss_event_license_plate''">Investigation: License plate <<$JZ_Event_rape>>﹪</a></div>'
+		if  $JZ_Event_gun=10: '<div class="button"><a href="exec:minutes+=15 &a=-1& gt ''police_incident'',''jy_event_bar''">etc.<<$JY.name>></a></div>'
+		if $set_printing_card=0: '<div class="buttonS"><a href="exec:minutes+=15 & $set_printing_card+=1 & gt ''the_night_is_fine''">Pick up the set printing card</a></div>'
+		if $set_printing_card=1 and hour=2 and week_day =6:'<div class="buttonR3"><a href="exec:$set_printing_number_s=3 & gt ''group_performation_event'',''general_fuck_jiyin_s''">❤Strike up a conversation with an acquaintance❤</a></div>'
+		if $bgh.night>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''the_night_is_fine'',''find_bgh''">find<<$BGH.name>></a></div>'
+		if rand(0,100)>=90 and $succubus_custom=1:'<div class="buttonPu3"><a href="exec:gt ''succubus_event'',''succubus_fuck_nightclub''"><<$MMS.name>>The figure</a></div>'
+		if $LB.available>0:'<div class="buttonR"><a href="exec:gt ''the_night_is_fine'',''private_office''">`Private office`</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Kill time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The deafening sound of lust makes your blood spurting!</p>'
+	'</div>'
+End
+
+	
+	
+	
+if $ARGS[0]="custom_area":
+	'<div class ="show_menu"><img src="images\place\VIP包间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $ly.customs>=1:'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''anchor_event'',''customs''"><<$LY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Custom Niang is recruiting</a></div>'
+		if $sx_massage_num>=3: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''lost_hometown_incident'',''sx_fuck_custom''"><<$SX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Custom Niang is recruiting</a></div>'
+		if $succubus_custom=1:'<div class="buttonPu3"><a href="exec:minutes+=15 &  gt ''succubus_event'',''succubus_fuck_custom''"><<$MMS.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Custom Niang is recruiting</a></div>'
+		if week_day=1 or week_day=3 or week_day=5:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''uehara_event'',''SY_Fuck_work2''"><<$SY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">On the clock</a></div>'
+		if week_day=6:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''uehara_event'',''SY_Fuck_FNN''">Saturday❤畅啪</a></div>'else:'<div class="buttonGr"><a href="exec:">Saturday❤畅啪</a></div>'
+		if $lxs_nightclub_work=1:'<div class="buttonS4"><a href="exec:minutes+=15 & gt ''study_abroad_event'',''study_abroad_fuck_pick_up''"><<$LXS.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Nightclubs can magnify everyone`s social behavior 10,000 times, whether it is virtues or vices, except for hotel beds, there is no place more suitable for analyzing the human heart than nightclubs.</p>'
+	'</div>'
+End
+
+if $args[0] ='striptease_area':
+	$WN.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WN\vids\开幕1-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if money>=2888:'<div class="buttonG"><a href="exec:money-=2888 & gt ''dancer_event'',''spades_a''">Spades A Gold Edition ￥2888</a></div>'else:'<div class="buttonGr"><a href="exec:">Spades A Gold Edition ￥2888</a></div>'
+		if money>=888:'<div class="buttonS1"><a href="exec:money-=888 & a=1 & gt ''dancer_event'',''milk_dance''">Milk dance ￥888</a></div>'else:'<div class="buttonGr"><a href="exec:">Milk dance ￥888</a></div>'
+		if money>=1688:'<div class="buttonS2"><a href="exec:money-=1688 & gt ''dancer_event'',''veneer_dance''">Veneer dance ￥1688</a></div>'else:'<div class="buttonGr"><a href="exec:">Veneer dance ￥1688</a></div>'
+		if money>=3288:'<div class="buttonS3"><a href="exec:money-=3288 & gt ''dancer_event'',''wn_fuck_double_dance''">Double dance ￥3288</a></div>'else:'<div class="buttonGr"><a href="exec:">Double dance ￥3288</a></div>'
+		if $special_camera_front=2:'<div class="buttonP"><a href="exec:gt ''the_night_is_fine'',''invited_performances_of_special_dramas''">Invited performances of special dramas</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		'<p><<$WN.name>>:Order a veneer dance or drink?</p>'
+	'</div>'
+End
+
+
+if $args[0] ='invited_performances_of_special_dramas':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WN\vids\喝酒.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if money>=10000:'<div class="buttonG"><a href="exec:money-=10000 & $special_camera_front=3 & gt ''the_night_is_fine'',''invited_performances_of_special_dramas''">Invitation to star 10,000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">Invitation to star 10,000￥</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		'<p>Me: I am preparing for a special drama. Are you interested in acting?It`s the special way the heroine is defeated by the bad guys.……</p>'
+		'<p><<$WN.name>>:What?Special drama?I haven`t acted before!But it should be simpler than striptease!</p>'
+		if $special_camera_front=3:
+		'<p>Me: Can this impress you?</p>'
+		'<p><<$WN.name>>:Boss atmosphere!See you soon at our TV station!</p>'
+		end
+	'</div>'
+End
+
+
+if $ARGS[0]="find_bgh":
+	'<div class="show_menu">'
+			'<img src="images\NPC\BGH\pics\3.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $bgh.night>=1 :'<div class="buttonS3"><a href="exec:gt ''house_next_door_event'',''house_next_door_fuck_ye''">Go to the box</a></div>'
+		if $bgh.tuning>=1 :'<div class="buttonS4"><a href="exec:gt ''house_next_door_event'',''house_next_door_fuck_night_2''">Change clothes</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$BGH.name>>: It`s so hi here!I haven`t had such a good time since I was good!Here I want to rekindle my enthusiasm for life!</p>'
+	'</div>'
+End
+
+
+
+if $ARGS[0]="main_stage":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\主舞台 (<<rand(0,24)>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $set_printing_card=1 and hour=2 and week_day =6:'<div class="buttonR3"><a href="exec:$set_printing_number_s=3 & gt ''group_performation_event'',''general_fuck_jiyin_s''">❤Strike up a conversation with an acquaintance❤</a></div>'
+		if $bgh.night>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''the_night_is_fine'',''find_bgh''">find<<$BGH.name>></a></div>'
+		if rand(0,100)>=90 and $succubus_custom=1:'<div class="buttonPu3"><a href="exec:gt ''succubus_event'',''succubus_fuck_nightclub''"><<$MMS.name>>The figure</a></div>'
+		if $zx_about_the_club=1 and (hour>=22 or hour<=3):'<div class="buttonS"><a href="exec:minutes+=15 & gt ''plasticity_event'',''club''"><<$ZX.name>></a></div>'
+		if $xn.waiter=1:'<div class="buttonS"><a href="exec:minutes+=15 & gt ''nun_event'',''xn_fuck_night_2''">find<<$XN.name>></a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The performance on the main stage quickly raised the mood, and the phone was adjusted to airplane mode, and the body was constantly bumping.</p>'
+		if rand(0,101)>=50:'<p>·As the hormones were mobilized, the good men and women went hand in hand.<a href="exec:gt ''the_night_is_fine'',''one_side''">-Look over there</a></p>'
+		if rand(0,200)>=150 and $xn.waiter=1:'<p>· <<$XN.name>>Entangled by a drunk guest<a href="exec:gt ''nun_event'',''xn_fuck_night_service''">-Look over there</a></p>'
+		
+		
+	'</div>'
+End
+
+if $ARGS[0]="one_side":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\侧 (<<rand(1,8)>>).webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''main_stage''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It`s nice to be young, you can do whatever you want.</p>'
+	'</div>'
+End
+
+
+
+
+if $ARGS[0]="private_office":
+	if $debt_collection=0:gt'boss_event','debt_collection_dialogue'
+	if $boss_event_chain=6  and $boss_on_the_top!999:gt'the_night_is_fine','aftermath'
+	if $boss_on_the_top=999 and $LB.love>=200 and rand(0,50)>=40:gt'the_night_is_fine','random_office'
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office<<rand(0,2)>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $boss_on_the_top=999:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''boss_liyi''">Be alone with her↑</a></div>'
+		if $debt_collection=1:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''younger_brother_debt_collection''">Private chat brother→</a></div>'
+		if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m=''LB'' & $ma=$LB.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+		if $boss_event_chain=2:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''camping_area_situation''">Camping area situation</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+
+		if $boss_on_the_top!999:
+		'<p>Crazy little brother: Sister, don`t you want to be stronger and bigger?</p>'
+		'<p><<$LB.name>>: Be stronger and bigger?Let`s talk about it after you have collected your accounts for me.</p>'
+		'<p>Crazy little brother: Don`t treat me like a child, I`ve had enough, I`m an adult.</p>'
+		else:
+		'<p><<$LB.name>>: Listen up, now you can`t go anywhere without my permission, if I`m not there, no<<$protagonists_name>>With the permission of, you can`t go anywhere.It`s so disappointing that you can even do such a thing as setting fire now!</p>'
+		'<p>Crazy little brother: Sister, do you trust him so much now?Also, I really didn`t set the fire!The police believed me right away, why do you have to fish me out?！</p>'
+		end
+	'</div>'
+End
+
+if $ARGS[0]="boss_liyi":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\酒1-0~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=1 & gt ''boss_event'',''boss_fuck_wine_1''">More than just a drink</a></div>'
+		if $boss_dialogue!1: '<div class="button"><a href="exec:$boss_dialogue=1 & gt ''the_night_is_fine'',''boss_liyi''">Go shopping on weekend afternoons?</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LB.name>>: My brother`s mess is thanks to you, how about it?Have a drink?</p>'
+		if $boss_dialogue=1:
+		'<p>Me: I know there is a better place. I will meet you at the mall on weekend afternoons.</p>'
+		end
+	'</div>'
+End
+
+
+if $ARGS[0]="younger_brother_debt_collection":
+	$debt_collection=1
+	$debt_collection_num=$debt_collection_1_completed+$debt_collection_2_completed+$debt_collection_3_completed+$debt_collection_4_completed+$debt_collection_5_completed+$debt_collection_6_completed
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $debt_collection_num>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''boss_event'',''boss_fuck_award_1''">Take credit to my sister</a></div>'else:'<div class="buttonGr"><a href="exec:">Complete at least 5</a></div>'
+		if $boss_event_chain=3 or $boss_event_chain=4:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''violent_plan''">Violent plan</a></div>'
+		if $boss_on_the_top=999:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''younger_brother_debt_collection_2''">What happened that day</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Crazy little brother: Help me find the group of mice!！Injustice has a head, debt has a master!！</p>'
+		'<p>(Overdue arrears: 15,000 ￥; Gender: female; Occupation: plastic surgeon; situation: Locked address</p>'
+		'<p>① Overdue arrears: 1017100￥; Gender: female; Occupation: bartender; situation：'
+		 if $debt_collection_1_completed=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>② Overdue arrears: 121<<rand(1115,9999)>>￥; Gender: female; Occupation: hairdresser; situation：'
+		 if $debt_collection_2_completed=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>逾期Overdue arrears: 1<<rand(331115,449999)>>￥; Gender: female; Occupation: cleaner; situation：'
+		 if $debt_collection_3_completed=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>逾期Overdue arrears: 2<<rand(131115,449999)>>￥; Gender: female; Occupation: car model; situation：'
+		 if $debt_collection_4_completed=1:'锁定住址</p>'else:'下落不明</p>'
+		'<p>逾期Overdue arrears: 2<<rand(531115,949999)>>￥; Gender: male; Occupation: criminal; situation：'
+		 if $debt_collection_5_completed=1:'锁定住址</p>'else:'下落不明</p>'
+		 '<p>(Overdue arrears: 1<<rand(131115,949999)>>￥; Gender: female; Occupation: habitual thief; situation：'
+		 if $debt_collection_6_completed=1:'锁定住址</p>'else:'下落不明</p>'
+	'</div>'
+End
+
+if $ARGS[0]="younger_brother_debt_collection_2":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Will believe and doubt</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: What happened that day?Did you set the fire?</p>'
+		'<p>Crazy little brother: Damn it... how many times do I have to say it, I really didn`t let it go!I was about to start the bulldozer that night, but found that the fuel tank was empty, so I went to buy a barrel of diesel. By the time I came back, it was already a sea of fire.</p>'
+		'<p>Me: That<<$JY.name>>Didn`t you arrest you yourself?</p>'
+		'<p>Crazy little brother: What does that stupid woman know? She watched me holding a bucket of diesel and pressed me to the ground without saying a word.</p>'
+		'<p>Me: Have you told anyone about this plan?</p>'
+		'<p>Crazy little brother: Only...you!</p>'
+		'<p>I：…………</p>'
+	'</div>'
+End
+
+
+
+
+if $ARGS[0]="camping_area_situation":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office<<rand(0,2)>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Cannot be set no</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: The one who supports the homeless in the camping area is<<$FP.name>>, You should know, right?</p>'
+		'<p><<$LB.name>>: Of course I know it is<<$FP.name>>, But I can`t come forward with this matter.</p>'
+		'<p>Crazy little brother: Sister, according to what I said, we will find someone to tie her up and beat up the group of tramps. It`s over. Why bother to make it so complicated.</p>'
+		'<p><<$LB.name>>: Guess who advanced the huge losses of the Ministry of Urban Construction?in<<$CJ.name>>In the eyes<<$FP.name>>Much more valuable than us.</p>'
+		'<p>Crazy little brother: Sister, where do you think she got so much money?Wasn`t she still a promiscuous stripper a few years ago?Is it really the same as the rumors?…</p>'
+		'<p>Me: What do the rumors say?</p>'
+		'<p>Crazy little brother: She is the mistress of the former richest man!And a large inheritance was allocated!</p>'
+		'<p><<$LB.name>>: All in all, let`s think of a way to deal with this matter peacefully.You can solve it, right?</p>'
+		if $boss_event_chain=2:$boss_event_chain=3
+	'</div>'
+End
+
+if $ARGS[0]="violent_plan":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">This is simple</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Crazy little brother: Hey, just listen to me. The two of us work together to solve the group of forced tramps together!</p>'
+		'<p>Me: What are your plans?</p>'
+		'<p>Crazy little brother: Real men only play hard!You go to support her and find ways to delay her. I`ll find a few bulldozers.</p>'
+		'<p>Me: This?</p>'
+		'<p>Crazy little brother: Just say if you dare to do it!I have news that she will go directly to the hot spring to take a bath after lunch on Saturday, and I need you to keep her at least until dark!</p>'
+		'<p>Me: Stay until dark?</p>'
+		'<p>Crazy little brother: During this time, the bulldozer will work!Hahahaha!How?</p>'
+		
+		if $boss_event_chain=3:$boss_event_chain=4
+	'</div>'
+End
+
+if $ARGS[0]="aftermath":
+	 if $boss_on_the_top=1:gt 'boss_event','boss_fuck_drama_3'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\000.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $the_boss_suspended_the_investigation=0:'<div class="buttonGr"><a href="exec:">Delayed investigation: not approved</a></div>'else:'<div class="buttonR3"><a href="exec:">Delayed investigation: approved</a></div>'
+		if $boss_on_the_top<=2:'<div class="buttonGr"><a href="exec:">Letter of understanding: Not completed</a></div>'else:'<div class="buttonR3"><a href="exec:">Letter of understanding: obtained</a></div>'
+		if  $the_thief_was_caught<2:'<div class="buttonGr"><a href="exec:">Scapegoat: not found</a></div>'else:'<div class="buttonR3"><a href="exec:">Scapegoat: Kizaki (habitual thief)</a></div>'
+		if $boss_on_the_top=2:'<div class="buttonP"><a href="exec:gt ''boss_event'',''boss_fuck_drama_4''">invite：<<$FP.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$LB.name>>: Can`t you let me be quiet?……</p>'
+		'<p>Me: Sorry...I shouldn`t…</p>'
+		'<p><<$LB.name>>: Why didn`t you stop him?I only have this younger brother!I…</p>'
+		'<p>Me: It`s all my fault... He obviously told me about the bulldozer…</p>'
+		'<p><<$LB.name>>: The response to this matter is very bad... Listen, first of all, we must delay the police investigation. Do you have any acquaintances at the police station?My identity is not convenient to show up.In addition, we have to fight for<<$FP.name>>The letter of understanding, finally give<<$CJ.name>>A scapegoat.</p>'
+		'<p>Me: Okay... I see.</p>'
+	'</div>'
+End
+
+if $ARGS[0]="random_office":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office4.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''boss_event'',''boss_fuck_shop_1''">Pick her up</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Where did your brother go?</p>'
+		'<p><<$LB.name>>: Oh, how can I control him? I guess I went to drink again or something. I`m really worried that he will do irrational things again.</p>'
+		'<p>Me: Do you care about him?After all, blood is thicker than water, which is understandable.</p>'
+		'<p><<$LB.name>>: He is actually...the younger brother of my ex-boyfriend...but I always regard him as my younger brother.</p>'
+		'<p>Me: Oh?Ex-boyfriend?</p>'
+		'<p><<$LB.name>>: He died in a car accident fifteen years ago, and he said he would marry me.</p>'
+		'<p>I：…………</p>'
+	'</div>'
+End
+
+
+
+--- the_night_is_fine ---------------------------------
+

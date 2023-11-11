@@ -1,0 +1,60 @@
+# bad_reviews
+
+
+
+
+
+
+if $args[0]="praise":
+KILLVAR '$store_evaluation_a',0 
+ $store_evaluation_a[6]='<font color="#33CC00">☺</font>'
+ end
+ 
+ 
+if $args[0]="bad_review":
+KILLVAR '$store_evaluation_a',0 
+ $store_evaluation_a[6]='<font color="#FF0000">☹</font>'
+end
+
+
+
+
+
+
+
+
+$total_praise=0
+
+if $store_evaluation_a[0]='<font color="#33CC00">☺</font>':$total_praise+=1
+if $store_evaluation_a[1]='<font color="#33CC00">☺</font>':$total_praise+=1
+if $store_evaluation_a[2]='<font color="#33CC00">☺</font>':$total_praise+=1
+if $store_evaluation_a[3]='<font color="#33CC00">☺</font>':$total_praise+=1
+if $store_evaluation_a[4]='<font color="#33CC00">☺</font>':$total_praise+=1
+if $store_evaluation_a[5]='<font color="#33CC00">☺</font>':$total_praise+=1
+if $store_evaluation_a[6]='<font color="#33CC00">☺</font>':$total_praise+=1
+
+
+if $args[0]="calculate":
+		if $store_evaluation_a[0]='<font color="#33CC00">☺</font>':$store_evaluation_a[0]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+		if $store_evaluation_a[1]='<font color="#33CC00">☺</font>':$store_evaluation_a[1]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+		if $store_evaluation_a[2]='<font color="#33CC00">☺</font>':$store_evaluation_a[2]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+		if $store_evaluation_a[3]='<font color="#33CC00">☺</font>':$store_evaluation_a[3]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+		if $store_evaluation_a[4]='<font color="#33CC00">☺</font>':$store_evaluation_a[4]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+		if $store_evaluation_a[5]='<font color="#33CC00">☺</font>':$store_evaluation_a[5]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+		if $store_evaluation_a[6]='<font color="#33CC00">☺</font>':$store_evaluation_a[6]='<font color="#FF0000">☹</font>' & $required_praise-=1
+		if $required_praise<=0:gt'convenience_store'
+end
+
+
+
+
+
+gt 'convenience_store'
+--- bad_reviews ---------------------------------
+

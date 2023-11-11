@@ -1,0 +1,3192 @@
+# student_group_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="school_flower_opening":
+	 if $school_flower_event_chain=0:$school_flower_event_chain=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\开幕.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonGn"><a href="exec: gt ''university''">Keep it in mind</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>Me: Hello, you are…<<$XH.name>>right?</p>'
+              '<p>*She is dumbfounded</p>'
+              '<p><<$XH.name>>: The interview with Empire Entertainment is too difficult... It has been brushed off several times.…</p>'
+              '<p>Me: Hello?</p>'
+              '<p>*She is absent-minded</p>'
+              '<p><<$XH.name>>: Hey... let`s try again on Saturday afternoon... Why can`t I be selected if I look so good?…</p>'
+         '</div>'
+
+End
+
+if $args[0]="school_flower_dialogue":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\开幕.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if $school_flower_event_chain=2 or $school_flower_event_chain=3:'<div class="buttonP"><a href="exec:gt ''student_group_event'',''school_flower_dialogue_2''">Accosted</a></div>'
+            if $school_flower_event_chain=4:'<div class="buttonP"><a href="exec:gt ''student_group_event'',''school_flower_dialogue_3''">Passed the interview</a></div>'
+            if $school_flower_event_chain>=5:'<div class="buttonP"><a href="exec:gt ''student_group_event'',''school_flower_dialogue_4''">dialogue</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		  if $school_flower_event_chain<=4:
+              '<p><<$XH.name>>: I don`t accept chocolate and love letters, only cash and luxury goods.</p>'
+              '<p>*She is dumbfounded</p>'
+              '<p>Me: Ahem*clear throat</p>'
+            else:
+              '<p><<$XH.name>>：<<$protagonists_name>>broker…</p>'
+              '<p>*She murmured to herself</p>'
+            end
+         '</div>'
+End
+
+if $args[0]="school_flower_dialogue_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\立绘<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonP"><a href="exec: gt ''university''">She is very happy</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			if $school_flower_event_chain=2:$school_flower_event_chain=3
+              '<p>Me: Me and<<$TS.name>>I have a bit of friendship, so with my hard work, I have bought you a chance to re-interview. This is the interview letter for the re-interview.</p>'
+              '<p><<$XH.name>>: Really or not?Isn`t it great!Why are you so good❤</p>'
+              '<p>Me: In order to ensure that you can succeed in the interview, I will go with you next time.</p>'
+              '<p><<$XH.name>>: Okay, okay ❤ Your name is...<<$protagonists_surname>>…<<$protagonists_name>>Right❤Let`s go together next Saturday afternoon!</p>'
+         '</div>'
+End
+
+if $args[0]="school_flower_dialogue_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\立绘<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonP"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_dialogue_3''">Make a request</a></div>'
+            if a=1:'<div class="buttonP"><a href="exec: gt ''university''">She readily agreed</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			if $school_flower_event_chain=4:$school_flower_event_chain=5
+			if a=0:
+              '<p>Me: Congratulations, after all my hard work, I finally agreed to sign a contract with you.</p>'
+              '<p><<$XH.name>>: Really or not?Isn`t it great!Why are you so good❤</p>'
+              '<p>Me: But…</p>'
+              '<p><<$XH.name>>: Huh?</p>'
+              end
+			if a=1:
+              '<p>Me: I will be your agent from now on, you have to follow my arrangements.</p>'
+              '<p><<$XH.name>>: No problem，<<$protagonists_name>>Agent ❤ I listen to you all!</p>'
+              '<p>Me: The first thing... is to desensitize your nipples.…</p>'
+              '<p><<$XH.name>>: Desensitization training...huh?I see, it`s about doing color, right?It`s okay ❤ as long as it is<<$protagonists_name>>I can do whatever the agent says!</p>'
+              end
+         '</div>'
+End
+
+if $args[0]="school_flower_dialogue_4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\立绘<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec: gt ''student_group_event'',''school_flower_a6''">Courage training</a></div>'
+		  if $school_flower_event_chain>=6:'<div class="buttonP"><a href="exec: gt ''student_group_event'',''school_flower_a16''">Home training</a></div>'
+		  if $school_flower_event_chain>=7:'<div class="buttonS"><a href="exec: gt ''student_group_event'',''school_flower_work''">Go to shoot</a></div>'
+		  if $school_flower_event_chain=9:'<div class="buttonG3"><a href="exec: gt ''student_group_event'',''school_flower_zxl''">Let`s find it together<<$SB.name>></a></div>'
+            '<div class="button"><a href="exec: gt ''university''">It`s okay</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Hi❤<<$protagonists_name>>Broker... what are we going to do today?</p>'
+              '<p>Me: Let me think about it…</p>'
+         '</div>'
+End
+
+if $args[0]="school_flower_interview_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!2:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_interview_1''">Keep up</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_interview_1''">Observe the interview</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & gt ''student_group_event'',''xh_ts_reason''">Ask why</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Just keep calm... it will definitely succeed this time…</p>'
+              '<p>I: ………</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Hi, hello.</p>'
+              '<p><<$XH.name>>: Who are you?Is it my suitor?Please!I am about to participate in the interview now, and I don`t have time to listen to your confession!</p>'
+              '<p>Me: Uh... (the temper is not as good as I thought)</p>'
+         '</div>'
+    end
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: <<$TS.name>>Miss, both of us have angels in our names, are we very destined❤</p>'
+              '<p><<$TS.name>>: Fate?The evil fate is almost the same. I am sorry to inform you that your interview performance did not meet my requirements.…</p>'
+              '<p><<$XH.name>>: Why?！Am I not good-looking enough?</p>'
+              '<p><<$TS.name>>: Thank you again for participating in our company`s interview, next one!</p>'
+              '<p><<$XH.name>>: I... I won`t give up!</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="xh_ts_reason":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\公测1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+                if $TS.love>=230+$my.charm*10:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''xh_ts_reason''">Take off your pants</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<230+$my.charm*10>></a></div>'
+                '<div class="button"><a href="exec:a=1 & gt ''residential_area''">Turn around and leave</a></div>'
+            end
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''xh_ts_reason''">Ask why</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''xh_ts_reason''">Mouth my cock</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''xh_ts_reason''">Got it</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''xh_ts_reason''">Concentrate on oral sex</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''student_group_event'',''xh_ts_reason''">Accelerate oral sex</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''student_group_event'',''xh_ts_reason''">Ejaculation</a></div>'
+            if a=7:'<div class="buttonS2"><a href="exec:a=8 & gt ''student_group_event'',''xh_ts_reason''">Ask why</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''angel_event'',''go_on_a_date''">Date her</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Can I ask... why didn`t it pass?</p>'
+              '<p><<$TS.name>>: Oh, you want me to tell you for nothing?*Squinting</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$TS.name>>: Hehe, it`s almost the same❤</p>'
+              if a>=2:'<p>Me: Tell me, what is the reason for rejecting her?…</p>'
+              if a>=3:'<p><<$TS.name>>: Can`t you wait for me to finish asking questions?</p>'
+              if a>=4:'<p>Me: OK…</p>'
+         '</div>'
+    end
+
+    if a=8:
+         if $school_flower_event_chain=1:$school_flower_event_chain=2
+         '<div class="dialog_menu">'
+              '<p><<$TS.name>>: It`s actually very simple. Here, for people with “angel` in their names, it`s enough to have me!</p>' 
+              '<p>Me: Just because of this?</p>'
+              '<p><<$TS.name>>: Just because of this ❤</p>' 
+              '<p>Me: Then can you be accommodating?</p>'
+              '<p><<$TS.name>>: Are you very concerned about her?Then if you go on a date with me, I will promise you to give her another chance ❤</p>' 
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="school_flower_interview_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_interview_2''">Say hello</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_interview_2''">Interview together</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_interview_2''">With or without tattoos</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_interview_2''">Posture display</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_interview_2''">Take off your bra</a></div>'
+            if a=5:'<div class="buttonR3"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_interview_2''">Nipples are too sensitive</a></div>'
+            if a=6:'<div class="buttonR4"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_interview_2''">Failed the retest?</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=8 & q=10 & $universal_location=''录音2'' & fxnum=12 & 
+            $general_selection_1=''Drink and lie on them'' & $general_selection_2=''dialogue'' & $general_selection_3=''kiss'' & $general_selection_4=''Lick'' &
+            $general_selection_5=''Licking testicles'' & $general_selection_6=''Oral sex'' & $general_selection_7=''Masturbate by yourself'' & $general_selection_8=''Kissing and thrusting'' &
+            $general_selection_9=''Back position'' & $general_selection_10=''Accelerate thrusting'' & $general_selection_11=''Bukkake'' & $general_selection_12=''Lick clean'' &
+            $pan_dialogue_1=''Aha!It`s the best to have a glass of beer after work!'' & $pan_dialogue_2=''Cheers!You guys come too!''& $pan_dialogue_3=''Really ❤ Do you have to admit her?''&
+            $pan_dialogue_4=''You are so annoying ❤ I really can`t do anything with you, just hire her❤''& $pan_dialogue_5=''You are the best❤''&
+            $pan_leave=''subway'' & gt ''angel_event'',''ts_fuck_universal''">She can`t wait</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: <<$protagonists_name>>Why haven`t you come yet?…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Sorry... I`m late.</p>'
+              '<p><<$XH.name>>: Soon soon ❤ I... I just arrived too!</p>'
+         '</div>'
+    end
+
+    if 6>=a and a>=2:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Hehe，<<$TS.name>>Miss, we meet again❤</p>'
+              '<p><<$TS.name>>: You know that as an artist, the most important thing is not only appearance but also figure…</p>'
+              if a>=3:'<p><<$XH.name>>: I am also very confident in my figure…</p>'
+              if a>=5:'<p><<$TS.name>>: Wait, are you really a college student?Why are your areola so big, you haven`t been pregnant before, have you?</p>'
+              if a>=6:'<p><<$XH.name>>: Of course not!Please listen to my explanation... I have been too sensitive to my nipples since I was a child... that`s why the areola is so big.…</p>'
+         '</div>'
+    end
+
+    if a=7:
+         if $school_flower_event_chain=3:$school_flower_event_chain=4
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: So because of this... I didn`t pass the retest again, right?</p>' 
+              '<p><<$TS.name>>: Clam?It doesn`t matter if you pass the retest or not. To be honest, it has nothing to do with you.</p>'
+              '<p><<$XH.name>>: It has nothing to do with... it has nothing to do with me?</p>' 
+              '<p><<$TS.name>>: If you don`t understand, go back and wait for the news!Whether you will be signed by me... depends on<<$protagonists_name>>Performance❤</p>' 
+              '<p>Me: It`s my turn…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="school_flower_a6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a6''">So bold</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a6''">Hiding behind the podium</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a6''">High-speed oral work</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a6''">Ejaculation on the tongue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''university''">Training is complete</a></div>'
+            '</div>'
+    end
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Guts... Is it courageous to secretly give you oral sex in the classroom?</p>'
+              if a>=1:'<p>Me: I didn`t expect you to be so bold?</p>'
+              if a>=2:'<p><<$XH.name>>: Are you deceived by my appearance?</p>'
+              if a>=3:'<p>Me: I thought you were a very pure college girl❤</p>' 
+         '</div>'
+    end
+
+    if a=4:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         if $school_flower_event_chain=5:$school_flower_event_chain=6
+         '<div class="dialog_menu">'
+              '<p>Me: Sure enough, the more beautiful a woman is, the more deceptive she is.</p>'
+              '<p><<$XH.name>>: Please!Is it a woman who can lie to others, okay?It`s just that you don`t believe it when a woman who is not beautiful speaks ❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_a16":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A16-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a16''">Desensitization training</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a16''">Take out JB</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a16''">She is patient</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a16''">Roll at her</a></div>'
+            if a=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_a16''">Bukkake her</a></div>'
+            if a=5:'<div class="buttonG4"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_a16''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+			 if $school_flower_event_chain>=8:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_b16''">Go to the bedroom to talk</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: You can train with confidence at home❤</p>'
+              if a>=2:'<p>Me: Do you need my assistance?</p>'
+              if a>=3:'<p><<$XH.name>>: I... I think... I can bear it❤</p>'
+              if a>=4:'<p>Me: Really ❤</p>' 
+         '</div>'
+    end
+
+    if a=6:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         if $school_flower_event_chain<=6:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Which one... can you take me to officially participate in the artist work❤</p>'
+              '<p>Me: I think<<$TS.name>>There should be a job suitable for you there.</p>'
+         '</div>'
+         else:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: I`m still a little dissatisfied❤</p>'
+         '</div>'
+         end
+         if $school_flower_event_chain=6:$school_flower_event_chain=7
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_work":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A7.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec: gt ''student_group_event'',''school_flower_a7''">Photo audition</a></div>'
+            if $XH.bad>=$my.charm*3+1:'<div class="buttonS2"><a href="exec: gt ''student_group_event'',''school_flower_a8''">Mattress advertising</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient lens sense</a></div>'
+            if $XH.bad>=$my.charm*4+5:'<div class="buttonS3"><a href="exec: gt ''student_group_event'',''school_flower_b8''">Girly photo</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient lens sense</a></div>'
+            if $XH.bad>=$my.charm*6+8:'<div class="buttonS4"><a href="exec: gt ''student_group_event'',''school_flower_a9''">School recruitment video</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient lens sense</a></div>'
+            if $XH.bad>=$my.charm*8+10:'<div class="buttonS5"><a href="exec: gt ''student_group_event'',''school_flower_a12''">Underwear advertising</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient lens sense</a></div>'
+            if $XH.bad>=$my.charm*10+15:'<div class="buttonS5"><a href="exec: gt ''student_group_event'',''school_flower_a13''">Sex toys advertising</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient lens sense</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''residential_area''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: It seems that there are only some advertising magazines and photography jobs.…</p>'
+              '<p>Me: Take your time.</p>'
+              '<p><<$XH.name>>: I hope the desensitization training is effective, I don`t want my nipples to be rubbed by clothes to stand up and get scoliosis❤</p>'
+              '<p>Me: What should I do if I`m wanted by Mo?</p>'
+              '<p><<$XH.name>>: That`s troublesome<<$protagonists_name>>Help me solve it❤</p>'
+         '</div>'
+
+End
+
+if $args[0]="school_flower_a7":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A7-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonGn3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a7''">End of shooting</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a7''">Lick it</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a7''">Lick the glans</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a7''">Lick the balls</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_a7''">Quick blowjob</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_a7''">Ejaculation</a></div>'
+            if a=6:'<div class="buttonG3"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_a7''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: This is just an audition for a group of simulated filming, but she performed very well.</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: What`s up?Why are you so hard❤</p>'
+              if a>=1:'<p>Me: Would you want to lick it if it doesn`t get hard?</p>'
+              if a>=3:'<p><<$XH.name>>: Also want to<<$panting>>❤</p>'
+              if a>=4:'<p>Me: Really ❤</p>' 
+         '</div>'
+    end
+
+    if a=7:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Am I more photogenic like this❤</p>'
+              '<p>Me: Then it won`t be broadcast smoothly.</p>'
+              '<p>·————————</p>'
+              '<p>Her sense of lens has risen❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_a8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonGn3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a8''">End of shooting</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a8''">Do you want it?</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a8''">Lick it</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a8''">Concentrate on oral sex</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_a8''">All bukkake</a></div>'
+            if a=5:'<div class="buttonGn3"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_a8''">Lick clean</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: This is a set of cheap mattress advertisements, but she performed very well.</p>'
+         '</div>'
+    end
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>:Hehe❤</p>'
+              if a>=1:'<p>Me: What`s the matter?Did you want it this time?</p>'
+              if a>=3:'<p><<$XH.name>>:Hmm<<$panting>>❤</p>'
+              if a>=4:'<p>Me: Then have a good dick❤</p>' 
+         '</div>'
+    end
+
+    if a=6:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Am I more photogenic like this❤</p>'
+              '<p>Me: Then it won`t be broadcast smoothly.</p>'
+              '<p>·————————</p>'
+              '<p>Her sense of lens has risen❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_b8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\B8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonGn3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_b8''">End of shooting</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_b8''">Check if it`s wet</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_b8''">Put your finger in</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_b8''">Beg me</a></div>'
+            if a=4:'<div class="buttonS1"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_b8''">Take off your pants</a></div>'
+            if a=5:'<div class="buttonS1"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_b8''">Mouth me</a></div>'
+            if a=6:'<div class="buttonS2"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_b8''">Insert gently</a></div>'
+            if 10>=a and a>=7:
+            if a>=7:'<div class="buttonS3"><a href="exec:a=8 & gt ''student_group_event'',''school_flower_b8''">Change posture</a></div>'
+            if a>=8:'<div class="buttonS4"><a href="exec:a=9 & gt ''student_group_event'',''school_flower_b8''">Ride up by yourself</a></div>'
+            if a>=9:'<div class="buttonS5"><a href="exec:a=10 & gt ''student_group_event'',''school_flower_b8''">Vigorously pump</a></div>'
+            if a>=10:'<div class="buttonR5"><a href="exec:a=11 & gt ''student_group_event'',''school_flower_b8''">Ejaculation</a></div>'
+            end
+            if a=11:'<div class="buttonGn3"><a href="exec:a=12 & gt ''student_group_event'',''school_flower_b8''">Lick clean</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: This is a set of super transparent girl photos.</p>'
+         '</div>'
+    end
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: The shooting has been hard, and your sense of lens is getting better and better.</p>'
+              '<p><<$XH.name>>: But... I`m still too sensitive... The window screens just rubbed my nipples hard❤</p>'
+              if a>=2:'<p>Me: Then let me see if you are wet❤</p>'
+              if a>=3:'<p><<$XH.name>>: Hmm ❤ I kind of want to eat your dick…</p>'
+              if a>=4:'<p>Me: I`ll give you dick if you beg me❤</p>' 
+              if a>=5:'<p><<$XH.name>>: Please... I want to eat<<$protagonists_name>>The agent`s big cock❤</p>'
+         '</div>'
+    end
+
+    if 11>=a and a>=6:
+         '<div class="dialog_menu">'
+              '<p>Me: Do the classmates in the school know that their school flower is a slut?</p>'
+              '<p><<$XH.name>>: Of course I don`t know, how can they know that I am a slut who loves to eat big dick❤</p>'
+              if a>=7:'<p>Me: Then promise me, your cunt can only be fucked by me alone, okay?</p>'
+              if a>=8:'<p><<$XH.name>>: Hmm ❤ I promise<<$words>></p>'
+         '</div>'
+    end
+
+
+    if a=12:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: So cool ❤ favorite<<$protagonists_name>>The agent`s big cock❤</p>'
+              '<p>Me: You really have a strong contrast with your pure appearance❤</p>'
+              '<p>·————————</p>'
+              '<p>Her sense of lens has risen❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_a9":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A9-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonGn3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a9''">As soon as the shooting is over</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a9''">Merciless</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a9''">Someone knocked on the door</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a9''">Let her answer</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_a9''">Vigorously pump</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_a9''">Bukkake her</a></div>'
+            if a=6:'<div class="buttonGn2"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_a9''">Lick clean</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: All students are welcome to apply for our school, if you want to chase me ❤</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Why don`t you wear underwear when you shoot?</p>'
+              '<p><<$XH.name>>: Isn`t it to make it convenient for you to fuck❤</p>'
+              if a>=2:'<p>Me: Then I`m not polite❤</p>'
+              if a>=3:'<p>？？？: Hello, have you run out of empty classrooms?*Knock on the door</p>'
+              if a>=4:'<p><<$XH.name>>: No ❤still...shooting... for enrollment...uh uh❤... promotional video ❤ You wait...don`t come in…</p>' 
+              if a>=5:'<p>Me: Your pussy shrinks so tightly when you lie❤</p>'
+
+         '</div>'
+    end
+
+    if a=7:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: The heartbeat is so fast ❤ What if he comes in?Do you let him watch me get fucked, or invite him to fuck my asshole?</p>'
+              '<p>Me: If he really comes in... you are in charge❤</p>'
+              '<p>·————————</p>'
+              '<p>Her sense of lens has risen❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_a12":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A12-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonGn3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a12''">As soon as the shooting is over</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a12''">Tease her</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a12''">Ride up</a></div>'
+            if a=3:'<div class="buttonR3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a12''">Fuck her</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_a12''">Fuck her head-on</a></div>'
+            if a=5:'<div class="buttonR3"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_a12''">Fuck her</a></div>'
+            if a=6:'<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_a12''">Back position</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''school_flower_a12''">Vigorously pump</a></div>'
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''school_flower_a12''">Bukkake her</a></div>'
+            if a=9:'<div class="buttonGn3"><a href="exec:a=10 & gt ''student_group_event'',''school_flower_a12''">Lick clean</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: This underwear is so comfortable to wear ❤ It feels like a girl`s breasts❤</p>'
+         '</div>'
+    end
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: I find you are getting more and more hungry ❤</p>'
+              '<p><<$XH.name>>: Is there a possibility that my nature is like this?</p>'
+              if a>=2:'<p>Me: Really ❤</p>'
+              if a>=3:'<p><<$XH.name>>: Guess<<$words>></p>' 
+
+         '</div>'
+    end
+
+    if a=10:
+         $XH.love+=q+$my.charm
+         $XH.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: I found that I can`t balance my studies and advertising work.…</p>'
+              '<p>Me: I will find a way.</p>'
+              '<p>·————————</p>'
+              '<p>Her sense of lens has risen❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_a13":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\A13-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonR3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_a13''">Stop shooting</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_a13''">Tease her</a></div>'
+            if q=2:
+                '<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_a13''">Insert fun props</a></div>'
+                '<div class="buttonR3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_a13''">Use a fun massage stick</a></div>'
+            end
+            if q=3:'<div class="buttonR4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_a13''">Break open the cunt from the front</a></div>'
+            if a=5:'<div class="buttonS2"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_a13''">Then fuck her</a></div>'
+            if a=6:'<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_a13''">Change to the top of the female</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''school_flower_a13''">Vigorously pump</a></div>'
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''school_flower_a13''">Bukkake her</a></div>'
+            if a=9:'<div class="buttonGn3"><a href="exec:a=10 & gt ''student_group_event'',''school_flower_a13''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: So interesting, it`s very different from your style❤</p>'
+              '<p><<$XH.name>>: What does it matter ❤</p>'
+         '</div>'
+    end
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Stop, stop, stop, I don`t think you are very suitable, first of all, you don`t know anything about the product ❤</p>'
+              '<p><<$XH.name>>: Then you let me know about it?</p>'
+              if a>=2:'<p>Me: That`s what I mean ❤</p>'
+              if a>=3:'<p><<$XH.name>>:Oh my god<<$panting>></p>' 
+         '</div>'
+    end
+
+    if 9>=a and a>=5:
+         '<div class="dialog_menu">'
+              '<p>Me: Your cunt is already open and can`t be closed ❤ How many people have you been fucked by?</p>'
+              '<p><<$XH.name>>: Guess why my nipples are so black?</p>'
+              if a>=6:'<p>Me: I`m not interested in guessing ❤</p>'
+              if a>=7:'<p><<$XH.name>>:Ok<<$words>></p>' 
+         '</div>'
+    end
+    if a=10:
+         $XH.love+=q+$my.charm
+         $XH.bad+=q+$my.charm
+         if $school_flower_event_chain=7:$school_flower_event_chain=8
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: You said you would find a way, you know I can`t balance my studies and shooting work…</p>'
+              '<p>Me: What do you think?</p>'
+              '<p><<$XH.name>>: I have an idea, I will tell you next time you come to my house!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_b16":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\B16-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_b16''">What should I do?</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_b16''">Tease her</a></div>'
+            if q=2:
+                '<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_b16''">Tease the clitoris</a></div>'
+                '<div class="buttonR3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_b16''">Finger insertion</a></div>'
+                '<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_b16''">Blowjob for me</a></div>'
+            end
+            if q=3:'<div class="buttonS2"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_b16''">Ride up</a></div>'
+            if a=6:'<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_b16''">Separate legs</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''school_flower_b16''">Accelerate thrusting</a></div>'
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''school_flower_b16''">Fuck her</a></div>'
+            if a=9:'<div class="buttonR3"><a href="exec:a=10 & gt ''student_group_event'',''school_flower_b16''">High-speed sprint</a></div>'
+            if a=10:'<div class="buttonR5"><a href="exec:a=11 & gt ''student_group_event'',''school_flower_b16''">Shoot her inside</a></div>'
+            if a=11:'<div class="buttonGn3"><a href="exec:a=12 & gt ''student_group_event'',''school_flower_b16''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0 or a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: What are your thoughts?</p>'
+              '<p><<$XH.name>>: Hehe, I want to apply for suspension❤ but... I don`t want to leave the campus completely, so that the title of my school flower will be taken away by others…</p>'
+                if a>=1:'<p>Me: What should I do?</p>'
+                if a>=1:'<p><<$XH.name>>: I learned... can I stay in school by working hard and studying frugally... In this way, I can not only retain my academic status, but also maintain a sense of existence in the school.…</p>'
+         '</div>'
+    end
+
+
+    if 11>=a and a>=2:
+         '<div class="dialog_menu">'
+              '<p>Me: This is not easy to do. There seems to be no free time in school, right?</p>'
+              '<p><<$XH.name>>: Do you want to think of a way, for example, what kind of venue do you want to build in the school, and I will sweep the floor and clean it up?</p>'
+              if a>=3:'<p>Me: Let`s have sex first❤</p>'
+              if a>=4:'<p><<$XH.name>>: Then don`t forget<<$panting>></p>' 
+              if a>=5:'<p>Me: I won`t forget ❤</p>'
+              if a>=6:'<p><<$XH.name>>: Then I`ll move faster<<$words>></p>' 
+         '</div>'
+    end
+
+    if a=12:
+         $XH.love+=q+$my.charm
+         $XH.bad+=q+$my.charm
+         if $school_flower_event_chain=8:$school_flower_event_chain=9
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: I let you shoot me inside, can you talk now?</p>'
+              '<p>Me: Build a new venue in the school... to provide you with a casual job, right, I see.</p>'
+              '<p><<$XH.name>>: Hmm!Must remember to implement it❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_zxl":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\ZXL1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_zxl''"><<$XH.name>>Take a stand</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_zxl''">Keep up</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_zxl''">Back to classroom</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_zxl''">Look at<<$XH.name>></a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''second_shift_in_three_years''">Built a gymnasium</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: The good news is<<$XH.name>>Willing to suspend school.</p>'
+              '<p><<$SB.name>>: Does that sound like bad news?</p>'
+              '<p>Me: The condition is... to provide her with an idle position to brush her presence in the school so as to retain the title of school flower.</p>'
+              '<p><<$SB.name>>: What a scheming bitch, don`t be fooled by her pure appearance!</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: Hello, Miss, I`m not pure❤</p>'
+              '<p><<$SB.name>>: Huh, do you still need to say it?</p>'
+              '<p>Me: Don`t fight…</p>'
+              '<p><<$SB.name>>: Hello, I will provide you with a position as a cleaner, are you willing to do the same?*Arrogant</p>'
+              '<p><<$XH.name>>: Yes, cleaners are fine too ❤ Anyway, I`m so good-looking, I have licking dogs rushing to do everything for me❤</p>'
+              '<p><<$SB.name>>: Oh?Very confident, then I have a good idea!Follow me!</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Mom, Mom, I thought of a birthday wish!</p>'
+              '<p><<$JYB.name>>: Ok!Baby girl, tell me about it!</p>'
+              '<p><<$SB.name>>: I want to... build a smelly women`s locker room in the school, which is full of smelly socks and dirty clothes…</p>'
+              '<p><<$JYB.name>>: The smelly women`s locker room?Uh...you mean to build a stadium!The locker room in the gym is what you said!</p>'
+              '<p><<$SB.name>>: Yes, yes, yes!That`s it!</p>'
+         '</div>'
+    end
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Hehe, in the women`s locker room, there shouldn`t be any licking dogs to help you work, right?</p>'
+              '<p><<$XH.name>>:…………</p>'
+              '<p><<$SB.name>>: Why don`t you talk?The school flower is about to become a smelly flower.</p>'
+         '</div>'
+    end
+
+    if a=4:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         if $school_flower_event_chain=9:$school_flower_event_chain=10
+         $new_stadium=1
+         '<div class="dialog_menu">'
+              '<p><<$XH.name>>: It doesn`t matter ❤ I don`t care at all, this can also stimulate men`s desire for protection and compassion❤</p>'
+              '<p><<$SB.name>>: Cut…</p>'
+              '<p><<$XH.name>>: Now that this matter is settled, then<<$protagonists_name>>❤Let`s go!</p>'
+              '<p><<$SB.name>>: Hmm?What?You... you two got involved, right?</p>'
+              '<p>I: ……</p>'
+              '<p><<$SB.name>>: Humph!*She seems jealous</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_c14":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\C14-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonGn3"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_c14''">Comfort her</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_c14''">Tongue kiss</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_c14''">Eat cock</a></div>'
+            if a=3:'<div class="buttonR3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_c14''">Insert her</a></div>'
+            if q=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_c14''">Fuck her head-on</a></div>'
+            '<div class="buttonR3"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_c14''">Back position</a></div>'
+            end
+            if q=5:'<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''school_flower_c14''">Take a breath</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''school_flower_c14''">Vigorously pump</a></div>'
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''school_flower_c14''">Bukkake her</a></div>'
+            if a=9:'<div class="buttonGn3"><a href="exec:a=10 & gt ''student_group_event'',''school_flower_c14''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">Kiss goodbye</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: What are you doing here?</p>'
+              '<p><<$XH.name>>: Damn it，<<$SB.name>>It`s too bullying, I actually let me do the job of cleaning up stinky clothes!</p>'
+              '<p>Me: Sure enough, I`m still angry…</p>'
+         '</div>'
+    end
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Okay, don`t be angry, aren`t you able to appear in school and maintain a sense of existence now that you are out of school?And you are still a school flower!</p>'
+              if a>=2:'<p><<$XH.name>>: Huh... you still speak well❤</p>'
+              if a>=3:'<p>Me: Calm down and eat something delicious❤</p>'
+              if a>=5:'<p><<$XH.name>>:Don`t stop<<$words>></p>' 
+
+         '</div>'
+    end
+
+    if a=10:
+         $XH.love+=q+$my.charm
+         $XH.bad+=q+$my.charm
+         if $school_flower_event_chain=10:$school_flower_event_chain=11
+         $XH.GE=1
+         '<div class="dialog_menu">'
+              '<p>Me: Are you happy?</p>'
+              '<p><<$XH.name>>: When did I get unhappy when I was with you?I`m the happiest with you❤</p>'
+              '<p>Me: Uh... (Obviously I was still angry just now)</p>'
+              '<p><<$XH.name>>:Hehe❤</p>'
+              '<p>·---Here is the end of the character`s story———</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="school_flower_f15":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XH\vids\F15-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:
+             '<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''school_flower_f15''">What are you pretending to be?</a></div>'
+             '<div class="button"><a href="exec:gt ''gymnasium''">Change clothes and enter</a></div>'
+            end
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''school_flower_f15''">Insert her vigorously</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''school_flower_f15''">Shoot her</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''school_flower_f15''">Pick it up and keep fucking</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''school_flower_f15''">Shoot her in the mouth</a></div>'
+            if a=5:'<div class="buttonGn3"><a href="exec:a=6 & gt ''student_group_event'',''school_flower_f15''">Lick clean</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''school_flower_c14''">Go with her</a></div>'
+                '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Strange, isn`t this the men`s locker room?</p>'
+              '<p><<$XH.name>>: Yes, who will I show my sense of existence to if I am in the women`s locker room?</p>'
+              '<p>Me: Then what are you doing here?Be a mascot?</p>'
+              '<p><<$XH.name>>: If you have sportswear that needs to be changed, you can give it to me and I will fold it for you.</p>'
+         '</div>'
+    end
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Don`t pretend, why are you not wearing underwear?</p>'
+              '<p><<$XH.name>>: You hate<<$words>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         $XH.love+=q
+         $XH.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p>Me: Are you satisfied?</p>'
+              '<p><<$XH.name>>: It`s full of dirty clothes here. I`m so angry, okay!How can it be satisfied!</p>'
+              '<p>*<<$XH.name>>Take your hand and want to go somewhere else…</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="gym_miscellaneous_a":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\ZR1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<2:
+        '<div class="button_menu">'
+            if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''gym_miscellaneous_a''">Look at the second floor</a></div>'
+			if $succubus_energy>=3:'<div class="buttonPu3"><a href="exec:$succubus_energy=0 & a=3 & gt ''student_group_event'',''gym_miscellaneous_a''"><font color="#FF00FF">Group hypnosis❤❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Group hypnosis❤❤❤</a></div>'
+		  end
+            if a=1:'<div class="buttonS3"><a href="exec:a=2 & gt ''student_group_event'',''gym_miscellaneous_a''">Walk up and see</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''gymnasium''">Leave them alone</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Very normal sports activities in the gym.</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: It seems that there are still bold students…</p>'
+         '</div>'
+    end
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p>Female student: Senior... your dick is bigger than my boyfriend`s❤</p>'
+              '<p>Male student: Then call him together next time?</p>'
+         '</div>'
+    end
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p>*They are hypnotized by you❤</p>'
+              '<p>Female students: Fuck me<<$words>></p>'
+              '<p>Male student: Oh my god!It`s so cool!</p>'
+              '<p>Me: That`s what it looks like❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="gym_miscellaneous_b":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\ZR2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<200:
+        '<div class="button_menu">'
+            '<div class="buttonS2"><a href="exec:a=rand(0,6) & gt ''student_group_event'',''gym_miscellaneous_b''">See what else to do</a></div>'
+            if a<=6:'<div class="buttonS5"><a href="exec:a=rand(7,10) & gt ''student_group_event'',''gym_miscellaneous_b''">Watch the winning rewards</a></div>'
+            '<div class="button"><a href="exec:gt ''gymnasium''">Regardless of them</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''gymnasium''">Leave them alone</a></div>'
+            '</div>'
+    end
+
+    if a<=6:
+         '<div class="dialog_menu">'
+              '<p>Female student A: I must win ❤</p>'
+              '<p>Female student B: I won`t lose to you!</p>'
+              '<p>Me: What is this?It really deserves to be<<$SB.name>>The sports that I came up with... look pretty unruly.…</p>'
+         '</div>'
+    else:
+         '<div class="dialog_menu">'
+              '<p>Female student: Great<<$panting>>❤</p>'
+              '<p>Me: Is this a reward?Tsk tsk, it really deserves to be<<$SB.name>>...there is really her…</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_library":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A9-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonP"><a href="exec: gt ''student_group_event'',''tram_sister_a4''">Go to the toilet to change your pants</a></div>'
+            '<div class="buttonS"><a href="exec: gt ''student_group_event'',''tram_sister_a9''">Wait for her to complain</a></div>'
+            '<div class="buttonPu2"><a href="exec:TSGMoney=money/5+rand(5000,9999) & gt ''gymnasium'',''library''">Quietly pass by her</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''university''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>Complaining while working part-time as a librarian in the library…</p>'
+              '<p>Me: The panties are wet...*Look carefully</p>'
+         '</div>'
+End
+
+if $args[0]="tram_classroom_vertical_painting":
+	 if $tram_event_chain=0:$tram_event_chain=1
+	 a=0
+	 q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A3.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonP"><a href="exec: gt ''student_group_event'',''tram_sister_a4''">Go to the toilet to change clothes</a></div>'
+            if $tram_event_chain>=2:'<div class="buttonPu3"><a href="exec: gt ''student_group_event'',''tram_sister`s_house''">Go home early</a></div>'
+            if $tram_event_chain>=9:'<div class="buttonG3"><a href="exec: gt ''student_group_event'',''tram_zxl''">Let`s find it together<<$SB.name>></a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''university''">It`s okay</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>*After trotting all the way to the classroom, she panted</p>'
+              '<p><<$DCM.name>>: The heat is so hot... I`m sweating again…</p>'
+              '<p>I: ……</p>'
+         '</div>'
+End
+
+if $args[0]="tram_zxl":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\ZXL1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!2:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS3"><a href="exec:a=1 & gt ''student_group_event'',''tram_zxl''">Look at<<$DCM.name>></a></div>'
+            if a=1:'<div class="buttonG1"><a href="exec:a=2 & gt ''student_group_event'',''tram_zxl''">Walk to the office with her</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:gt ''university''">Built a library</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: You are late again ❤Oh?<<$protagonists_name>>, what are you doing with her?</p>'
+              '<p>Me: She wants a job in the library…</p>'
+              '<p><<$SB.name>>: What does it have to do with me, why should I help her?</p>'
+              '<p>Me: Uh…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: I want to help my sister save as much money as possible for studying abroad... can you help me ❤</p>'
+              '<p><<$SB.name>>: Huh, it`s not impossible, but I have a condition. Your academic status must be withdrawn from our class. If you are late as a librarian, I can expel your academic status.So you can only follow my orders❤*Smirk</p>'
+              '<p>Me: Uh... is it too much?</p>'
+              '<p><<$DCM.name>>:Ok.</p>'
+              '<p><<$SB.name>>: Then it`s settled!</p>'
+         '</div>'
+    end
+
+    if a=2:
+         if $tram_event_chain=9:$tram_event_chain=10
+         $new_library=1
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Mom mom❤</p>'
+              '<p><<$JYB.name>>: What`s the matter ❤ Baby girl is thinking of a birthday gift?</p>'
+              '<p><<$SB.name>>: Yes yes ❤ I want a big school library!</p>'
+              '<p><<$JYB.name>>: Wow!It`s such an educational wish!Mom will satisfy you!</p>'
+         '</div>'
+    end
+
+
+    q+=1
+End
+
+if $args[0]="tram_sister_a4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_a4''">She wants it again</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_a4''">Take the initiative to mouth me</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_a4''">Take the initiative to break the hole</a></div>'
+            if q=3:
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_a4''">Gently insert</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_a4''">Accelerate thrusting</a></div>'
+            end
+            if q=4:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_a4''">Frontal thrusting</a></div>'
+            if a=6:'<div class="buttonR4"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_a4''">Bukkake</a></div>'
+            if a=7:'<div class="buttonG2"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_a4''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn4"><a href="exec:gt ''university''">Promise her</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: Fortunately, I have prepared other clothes, hmm❤</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: What`s the matter with you?</p>'
+              '<p><<$DCM.name>>: I want it❤</p>'
+              if a>=2:'<p>Me: Then I`m not polite❤</p>'
+              if a>=3:'<p><<$DCM.name>>: Fuck me well... itchy in the pussy ❤ Stab me to death ❤</p>' 
+              if a>=4:'<p><<$DCM.name>>:Ok<<$words>></p>'
+
+         '</div>'
+    end
+
+    if a=8:
+         if $tram_event_chain=1:$tram_event_chain=2
+         $DCM.love+=q
+         $DCM.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: We... can we have another shot?</p>'
+              '<p>Me: Your mind... it seems that you can`t focus on learning anymore.…</p>'
+              if $tram_event_chain<=9:'<p><<$DCM.name>>: Then... why don`t you come to my house and give me make-up classes❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_sister`s_house":
+	 a=0
+	 q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+		 if $tram_event_chain<=2:'<div class="buttonP"><a href="exec: gt ''student_group_event'',''tram_sister_a5''">Go to your room</a></div>'
+		 if $tram_event_chain>=3:
+            if week_day!3:'<div class="buttonP"><a href="exec: gt ''student_group_event'',''tram_sister_a5''">Go to your room</a></div>'
+            if week_day=3:'<div class="buttonPu3"><a href="exec: gt ''student_group_event'',''tram_sister_sister_b6''">Sister is not here today</a></div>'
+            if $tram_event_chain>=4 and week_day=5:'<div class="buttonS"><a href="exec: gt ''student_group_event'',''tram_sister_b5''">My sister is really not here today</a></div>'
+            if $tram_event_chain>=5:'<div class="buttonG4"><a href="exec: gt ''student_group_event'',''tram_sister_a7''">Go out to open a room</a></div>'
+           end
+            '<div class="button"><a href="exec: gt ''residential_area''">Forget it</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: Welcome to my house... my sister is not at home now❤</p>'
+              '<p>Me: Come here for a shot?</p>'
+              '<p><<$DCM.name>>: I`m afraid my sister will come back suddenly... then it will be troublesome ❤</p>'
+         '</div>'
+End
+
+
+if $args[0]="tram_sister_a5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_a5''">Pleading eyes</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_a5''">Satisfy her</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_a5''">It`s all wet</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_a5''">Active oral sex</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_a5''">Fuck it</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_a5''">Press it on the bed and plug it in</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_a5''">Press on the door and insert</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR5"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a6''">Sister is back</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Tease her first</p>'
+              '<p><<$DCM.name>>: No... why do you want to do homework... do we really not have sex❤</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: I want it❤</p>'
+              if a>=2:'<p>Me: I really can`t do anything with you❤</p>'
+              if a>=3:'<p><<$DCM.name>>:Great<<$panting>></p>'
+              if a>=5:'<p><<$DCM.name>>:So cool<<$words>></p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="tram_sister_a6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!3:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonR3"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_a6''">Get dressed in a hurry</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_a6''">Harass her secretly</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_a6''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">Hurriedly drive you away</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Her sister: Hello ❤ my little sister, i am back❤</p>'
+              '<p>Me: This... is... your sister is a foreigner?</p>'
+              '<p><<$DCM.name>>: No... she pretended... to get into the circle of international students…</p>'
+              '<p>Her sister: I am coming❤</p>'
+              '<p><<$DCM.name>>: Wait！</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Her sister: Oh?Is this your boyfriend?</p>'
+              '<p>Me: Hi.</p>'
+              '<p>Her sister: Hi.Am I coming back at a bad time?</p>'
+              '<p><<$DCM.name>>: Didn`t you say that you will go out for the night and not come back for a few days?</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p>I: …………</p>'
+              '<p><<$DCM.name>>: Hmm ❤ Didn`t you say that you will go out for the night and not come back for a few days?</p>'
+              '<p>Her sister: Yes, but not today❤</p>'
+         '</div>'
+    end
+
+    if a=3:
+         if $tram_event_chain=2:$tram_event_chain=3
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: Hmm ❤ When was that?</p>'
+              '<p>Her sister: Listen clearly, I will go out for a kinky party on Wednesday, so you don`t have to prepare dinner for me that day ❤</p>'
+              '<p><<$DCM.name>>: Won`t be back on Wednesday, right?……</p>'
+              '<p>Her sister: Why are you asking this?Is your little boyfriend going with me❤</p>'
+              '<p><<$DCM.name>>:That`s not it!</p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="tram_sister_sister_b6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\BA6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!14:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonR"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_sister_b6''">Go out and have a look</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_sister_b6''">Go to her room</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_sister_b6''">Discuss the price</a></div>'
+            if a=3:
+                '<div class="buttonG3"><a href="exec:a=4 & money-=5000 & gt ''student_group_event'',''tram_sister_sister_b6''">Agree to pay 5000￥</a></div>'
+                '<div class="buttonR3"><a href="exec:a=0 & q=0 & gt ''residential_area''">Refuse to leave</a></div>'
+            end
+            if q=4 or q=5:
+            '<div class="buttonS1"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_sister_b6''">Give me breast sex</a></div>'
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_sister_b6''">Give me a blowjob</a></div>'
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_sister_b6''">Lick my feet</a></div>'
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_sister_b6''">Lick my ass</a></div>'
+            end
+
+            if q=6:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''tram_sister_sister_b6''">Ride up by yourself</a></div>'
+
+            if q=7 or q=8:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''student_group_event'',''tram_sister_sister_b6''">Move by yourself</a></div>'
+            '<div class="buttonS5"><a href="exec:a=11 & gt ''student_group_event'',''tram_sister_sister_b6''">After entering her</a></div>'
+            '<div class="buttonS5"><a href="exec:a=12 & gt ''student_group_event'',''tram_sister_sister_b6''">High-speed thrusting</a></div>'
+            end
+            if q=9:'<div class="buttonR4"><a href="exec:a=13 & gt ''student_group_event'',''tram_sister_sister_b6''">Ejaculation</a></div>'
+            if a=13:'<div class="buttonS"><a href="exec:a=14 & gt ''student_group_event'',''tram_sister_sister_b6''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & q=0 & gt ''residential_area''">Slip away</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>:So cool<<$panting>></p>'
+              '<p>Bang---*The sound of the entrance door closing</p>'
+              '<p>Me: Huh?Is there anyone else in your family?</p>'
+              '<p><<$DCM.name>>: No<<$words>></p>'
+         '</div>'
+    end
+
+
+    if 3>=a and a>=1:
+         '<div class="dialog_menu">'
+              if a=1:'<p>Her sister: Hello ❤ Sure enough, you guessed it right, you just waited for the day when I was away to fuck my sister, right?</p>'
+              if a=1:'<p>Me: So you lied to us that you won`t be back tonight?</p>'
+              if a=1:'<p>Her sister: Yes, the more good-looking women are, the more deceptive they are, don`t you know ❤</p>'
+              if a=1:'<p>Me: Okay... I`m really here to fuck your sister……</p>'
+              if a=1:'<p>Her sister: I have no objection ❤ But, if only my sister is fucked, my Sao will be jealous to the point of running water❤</p>'
+              if a>=2:'<p>Me: This is the secret between us ❤</p>'
+              if a>=2:'<p>Her sister: What?Do you think I`m here to seduce you to have an affair with me?You have to pay for sex with me❤</p>'
+              if a>=3:'<p>Me: Pay?</p>'
+              if a>=3:'<p>Her sister: Yeah ❤ Are you impotent when it comes to money?</p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=4:
+         '<div class="dialog_menu">'
+              '<p>Me: Is this your main business?</p>'
+              '<p>Her sister: Our family has been up for three generations, either a lady or a fruit plate, and even earlier, it was the landlord`s sex slave❤</p>'
+              if a>=5:'<p>Me: Is this a very glorious thing?…</p>'
+              if a>=6:'<p>Her sister: This shows... our family`s genes... are engraved with... exuberant libido❤</p>'
+              if a>=10:'<p>Me: Let me see how exuberant ❤</p>'
+              if a>=11:'<p>Her sister: Enjoy it<<$words>></p>'
+         '</div>'
+    end
+    if a=14:
+         if $tram_event_chain=3:$tram_event_chain=4
+         '<div class="dialog_menu">'
+              '<p>Her sister: How is it, am I still satisfied with my business?</p>'
+              '<p><<$DCM.name>>: Sister?Are you back?</p>'
+              '<p>Her sister: Oh?If you don`t want to be discovered... let`s slip through the back door, my little sister can`t accept that her little boyfriend shot her sister in the face❤</p>'
+              '<p>I: …………</p>'
+              '<p>Her sister: By the way, I made an appointment with two male netizens to meet on Friday. This time it`s true.You can have sex with confidence that day❤</p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+
+if $args[0]="tram_sister_b5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\B5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_b5''">She can`t wait</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_b5''">Let`s take a shower together</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_b5''">Fuck while washing</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_b5''">From bathroom to living room</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_b5''">Work hard in the living room</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_b5''">From the living room to my sister`s room</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_b5''">Fucking on my sister`s bed</a></div>'
+            if a=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_b5''">Shoot inward</a></div>'
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''tram_sister_b5''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR5"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_z6''">Sister is back</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Today your sister went to meet friends on the Internet, we can finally do it once❤</p>'
+              '<p><<$DCM.name>>: Hmm ❤ She told me, she is still two male netizens, she has a big heart…</p>'
+         '</div>'
+    end
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Your heart is also quite big, aren`t you afraid that I will fuck you up today❤</p>'
+              '<p><<$DCM.name>>: Fuck, I can`t get out of bed tomorrow, okay❤</p>'
+              if a>=2:'<p>Me: I really can`t do anything with you❤</p>'
+              if a>=3:'<p><<$DCM.name>>:continue<<$words>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $DCM.love+=q+$my.charm
+         $DCM.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p>Me: I shot you and forced you ❤ Are you afraid of getting pregnant?</p>'
+              '<p><<$DCM.name>>: A little bit... But my sister said she has a lot of contraceptives, we can look for them in her room…</p>'
+              '<p>Bang---*The sound of the entrance door closing</p>'
+              '<p>Me: What?Come again?？</p>' 
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="tram_sister_z6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\C6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if 0<=a and a<=6:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''tram_sister_z6''">Peeking in the cupboard</a></div>'
+            if a=7:'<div class="buttonS3"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_z6''">Go out and fuck her</a></div>'
+            if a=8:
+             '<div class="buttonP"><a href="exec:a=9 & gt ''student_group_event'',''tram_sister_z6''">Shoot her on the tongue</a></div>'
+             '<div class="buttonS5"><a href="exec:a=10 & gt ''student_group_event'',''tram_sister_z6''">Shoot her and force her in</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR5"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Shhh---- let`s hide in the cupboard first</p>'
+              '<p><<$DCM.name>>:Hmm…</p>'
+              '<p>Her sister: Your two brothers are cheap enough... they can`t bear to pay for a house.…</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Her sister: Your two brothers are cheap enough... they can`t bear to pay for a house.…</p>'
+              '<p>Male netizen A: It`s time to save money and spend it. Isn`t this money spent on wine❤</p>'
+              '<p>Male netizen B: Our brothers didn`t expect you to be so good at drinking as a pussy?</p>'
+              if a>=2:'<p>Her sister: Your two brothers are really weak... they can`t satisfy my appetite at all❤</p>'
+              if a>=3:'<p>Male netizen A: Weak explosion?I can`t let you stinky look flat!brother!on!</p>'
+              if a>=4:'<p><<$DCM.name>>: It`s so weak<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p>*A few hours later</p>'
+              '<p>Her sister: Your two brothers are so weak... they didn`t make my mother comfortable at all.……</p>'
+              '<p>Male netizen A: It`s a lie... This woman`s body is a bottomless pit of desire and dissatisfaction.……</p>'
+              '<p>Male netizen B: Damn it... let`s go!</p>'
+              '<p>Her sister: ………</p>'
+              '<p>Her sister: ……………</p>'
+              '<p>Her sister: Hey, have you seen enough?Little boyfriend hiding in the cupboard❤</p>'
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+              '<p>Her sister: It`s still your big cock that`s comfortable❤</p>'
+              '<p>Me: Shhh, don`t wake up your sister... She`s waiting to fall asleep…</p>'
+              '<p>Her sister: Fuck me<<$words>>*Screaming louder</p>'
+         '</div>'
+    end
+
+    if a>=9:
+         if $tram_event_chain=4:$tram_event_chain=5
+         '<div class="dialog_menu">'
+              '<p>Me: Why are you yelling so loudly... I really convinced you…</p>' 
+              '<p>Her sister: Hahaha ❤ So scared of my sister waking up?Shoot so fast❤</p>'
+              '<p>Me: And... why do you always lie to people, didn`t you say that you won`t come back to see male netizens?</p>' 
+              '<p>Her sister: The plan can`t keep up with the changes ❤ Cut, since you care about me so much, next time you go out to open a room for the night.</p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="tram_sister_a7":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A7-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!15:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonR"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_a7''">Don`t worry</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_a7''">Give me breast sex</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_a7''">Give me a blowjob</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_a7''">Mutual 69 type</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_a7''">Fuck her tender force</a></div>'
+            if q=4 or q=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_a7''">Use some force</a></div>'
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_a7''">Make her so cool</a></div>'
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_a7''">High-speed thrusting</a></div>'
+            end
+            if q=6:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''tram_sister_a7''">Ejaculation</a></div>'
+            if q=7:'<div class="buttonPu4"><a href="exec:a=10 & minutes+=1440 & hour=7 & gt ''student_group_event'',''tram_sister_a7''">Fall asleep after orgasm</a></div>'
+            if q=8:'<div class="buttonGn1"><a href="exec:a=11 & gt ''student_group_event'',''tram_sister_a7''">Wake up the next day</a></div>'
+            if q=9:'<div class="buttonS3"><a href="exec:a=12 & gt ''student_group_event'',''tram_sister_a7''">Let`s have a morning cannon</a></div>'
+            if q=10:'<div class="buttonS4"><a href="exec:a=13 & gt ''student_group_event'',''tram_sister_a7''">The more you fuck, the better</a></div>'
+            if a=13:'<div class="buttonS5"><a href="exec:a=14 & gt ''student_group_event'',''tram_sister_a7''">Ejaculation</a></div>'
+            if a=14:'<div class="buttonB5"><a href="exec:a=15 & gt ''student_group_event'',''tram_sister_a7''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">Keep it in mind</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Your sister won`t come back to disturb us suddenly here❤</p>'
+              '<p><<$DCM.name>>: I`m so worried that my sister will call me and let me go home…</p>'
+         '</div>'
+    end
+
+
+    if 10>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: It`s okay. I told your sister that I will take care of you.</p>'
+              '<p><<$DCM.name>>: What kind of “care” are you talking about?❤</p>'
+              if a>=2:'<p>Me: Take care of you like you take care of me ❤</p>'
+              if a>=4:'<p><<$DCM.name>>: I like you ❤</p>'
+              if a>=5:'<p>Me: Have you told anyone else?</p>'
+              if a>=6:'<p><<$DCM.name>>:No<<$words>></p>'
+              if a>=10:'<p>Me: Let`s get a good night`s sleep❤</p>'
+         '</div>'
+    end
+    if 14>=a and a>=11:
+         '<div class="dialog_menu">'
+              '<p>Me: Huh?</p>'
+              '<p><<$DCM.name>>: You are awake❤</p>'
+              if a>=12:'<p>Me: Why is your libido so strong?</p>'
+              if a>=13:'<p><<$DCM.name>>: Family inheritance ❤</p>'
+         '</div>'
+    end
+
+
+
+    if a=15:
+         if $tram_event_chain=5:$tram_event_chain=6
+         '<div class="dialog_menu">'
+              '<p>Me: Family inheritance?It`s better to say that your sister`s turbulent appearance affects you imperceptibly.…</p>'
+              '<p><<$DCM.name>>: It`s also possible ❤ So I want to go out and find a job……</p>'
+              '<p>Me: Finding a job is indeed a good way to distract yourself.</p>'
+              '<p><<$DCM.name>>: Do you know the big villa in the town house?I sent it an email to interview the maid... I don`t know if I can work in a big house... what kind of person will its owner be?…</p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+
+if $args[0]="tram_sister_a8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonB3"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_a8''">Change into a maid outfit</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_a8''">Dew point</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_a8''">Straighten the nipple position</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_a8''">Do you know how to serve?</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_a8''">Lick the glans</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_a8''">Licking testicles</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_a8''">Very good</a></div>'
+            if a=7:'<div class="buttonR3"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_a8''">Oral ejaculation</a></div>'
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''student_group_event'',''tram_sister_a8''">Lick clean</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''big_villa''">Come to work tomorrow</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Hi, I received your email.</p>'
+              '<p><<$DCM.name>>:Ah ah ah…<<$protagonists_name>>...the big villa is actually yours?Zun Du Fake Du?</p>'
+         '</div>'
+    end
+
+
+    if 2>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Change into a maid outfit and have a look❤</p>'
+              '<p><<$DCM.name>>: Actually... I`m already wearing it❤</p>'
+              if a>=2:'<p>Me: It`s exposed ❤</p>'
+              if a>=2:'<p><<$DCM.name>>: Yes... it`s someone else`s little caution❤</p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p>Me: So scheming?Then you have to interview you well❤</p>'
+              '<p><<$DCM.name>>: Please tell the master❤</p>'
+              if a>=4:'<p>Me: Do as I say ❤</p>'
+              if a>=5:'<p><<$DCM.name>>: Yes... master❤</p>'
+         '</div>'
+    end
+
+    if a=9:
+         if $tram_event_chain=6:$tram_event_chain=7
+         $DCM.love+=q+$my.charm
+         $DCM.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p>Me: You are doing very well, I am very satisfied.</p>'
+              '<p><<$DCM.name>>: Hehe.</p>'
+              '<p>Me: Let me think about your work... you will be responsible for my breakfast from now on.</p>'
+              '<p><<$DCM.name>>: Then did I pass the interview?</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_sister_b8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\B8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_b8''">Dessert</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_b8''">Oxygenation</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_b8''">Burn belly fat</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_b8''">She was fucked</a></div>'
+            if a=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_b8''">Bukkake</a></div>'
+            if a=5:'<div class="buttonGn4"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_b8''">Lick clean</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu3"><a href="exec:gt ''big_villa''">agree</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Is this your breakfast?</p>'
+              '<p><<$DCM.name>>: Yes…<<$protagonists_name>>Master, are you still satisfied?</p>'
+         '</div>'
+    end
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: I usually have to prepare some dessert for digestion after a meal❤</p>'
+              '<p><<$DCM.name>>: I am the host`s dessert❤</p>'
+              if a>=2:'<p>Me: Oh?I didn`t expect it❤</p>'
+              if a>=3:'<p><<$DCM.name>>: Please feel free to use me<<$words>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         if $tram_event_chain=7:$tram_event_chain=8
+         $DCM.love+=q+$my.charm+q
+         $DCM.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p>Me: You are doing very well, I am very satisfied.</p>'
+              '<p><<$DCM.name>>: Hehe, can I take another job?</p>'
+              '<p>Me: What do you mean?</p>'
+              '<p><<$DCM.name>>: Can I come to your room at night to help the host sleep?</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_sister_c8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\C8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_c8''">Have a request</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_c8''">Licking and talking</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_c8''">Plug in first</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_c8''">Front riding</a></div>'
+            if a=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_c8''">Turn around</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_c8''">Accelerate thrusting</a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_c8''">Ejaculation</a></div>'
+            if a=7:'<div class="buttonGn4"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_c8''">Say it</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu3"><a href="exec:minutes+=360 & gt ''big_villa'',''master_bedroom''">I think of a way</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Is the massage technique pretty good?</p>'
+              '<p><<$DCM.name>>: Thank you…<<$protagonists_name>>Master, actually...I…</p>'
+         '</div>'
+    end
+
+
+
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: I have a small request❤</p>'
+              if a>=2:'<p>Me: Let`s hear it…</p>'
+              if a>=2:'<p><<$DCM.name>>: Sister... she heard that I am working as a maid with you... she said she wants to save money to study abroad... so…</p>'
+              if a>=3:'<p>Me: I`m not interested in your sister, I won`t let her be a maid too.</p>'
+              if a>=4:'<p><<$DCM.name>>: Not this<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         if $tram_event_chain=8:$tram_event_chain=9
+         $DCM.love+=q+$my.charm
+         $DCM.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+              '<p>Me: What else did you want to say just now?</p>'
+              '<p><<$DCM.name>>: I don`t want my sister to come here as a maid, I want to... take another job to save money for her!</p>'
+              '<p>Me: There is a good sister like you?There seems to be no other position in the big villa…</p>'
+              '<p><<$DCM.name>>: What about school?I want to do an easy job like a librarian!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_sister_a9":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\A9-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_a9''">Turn on the lights</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_a9''">Take out J8</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_a9''">Fuck her on the table</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_a9''">Insert into the deepest part</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_a9''">Shot in the ass</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_a9''">More than enough</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''university''">It`s a deal❤</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Wait a minute…</p>'
+         '</div>'
+    end
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>I suddenly turned on the light, and she was so scared that she happened to kneel in front of my lower body❤</p>'
+              '<p><<$DCM.name>>: Ah----huh?I want it❤</p>'
+              if a>=2:'<p>Me: I really can`t do anything with you❤</p>'
+              if a>=3:'<p><<$DCM.name>>:Great<<$panting>></p>'
+              if a>=4:'<p><<$DCM.name>>:So cool<<$words>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         $DCM.love+=q+$my.charm
+         $DCM.bad+=q+$my.charm
+         if $tram_event_chain=10:$tram_event_chain=11
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: Is it over like this?So boring…</p>'
+              '<p>Me: What do you want…</p>'
+              '<p><<$DCM.name>>: Hehe... I heard<<$SB.name>>It is also planned to build a gymnasium and swimming pool, let`s have sex secretly there❤</p>'
+              '<p>Me: Sounds very exciting❤</p>'
+              '<p><<$DCM.name>>: Go to the swimming pool before going to the gym, okay?</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_sister_tyyg":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\TYYG1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_tyyg''">Turn around</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_tyyg''">Let her lick it down</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_tyyg''">Keep licking</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_tyyg''">Sit up</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_tyyg''">Lift your thighs to fuck</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_tyyg''">Fuck her</a></div>'
+            if a=6:'<div class="buttonR3"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_tyyg''">Insert into the deepest part</a></div>'
+            if a=7:'<div class="buttonR4"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_tyyg''">Ejaculation</a></div>'
+            if a=8:'<div class="buttonB3"><a href="exec:a=9 & gt ''student_group_event'',''tram_sister_tyyg''">Promise next time</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''university''">No problem ❤</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Oh?This is…<<$DCM.name>>MMS sent…</p>'
+              '<p>？？？: Hey!</p>'
+         '</div>'
+    end
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: What are you looking at ❤ Isn`t this someone else`s pornographic photo?</p>'
+              '<p>Me: How are you❤</p>'
+              if a>=3:'<p><<$DCM.name>>: No you will<<$panting>></p>'
+              if a>=4:'<p><<$DCM.name>>:So cool<<$words>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $DCM.love+=q+$my.charm
+         $DCM.bad+=q+$my.charm
+         if $tram_event_chain=11:$tram_event_chain=12
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: Although it`s very cool, I feel that people are fucked very contentedly... But I always feel that something is missing.…</p>'
+              '<p>Me: What`s missing…</p>'
+              '<p><<$DCM.name>>: Let`s try it in the gym next time, okay?</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="tram_sister_tgym":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\DCM\vids\TGYM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''tram_sister_tgym''">Try it here</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''tram_sister_tgym''">Blow me hard</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''tram_sister_tgym''">Imitate the tram idiot</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''tram_sister_tgym''">She had an orgasm in an instant</a></div>'
+            if a=4:'<div class="buttonR3"><a href="exec:a=5 & gt ''student_group_event'',''tram_sister_tgym''">She begged</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''student_group_event'',''tram_sister_tgym''">Accompany her to the car</a></div>'
+            if a=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''student_group_event'',''tram_sister_tgym''">Violated her next to the passenger</a></div>'
+            if a=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''student_group_event'',''tram_sister_tgym''">Fuck her</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''subway''">This is what she wants</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: I always feel... something is missing... the feeling of excitement.</p>'
+         '</div>'
+    end
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Try it here ❤</p>'
+              if a>=2:'<p><<$DCM.name>>:Hmm<<$panting>></p>'
+              if a>=3:'<p>Me: It`s a bit like the first time I met you in the subway❤</p>'
+              if a>=4:'<p><<$DCM.name>>:So cool<<$words>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p><<$DCM.name>>: Will you accompany me home, sexually harass me on the side of the passenger, and then insert it into my flowing water, okay?…</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=6:
+         '<div class="dialog_menu">'
+              '<p>Me: You are such a slut❤</p>'
+              if a>=7:'<p><<$DCM.name>>:That`s right<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $DCM.love+=q+$my.charm
+         $DCM.bad+=q+$my.charm*2
+         if $tram_event_chain=12:$tram_event_chain=13
+         $DCM.GE=1
+         '<div class="dialog_menu">'
+              '<p>Me: The contraction is so strong❤ (I felt her vagina convulsing frantically)</p>'
+              '<p><<$DCM.name>>: So satisfied... whether it`s in the vagina or in my heart ❤ It`s all stuffed❤</p>'
+              '<p>·----Here is the end of the character`s story————</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="library_miscellaneous_a":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\TSGZ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''library_miscellaneous_a''">Peeking aside</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR3"><a href="exec:gt ''gymnasium'',''library''">Regardless of them</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: It seems that someone is doing indecent things…</p>'
+              '<p>？？？: Hmm... so exciting❤</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$NK.name>>: You seem to be very interested in adult health care books?</p>'
+              '<p>？？？: No, I just took one casually…</p>'
+              if a>=2:'<p><<$NK.name>>: My profession is to study this, I can solve your puzzles❤</p>'
+              if a>=3:'<p>？？？: I want to know if there can be one between a woman and a woman ❤</p>'
+              if a>=4:'<p><<$NK.name>>: Of course you can<<$panting>></p>'
+              if a>=5:'<p>？？？: Oh hiss<<$panting_2>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p><<$NK.name>>: Do you understand now?</p>'
+              '<p>？？？: I think... I may understand a little bit……</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="swimming_pool_miscellaneous_a":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\YYGZA1-<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	  '<div class="button_menu">'
+		 '<div class="buttonR3"><a href="exec:gt ''gymnasium'',''swimming_pool''">Regardless of them</a></div>'
+	  '</div>'
+
+    '<div class="dialog_menu">'
+	    '<p>Enthusiastic boy: How is it?Do you want to join the healthy Nude swimsuit Club?</p>'
+	    '<p>Strange girl: Okay<<$panting>>Can that be done every day?</p>'
+	    '<p>Enthusiastic boy: Of course!</p>'
+	    '<p>Me: The new way of recruiting is quite special…</p>'
+    '</div>'
+End
+
+
+if $args[0]="squad_leader_liyi":
+	 a=0
+	 q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\班长立绘.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if $squad_leader_event_chain<=2:'<div class="buttonP"><a href="exec: gt ''student_group_event'',''outside_the_monitor`s_door''">Someone is looking for her outside the door</a></div>'
+            if $squad_leader_event_chain=1:'<div class="buttonG2"><a href="exec: gt ''student_group_event'',''squad_leader_private_chat''">Private chat<<$SB.name>></a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''university''">It`s okay</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Students, learning is one of our most important tasks in school…</p>'
+              '<p><<$SB.name>>: Oh?Learning doesn`t seem to be your top priority, right?Can you have sex in school?Squad leader*heckled</p>'
+              '<p><<$BZ.name>>: Ahem... While focusing on learning and self-improvement, we shouldn`t spend too much time and energy on love.…</p>'
+              '<p>I: ……</p>'
+              '<p><<$SB.name>>: Is it your boyfriend outside the door?I`m looking for you again❤</p>'
+         '</div>'
+End
+
+
+
+if $args[0]="outside_the_monitor`s_door":
+	   a=0
+	   q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\cj.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if $squad_leader_event_chain<=1:'<div class="buttonS"><a href="exec: gt ''student_group_event'',''squad_leader_d0''">Keep up quietly</a></div>'
+            if $squad_leader_event_chain=2:'<div class="buttonB4"><a href="exec: gt ''student_group_event'',''squad_leader_n2''">Keep up quietly</a></div>'
+            
+            '<div class="buttonGn"><a href="exec: gt ''university''">It`s okay</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			if $squad_leader_event_chain_g>=1:
+				'<p>Boyfriend: Honey, yes<<$SB.name>>Do you understand what I mean by coercing me to say?</p>'
+				'<p><<$BZ.name>>: Get out of here!We have broken up, stop pestering me!</p>'
+			else:
+			    '<p><<$BZ.name>>: Which one... didn`t you let you come back after school?……</p>'
+			    '<p>Boyfriend: Honey, I can`t wait, do you know what I mean?</p>'
+			    if $squad_leader_event_chain<=1:'<p><<$BZ.name>>: Then let`s... go to the empty classroom?</p>'
+			    if $squad_leader_event_chain=2:'<p><<$BZ.name>>: Okay... just right<<$SB.name>>Built a new swimming pool... we can try new swimwear❤</p>'
+              end
+         '</div>'
+End
+
+
+
+if $args[0]="squad_leader_d0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\D0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_d0''">Peeking outside the door</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonB5"><a href="exec:gt ''university''">Think of a way</a></div>'
+            '</div>'
+    end
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>*I followed up</p>'
+              '<p>Boyfriend: Your tits are so soft…</p>'
+              '<p><<$BZ.name>>:Hmm…<<$panting>></p>'
+              if a>=1:'<p>Boyfriend: Now you are getting bolder and bolder... I used to beg you to do it with me in the classroom❤</p>'
+              if a>=2:'<p><<$BZ.name>>: I love you more and more ❤</p>'
+         '</div>'
+    end
+
+
+    if a>=6:
+         if $squad_leader_event_chain=0:$squad_leader_event_chain=1
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: It seems that the more I look at you after the shooting, the more I dislike you.</p>'
+              '<p><<$BZ.name>>: Ah... I... I bought a very sexy swimsuit…</p>'
+              '<p>Boyfriend: Hahaha ❤ Really fake❤</p>'
+              '<p><<$BZ.name>>: Really... it`s a pity that the swimming pool in the school has not been built yet……</p>'
+              '<p>Boyfriend: Cut... make me happy for nothing……</p>'
+         '</div>'
+    end
+
+    q+=1
+End
+
+if $args[0]="squad_leader_private_chat":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\ZXL1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonP"><a href="exec: a=1 & gt ''student_group_event'',''squad_leader_private_chat''">Take off your pants</a></div>'
+            if a=1:'<div class="buttonG2"><a href="exec: a=2 & gt ''student_group_event'',''squad_leader_private_chat''">Go with her</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''university''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 if a=0:
+              '<p>Me: Can you build the swimming pool first?</p>'
+              '<p><<$SB.name>>: No way ❤ I have principles, we agreed to change to a new venue alone…</p>'
+              '<p>Me: No matter what?</p>'
+              '<p><<$SB.name>>: Then you take off your pants ❤</p>'
+           end
+		 if a=1:
+              '<p>Me: Don`t you want to have sex with me?</p>'
+              '<p><<$SB.name>>: What are you thinking?I just want to leave a little bit of your cute handle❤ If you can`t remove her from the list... I can have more than one “toy” anyway.</p>'
+              '<p>I: ……</p>'
+              '<p><<$SB.name>>: Better than one ❤</p>'
+           end
+		 if a=2:
+			if $squad_leader_event_chain=1:$squad_leader_event_chain=2
+			$new_swimming_pool=1
+              '<p><<$SB.name>>: Mom, mom, help your baby daughter build a swimming pool❤</p>'
+              '<p><<$JYB.name>>: Can you swim?Is it too dangerous? My mother is not very relieved.</p>'
+              '<p><<$SB.name>>: Oh yo ❤ Please be spicy❤</p>'
+              '<p><<$JYB.name>>: Okay okay, but you have to pay attention to safety, mom will always love you ❤</p>'
+           end
+         '</div>'
+End
+
+
+if $args[0]="squad_leader_n2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\N2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+        '<div class="button_menu">'
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_n2''">Peeking outside the locker room</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+			 if $squad_leader_g>=3:
+                '<div class="buttonGn3"><a href="exec:$squad_leader_g+=1 & a=0 & q=0 & gt ''student_group_event'',''squad_leader_g0''">Hero saves beauty</a></div>'
+                '<div class="buttonGr"><a href="exec:"><s>Watch it change</s></a></div>'
+                end
+			 if $squad_leader_b>=3:
+                '<div class="buttonGr"><a href="exec:"><s>Hero saves beauty</s></a></div>'
+                '<div class="buttonR5"><a href="exec:$squad_leader_b+=1 & a=0 & q=0 & gt ''student_group_event'',''squad_leader_b0''">Watch it change</a></div>'
+                end
+			 if $squad_leader_b<3 and $squad_leader_g<3:
+                '<div class="buttonGn3"><a href="exec:$squad_leader_g+=1 & a=0 & q=0 & gt ''student_group_event'',''squad_leader_g0''">Hero saves beauty</a></div>'
+                '<div class="buttonR5"><a href="exec:$squad_leader_b+=1 & a=0 & q=0 & gt ''student_group_event'',''squad_leader_b0''">Watch it change</a></div>'
+                end
+            '</div>'
+    end
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>*I hid outside the locker room and peeked</p>'
+              '<p><<$BZ.name>>: I bought this swimsuit newly❤</p>'
+              if a>=1:'<p><<$BZ.name>>: Hehe❤ I deliberately bought a smaller one❤</p>'
+              if a>=2:'<p><<$BZ.name>>: Oops, why is the door stuck?</p>'
+         '</div>'
+    end
+
+
+    if a>=3:
+         '<div class="dialog_menu">'
+              '<p>Male student: Wow?It seems you need some help?</p>'
+              '<p><<$BZ.name>>: What?！Who are you... please don`t take the opportunity to touch me……</p>'
+              '<p>Male student: What are you afraid of?We are not malicious. We belong to a healthy nude swimsuit club. Do you want to join our club?</p>'
+              '<p><<$BZ.name>>: Ah... don`t... I`m not interested!Please leave!</p>'
+              '<p>·——————————</p>'
+              '<p>·This is a branch event, which will be triggered after accumulating three times.</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+
+if $args[0]="squad_leader_g0":
+		a=0
+		q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\K1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if $squad_leader_event_chain_g=1:'<div class="buttonS"><a href="exec: gt ''student_group_event'',''squad_leader_g01''">Assist her in swimming</a></div>'
+            if $squad_leader_g>=3:'<div class="buttonB4"><a href="exec: gt ''student_group_event'',''squad_leader_g2''">Go find her boyfriend</a></div>'
+            if $squad_leader_event_chain_g=2:'<div class="buttonGn3"><a href="exec: gt ''student_group_event'',''squad_leader_g4''">Go to her house</a></div>'
+            if $squad_leader_event_chain_g>=3:'<div class="buttonGn3"><a href="exec: gt ''student_group_event'',''squad_leader`s_house''">Go to her house</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''university''">It`s okay</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			$BZ.love+=rand(2,3)
+              '<p>Me: Hey!Stop it for me!</p>'
+              '<p><<$BZ.name>>:Thank you…</p>'
+              if $squad_leader_event_chain_g=0 and $squad_leader_g>1:'<p><<$BZ.name>>: I really don`t know where my boyfriend went... Why did I wait for him for so long and didn`t come?……</p>'
+              if $squad_leader_event_chain_g=1:'<p><<$BZ.name>>: My boyfriend...Bah, he`s an ex-boyfriend now... he`s such an asshole!</p>'
+         '</div>'
+End
+
+
+if $args[0]="squad_leader`s_house":
+		a=0
+		q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\DKA.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonG4"><a href="exec: gt ''student_group_event'',''squad_leader_g5''">Set off to the hot spring</a></div>'
+            if $squad_leader_event_chain_g>=4:'<div class="buttonR"><a href="exec: gt ''student_group_event'',''squad_leader_g6''">Just go in and fuck her</a></div>'
+            if $squad_leader_event_chain_g>=5:'<div class="buttonS"><a href="exec: gt ''student_group_event'',''squad_leader_g7''">Pre-butterfly preparation</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''residential_area''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>Me: Hey!What are you doing?</p>'
+              '<p><<$BZ.name>>: Still changing clothes…</p>'
+         '</div>'
+End
+
+
+
+if $args[0]="squad_leader_g01":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\K1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''student_group_event'',''squad_leader_g3''">She has a cramp</a></div>'
+            '<div class="buttonGn"><a href="exec: gt ''university''">End assist</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>Me: Your body is very stiff…</p>'
+              '<p><<$BZ.name>>: Yeah... there has been no swimming pool in the school before... I have nowhere to swim.……</p>'
+         '</div>'
+End
+
+
+if $args[0]="squad_leader_b0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b0''">Let him install it</a></div>'
+            if a!0:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b0''">Peeping from the side</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''university''">He lifted his pants and left</a></div>'
+                if $squad_leader_b>=3:'<div class="buttonS"><a href="exec:a=0 & gt ''student_group_event'',''squad_leader_b1''">Wait for her to change clothes</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: This is my woman, if you don`t want to be beaten, get out of here!</p>'
+              '<p><<$BZ.name>>: Wow ❤ You are really my hero❤</p>'
+              '<p>Boyfriend: Baby are you okay?Would you like some water?</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Don`t drink?Don`t waste it❤</p>'
+              if a>=2:'<p>Boyfriend: Baby ❤ Is this the sexy swimsuit you said?Isn`t it very good?</p>'
+              if a>=3:'<p><<$BZ.name>>: Sorry... I have no vision……</p>'
+              if a>=4:'<p>Boyfriend: Why do you have no vision?Isn`t that scolding me?You are not sexy enough, do you understand?</p>'
+         '</div>'
+    end
+
+
+    if a>=5:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Why do you have no vision?Isn`t that scolding me?You are not sexy enough, do you understand?</p>'
+              '<p><<$BZ.name>>: What?You`re right... I`m not sexy enough…</p>'
+              '<p>Boyfriend: If you go on like this, you will lose me❤</p>'
+              '<p><<$BZ.name>>: Don`t... I really like you…</p>'
+              '<p>Boyfriend: Stop it, I`m actually a little tired of your tits.</p>'
+              if $squad_leader_b>=3:'<p><<$BZ.name>>: Wait!I have prepared new clothes for you!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+
+if $args[0]="squad_leader_b1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b1''">Peeping from the side</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''university''">He lifted his pants and left</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: It really deserves to be my woman. Why didn`t you take out such colorful clothes earlier?！</p>'
+              '<p><<$BZ.name>>: Baby ❤ Do you like it?</p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Of course, I want you now, you little slut❤</p>'
+              if a>=2:'<p><<$BZ.name>>: I am so happy…</p>'
+              if a>=3:'<p>Boyfriend: You are willing to do anything for me, right?</p>'
+              if a>=4:'<p><<$BZ.name>>:Hmm<<$words>></p>'
+         '</div>'
+    end
+
+
+    if a>=9:
+         if $squad_leader_event_chain_b=0:$squad_leader_event_chain_b=1
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Tomorrow afternoon at 17 o`clock, we will play something else in the red restaurant❤</p>'
+              '<p><<$BZ.name>>: What?Didn`t you say that you have been very tight recently?…</p>'
+              '<p>Boyfriend: No matter how tight it is, it`s not as tight as yours❤</p>'
+              '<p><<$BZ.name>>: Then what do I want to dress like…</p>'
+              '<p>Boyfriend: Think for yourself, but if I`m not satisfied, let`s break up.</p>'
+              '<p><<$BZ.name>>:I... I see……</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_b3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b3''">Peeping from the side</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''student_group_event'',''squad_leader_in_advance''">Go one step ahead</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>Waiting anxiously for someone…</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Sorry, I`m late. I met a few debt collectors on the road. Xiaosao didn`t wait long. ❤</p>'
+              '<p><<$BZ.name>>: Are you satisfied with wearing this way?…</p>'
+              if a>=2:'<p>Boyfriend: I don`t know if I don`t look clearly, how do I know ❤</p>'
+              if a>=3:'<p><<$BZ.name>>: Here?No way<<$words>></p>'
+         '</div>'
+    end
+
+
+    if a>=5:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Opposite... someone is watching us……</p>'
+              '<p>Boyfriend: Cut, coward, I don`t like cowards.</p>'
+              '<p><<$BZ.name>>: I`m... sorry……</p>'
+              '<p>Boyfriend: It`s a disappointment, I`m going home.</p>'
+              '<p><<$BZ.name>>: Don`t... don`t... let`s... let`s go open a room... I haven`t had a good time yet…</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_in_advance":
+	 a=0
+	 q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\LG.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	  '<div class="button_menu">'
+		 '<div class="buttonS3"><a href="exec:gt ''student_group_event'',''squad_leader_b4a''">Closely followed</a></div>'
+	  '</div>'
+
+    '<div class="dialog_menu">'
+	    '<p>Boyfriend: To be honest, I`ve been forced by debt collection recently and I`m not in the mood to fuck you anymore.…</p>'
+	    '<p><<$BZ.name>>: Let`s go first and change our mood…</p>'
+	    '<p>Boyfriend: The old room, the innermost special king room on the third floor.</p>'
+    '</div>'
+End
+
+if $args[0]="squad_leader_b4a":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B4A-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4a''">Come closer</a></div>'
+            if a=1:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4a''">dialogue</a></div>'
+            if a=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4a''">Take off my pants</a></div>'
+            if a=3:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4a''">Ejaculation</a></div>'
+            if a=4:'<div class="buttonR"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4a''">The door opened</a></div>'            
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:a=0 & gt ''student_group_event'',''squad_leader_b4b''">Quietly open the door</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>*As soon as I walked up to the third floor... I met the naked one<<$BZ.name>></p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Hi, what a coincidence❤</p>'
+              if a>=2:'<p><<$BZ.name>>: Please... don`t tell anyone I was locked out by my boyfriend❤</p>'
+              if a>=3:'<p>Me: What is he doing in there?</p>'
+              if a>=4:'<p><<$BZ.name>>: He said there is a very important call…</p>'
+         '</div>'
+    end
+
+
+    if a>=5:
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Silly woman, you can roll in!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_b4b":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B4B-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<4:
+        '<div class="button_menu">'
+            if a<=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4b''">Peeping through the door</a></div>'
+            if a=3:'<div class="buttonR4"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b4b''">He answered the phone</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''residential_area''">Secretly write down</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>I opened the door lightly…</p>'
+         '</div>'
+    end
+
+    if 3>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: What are you going to play again❤</p>'
+              if a>=1:'<p>Boyfriend: Damn shit phone call, I don`t have any desire to fuck you at all, do you understand ❤</p>'
+              if a>=2:'<p><<$BZ.name>>: I don`t understand... I just want to serve you comfortably…</p>'
+              if a>=3:'<p>Boyfriend: Then you have to listen to me!What do you want to do whatever I say ❤</p>'
+         '</div>'
+    end
+
+
+    if a>=4:
+		if $squad_leader_event_chain_b=1:$squad_leader_event_chain_b=2
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: I see, can`t I join?We will meet in the hospital tomorrow night. Can I just ask my girlfriend to lead the doctor on duty?</p>'
+              '<p><<$BZ.name>>: What`s wrong…</p>'
+              '<p>Boyfriend: Baby ❤ I have something to ask you❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_b5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a<=3:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b5''">Peeking outside the door</a></div>'    
+            if a=4:'<div class="buttonR"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b5''">Coughing</a></div>'          
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:a=0 & gt ''hospital''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>*I quietly opened the door…</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Doctor... my heart beats really fast, can you calm me down?</p>'
+              if a>=2:'<p>Doctor on duty: Ah... this……</p>'
+              if a>=3:'<p><<$BZ.name>>: Close your eyes... otherwise it will be too irritating…</p>'
+         '</div>'
+    end
+
+
+    if a>=5:
+         if $squad_leader_event_chain_b=2:$squad_leader_event_chain_b=3
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Ahem... everything is full!Time to go!We met in the red restaurant in the old time!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="in_front_of_squad_leader_b6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B3-2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	  '<div class="button_menu">'
+		 '<div class="buttonS3"><a href="exec:gt ''student_group_event'',''squad_leader_b6''">Go to the cinema together</a></div>'
+	  '</div>'
+
+    '<div class="dialog_menu">'
+	    '<p>Boyfriend: Well done... the clown is very satisfied…</p>'
+	    '<p><<$BZ.name>>: Who is the clown?</p>'
+	    '<p>Boyfriend: A mental illness that requires a lot of sleeping pills for a plan…</p>'
+	    '<p><<$BZ.name>>: Should I be rewarded for doing so well?</p>'
+	    '<p>Boyfriend: Of course... I bought two love action movie tickets❤</p>'
+    '</div>'
+End
+
+if $args[0]="squad_leader_b6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Separate your legs for others to see</a></div>'   
+            if a=1:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Squirting in public</a></div>'
+            if a=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Blowjob to everyone</a></div>'
+            if a=3:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Break the hole for others to see</a></div>' 
+            if a=4:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Fucked in public</a></div>' 
+            if a=5:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Fucked in public</a></div>' 
+            if a=6:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Shot in public</a></div>' 
+            if a=7:'<div class="buttonR"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b6''">Last task</a></div>' 
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''residential_area''">Silently write down</a></div>'
+            '</div>'
+    end
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Why is it like this... isn`t it rewarding me to watch a movie?</p>'
+              '<p>Boyfriend: What`s the matter?Isn`t that what you want?I think you have given oral sex to doctors you don`t know. Isn`t it a reward for you to have more people?</p>'
+              if a>=1:'<p>Boyfriend: Don`t listen to me anymore, do you?Then I will never fuck you again!</p>'
+              if a>=1:'<p><<$BZ.name>>: I listen... I am obedient…</p>'
+              if a>=4:'<p>Boyfriend: Break the Sao force open for everyone to see, and say something to make everyone`s dicks cocked up!</p>'
+              if a>=5:'<p><<$BZ.name>>: I`m a bitch, please watch me get fucked<<$panting>></p>'
+         '</div>'
+    end
+
+
+    if a>=8:
+         if $squad_leader_event_chain_b=3:$squad_leader_event_chain_b=4
+         '<div class="dialog_menu">'
+              '<p>Boyfriend: Listen up, since you all admit to being a bitch in public, there is one more thing you can do for your wife.…</p>'
+              '<p><<$BZ.name>>: What ❤ You call my wife…</p>'
+              '<p>Boyfriend: Yes, as long as you can complete the last task, we will get married.</p>'
+              '<p><<$BZ.name>>: Really ❤ Please tell my husband!</p>'
+              '<p>Boyfriend: 12 noon on Sunday... the location is the financial center in the city hall!But don`t be late for me!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_b7":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B7-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">See what she will do</a></div>'   
+            if a=1:'<div class="buttonS1"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Let her touch her in public</a></div>'
+            if a=2:'<div class="buttonS1"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Procrastinate</a></div>'
+            if a=3:'<div class="buttonS2"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Step forward</a></div>' 
+            if a=4:'<div class="buttonS3"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Blowjob for me</a></div>' 
+            if a=5:'<div class="buttonS5"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Shot her in the face</a></div>' 
+            if a=6:'<div class="buttonS3"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Blow another shot</a></div>' 
+            if a=7:'<div class="buttonS5"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Shoot her all over her face</a></div>' 
+            if a=8:'<div class="buttonR"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b7''">Explosion & alarm bell!</a></div>' 
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:gt ''residential_area''">She was arrested</a></div>'
+            '</div>'
+    end
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>Everyone: The ATM machine seems to be broken, why don`t you throw up the money?</p>'
+              '<p><<$BZ.name>>: Hello everyone, can you let me join the team?</p>'
+              if a>=1:'<p>Everyone: Line up while you go!</p>'
+              if a>=1:'<p><<$BZ.name>>: I said... it`s you who are going to line up now ❤</p>'
+              if a>=2:'<p>Everyone: The little sister has big tits. Are you here to complain today?</p>'
+              if a>=3:'<p><<$BZ.name>>: No, I have a mission, I`m buying time for my husband❤</p>'
+              if a>=4:'<p>Me: Hi, we met again ❤ Can you give me a blow?</p>'
+              if a>=5:'<p><<$BZ.name>>: Of course you can ❤</p>'
+         '</div>'
+    end
+
+
+    if a>=9:
+         if $squad_leader_event_chain_b=4:$squad_leader_event_chain_b=5
+         '<div class="dialog_menu">'
+              '<p>·What happened in the specific bank:www.bilibili.com/bangumi/play/ep284323</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_b8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\B8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<14:
+        '<div class="button_menu">'
+            if a<=10:'<div class="buttonS"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b8''">Watching torture</a></div>' 
+            if a=11:'<div class="buttonR3"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b8''">Endless squirting torture</a></div>' 
+            if a=12:'<div class="buttonR4"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b8''">Endless squirting torture</a></div>' 
+            if a=13:'<div class="buttonR5"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_b8''">Endless squirting torture</a></div>' 
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR5"><a href="exec:a=12 & gt ''student_group_event'',''squad_leader_b8''">Endless squirting torture</a></div>' 
+                if q>=16:'<div class="buttonR"><a href="exec:gt ''residential_area''">Bad·End</a></div>' 
+            '</div>'
+    end
+
+
+    if 11>=a and a>=0:
+         '<div class="dialog_menu">'
+              if a=0:'<p>Prosecutor A: Let`s talk about it, why did you show up at the crime scene?</p>'
+              if a>=1:
+              '<p><<$BZ.name>>: My boyfriend asked me to delay time in front of the ATM…</p>'
+              '<p>Prosecutor B: Delay time... I`m worried that the ATM machine won`t spit out money. The public informs the bank counter staff, right?…</p>'
+              '<p><<$BZ.name>>: I don`t know... you can ask my boyfriend... he arranged for me to do it.…</p>'
+              '<p>Prosecutor A: Your boyfriend is dead.</p>'
+              end
+              if a>=2:'<p><<$BZ.name>>: What...dead...this...this...impossible…</p>'
+              if a>=3:'<p>Prosecutor B: Hey, don`t talk to her, just torture her.</p>'
+              if a>=4:'<p><<$BZ.name>>:Ah ah ah<<$panting>></p>'
+         '</div>'
+    end
+
+
+    if 14>=a and a>=12:
+         '<div class="dialog_menu">'
+              '<p>Prosecutor A: Hey, it seems that she doesn`t know what information she is.…</p>'
+              '<p>Prosecutor B: What?softened?Keep torturing her for me!Until she said it!</p>'
+              '<p><<$BZ.name>>: Still have to spray ah ah<<$panting>></p>'
+              if q>=16:
+                if $squad_leader_event_chain_b=5:$squad_leader_event_chain_b=6
+                $BZ.BE=1
+              '<p>·---This is the end of the character`s story———</p>'
+              '<p>·Regardless of whether you sponsor this button or not, it is provided to you to play other endings·<a href="exec:$squad_leader_event_chain_b=0 & $squad_leader_event_chain_g=0 & $squad_leader_g=0 & $squad_leader_b=0 & gt ''student_group_event'',''outside_the_monitor`s_door''">-Click to reset the plot line</a></p>'
+              '<p>·And I didn`t deliberately increase the difficulty of the game. If you are careful, you will definitely be able to clear the customs.Of course, if you have the ability, thank you very much for your sponsorship. I hope I can live a better life and not be as embarrassed as before when I get ashore.</p>' 
+              end
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_g2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\G2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+        '<div class="button_menu">'
+            '<div class="buttonR3"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_g2''">Watch without saying a word</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''university''">Leave together</a></div>'
+            '</div>'
+    end
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: You say it again, I didn`t hear it clearly?</p>'
+              '<p>Boyfriend: Please... please lend me some more money!I borrowed a lot of foreign debt!</p>'
+              if a>=1:'<p><<$SB.name>>: Oh?What did you just say<<$BZ.name>>What`s the matter?*She noticed us</p>'
+              if a>=1:'<p>Boyfriend: She is an idiot in love, as long as you are willing to lend me money!I can dump her right away…</p>'
+              if a>=2:'<p><<$SB.name>>: How much money do you lend you, would you like to break up with her?*She stared<<$BZ.name>>Laughed</p>'
+              if a>=2:'<p>Boyfriend: 500,000...No... 200,000 is fine...If you are willing to lend me 500,000, I can still post nude photos of her on my phone to the campus wall.…</p>'
+         '</div>'
+    end
+
+
+    if a>=3:
+         if $squad_leader_event_chain_g=0:$squad_leader_event_chain_g=1
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: You bastard!I really misread you!Failed my sincerity!</p>'
+              '<p>Boyfriend: Huh?this……<<$SB.name>>！You... you have to lend me money!</p>'
+              '<p><<$SB.name>>: Hahahahahaha... do you think I will?It`s really a free burlesque❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_g3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\G1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<13:
+        '<div class="button_menu">'
+            if $BZ.love>=a*5:'<div class="buttonS3"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_g3''">Massage her</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<a*5>></a></div>'
+            '<div class="buttonGn3"><a href="exec:gt ''university''">End massage</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''university''">No problem</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         $BZ.love+=rand(4,5)
+         $BZ.bad+=rand(4,5)
+         '<div class="dialog_menu">'
+              '<p>Me: Come to the school medical room to take a break. It is very important to warm up before training.…</p>'
+              '<p><<$BZ.name>>: Um... I`m really sorry... I`m bothering you…</p>'
+         '</div>'
+    end
+
+    if 12>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Lie down... I`ll rub other muscles for you…</p>'
+              if a>=2:'<p><<$BZ.name>>: Your technique is so skillful…</p>'
+              if a>=3:'<p>Me: Are you wet?</p>'
+              if a>=4:'<p><<$BZ.name>>: What?No... it`s...the water from the pool just now…</p>'
+              if a>=5:'<p>Me: Oh?Is the squad leader also a liar?</p>'
+              if a>=6:'<p><<$BZ.name>>:Not<<$panting>></p>'
+         '</div>'
+    end
+
+
+    if a>=13:
+         if $squad_leader_event_chain_g=1:$squad_leader_event_chain_g=2
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Do you want to go to my house next time?</p>'
+              '<p>Me: Okay.</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_g4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\G4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''squad_leader_g4''">Try to repair</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''squad_leader_g4''">Are you drenched?</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''squad_leader_g4''">Lick yourself</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''squad_leader_g4''">Check how wet it is</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''squad_leader_g4''">It`s wet</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''squad_leader_g4''">Fuck her</a></div>'
+            if a=6:'<div class="buttonR3"><a href="exec:a=7 & gt ''student_group_event'',''squad_leader_g4''">Press in front of the mirror to fuck</a></div>'
+            if a=7:'<div class="buttonR4"><a href="exec:a=8 & gt ''student_group_event'',''squad_leader_g4''">Ride up by yourself</a></div>'
+            if a=8:'<div class="buttonB3"><a href="exec:a=9 & gt ''student_group_event'',''squad_leader_g4''">Ejaculation</a></div>'
+            if a=9:'<div class="buttonB3"><a href="exec:a=10 & gt ''student_group_event'',''squad_leader_g4''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''residential_area''">No problem ❤</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>Me: Hi ❤ Is that how you welcome me?</p>'
+              '<p><<$BZ.name>>: Hey!No, it`s not!It was the water pipe in my house that just exploded!Can you repair it?</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: I`ll try it* I wrapped the cracked pipe with tape</p>'
+              '<p><<$BZ.name>>: Wow, you are amazing❤</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p>Me: Are you drenched?</p>'
+              '<p><<$BZ.name>>: That`s right…</p>'
+              '<p>Me: I mean your upper body…</p>'
+              '<p><<$BZ.name>>: Don`t you want to check your lower body?…</p>'
+              '<p>Me: You are so sexy…</p>'
+         '</div>'
+    end
+
+    if 9>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p>Me: You are so sexy…</p>'
+              '<p><<$BZ.name>>: This is not a school... people always have another side in private❤</p>'
+              if a>=4:'<p>Me: It`s too wet inside you, isn`t it?…</p>'
+              if a>=5:'<p><<$BZ.name>>:So cool<<$panting>></p>'
+         '</div>'
+    end
+
+
+    if a=10:
+         $BZ.love+=q+$my.charm
+         $BZ.bad+=q+$my.charm
+         if $squad_leader_event_chain_g=2:$squad_leader_event_chain_g=3
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Now the water pipe is broken...How do I take a hot bath?</p>'
+              '<p>Me: If you take a hot bath... why don`t you go to the hot spring?</p>'
+              '<p><<$BZ.name>>:Hot spring?Then you can accompany me ❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_g5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\G5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!13:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''squad_leader_g5''">Take a bath together</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''squad_leader_g5''">Take a bath for me</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''squad_leader_g5''">Treat her</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''squad_leader_g5''">Have a drink after washing</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''squad_leader_g5''">She was drunk</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''squad_leader_g5''">Especially want</a></div>'
+            if a=6:'<div class="buttonPu3"><a href="exec:a=7 & gt ''student_group_event'',''squad_leader_g5''">Show the clothes she brought</a></div>'
+            if a=7:'<div class="buttonS"><a href="exec:a=8 & gt ''student_group_event'',''squad_leader_g5''">Change the pure image</a></div>'
+            if a=8:'<div class="buttonPu3"><a href="exec:a=9 & gt ''student_group_event'',''squad_leader_g5''">Then fuck her</a></div>'
+            if a=9:'<div class="buttonPu5"><a href="exec:a=10 & gt ''student_group_event'',''squad_leader_g5''">Fuck until dark</a></div>'
+            if a=10:'<div class="buttonR3"><a href="exec:a=11 & gt ''student_group_event'',''squad_leader_g5''">She is exhausted</a></div>'
+            if a=11:'<div class="buttonR3"><a href="exec:a=12 & gt ''student_group_event'',''squad_leader_g5''">Ejaculation</a></div>'
+            if a=12:'<div class="buttonB3"><a href="exec:a=13 & gt ''student_group_event'',''squad_leader_g5''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn5"><a href="exec:gt ''suburbs''">It`s a deal</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+                '<p><<$BZ.name>>: Hot spring hot spring ❤</p>'
+              '<p>Me: So happy?</p>'
+              '<p><<$BZ.name>>: Yeah ❤ I also brought you a special dress❤</p>'
+         '</div>'
+    end
+
+    if 3>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p>Me: I won`t fuck you until I wash it clean</p>'
+              '<p><<$BZ.name>>:Hmm❤</p>'
+         '</div>'
+    end
+
+
+    if 9>=a and a>=4:
+         '<div class="dialog_menu">'
+              '<p>Me: You won`t be drunk, will you?</p>'
+              if a>=5:'<p><<$BZ.name>>: Hmm?Why don`t you give me sausage?</p>'
+              if a>=6:'<p>Me: Your nipples are hard…</p>'
+              if a>=7:'<p><<$BZ.name>>: It`s time to show you the clothes I brought❤</p>'
+         '</div>'
+    end
+
+    if 12>=a and a>=10:
+         '<div class="dialog_menu">'
+              '<p>*It`s getting dark, but she still refuses to pull it out</p>'
+              '<p>Me: How long will this posture take?</p>'
+              if a>=11:'<p><<$BZ.name>>: Enough ❤ You can shoot…</p>'
+         '</div>'
+    end
+
+
+    if a=13:
+         $BZ.love+=q+$my.charm
+         $BZ.bad+=q+$my.charm
+         if $squad_leader_event_chain_g=3:$squad_leader_event_chain_g=4
+         '<div class="dialog_menu">'
+              '<p>Me: Why did you just clamp so tightly and let me fuck for so long?</p>'
+              '<p><<$BZ.name>>: Because...I`m afraid that once you pull it out, you will leave me...I don`t like that feeling of emptiness.…</p>'
+              '<p>Me: Are you so insecure?Then I will come to your house to accompany you more in the future.</p>'
+              '<p><<$BZ.name>>: Don`t just say nothing!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_g6":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\G6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''squad_leader_g6''">Plug in to the end</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''squad_leader_g6''">Move by yourself</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''squad_leader_g6''">Accelerate the explosion</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''squad_leader_g6''">Train lunch</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''squad_leader_g6''">Bukkake her</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''squad_leader_g6''">dialogue</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn5"><a href="exec:gt ''residential_area''">No problem</a></div>'
+            '</div>'
+    end
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>Me: I can`t wait!</p>'
+              '<p><<$BZ.name>>: You are so bad<<$words>></p>'
+         '</div>'
+    end
+
+
+    if a=6:
+         $BZ.love+=q+$my.charm
+         $BZ.bad+=q+$my.charm
+         if $squad_leader_event_chain_g=4:$squad_leader_event_chain_g=5
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: I`m going to participate in a swimming competition in the city next week... Can you come to my house in advance and give me a warm-up massage?…</p>'
+              '<p>Me: Warm up massage?</p>'
+              '<p><<$BZ.name>>: Hmm...I don`t want to cramp and be ashamed…</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_g7":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\G7-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!14:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''student_group_event'',''squad_leader_g7''">Apply it</a></div>'
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''student_group_event'',''squad_leader_g7''">Paint below</a></div>'
+            end
+            if q=1:'<div class="buttonS2"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_g7''">Massage here</a></div>'
+            if q=2:'<div class="buttonS3"><a href="exec:a=5 & gt ''student_group_event'',''squad_leader_g7''">Apply all over the body</a></div>'
+            if q>=3 and a!8:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''student_group_event'',''squad_leader_g7''">Lubricate the mouth</a></div>'
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''squad_leader_g7''">Lubricated tits</a></div>'
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''student_group_event'',''squad_leader_g7''">Lubricating pussy</a></div>'
+            end
+            if 11>=a and a>=8:'<div class="buttonS4"><a href="exec:a+=1 & gt ''student_group_event'',''squad_leader_g7''">Orgasm all the way</a></div>'
+            if a=12:'<div class="buttonS5"><a href="exec:a=13 & gt ''student_group_event'',''squad_leader_g7''">Bukkake her</a></div>'
+            if a=13:'<div class="buttonB3"><a href="exec:a=14 & gt ''student_group_event'',''squad_leader_g7''">Missed the game</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn5"><a href="exec:gt ''residential_area''">Ok</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: This swimsuit belongs to Xiao No. 1... I`m worried that it will run out when I swim for a while.…</p>'
+              '<p>Me: I brought you some essential oils that are easy to stretch…</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Right... you touch it like this... Hmm❤ I will want it❤</p>'
+              '<p>Me: That`s right ❤</p>'
+         '</div>'
+    end
+
+
+    if 13>=a and a>=8:
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Let`s have sex ❤ The pussy is completely drenched... It`s hard to end without sex❤</p>'
+              if a>=9:'<p>Me: That`s what I think!</p>'
+              if a>=10:'<p><<$BZ.name>>:It`s so cool<<$words>></p>'
+         '</div>'
+    end
+
+    if a=14:
+         $BZ.love+=q+$my.charm
+         $BZ.bad+=q+$my.charm
+         if $squad_leader_event_chain_g=5:$squad_leader_event_chain_g=6
+         '<div class="dialog_menu">'
+              '<p><<$BZ.name>>: Not good...what time is it now!We missed the butterfly check-in time!</p>'
+              '<p>Me: What kind of game is it?Does it matter?</p>'
+              '<p><<$BZ.name>>: It doesn`t matter, compared to having sex with you... it doesn`t matter what ❤</p>'
+              '<p>Me: Blame me…</p>'
+              '<p><<$BZ.name>>: It`s okay❤ It`s just butterfly swimming. I have a freestyle competition tomorrow. Come and cheer for me!</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="squad_leader_ge1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BZ\vids\GE1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonG"><a href="exec:a=1 & gt ''student_group_event'',''squad_leader_ge1''">Starting gun sounds</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''student_group_event'',''squad_leader_ge1''">First place wins</a></div>'
+            if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''student_group_event'',''squad_leader_ge1''">Lick it</a></div>'
+            if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''student_group_event'',''squad_leader_ge1''">Think about what to mention</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''student_group_event'',''squad_leader_ge1''">thinking</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''student_group_event'',''squad_leader_ge1''">thinking</a></div>'
+            if a=6:'<div class="buttonS3"><a href="exec:a=7 & gt ''student_group_event'',''squad_leader_ge1''">thinking</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a=8 & gt ''student_group_event'',''squad_leader_ge1''">thinking</a></div>'
+            if a=8:'<div class="buttonB3"><a href="exec:a=9 & gt ''student_group_event'',''squad_leader_ge1''">Thought of it</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG5"><a href="exec:gt ''university''">That`s great</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p>*The women`s 100-meter freestyle competition in the swimming pool</p>'
+              '<p>Me: Come on!</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>*As the starting gun sounded, the game began</p>'
+              '<p>*<<$BZ.name>>Far ahead with your encouragement</p>'
+              '<p>Me: Wow, that`s amazing❤</p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=2:
+         '<div class="dialog_menu">'
+              '<p>Me: You are amazing, this is your reward❤</p>'
+              '<p><<$BZ.name>>: Hehe... then I`m welcome❤</p>'
+              if a>=3:'<p>Me: You are awesome ❤</p>'
+              if a>=4:'<p><<$BZ.name>>: I am willing to do anything for you, dear ❤</p>'
+         '</div>'
+    end
+
+
+    if a=9:
+         $BZ.love+=q+$my.charm
+         $BZ.bad+=q+$my.charm
+         $BZ.GE=1
+         if $squad_leader_event_chain_g=6:$squad_leader_event_chain_g=7
+         '<div class="dialog_menu">'
+              '<p>Me: If you are willing to do anything for me... then can you...…</p>'
+              '<p><<$BZ.name>>: You say it, I promise you ❤</p>'
+              '<p>Me: Can you... step down as squad leader?<<$SB.name>>I don`t want you to show up in class again…</p>'
+              '<p><<$BZ.name>>: Just in time ❤In fact, I was about to participate in the special training of the national freestyle competition, so I temporarily suspended school❤</p>'
+              '<p>·---This is the end of the character`s story———</p>'
+              '<p>·Regardless of whether you sponsor this button or not, it is provided to you to play other endings·<a href="exec:$squad_leader_event_chain_b=0 & $squad_leader_event_chain_g=0 & $squad_leader_g=0 & $squad_leader_b=0 & gt ''student_group_event'',''outside_the_monitor`s_door''">-Click to reset the plot line</a></p>'
+              '<p>·And I didn`t deliberately increase the difficulty of the game. If you are careful, you will definitely be able to clear the customs.Of course, if you have the ability, thank you very much for your sponsorship. I hope I can live a better life and not be as embarrassed as before when I get ashore.</p>' 
+         '</div>'
+    end
+    q+=1
+End
+--- student_group_event ---------------------------------
+

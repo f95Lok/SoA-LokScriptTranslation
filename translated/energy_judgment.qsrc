@@ -1,0 +1,15 @@
+# energy_judgment
+if $my.energy<=0:
+	if medicine=1:gt"daily_drug_test"
+	if jailday>0:gt"prison_compulsory_rest"
+	if $at_the_idols_house>0:$my.energy = mymax[$energy] & gt"idol_event",'wake_up'
+	if $choreographer_lien_zhan>0:$my.energy = mymax[$energy] & gt"choreographing_event",'the_next_day'
+	if $wake_up_in_the_big_villa>0:$my.energy = mymax[$energy] & gt"big_villa",'master_bedroom_rest'
+	gt"compulsory_rest"
+end
+
+if $my.energy >= mymax[$energy]:
+	$my.energy = mymax[$energy]
+end
+--- energy_judgment ---------------------------------
+

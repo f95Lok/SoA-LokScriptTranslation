@@ -1,0 +1,463 @@
+# daily_life_in_prison
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+$my.energy-=10
+
+
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show_half'
+	gs "bug_prolapse"
+'</div>'
+
+if jings<0:jings=0
+if 0<=hour and hour <=5:$prison_map="监狱0"
+if 6<=hour and hour <=11:$prison_map="监狱1"
+if 12<=hour and hour <=14:$prison_map="监狱2"
+if 15<=hour and hour <=18:$prison_map="监狱3"
+if 19<=hour and hour <=24:$prison_map="监狱4"
+now_time=year*365+month*30+day
+
+if jings>=50:a=-1& gt 'executive_officer_event','zxg_fuck_enforce'
+if jailday>0:
+	if  now_time-jing_time>=5:
+		if  $YJ.bad<=30: gt'prison_guard_incident','yj_event_punishment'
+		if  $YJ.bad > 30: gt'prison_guard_incident','yj_event_punishment_two'
+	end
+end
+
+$prisonrandomnumber=rand(1,10)
+if $soapkey>0 and $prisonrandomnumber>9 and $prison_anal_plug=0:gt'prison_guard_incident','yj_event_punishment_three'
+
+if jailday<0:
+	 '<div class ="show_menu"><img src="images\place\监狱大图.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5  & jailday=0 & gt ''suburbs''">Get out of jail</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·Released after serving his sentence</p>'
+			if $sister_hua_event_chain=6:$sister_hua_event_chain=7
+		'</div>'
+End
+
+
+if $ARGS[0]="":
+
+	'<div class ="show_menu"><img src="images\place\<<$prison_map>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $dailyrollcall=0:'<div class="buttonR4"><a href="exec:$dailyrollcall=1 & jailday-=1 & gt ''daily_life_in_prison''">Dailyrollcall</a></div>'
+		if dogteam>=1:'<div class="buttonR5"><a href="exec:$prison_code=0 & gt ''daily_life_in_prison'',''warden`s_office''">Warden`s Office</a></div>'
+		'<div class="button"><a href="exec:$prison_code=1 & gt ''daily_life_in_prison''">Read the prison code aloud</a></div>'
+		if hour!12 and hour!18:'<div class="buttonR2"><a href="exec:$labor_reform_project=0 &gt ''daily_life_in_prison'',''labor_reform''">Labor reform</a></div>'
+		if hour=12:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''release_time''">Release time</a></div>'
+		if hour=18:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''playground_open''">Playground open</a></div>'
+		if day=1:'<div class="buttonGn"><a href="exec: a=-1 & gt ''andrology_event'',''nk_fuck_monthly''">Monthly health check</a></div>'
+		'<div class="button"><a href="exec:minutes+=165 &$prison_code=0 & $my.energy+=15 &jings+=rand(1,3)& gt ''daily_life_in_prison''">Rest for 3h</a></div>'
+		if hour>=6 and  $YJ.slave=1 and $prisonrandomnumber<4:'<div class="buttonG"><a href="exec:gt ''prison_guard_incident'',''yj_event_tuning''">Bell sound</a></div>'
+		if hour>=19 and $soapkey>0:'<div class="buttonB"><a href="exec:gt ''daily_life_in_prison'',''prison_corridor''">Use soap key</a></div>'
+		if hour>=19:'<div class="button"><a href="exec:minutes+=1440 & hour=6 &$prison_code=0 & $my.energy+=45 &jings+=rand(4,6)& gt ''daily_life_in_prison''">Turn off the lights and go to bed</a></div>'
+		if 10>$YDM_Event_free and $YDM_Event_free>0:
+			if 0<=hour and hour<=3:'<div class="buttonB5"><a href="exec:gt ''daily_life_in_prison'',''connector''">Jailbreak connector</a></div>'
+		end
+
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·Remaining sentence：<<jailday>>day.Labor certificate：<<coins>>one.Accumulate semen volume：<<jings>>ml.The bad environment exhausts you physically and mentally.</p>'
+		if $prison_anal_plug=1: jings+=rand(1,3 )& '<p>·由于被插着肛塞，随着前列腺的疯狂摩擦，精液不断积蓄着。<a href="exec: gt''prison_guard_incident'',''YJ_Event_ Punishment four''`>*Pull it out</a></p>'
+		if $prison_code=1:
+		'<p>·Prison code: In exchange for labor certificates through different labor, each labor certificate can offset one day`s sentence.</p>'
+		'<p>*Handmade: Make female erotic props according to demand, and you can get 1 labor certificate each time.</p>'
+		'<p>·Squeeze essence: Fill a 10ml measuring cup with your own semen in exchange for 10 labor certificates.</p>'
+		'<p>·Special hours: at 12 o`clock every day, you can interact with prisoners in other districts.The playground is open at 18 o`clock every day.</p>'
+		'<p>·There will be a free health check once a month.</p>'
+		end
+		if $sister_hua_event_chain=6:'<p>Me: Damn it<<$PW.name>>...actually locked me here and planned to make me miss the draft.…</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="warning":
+	'<div class ="show_menu"><img src="images\place\监狱大图.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''daily_life_in_prison'',''front_of_the_prison''">Hard break</a></div>'
+		'<div class="button"><a href="exec:gt ''suburbs''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><B><span class =''red''>·Warning: The prison is a powerhouse, and idlers are not allowed to enter!！</p>'
+		if $bigvillaforthefirsttime>=1 and $prison_hammer=0:'<p>·There is a [sledgehammer] covered with dust and dirt at the entrance of the prison.<a href="exec:$sledgehammer+=1 & $prison_hammer=1 &  gt ''daily_life_in_prison'',''warning''">-Take it away</a></p>'
+	'</div>'
+
+end
+
+
+
+if $ARGS[0]="front_of_the_prison":
+	$DYZ.available=1
+	$YJ.available=1
+	jailday=90
+	jing_time=year*365+month*30+day 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DYZ\vids\介绍~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''daily_life_in_prison'',''prison_front_2''">silence</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><B><span class =''red''>·Without saying a word, you were escorted to prison and even skipped the interrogation session.！</p>'
+		'<p><<$DYZ.name>>: Bastards, welcome to FOX Prison!I am your warden!Trainer, I`ll leave it to you next.</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="prison_front_2":
+	$DYZ.available=1
+	$YJ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\介绍~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''daily_life_in_prison''">Admission to prison</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YJ.name>>: Bitch dogs!It`s a pity that you were convicted!In accordance with the amendment regulations of Paragraph 2 of the Third edition of the Law on the Protection of Women`s Leadership, you will be subject to compulsory detention for 90 days, during which you will be deprived of all “man” rights.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="labor_reform":
+		if $labor_reform_project=1: coins+=1
+		if $labor_reform_project=2: jing+=jings & jings=0		
+		if $labor_reform_project=3: jing=0 & coins+=10
+		if $labor_reform_project=4: jailday-=coins & coins=0
+
+	'<div class ="show_menu"><img src="images\place\<<$prison_map>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR1"><a href="exec:$labor_reform_project=1 & minutes+=60 & gt ''daily_life_in_prison'',''labor_reform''">manual</a></div>'
+		'<div class="buttonR2"><a href="exec:$labor_reform_project=2 & minutes+=60 &gt ''daily_life_in_prison'',''labor_reform''">Squeeze essence<<jing>>/10ml</a></div>'
+		if jing>=10:'<div class="buttonR3"><a href="exec:$labor_reform_project=3 &jing_time=year*365+month*30+day & minutes+=15 &gt ''daily_life_in_prison'',''labor_reform''">Turn in the measuring cup</a></div>'
+		if coins>0:'<div class="buttonR4"><a href="exec:$labor_reform_project=4 & minutes+=60 &gt ''daily_life_in_prison'',''labor_reform''">Exchange of labor certificates</a></div>'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">Return to the cell</a></div>'
+	'</div>'
+
+
+ 
+
+	'<div class="dialog_menu">'
+		if $labor_reform_project=0:'<p>·Labor reform, earn labor certificates, and strive to get out of prison as soon as possible!</p>'
+		if $labor_reform_project=1:'<p>·Several dildos were made and labor certificates were obtained.</p>' 
+		if $labor_reform_project=2:'<p>·Jerk off at the measuring cup.</p>' 
+		if $labor_reform_project=3:'<p>·Handed over the measuring cup full of semen<<$YJ.name>>, Obtained a labor certificate.</p>'
+		if $labor_reform_project=4:'<p>·The labor certificate was exchanged and the sentence was shortened.</p>'
+		'<p>·Remaining sentence：<<jailday>>day.Labor certificate：<<coins>>one.Accumulate semen volume：<<jings>>ml.The bad environment exhausts you physically and mentally.</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="release_time":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\jail\监狱商店0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if money>=10000:'<div class="buttonG"><a href="exec:money-=10000 & coins+=1 & gt ''daily_life_in_prison'',''release_time''">Purchase labor certificate ￥10000</a></div>'else:'<div class="buttonGr"><a href="exec:">Purchase labor certificate ￥10000</a></div>'
+		if $soapkey<=0 and coins>=10:'<div class="buttonG"><a href="exec:coins-=10 &  $soapkey+=1 & gt ''daily_life_in_prison''">Purchase soap key·10 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">Soap key·10 pieces</a></div>'
+		if dogteam=2 and jings>=10:'<div class="buttonR3"><a href="exec:gt ''group_performation_event'',''prison_fuck_mouth''">For sale*Semen of breeding dogs</a></div>'else:else:'<div class="buttonGr"><a href="exec:">For sale·???</a></div>'
+		if coins>=20:'<div class="buttonS"><a href="exec:coins-=20 & gt ''group_performation_event'',''prison_fuck_lesbian''">Sex service: Girls Love·20 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？20 pieces</a></div>'
+		if coins>=40:'<div class="buttonS"><a href="exec: gt ''group_performation_event'',''jail_fuck_store_3p''">Sexual service: Shuangfei·40 pieces</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？40 pieces</a></div>'
+		if 10>$YDM_Event_free and $YDM_Event_free>0:'<div class="buttonR3"><a href="exec:gt ''daily_life_in_prison'',''go_to_jail_for_a_generation''">Go to Area A</a></div>'else:'<div class="buttonR5"><a href="exec:">Area A is under lockdown</a></div>'
+
+
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">Back to area C</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Female prisoners in Area B: Hey, you should know that labor certificates are the only currency in circulation in the prison, right?Labor certificates can be exchanged for a lot of good things with us (#^_^#)</p>'
+		'<p>Female prisoners in Area B: Of course, we also have a lot of labor certificates in our hands, which can greatly shorten the sentence!Support all foreign exchange payments!Only ￥10,000/piece!</p>'
+		if $YDM_Event_free=0:'<p>Female prisoners in Area B: Area A is an area where felons are held. It`s too dangerous.</p>'
+		if $YDM_Event_free=10:'<p>Female prisoners in Area B: Area A is currently under lockdown. It seems that someone has escaped and is being searched indefinitely.Although the warden suppressed the matter, he claimed that the prisoner was still hiding in a warehouse full of handmade dildos in Area A!But according to a watchdog, it was the security executive who attacked Area A~</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="prison_corridor":
+	'<div class ="show_menu"><img src="images\place\监狱走廊.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:$soapkey-=1 & gt ''prison_guard_incident'',''yj_event_lesbian''"><<$YJ.name>>bedroom</a></div>'
+		'<div class="buttonR5"><a href="exec:$soapkey-=1 & gt ''group_performation_event'',''prison_fuck_interrogation_room''">Anti-social torture room</a></div>'
+		if $the_thief_was_caught=3:'<div class="buttonR5"><a href="exec:$soapkey-=1 & gt ''group_performation_event'',''group_play_fuck_thief_9''">Arsonist torture room</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·I used the soap key to open the cell. The key was so distorted that it seemed that I could only use it again!</p>'
+	'</div>'
+
+end
+
+
+if $ARGS[0]="warden`s_office":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DYZ\vids\开幕~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		if dogteam!2:'<div class="buttonR1"><a href="exec: m=180 & gt ''warden_incident'',''dyz_fuck_tuning_interview''">Kennel interview</a></div>'
+		if dogteam=2:
+			if DYZcos=0 and tuc_level3=1:'<div class="buttonPu1"><a href="exec:DYZcos=1 & gt ''daily_life_in_prison'',''warden`s_office''">Hand out the photo studio business card</a></div>'
+			'<div class="buttonS1"><a href="exec:  gt ''warden_incident'',''dyz_fuck_feast''">Provide a feast</a></div>'
+			if $DYZ.bad>=110-$DYZ.love:'<div class="buttonR1"><a href="exec:  gt ''warden_incident'',''DYZ_Fuck_3P''">Group sex competition</a></div>'else:'<div class="buttonGr"><a href="exec:">？？competition</a></div>'
+			if $DYZ.bad>=100:
+			 if jings>=30 and  $DYZ.friend=1:'<div class="buttonR3"><a href="exec:  gt ''warden_incident'',''dyz_event_hospitality_2''">Semen martini</a></div>'else:'<div class="buttonR2"><a href="exec:gt ''warden_incident'',''dyz_event_hospitality''">Introduce guests</a></div>'
+			end
+			if $dyz.entertain>=1:'<div class="buttonR4"><a href="exec:  gt ''warden_incident'',''dyz_fuck_inverse_3p''">Exclusive for two</a></div>'else:'<div class="buttonGr"><a href="exec:">Two people?？</a></div>'
+			if $dyz.entertain>=2 and $DYZ.bad>=400-$DYZ.love:'<div class="buttonR5"><a href="exec:  gt ''warden_incident'',''dyz_fuck_inverse_3p2''">Gathering of elites</a></div>'else:'<div class="buttonGr"><a href="exec:">？？Gathering</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">Go back</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if DYZcos=1:
+		'<p><<$DYZ.name>>:Do you run a photo studio?It seems to be of some value.</p>'
+		'<p>Me: Yes, I can give you... free orders when you come!</p>'
+		end
+		'<p><<$DYZ.name>>: Listen up, you have to shoot at least 20ml of semen every day!If you don`t understand, go back.</p>'
+		if jings<=0:'<p><B><span class =''red''><<$DYZ.name>>:<<$protagonists_name>>？！Why are you here without even a drop of semen?Get out of here!</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="playground_open":
+	'<div class ="show_menu"><img src="images\place\监狱操场.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:minutes+=30 & gt ''daily_life_in_prison'',''playing_chess_in_the_playground'',''anti-bug''">Play chess</a></div>'
+		'<div class="buttonB"><a href="exec:minutes+=30 & gt ''daily_life_in_prison'',''playing_football_in_the_playground'',''anti-bug''">Kick the ball</a></div>'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·In the playground of the prison, there are only a few sports to choose from.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="playing_chess_in_the_playground":
+	'<div class ="show_menu"><img src="images\place\监狱操场.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if  $ARGS[1]="anti-bug": $exp_intelligence += $my.intelligence*2
+		'<p>After some mutual play on the chessboard, time passed unconsciously!</p>'
+		'<p>·Subject to basic intelligence【<<$my.intelligence>>]▲The influence of ▲ and the pointing of the chess spectators around him, the intelligence has been [doubled▲▲]</p>'
+	'</div>'
+end
+
+if $ARGS[0]="playing_football_in_the_playground":
+	'<div class ="show_menu"><img src="images\place\监狱操场.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if  $ARGS[1]="anti-bug":
+		$exp_figure += $my.intelligence
+		mymax[$energy] +=RAND(1,$my.physical_strength*2)
+		end
+		'<p></p>'
+		'<p>·Subject to basic intelligence【<<$my.intelligence>>]▲The influence of ▲, the ability to control the muscles has increased▲</p>'
+		'<p>·因为囚犯们恶意凶狠的身体对抗，心肺功能得到了【双倍提升▲▲】，$energy上限提升为【<<mymax[精力]>>】▲</p>'
+	'</div>'
+end
+
+if $ARGS[0]="connector":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YDM\vids\越狱策划.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $YDM_Event_free=1:'<div class="buttonB1"><a href="exec:gt ''daily_life_in_prison'',''connector''">Shenyou Yuanji</a></div>'
+		if $YDM_Event_free=2:'<div class="buttonB2"><a href="exec:gt ''daily_life_in_prison'',''connector''">Jinyi Night Walk</a></div>'
+		if $YDM_Event_free=3 or $YDM_Event_free=4:'<div class="buttonB3"><a href="exec:gt ''daily_life_in_prison'',''connector''">Foolproof</a></div>'
+		if $YDM_Event_free=5:'<div class="buttonB4"><a href="exec:gt ''daily_life_in_prison'',''connector''">Almost forgot</a></div>'
+		if $YDM_Event_free=6:'<div class="buttonB5"><a href="exec:gt ''daily_life_in_prison'',''connector''">Everything is ready</a></div>'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">Got it</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I am<<$EDM.name>>Those sent to connect with you, please give instructions.(Fuck me?！？Are you two the escape experts you are looking for?！Isn`t this stable anymore?）</p>'
+		if $YDM_Event_free=1:
+		'<p>Michael Scofield: The client is detained in Area A.Where`s the USB flash drive?</p>'
+		'<p>Me:...Still in my body.</p>'
+		'<p>Michael Scofield: The plan is this. The prisoner`s semen accumulation will cause a visit from the ejaculation executive.We only need to give our customers a suitable costume at the right time, so that we can bypass the eyeliner of the [police dog team] and leave the first blockade.</p>'
+		'<p>Me: What about this USB flash drive?…...(a strange liquid is involved..）</p>'
+		'<p>Michael Scofield: This USB flash drive needs to be inserted into the host side of the monitoring room, so that the customer is “completely invisible” when passing through the complete second blockade.</p>'
+		'<p>Me: So what am I going to do?</p>'
+		'<p>Michael Scofield: Our brothers have to seize the surveillance room and destroy the evidence afterwards. We need you to stain a piece of the executive officer`s clothes!We are waiting for you in the washing room!</p>'
+		end
+		if $YDM_Event_free=2:
+		'<p>Michael Scofield: `The executive officer`s clothes have been transferred by us. This is it!We need you to put it in the client`s cell!I think you know what to do!Go to the cell in Area A to support those watchdogs!</p>'
+		end
+		if $YDM_Event_free=3 or $YDM_Event_free=4:
+		'<p>Michael Scofield:<<$EDM.name>>New supplies were entrusted to be shipped.We need you to give it to the customer.The customer is detained in Area A.</p>'
+		'<p>Me: This is...A pistol?！</p>'
+		'<p>Michael Scofield: Calm down, this is just a model gun, although I don`t know what her intentions are.But it is reasonable for an executive officer to be equipped with a pistol.</p>'
+		$YDM_Event_free=4
+		end
+		if $YDM_Event_free=5:
+		'<p>Michael Scofield: I almost forgot that you still need to bring her a master key...It should be sold in the prisoner shop.The customer is detained in Area A.</p>'
+		end
+		if $YDM_Event_free=6:
+		'<p>Michael Scofield: The client is detained in Area A.The action can start at any time, you only need to summon the chief executive officer to come!We have ways to assist customers to leave safely!！</p>'
+		end
+	'</div>'
+end
+
+if $ARGS[0]="go_to_jail_for_a_generation":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\入狱1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''one_generation_project_event'',''ydm_fuck_d''">Watch the interrogation</a></div>'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison'',''wait''">Waiting for the end</a></div>'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·A female prisoner came face-to-face, joy and anger were not palpable.She should be the one I want to help.</p>'
+		'<p>Police Dog Team: Prisoner Number: 9X0813!Ready to be interrogated!Listed!</p>'
+		'<p><<$YDM.name>>:……</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="wait":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison'',''whisper''">Whisper</a></div>'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Police dog team: Your mouth is harder than my ex-wife`s mouth!You will look good next time!Let`s go!</p>'
+		'<p>·The interrogation of the police dog team is over，<<$YDM.name>>Still convulsing.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="whisper":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $YDM_Event_free=1:'<div class="button"><a href="exec:$ydm_dialogue=1 &gt ''daily_life_in_prison'',''whisper''">comfort</a></div>'
+		if $YDM_Event_free=2:'<div class="button"><a href="exec:gt ''daily_life_in_prison'',''lead_away_the_guards''">Lead away the guards</a></div>'
+		if $YDM_Event_free=4:'<div class="button"><a href="exec:gt ''daily_life_in_prison'',''so_the_technique_is_repeated''">So the technique is repeated</a></div>'
+		if $YDM_Event_free=5 and $soapkey>0:'<div class="button"><a href="exec:$ydm_dialogue=4 &gt ''daily_life_in_prison'',''whisper''">Butt up</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $ydm_dialogue=1:
+			'<p>Me: Ahem，<<$EDM.name>>I found Michael Scofield, he is a first-class jailbreak expert!You can go out with a little patience!Come on!There are more when you go out..A first-class heavy metal band!</p>'
+			'<p><<$YDM.name>>:………</p>'
+			'<p>Me: We will get you a uniform. We can bypass the [Police dog team] eyeliner and leave the first blockade while taking advantage of the visit of the chief executive officer.Michael Scofield will seize the monitoring room and destroy the evidence afterwards.Just listen to our signal!</p>'
+		 end
+		if $YDM_Event_free=2:
+			'<p>Me: `The executive officer`s uniform is hidden on me now. I need you to lead the guards away. I will put the clothes in your mattress!`You have to keep it safe!</p>'
+			'<p><<$YDM.name>>:.........* Shout: Hello!I said you watchdogs!What`s my mood when I usually watch the police dog team?They didn`t fuck me enough today, who of you can satisfy me?</p>'
+		 end
+		if $YDM_Event_free=4:
+			'<p>Me: Hey, the way you led the guards away last time needs to be used again, and there is something new.</p>'
+			'<p><<$YDM.name>>:...hello!You watchdogs!Sure enough, it`s not as good as the big dick of the police dog team!Whose was the third meat stick last time?It`s ridiculous!I don`t feel it at all!</p>'
+		 end
+		if $ydm_dialogue=4:
+			'<p>Me: Ahem, that`s rude...This is a master key made of soap.Just keep it with your asshole first....</p>'
+			$soapkey-=1
+			$YDM_Event_free=6
+		 end
+			'<p><<$YDM.name>>:……</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="so_the_technique_is_repeated":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-3~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p>Watchdog: Prisoner number: ...*blushing?！Prisoner number: 9X0813 What are you talking about?Is it fucking again?brothers!on!</p>'
+			'<p>·You take the opportunity to act, take advantage of it<<$YDM.name>>The model gun was placed in her mattress in the gap where her mouth was raped by everyone!</p>'
+			$YDM_Event_free=5
+	'</div>'
+end
+
+if $ARGS[0]="lead_away_the_guards":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YDM\vids\审讯1-2~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''daily_life_in_prison''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p>Watchdog: Prisoner number: 9X0813!I`ve wanted to fuck you for a long time!brothers!The one who shot the least today is a treat to drink!</p>'
+			'<p>·You take the opportunity to act, take advantage of it<<$YDM.name>>The gap that was raped by everyone put the uniform in her mattress!</p>'
+			$YDM_Event_free=3
+	'</div>'
+end
+
+
+
+
+
+
+--- daily_life_in_prison ---------------------------------
+

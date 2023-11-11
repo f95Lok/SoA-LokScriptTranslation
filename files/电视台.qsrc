@@ -1,0 +1,928 @@
+# 电视台
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if hour>=7:
+				'<a class="photo" data-title="台长室" href="exec:gt ''电视台'',''台长室''"><img class="img_stretch" src="images\place\台长室.jpg"></a>'
+			else:
+				'<a class="photo" data-title="台长室(无人)"><img class="img_stretch" src="images\place\台长室.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="编辑部" href="exec:gt ''电视台'',''编辑部''"><img class="img_stretch" src="images\place\编辑部.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			'<a class="photo" data-title="化妆室" href="exec:gt ''电视台'',''化妆室''"><img class="img_stretch" src="images\place\化妆室.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="演播室" href="exec:gt ''电视台''"><img class="img_stretch" src="images\place\电视台.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="市政大厅" href="exec:minutes+=15 & gt ''市政厅''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+		if $竞演开始=1:
+		'<div class="action">'
+			'<a class="photo" data-title="竞演舞台" href="exec:gt ''竞演''"><img class="img_stretch" src="images\place\竞演\竞演.jpg"></a>'
+		'</div>'
+		end
+		if $竞演开始=999:
+		'<div class="action">'
+			'<a class="photo" data-title="圆满落幕" href="exec:gt ''电视台'',''圆满落幕''"><img class="img_stretch" src="images\place\竞演\竞演完.jpg"></a>'
+		'</div>'
+		end
+	'</div>'
+'</div>'
+
+ if $QT.job=2:电台节目num=7
+ 收视率=格斗节目num+暂无内容num+天气预报num+新闻节目num+真人秀num+电台节目num+动画片num+电视剧num+特摄剧num+读书节目num+付费频道num
+ if 收视率>75:收视率=75
+ if 收视率<5:$收视率_name="收视率不足5%，实在令人堪忧"
+ if 5<=收视率 and 收视率<20:$收视率_name="收视率稍有起色，仍不够理想"
+ if 20<=收视率 and 收视率<35:$收视率_name="在黄金时段开始有了固定观众"
+ if 35<=收视率 and 收视率<50:$收视率_name="深夜时段也有了不错的收视率"
+ if 50<=收视率 and 收视率<60:$收视率_name="全频道收视率遥遥领先同行，收视率占据超过一半的市场份额。"
+ if 60<=收视率 :$收视率_name="同行望尘莫及的收视率，整个电视台充满了欢快的气氛。"
+ 
+ $收视率情况='➤※㊟当前的收视率为<<收视率>>%，<<$收视率_name>>'
+
+if hour>=7:TZ立绘=1 & $TZ颜色='B' & $收视率奖赏='收视率回暖奖赏'
+if hour>=11:TZ立绘=2 & $TZ颜色='Pu'& $收视率奖赏='收视率好转奖赏'
+if hour>=13:TZ立绘=3 & $TZ颜色='S'& $收视率奖赏='收视率稳定奖赏'
+if hour>=18:TZ立绘=4 & $TZ颜色='R'& $收视率奖赏='一次性奖赏'
+
+
+if $ARGS[0]="":
+	电视台随机数=rand(0,7)
+	if 6>格斗秀 and 格斗秀>1:电视台随机数=rand(-1,7)
+	if $特摄片前置=4:电视台随机数=rand(0,8)
+	if $新闻节目前置=1 and $特摄片前置=4:电视台随机数=rand(1,10)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\news\演播室<<电视台随机数>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if $新闻节目前置=1 and $XM.bad>=200 and $XM.job=0:'<div class="buttonP"><a href="exec:minutes+=20 & gt ''学妹_事件'',''XM_Fuck_面试''">面试新主持人</a></div>'
+		if $XM.job=1 and  week_day >5 and hour =12:'<div class="buttonP"><a href="exec:minutes+=20 & gt ''学妹_事件'',''XM_Fuck_探班''">探班<<$XM.name>></a></div>'
+		if $XM.job=1 and  week_day >5 and hour =15:'<div class="buttonB2"><a href="exec:minutes+=20 & gt ''学妹_事件'',''XM_Fuck_探班2''">探班<<$XM.name>></a></div>'
+		if 花姐循环=0 and $竞演开始=999:'<div class="buttonR3"><a href="exec:minutes+=20 & gt''评委_事件'',''循环交代''">争执声</a></div>'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if 电视台随机数=0 :
+		'<p>·主持人和嘉宾正在对稿…</p>'
+		end
+		if 电视台随机数=1 or 电视台随机数=2:
+		'<p>·正在播报气象节目…</p>'
+		end
+		if 电视台随机数=3 :
+		'<p>·据说这是收视率最高的读书栏目…</p>'
+		end
+		if 电视台随机数=4 or 电视台随机数=5:
+		'<p>·帝国集团正在召开新闻发布会…</p>'
+		end
+		if 电视台随机数=6 or 电视台随机数=7:
+		$电视话[0]="大家好！我们致力于通过开发和应用前沿技术，为市民提供可再生能源和节能解决方案，帮助市民降低能源成本，减少对环境的影响…"
+		$电视话[1]="大家好！作为一家清洁能源公司，我们重视创新和可持续发展。我们的团队由专业的工程师和技术人员组成，他们致力于不断探索和开发新的能源技术，以满足市场需求并应对未来的挑战…"
+		$电视话[2]="大家好！我们的产品和服务涵盖太阳能、风能、地热能等可再生能源领域，并且我们还提供能源管理解决方案，帮助客户优化能源使用，节省能源成本…"
+		$电视话[3]="大家好！作为一家致力于保护地球环境的公司，我们认识到清洁能源的重要性，并且致力于为社会做出贡献。我们相信，通过大家的共同努力，我们可以为更加可持续的未来做出贡献…"
+		$电视话[4]="大家好！我代表我们集团向广大市民郑重承诺：我们绝不允许重工业污染出现在城市的空气中、土壤中、溪流中…我们希望通过采用清洁生产技术、控制排放、开发可再生能源等方式，来取代重工业对环境的影响。"
+		$电视话="<<$电视话[rand(0,4)]>>"
+		'<p>主持人:今天我们很荣幸地请到了帝国能源的高层为观众们解答来信…</p>'
+		'<p><<$NY.name>>:<<$电视话>></p>'
+		end
+		if 电视台随机数=-1:
+		'<p>·正在录制第一届女子非暴力全裸格斗大赛的颁奖仪式</p>'
+		'<p>我 ：原来不是现场直播的啊…那我岂不是提前知道谁是冠军了？</p>'
+		end
+		if 电视台随机数=8:
+		'<p><<$BD.name>> ：很好，第二部的开头就用这个！我们再拍一条！</p>'
+		'<p>我 ：特摄剧的拍摄有条不紊地进行着。</p>'
+		end
+		if 电视台随机数=9 or 电视台随机数=10:
+		'<p><<$BD.name>> ：准备看镜头！3！2！1！《新闻潮吹忍耐赛》开始录制！</p>'
+		'<p>我 ：愿意留下的主持人一定是个骚货。</p>'
+		end
+		
+		'<p><<$收视率情况>></p>'
+	'</div>'
+end
+
+
+if $args[0]="台长室":
+	 
+	 $TZ.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\立绘<<TZ立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $WQ事件链=1 and 收视率>=50 and $TZ.love>=500-$TZ.bad:'<div class="button"><a href="exec:gt ''电视台'',''油压馆广告''">油压馆广告</a></div>'
+		if 2>=$QB签约链 and $QB签约链>=1:'<div class="button"><a href="exec:gt ''电视台'',''签下桥本''">讨论:<<$QB.name>></a></div>'
+		if $QB签约链>=4 and $前台_Event_喉咙>=5 and $QT.job=0:'<div class="button"><a href="exec:gt ''电视台'',''推荐前台''">推荐<<$QT.name>></a></div>'
+		if $看过电视=1:'<div class="button"><a href="exec:$节目对话=0 & gt ''电视台'',''节目转型''">节目转型</a></div>'
+		if 收视率>=50 and $TZ.love>=100:'<div class="buttonP"><a href="exec:gt ''电视台'',''TZ约会''">提出约会 </a></div>'else:'<div class="buttonGr"><a href="exec:">提出约会</a></div>'
+		if $拉赞助<=1:'<div class="button"><a href="exec:gt ''电视台'',''拉赞助''">拉赞助商</a></div>'
+		if $拉赞助=2:'<div class="button"><a href="exec:gt ''电视台'',''拉赞助2''">赞助商合同</a></div>'
+		if 收视率>=10+TZ立绘*2:'<div class="button<<$TZ颜色>><<TZ立绘>>"><a href="exec:$奖口=TZ立绘 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''"><<$收视率奖赏>> </a></div>'else:'<div class="buttonGr"><a href="exec:">收视率不足 </a></div>'
+		if TZ立绘=4:
+			if 收视率>=45:'<div class="buttonS3"><a href="exec:$奖事=1 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">深夜犒劳 </a></div>'else:'<div class="buttonGr"><a href="exec:">收视率不足</a></div>'
+		end
+		if TZ立绘=1:
+			if 收视率>=40:'<div class="buttonS2"><a href="exec:$奖事=2 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">有氧运动 </a></div>'else:'<div class="buttonGr"><a href="exec:">收视率不足</a></div>'
+		end
+		if TZ立绘=2:
+			if 收视率>=50:'<div class="buttonS4"><a href="exec:$奖事=3 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">后台私会 </a></div>'else:'<div class="buttonGr"><a href="exec:">收视率不足</a></div>'
+			if 收视率>=50 and $TZ.love>=400-$TZ.bad:'<div class="buttonGn"><a href="exec:gt ''台长_事件'',''TZ_Fuck_休息''">翘班休息 </a></div>'else:'<div class="buttonGr"><a href="exec:">翘班休息</a></div>'
+		end
+		if TZ立绘=3:
+			if 收视率>=35:'<div class="buttonS1"><a href="exec:$奖事=4 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">收视率嘉奖 </a></div>'else:'<div class="buttonGr"><a href="exec:">收视率不足</a></div>'
+		end
+
+		if 收视率>=60 and $TZ.love>=500-$TZ.bad:'<div class="buttonG"><a href="exec:gt ''台长_事件'',''TZ_Fuck_庆功宴''">庆功宴 </a></div>'else:'<div class="buttonGr"><a href="exec:">庆功宴</a></div>'
+		if $竞演开始=999:'<div class="buttonG"><a href="exec:gt ''台长_事件'',''TZ_Fuck_谢师宴''">♕承蒙关照♕ </a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 收视率<20:'<p><<$TZ.name>>: 市场份额不足…节目质量堪忧…收视率下滑…这可要咋办喔= =还是应该多听取观众的建议进行改革吧。</p>'
+		if 50>收视率 and 收视率>=20:'<p><<$TZ.name>>: 市场份额开始提升了…我们得再接再厉，不能松懈！</p>'
+		if 收视率>=50:'<p><<$TZ.name>>: 太好了！收视率得到了保障，我们有了稳定的观众，财政也得到了支持！多亏了你！<<$主角姓名>>！</p>'
+		if 收视率>=60:'<p><<$TZ.name>>: 这下我能轻松不少了，<<$主角姓名>>，你说闲下来了我们该干什么好呢…</p>'
+		'<p><<$收视率情况>></p>'
+	'</div>'
+End
+
+if $args[0]="职工之家":
+	'<div class ="show_menu"><img src="images\place\职工之家.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if BDLY>=1 and BDTZ>=1 and TZLY>=1:'<div class="buttonS"><a href="exec: gt ''台长_事件'',''TZ_Fuck_全员''">←全员集合♔</a></div>'else:'<div class="buttonGr"><a href="exec: ">←全员集合♔</a></div>'
+		if QBQT+QBTZ+QTTZ>=3:'<div class="buttonPu5"><a href="exec: gt ''台长_事件'',''TZ_Fuck_全员2''">♝全员集合→</a></div>'else:'<div class="buttonGr"><a href="exec: ">♝全员集合→</a></div>'
+		'<div class="button"><a href="exec:gt ''电视台'',''编辑部''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>✦✧♚♚✧♚♚✧♚♚✧♚♚✧✩♜✦✧♗♗✧♗♗✧♗♗✧♗♗✧✩</p>'
+		'<p>♚   <<BDLY>>/1次    ✧    <<BDTZ>>/1次     ✦    <<TZLY>>/1次      ✩♜✩ <<QBQT>>/1次    ✧    <<QBTZ>>/1次     ✦    <<QTTZ>>/1次      ♗</p>'
+		'<p>✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩♜✦✧✩✦✧✩✦✧✩✦✧✩✦✧✩</p>'
+		'<p>✦数字为照片对应人物两两触发✩</p>'
+	'</div>'
+End
+
+if $args[0]="节目转型":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\立绘<<TZ立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">暂无想法</a></div>'
+		if $格斗前置<3:'<div class="buttonS1"><a href="exec:$节目对话=1 & gt ''电视台'',''节目转型''">全新深夜格斗节目</a></div>'
+		if $格斗前置=3:'<div class="buttonR3"><a href="exec:gt ''电视台'',''节目转型_格斗''">录制格斗节目</a></div>'
+		if $真人秀前置=0:'<div class="buttonS2"><a href="exec:gt ''电视台'',''节目转型_真人秀''">改版真人秀</a></div>'
+		if $动画片前置<=1:'<div class="buttonS3"><a href="exec:gt ''电视台'',''节目转型_新动画''">推出新动画</a></div>'
+		if $动画片前置=2:'<div class="buttonP"><a href="exec:$节目对话=2 & gt ''电视台'',''节目转型''">播出动画</a></div>'
+		if $特摄片前置<=1:'<div class="buttonS4"><a href="exec:gt ''电视台'',''节目转型_特摄片''">改版特摄片</a></div>'
+		if $读书节目前置=0:'<div class="buttonP"><a href="exec:$节目对话=3 & gt ''电视台'',''节目转型''">读书节目建议</a></div>'
+		if $付费节目前置=0:'<div class="buttonG"><a href="exec:$节目对话=4 & gt ''电视台'',''节目转型''">买断闲置频道</a></div>'
+		if $新闻节目前置=0:'<div class="buttonS5"><a href="exec:$节目对话=6 & gt ''电视台'',''节目转型''">颠覆新闻风格</a></div>'
+		if $偶像剧前置=0 and 花姐循环=1:'<div class="buttonS"><a href="exec:$节目对话=8 & gt ''电视台'',''节目转型''">试播偶像剧</a></div>'
+		
+		if $节目对话=4:
+			if  收视率>=35 and money>=150000:'<div class="buttonG"><a href="exec:$节目对话=5 & $付费节目前置=1& money-=150000 & gt ''电视台'',''节目转型''">买断150,000￥</a></div>'else:'<div class="buttonGr"><a href="exec:">需要钱和实力</a></div>'
+		end
+		if $节目对话=6:
+			if  $拉赞助 =7-$真人秀前置:'<div class="buttonS"><a href="exec:$节目对话=7 & $新闻节目前置=1 & gt ''电视台'',''节目转型''">《新闻潮吹忍耐赛》</a></div>'else:'<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $节目对话=0:
+		'<p><<$TZ.name>>: 听取观众的意见确实重要，可是……</p>'
+		'<p>我: 现在已经没人看电视了，你想看着电视台垮台的话可以置若罔闻…</p>'
+		'<p><<$TZ.name>>: …那你说说看吧。</p>'
+		end
+		
+		if $节目对话=1:
+		'<p>我: 都<<year>>年了…没人想看哪种大块头在八角笼里大喊大叫了……</p>'
+		'<p><<$TZ.name>>: …那现在的人想看什么？</p>'
+		'<p>我: 格斗节目本来就定档在深夜…深夜时分，当然是荷尔蒙分泌的时段……</p>'
+		'<p><<$TZ.name>>: …所以你的意思是……</p>'
+		'<p>我: 女子格斗比赛…！</p>'
+		'<p><<$TZ.name>>: 我们自己举办比赛？…台里可拿不出奖金。</p>'
+		'<p>我: 奖金的问题…我们可以像世界杯一样，为每场比赛押注，台里作为庄家抽成！</p>'
+		'<p><<$TZ.name>>: …这能行吗？我们又要去哪里找参赛选手呢？</p>'
+		'<p>我: …热衷格斗的女性…我可能认识一个？</p>'
+		if $格斗前置=0:$格斗前置=1
+		end
+		
+		if $节目对话=2:
+		'<p>我: 当下流行的轻改动漫我已经拿回来了！</p>'
+		'<p><<$TZ.name>>: …这能行吗？现在的动画片尺度这么大？</p>'
+		'<p>我: 您不想要收视率了吗？</p>'
+		'<p><<$TZ.name>>: 好吧，只要观众满意我就没意见。</p>'
+		$动画片前置=3
+		end
+
+		if $节目对话=3:
+		'<p>我: 读书节目作为电视台的“保留节目”需要再加把劲！</p>'
+		'<p><<$TZ.name>>: 你的意思是……？</p>'
+		'<p>我: 说白了，观众们不是来听主持人念书的……而是来看主持人的…</p>'
+		'<p><<$TZ.name>>: 我明白你的意思了，我会传达这个指示的。</p>'
+		$读书节目前置=1
+		end
+		
+		if $节目对话=4:
+		'<p>我: 每日的03:00—07:00这段时间是暂无内容的？</p>'
+		'<p><<$TZ.name>>: 是的…并没有什么合适的节目…时间点来说也太晚了。</p>'
+		'<p>我: 那这个时间段能不能卖给我…？150,000￥是我的报价。</p>'
+		if 收视率>=35:'<p><<$TZ.name>>: 当然可以。</p>'
+		end
+		
+		if $节目对话=5:
+		'<p><<$TZ.name>>: 能透露一下，你打算做什么吗？</p>'
+		'<p>我: 制作付费频道，深夜节目嘛…</p>'
+		'<p><<$TZ.name>>: 既然出售给你了，我也不多问了。节目内容…<<$BD.name>>可以为你把关。</p>'
+		'<p>我: 好的，我会去找她帮助。</p>'
+		end
+		
+		if $节目对话=6:
+		'<p>我: 知道为什么现在没人看新闻了吗？新闻风格死气沉沉的谁想看啊？</p>'
+		'<p><<$TZ.name>>: 那该怎么办？</p>'
+		'<p>我: 我想想…</p>'
+		if $拉赞助=3:'<p>我: 从赞助商的角度来看——我们需要赞助商多多出镜。</p>'else:'<p>>观点不足</p>'
+		if 格斗秀=7 :'<p>我: 从全裸格斗得出的结论是——观众爱看平时看不到的内容。</p>'else:'<p>>结论不足</p>'
+		if $真人秀前置=4:'<p>我: 真人秀爆红产生的衍生想法是——可以把它加入进新闻里。</p>'else:'<p>>想法不足</p>'
+		end
+		
+		if $节目对话=7:
+		'<p><<$TZ.name>>: 《新闻潮吹忍耐赛》？</p>'
+		'<p>我: 对，没错！我们有赞助商提供“人手”，结合全裸格斗和真人秀的成功经验，一定能获得人气的。</p>'
+		'<p><<$TZ.name>>: 《新闻潮吹忍耐赛》…好像有搞头？</p>'
+		'<p>我:  现在的主要问题是…主持人不愿意做怎么办？毕竟要当着摄影机的面潮吹…</p>'
+		'<p><<$TZ.name>>:  这个简单！不愿意做，就换主持人！我马上发主持人征聘广告！</p>'
+		'<p>我:  ……</p>'
+		end
+		
+		if $节目对话=8:
+		'<p><<$TZ.name>>: 你拿下了<<PW.name>>偶像剧的版权不会是真的想帮助她吧？</p>'
+		'<p>我: 试试看咯，万一偶像剧会大火呢？</p>'
+		'<p><<$TZ.name>>: 我看过样片，不怎么样。别抱太大的期待。</p>'
+		'<p>我:  买都买了…不播岂不是浪费了…</p>'
+		'<p><<$TZ.name>>: 好吧，今晚就会播出了，祝你成功。</p>'
+		$偶像剧前置=1
+		end
+	'</div>'
+End
+
+if $args[0]="节目转型_格斗":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\格斗节目1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>: 看来参赛选手都已经征集完毕了…</p>'
+		'<p>我: …本着非暴力无血腥公平的原则，规则上禁止肉体攻击。规则改为在规定时间内让对手高潮失神或者精疲力尽者胜出。</p>'
+		'<p><<$BD.name>>: 目前节目会采取打码处理，所以各位可以尽可能地“大展拳脚”。</p>'
+		'<p><<$TZ.name>>: 之后的节目我们会在电视频道中进行播出…</p>'
+		$格斗前置=4
+	'</div>'
+End
+
+if $args[0]="节目转型_真人秀":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\真人秀0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>: 真人秀也需要改版吗…</p>'
+		'<p>我: 没错，这种做作的真人秀已经没人要看了。</p>'
+		'<p><<$TZ.name>>: 真人秀是由<<$BD.name>>一手策划的，我想你应该去找她谈谈。</p>'
+		$真人秀前置=1
+	'</div>'
+End
+
+if $args[0]="节目转型_新动画":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\动画片1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: …虽然这个动画片我以前没看过，但都<<year>>年了，未免有些过时了。</p>'
+		'<p><<$TZ.name>>: 那现在流行什么动画？</p>'
+		'<p>我: 当然是轻小说改编的动漫了，现在的二次元们就喜欢什么异世界…</p>'
+		'<p><<$TZ.name>>: 轻改动漫？我不是很了解呢。</p>'
+		'<p>我: 我可能认识了解轻小说的人，我可以向她询问时下的流行趋势…</p>'
+		 $动画片前置=1
+	'</div>'
+End
+
+if $args[0]="节目转型_特摄片":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\特摄片0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 观众们普遍反映身着铠甲制服的英雄打败坏人的剧情太老套了。</p>'
+		'<p><<$TZ.name>>: 好像确实是这样。</p>'
+		'<p>我: 那不如我们反其道而行？推出坏人打败英雄的剧情？</p>'
+		'<p><<$TZ.name>>: 特摄片我不了解，这是由<<$BD.name>>全权负责的。你应该去问问她的意见。</p>'
+		 $特摄片前置=1
+	'</div>'
+End
+
+if $args[0]="拉赞助":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\演播室2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 像是天气预报节目，就有很大的空闲区域可以投放广告。</p>'
+		'<p><<$TZ.name>>: 赞助商…我们确实需要。你能想想办法吗？</p>'
+		'<p>我: 或许我能找一个需要广告宣传的大公司……</p>'
+		$拉赞助=1
+	'</div>'
+End
+
+if $args[0]="拉赞助2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\天气预报1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		
+		'<div class="button"><a href="exec:$TZ.love+=10 & gt ''市政厅''">诚实：交出30万</a></div>'
+		'<div class="button"><a href="exec:money+=50000 & gt ''市政厅''">私囊：交出25万</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 这是合同的要求，在主持人身边展露两位优质精牛，并且需要主持人在节目组提及《宣传语》。</p>'
+		'<p><<$TZ.name>>: 一天一杯精什么来着的那个？</p>'
+		'<p>我: 是的。</p>'
+		'<p><<$TZ.name>>: 甲方的冠名预算是多少？</p>'
+		$拉赞助=3
+	'</div>'
+End
+
+if $args[0]="TZ约会":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\立绘<<TZ立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''市政厅''">不见不散</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 最近有空吗？</p>'
+		'<p><<$TZ.name>>: 收视率好转了，节目也不用我操心了，空余的时间嘛…怎么？想约我啊？</p>'
+		'<p>我: 是的。</p>'
+		'<p><<$TZ.name>>: 真是坦诚呢，好吧，周六或者周末晚上随你挑，我在赤色餐厅等你。</p>'
+		$TZ约会=1
+	'</div>'
+End
+
+if $args[0]="编辑部":
+	'<div class ="show_menu"><img src="images\place\编辑部.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR2"><a href="exec:$编导对话=0 & gt ''电视台'',''编导立绘''"><<$BD.name>></a></div>'
+		if $LY.转正=1 and $times_of_day='':'<div class="buttonB2"><a href="exec:LY工作立绘=1 & gt ''电视台'',''蓝牙立绘''"><<$LY.name>></a></div>'
+		'<div class="buttonGn"><a href="exec:$收视率数据=1 & gt ''电视台'',''编辑部''">实时收视率</a></div>'
+		if $LY.转正=1 and $QT.job=2:'<div class="buttonS3"><a href="exec:gt ''电视台'',''职工之家''">♝职工之家♝</a></div>'else:'<div class="buttonGr"><a href="exec:">♝职工之家♝</a></div>'
+		'<div class="button"><a href="exec:$收视率数据=0 & gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·电视台的编辑部是电视台节目制作的核心部门。</p>'
+		'<p><<$收视率情况>></p>'
+		if $收视率数据=1:
+		'<p>——————收视率数据——————</p>'
+		'<p>00:00—03:00：深夜节目<<格斗节目num>>%</p>'
+		if $付费节目前置!2:'<p>03:00—07:00：暂无内容0%</p>'
+		if $付费节目前置=2:'<p>03:00—07:00：付费频道<<格斗节目num>>%</p>'
+		'<p>07:00—09:00：天气预报<<天气预报num>>%</p>'
+		'<p>09:00—11:00：新闻节目<<新闻节目num>>%</p>'
+		'<p>11:00—13:00：真人秀<<真人秀num>>%</p>'
+		'<p>13:00—15:00：电台节目<<电台节目num>>%</p>'
+		'<p>15:00—19:00：动画片<<动画片num>>%</p>'
+		'<p>19:00—21:00：电视剧<<电视剧num>>%</p>'
+		'<p>21:00—23:00：特摄剧<<特摄剧num>>%</p>'
+		'<p>22:00—00:00：读书节目<<读书节目num>>%</p>'
+		'<p>——————收视率数据——————</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="编导立绘":
+	
+	$BD.available=1
+	if 7<=hour and hour<=20:
+		$编导立绘=0
+		随机数=rand(1,3)
+		if $BD.love>=500-$BD.bad and 随机数>=2:$编导立绘=3
+		if hour=12:$编导立绘=-1
+		if hour>=18:$编导立绘=1
+		
+	else:
+	$编导立绘=2
+	end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\BD\vids\开幕<<$编导立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if $编导立绘=-1:
+			if $真人秀前置=4:'<div class="buttonGn"><a href="exec:gt ''编导_事件'',''外出''">我来开吧</a></div>'else:'<div class="buttonGr"><a href="exec:">她不信任你</a></div>'
+		end
+		if $编导立绘!-1:
+			if $真人秀前置=1:'<div class="buttonP"><a href="exec:$编导对话=1 & gt ''电视台'',''编导立绘''">改版真人秀</a></div>'
+			if $真人秀前置=2:'<div class="buttonP"><a href="exec:$编导对话=2 & gt ''电视台'',''编导立绘''">编辑真人秀</a></div>'
+			if $真人秀前置=3 and hour=21:'<div class="buttonP"><a href="exec:gt ''编导_事件'',''来取真人秀''">来取真人秀</a></div>'
+			if $特摄片前置=1 or $特摄片前置=2:'<div class="buttonP"><a href="exec:$编导对话=3 & gt ''电视台'',''编导立绘''">改版特摄片</a></div>'
+			if $特摄片前置=3:'<div class="buttonP"><a href="exec:$编导对话=4 & gt ''电视台'',''编导立绘''">特摄片开拍</a></div>'
+			if $编导立绘=3:'<div class="buttonS"><a href="exec:gt ''编导_事件'',''办公室白''">露出肉棒</a></div>'
+			if 真人秀num>=15 and $LY.转正=0: '<div class="buttonR2"><a href="exec:$编导对话=5 & gt ''电视台'',''编导立绘''">真人秀爆红</a></div>'
+			if $编导对话=5: '<div class="buttonG"><a href="exec:$编导对话=5 & gt ''编导_事件'',''引荐''">引荐</a></div>'
+			if $付费节目前置=1:'<div class="buttonG"><a href="exec:$编导对话=6 & gt ''电视台'',''编导立绘''">付费节目协助</a></div>'
+			if $BD.love>=200-$BD.bad and $编导对话=6:'<div class="buttonG"><a href="exec:gt ''编导_事件'',''感谢''">感谢</a></div>'
+		end
+		if $编导立绘=1:
+			if $BD.love>=30:'<div class="buttonS2"><a href="exec:gt ''编导_事件'',''办公室夜A''">摸她</a></div>'else:'<div class="buttonGr"><a href="exec:">摸她</a></div>'
+			if $BD.love>=450-$BD.bad:'<div class="buttonS5"><a href="exec:gt ''编导_事件'',''办公室夜B''">当众操她❤</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？❤</a></div>'
+		end
+		if $编导立绘=2:
+			if $BD.love>=400-$BD.bad:'<div class="buttonS4"><a href="exec:gt ''编导_事件'',''办公室夜C''">直接上手☾</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？☾</a></div>'
+		end
+		if $BD.love>=500-$BD.bad and $TZ.love>=500-$TZ.bad and 收视率>50:'<div class="buttonG"><a href="exec:gt ''台长_事件'',''TZ_Fuck_邀功''">❤一同邀功❤</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？❤</a></div>'
+		'<div class="button"><a href="exec:$收视率数据=0 & gt ''市政厅''">没事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $编导立绘=-1:
+		'<p><<$BD.name>> : 每次都在这种时候出意外？我一再强调！这个会议很重要！</p>'
+		'<p>职员 : 抱歉，领导。我滑雪的时候把腿摔骨折了，现在不能开车。</p>'
+		'<p><<$BD.name>> : 我每天在加班，你倒是去滑雪了？！你们有谁会开赛车？我们要赶在十分钟之内前往会场！</p>'
+		end
+		if $编导立绘=0:'<p>·<<$BD.name>>正在下达一些编辑部的指令。</p>'
+		if $编导立绘=1:'<p>·临近下班时间，只有寥寥几位工作人员还在工作中。</p>'
+		if $编导立绘=2:'<p>·夜深人静，只有<<$BD.name>>仍然在加班中。</p>'
+		if $编导立绘=3:'<p>·<<$BD.name>>正在……自慰！</p>'
+		if $编导对话=1:
+		'<p>我: 这种做作的真人秀已经没人要看了，我觉得真人秀应该做出适当的改变。</p>'
+		'<p><<$BD.name>>: 蛤？你懂什么？你知道策划真人秀有多麻烦吗？演员的每句台词都要提前设计好！笑点和槽点也要提前考虑进去！你什么都不懂还来指挥我？</p>'
+		'<p>我: 就是因为所有的台词都是设计好的，真人秀才会觉得做作！！</p>'
+		'<p><<$BD.name>>: 你？！好！那我就给你做个机会好了。接下去的一期真人秀，我会完全放权给你，我倒要看看你是不是有你嘴巴上说的那么厉害！</p>'
+		'<p>（我: 真人秀的话…需要有和观众有互动感…我认识谁有这种和观众互动的经验呢…）</p>'
+		end
+		if $编导对话=2:
+		'<p>我: 真人秀已经录制完了，您再帮我编辑一下吧。</p>'
+		'<p><<$BD.name>>: 哟，我还以为你真的够硬呢。没想到还是低声下气地来找我帮忙了嘛。</p>'
+		'<p>我: 拜托啦！台里的人都说，你是对节目要求最严格，也是节目质量最高的编导。</p>'
+		'<p><<$BD.name>>: 哼，嘴巴是挺能说的，拿来吧。我处理完手头工作再给你编辑吧。</p>'
+		'<p>我: 辛苦你了。</p>'
+		'<p><<$BD.name>>: 晚上9:00来拿！过时不候！</p>'
+		$真人秀前置=3
+		end
+		if $编导对话=3:
+		'<p>我: 听说特摄片也是您负责监制的？</p>'
+		'<p><<$BD.name>>: 没错，不光是特摄片，整个电视台所有的事情都是由我监制的。</p>'
+		'<p>我: 那真是太辛苦了。</p>'
+		'<p><<$BD.name>>: 哼，有话直说吧。</p>'
+		'<p>我: 现在身着铠甲制服的英雄打败坏人的剧情太老套了。不如我们反其道而行？推出坏人打败女英雄的剧情？</p>'
+		'<p><<$BD.name>>: 现在资金不足，演员暂无，剧本未定，不如你来演这个女英雄？</p>'
+		'<p>我: 剧本就沿用上一部特摄剧修改一下结尾…（女演员…我该去花钱就能买服务的地方碰碰运气）</p>'
+		$特摄片前置=2
+		end
+		if $编导对话=4:
+		'<p>我: 特摄片的演员已经就位了。</p>'
+		'<p><<$BD.name>>: 哦。</p>'
+		'<p>我: 麻烦您，监制一下，节目的质量还需要您来把控。</p>'
+			if $BD.love<100:
+			'<p><<$BD.name>>: 哼，我很忙，没空。你有能耐你自己上呗。</p>'
+			'<p>我: 啊…这……（看来我得想办法改善和她的关系）</p>'
+			else:
+			'<p><<$BD.name>>: 这点小事，就包在我身上吧。</p>'
+			'<p>我: 辛苦你了。</p>'
+			'<p><<$BD.name>>: 不辛苦，不辛苦，倒是你以后要辛苦了。*笑</p>'
+			$特摄片前置=4
+			end
+		end
+		
+		if $编导对话=5:
+		'<p>我: 您看收视率了吗？《是男人就坚持十分钟》现在是时下最流行的真人秀了！</p>'
+		'<p><<$BD.name>>: 是吗，运气好而已。</p>'
+		'<p>我: 这可不是运气好，都是您剪辑的好，把男嘉宾能否射精的悬念拉满，吊足了观众的胃口。</p>'
+		'<p><<$BD.name>>: 小嘴挺甜的嘛，真人秀的第二季我打算全权负责了，你愿意把那位女主持引荐给我吗？</p>'
+		end
+		
+		if $编导对话=6:
+		'<p><<$BD.name>>: 我听说了，你把03:00—07:00的时段买下来做付费节目？呵，真以为节目这么好做吗？</p>'
+		'<p>我: 那您能帮我统筹校对一下付费节目的节目单吗……</p>'
+			if $BD.love>=200-$BD.bad:
+			'<p><<$BD.name>>: 你表现得那么好…我很难拒绝你啊…</p>'
+			else:
+			'<p><<$BD.name>>: 不行，你还不够“资格”。</p>'
+			end
+		end
+	'</div>'
+End
+
+if $args[0]="蓝牙立绘":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LY\vids\工作1-<<LY工作立绘>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+
+		if LY工作立绘=1:'<div class="buttonB1"><a href="exec:LY工作立绘=2 & gt ''电视台'',''蓝牙立绘''">过来一下</a></div>'
+		if LY工作立绘=2:
+			LY仓库=rand(1,2)
+			if LY仓库=1:'<div class="buttonR"><a href="exec:LY仓库=1 & gt ''主播_事件'',''LY_Fuck_仓库''">抬起来爆操</a></div>'
+			if LY仓库=2:'<div class="buttonB2"><a href="exec:LY仓库=2 & gt ''主播_事件'',''LY_Fuck_仓库''">去仓库里干</a></div>'
+			'<div class="buttonPu3"><a href="exec:gt ''主播_事件'',''LY_Fuck_台长室''">去台长室肏</a></div>'
+			
+		end
+		if $BD.love>=500-$BD.bad:'<div class="buttonS2"><a href="exec:gt ''编导_事件'',''编导_Fuck_3PL''">❤找<<$BD.name>>对台本</a></div>'else:'<div class="buttonGr"><a href="exec:">❤台本❤</a></div>'
+		if $TZ.love>=500-$TZ.bad:'<div class="buttonS3"><a href="exec:gt ''台长_事件'',''TZ_Fuck_引荐''">❤引荐给<<$TZ.NAME>></a></div>'else:'<div class="buttonGr"><a href="exec:">❤引荐❤</a></div>'
+		 
+		if $LY.love>=600-$LY.bad and $BD.love>=600-$BD.bad and $TZ.love>=600-$TZ.bad:'<div class="buttonS4"><a href="exec:gt ''台长_事件'',''TZ_Fuck_循环''">♝终极台本♝</a></div>'else:'<div class="buttonGr"><a href="exec:">♝终极台本♝</a></div>'
+		 
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if LY工作立绘=1:'<p><<$LY.name>>: 可恶，怎么什么都看不懂？这个台本是什么意思呢。一会再去问一下<<$BD.name>>好了……</p>'
+		if LY工作立绘=2:
+		'<p>· 你给她递了一个眼色，她立马就明白了你的意思。</p>'
+		'<p>我: 工作还顺利吗？</p>'
+		'<p><<$LY.name>>: 比起舔鸡巴要麻烦多了…</p>'
+		'<p>我: 那你还考虑回风俗店做妓女吗？</p>'
+		'<p><<$LY.name>>: 为什么不？自从我出镜后风俗店点我的客人络绎不绝，你说呢？</p>'
+		'<p>我: 那我能来白嫖你吗？</p>'
+		'<p><<$LY.name>>: 你现在不就在白嫖我吗？</p>'
+		end
+		
+	'</div>'
+End
+
+if $args[0]="化妆室":
+	'<div class ="show_menu"><img src="images\place\化妆室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $QB签约链<4:'<div class="button"><a href="exec:gt ''电视台'',''桥本立绘''"><<$QB.name>></a></div>'
+		if $QT.job=2:'<div class="button"><a href="exec:gt ''电视台'',''新前台立绘''"><<$QT.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·电视台的化妆间，偶尔会看到一些明星艺人在此化妆。</p>'
+	'</div>'
+End
+
+
+if $args[0]="桥本立绘":
+	 $QB.available=1
+	 if 世界杯=99:gt'电视台','桥本立绘2'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\开幕0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:QB节目=1 & gt ''电视台'',''桥本节目''">主持节目</a></div>'
+		'<div class="button"><a href="exec:QB节目=2 & gt ''电视台'',''桥本节目''">艺人节目</a></div>'
+		if 世界杯!99 and 每日足球=0:'<div class="button"><a href="exec:每日足球=1 & gt ''电视台'',''足球宝贝''">足球宝贝</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 你是来送餐的嘛？真好吃！</p>'
+		'<p><<$BD.name>>: 你打算吃多久？！快过来编排节目！</p>'
+	'</div>'
+End
+
+if $args[0]="桥本立绘2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\哭哭.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $QB签约链=3:'<div class="button"><a href="exec:gt ''电视台'',''桥本立绘3''">搭话</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 呜呜…o(╥﹏╥)o…</p>'
+		'<p><<$BD.name>>: 你到底在发什么神经？因为你的一句“谁是梅西”害得我们的投诉电话被打爆了！</p>'
+		'<p><<$QB.name>>: 呜呜…呜…o(╥﹏╥)o呜…呜…</p>'
+		'<p><<$BD.name>>: 哭能解决问题吗？没能力就趁早滚蛋吧！</p>'
+		'<p>我: 现在是签下她的最好时机…我应该找谁商量呢？</p>'
+		if $QB签约链=0:$QB签约链=1
+	'</div>'
+End
+
+if $args[0]="桥本立绘3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\哭哭.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''整形科''">带她离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 呜呜…o(╥﹏╥)o…呜呜…呜呜…</p>'
+		'<p>我: 别哭了，我是来带给你好消息的。</p>'
+		'<p><<$QB.name>>: 呜呜…o(╥﹏╥)o…什么？…开饭了吗？</p>'
+		'<p>我: 你被台长签给了帝国娱乐，现在你的偶像生涯就要开启了。</p>'
+		'<p><<$QB.name>>: 偶像……我嘛？</p>'
+		'<p>我: 没错！不过在此之前，你还得完成一件事…</p>'
+		if $QB签约链=3:$QB签约链=4
+	'</div>'
+End
+
+
+if $args[0]="桥本节目":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\节目<<QB节目>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if QB节目=1:
+		'<p>编导: 作为实习生你只需要做好辅助工作！作为一名主持人，你需要具有良好的语言表达能力和沟通技巧，并且能够与观众建立良好的关系。你还需要具备较高的文化素养和知识储备，以便在节目中与嘉宾进行深入交流。</p>'
+		'<p><<$QB.name>>: 呃…好的…我知道了…</p>'
+		'<p>编导: 你既没有工作经验也没有后台，在电视台是混不下去的！</p>'
+		'<p><<$QB.name>>: 是…</p>'
+		'<p>编导: 早点放弃，转幕后吧！</p>'
+		else:
+		'<p>编导: 作为一名偶像，你需要具有魅力和吸引力，能够与观众产生共鸣。同时，你还需要具备良好的演技和唱歌能力，并且能够适应各种不同的舞台场合！</p>'
+		'<p><<$QB.name>>: 呃…好的…我知道了…</p>'
+		'<p>编导: 虽然评价别人的外貌是不礼貌的，但我认为你不够好看！</p>'
+		'<p><<$QB.name>>: 是…</p>'
+		'<p>编导: 偶像艺人是基于外貌的职业，我劝你早点放弃，转幕后吧！</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0]="足球宝贝":
+	'<div class ="show_menu"><img src="images\NPC\QB\pics\世界杯0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 世界杯>=3:'<div class="button"><a href="exec:gt ''电视台'',''足球宝贝2''">夺冠</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>编导: 你只要待在一边做个花瓶暖暖场就行了！ 不要做多余的事！</p>'
+		'<p><<$QB.name>>: 呃…好的…我知道了…</p>'
+		if 世界杯=0:
+		'<p>主持人: 观众朋友们大家好！四年一届的世界杯如期上演…</p>'
+		'<p><<$QB.name>>: 呃…大家好！</p>'
+		'<p>主持人: 大家在赛前看好哪支球队？</p>'
+		'<p><<$QB.name>>: 呃…我看好湖人队！</p>'
+		'<p>主持人: 呃……哈哈哈，你真是爱开玩笑！</p>'
+		end
+		if 世界杯=1:
+		'<p>主持人: 四分之一决赛！双方队员已经入场！</p>'
+		'<p><<$QB.name>>: 呃…大家好！</p>'
+		'<p>主持人: 这场比赛可谓是火星撞地球！</p>'
+		'<p><<$QB.name>>: 什么？！火星撞地球！啊啊啊！那快去避难吧！</p>'
+		'<p>主持人: 呃…呃…哈哈哈，你真是爱开玩笑！</p>'
+		end
+		if 世界杯=2:
+		'<p>主持人: 万众期待的半决赛！球迷的欢呼声已经沸腾了！</p>'
+		'<p><<$QB.name>>: 呃…大家好！</p>'
+		'<p>主持人: 什么？！对方的主力球员居然没有首发！你们怎么看？</p>'
+		'<p><<$QB.name>>: 用眼睛看…</p>'
+		'<p>主持人: 呃…呃…呃…哈哈哈，你真是爱开玩笑！</p>'
+		end
+		if 世界杯=3:
+		'<p>主持人: 世界杯的最后一场！既然能够闯进决赛拿到冠军，就必须过掉所有强队，战胜所有对手，本届冠军含金量是非常值得肯定的！</p>'
+		'<p><<$QB.name>>: 呃…大家好！</p>'
+		'<p>主持人: 最后一场比赛了，说句实话，你支持哪一队？</p>'
+		'<p><<$QB.name>>: 支持赢球的那队！</p>'
+		'<p>主持人: 呃…呃…呃…哈哈哈，你真是爱开玩笑！</p>'
+		end
+	'</div>'
+	世界杯+=1
+End
+
+
+if $args[0]="足球宝贝2":
+	'<div class ="show_menu"><img src="images\NPC\QB\pics\世界杯1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>主持人: 电视机前的观众朋友们！我们为什么深爱着足球这项运动？因为它不仅展现了球员们励志的奋斗故事，还寄托了我们普通人平凡生活中的英雄梦想。无论今晚你支持的球队是胜是负，都希望今天晚上的感悟能够帮助你勇敢面对明天早上推开门之后真实的生活，这才是这项运动真正的魅力。</p>'
+		'<p><<$QB.name>>: 哇，老师说的真好。</p>'
+		'<p>主持人: 恭喜梅西！现在我们要重新讨论他在足坛的历史地位了！</p>'
+		'<p><<$QB.name>>: 呃？谁是梅西？</p>'
+		'<p>主持人: …你不会解说就不要插嘴！闭上你的嘴！我忍你很久了！</p>'
+		'<p>编导: 中断画面…中断画面！</p>'
+		世界杯=99
+	'</div>'
+
+End
+
+
+if $args[0]="签下桥本":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\开幕0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $QB签约链=2:'<div class="button"><a href="exec:gt ''电视台'',''签下桥本2''">拿出合同</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>:  <<$QB.name>>？世界杯的节目被她一个人搞砸了。</p>'
+		'<p>我: 是的，她完全不能胜任主持人的工作，不知贵司是否打算给她转正。</p>'
+		'<p><<$TZ.name>>耸了耸肩，不可置否地摇了摇头。</p>'
+		'<p><<$TZ.name>>:  如果你知道有那家经纪公司正在招人，我很乐意以租借的方式进行外派。</p>'
+	'</div>'
+End
+
+if $args[0]="签下桥本2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\开幕0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>:  看来你是有备而来。</p>'
+		'<p>我: 是的，我代表帝国娱乐……</p>'
+		'<p><<$TZ.name>>向你摆了摆手。</p>'
+		'<p><<$TZ.name>>:  不必赘述了，我已经同意放人了，你去把这份人事变动说明给她吧。</p>'
+		if $QB签约链=2:$QB签约链=3
+	'</div>'
+End
+
+if $args[0]="推荐前台":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\开幕0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>:  <<$QB.name>>在你们那干的怎么样？惹了不少麻烦吧。</p>'
+		'<p>我: 我帮您解决了这么个烫手的山芋，您是不是应该… </p>'
+		'<p><<$TZ.name>>:  怎么？还想我奖励你？说吧，我听听看。</p>'
+		'<p>我: 台里的不是正在筹划一档播音节目吗？<<$QT.name>>就挺适合的。 </p>'
+		'<p><<$TZ.name>>:  你的消息挺灵通的嘛，那你让她来试试好了。</p>'
+		$QT.job=1
+	'</div>'
+End
+
+if $args[0]="新前台立绘":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\化妆室.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''电视台'',''电台节目''">电台节目</a></div>'
+		'<div class="buttonS1"><a href="exec:gt ''前台_事件'',''QT_Fuck_化妆室''">在这做❤</a></div>'
+		if $QT新约会=0:'<div class="buttonS2"><a href="exec:$QT新约会=1 & gt ''电视台'',''新前台立绘''">约会</a></div>'
+		if $竞演开始=999:'<div class="buttonG"><a href="exec:gt ''前台_事件'',''QT_Fuck_优秀主持''">♟最佳主持人♟</a></div>'
+		'<div class="button"><a href="exec:gt ''电视台''">没事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 太好了，我是在做梦吗？我真的成为播音主持人了！<<$主角姓名>>，这多亏了你！</p>'
+		'<p>我: 是金子总会发光的。</p>'
+		if $QT新约会=1:
+		'<p>——————————</p>'
+		'<p>我: 赏脸一起吃个饭吗？大明星！</p>'
+		'<p><<$QT.name>>: 真是的！干嘛嘲讽我！等我录完节目…大概是下午三点。</p>'
+		'<p>我: 好嘞，那下午三点，赤色餐厅见！</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="电台节目":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\电台节目~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''电视台''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 听众朋友们大家好！欢迎来到，《你的太阳我的心》，好女人就是我，我就是……</p>'
+		'<p>编导: 很好，收听率稳固上升中，下面准备接入听众来电！</p>'
+		'<p><<$QT.name>>: 热心市民张先生来电！让我们一起来听听他的烦恼吧！</p>'
+		'<p>……</p>'
+	'</div>'
+End
+
+if $args[0]="圆满落幕":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\A4.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·<<$GJ.name>>惨遭封杀除名，<<$QB.name>>一路逆袭夺冠。</p>'
+		'<p>·随后<<$PW.name>>债台高筑决定抛售<<$SSYY.name>>…</p>'
+		'<p>·至于最终的得票明细…始终没有被公开发布…</p>'
+	'</div>'
+
+End
+
+
+if $args[0]="油压馆广告":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\开幕0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">恭候大驾</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>:  油压馆？电视台担保的广告，需要对主体经营单位进行实地考察。</p>'
+		'<p>我: 实地考察？</p>'
+		'<p><<$TZ.name>>：晚点我会亲自来一趟。</p>'
+		$WQ事件链=2
+	'</div>'
+End
+
+
+--- 电视台 ---------------------------------
+

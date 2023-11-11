@@ -1,0 +1,296 @@
+# 家_客房
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "家_地图"
+'</div>'
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\客房.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $JM_Event_grandpa=2:
+		'<div class="button"><a href="exec:minutes +=5 & 灯泡-=1 & $JM_Event_grandpa=3 & gt ''家'' ">换上灯泡</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家'' ">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		 "-房间里的灯泡坏了，我应该去商店里买个新的换上。</p>"
+		 if $JM_Event_grandpa>=3:
+		 "	——</p>"
+		 "-灯泡换好了，屋内顿时焕然一新。</p>"
+			end
+	'</div>'
+end
+
+if $ARGS[0]="外公1":
+	'<div class ="show_menu"><img src="images\place\紧闭的门.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 12<=hour and hour<=16 and week_day <6:
+		 '<div class="button"><a href="exec:minutes +=5 & gt ''继母_事件'',''外公强暴'',''强奸1''">偷窥争吵</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家'' ">离开</a></div>'
+	'</div>'
+	
+		if 12<=hour and hour<=16 and week_day <6:
+		'<div class="dialog_menu">'
+			 "<p>-$#%#@@爸，你听我解释%@%@</p>"
+			 "<p>-$#%#@@你真是太%@%@</p>"
+		'</div>'
+		else:
+		'<div class="dialog_menu">'
+			 "<p>-外公：你这个事啊，我们讲，不是说不办，那么但是呢，没有说啊，没有任何一件事我们说，说一定怎么怎么样，说不‌‌‌‌‌‌‌‌‌行吗，也不是，我们讲事在人为啊 ，我们可以想办法啊，
+				可以想办法，这样，你这个晚一点，咱们到时候呢，对吧，我们这个，对吧，包括哎我这个到时候你看一看对吧，完了呢我给你把这个事对吧，就先这样。</p>"
+			 "<p>-$#%#@%@%@@</p>"
+			 "<p>-外公：行了！我也不多和你废话了！等我处理完这边的事，我们再谈吧。</p>"
+			 "<p>-嘟嘟嘟..</p>"
+		'</div>'
+			end
+end
+
+if $ARGS[0]="苦肉计":
+	'<div class ="show_menu"><img src="images\place\紧闭的门.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计2'' ">推门看</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-<<$jm.name>>：爸！我想最后和你谈一次！</p>"
+		 "<p>-外公：这是父女关系断绝协议，这是财产清算协议，没有异议的话就签了吧。</p>"
+		 "<p>-<<$jm.name>>：爸！你别这样....我真的是被迫的....</p>"
+		 "啪——！*猛烈的拍桌声"
+	'</div>'
+end
+
+
+if $ARGS[0]="苦肉计2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\行动~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计3'' ">继续看</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-<<$jm.name>>：..........</p>"
+		 "<p>-外公：住嘴！这里已经没有你说话的份了！乖乖按我说的去做...否则...</p>"
+		 "<p>-<<$jm.name>>：⋯⋯⋯⋯⋯⋯ </p>"
+		 "叮铃铃———— *电话铃声"
+	'</div>'
+end
+
+
+if $ARGS[0]="苦肉计3":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\行动0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计4'' ">继续看</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-？？？：亲爱的， 你怎么去了这么久？要我开车去接你吗.....？</p>"
+		 "<p>-<<$jm.name>>： 我没事！还有我不是说了不准这样叫我吗？ </p>"
+		 "<p>-外公：亲爱的？ 你又在和哪个杂种鬼混呢？他知道你是和生父乱伦的贱种吗？</p>"
+		 "<p>-<<$jm.name>>： 我很快回来！我先挂了！</p>"
+		 "<p>-外公：不理我？今天让你尝尝我的厉害！你这个臭骚逼！跟你母亲一个样！告诉你个秘密，你的母亲不是海难死的！她就是个妓女！</p>"
+		 "<p>-外公：一个下流的、肮脏的妓女！我是心疼我的骨肉！不然我连你一块推进大西洋里！</p>"
+	'</div>'
+end
+
+if $ARGS[0]="苦肉计4":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\行动1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家_客房'',''苦肉计5'' ">时机成熟</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-外公：现在开始乖乖学着你妈的样子给我口交！你这个婊子养的！</p>"
+		 "<p>-<<$jm.name>>的眼睛里失去了焦点，一边流着泪，一边颤抖着跪下身来.... </p>"
+		 "<p>- 是时候了，该我上场了。</p>"
+	'</div>'
+end
+
+
+if $ARGS[0]="苦肉计5":
+	'<div class ="show_menu"><img src="images\place\继母办公室.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家_客房'',''苦肉计6'' ">跟他走</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-你与一个急匆匆的人影撞个满怀，你定睛一看，果然是那个临时工。</p>"
+		 "<p>-我：文件准备好了吗？再不给我的话，我很难向上面交差啊！</p>"
+		 "<p>-临时工：什么文件？啊！我知道了，我们董事长正在家里取.... </p>"
+		 "<p>-我：女老板就是不靠谱啊！ 你知道她家在哪吗？我直接去她家取。 </p>"
+		 "<p>-临时工：知道是知道，但我不许你这样诋毁她！不道歉的话.....我就杀了你！ </p>"
+		 "<p>-我：对不起，快带路吧。时间紧急！  *你看了看时间 </p>"
+		 
+	'</div>'
+end
+
+if $ARGS[0]="苦肉计6":
+	'<div class ="show_menu"><img src="images\place\家.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计7'' ">破门而入</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+
+		 "<p>-我：门怎么开着？！ 小心进贼了！</p>"
+ 		 "<p>-*方才临走前，你特意没有锁门…</p>"
+		 "<p>-？？？：呜呜..呜呜..呜呜呜..呜呜..呜呜呜</p>"
+		 "<p>-临时工：<<$jm.name>>？！亲爱的？！你在哪？！.... </p>"
+		 "<p>-我：从这间房里传来的！ ！</p>"
+
+	'</div>'
+end
+
+if $ARGS[0]="苦肉计7":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\行动1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计71'' ">闻声而望</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-眼前的一幕让他瞳孔地震....！！双手不由自主地挥了过去！</p>"
+		 "<p>-临时工： 你这个老杂碎！啊啊啊啊啊啊啊啊啊啊啊！</p>"
+	'</div>'
+end
+
+
+if $ARGS[0]="苦肉计71":
+	'<div class ="show_menu"><img src="images\place\blood.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计81'' ">抢救并报警</a></div>'
+		'<div class="button"><a href="exec:minutes +=5 & gt ''家_客房'',''苦肉计8'' ">报警</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-超出了你的预料，即使外公已经倒在地上，临时工仍然不断地爆踩外公的阴茎，鲜血流了一地。</p>"
+		 "<p>-临时工： 啊啊啊啊——啊啊啊啊——啊啊啊啊——啊啊啊啊啊！啊啊啊啊——啊啊啊啊——啊啊啊啊——啊啊啊啊啊！</p>"
+	'</div>'
+end
+
+if $ARGS[0]="苦肉计81":
+	'<div class ="show_menu"><img src="images\place\警察局.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家_客房'',''苦肉计9'' ">。。。</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "《警局内》"
+		 "<p>-女警员：很抱歉您的父亲出了这桩恶性事件，医院已经传来消息，你的父亲颅内出血....引发了老年痴呆症......嫌疑人对自己的犯罪事实供认不讳。</p>"
+		 "<p>-<<$jm.name>>： 那..那他..他说了什么？（紧张不安）</p>"
+		 "<p>-女警员：他说是因为您的父亲妨碍了您与他之间的婚姻，对此怀恨在心，发动的蓄意袭击...OS：别闹了，你的嘴角上还挂着精斑呢...真是一家子变态..</p>"
+		 "<p>-<<$jm.name>>： 啊，对对对。我可以去见见他吗？</p>"
+		 "<p>-女警员：离转送其他城市的看守所还有30分钟，你们好好聊聊吧。</p>"
+	'</div>'
+end
+
+if $ARGS[0]="苦肉计8":
+	'<div class ="show_menu"><img src="images\place\警察局.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家_客房'',''苦肉计9'' ">。。。</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "《警局内》"
+		 "<p>-女警员：很抱歉您的父亲出了这桩恶性事件，医院已经传来消息，你的父亲去世了..嫌疑人对自己的犯罪事实供认不讳。</p>"
+		 "<p>-<<$jm.name>>： 那..那他..他说了什么？（紧张不安）</p>"
+		 "<p>-女警员：他说是因为您的父亲妨碍了您与他之间的婚姻，对此怀恨在心，发动的蓄意袭击...OS：别闹了，你的嘴角上还挂着精斑呢...真是一家子变态..</p>"
+		 "<p>-<<$jm.name>>： 啊，对对对。我可以去见见他吗？</p>"
+		 "<p>-女警员：离转送其他城市的看守所还有30分钟，你们好好聊聊吧。</p>"
+	'</div>'
+end
+
+
+
+if $ARGS[0]="苦肉计9":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\离开~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=150 & gt ''家_客房'',''苦肉计10'' ">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "《警局内》"
+		 "<p>-<<$jm.name>>：谢谢你...什么都没有说...我被父亲侵犯的事......</p>"
+		 "<p>-临时工：亲爱的！我当然会维护你的圣洁了！你会等我出狱的对吗？我们出狱了就结婚好吗？你愿意等我吗？我会在牢里争取减刑的，只要50年！50年！！</p>"
+		 "<p>-<<$jm.name>>： 当然了，我愿意等你。是你将我从我父亲的魔爪中拯救出来的，你是我的英雄！OS：一厢情愿的英雄....最悲情了。</p>"
+	'</div>'
+end
+
+if $ARGS[0]="苦肉计10":
+	'<div class ="show_menu"><img src="images\place\客房.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家_客房'',''苦肉计11'' ">吻她</a></div>'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家'' ">笑着离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-<<$jm.name>>：你能相信吗.....在几小时前....父亲还好端端地站在这里....你做的太过了......</p>"
+		 "<p>-我：抱歉，我也没想到他下手这么重...........</p>"
+		 "<p>-<<$jm.name>>：（沉默无言）....................不过..........谢谢你..........</p>"
+		 "<p>-我：继母，你会有负罪感吗？（你第一次用了这个称谓）</p>"
+		 "<p>-<<$jm.name>>：...我不知道，父亲一直是我的支柱.....</p>"
+		 $JM.LOVE+=20
+		 $JM_Event_grandpa=7
+	'</div>'
+end
+
+
+if $ARGS[0]="苦肉计11":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JM\vids\吻~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes +=15 & gt ''家'' ">来日方长</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		 "<p>-你吻住了她......</p>"
+		 "<p>-我：那试着让我来做你的支柱吧....</p>"
+		 "<p>-<<$jm.name>>：.......怎么可以.....你是我的儿子....</p>"
+		 "<p>-她并没有推开你，仿佛如释重负一般........</p>"
+		 "<p>-我：我们....</p>"
+		 $JM.BAD+=25
+	'</div>'
+end
+
+ 
+--- 家_客房 ---------------------------------
+

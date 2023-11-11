@@ -1,0 +1,1548 @@
+# 整形_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="整形厕所前":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\厕前1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+		'<div class="button_menu">'
+			if a=0:'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''整形厕所前''">仔细看照片</a></div>'
+			if a=1:'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''整形厕所前''">对着照片撸射</a></div>'
+			if $ZX.bad>=300 and a!3:'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''整形厕所前''">换上新照片</a></div>'
+			'<div class="button"><a href="exec:gt ''公园''">转身离开</a></div>'
+		'</div>'
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:嗯？…这是什么照片？</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:啧啧…真是个荡妇❤</p>'
+		 '</div>'
+	end
+	
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>我:来了来了❤啊~~~❤舒服了❤</p>'
+			 '<p>———贤者时间———</p>'
+			 '<p>我:奇怪，照片上的这张整容脸…好熟悉…我好像有见过？</p>'
+			 '<p>———道德下降———</p>'
+			 my.道德-=5
+			 if $ZX事件链=0:$ZX事件链=1
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>我:啧啧…这张更棒❤</p>'
+		 '</div>'
+	end
+
+End
+
+
+if $args[0]="ZX_Fuck_计策":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\计策1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_计策''">打开门 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_计策''">来一发 </a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_计策''">口快点！ </a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_计策''">口爆 </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_计策''">对话 </a></div>'
+			end
+			if a=5:
+			if 大别墅初次>=1:'<div class="buttonR2"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_计策''">你喊什么？ </a></div>'else:'<div class="buttonGr"><a href="exec:">？？进入大别墅后触发 </a></div>'
+			if 大别墅初次<=0:'<div class="buttonR2"><a href="exec:gt ''公园''">逃走 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonR"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_计策''">回头看 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''公园''">明白了 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 奇怪，什么声音？</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: <<$娇喘声>></p>'
+			 if a>=2:'<p>我: 来都来了，果然是照片里的就是你！</p>'
+		 '</div>'
+	end
+	
+	if 6>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 为什么…为什么要欺负我…救命啊！为什么要强迫我！来人呐————！！</p>'
+			 if a=6:
+				if $ZX事件链=2:$ZX事件链=3
+				'<p>我: 喂喂？！你在说什么啊？</p>'
+				 '<p><<$ZX.name>>: 呜呜呜！呜呜呜！呜呜呜！呜呜呜！呜呜呜！呜呜呜！</p>'
+			end
+		 '</div>'
+	end
+
+	if a=7:
+		 if $凯撒事件链=0:$凯撒事件链=1
+		 '<div class="dialog_menu">'
+			 '<p>·咔嚓！咔嚓！</p>'
+			 '<p>一群人: 嘿，看镜头————！拍的挺清楚的嘛！</p>'
+			 '<p>我: 你们是谁？</p>'
+			 '<p><<$ZX.name>>: 谢谢你们救了我，是他强迫我的！</p>'
+			 '<p>拿相机的人: 听着，想要回底片的话，就来天堂伴游里找我！明白了吗？<<$主角姓>>经纪人。</p>'
+			 '<p>我: 你怎么知道我的名字？</p>'
+			 '<p>拿相机的人: <<$主角姓>>经纪人，我知道的可不止这些！</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="拿出底片":
+	'<div class ="show_menu"><img src="images\NPC\ZX\pics\底片.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="buttonP"><a href="exec:gt ''整形_事件'',''ZX_Fuck_CJ1''">一抹微笑(*￣︶￣)</a></div>'
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p>我:嗯？那…这是什么照片？上面的人是？</p>'
+			 '<p><<$ZX.name>>: 拍的不赖嘛～</p>'
+		 '</div>'
+End
+
+if $args[0]="街道偶遇":
+	'<div class ="show_menu"><img src="images\NPC\ZX\pics\偶遇 (<<rand(1,2)>>).jpg" height="492"></div>'
+		'<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:gt ''整形_事件'',''ZX_Fuck_店0''">去餐厅</a></div>'
+			if $ZX.bad>=my.魅力*10:'<div class="buttonS3"><a href="exec:gt ''整形_事件'',''ZX_Fuck_店''">去成人商店</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<my.魅力*10>></a></div>'
+			'<div class="buttonR"><a href="exec:$ZX约居民区=0 & gt ''居民区''">别来烦我</a></div>'
+			'<div class="button"><a href="exec:gt ''居民区''">无视她</a></div>'
+			
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 哈喽～<<$主角姓名>>❤打算去哪玩？</p>'
+		 '</div>'
+End
+
+if $args[0]="俱乐部":
+	'<div class ="show_menu"><img src="images\NPC\ZX\pics\俱乐部 (<<rand(1,2)>>).jpg" height="492"></div>'
+		'<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:gt ''整形_事件'',''俱乐部嗨''">看她的表演</a></div>'
+			'<div class="button"><a href="exec:gt ''夜色精巢''">不了</a></div>'
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 哈喽～<<$主角姓名>>❤要一起玩吗？我马上就要上台了！</p>'
+		 '</div>'
+End
+
+if $args[0]="俱乐部嗨":
+	 hour=5
+	 a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\嗨.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:gt ''整形_事件'',''ZX_Fuck_外出''">送她回家</a></div>'
+			'<div class="button"><a href="exec:gt ''夜色精巢''">离开</a></div>'
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 全场的朋友，举起你们的双手！</p>'
+		 '</div>'
+End
+
+if $args[0]="ZX家":
+		a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\她家.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			if $ZX.love>=my.魅力*12:'<div class="buttonS3"><a href="exec: gt ''整形_事件'',''ZX_Fuck_卧室''">进卧室</a></div>'else:'<div class="buttonGr"><a href="exec: ">好感不足<<my.魅力*12>></a></div>'
+			'<div class="buttonPu5"><a href="exec: gt ''整形_事件'',''ZX_Fuck_睡''">沙发上打盹</a></div>'
+
+			if $ZX.love>=200 and $EDM.love>=200:'<div class="buttonS"><a href="exec: gt ''整形_事件'',''ZX_Fuck_D2''">约见<<$EDM.name>></a></div>'else:'<div class="buttonGr"><a href="exec: ">和二代？？3P</a></div>'
+			if $ZX.love>=200 and $SW.love>=200:'<div class="buttonS"><a href="exec: gt ''整形_事件'',''ZX_Fuck_D1''">约见<<$SW.name>></a></div>'else:'<div class="buttonGr"><a href="exec: ">和生物？？3P</a></div>'
+			if $ZX麻烦=1:'<div class="buttonR"><a href="exec: gt ''整形_事件'',''ZX_Fuck_AF1''">处理维权纠纷</a></div>'else:'<div class="buttonGr"><a href="exec: ">处理维权纠纷</a></div>'
+
+
+			'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 随便坐坐吧，要喝水吗？</p>'
+			 '<p>？？？: 呜唔…救我…</p>'
+			 '<p>我: 呃，笼子里的这位是……你朋友吗？</p>'
+			 '<p><<$ZX.name>>: 他啊，是我的容器。</p>'
+			 '<p>我: 容器？</p>'
+			 '<p><<$ZX.name>>: 我想想该怎么表达，相当于人类的衣服之类的。</p>'
+			 '<p>我: ？？？算了，不是很懂。</p>'
+			 '<p><<$ZX.name>>: 我要补个觉，你要是困的话只许睡沙发喔！</p>'
+		 '</div>'
+End
+
+if $args[0]="ZX_Fuck_睡":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\睡1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<10:
+		'<div class="button_menu">'
+			if a<=7:
+			'<div class="buttonP"><a href="exec:a+=1 & gt ''整形_事件'',''ZX_Fuck_睡''">迷迷糊糊</a></div>'
+			end
+			if a=8:
+			'<div class="buttonPu5"><a href="exec:my.精力+=100 & a=9 & gt ''整形_事件'',''ZX_Fuck_睡''">沉睡 </a></div>'
+			end
+			if a=9:
+			'<div class="buttonGn"><a href="exec:a=10 & gt ''整形_事件'',''ZX_Fuck_睡''">醒来 </a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec: gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if 9>=a and a>=0:
+		 '<div class="dialog_menu">'
+	 		 '<p>我: 我是在做梦吗*睡眼惺忪</p>'
+	 		 if a>=1:
+		 	  '<p><<$ZX.name>>?: 唔唔？！</p>'
+		 	  '<p>？？？: 你明明欠的钱也不多，而且完全有还款能力，说！是不是故意跟我们【赏金猎人】作对？</p>'	
+		 	  '<p><<$ZX.name>>?: 我不是她<<$娇喘声>></p>'
+		 	  '<p>？？？: 你在胡说八道什么呢？你每次都这么说有意思吗？</p>'	
+		 	  '<p>？？？: 你再不还钱，我们回去可是会挨训的！</p>'	
+		 	 end
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+		 	  '<p><<$ZX.name>>: 你醒了？</p>'
+		 	  '<p>我: 刚刚发生什么了*睡眼惺忪</p>'
+		 	  '<p><<$ZX.name>>: 我也不知道，我刚刚出了一趟门。</p>'
+		 	  '<p>我: 难道我是在做梦吗？奇怪，这个笼子里的人刚刚是这个姿势吗？</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_幻":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\幻1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<22:
+		'<div class="button_menu">'
+			if a=-1:
+			'<div class="buttonP"><a href="exec:a=0 & ZX挣扎=100 &  gt ''整形_事件'',''ZX_Fuck_幻''">醒来 </a></div>'
+			end
+			if a=0:
+			'<div class="buttonP"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_幻''">照镜子 </a></div>'
+			end
+			if a=1:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_幻''">检查身体 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonP"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_幻''">逐渐自慰 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonP"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_幻''">猛烈的敲门声 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonR"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_幻''">？？！？！ </a></div>'
+			end
+			if 20>=a and a>=5:
+				'<div class="buttonS"><a href="exec:a+=1 & gt ''整形_事件'',''ZX_Fuck_幻''">任由摆布 </a></div>'
+				 if ZX挣扎>0:'<div class="buttonR"><a href="exec:a+=1 & ZX挣扎-=my.体力 & gt ''整形_事件'',''ZX_Fuck_幻''">挣扎 </a></div>'
+				 if ZX挣扎<=0:'<div class="buttonR3"><a href="exec:a=23 & gt ''整形_事件'',''ZX_Fuck_幻''">夺门而出 </a></div>'
+			end
+			if a=21:
+			'<div class="buttonR"><a href="exec:a=22 & gt ''整形_事件'',''ZX_Fuck_幻''">经过了一整天 </a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:my.精力=-999 & gt ''整形_事件'',''ZX_Fuck_幻''">昏迷</a></div>'
+			'</div>'
+	end
+
+
+	if 4>=a and a>=-1:
+		 '<div class="dialog_menu">'
+			 if a=-1:'<p><<$ZX.name>>: 来❤触碰我❤把身心都交给我❤</p>'
+	 		 if a=-1:'<p>我: 这种感觉❤好奇妙❤zzZ</p>'
+	 		 if a>=0:'<p>我: *睡眼惺忪</p>'
+	 		 if a>=1:'<p>我: 怎么会这样？！我怎么变成<<$ZX.name>>了？！</p>'
+	 		 if a>=2:'<p>我: 这也太不真实了❤</p>'
+	 		 if a>=4:'<p>我: 谁啊？来了来了！</p>'
+		 '</div>'
+	end
+
+	if 21>=a and a>=5:
+		 '<div class="dialog_menu">'
+		 		'<p>我: 你们是谁啊？救命啊！</p>'
+		 		'<p>？？？: 老实点！我们是来要账的！</p>'
+		 		'<p>我: 你们认错人了，我不是<<$ZX.name>>！</p>'
+		 		'<p>？？？: <<$ZX.name>>，才几天不见就不记得我们了？！</p>'
+		 		'<p>我: *挣扎</p>'
+		 		'<p>？？？: 你明明欠的钱也不多，而且完全有还款能力，说！是不是故意跟我们【赏金猎人】作对？</p>'	
+		 		'<p>·————————————————</p>'
+		 		'<p>束缚程度: <<ZX挣扎>>/100</p>'
+		 '</div>'
+	end
+
+	if a=22:
+		 '<div class="dialog_menu">'
+		 		'<p>我: 可恶…被干得意识模糊了…</p>'
+		 		'<p>？？？: 哼，看来今天是要不回账了，又要挨训了！</p>'
+		 		'<p><<$主角姓名>>: 我回来啦❤你的身体可真有趣❤呀…原来今天是收债日，我都忘记了，真是辛苦你啦，我的新容器❤</p>'
+		 		'<p>我: ……</p>'
+		 		'<p><<$主角姓名>>: 知道平时我有多耐操了吧❤</p>'
+		 '</div>'
+	end
+
+	if a=23:
+		 '<div class="dialog_menu">'
+		 		'<p>我刚一出门，一股巨大的眩晕感扑面而来</p>'
+		 		'<p><<$主角姓名>>: 你想跑去哪？喔，原来今天是收债日啊❤</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="ZX_Fuck_CJ1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\CJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!13:
+		'<div class="button_menu">'
+			if q=0  or q=1:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_CJ1''">接吻 </a></div>'
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_CJ1''">舔我 </a></div>'
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_CJ1''">摩擦丝臀 </a></div>'
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_CJ1''">舔舐龟头 </a></div>'
+			end
+			if q=2  or q=3:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_CJ1''">正面骑乘 </a></div>'
+			'<div class="button"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_CJ1''">背身女上位 </a></div>'
+			'<div class="button"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_CJ1''">后入她 </a></div>'
+			'<div class="button"><a href="exec:a=8 & gt ''整形_事件'',''ZX_Fuck_CJ1''">抬腿操她 </a></div>'
+			'<div class="button"><a href="exec:a=9 & gt ''整形_事件'',''ZX_Fuck_CJ1''">自己动 </a></div>'
+			end
+			if q=4:
+			'<div class="button"><a href="exec:a=10 & gt ''整形_事件'',''ZX_Fuck_CJ1''">加速冲刺 </a></div>'
+			end
+			if q=5:
+			'<div class="button"><a href="exec:a=11 & gt ''整形_事件'',''ZX_Fuck_CJ1''">射精 </a></div>'
+			end
+			if q=6:
+			'<div class="button"><a href="exec:a=12 & gt ''整形_事件'',''ZX_Fuck_CJ1''">舔干净 </a></div>'
+			end
+			if q=7:
+			'<div class="button"><a href="exec:a=13 & gt ''整形_事件'',''ZX_Fuck_CJ1''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''医院''">离开 </a></div>'
+			'</div>'
+	end
+
+
+
+	if 12>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 好吧，既然这样我也不装了。你也很想做吧❤那能不能一笔勾销了？</p>'
+			 if a>=1:'<p>我: 看你的表现！</p>'
+			 if a>=2:'<p><<$ZX.name>>: 好<<$娇喘声>></p>'
+			 if a>=5:'<p>我: 你的骚逼吸力好惊人！</p>'
+			 if a>=6:'<p><<$ZX.name>>: 是吗<<$话>></p>'
+			 if a>=11:'<p>我: 射了！</p>'
+			 if a>=12:'<p><<$ZX.name>>: 我帮你清理干净❤</p>'
+		 '</div>'
+	end
+	
+
+
+	if a=13:
+		 $ZX.love+=q+my.魅力
+		 $ZX.bad+=a+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 那底片可以给我保管吗？</p>'
+			 '<p>我: 你觉得呢？</p>'
+			 '<p><<$ZX.name>>: 我觉得…你还会来找我❤</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="ZX_Fuck_计策2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\计策1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_计策2''">打开门 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_计策2''">你是谁？ </a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_计策2''">口快点！ </a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_计策2''">口爆 </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_计策2''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS1"><a href="exec:$ZX约公园=1 & gt ''公园''">中午在公园野战 </a></div>'
+				if ZX厕所num>0:'<div class="buttonS2"><a href="exec:$ZX约居民区=1 & gt ''公园''">周末下午逛街 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+				if ZX厕所num>2:'<div class="buttonS3"><a href="exec:$ZX约俱乐部=1 & gt ''公园''">深夜的俱乐部 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+				if $ZX.按摩!1:'<div class="buttonG2"><a href="exec:$ZX.按摩=1 & gt ''公园''">推荐按摩院 </a></div>'
+				if ZXcos!1:'<div class="buttonG3"><a href="exec:ZXcos=1 & gt ''公园''">推荐COS馆 </a></div>'
+				if 授精室=1 and $ZX.bad>=200 and $ZX.授精=0:'<div class="buttonG4"><a href="exec:$ZX.授精=1 & gt ''公司''">邀请人工授精</a></div>'
+				'<div class="button"><a href="exec:gt ''公园''">离开 </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 果然，熟悉的声音又出现了…</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+		 	 '<p>我: 你是谁？！</p>'
+			 '<p><<$ZX.name>>: 素不相识的陌生人啦<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=5:
+		 $ZX.love+=a
+		 $ZX.bad+=a+my.魅力
+		 ZX厕所num+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 要不要下次换个地方玩？</p>'
+			 '<p>我: 你想去哪里？</p>'
+			 '<p><<$ZX.name>>: 让我想想…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="ZX_Fuck_敲玻璃":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\QBL1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''">坐下口交 </a></div>'
+			end
+			if q=1:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''">询问：刚刚是在？ </a></div>'
+			if $ZX.love>=50:'<div class="buttonS2"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''">询问：档案室的秘密？ </a></div>'else:'<div class="buttonGr"><a href="exec:">询问：？？？ </a></div>'
+			if $ZX.love>=100:'<div class="buttonS3"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''">询问：你的真实身份？ </a></div>'else:'<div class="buttonGr"><a href="exec:">询问：？？？ </a></div>'
+			if 魔王之瞳>=1 and $ZX.love>=150:'<div class="buttonR"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''"> <font color="#FF00FF">魔王之瞳：现出原形</font></a></div>'
+			if $我被替换=1:'<div class="buttonS5"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''">询问：用我身体干吗了？ </a></div>'else:'<div class="buttonGr"><a href="exec:">询问：？？？ </a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_敲玻璃''">射精 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonGn"><a href="exec:gt ''整形科''">一起进入</a></div>'
+				'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: <<$主角姓名>>，等得不耐烦了是吗？</p>'
+			 '<p>我: 稍微有一点。</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 怎么了？我的口活不好吗？</p>'
+			 '<p>————————————————</p>'
+		 	 if a=2:
+	 	 		'<p>我: 刚刚是在？</p>'
+		 		'<p><<$ZX.name>>: 不是和现在在做同样的事吗？为不耐烦的病人消消火气。</p>'
+			 end
+		 	 if a=3:
+	 	 		'<p>我: 档案室里有什么？</p>'
+		 		'<p><<$ZX.name>>: 档案室？我不知道，但我知道密码是935888。</p>'
+	 	 		'<p>我: 你怎么知道的？</p>'
+		 		'<p><<$ZX.name>>: 这是秘密。</p>'
+			 end
+		 	 if a=4:
+	 	 		'<p>我: 你的身份到底是什么？</p>'
+		 		'<p><<$ZX.name>>: 我的身份？为什么要这么问？你觉得我不像个普通人吗？</p>'
+	 	 		if $MMS.love>=5:'<p>我: 你知道魅魔使吗？</p>'
+		 		if $MMS.love>=5:'<p><<$ZX.name>>: 魅魔使？没听说过呢。</p>'
+	 	 		if 魔王之瞳>=1:'<p>我: 那你盯着我的眼睛，想起什么了吗？</p>'
+		 		if 魔王之瞳>=1:'<p><<$ZX.name>>: 哈哈，怪不得你身上有一种我情不自禁想要靠近的感觉，本来还以为是你的人格魅力，没想到居然是魔王之瞳。嗨，魔王大人，你有通过它在监视我吗？告诉你个坏消息，我可不打算回去了呢！嘻嘻！</p>'
+			 end
+		 	 if a=5:
+	 	 		'<p>我: 那天你用我的身体做了什么？</p>'
+		 		'<p><<$ZX.name>>: 你居然记得那件事？！这是秘密喔❤</p>'
+	 	 		'<p>我: 请你告诉我！</p>'
+		 		'<p><<$ZX.name>>: 这件事情还是作为惊喜比较好喔❤</p>'
+			 end
+
+		 '</div>'
+	end
+
+
+	if a=6:
+		 $ZX.love+=q
+		 $ZX.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 好了，别在候诊室待着了，我们一起进去吧？</p>'
+		 '</div>'
+	end
+	
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p>——魔王之瞳—の—特殊彩蛋——</p>'
+			 '<p>我: 看着我的眼睛，现出原形吧。</p>'
+			 '<p><<$ZX.name>>: 是，魔王大人…</p>'
+			 '<p>我: 说出你的能力。</p>'
+			 '<p><<$ZX.name>>: 下奴的能力是『替罪人』可以在一定时间内与解除到的人强行互换灵魂，并占用躯体。</p>'
+			 '<p>我: 其他魅魔使的能力都不同吗？</p>'
+			 '<p><<$ZX.name>>: 每个魅魔使的专精方向都不同，下奴专精的是精神力。</p>'
+		 '</div>'
+	end
+	
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_公园野战":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\户外1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_公园野战''">在这？ </a></div>'
+			end
+			if q=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_公园野战''">口我 </a></div>'
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_公园野战''">抠她 </a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_公园野战''">快速插入 </a></div>'
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_公园野战''">加速运动 </a></div>'
+			end
+			if q=3:
+			'<div class="button"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_公园野战''">射精 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $ZX.love>=100:'<div class="button"><a href="exec:a=0 & q=0 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">去仓库里 </a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足100 </a></div>'
+				'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: <<$主角姓名>>，怎么了？看我看的入迷了吗？</p>'
+			 '<p>我: 稍微有一点。</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 在这里很刺激吧？</p>'
+		 	 if a>=2:
+	 	 		'<p>我: 你很享受这种感觉？</p>'
+		 		'<p><<$ZX.name>>: 当然了<<$娇喘声>>。</p>'
+			 end
+
+		 '</div>'
+	end
+
+	if a=6:
+		 $ZX.love+=q
+		 $ZX.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 没我想象地猛呢。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_公园野战2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\户外2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!6:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">骑上来 </a></div>'
+			end
+			if q=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">加速 </a></div>'
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">后背位 </a></div>'
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">高速插入 </a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">射精 </a></div>'
+			end
+			if q=3:
+			'<div class="button"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_公园野战2''">事后清理 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 我知道你还有实力，跟我来。</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			'<p><<$ZX.name>>: 继续<<$话>>。</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $ZX.love+=a
+		 $ZX.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 下次再约吧？</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_店":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\店1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_店''">在这自慰 </a></div>'
+			end
+			if q=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_店''">挑逗乳头 </a></div>'
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_店''">摸小穴 </a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_店''">插入振动棒 </a></div>'
+			end
+			if q=3:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_店''">看着她高潮 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 怎么了？我看你有点紧张。</p>'
+			 '<p><<$ZX.name>>: <<$主角姓名>>…我湿了…</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+	 	 		'<p>我: 你很享受这种感觉？</p>'
+		 		'<p><<$ZX.name>>: 救命…好爽<<$娇喘声>>。</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 $ZX.love+=q
+		 $ZX.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 高潮了啊啊啊啊啊啊。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_店0":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\店0-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_店0''">来吃点更腥的 </a></div>'
+			end
+			if 3>=q and q>=1:
+			'<div class="button"><a href="exec:a+=1 & gt ''整形_事件'',''ZX_Fuck_店0''">别停 </a></div>'
+			end
+			if q=4:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_店0''">口爆 </a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''商场''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 这是我最喜欢吃的海鲜豆腐羹，你要来一口吗？</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 $ZX.love+=1
+		 $ZX.bad+=1
+		 '<div class="dialog_menu">'
+		 		'<p><<$ZX.name>>: 唔唔<<$娇喘声>>。</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_外出":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\外出1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_外出''">去后巷转角 </a></div>'
+			end
+			if q=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_外出''">口她 </a></div>'
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_外出''">口我 </a></div>'
+			end
+			if q=2:
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_外出''">接吻&插入 </a></div>'
+			end
+			if q=3:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_外出''">骑乘上来 </a></div>'
+			end
+			if q=4:
+			'<div class="button"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_外出''">撸射 </a></div>'
+			end
+			if q=5:
+			'<div class="button"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_外出''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $ZX.love>=100:'<div class="button"><a href="exec:gt ''整形_事件'',''ZX家''">去她家坐坐 </a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足100 </a></div>'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 呼——玩的真开心呢，你住在歌舞伎町里？我还以为你会住在高级点的地方。</p>'
+			 '<p><<$ZX.name>>: 这里不好吗？这里到处都是色鬼，我喜欢盯着我意淫的样子。就像你现在一样。</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+	 	 		'<p>我: 唔唔唔</p>'
+		 		'<p><<$ZX.name>>: 嘘，小声点<<$娇喘声>>。</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 哈哈哈，射了这么多。</p>'
+		 '</div>'
+	end
+	if a=7:
+		 $ZX.love+=a
+		 $ZX.bad+=q
+		 '<div class="dialog_menu">'
+	 	 	 '<p>我: 差点喘不过来气…</p>'
+			 '<p><<$ZX.name>>: 喂？要不要上来去我家坐坐？</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+if $args[0]="ZX_Fuck_卧室":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\她家1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if q=0 or q=1:
+			'<div class="buttonP"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_卧室''">挑逗乳头 </a></div>'
+			'<div class="buttonP"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_卧室''">口她 </a></div>'
+			'<div class="buttonP"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_卧室''">舔丝足 </a></div>'
+			'<div class="buttonP"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_卧室''">口我 </a></div>'
+			end
+
+			if q=2 or q=3 or q=4:
+			'<div class="buttonS"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_卧室''">缓缓抽插 </a></div>'
+			'<div class="buttonS"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_卧室''">顶入深处 </a></div>'
+			'<div class="buttonS"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_卧室''">大力骑乘 </a></div>'
+			'<div class="buttonS"><a href="exec:a=8 & gt ''整形_事件'',''ZX_Fuck_卧室''">加速冲刺 </a></div>'
+			end
+
+			if q=5 or a=8:
+			'<div class="buttonR"><a href="exec:a=9 & gt ''整形_事件'',''ZX_Fuck_卧室''">内射中出 </a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonR"><a href="exec:q=0 & a=-1 & $我被替换=1 & gt ''整形_事件'',''ZX_Fuck_幻''">小睡一会</a></div>'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if 8>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 if a=0:'<p>我: 这是睡前运动吗？</p>'
+			 '<p><<$ZX.name>>: 你怎么进来了？！算了，别光看着，快来满足我❤</p>'
+	 		 '<p>我: 没问题。</p>'
+	 		 '<p><<$ZX.name>>: 好爽<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $ZX.love+=a+my.魅力
+		 $ZX.bad+=q+my.魅力
+		 '<div class="dialog_menu">'
+		 	 '<p><<$ZX.name>>: 射了那么多，这下可补充了不少呢❤</p>'
+	 		 '<p>我: 补充了什么？</p>'
+		 	 '<p><<$ZX.name>>: 注入容器的能量❤</p>'
+	 		 '<p>我: 我能在这里睡一会吗？</p>'
+		 	 '<p><<$ZX.name>>: 只要你不后悔❤</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_美牙":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\美牙1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<5:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_美牙''">常规美白 </a></div>'
+			end
+			if a=1 and $ZX.love>10:
+			'<div class="buttonS1"><a href="exec:a=2 & $ZX.love+=1 & gt ''整形_事件'',''ZX_Fuck_美牙''">调情 </a></div>'
+			end
+			if a=2 and $ZX.love>50:
+			'<div class="buttonS2"><a href="exec:a=3 & $ZX.love+=2 & gt ''整形_事件'',''ZX_Fuck_美牙''">撸管 </a></div>'
+			end
+			if a=3 and $ZX.love>100:
+			'<div class="buttonS3"><a href="exec:a=4 & $ZX.love+=2 & gt ''整形_事件'',''ZX_Fuck_美牙''">帮我撸 </a></div>'
+			end
+			if a>=3:
+			'<div class="buttonS"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_美牙''">射精 </a></div>'
+			end
+			'<div class="button"><a href="exec:gt ''医院''">结束 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $ZX.love>200:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''整形_事件'',''ZX_Fuck_美牙2''">跪下含住 </a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足200 </a></div>'
+				'<div class="button"><a href="exec:gt ''医院''">结束 </a></div>'
+			'</div>'
+	end
+
+
+
+
+	if 4>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: <<$主角姓>>先生，那么我们要开始冷光美白了。</p>'
+			 if a>=1:'<p>我: 除了冷光美白还有什么服务吗？</p>'
+			 if a>=2:'<p><<$ZX.name>>: 你是说这种吗？当然有了，不过可别被我的同事发现了喔。</p>'
+			 if a>=3:'<p>我: 那我们偷偷的弄。</p>'
+		 '</div>'
+	end
+	
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>我: 呼————</p>'
+			 '<p><<$ZX.name>>: 看起来没有过瘾呢…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_美牙2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\美牙2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<4:
+		'<div class="button_menu">'
+			if q=0 or q=1:
+			'<div class="buttonS1"><a href="exec:a=0 & gt ''整形_事件'',''ZX_Fuck_美牙2''">跪下口交 </a></div>'
+			'<div class="buttonS2"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_美牙2''">偷偷插入 </a></div>'
+			'<div class="buttonS3"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_美牙2''">玩弄乳头 </a></div>'
+			'<div class="buttonS4"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_美牙2''">加速抽插 </a></div>'
+			end
+			if q=2:
+			'<div class="buttonS5"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_美牙2''">射精 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''医院''">结束 </a></div>'
+			'</div>'
+	end
+
+
+
+
+	if 3>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 嘘——可别被我的同事发现了喔。</p>'
+			 '<p>我: 明白。</p>'
+		 '</div>'
+	end
+	
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>我: 射了——</p>'
+			 '<p><<$ZX.name>>: 我开始期待下一次的性爱了呢。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_奖励":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\奖励1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_奖励''">完成手术后 </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_奖励''">我的报酬呢？ </a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_奖励''">口我吧！ </a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_奖励''">口爆 </a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_奖励''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonG"><a href="exec:money+=10000 & gt ''医院''">拿走报酬10000￥ </a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我: 对…对…你签完字就可以直接手术了。</p>'
+		     '<p>焦虑的女人：快点！我要马上变美！</p>'
+			 '<p><<$ZX.name>>: 好了，既然医美贷款已经申请成功了，我们马上进行手术……</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 你也干起这种事了？</p>'
+			 if a>=2:'<p>我: 我的报酬你可以给我吗？</p>'
+			 if a>=2:'<p><<$ZX.name>>: 凯撒答应分给你多少？我给你口能不能分我一半？</p>'
+			 if a>=3:'<p>我: 喂喂？你的口交难道值5000￥吗？</p>'
+			 if a>=4:'<p><<$ZX.name>>: 难道不值吗？</p>'
+		 '</div>'
+	end
+
+
+	if a=5:
+		 $ZX.love+=a
+		 $ZX.bad+=a+my.魅力
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 骗你的啦，钱我可以先替凯撒给你，10000￥一分不少。</p>'
+			 '<p>我: 喔？这么好？</p>'
+			 '<p><<$ZX.name>>: 是啊…还省的你去跑一趟…只不过…拉来的这个人得算在我头上！</p>'
+			 '<p>我: *思考…好吧，反正我也没亏什么。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_奖励3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\SD3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_奖励3''">使用装置 </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_奖励3''">打开开关 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_奖励3''">换道具 </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_奖励3''">对话 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_奖励3''">帮我撸 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_奖励3''">撸快点 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonR"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_奖励3''">射精 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''医院''">离开 </a></div>'
+			'</div>'
+	end
+
+
+
+	if 6>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 好处呢，就是我帮你免费做一次私处保养！</p>'
+			 if a>=1:'<p>我: 我有点害怕呢？</p>'
+			 if a>=2:'<p><<$ZX.name>>: 放轻松，不会有疼痛感的。但是有那么舒服吗？居然勃起了。</p>'
+			 if a>=3:'<p>我: 喂喂？做这种保养会勃起是很正常的事吧？</p>'
+			 if a>=4:'<p><<$ZX.name>>: 那我再顺便帮你处理了？</p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $ZX.love+=a+3
+		 $ZX.bad+=a
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 哇！变得粉嫩了不少呢，像刚刚成年的处男一样。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_SD2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\SD2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_SD2''">舔我 </a></div>'
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_SD2''">侍奉他 </a></div>'
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_SD2''">一起玩她 </a></div>'
+			end
+			if q=1 or q=2 or q=3:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_SD2''">一起玩她 </a></div>'
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_SD2''">双手撸管 </a></div>'
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_SD2''">让我插几下 </a></div>'
+			'<div class="buttonS4"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_SD2''">给他肏几下 </a></div>'
+			end
+			if q=4:
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''整形_事件'',''ZX_Fuck_SD2''">外射 </a></div>'
+			if $ZX.love>=200:'<div class="buttonR"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_SD2''">内射 </a></div>'else:'<div class="buttonGr"><a href="exec:">内射·好感不足 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''医院''">达成一致 </a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 让我做个和事佬吧，<<$主角姓名>>先生呢，只是家里的微波炉坏了，在医院里晃悠的时候把【抗氧化设备】当成了微波炉搬回家了。</p>'
+			 '<p>精源项目主任：有这种事？</p>'
+			 '<p>我： 真的很抱歉！</p>'
+			 '<p>精源项目主任：那你们打算怎么补偿我的损失？</p>'
+			 '<p><<$ZX.name>>: 我知道主任你是个爱玩的人，不如今天我们三个一起？</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>精源项目主任：一起玩也不是不行，最近压力大一直犯高血压，正好放松一下。</p>'
+			 if a>=1:'<p>我: 主任工作之余也应该多多放松嘛。</p>'
+			 if a>=2:'<p><<$ZX.name>>: 嗯<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a>=7:
+		 $ZX.bad+=a
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 好了，那这件事……就这样过去咯？</p>'
+			 '<p>精源项目主任：我同意了吗？我只是暂时同意！我想缓解压力的时候嘛…希望你有空…</p>'
+			 '<p><<$ZX.name>>: 多大点事呀，只要主任想我了，随时都可以找我呢。</p>'
+			 '<p>精源项目主任：<<$主角姓名>>，你没意见吧？</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_KS1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\KS1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:a+=1 & gt ''整形_事件'',''ZX_Fuck_KS1''">继续偷看 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if $ZX.bad>=my.魅力*20:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''整形_事件'',''ZX_Fuck_KS2''">进入3P </a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<my.魅力*20>> </a></div>'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">离开 </a></div>'
+			'</div>'
+	end
+
+
+
+	if 6>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>:射我里面的话要多付给我一成喔❤</p>'
+			 if a>=1:'<p>凯撒: 喂喂，你也太贪了吧。</p>'
+			 if a>=2:'<p><<$ZX.name>>: 有嘛<<$娇喘声>></p>'
+			 if a>=5:'<p>凯撒: 射你里面？我可不会精虫上脑。</p>'
+			 if a>=6:'<p><<$ZX.name>>: 好吧，我也没亏什么❤</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+
+if $args[0]="ZX_Fuck_KS2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\KS2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<11:
+		'<div class="button_menu">'
+			if q=0 or q=1:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_KS2''">抠喷她 </a></div>'
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_KS2''">口凯撒 </a></div>'
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_KS2''">口我 </a></div>'
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_KS2''">两根一起舔 </a></div>'
+			end
+			if q=2 or q=3:
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_KS2''">我来操她 </a></div>'
+			'<div class="buttonS2"><a href="exec:a=8 & gt ''整形_事件'',''ZX_Fuck_KS2''">凯撒来干 </a></div>'
+			end
+			if q=4 or q=5:
+			'<div class="buttonG3"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_KS2''">提问 </a></div>'
+			'<div class="buttonS3"><a href="exec:a=9 & gt ''整形_事件'',''ZX_Fuck_KS2''">给他肏几下 </a></div>'
+			end
+			if q=6 :
+			'<div class="buttonS4"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_KS2''">我再插几下 </a></div>'
+			'<div class="buttonS4"><a href="exec:a=10 & gt ''整形_事件'',''ZX_Fuck_KS2''">给他肏几下 </a></div>'
+			end
+			if a=7:'<div class="buttonS5"><a href="exec:a=12 & gt ''整形_事件'',''ZX_Fuck_KS2''">口爆 </a></div>'
+			if a=10:'<div class="buttonS5"><a href="exec:a=11 & gt ''整形_事件'',''ZX_Fuck_KS2''">射精 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">离开 </a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>凯撒：操你也有点操腻了，不如我们玩点促进感情的新花样吧？</p>'
+			 '<p><<$ZX.name>>: 哦呀，你说到我心里去了呢。不如今天我们三个一起？</p>'
+		 '</div>'
+	end
+
+	if 12>=a and a>=1:
+		 $ZX.bad+=1
+		 $ZX.love+=1
+		 '<div class="dialog_menu">'
+			 '<p>凯撒：<<$主角姓名>>，你可装模作样，尽管操她，别跟我客气。</p>'
+			 if a>=2:'<p><<$ZX.name>>: 嗯<<$娇喘声>></p>'
+			 if a>=6:'<p>我：我一直很好奇，难道没有人会来找你们麻烦吗？那些受骗的人难道就这样算了？</p>'
+			 if a>=6:'<p><<$ZX.name>>: 我自然能解决麻烦<<$话>></p>'
+			 $ZX麻烦=1
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_AF1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\AF1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<18:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_AF1''">听她解释 </a></div>'
+			end
+			if 7>=a and a>=1:
+			'<div class="buttonS2"><a href="exec:a+=1 & gt ''整形_事件'',''ZX_Fuck_AF1''">排队插她 </a></div>'
+			end
+			if a=8:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_AF1''">排队插她 </a></div>'
+			end
+			if 8>=a and a>=2:
+			'<div class="buttonS3"><a href="exec:a+=7 & gt ''整形_事件'',''ZX_Fuck_AF1''">查看中出状态 </a></div>'
+			end
+			if 15>=a and a>=9:
+			'<div class="buttonS5"><a href="exec:a=rand(2,6) & gt ''整形_事件'',''ZX_Fuck_AF1''">排队插她 </a></div>'
+			end
+			if a>=5:
+			'<div class="buttonS4"><a href="exec:a=16 & gt ''整形_事件'',''ZX_Fuck_AF1''">插她的嘴 </a></div>'
+			end
+			if a=16:
+			'<div class="buttonS5"><a href="exec:a=17 & gt ''整形_事件'',''ZX_Fuck_AF1''">口爆 </a></div>'
+			end
+			if a=17:
+			'<div class="buttonS"><a href="exec:a=18 & gt ''整形_事件'',''ZX_Fuck_AF1''">舔干净 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonR"><a href="exec:a=rand(2,6) & gt ''整形_事件'',''ZX_Fuck_AF1''">看别人轮她 </a></div>'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">走人 </a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 ZX内量=0
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 哦呀，这次有这么多人？都是女朋友或者未婚妻之类的办理了医美贷款的？</p>'
+			 '<p>男人们：不找你找谁？你诱骗了她们办理贷款，你现在让我们怎么办？</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 啊呀，诸位冷静听我说，首先呢，她跟你又没有血缘关系，只要没有结婚，不算夫妻共同债务。其次呢，再贷款还清之前你们都可以免费肏我。</p>'
+			 '<p>男人们：什么…免费…操你？你把我们当成什么了！我们怎么可能背着女朋友做这种事？</p>'
+			 '<p><<$ZX.name>>: 现在有一项针对私处的医美，可以让小穴变得更紧致，你们要不要试试看效果？好的话让你们的女朋友也做一个？</p>'
+		 '</div>'
+	end
+
+	if 18>=a and a>=2:
+		 ZX内量+=rand(3,7)
+		 $ZX.bad+=1
+		 $ZX.love+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 现在有一项针对私处的医美，可以让小穴变得更紧致，你们要不要试试看效果？好的话让你们的女朋友也做一个？</p>'
+			 '<p>插入的男人：臭婊子别想再骗我们贷款了！没有亲身体验过我是不会相信的！</p>'
+			 '<p>后面的男人：对对对！得先让我们免费体验一下！</p>'
+			 '<p><<$ZX.name>>: 一个接一个别停下<<$话>></p>'
+			 '<p>·❤❤❤子宫内❤❤❤精液量❤❤❤<<ZX内量>>毫升❤❤❤</p>'
+			 if a>=16:'<p><<$ZX.name>>: <<$主角姓名>>，你应该不是来维权的吧？</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_假摔":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\医床1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<9:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_假摔''">伤到这了 </a></div>'
+			end
+			if q=1:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_假摔''">口水消毒 </a></div>'
+			end
+			if q=2 or q=3:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_假摔''">慢慢插入 </a></div>'
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_假摔''">加速 </a></div>'
+			'<div class="buttonS2"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_假摔''">坐上来 </a></div>'
+			'<div class="buttonS3"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_假摔''">后入她 </a></div>'
+			'<div class="buttonS4"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_假摔''">大力抽插 </a></div>'
+			end
+			if q=4:'<div class="buttonS5"><a href="exec:a=8 & gt ''整形_事件'',''ZX_Fuck_假摔''">射精 </a></div>'
+			if q=5:'<div class="buttonS5"><a href="exec:a=9 & gt ''整形_事件'',''ZX_Fuck_假摔''">对话 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''医院''">离开 </a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我：痛痛痛…</p>'
+			 '<p><<$ZX.name>>: 是这里吗？看上去也没事啊。</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=1:
+		 $ZX.bad+=1
+		 $ZX.love+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 难不成是这里？你想不想我给你检查一下？</p>'
+			 '<p>我：当然了！</p>'
+			 if a>=2:'<p><<$ZX.name>>: 那你可不要让其他的病患发现喔<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_D2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\D2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if q=0 or q=1:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_D2''"><<$ZX.NAME>> </a></div>'
+			'<div class="buttonB1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_D2''"><<$EDM.NAME>> </a></div>'
+			end
+			if q=2:
+			'<div class="buttonS"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_D2''">高潮忍耐 </a></div>'
+			end
+			if q=3:
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_D2''">肏<<$ZX.NAME>> </a></div>'
+			'<div class="buttonB1"><a href="exec:a=5 & gt ''整形_事件'',''ZX_Fuck_D2''">操<<$EDM.NAME>> </a></div>'
+			end
+			if q=4:
+			'<div class="buttonS1"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_D2''">肏<<$ZX.NAME>> </a></div>'
+			'<div class="buttonB1"><a href="exec:a=7 & gt ''整形_事件'',''ZX_Fuck_D2''">操<<$EDM.NAME>> </a></div>'
+			end
+			if q=5:'<div class="buttonS5"><a href="exec:a+=2 & gt ''整形_事件'',''ZX_Fuck_D2''">射精 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">随时奉陪 </a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 我想加入辣妹帮，您看我有资格吗？</p>'
+			 '<p><<$EDM.name>>: 在我看来，你不具备辣妹的条件呢。</p>'
+			 '<p><<$ZX.name>>: 那我们比一比？</p>'
+			 '<p><<$EDM.name>>: 你的意思是……一场挑战吗？</p>'
+			 '<p>我：呃…</p>'
+			 '<p><<$EDM.name>>: <<$主角姓名>>！你来做裁判！就比辣妹最擅长的……性爱！</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 辣妹帮的头目原来只有这样的水平吗？</p>'
+			 if a>=2:'<p><<$EDM.name>>: 你可别小瞧我了。</p>'
+			 if a>=3:'<p>我：能忍到最后吗？！</p>'
+			 if a>=4:'<p><<$ZX.name>>: 当然<<$话>></p>'
+			 if a>=5:'<p><<$EDM.name>>: 废话<<$话2>></p>'
+			 if a>=8:'<p><<$ZX.name>>: 怎么样？我能加入吗？</p>'
+			 if a>=8:'<p><<$EDM.name>>: 一场比赛可不够！</p>'	
+		 '</div>'
+	end
+
+
+  q+=1
+End
+
+if $args[0]="ZX_Fuck_D1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\D1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if q=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''整形_事件'',''ZX_Fuck_D1''">脱光躺下 </a></div>'
+			end
+			if q=1 or q=2:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''整形_事件'',''ZX_Fuck_D1''">二人舔舐 </a></div>'
+			'<div class="buttonB1"><a href="exec:a=3 & gt ''整形_事件'',''ZX_Fuck_D1''">一起摩擦 </a></div>'
+			end
+			if q=3:
+			'<div class="buttonS1"><a href="exec:a=4 & gt ''整形_事件'',''ZX_Fuck_D1''">肏<<$ZX.NAME>> </a></div>'
+			'<div class="buttonB1"><a href="exec:a=6 & gt ''整形_事件'',''ZX_Fuck_D1''">操<<$SW.NAME>> </a></div>'
+			end
+			if q=4:
+			'<div class="buttonS"><a href="exec:a+=1 & gt ''整形_事件'',''ZX_Fuck_D1''">加速抽插 </a></div>'
+			end
+			if q=5:'<div class="buttonS"><a href="exec:a=8 & gt ''整形_事件'',''ZX_Fuck_D1''">射精 </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">后门溜走 </a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 关于乳房填充手术我还需要向您请教一些学术上的建议，这位是我的人体标本。</p>'
+			 '<p><<$SW.name>>: <<$主角姓名>>，这就是你的人体标本？</p>'
+			 '<p>我：呃…</p>'
+			 '<p><<$SW.name>>: <<$主角姓名>>！希望你好好配合！</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$ZX.name>>: 这个标本出色嘛<<$娇喘声>></p>'
+			 '<p><<$SW.name>>: 当然<<$娇喘声2>></p>'
+			 if a=8:'<p><<$ZX.name>>: 爽够了就开始活体解剖吧？</p>'
+		 '</div>'
+	end
+
+
+  q+=1
+End
+--- 整形_事件 ---------------------------------
+

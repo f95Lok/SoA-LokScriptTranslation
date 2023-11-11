@@ -1,0 +1,89 @@
+# 医院
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+
+$杀手对话=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="回家" href="exec:minutes+=25 & gt ''家''"><img class="img_stretch" src="images\place\回家_小图.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="居民区" href="exec:minutes+=15 & gt ''居民区''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	if $凯撒打工=1 and hour=14 and 50<= rand(0,100) : gt '任务_事件','狩猎路人'
+	'<div class ="show_menu"><img src="images\place\医院_<<$times_of_day>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院'',''医院_行政楼''">3F行政楼</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''病房''">2F病房</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院'', ''医院_门诊''">1F门诊</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·这所私立医院门诊治疗手段齐全，从传统的药物到幸福梦治疗，应有尽有。除了让医院骄傲的医美整形之外，还有与外界完全隔离的创新项目“试药员招募”。</p>'
+		'<p>·有人认为试药是新药物临床实验的关键。另一些人则怀疑这些所谓的精神病学家是在做什么见不得人的勾当！</p>'
+	'</div>'
+End
+
+
+ if $args[0]="医院_行政楼":
+	'<div class ="show_menu"><img src="images\place\医院_<<$times_of_day>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''院长室''">院长室</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·这所私立医院门诊治疗手段齐全，从传统的药物到睡眠治疗，应有尽有。除了让医院骄傲的医美整形之外，还有与外界完全隔离的创新项目“试药员招募计划”。</p>'
+		'<p>·有人认为试药是新药物临床实验的关键。另一些人则怀疑这些所谓的精神病学家是在做什么见不得人的勾当！</p>'
+	'</div>'
+End
+
+if $args[0]="医院_门诊":
+	'<div class ="show_menu"><img src="images\place\医院场景\门诊走廊0.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:ZX等待num=rand(0,2) &  gt ''整形科'',''整形科前等待''">整形科</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''男科''">男科</a></div>'
+		if $前台_Event_喉咙=4:'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''前台_事件'',''咽喉科''">咽喉科</a></div>'
+		if $SS_Event_free>=1:'<div class="button"><a href="exec:minutes+=5 & gt ''捐精室''">捐精室</a></div>'else:'<div class="buttonGr"><a href="exec:">维修中</a></div>'
+		if $班长事件链B=2:'<div class="buttonPu4"><a href="exec:minutes+=5 & gt ''学生群_事件'',''班长B5''">麻醉科</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·没做检查+没病=不做检查就说没病，会不会看病？</p>'
+		'<p>·没做检查+有病=不做检查就说有病，会不会看病？</p>'
+		'<p>·做了检查+没病=你他妈的没病还让老子浪费钱做检查，会不会看病？</p>'
+		'<p>·做了检查+有病=你他妈的没机器就看不来病！</p>'
+		'<p>·确诊了=这医生水平不行，我再换一家！</p>'
+		'<p>·没确诊=这医生水平不行，我再换一家！</p>'
+		'<p>·治好了=哼，人生除了死亡，其他都是擦伤！</p>'
+		'<p>·没治好=**医生，谋财害命！</p>'
+	'</div>'
+End
+
+
+
+
+--- 医院 ---------------------------------
+

@@ -1,0 +1,68 @@
+# 开幕
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+
+		</div>
+	</div>'
+'</div>'
+
+
+
+
+
+
+
+if year <=2010:
+'<div class ="show_menu"><img src="images\intro\intro.jpg" width="854"></div>'
+
+'<div class="button_menu">
+	<div class="button"><a href="exec:year+=23 & month=12 & gt ''开幕'' ">输入姓名</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	"我是一名早产儿，我的母亲在生我的时候因为大出血去世了。</p>"
+	"我的父亲因此把我视为罪孽，从小就对我不闻不问。全身心地投入事业之中。</p>"
+	"</p>"
+
+'</div>'
+end
+
+if year >2020:
+$主角姓 = $TRIM($LCASE($input('我的姓是')))
+if $主角姓="":$主角姓="魏"
+$主角名 = $TRIM($LCASE($input('我的名是')))
+if $主角名="":$主角名="命名"
+$主角姓名="<<$主角姓>><<$主角名>>"
+'<div class ="show_menu"><img src="images\intro\intro1.jpg" width="850"></div>'
+
+'<div class="button_menu">
+	<div class="buttonB"><a href="exec:intro_pick=1 & gt ''开幕加点''">【小镇做题家】</a></div>
+	<div class="buttonR3"><a href="exec:intro_pick=2 & gt ''开幕加点''">【颜值杀手】</a></div>
+	<div class="buttonG"><a href="exec:intro_pick=3 & gt ''开幕加点''">【纨绔子弟】</a></div>'
+	if 魔王之瞳=1:'<div class="buttonS"><a href="exec:intro_pick=4 & gt ''开幕加点''">【异世界归来】</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	"-我的名字是<<$主角姓名>>。一眨眼二十多年过去了，现在我正值青春年华，是个精力充沛的小伙子。</p>"
+	"-接下来，不同的成长经历将决定我成为哪一种人。</p>"
+	"-分别是：【小镇做题家】【颜值杀手】【纨绔子弟】</p>"
+	"———————————————————————————————————————</p>"
+	"-智力：学习的能力</p>"
+	"-魅力：好感度的加成</p>"
+	"-财力：初始金钱的数量</p>"
+'</div>'
+
+end
+
+
+
+
+--- 开幕 ---------------------------------
+

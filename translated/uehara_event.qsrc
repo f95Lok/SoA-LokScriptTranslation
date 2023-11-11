@@ -1,0 +1,1236 @@
+# uehara_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+if $ARGS[0]="learn_to_cook":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SY\vids\COOK1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		
+        $content_sauce_a[0]="Salad dressing" & $content_sauce_a[1]="Hoisin sauce" & $content_sauce_a[2]="mustard" & $content_sauce_a[3]="butter" & $content_sauce_a[4]="Tomato sauce" & $content_sauce_a[5]="Curry paste"
+        $content_sauce_a[6]="cheese"&$content_sauce_a[7]="cream" & $content_sauce_a[8]="Hot pot dipping sauce" & $content_sauce_a[9]="Leek flower sauce" & $content_sauce_a[10]="honey"& $content_sauce_a[11]="Barbecue sauce"
+        $content_sauce_a[12]="Chili sauce" &$content_sauce_a[13]="Chili sauce"& $content_sauce_a[14]="Sand tea sauce"& $content_sauce_a[15]="Sweet noodle sauce"& $content_sauce_a[16]="Thousand Island Sauce"& $content_sauce_a[17]="Char Siu Sauce"
+		
+		if a=0:'<div class="button"><a href="exec:a=1 &  gt ''uehara_event'',''learn_to_cook''">Want to learn from you!</a></div>'
+		if a=1:
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''learn_to_cook''"><<$content_sauce_a[rand(0,3)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''learn_to_cook''"><<$content_sauce_a[rand(4,6)]>></a></div>'
+			if $SY.bad>=15:'<div class="button"><a href="exec:a=2 &  gt ''uehara_event'',''learn_to_cook''">semen</a></div>'else:'<div class="buttonGr"><a href="exec:">semen</a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''learn_to_cook''"><<$content_sauce_a[rand(7,9)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''learn_to_cook''"><<$content_sauce_a[rand(10,12)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''learn_to_cook''"><<$content_sauce_a[rand(13,15)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''learn_to_cook''"><<$content_sauce_a[rand(16,17)]>></a></div>'
+		end
+		
+		if a=2:'<div class="button"><a href="exec:a=3 &  gt ''uehara_event'',''learn_to_cook''">Let her taste</a></div>'
+		if a=3:
+			'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''uehara_family''">Can`t</a></div>'
+			if week_day=7:'<div class="buttonS"><a href="exec:a=0 & q=0 &  gt ''uehara_event'',''SY_Fuck_DKH''">Sunday drinking party</a></div>'else:'<div class="buttonGr"><a href="exec:">Sunday drinking party</a></div>'
+		end
+		
+		if a=4:'<div class="button"><a href="exec:a=4 &  gt ''uehara_event'',''uehara_family''">Go to the living room</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=0:'<p><<$SY.name>>: Why don`t you go to the seat and wait obediently?</p>'
+		if a=1:'<p><<$SY.name>>: The so-called cooking is to perfectly blend the flavors of ingredients!Do you know what is missing from this ham sausage?</p>'& $SY.love+=5
+		if a=2:'<p><<$SY.name>>: Your thoughts...very interesting ❤I like it very much❤</p>'
+		if a=3:'<p><<$SY.name>>：！！！It`s so delicious ❤ Do you want to taste it?</p>' & $exp_cooking+=rand(20,$SY.love*2)
+		if a=4:
+			'<p><<$SY.name>>: Good idea!Is it delicious?</p>'
+			'<p>·Take a bite→ Cooking skills have improved!</p>'
+			$exp_cooking+=rand(13,$SY.love)
+		end
+	'</div>'
+end
+
+
+
+
+if $args[0] ='uehara_family':
+	a=0 & q=0
+	'<div class ="show_menu"><img src="images\NPC\SY\pics\客厅.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	
+		if rand(0,2)=0:
+			'<div class="buttonPu2"><a href="exec:$sy.bathroom=1 & minutes+=5 & gt ''uehara_event'',''bathroom''">Go to the main bath→</a></div>'
+			else:
+			'<div class="buttonP"><a href="exec:$sy.bathroom=2 & minutes+=5 & gt ''uehara_event'',''bathroom''">Go to the second bath→</a></div>'
+		end
+		
+		'<div class="buttonPu2"><a href="exec: gt ''uehara_event'',''uehara_family_vertical_painting''"><<$SY.name>>room</a></div>'
+		'<div class="buttonP"><a href="exec: gt ''uehara_event'',''uehara_fuck_daughter`s_room''"><<$LJ.name>>room</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''subway''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The decoration is quite luxurious, it seems that the previous male owner is quite wealthy…</p>'
+	'</div>'
+end
+
+
+if $args[0] ='bathroom':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SY\vids\ZZZ<<$sy.bathroom>>-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+    if a!3:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+             if $sy.bathroom=1:  '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''bathroom''">Sober her up </a></div>'
+             if $sy.bathroom=2:  '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''bathroom''">Stick it in her mouth </a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''bathroom''">Oral ejaculation </a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''uehara_event'',''bathroom''">dialogue </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if $SY.FUCK>=2 :'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Go back to the living room together</a></div>'else:'<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''uehara_family''">Go back to the living room alone</a></div>'
+                '<div class="button"><a href="exec:gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+    
+
+	'<div class="dialog_menu">'
+		if a=0:
+			if $sy.bathroom=1:'<p><<$SY.name>>: Have another drink ❤ Come again❤</p>'
+			if $sy.bathroom=2:'<p><<$LJ.name>>: Why are you following up…</p>'
+		end
+		if a=1 or a=2:
+			if $sy.bathroom=1:'<p><<$SY.name>>：<<$panting>></p>'
+			if $sy.bathroom=2:'<p><<$LJ.name>>：<<$panting_2>></p>'
+		end
+		if a=3:
+			if $sy.bathroom=1:'<p><<$SY.name>>: Can you have more ❤Can`t sober up at all❤</p>'& SY.bad+=5
+			if $sy.bathroom=2:'<p><<$LJ.name>>: Okay... you go out quickly…</p>'& LJ.bad+=5
+		end
+	'</div>'
+end
+
+
+
+if $args[0]="uehara_fuck_daughter`s_room":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\ANJIA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">Masturbating? </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">Punitive questions </a></div>'
+            end
+            if a!3 and 2<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">Punitive massage </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">No more pretending </a></div>'
+            end
+            if a!5 and 4<=q and q<=12:
+            '<div class="buttonR3"><a href="exec:a=5 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">Request ejaculation </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">Ejaculation </a></div>'
+            end
+            if a=6:
+            '<div class="buttonR3"><a href="exec:a=7 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">Clean up semen </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''uehara_event'',''uehara_fuck_daughter`s_room''">dialogue </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if $SY.SECOND>=1: '<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''uehara_fuck_night_sleep''">overnight</a></div>'else:'<div class="buttonGr"><a href="exec:">overnight</a></div>'
+                '<div class="button"><a href="exec:gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$LJ.name>>: <<$protagonists_name>><<$panting_2>></p>'
+             if a=1:'<p><<$SY.name>>:？！What were you doing just now?！</p>'
+             if a>=2:'<p><<$SY.name>>:Have you forgotten the family rules set by your father?You can`t have premarital sex!</p>'
+             if a>=3:'<p><<$SY.name>>:That`s why you masturbated in the room, right?</p>'
+             if a>=4:'<p><<$LJ.name>>:I want<<$protagonists_name>>The meat stick…</p>'
+             if a>=5:'<p><<$SY.name>>:This is not okay, but... if you don`t insert it, it shouldn`t be considered sex, right?</p>'
+             if a>=6:'<p>Me: Ah ah ah ah!Shot at the hairless white tiger`s den!</p>'
+             if a>=7:'<p><<$SY.name>>:There is semen everywhere you shoot. If you don`t clean it up well... you will get pregnant unexpectedly❤</p>'
+
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: <<$protagonists_name>>…...did I do the right thing?</p>'
+             '<p>Me: Uh…</p>'
+             '<p><<$SY.name>>:I`m pregnant, but I can`t make up anything about breaking the hymen by cycling❤</p>'
+             $SY.BAD+=15
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="uehara_fuck_rear_bathroom":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIAK1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Get closer </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">The other one </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Tease each other </a></div>'
+            end
+            if a!4 and 3<=q and q<=16:
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Mother and daughter blowjob </a></div>'
+            end
+            if a=4:
+            '<div class="buttonR3"><a href="exec:a=5 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Mouth explosion<<$SY.name>> </a></div>'
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Mouth explosion<<$LJ.name>> </a></div>'
+            end
+            if a=5 or a=7:
+            '<div class="buttonR3"><a href="exec:a+=1 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">Exchange semen </a></div>'
+            end
+            if a=6 or a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''uehara_event'',''uehara_fuck_rear_bathroom''">dialogue </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if  $SY.SECOND>=1: '<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''uehara_fuck_night_sleep''">overnight</a></div>'else:'<div class="buttonGr"><a href="exec:">overnight</a></div>'
+                '<div class="button"><a href="exec:gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>·What to do…</p>'
+             if a=1:'<p><<$SY.name>>:？！What were you peeking at my daughter just now?！</p>'
+             if a>=2:'<p><<$SY.name>>:Is my daughter as old as mine?</p>'
+             if a>=3:'<p><<$LJ.name>>:Mom!Am I your own or not?</p>'
+             if a>=4:'<p><<$SY.name>>:It seems that you didn`t inherit your mother`s oral work either<<$panting>></p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Girl, is mom right?Everyone`s semen tastes different, right?</p>'
+             '<p>Me: Uh... everyone?</p>'
+             '<p><<$LJ.name>>: <<$protagonists_name>>...a bit fishy❤</p>'
+             $SY.BAD+=15
+             $LJ.BAD+=15
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="uehara_fuck_night_sleep":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIAS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''uehara_fuck_night_sleep''">Fake </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''uehara_fuck_night_sleep''">Mother and daughter serve </a></div>'
+            end
+            if q>=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''uehara_event'',''uehara_fuck_night_sleep''">fuck<<$SY.name>> </a></div>'
+            '<div class="buttonP"><a href="exec:a=6 & gt ''uehara_event'',''uehara_fuck_night_sleep''">fuck<<$LJ.name>> </a></div>'
+            end
+            if a=3 or a=6:
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''uehara_event'',''uehara_fuck_night_sleep''">Ejaculation</a></div>'
+            end
+            if a=4 or a=7:
+            '<div class="buttonGn"><a href="exec:a+=1 & gt ''uehara_event'',''uehara_fuck_night_sleep''">Lick clean</a></div>'
+            end
+            if a=5 or a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''uehara_event'',''uehara_fuck_night_sleep''">dialogue </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=1440 & hour=7 & gt ''subway''">The next day</a></div>'
+            '</div>'
+    end
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$SY.name>>:Shhh--girl, come with me, today my mother wants to teach you a little sex knowledge…</p>'
+             if a=1:'<p><<$LJ.name>>:good!</p>'
+             if a>=2:'<p><<$SY.name>>:Learn from mom<<$panting>></p>'
+             if a>=4:'<p><<$LJ.name>>: <<$panting_2>></p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Girl, mom, why are you so proficient?</p>'
+             '<p><<$LJ.name>>:It was my mother who taught well!</p>'
+             '<p><<$SY.name>>:Worthy of being my daughter!</p>'
+             '<p><<$LJ.name>>:Can I not be fucked by those strange uncles?I just want to be with<<$protagonists_name>>Make love.</p>'
+             '<p><<$SY.name>>:Then you can`t be repeated again!</p>'  
+             $SY.BAD+=15+$my.charm
+             $LJ.BAD+=15
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="SY_Fuck_work2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\work2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+           if $xn.trial=1 and q=0:'<div class="buttonPu2"><a href="exec:q=0 & gt ''nun_event'',''xn_fuck_custom''">假装Pretend to leave</a></div>'
+        
+            if a!1 and q<=1:
+            '<div class="button"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_work2''">Tongue kiss</a></div>'
+            end
+            if a!2 and q<=2:
+            '<div class="button"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_work2''">Kneading milk</a></div>'
+            end
+            if a!3 and 3>=q and q>=2:
+            '<div class="buttonS"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_work2''">Special service</a></div>'
+            end
+            if a=3:
+            '<div class="buttonG"><a href="exec:a=4 & money-=200 & gt ''uehara_event'',''SY_Fuck_work2''">Add money!200￥</a></div>'
+            '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">leave</a></div>'
+            end
+            if a!5 and 7>=q and q>=4 and a>=3:
+            '<div class="button"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_work2''">Continue oral sex</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''uehara_event'',''SY_Fuck_work2''">Mouth explosion</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS"><a href="exec:a=7 & gt ''uehara_event'',''SY_Fuck_work2''">More services ❤</a></div>'
+            end
+            if a=7:
+            '<div class="buttonG"><a href="exec:a=8 & money-=500 & gt ''uehara_event'',''SY_Fuck_work2''">Add money!500￥</a></div>'
+            end
+            if a!9 and 12>=q and q>=7 and a>=8:
+            '<div class="button"><a href="exec:a=9 & gt ''uehara_event'',''SY_Fuck_work2''">Accelerate thrusting</a></div>'
+            end
+            if a!10 and 15>=q and q>=8 and a>=8:
+            '<div class="button"><a href="exec:a=10 & gt ''uehara_event'',''SY_Fuck_work2''">Fuck so cool</a></div>'
+            end
+            if a=10:
+            '<div class="button"><a href="exec:a=11 & gt ''uehara_event'',''SY_Fuck_work2''">Sprint vigorously</a></div>'
+            end
+            if a=11:
+            '<div class="buttonS"><a href="exec:a=12 &  gt ''uehara_event'',''SY_Fuck_work2''">Bukkake</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">Checkout and leave</a></div>'
+				if tuc_level3>=1 and $SY.bad>=100 and SYcos!1:'<div class="buttonS"><a href="exec:SYcos=1 & gt ''kabukicho''">Invite COS</a></div>'else:'<div class="buttonGr"><a href="exec:">Invite COS</a></div>'
+            '</div>'
+    end
+
+    if a=0 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Thank you for your name!Do you like my boobs?</p>'
+             '<p>Me: The bunny girl is dressed up pretty well…</p>'
+         '</div>'
+    end
+
+
+
+    if 3>=a and a>=1 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Very soft, right?<<$panting>></p>'
+             if a=3:'<p><<$SY.name>>:Do you want more?</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=4 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:<<$panting>><<$words>></p>'
+             if a=7:'<p><<$SY.name>>:Do you want more?</p>'
+         '</div>'
+    end
+
+    if 11>=a and a>=8 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:<<$panting>><<$words>></p>'
+         '</div>'
+    end
+
+
+    if a=12:
+         $SY.love+=5
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Welcome to come again next time!</p>'
+             '<p>·She likes you.</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $ARGS[0]="uehara_family_vertical_painting":
+	a=0 & q=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SY\vids\LH1-<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''uehara_event'',''SY_Fuck_JIAWU''">Entrust</a></div>'
+		if $essential_oil>0 and MGF>0:'<div class="buttonS2"><a href="exec:$essential_oil-=1 & MGF-=1 & gt ''uehara_event'',''SY_Fuck_AM1''">Get started with essential oil massage</a></div>'else:'<div class="buttonGr"><a href="exec: ">Lack of massage materials</a></div>'
+		if $SY.bad>=50:'<div class="buttonS3"><a href="exec:gt ''uehara_event'',''SY_Fuck_nxkh''">Son-in-law assessment</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
+		if $SY.FUCK>=4:'<div class="buttonS4"><a href="exec:gt ''uehara_event'',''SY_Fuck_nxkh2''">Firm assessment</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
+		if  $sy.unlimited=1 and $SY.SECOND=1:'<div class="buttonS5"><a href="exec:gt ''uehara_event'',''SY_Fuck_nxkh3''">Hundred-person assessment</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''subway''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p><<$SY.name>>: Next time you come in, you have to knock on the door❤</p>'
+	'</div>'
+end
+
+
+if $args[0]="SY_Fuck_AM1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\AM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_AM1''">Push oil</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_AM1''">On toys</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_AM1''">Spray her</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_AM1''">Vibrator</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_AM1''">Spray her</a></div>'
+            end
+            if a!6 and 5<= q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''uehara_event'',''SY_Fuck_AM1''">Genitals maintenance</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''uehara_event'',''SY_Fuck_AM1''">Also inside ❤</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''uehara_event'',''SY_Fuck_AM1''">Absolutely squirting</a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''uehara_event'',''SY_Fuck_AM1''">Invitation to dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:It`s so hot ❤ Is there something in this essential oil?</p>'
+             if a>=1:'<p>Me: Uh... do you want more?</p>'
+             if a>=1:'<p><<$SY.name>>:Bring me the toys on my sofa❤</p>'
+             if a>=2:'<p><<$SY.name>>:I want<<$panting>></p>'
+             if a>=3:'<p>Me: My technique is not bad, right?</p>'
+             if a>=4:'<p><<$SY.name>>:awesome<<$words>></p>'
+         '</div>'
+    end
+
+
+
+    if a=9:
+         $SY.love+=q*2
+         $SY.bad+=q*2+$my.charm
+         $sy.massage=1
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Your technique is really good!You are so good!</p>'
+             '<p>Me: If you still want a massage, you know where to find me.</p>'
+             '<p><<$SY.name>>:I will come if it`s free ❤</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_WQ":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\WQ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_WQ''">Insert directly </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_WQ''">Female upper </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_WQ''">Accelerate thrusting </a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_WQ''">Internal injection </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_WQ''">dialogue </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''hot_spring_corridor''">leave</a></div>'
+            '</div>'
+    end
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a>=0:'<p><<$SY.name>>: <<$panting_2>></p>'
+             if a>=1:'<p>Me: Move by yourself!</p>'
+             if a>=2:'<p><<$SY.name>>:Hmm<<$words>></p>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>Collapsed on the bed…</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="SY_Fuck_DKH":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\PS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+
+        '<div class="button_menu">'
+            if 0<=a and a<=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Eligible to continue </a></div>'
+
+
+            if a=6 and $my.cooking<5:'<div class="button"><a href="exec:gt ''subway''">Leave: Cooking level 5 is not enough </a></div>'
+
+
+            if 6<=a and a<=9 and $my.cooking>=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Eligible to continue </a></div>'
+
+
+            if a=10 and $my.cooking<8:'<div class="button"><a href="exec:gt ''subway''">Leave: Cooking level 8 is not enough </a></div>'
+            if a=10 and $my.cooking>=8:'<div class="buttonS1"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_DKH''">Cooking Level 8 </a></div>'
+            if a=11:
+                if $my.cooking>=10:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''SY_Fuck_DKH2''">Exclusive enjoyment </a></div>'else:'<div class="buttonGr"><a href="exec:gt ''subway''">Insufficient cooking level </a></div>'
+                '<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''subway''">leave </a></div>'
+            end
+
+        '</div>'
+
+
+
+    if 5>=a and a>=0:
+		 
+         '<div class="dialog_menu">'
+             if a>=0:'<p><<$SY.name>>:Aha❤ Drinking will start every Sunday!</p>'
+             if a>=1:'<p><<$SY.name>>:Let`s get high!</p>'
+             if a>=2:'<p><<$SY.name>>:Cheers❤</p>'
+             '</div>'
+    end
+
+    if 10>=a and a>=6:
+         '<div class="dialog_menu">'
+             if a>=6:'<p><<$SY.name>>:Drink it!</p>'
+             if a>=7:'<p><<$SY.name>>:This place will also be filled❤</p>'
+             if a>=8:'<p><<$SY.name>>:Cheers❤</p>'
+             '</div>'
+    end
+
+
+    if a=11:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:After that, only Michelin-level ones can enjoy me exclusively❤</p>'
+         '</div>'
+    end
+	$exp_cooking+=5
+  q+=1
+End
+
+if $args[0]="SY_Fuck_DKH2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\PS3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_DKH2''">uh…</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_DKH2''">Keep fucking her</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_DKH2''">Third place ejaculation</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_DKH2''">Second place ejaculation</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_DKH2''">Accelerate thrusting</a></div>'
+            end
+            if a!6 and 5<= q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''uehara_event'',''SY_Fuck_DKH2''">Ejaculation</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''uehara_event'',''SY_Fuck_DKH2''">afterwards</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Do you mind if I get bukkake when I fuck me?</p>'
+             if a>=1:'<p>Me: Uh…</p>'
+             if a>=2:'<p><<$SY.name>>:Come on!Shoot me in the face!</p>'
+             if a>=3:'<p><<$SY.name>>:awesome<<$words>></p>'
+
+         '</div>'
+    end
+
+
+
+    if a=7:
+         $SY.love+=q
+         $SY.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>Panting…</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_JIAWU":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<4:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_JIAWU''">uh…</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_JIAWU''">What else</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_JIAWU''">Mouth explosion</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_JIAWU''">。。。</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $sy.uniform>=1:'<div class="button"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''uehara_event'',''SY_Fuck_JIAWU2''">Give her a uniform</a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:I have something I want to ask you.</p>'
+             if a>=1:'<p>Me: Uh... what`s the matter?</p>'
+             if a>=2:'<p><<$SY.name>>:I am also a bit older... but I still want to wear a student uniform.</p>'
+             if a>=3:'<p>Me: Do you want me to help you get a student uniform?</p>'
+             if a>=3:'<p><<$SY.name>>:I heard my daughter say that there will be a physical examination in school recently, I think……</p>'
+			 $sy.pick_up_the_uniform=1
+         '</div>'
+    end
+
+
+
+    if a=4:
+         $SY.love+=q
+         $SY.bad+=q
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:As long as you help me get the student uniform... I will reward you❤</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_JIAWU2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIA3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_JIAWU2''">Slow thrusting</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_JIAWU2''">Accelerate thrusting</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_JIAWU2''">Hurry up</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_JIAWU2''">Fuck until you lose your mind</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_JIAWU2''">Fuck her</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:With this uniform, I can do more activities…</p>'
+             if a>=1:'<p>Me: Uh...what activity?</p>'
+             if a>=2:'<p><<$SY.name>>:<<$words>></p>'
+
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SY.love+=q
+         $SY.bad+=q
+         if $sy.uniform=1:$sy.uniform=2
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:With this uniform, I can get into the school... Hehehe</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_WC":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\WC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_WC''">Look over</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_WC''">Cut in line</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_WC''">Hurry up</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_WC''">Ejaculation</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_WC''">Drink clean</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''university''">Next</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>Male classmate A: Which class is this from... Why haven`t you seen it before?……</p>'
+             '<p>Male classmate B: Hey... can you hurry up?</p>'
+             if a>=1:'<p><<$SY.name>>:Young dick is good ❤</p>'
+             if a>=2:'<p>Me: Uh...what are you doing here?</p>'
+             if a>=3:'<p><<$SY.name>>:What do you care about me<<$panting>></p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SY.love+=q
+         '<div class="dialog_menu">'
+             '<p>Male classmate B: Hello... how are you?My cow is about to explode!</p>'
+             '<p><<$SY.name>>:Hehe❤If you don`t leave, you will be surrounded❤</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_nxkh":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\BJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_nxkh''">Accept the test</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_nxkh''">Accept the test</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_nxkh''">Accept the test</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_nxkh''">Ejaculation</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_nxkh''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $SY.FUCK<=1:'<div class="button"><a href="exec:minutes+=30 & gt ''subway''">Go back and think about it</a></div>'
+                if $SY.FUCK>=2:'<div class="button"><a href="exec:minutes+=30 & gt ''subway''">Got it</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Based on what I know about my daughter... you should have fucked her, right?</p>'
+             '<p>Me: Uh………………</p>'
+             '<p><<$SY.name>>:Do you know what qualities I like most about a man?</p>'
+             '<p>Me: What………</p>'
+             '<p><<$SY.name>>:Can you bring sexual blessings to women❤</p>'
+             if a>=1:'<p><<$SY.name>>:See how long you can endure ❤</p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Just shot in such a short time?Really disappointed me……</p>'
+             '<p>Me: Not in state today…</p>'
+             '<p><<$SY.name>>:Let me ask you, do you understand what love is?</p>'
+             '<p>I:……</p>'
+             if $SY.FUCK>=2:'<p>Me: I don`t know……</p>'
+             if $SY.FUCK>=2:'<p><<$SY.name>>:Love is...A firm choice TA.</p>'
+             $SY.FUCK+=1
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_nxkh2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\BJ2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_nxkh2''">Listen on</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_nxkh2''">Listen on</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_nxkh2''">Can`t help it</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_nxkh2''">Ejaculation</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_nxkh2''">Lick clean</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''uehara_event'',''SY_Fuck_nxkh2''">What about loyalty?</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">Go back and think about it</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:The so-called firm choice is to restrain temptation among all people❤</p>'
+             '<p>Me: Uh………………</p>'
+             '<p><<$SY.name>>:For example, I can concentrate on oral sex only for you……</p>'
+             '<p>I:………</p>'
+             if a>=1:'<p><<$SY.name>>:These are also my carefully selected son-in-law candidates❤</p>'
+             if a>=5:'<p><<$SY.name>>:Loyalty?You don`t have the strength to keep women. What kind of loyalty are you talking about?</p>'
+         '</div>'
+    end
+
+
+
+    if a=6:
+         $SY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:If you want to marry my daughter ❤ you have to pass me first❤</p>'
+             '<p>Me: Am I considered to have passed the test?……</p>'
+             '<p><<$SY.name>>:you?It`s still far away❤</p>'
+             $SY.FUCK+=1
+             $SY.SECOND=1
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_FNN":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\FNN0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_FNN''">Oral sex in turn</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_FNN''">Encircle her</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_FNN''">Watch others fuck</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_FNN''">Push to me</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_FNN''">Shoot her inside</a></div>'
+            end
+            if a!6 and 5<= q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''uehara_event'',''SY_Fuck_FNN''">Next</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''uehara_event'',''SY_Fuck_FNN''">In convulsions</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''uehara_event'',''SY_Fuck_FNN''">Continuously spraying water</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $sy.uniform>1:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''uehara_event'',''SY_Fuck_FNN2''">Change into uniform</a></div>'else:'<div class="buttonGr"><a href="exec:">Change uniform</a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">That`s it</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:My favorite Saturday!Is everyone here for me?</p>'
+             if a>=1:'<p>Man A: That`s right❤</p>'
+             if a>=2:'<p>>Man B: Let me touch it too❤</p>'
+             if a>=3:'<p><<$SY.name>>:awesome<<$words>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SY.love+=q
+         $SY.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>Can`t stand it anymore…</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_FNN2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\FNN1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<15:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_FNN2''">Oral sex in turn</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_FNN2''">Watch her blowjob</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_FNN2''">Give me a mouth</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_FNN2''">Ride on me</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_FNN2''">Change posture and insert</a></div>'
+            end
+            if 5<=a and  a<=8:
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_FNN2''">Next</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS4"><a href="exec:a=10 & gt ''uehara_event'',''SY_Fuck_FNN2''">It`s me again!</a></div>'
+            end
+            if a=10:
+            '<div class="buttonS5"><a href="exec:a=11 & gt ''uehara_event'',''SY_Fuck_FNN2''">Shoot her inside!</a></div>'
+            end
+            if a=11:
+            '<div class="buttonS4"><a href="exec:a=12 & gt ''uehara_event'',''SY_Fuck_FNN2''">Pull it out!</a></div>'
+            end
+            if a=12:
+            '<div class="buttonS5"><a href="exec:a=13 & gt ''uehara_event'',''SY_Fuck_FNN2''">Lick it clean!</a></div>'
+            end
+            if a=13:
+            '<div class="buttonS4"><a href="exec:a=14 & gt ''uehara_event'',''SY_Fuck_FNN2''">rest?</a></div>'
+            end
+            if a=14:
+            '<div class="buttonS5"><a href="exec:a=15 & gt ''uehara_event'',''SY_Fuck_FNN2''">Get up hi!</a></div>'
+            end
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''kabukicho''">Leave first</a></div>'
+            '</div>'
+    end
+
+
+
+    if 14>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:I have prepared school uniforms for you!</p>'
+             if a=1:'<p>Man A: Come and talk to me❤</p>'
+             if a=10:'<p><<$SY.name>>:Fuck me like my daughter!You scumbag!</p>'
+             if a=11:'<p><<$SY.name>>:awesome<<$words>></p>'
+         '</div>'
+    end
+
+
+
+    if a=15:
+         $SY.love+=q+$my.charm
+         $SY.bad+=q+$my.charm
+         $sy.unlimited=1
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:awesome<<$words>></p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+
+
+if $args[0]="SY_Fuck_nxkh3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\G1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Break open the hole</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Lick her</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Filter size</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Ride on me</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Injected into the uterus</a></div>'
+            end
+            if 5<=a and  a<=8:
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Next</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''uehara_event'',''SY_Fuck_nxkh3''">Unlimited creampie</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''subway''">Leave first</a></div>'
+            '</div>'
+    end
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:Since you are all candidates for my son-in-law!For the happiness of my daughter, it is necessary for me to check the quality of your sperm!</p>'
+             if a>=1:'<p><<$SY.name>>:That`s it<<$panting>></p>'
+             if a>=5:'<p><<$SY.name>>:awesome<<$words>></p>'
+         '</div>'
+    end
+
+
+
+    if a=10:
+         $SY.love+=q+$my.charm
+         $SY.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:awesome<<$words>></p>'
+             '<p><<$SY.name>>:It`s better for us to put aside the son-in-law`s affairs... let`s satisfy my mother first!Hurry up, where is the next meat stick?！</p>'
+             '<p>·This event is the final event of the current version of the character.</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+--- uehara_event ---------------------------------
+

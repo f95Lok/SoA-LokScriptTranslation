@@ -1,0 +1,129 @@
+# 舞蹈房
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="帝国集团大厅" href="exec:minutes+=15 & gt ''帝国集团''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		if $MM_Event_idol>=3 and ((hour=18)or (week_day >=6 and hour>=13 and hour<19)):
+		'<div class="action">'
+			'<a class="photo" data-title="舞蹈练习室" href="exec:minutes+=15 & gt ''舞蹈房''"><img class="img_stretch" src="images\NPC\MM\pics\舞蹈房2.jpg"></a>'
+		'</div>'
+		else:
+		'<div class="action">'
+			'<a class="photo" data-title="舞蹈练习室" ><img class="img_stretch" src="images\place\舞蹈房.jpg"></a>'
+		'</div>'
+		end 
+	'</div>'
+'</div>'
+
+if  $args[0]="":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\舞蹈房~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $MM_Event_idol<5:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''舞蹈房'',''其他练习生''">其他练习生</a></div>'
+		else:
+		 if 相机>0:
+		  '<div class="button"><a href="exec:minutes+=15 & gt ''舞蹈房'',''拍摄性感写真''">拍摄性感写真</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">需要相机</a></div>'
+		 end
+		 if 精油>0:
+		  '<div class="button"><a href="exec:minutes+=15 & 精油-=1 & gt ''妹妹_事件'',''MM_Fuck_精油''">精油按摩</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">需要精油</a></div>'
+		 end
+		 if $mm.bad>=200 and $mm.love>=200 and $jm.love>=200 and $jm.bad>=200:
+		  '<div class="buttonS"><a href="exec:minutes+=15 & gt ''妹妹_事件'',''MM_Fuck_母妹''">母女指导</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">条件不足</a></div>'
+		 end
+		end
+		if money>=1280 :
+		'<div class="button"><a href="exec:minutes+=30 & money-=1280 & gt ''妹妹_事件'',''MM_Event_温泉游''">温泉旅行￥1280</a></div>'
+		else:
+		 '<div class="buttonGr"><a href="exec:">温泉旅行￥1280</a></div>'
+		end
+		
+		if 蓝牙女仆>=3:'<div class="buttonB2"><a href="exec:gt ''主播_事件'',''妹循环0''">和<<$LY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">和某位主播？</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''舞蹈房''">消磨时间</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·认真的摆着假想摄影动作中....目前的粉丝数量：<<mm_fans>>.<<mm_fans0>> k</p>'
+		if $MM_Event_idol>=5:
+		'<p>·我想我可以拥有一台佳能R6单反拍摄一些写真集。</p>'
+		end 
+	'</div>'
+End
+
+if  $args[0]="其他练习生":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\4P0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $MM_Event_idol=4 and $mm.love>=-$mm.bad+250:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''妹妹_事件'',''MM_Fuck_4p''">说服四人性爱</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">堕落不足</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$mm.name>>：这些是我的同期无保障练习生...在我们四个人中只有一个人能成为合约练习生....</p>'
+		'<p>我：好好努力！我就不打扰你了。（这几个完全不是你的对手，这你不是稳了...）</p>'
+		if $MM_Event_idol=4:
+		'<p>我：（想要说服妹妹....成为色情偶像的话...我还需要再加把劲让她变得更听话....）</p>'
+		end 
+	'</div>'
+End
+
+if  $args[0]="拍摄性感写真":
+	 mm_fans0+=rand(1,3)
+	 if mm_fans0>=10:
+		mm_fans0-=10
+		mm_fans+=1
+	  end
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\舞蹈房~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if mm_fans > 0 :
+		'<div class="button"><a href="exec:minutes+=15 & gt ''妹妹_事件'',''MM_Fuck_感谢祭''">召开感谢祭</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">粉丝量不足</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''帝国娱乐''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：粉丝量上涨了！目前的粉丝数量：<<mm_fans>>.<<mm_fans0>> k。</p>'
+		'<p><<$mm.name>>：emmm.....我还能做更多！</p>'
+		end 
+	'</div>'
+End
+
+
+
+ 
+--- 舞蹈房 ---------------------------------
+

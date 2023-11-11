@@ -1,0 +1,71 @@
+# 联排别墅
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+$随机数=rand(0,100)
+gs'menu_gif'
+
+
+if $凯撒打工=1 and $times_of_day='' and 50<=$随机数 and $随机数<=55:gt '任务_事件','狩猎路人'
+if $看过平面图=1 and $随机数<=40:gt '遗孀_事件','二把手归来'
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if $FXZ.key=1 :
+			'<a class="photo" data-title="<<$FXZ.name>>家" href="exec:minutes+=5 & gt ''副校长家''"><img class="img_stretch" src="images\place\副校长家小图.jpg"></a>'
+			else:
+			'<a class="photo" data-title="【锁住】" href="exec:"><img class="img_stretch" src="images\place\副校长家.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if $NY.key=1:
+			'<a class="photo" data-title="<<$NY.name>>家" href="exec:minutes+=5 & gt ''能源_事件'',''NY_家''"><img class="img_stretch" src="images\place\NY家小图.jpg"></a>'
+			else:
+			'<a class="photo" data-title="【锁住】" href="exec:"><img class="img_stretch" src="images\place\NY家.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if $人才公寓=0:'<a class="photo" data-title="【施工中】" href="exec: gt ''群演_事件'',''施工别墅''"><img class="img_stretch" src="images\place\施工别墅.jpg"></a>'
+			if $人才公寓=1:'<a class="photo" data-title="人才公寓" href="exec: gt ''人才公寓''"><img class="img_stretch" src="images\place\人才公寓.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $竞演开始=999:
+			'<a class="photo" data-title="大别墅" href="exec:minutes+=5 & gt ''大别墅''"><img class="img_stretch" src="images\place\竞演\别墅1.jpg"></a>'
+			else:
+			'<a class="photo" data-title="【锁住】" ><img class="img_stretch" src="images\place\竞演\别墅0.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if $YS.key=1:
+			'<a class="photo" data-title="<<$YS.name>>家" href="exec:gt ''遗孀家''"><img class="img_stretch" src="images\place\YS家.jpg"></a>'
+			else:
+			'<a class="photo" data-title="【锁住】" href="exec:"><img class="img_stretch" src="images\place\YS家.jpg"></a>'
+			end
+		'</div>'
+			
+			
+			
+
+	'</div>'
+'</div>'
+
+'<div class ="show_menu"><img src="images\place\联排别墅_<<$times_of_day>>.jpg" width="854"></div>'
+
+'<div class="button_menu">'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">离开</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p>高档的别墅区，是只有一定社会地位的人才能购买的住宅区。</p>'
+	if 百日宴!0 and day=13 and hour=13:'<p>·㊖一辆【百日宴大巴】停在了此地<a href="exec:gt ''群演_事件'',''富婆_Fuck_GM1''">-上车</a></p>'
+'</div>'
+--- 联排别墅 ---------------------------------
+

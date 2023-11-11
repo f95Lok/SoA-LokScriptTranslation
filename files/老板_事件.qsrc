@@ -1,0 +1,1008 @@
+# 老板_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $ARGS[0]="催债对话":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''老板_事件'',''催债对话2''">被推出去</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>狂小弟：姐，是时候扩大经营了！我们应该把整个歌舞伎町的债务全部吃下来！</p>'
+		'<p><<$LB.name>>：吃下来？你有这个本事吗？我让你去收的帐你收到了吗？</p>'
+		'<p>狂小弟：呃……那些人像蟑螂一样藏在暗处，我怎么知道她们去哪了？！</p>'
+		'<p>我：呃？可能我来的不是时候？</p>'
+		'<p>狂小弟：喂喂喂？！</p>'
+	'</div>'
+End
+
+if $ARGS[0]="催债对话2":
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''小弟催债''">协助收账</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>狂小弟：你这么冒失地进来干嘛？是想做赏金猎人吗？</p>'
+		'<p>我：呃？赏金猎人？</p>'
+		'<p>狂小弟：切，我出了悬赏，协助我一起追债，你不会不知道我们是最大的地下钱庄吧？</p>'
+		'<p>我：你好像遇到麻烦了？</p>'
+		'<p>狂小弟：听着，要做就做，不做就滚。</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="老板_Fuck_奖1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\奖1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_奖1''">大方承认 </a></div>'
+            end
+            if a!0:
+            '<div class="buttonS5"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_奖1''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>狂小弟:姐！那群老赖已经全被我们找到了！</p>'
+             '<p><<$LB.name>>:帐还是没有收齐不是嘛，不过你嘛…你好像在这座城市有点人脉关系？要找到这些人可不容易。</p>'
+             '<p>我:…</p>'
+         '</div>'
+    end
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:我对这座城市确实很熟悉…</p>'
+             '<p><<$LB.name>>:喔？继续和我说说。</p>'
+             if a>=2:'<p>我:没人比我更加熟悉，在它的每个角落都有我的足迹。</p>'
+             if a>=3:'<p><<$LB.name>>:这么厉害啊❤</p>'
+             if a>=4:'<p>我:我喜欢这里每个没下雨的早上，走遍这里每条马路胡同和小巷。我闭上眼都能够画出这城市的构图。</p>'
+             if a>=5:'<p><<$LB.name>>:那能帮姐姐几个忙吗？</p>'
+             if a>=6:'<p>我:什么忙？</p>'
+             if a>=7:'<p><<$LB.name>>:公园里有一群流浪汉盘踞在公共露营区里，帮我赶走他们。</p>'
+         '</div>'
+    end
+    if a=10:
+    	 $LB.love+=2
+    	 if $老板事件链=0:$老板事件链=1
+         '<div class="dialog_menu">'
+         	 '<p><<$LB.name>>:公园里有一群流浪汉盘踞在公共露营区里，帮我赶走他们。</p>'
+             '<p>我:这件事你真的没办法吗？</p>'
+             '<p><<$LB.name>>:姐姐不想得罪人，所以得罪人的事只能交给【外人】来做。</p>'
+             '<p>我:露营区…的流浪汉…我知道了。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_剧1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\剧1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!2:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_剧1''">偷听 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''市政厅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:公园的消防设施是不是没有按照规定部署？</p>'
+             '<p><<$CJ.name>>:这…不关你的事…</p>'
+             '<p><<$JYB.name>>:此次火灾虽没有造成重大财产损失，但影响恶劣，同时进一步暴露了我市在公共场所的消防设施的监督管理过程中存在安全意识淡薄、安全监管工作不到位、安全隐患排查整治不彻底等问题。</p>'
+             '<p><<$JYB.name>>:稍后的会议将给予你个人的通报批评。希望此次被通报的部门单位认真查找原因，吸取教训，举一反三，尽快采取措施，积极进行整改工作。</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:但是，如果你从了我，我可以帮你说几句好话。</p>'
+             '<p><<$CJ.name>>:…………</p>'
+             
+         '</div>'
+    end
+    if a=2:
+    	 if $老板上位=0:$老板上位=1
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:滚！别小题大做了！我对你没有兴趣！</p>'
+         	 '<p><<$LB.name>>:你也知道，你能成为五常完全是因为顶替外交部长的空位吧，你最好不要得罪我。</p>'
+             '<p><<$CJ.name>>:我们走着瞧！</p>'
+         	 '<p><<$LB.name>>:那就让我们拭目以待。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_剧2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\剧2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_剧2''">四目相对 </a></div>'
+            if a!0:'<div class="buttonS1"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_剧2''">忍耐 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">尘埃落定</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:听说，你把露营区的那些破事都了结了？</p>'
+             '<p><<$LB.name>>:是的，下面由我来向您汇报情况。</p>'
+             '<p><<$CJ.name>>:我听着呢。</p>'
+             '<p><<$LB.name>>:1、纵火犯系一名惯偷，对流浪汉心生不满乱扔烟头导致火灾。2、对于流浪汉的后续安置，将提供一份狱卒的工作给他们。</p>'
+             '<p><<$CJ.name>>:还有呢？那些流浪汉是<<$FP.name>>的心头肉吧？她可没少花心思。</p>'
+             '<p><<$LB.name>>:3、<<$FP.name>>已经接受了上述的提议，并大度地为纵火者出具了谅解书，不需要赔偿任何经济损失。</p>'
+             '<p><<$CJ.name>>:那就好，城建部还欠了她几个亿的资金，还需要和她维持友好关系。喔？那这位就是纵火者吗？</p>'
+
+         '</div>'
+    end
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:这位是鸭王勋章拥有者，我想您应该需要一个发泄压力的对象。</p>'
+             '<p><<$CJ.name>>:哈！这就是我喜欢你的原因，你总能给我挑选到合适的男人解馋。女人到了这个年纪，精力就是异常旺盛。</p>'
+         '</div>'
+    end
+    if a=7:
+    	 if $老板上位=3:$老板上位=999
+    	 $贼被抓=3
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:不知道您还满意吗？</p>'
+             '<p><<$CJ.name>>:你叫什么名字？</p>'
+             '<p>我:<<$主角姓名>></p>'
+             '<p><<$CJ.name>>:宝贝，我记住你了，你很和姐的胃口。</p>'
+         '</div>'
+    end
+    	 
+  q+=1
+End
+
+if $args[0]="老板_Fuck_剧3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\剧3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!1:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_剧3''">偷听 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''夜色精巢''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:怎么样，生意还好吗？</p>'
+             '<p><<$LB.name>>:部长…您怎么有时间大驾光临？</p>'
+             '<p><<$JYB.name>>:我知道你在暗地里为<<$CJ.name>>做了不少的事，这次在露营区放火也是她指示的吧？</p>'
+             '<p><<$LB.name>>:这…完全是个意外！</p>'
+             '<p><<$JYB.name>>:怎么可能呢，市政厅收到的投诉中露营区的流浪汉可是一大难题喔。现在麻烦都解决了，接下来，就要解决纵火的人了，你弟弟怎么这么不理智呢？</p>'
+             '<p><<$LB.name>>:我们可以谈谈！</p>'
+             '<p><<$JYB.name>>:怎么谈？你知道我是个不爱动嘴的人。</p>'
+         '</div>'
+    end
+
+    if a=1:
+    	 if $老板上位=1:$老板上位=2
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:我也是一个爱动手的人，我希望…能给我弟弟一次机会…</p>'
+             '<p><<$JYB.name>>:我可以出面给你弟弟一次机会，但你要欠我一个人情。你也不想你弟弟被驱逐出去，发配到某个采石场里吧？</p>'
+             '<p><<$LB.name>>:那您想让我做什么…</p>'
+             '<p><<$JYB.name>>:等到未来的某个时间，当我说出“▊▊▊▊”的时候，我需要你不留情面地完成。</p>'
+             '<p><<$LB.name>>:▊▊▊▊？！好的……</p>'
+             '<p>（我:可恶…听不清楚）</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_剧4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\剧4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_剧4''">偷听 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''夜色精巢''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:你好，我代表市政厅向您道歉，我们知道您一直出资对失业人群进行援助。</p>'
+             '<p><<$FP.name>>:哇哇哇！居然是<<$JYB.name>>邀请我吗？我真是太荣幸了！我本来还以为是<<$LB.name>>来找我喝酒解闷的呢！</p>'
+             '<p><<$LB.name>>:那你们聊，我们出去了。</p>'
+             '<p>我:好的…</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:为了表达我的真诚，我把内裤脱了送给你好吗？</p>'
+             '<p><<$FP.name>>:哇噻！居然是<<$JYB.name>>的内裤！</p>'
+             '<p><<$JYB.name>>:我看人很准，就知道你喜欢这个，你也是那种男女通吃的类型嘛❤</p>'
+             '<p><<$FP.name>>:嘿嘿❤至少没有和你这种级别的做过❤</p>'
+         '</div>'
+    end
+    if a=5:
+    	 if $老板上位=2:$老板上位=3
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:作为补偿，我们会将那些流浪…哦不…失业者安排进监狱，让他们狠狠惩罚纵火者的同时，收获一份体面的工作。</p>'
+             '<p><<$FP.name>>:哇呜！哇呜！您真是太好了！</p>'
+             '<p><<$JYB.name>>:不客气，这是我们作为市政厅应该做的。不过还需要你的帮助。</p>'
+             '<p><<$FP.name>>:什么帮助？</p>'
+             '<p><<$JYB.name>>:只有你出具了谅解书，纵火者才会被送进监狱，否则会被直接驱逐，这一来，那些流浪汉的怒火就不能得到正常的发泄了，我安排他们成为拷问…哦不……狱卒的意义也失去了。</p>'
+             '<p><<$FP.name>>:这个简单！你教我怎么写谅解书！我要让哪个纵火者付出应有的代价！</p>'
+         '</div>'
+    end
+    	 
+  q+=1
+End
+
+if $args[0]="老板_Fuck_酒1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\酒1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if q=0 or q=1:
+            '<div class="buttonS3"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_酒1''">在床上肏 </a></div>'
+            '<div class="buttonR"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_酒1''">撞击子宫口 </a></div>'
+            '<div class="buttonS"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_酒1''">肏到高潮 </a></div>'
+            end
+            if q=2 or q=3:
+            '<div class="buttonS5"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_酒1''">坐上来 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_酒1''">蹂躏肥臀 </a></div>'
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_酒1''">抬起来操 </a></div>'
+            end
+            if q=4:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_酒1''">外射 </a></div>'
+            if $LB.love>=55:'<div class="buttonS4"><a href="exec:a=10 & gt ''老板_事件'',''老板_Fuck_酒1''">颜射 </a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足55 </a></div>'
+            if $LB.love>=100:'<div class="buttonR"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_酒1''">内射 </a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足100 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                 if $LB.love>=my.魅力*10:'<div class="buttonPu3"><a href="exec:minutes+=1440 & hour=7 & my.精力 = mymax[精力] & a=0 & q=0 &  gt ''老板_事件'',''老板_Fuck_过夜''">在这过夜</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足<<my.魅力*10>> </a></div>'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:喂！</p>'
+             '<p>我:我知道你也需要释放压力！你不会拒绝我的对吧…</p>'
+             if a>=2:'<p><<$LB.name>>:算你…厉害<<$话>></p>'
+             if a>=3:'<p>我:今晚就把灵魂交给我吧❤</p>'
+             if a>=4:'<p><<$LB.name>>:好<<$话2>></p>'
+         '</div>'
+    end
+    if a>=8:
+    	 $LB.love+=a+my.魅力
+    	 $LB.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:爽吗？</p>'
+             '<p><<$LB.name>>:你是想和姐姐我玩一夜情还是想泡我？</p>'
+             '<p>我:看姐姐想要什么了。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="老板_Fuck_约会1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\约会1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<13:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_约会1''">去吃饭 </a></div>'
+            end
+            if q=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_约会1''">去开房 </a></div>'
+            end
+            if q=2 or q=3 or q=4:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_约会1''">侍奉我 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_约会1''">揉奶子 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_约会1''">抠喷她 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_约会1''">69式 </a></div>'
+            end
+
+            if 8>=q and  q>=5:
+            '<div class="buttonR3"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_约会1''">在床上肏 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_约会1''">肏到高潮 </a></div>'
+            '<div class="buttonR5"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_约会1''">撞击子宫口 </a></div>'
+            end
+            if q>=7:
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''老板_事件'',''老板_Fuck_约会1''">坐上来 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=11 & gt ''老板_事件'',''老板_Fuck_约会1''">蹂躏肥臀 </a></div>'
+            '<div class="buttonS5"><a href="exec:a=12 & gt ''老板_事件'',''老板_Fuck_约会1''">抬起来操 </a></div>'
+            end
+            if q>=9:
+            '<div class="buttonR3"><a href="exec:a=13 & gt ''老板_事件'',''老板_Fuck_约会1''">外射 </a></div>'
+            if $LB.love>=50:'<div class="buttonR4"><a href="exec:a=15 & gt ''老板_事件'',''老板_Fuck_约会1''">颜射 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+            if $LB.love>=100:'<div class="buttonR5"><a href="exec:a=14 & gt ''老板_事件'',''老板_Fuck_约会1''">内射 </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''商场''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 1>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:嗨！<<$主角姓名>>，难得有空出来逛街，好久没和男人约会了。</p>'
+             '<p>我:肚子饿了吗？</p>'
+             if a>=1:'<p><<$LB.name>>:吃饱喝足去干嘛呢❤</p>'
+         '</div>'
+    end
+
+    if 12>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:快点，我都要等不及了。</p>'
+             if a>=3:'<p>我:就把灵魂交给我吧❤</p>'
+             if a>=4:'<p><<$LB.name>>:都给你<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=13:
+    	 $LB.love+=a+my.魅力
+    	 $LB.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:爽吗？</p>'
+             '<p><<$LB.name>>:嗯，谢谢你的款待❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_过夜":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\早2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<4:
+        '<div class="button_menu">'
+            '<div class="buttonS3"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_过夜''">对话 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:醒了？睡的还好吗？我叮嘱他们把DJ台关小声了。</p>'
+             
+             if a>=1:'<p>我:你是不是爱上我了？</p>'
+             if a>=2:'<p><<$LB.name>>:哈哈，你怎么这么自信？姐见过的女人比你吃过的饭都多。</p>'
+             if a>=3:'<p>我:那你现在是在？</p>'
+         '</div>'
+    end
+    if a>=4:
+    	 $LB.love+=a+my.魅力
+    	 $LB.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:闭嘴，我只想现在…短暂的…忘记烦恼。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_店1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\店1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if q=0 or q=1:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_店1''">足交 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_店1''">口我 </a></div>'
+            end
+            if q=2 or q=3:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_店1''">缓缓插入 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_店1''">慢速女上位 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_店1''">女上位爆肏 </a></div>'
+            end
+            if q=4:'<div class="buttonS4"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_店1''">加速冲刺 </a></div>'
+            if q=5:'<div class="buttonS5"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_店1''">内射 </a></div>'
+            if q=6:'<div class="button"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_店1''">对话 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS3"><a href="exec:$LB.love+=a+my.魅力 & gt ''歌舞伎町''">我会娶你</a></div>'
+                '<div class="buttonPu4"><a href="exec:$LB.love-=a+my.魅力 & gt ''歌舞伎町''">怀了再说</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:喂！原来你是这么没品的人吗？我正在伤心难过！</p>'
+             '<p>我:那就做点开心的事呗❤</p>'
+             if a>=1:'<p><<$LB.name>>:我弟弟万一这时候回来怎么办？</p>'
+             if a>=2:'<p>我:那我们就速战速决❤</p>'
+             if a>=3:'<p><<$LB.name>>:真是的<<$话2>></p>'
+         '</div>'
+    end
+    if a>=8:
+    	 $LB.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:我怀孕了你……你会负责吗？</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_垃圾败":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\SHI1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<14:
+        '<div class="button_menu">'
+            if 4>=q and q>=0:
+            '<div class="buttonR3"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_垃圾败''">接受惩罚 </a></div>'
+            end
+            if q=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_垃圾败''">射精 </a></div>'
+            end
+            if q=6:
+            '<div class="buttonB2"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_垃圾败''">再给我一次机会 </a></div>'
+            end
+
+            if 11>=q and  q>=7:
+            '<div class="buttonR1"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_垃圾败''">足交原谅 </a></div>'
+            '<div class="buttonR2"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_垃圾败''">舔舐原谅 </a></div>'
+            '<div class="buttonR3"><a href="exec:a=10 & gt ''老板_事件'',''老板_Fuck_垃圾败''">女上位原谅 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=11 & gt ''老板_事件'',''老板_Fuck_垃圾败''">后背位原谅 </a></div>'
+            '<div class="buttonR5"><a href="exec:a=12 & gt ''老板_事件'',''老板_Fuck_垃圾败''">窒息原谅 </a></div>'
+            end
+            if q=12:'<div class="buttonS3"><a href="exec:a=13 & gt ''老板_事件'',''老板_Fuck_垃圾败''">射精 </a></div>'
+
+            if a=13:'<div class="buttonR3"><a href="exec:a=14 & gt ''老板_事件'',''老板_Fuck_垃圾败''">对话 </a></div>'
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''市政厅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:什么？！<<$主角姓名>>！被个女的耽搁了？</p>'
+             '<p>我:嗯……她倒在垃圾堆里…我怎么能不管她呢？</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:那现在谁来管我？我可是要做出成绩给<<$JYB.name>>看的！</p>'
+             '<p>我:抱歉❤</p>'
+             if a>=2:'<p><<$LB.name>>:你？我看你是乐在其中嘛！</p>'
+             if a>=3:'<p>我:哪有啊❤</p>'
+             if a>=6:'<p><<$LB.name>>:这就射了？现在你连取悦我的价值都没有了呢！</p>'
+             if a>=7:'<p>我:请再给我一次机会！</p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=8:
+         '<div class="dialog_menu">'
+			'<p><<$LB.name>>:哼！那你可要表现得让我满意。</p>'
+             if a>=9:'<p>我:没问题❤</p>'
+             if a>=10:'<p><<$LB.name>>:哼<<$话>></p>'
+         '</div>'
+    end
+
+    if a>=14:
+    	 $LB.love+=a+my.魅力
+    	 $LB.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:满意吗？</p>'
+             '<p><<$LB.name>>:嗯，那就再给你一次机会❤</p>'
+             $露营垃圾=1
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_垃圾S":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\政府1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12 and a!7:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonB3"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_垃圾S''">起身离开 </a></div>'
+            end
+            if q=1 or q=2:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_垃圾S''">上手摸 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_垃圾S''">肉棒摩擦 </a></div>'
+            end
+
+            if q=3:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_垃圾S''">插入阴道 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_垃圾S''">插入肛门 </a></div>'
+            end
+
+            if a=5 :'<div class="buttonS4"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_垃圾S''">加速抽插 </a></div>'
+            if a=8:'<div class="buttonR4"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_垃圾S''">加速抽插 </a></div>'
+
+            if a=4 :'<div class="buttonS5"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_垃圾S''">再快点！ </a></div>'
+            if a=9:'<div class="buttonR4"><a href="exec:a=10 & gt ''老板_事件'',''老板_Fuck_垃圾S''">再快点！ </a></div>'
+            
+            
+            if a=6 :'<div class="buttonS5"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_垃圾S''">内射中出 </a></div>'
+            if a=10:
+            '<div class="buttonR4"><a href="exec:a=11 & gt ''老板_事件'',''老板_Fuck_垃圾S''">拔出来 </a></div>'
+            '<div class="buttonR5"><a href="exec:a=12 & gt ''老板_事件'',''老板_Fuck_垃圾S''">肛门中出 </a></div>'
+            end
+
+
+            if a=11:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_垃圾S''">重新插入阴道 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_垃圾S''">重新插入肛门 </a></div>'
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''市政厅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0 or a=1:
+    	 $LB.love+=10
+    	 $LB.bad+=10
+    	 $露营垃圾=1
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:很好，做的不错，不过清理垃圾应该作为常态化项目。没别的事了你可以回去了。</p>'
+             '<p>我:啊？</p>'
+             if a=1:'<p><<$LB.name>>:嗯？你还在期待什么？</p>'
+         '</div>'
+    end
+
+    if 12>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p>我:是你一直在诱惑我的❤这是我应得的奖赏！</p>'
+             if a>=4:'<p><<$LB.name>>:这里会来人的❤</p>'
+             if a>=5:'<p>我:不管了！</p>'
+             if a>=6:'<p><<$LB.name>>:不管了<<$话>></p>'
+             if a=7 or a=12:'<p>我:看着精液流出来的画面可真舒心❤</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="老板_Fuck_恶罚":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\LV1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonPu5"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_恶罚''">超严肃 </a></div>'
+            end
+            if q=1 or q=2:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_恶罚''">口交 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_恶罚''">侍奉 </a></div>'
+            end
+
+            if q=3 or q=4 or q=5 or q=6:
+            if a!4:'<div class="buttonS3"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_恶罚''">女上位性爱 </a></div>' 
+            if a=4:'<div class="buttonS4"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_恶罚''">转过去</a></div>'
+            '<div class="buttonS5"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_恶罚''">抬起大腿操 </a></div>' 
+            if q>=5:'<div class="buttonR4"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_恶罚''">加速冲刺 </a></div>'
+            end
+
+
+            if a=7 or q=7:
+            '<div class="buttonR4"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_恶罚''">内射 </a></div>'
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=8 & a=0 & q=0 & my.精力+=50 & gt ''老板_事件'',''老板_Fuck_恶罚2''">在这过夜</a></div>'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0 or a=1:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:给我过来！看看看看！现在市民的满意度是<<城建满意度>>%！你是想害我被解除职务是吗？</p>'
+             '<p>我:啊？</p>'
+             if a=1:'<p><<$LB.name>>:你还想不想在我手下混了？我交给你的事！可燃垃圾的清理！给我好好落实！</p>'
+             if a=1:'<p>我:说完了？</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:说完了❤</p>'
+             '<p>我:你不发脾气的样子还挺可爱的！</p>'
+             if a>=3:'<p><<$LB.name>>:少啰嗦<<$娇喘声>></p>'
+         '</div>'
+    end
+    if a=8:
+    	 城建满意度=-50
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:我会私下动用一些手段提升一些市民满足度，别再有下次了！</p>'
+             '<p>我:明白了。</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_恶罚2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\早1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9 and a!6:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2:
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_恶罚2''">舔我 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_恶罚2''">撸管 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_恶罚2''">深喉 </a></div>'
+            end
+            if q=3:'<div class="buttonR4"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_恶罚2''">口爆 </a></div>'
+            if q=4:'<div class="buttonR4"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_恶罚2''">把嘴张开 </a></div>'
+            if q=5:
+            '<div class="buttonS"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_恶罚2''">一饮而尽 </a></div>'
+            '<div class="buttonR5"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_恶罚2''">暴力插嘴 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonR5"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_恶罚2''">暴力深喉 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_恶罚2''">暴力颜射 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & q=0 & gt ''老板_事件'',''老板_Fuck_恶罚3''">一起去上班</a></div>'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:醒了？嗯？早饭要一起吃吗？</p>'
+             '<p>我:嗯…你吃了啥？</p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:昨天是我态度不太好，向你道歉…</p>'
+             '<p>我:会主动道歉的女人真的存在？！</p>'
+             if a>=2:'<p><<$LB.name>>:很奇怪吗<<$娇喘声>></p>'
+             if a>=3:'<p>我:太少有了！</p>'
+             if a>=7:'<p><<$LB.name>>:唔唔<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=9:
+    	 $LB.love+=my.魅力+q
+    	 $LB.bad+=my.魅力+q
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:居然射了那么多？！我重新化妆要很多时间的！</p>'
+         '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="老板_Fuck_恶罚3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\LM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+        '<div class="button_menu">'
+            '<div class="buttonS2"><a href="exec:a+=1 & gt ''老板_事件'',''老板_Fuck_恶罚3''">。。。 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:minutes+=60 & gt ''市政厅''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:早啊，亲爱的❤你口中的咖啡味真是让人提神醒脑呢❤</p>'
+             '<p><<$CJ.name>>:别…别这样…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:怎么？想被踢出五常会议是吗？</p>'
+             '<p><<$CJ.name>>:…………</p>'
+             '<p><<$JYB.name>>:好好舔就对了❤</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:我们待会再进去，让她们先处理完私事…</p>'
+
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+             '<p>我:呃……你这是？</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:响应<<$CT.name>>的号召…咖啡不加奶，只加精。</p>'
+             '<p>我:……</p>'
+             '<p><<$LB.name>>:我没有她们那样的超乳，要想融入她们的上位圈子只能靠这个。</p>'
+             '<p>—————————————————————</p>'
+             '<p>此处为该角色的最终事件之一，因为城建满意度在另一个极端的时候也有一个</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="老板_Fuck_下家1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\D2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2:
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_下家1''">舌吻 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_下家1''">玩奶头 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_下家1''">玩弄阴蒂 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_下家1''">用玩具 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_下家1''">口她 </a></div>'
+            end
+            if q=3 or q=4 or q=5:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_下家1''">口我 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_下家1''">正常位 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_下家1''">后背位 </a></div>'
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_下家1''">说些情话 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''老板_事件'',''老板_Fuck_下家1''">女上位 </a></div>'
+            end
+
+            if q=6:'<div class="buttonR4"><a href="exec:a=11 & gt ''老板_事件'',''老板_Fuck_下家1''">内射 </a></div>'
+            if q=7:'<div class="buttonR3"><a href="exec:a=12 & gt ''老板_事件'',''老板_Fuck_下家1''">对话 </a></div>'
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:minutes+=1440 & hour=7 &a=0 & q=0 &  gt ''老板_事件'',''老板_Fuck_下家2''">陪她一整天</a></div>'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:呼，工作量能提前完成的话也感觉不错。</p>'
+             '<p>我:嗯…没想到你居然在城建部会这么认真。</p>'
+             '<p><<$LB.name>>:在地下待久了的老鼠，为了见到阳光要拼了命地往树上爬。</p>'
+             '<p>我:好深刻的话。</p>'
+             '<p><<$LB.name>>:别管啦，既然市民满意度让领导们满意了，那就可以放纵一下了…</p>'
+         '</div>'
+    end
+
+    if 11>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:我发现你居家的黑发…有点清纯的感觉❤</p>'
+             if a>=2:'<p><<$LB.name>>:不喜欢吗<<$娇喘声>></p>'
+             if a>=3:'<p>我:怎么会不喜欢呢！</p>'
+             if a>=7:'<p><<$LB.name>>:嗯<<$话2>></p>'
+             if a=9:'<p>我:你比<<$CJ.name>>反差多了！她完全不能和你比❤</p>'
+         '</div>'
+    end
+
+    if a=12:
+    	 $LB.love+=my.魅力+q
+    	 $LB.bad+=my.魅力+q
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:今天剩下的时间…能不能陪我？</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="老板_Fuck_下家2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LB\vids\D1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2:
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''老板_事件'',''老板_Fuck_下家2''">舌吻 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''老板_事件'',''老板_Fuck_下家2''">玩奶头 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''老板_事件'',''老板_Fuck_下家2''">口交 </a></div>'
+            end
+            if q=3 or q=4 or q=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''老板_事件'',''老板_Fuck_下家2''">坐上来 </a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a=5 & gt ''老板_事件'',''老板_Fuck_下家2''">背对我 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''老板_事件'',''老板_Fuck_下家2''">后背位 </a></div>'
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''老板_事件'',''老板_Fuck_下家2''">正常位 </a></div>'
+            end
+
+            if q=6:'<div class="buttonR4"><a href="exec:a=8 & gt ''老板_事件'',''老板_Fuck_下家2''">内射 </a></div>'
+            if q=7:'<div class="buttonR3"><a href="exec:a=9 & gt ''老板_事件'',''老板_Fuck_下家2''">对话 </a></div>'
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:minutes+=60 & gt ''市政厅''">陪她去市政厅</a></div>'
+                '<div class="buttonS"><a href="exec:minutes+=60 & gt ''夜色精巢''">陪她去夜色精巢</a></div>'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:困困困，你醒了？</p>'
+             '<p>我:没想到会睡着……</p>'
+             '<p><<$LB.name>>:谢谢你陪我…</p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我:我发现你居家的黑发…有点清纯的感觉❤</p>'
+             if a>=2:'<p><<$LB.name>>:那我答应你，我只给你一个人看我这个样子❤</p>'
+             if a>=3:'<p>我:这句话可是很有杀伤力的喔❤</p>'
+             if a>=4:'<p><<$LB.name>>:是吗<<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+    	 $LB.love+=my.魅力+q
+    	 $LB.bad+=my.魅力+q
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:你可别爱上我，爱上我的人……都会离开我……</p>'
+             '<p>我:没关系，我是例外。</p>'
+             '<p>—————————————————————</p>'
+             '<p>此处为该角色的最终事件之一，因为城建满意度在另一个极端的时候也有一个</p>'
+         '</div>'
+    end
+  q+=1
+End
+--- 老板_事件 ---------------------------------
+

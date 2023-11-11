@@ -1,0 +1,299 @@
+# 公园
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+$公园随机事件=0
+$随机数=rand(-2,500)
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="回家" href="exec:minutes+=5 & gt ''家''"><img class="img_stretch" src="images\place\回家_小图.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="联排别墅" href="exec:minutes+=5 & gt ''联排别墅''"><img class="img_stretch" src="images\place\联排别墅_<<$times_of_day>>.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="商场" href="exec:minutes+=5 & gt ''商场''"><img class="img_stretch" src="images\place\商场.jpg"></a>
+		</div>'
+		
+		'<div class="action">
+			<a class="photo" data-title="私立医院" href="exec:minutes+=5 & gt ''医院''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="地下交通" href="exec:minutes+=5 & gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+			if $老板事件链<5:'<a class="photo" data-title="露营区" href="exec:minutes+=5 & gt ''公园'',''露营区''"><img class="img_stretch" src="images\place\流浪营.jpg"></a>'
+			if $老板事件链=5 or $老板事件链=6 and $老板上位!999:'<a class="photo" data-title="露营区" href="exec:minutes+=5 & gt ''公园'',''露营区火''"><img class="img_stretch" src="images\place\营火.jpg"></a>'
+			if $老板上位=999:'<a class="photo" data-title="露营区" href="exec:minutes+=5 & gt ''公园'',''露营区2''"><img class="img_stretch" src="images\place\露营区2.jpg"></a>'
+		'</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="中央公园" href="exec:minutes+=5 & gt ''公园''"><img class="img_stretch" src="images\place\park_<<$times_of_day>>.jpg"></a>
+			<a class="photo" data-title="公共厕所" href="exec:minutes+=5 & gt ''公园'',''公共厕所''"><img class="img_stretch" src="images\place\公共厕所.jpg"></a>
+		</div>'
+		
+		if $times_of_day="night":
+		'<div class="action">
+			<a class="photo" data-title="歌舞伎町" href="exec:minutes+=5 & gt ''歌舞伎町''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+		end
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	if  (75<=$随机数 and $随机数<=80) and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事件','魅魔事件'
+	if $凯撒打工=1 and $times_of_day='' and 150<=$随机数 and $随机数<=180:gt '任务_事件','狩猎路人'
+
+	if $随机数<=10 and $times_of_day='':
+		'<div class ="show_menu"><img src="images\videos\杂\park<<$随机数>>.jpg"  height="480"></div>'
+		$公园随机事件=1
+
+	else:
+		if $随机数<=5 and $times_of_day!'':
+		'<div class ="show_menu"><img src="images\videos\杂\parkN<<$随机数>>.jpg"  height="480"></div>'
+		$公园随机事件=1
+		else
+		'<div class ="show_menu"><img src="images\place\park_<<$times_of_day>>.jpg" width="854"></div>'
+		end
+	end
+	
+	'<div class="button_menu">'
+		if $公园随机事件=0:'<div class="button"><a href="exec:minutes+=15 & gt ''公园''">散散步</a></div>'else:'<div class="buttonGr"><a href="exec:">散散步</a></div>'
+		if hour=8 and minutes<30:'<div class="button"><a href="exec:gt ''公园'',''嘲笑声''">嘲笑声</a></div>'
+		if week_day=6 and hour=16:'<div class="button"><a href="exec:gt ''公园'',''音乐节筹备中''">音乐节筹备中</a></div>'
+		if week_day=6 and hour=21:'<div class="button"><a href="exec:gt ''公园'',''音乐节''">音乐节进行中</a></div>'
+		if $times_of_day="" and $随机数>=480:'<div class="buttonS"><a href="exec:gt ''任务_事件'',''打网球''">网球陪练</a></div>'
+		if $随机数<=10 and $随机数>0 and $times_of_day='':'<div class="button"><a href="exec:公园随机数=$随机数+100 & gt ''公园'',''帮助她''">帮助她</a></div>'
+		if $随机数=3 and  $times_of_day!'':'<div class="button"><a href="exec:公园随机数=$随机数+100 & gt ''公园'',''帮助她''">帮助她</a></div>'
+		if $ZX约公园=1 and hour=12:'<div class="button"><a href="exec:gt ''整形_事件'',''ZX_Fuck_公园野战''"><<$ZX.name>></a></div>'
+		
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·时隔数年，市议会终于通过了《公园特别管理法》，这促进了市中央公园的发展，为人们忙碌紧张的生活提供一个悠闲的场所。</p>'
+		if $随机数<1:'<p>·《公园特别管理法》：条例①如果天气太热，就可以都不想穿，没有硬性规定。——当亚当和夏娃在伊甸园无知无觉地游荡时，作为神的创造，他们的身上空无一物，且绝不对此感到不适。</p>'
+		if $随机数=1 and $times_of_day='':'<p>？？？: 嘿，我跌倒了，你能扶我起来吗？</p>'
+		if ($随机数=2 or $随机数=6 or $随机数=7or $随机数=8)  and $times_of_day='':'<p>？？？: 你好，可以为我拍一张照吗？</p>'
+		if ($随机数=3 or $随机数=9or $随机数=10) and $times_of_day='':'<p>？？？: 嗨，我的随身物品找不到了，可以帮我找找吗？</p>'
+		if ($随机数=4 or $随机数=5) and $times_of_day='':'<p>？？？: 听说这一带会有暴露狂出没，你能帮我看看有没有可疑的人吗？</p>'
+		if $随机数=3 and  $times_of_day!'':'<p>？？？: 听说这一带会有暴露狂出没，你能帮我看看有没有可疑的人吗？</p>'
+		if $YY.家可进=1 and $times_of_day='' and $随机数>=250:
+			if $YY.玩过大的=1:'<p>·有人在长凳上呼呼大睡<a href="exec:a=3 & gt ''帝国_事件'',''帝国_Fuck_游泳教练大的''">-叫醒他</a></p>'else:'<p>·有人在长凳上呼呼大睡</p>'
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="音乐节":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\videos\杂\Festival<<rand(0,11)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if hour>=21:'<div class="button"><a href="exec:minutes+=45 & my.精力+=99 & gt ''公园'',''音乐节''">沉浸在音乐中</a></div>'else:'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·只有周六晚上才会开启的限时音乐节。</p>'
+		'<p>·————————————</p>'
+		'<p>·我想，如果我的游戏也能像音乐一样，让你能短暂地忘记烦恼，我会真的很开心。衷心地希望你能过上自己想要的生活，拥有喜欢的人，得到幸福快乐的人生。再次感谢你的游玩。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="音乐节筹备中":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\videos\杂\音乐节前夕.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $HZ.音乐节约会=1:'<div class="buttonP"><a href="exec:gt ''会长_事件'',''HZ_Fuck_音乐节''">找<<$HZ.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''公园''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·只有周六晚上才会开启的限时音乐节，下午就已经有很多年轻人在此聚集。</p>'
+		'<p>·————————————</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="嘲笑声":
+	'<div class ="show_menu"><img src="images\male\maleA.jpg" height="480"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公园'',''定制角色''">定制角色</a></div>'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''公园''">不理他</a></div>'
+		if $苦主设定=1:'<div class="button"><a href="exec:minutes+=25 & gt ''公园'',''看他老婆''">看他老婆</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·对方轻蔑地一笑：哟呵，这不是<<$主角姓名>>吗？</p>'
+		'<p>我：你是……</p>'
+		if $苦主设定=1:
+		'<p><<$苦主姓名>>：来！给你介绍一下我老婆，我真是三生有幸才遇到了这种好女人。</p>'
+		end
+		
+	'</div>'
+end
+
+
+if $ARGS[0]="定制角色":
+
+	'<div class ="show_menu"><img src="images\male\maleA.jpg" height="480"></div>'
+
+$苦主姓 = $TRIM($LCASE($input('对方（苦主）的名字是')))
+if $苦主姓="":$苦主姓="东子"
+if $苦主名="":$苦主名="(苦主)"
+$苦主姓名="<<$苦主姓>><<$苦主名>>"
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''公园'',''嘲笑声''">不理他</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$苦主姓名>>：忘了你以前被我揍哭的事了？你那个青梅竹马来找我理论还被我摸了屁股呢！</p>'
+		'<p>我：<<$苦主姓>>…是你…你初中就转学了…</p>'
+		'<p><<$苦主姓名>>：你那个青梅竹马现在住哪？*嬉笑</p>'
+		'<p>我：她不久也转学了…</p>'
+		'<p><<$苦主姓名>>：真是可惜，我好久没摸她的屁股了*嬉笑</p>'
+		'<p>我：<<$苦主姓>>…你别太过分了！</p>'
+		'<p><<$苦主姓名>>：哈哈*嬉笑</p>'
+		'<p>·————————————————</p>'
+		'<p>·图片替换路径：...\assets\standalone_content\images\maleA</p>'
+		$苦主设定=1
+	'</div>'
+end
+
+
+if $ARGS[0]="看他老婆":
+	'<div class ="show_menu"><img src="images\NPC\RQ\pics\ET2-N6yUYAAG7Vb.jpg" height="480"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''公园''">不理他</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$苦主姓名>>：眼睛都看直了？！我们都已经谈了三年了，你没机会了*嬉笑</p>'
+		'<p>我：……</p>'
+		'<p><<$苦主姓名>>：有空去我家喝两杯*嬉笑</p>'
+	'</div>'
+end
+
+if $ARGS[0]="帮助她":
+	 if $times_of_day!'':
+	   '<div class ="show_menu"><img src="images\videos\杂\parkN<<公园随机数>>.jpg"  height="480"></div>'
+	 else:
+		'<div class ="show_menu"><img src="images\videos\杂\park<<公园随机数>>.jpg"  height="480"></div>'
+	 end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公园''">。。。</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>？？？: 嘿嘿！谢谢你❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="公共厕所":
+	'<div class ="show_menu"><img src="images\place\公共厕所.jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if hour!7:'<div class="buttonPu1"><a href="exec:minutes+=15 & gt ''整形_事件'',''整形厕所前''">最里面的一间</a></div>'
+		if ($ZX事件链=2 or $ZX事件链=3) and hour=23:'<div class="buttonPu4"><a href="exec:minutes+=15 & gt ''整形_事件'',''ZX_Fuck_计策''">↑等待<<$ZX.name>></a></div>'
+		if $ZX事件链=4 and hour=23:'<div class="buttonPu3"><a href="exec:minutes+=15 & gt ''整形_事件'',''ZX_Fuck_计策2''">↑等待<<$ZX.name>></a></div>'
+		if hour=7:'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''群演_事件'',''ZY厕所''">保洁时间</a></div>'
+		if hour=1 and minutes>=30 :'<div class="buttonPu2"><a href="exec:minutes+=15 & gt ''男科_事件'',''NK_Fuck_厕所''">厕所魅影</a></div>'
+		if week_day=7 and hour=12 and $JM.love>=300:'<div class="buttonS"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''群演_事件'',''泛用_Fuck_公厕''"><<$JM.name>>在里面</a></div>'
+		if week_day=1 and hour=12 and $WQ.love>=300:'<div class="buttonS"><a href="exec:$m=''WQ'' & $ma=$WQ.name & gt ''群演_事件'',''泛用_Fuck_公厕''"><<$WQ.name>>在里面</a></div>'
+		if hour=21 and $帝国游泳教练>=1:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_游泳教练厕''">胁迫<<$YY.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公园''">回到公园</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·在经济文明都高度发展的我市，城市公共厕所是满足人们生理需要的必备设施。</p>'
+		if $随机数>=450 and 8<=hour and hour<=17:'<p>·暴力事件正在发生<a href="exec:gt ''公园'',''暴力事件''">-偷看</a></p>'
+		if $随机数>400 and 19<=hour and hour<=20:'<p>·浓烈的酒精味<a href="exec:gt ''群演_事件'',''富婆_Fuck_CK3''">-偷看</a></p>'
+		if 大别墅初次>=1 and 公厕锤子=0:'<p>·有人在这里遗弃了一把骚臭的【大锤】<a href="exec:大锤+=1 & 公厕锤子=1 &  gt ''公园''">-拿走</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="暴力事件":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\videos\杂\CF1-<<rand(0,14)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公园''">无计可施</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>流浪汉A：小姑娘，公共厕所的意思是想上就能随时上！</p>'
+		'<p>女学生：救命<<$娇喘声>></p>'
+		'<p>流浪汉B：都怪你们！如果不是你们抢占了我们的就业机会！我们怎么可能会失业？万幸我们遇到了一位女菩萨！现在的日子可比当社畜的时候滋润多了！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="露营区":
+	'<div class ="show_menu"><img src="images\place\流浪营.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if hour=12 or hour=18:'<div class="button"><a href="exec: gt ''群演_事件'',''富婆_Fuck_CK1''">女菩萨</a></div>'
+		'<div class="button"><a href="exec:gt ''公园''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·开放给市民的免费露营区，但目前有无家可归的流浪汉，长期霸占于此。</p>'
+		'<p>·周遭的居民向城市建设部投诉过无数次，然而结局是石沉大海。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="露营区火":
+	'<div class ="show_menu"><img src="images\place\营火.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''公园''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·一望无际的大火在露营区内翻腾</p>'
+		'<p><<$JY.name>>：多名流浪汉受到不同程度的烧伤，火势无法控制，纵火犯已经被逮捕。</p>'
+		'<p><<$JZ.name>>：灰烬成双，则火燃起。既然火势无法控制，那就让它烧着吧。</p>'
+		'<p>——</p>'
+		'<p>我：喂喂喂，事情好像变严重了。</p>'
+		if $老板事件链=5:$老板事件链=6
+	'</div>'
+end
+
+if $ARGS[0]="露营区2":
+	'<div class ="show_menu"><img src="images\place\露营区2.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if hour=16 and $LXS.love>=100:'<div class="button"><a href="exec:$留学生帐篷=0 & gt ''留学_事件'',''帐篷约会''">约<<$LXS.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''公园''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·开放给市民的免费露营区，据说仍然有刚变成流浪汉的失业者正窥伺着占据这里。</p>'
+		if $露营垃圾=1 and $times_of_day="":	'<p>·由于垃圾分类太麻烦和流浪汉的小心思，在一角堆积着大量易燃垃圾<a href="exec:gt ''公园'',''易燃垃圾''">-清理</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="易燃垃圾":
+	'<div class ="show_menu"><img src="images\task\LJN (<<rand(1,13)>>).jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$露营垃圾=3 &  gt ''群演_事件'',''随机_Fuck_垃圾女''">背她去洗澡</a></div>'
+		'<div class="buttonGn"><a href="exec:$露营垃圾=2 & gt ''公园''">清理垃圾</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·在垃圾堆中有一个喝醉的女人，请做出你的抉择。</p>'
+	'</div>'
+end
+
+
+
+
+
+
+--- 公园 ---------------------------------
+

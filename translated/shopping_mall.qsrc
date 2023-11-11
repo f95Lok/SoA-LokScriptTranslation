@@ -1,0 +1,109 @@
+# shopping_mall
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Department store" href="exec:minutes+=5 & gt ''department_store''"><img class="img_stretch" src="images\place\百货商店.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="gym" href="exec:minutes+=5 & gt ''gym''"><img class="img_stretch" src="images\place\健身房.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="restaurant" href="exec:minutes+=5 & gt ''restaurant''"><img class="img_stretch" src="images\place\餐厅.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="4S shop" href="exec:minutes+=5 & gt ''4s_shop''"><img class="img_stretch" src="images\place\4S店.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Residential area" href="exec:minutes+=5 & gt ''residential_area''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Hair salon" href="exec:minutes+=5 & gt ''hair_salon''"><img class="img_stretch" src="images\place\美发店.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Stockings specialty store" href="exec:minutes+=5 & gt ''stockings_shop''"><img class="img_stretch" src="images\place\丝袜店0.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Beauty store" href="exec:minutes+=5 & gt ''beauty_shop''"><img class="img_stretch" src="images\place\美妆店.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	$mall_num=RAND(1,14)
+	$shopping_mall_n=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/商场<<$mall_num>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''shopping_mall''">Kill time</a></div>'
+		if $audit_level>1:
+			if 8>=$mall_num and $mall_num>=6:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=1 & gt ''shopping_mall'',''trailing''">Follow her</a></div>'
+			if 10>=$mall_num and $mall_num>=9:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=2& gt ''shopping_mall'',''trailing''">Follow her</a></div>'
+			if $mall_num =11:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=3& gt ''shopping_mall'',''trailing''">Follow her</a></div>'
+			if $mall_num =12:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=3& gt ''shopping_mall'',''trailing''">Follow her</a></div>'
+			if $mall_num =13:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=4& gt ''shopping_mall'',''trailing''">Follow her</a></div>'
+			if $mall_num =14:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=5& gt ''shopping_mall'',''trailing''">Follow her</a></div>'
+		end
+		if hour>=17 and $LJ_Event_Steal=2:'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''repeating_event'',''meet''">leave</a></div>'
+		if $set_printing_card=1 and hour=16 and week_day =1:'<div class="buttonS"><a href="exec:$set_printing_number=1 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with passersby❤</a></div>'
+		if $set_printing_card=1 and hour=13 and week_day =4:'<div class="buttonS"><a href="exec:$set_printing_number=4 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with passersby❤</a></div>'
+		if $set_printing_card=1 and hour=11 and week_day =1:'<div class="buttonR3"><a href="exec:$set_printing_number_s=2 & gt ''group_performation_event'',''general_fuck_jiyin_s''">❤Strike up a conversation with an acquaintance❤</a></div>'
+	    if $qb_event_chain=1:'<div class="button"><a href="exec:gt ''hashimoto_event'',''convenience_store''">Convenience store</a></div>'
+	    if $qb_event_chain=2:'<div class="button"><a href="exec:gt ''hashimoto_event'',''convenience_store_2''">Convenience store</a></div>'
+	    if $bgh_event_chain=1 and hour=16:'<div class="button"><a href="exec:gt ''house_next_door_event'',''chance_encounter_in_the_mall''"><<$BGH.name>></a></div>'
+	    if $boss_dialogue=1 and hour=13 and week_day =7:'<div class="buttonR3"><a href="exec:gt ''boss_event'',''boss_fuck_appointment_1''"><<$LB.name>></a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>A large shopping mall open 24 hours a day.</p>'
+		'<p>The only way to commute is to have a lot of people at any time, tsk tsk.</p>'
+		'<p>Wow~ feast your eyes!</p>'
+	'</div>'
+End
+ 
+ 
+ 
+if $ARGS[0]="trailing":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/商场尾<<$shopping_mall_nu>>~<<$shopping_mall_n>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $shopping_mall_n=1:
+			if $audit_level>=2:'<div class="buttonP"><a href="exec:minutes+=5 &  $shopping_mall_n=2 & gt ''shopping_mall'',''trailing''">Touch it</a></div>'
+			else:
+			if $shopping_mall_nu<=2 :  if $audit_level>=4:'<div class="buttonP"><a href="exec:minutes+=5 &  gt ''group_performation_event'',''shopping_mall_fuck_quick_check''">Body search</a></div>'else:'<div class="buttonGr"><a href="exec:">No body search permission</a></div>'
+			if $shopping_mall_nu>=3 :  if $audit_level>=6:'<div class="buttonS"><a href="exec:minutes+=5 &   gt ''group_performation_event'',''shopping_mall_fuck_s_check''">Come with me!</a></div>'else:'<div class="buttonGr"><a href="exec:">No higher authority</a></div>'
+			
+			end
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+	  if $shopping_mall_n=1:'<p>You have looked around a lot, now is a good opportunity to do it!</p>'
+		'<p>If I had the authority to search and inspect residents, I would be able to do more…</p>'
+	'</div>'
+End
+
+
+
+
+
+--- shopping_mall ---------------------------------
+

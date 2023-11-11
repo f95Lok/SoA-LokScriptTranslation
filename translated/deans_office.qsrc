@@ -1,0 +1,223 @@
+# deans_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+if $args[0]="":
+		$YZ.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\交流1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office'',''tie_shoelaces''">Tie shoelaces</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office'',''drug_tester_interview''">Drug tester interview</a></div>'
+			if $yz.sex_friend=1 and $times_of_day='':'<div class="buttonS"><a href="exec:minutes+=5 & gt ''deans_office'',''appointment''">Appointment</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>·The one in front of you is:<<$YZ.name>>。Within three years of taking office, the transformation of the hospital was completed, from a &quot;national excellent model hospital&quot; to an &quot;independent female plastic surgery hospital&quot;.</p>'
+			
+		'</div>'
+End
+
+ 
+if $args[0]="tie_shoelaces":
+		if $YZ.bad<=50:a=1
+		if 100 >$YZ.bad and $YZ.bad >50 :a=2
+		if $YZ.bad>=100:a=3
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\交流1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office''">Stand up</a></div>'
+			if $YZ.bad>=100:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''deans_office'',''mouth_her''">Mouth her</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$YZ.name>>:Vous avez quelque chose à faire?Sorry, I am used to speaking French again.....What`s the matter with you?OS:Le mot de passe est alors défini à:935888</p>'
+		'</div>'
+End
+
+ 
+ 
+if $args[0]="drug_tester_interview":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\药奴~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office'',''sign_a_contract''">Sign a contract</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Female doctor: Are you here to apply for a drug tester?Let me introduce that these bikini-clad people are representatives of the pharmaceutical companies under the Women`s Leadership Alliance who believe in freedom of dressing.</p>'
+		'<p>Female doctor: All current clinical trials are rigorous and safe. Animal tests have also been passed before this, but it is not ruled out that there may be some toxic side effects. Of course, this probability is very low.</p>'
+		'<p>Me: Side effects?</p>'
+		'<p>Medical representative: Rest assured, the rights, safety and health of subjects must be higher than the consideration of scientific and social interests.Therefore, for the drug testers, their physical health is guaranteed. During the trial process, once there is a situation that may endanger the interests of the patient, no matter what stage the trial is in, they can apply for suspension and get immediate assistance after evaluation.</p>'
+	'</div>'
+End
+
+ 
+
+if $args[0]="sign_a_contract":
+             if medicine!1:
+                 q = RAND(50,200)
+                 if 50<=q and q<100:
+                     $Q="一级"
+                     A=1
+                     D= RAND(3,5)
+                     end
+                 if 100<=q and q<150:
+                     $Q="二级"
+                     A=2
+                     D= RAND(4,7)
+                     end
+                 if 150<=q:
+                     $Q="三级"
+                     A=4
+                     D= RAND(7,10)
+                     end
+                 MED=(81+q)*D
+			End
+	'<div class ="show_menu"><img src="images\place\医院场景\签订合同.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			if A<=$my.physical_strength:'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office'',''just_this''">Just this</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &  gt ''deans_office'',''sign_a_contract''">Next</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>·Contract details: Hazard level：<<$Q>>  Trial period：<<D>>day. Physique threshold: Lv<<A>>  Commission composition: (basic salary + meal supplement) X trial period.total：<<MED>>￥</p>'
+			'<p>·Precautions: During the drug test, the drug tester will be completely isolated from the outside world until the end of the drug test experiment.</p>'
+		'</div>'
+End
+
+ 
+ 
+if $args[0]="just_this":
+	medicine=1
+	'<div class ="show_menu"><img src="images\place\医院场景\注射前<< $Q>>.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 &  gt ''deans_office'',''peek''">Peek</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>Female nurse: This is your future<<D>>A place to receive a drug test every day.As the danger level increases, there will be a certain degree of hallucinations, heart palpitations, and vomiting.'
+		'</div>'
+End
+ 
+if $args[0]="peek":
+	'<div class ="show_menu"><img src="images\place\医院场景\注射偷窥<< $Q>>.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 &  gt ''deans_office'',''injection''">injection</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>Me: Wait a minute, there is a little stain here.</p>'
+			'<p>Female nurse: Where?No.</p>'
+		'</div>'
+End
+
+if $args[0]="injection":
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房一级_.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & $note=0 &  gt ''daily_drug_test''">Take a deep breath</a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+			'<p>Female nurse: Next we will give you an intravenous injection.Please adjust your breathing.</p>'
+		'</div>'
+End
+ 
+if $args[0]="mouth_her":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\给她口.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office''">Stand up</a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''dean_event'',''yz_fuck_company''">Ejaculation examination</a></div>'
+		if $YZ.love>=25:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''dean_event'',''yz_fuck_company_2''">Do it here</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>: Yo, I didn`t expect you to understand... Let`s talk about it, is there something you want me to do?</p>'
+		'<p>Me: ... (Can I still not know what you are thinking)</p>'
+	'</div>'
+End
+
+if $args[0]="appointment":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\约会.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''deans_office'',''drink''">Go for a drink</a></div>'
+		if $YZ.love>=135:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''deans_office'',''her_house''">Go to your house</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>: Where do you want to do it?Hurry up!My bottom is wet and itchy…</p>'
+	'</div>'
+End
+
+if $args[0]="drink":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\喝酒.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''dean_event'',''yz_fuck_hotel''">Go to the hotel</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>: I said...Can you skip this link next time and go directly to open a room?</p>'
+		'<p>Me: Hahahaha.</p>'
+	'</div>'
+End
+
+
+if $args[0]="her_house":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YZ\vids\她家.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''dean_event'',''yz_fuck_her_home''">Change sexy underwear</a></div>'
+		if $YZ.love>=600-$YZ.bad:'<div class="button"><a href="exec:minutes+=5 & gt ''dean_event'',''yz_fuck_urge_women''">Proposal: Fuck your daughter</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YZ.name>>: Recently, the number of times I have brought men back has increased... My children also have a lot of opinions on me.…</p>'
+		'<p>Me: You should have a “good relationship” with your children, right?</p>'
+		'<p><<$YZ.name>>: Now they are not at home... how do you want to play with me?</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+--- deans_office ---------------------------------
+

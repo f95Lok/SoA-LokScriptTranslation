@@ -1,0 +1,73 @@
+# 地铁
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'地铁_地图'
+'</div>'
+
+
+if hour =17:
+	if 每日电车=0:电车随机数=rand(0,100) 
+	if 电车随机数>=90: $电车角色='A' & 电车num=电车A_num & 每日电车=1
+	if 15<电车随机数 and 电车随机数<90: $电车角色='N' & 电车num=0
+	if 电车随机数<=15: $电车角色='B' & 电车num=电车B_num & 每日电车=1
+	if $电车角色='A':
+		if 电车A.finish=0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\underground\电车<<$电车角色>>1-<<电车num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		elseif 电车A.finish=1:
+				gt'地铁_事件','地铁骚扰0'
+		end
+	end
+	
+	if $电车角色='B':
+		if 电车B.finish=0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\underground\电车<<$电车角色>>1-<<电车num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		elseif 电车B.finish=1:
+				gt'地铁_事件','地铁骚扰0'
+		end
+	end
+	if 电车num=6:
+		if $电车角色='A': 电车A.finish=1 & 电车A_num=0
+		if $电车角色='B': 电车B.finish=1 & 电车B_num=0
+	end
+	if 电车num<=5:
+		if $电车角色='A': 电车A_num+=1
+		if $电车角色='B': 电车B_num+=1
+	end
+	
+	if $电车角色='N':
+		'<div class ="show_menu"><img src="images\place\地铁.jpg" width="854"></div>'
+	end
+	
+end
+	
+if hour !17:
+'<div class ="show_menu"><img src="images\place\地铁.jpg" width="854"></div>'
+end
+
+'<div class="button_menu">'
+	gs'地铁_选项'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p>永远不会堵车的地下双隧道轨交系统！</p>'
+	'<p>唯一的缺点是太拥挤了！</p>'
+'</div>'
+
+ 
+--- 地铁 ---------------------------------
+

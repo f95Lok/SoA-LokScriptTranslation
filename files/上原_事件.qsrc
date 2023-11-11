@@ -1,0 +1,1236 @@
+# 上原_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $ARGS[0]="学习烹饪":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SY\vids\COOK1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		
+        $内容酱A[0]="沙拉酱" & $内容酱A[1]="海鲜酱" & $内容酱A[2]="芥末" & $内容酱A[3]="黄油" & $内容酱A[4]="番茄酱" & $内容酱A[5]="咖喱酱"
+        $内容酱A[6]="奶酪"&$内容酱A[7]="奶油" & $内容酱A[8]="火锅蘸料" & $内容酱A[9]="韭菜花酱" & $内容酱A[10]="蜂蜜"& $内容酱A[11]="烤肉酱"
+        $内容酱A[12]="辣酱油" &$内容酱A[13]="辣椒酱"& $内容酱A[14]="沙茶酱"& $内容酱A[15]="甜面酱"& $内容酱A[16]="千岛酱"& $内容酱A[17]="叉烧酱"
+		
+		if a=0:'<div class="button"><a href="exec:a=1 &  gt ''上原_事件'',''学习烹饪''">想和你学习！</a></div>'
+		if a=1:
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''学习烹饪''"><<$内容酱A[rand(0,3)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''学习烹饪''"><<$内容酱A[rand(4,6)]>></a></div>'
+			if $SY.bad>=15:'<div class="button"><a href="exec:a=2 &  gt ''上原_事件'',''学习烹饪''">精液</a></div>'else:'<div class="buttonGr"><a href="exec:">精液</a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''学习烹饪''"><<$内容酱A[rand(7,9)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''学习烹饪''"><<$内容酱A[rand(10,12)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''学习烹饪''"><<$内容酱A[rand(13,15)]>></a></div>'
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''学习烹饪''"><<$内容酱A[rand(16,17)]>></a></div>'
+		end
+		
+		if a=2:'<div class="button"><a href="exec:a=3 &  gt ''上原_事件'',''学习烹饪''">让她 品尝</a></div>'
+		if a=3:
+			'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''上原家''">不了</a></div>'
+			if week_day=7:'<div class="buttonS"><a href="exec:a=0 & q=0 &  gt ''上原_事件'',''SY_Fuck_DKH''">周日饮酒会</a></div>'else:'<div class="buttonGr"><a href="exec:">周日饮酒会</a></div>'
+		end
+		
+		if a=4:'<div class="button"><a href="exec:a=4 &  gt ''上原_事件'',''上原家''">去客厅</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=0:'<p><<$SY.name>>：为什么不去座位上乖乖等着呢？</p>'
+		if a=1:'<p><<$SY.name>>：所谓烹饪，就是将食材的味道进行完美地融合！你知道这根火腿肠上还缺少什么吗？</p>'& $SY.love+=5
+		if a=2:'<p><<$SY.name>>：你的想法…很有趣❤我很喜欢❤</p>'
+		if a=3:'<p><<$SY.name>>：！！！真是太美味了❤你要尝尝吗？</p>' & Exp_烹饪+=rand(20,$SY.love*2)
+		if a=4:
+			'<p><<$SY.name>>：不错的想法！好吃吗？</p>'
+			'<p>·大吃一口→厨艺提高了！</p>'
+			Exp_烹饪+=rand(13,$SY.love)
+		end
+	'</div>'
+end
+
+
+
+
+if $args[0] ='上原家':
+	a=0 & q=0
+	'<div class ="show_menu"><img src="images\NPC\SY\pics\客厅.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+	
+		if rand(0,2)=0:
+			'<div class="buttonPu2"><a href="exec:$SY.浴室=1 & minutes+=5 & gt ''上原_事件'',''浴室''">去主浴→</a></div>'
+			else:
+			'<div class="buttonP"><a href="exec:$SY.浴室=2 & minutes+=5 & gt ''上原_事件'',''浴室''">去次浴→</a></div>'
+		end
+		
+		'<div class="buttonPu2"><a href="exec: gt ''上原_事件'',''上原家立绘''"><<$SY.name>>房间</a></div>'
+		'<div class="buttonP"><a href="exec: gt ''上原_事件'',''上原_Fuck_女儿房间''"><<$LJ.name>>房间</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''地铁''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·装修还算豪华，看起来之前的男主人挺富裕的…</p>'
+	'</div>'
+end
+
+
+if $args[0] ='浴室':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SY\vids\ZZZ<<$SY.浴室>>-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+    if a!3:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+             if $SY.浴室=1:  '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''浴室''">给她醒酒 </a></div>'
+             if $SY.浴室=2:  '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''浴室''">插她嘴里 </a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''浴室''">口爆射精 </a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''上原_事件'',''浴室''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if $SY.FUCK>=2 :'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''上原_事件'',''上原_Fuck_后浴室''">一起回客厅</a></div>'else:'<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''上原_事件'',''上原家''">独自回客厅</a></div>'
+                '<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+    
+
+	'<div class="dialog_menu">'
+		if a=0:
+			if $SY.浴室=1:'<p><<$SY.name>>：再来一杯❤再来❤</p>'
+			if $SY.浴室=2:'<p><<$LJ.name>>：你跟进来干嘛…</p>'
+		end
+		if a=1 or a=2:
+			if $SY.浴室=1:'<p><<$SY.name>>：<<$娇喘声>></p>'
+			if $SY.浴室=2:'<p><<$LJ.name>>：<<$娇喘声2>></p>'
+		end
+		if a=3:
+			if $SY.浴室=1:'<p><<$SY.name>>：能不能再多来点❤完全不能醒酒呢❤</p>'& SY.bad+=5
+			if $SY.浴室=2:'<p><<$LJ.name>>：好了…你快出去吧…</p>'& LJ.bad+=5
+		end
+	'</div>'
+end
+
+
+
+if $args[0]="上原_Fuck_女儿房间":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\ANJIA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''上原_Fuck_女儿房间''">在自慰？ </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''上原_Fuck_女儿房间''">惩罚性提问 </a></div>'
+            end
+            if a!3 and 2<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''上原_事件'',''上原_Fuck_女儿房间''">惩罚性按摩 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''上原_事件'',''上原_Fuck_女儿房间''">不装了 </a></div>'
+            end
+            if a!5 and 4<=q and q<=12:
+            '<div class="buttonR3"><a href="exec:a=5 & gt ''上原_事件'',''上原_Fuck_女儿房间''">要求射精 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''上原_事件'',''上原_Fuck_女儿房间''">射精 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonR3"><a href="exec:a=7 & gt ''上原_事件'',''上原_Fuck_女儿房间''">清理精液 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''上原_事件'',''上原_Fuck_女儿房间''">对话 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if $SY.SECOND>=1: '<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''上原_事件'',''上原_Fuck_夜睡''">过夜</a></div>'else:'<div class="buttonGr"><a href="exec:">过夜</a></div>'
+                '<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$LJ.name>>: <<$主角姓名>><<$娇喘声2>></p>'
+             if a=1:'<p><<$SY.name>>: ？！你刚刚在做什么？！</p>'
+             if a>=2:'<p><<$SY.name>>: 你忘了爸爸立下的家规了吗？不可以有婚前性行为！</p>'
+             if a>=3:'<p><<$SY.name>>: 所以你才在房间里自慰的对吗？</p>'
+             if a>=4:'<p><<$LJ.name>>: 我想要<<$主角姓名>>的肉棒…</p>'
+             if a>=5:'<p><<$SY.name>>: 这可不行喔，不过…不插入的话应该不算性行为吧？</p>'
+             if a>=6:'<p>我: 啊啊啊啊！对着无毛的白虎穴射了！</p>'
+             if a>=7:'<p><<$SY.name>>: 射的到处都是的精液不好好清理干净的话……会意外怀孕的❤</p>'
+
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: <<$主角姓名>>……我做的对吗？</p>'
+             '<p>我: 呃…</p>'
+             '<p><<$SY.name>>: 怀孕了可编不出什么骑自行车把处女膜弄破了之类的话喔❤</p>'
+             $SY.BAD+=15
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="上原_Fuck_后浴室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIAK1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''上原_Fuck_后浴室''">靠近点 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''上原_Fuck_后浴室''">另一个 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''上原_事件'',''上原_Fuck_后浴室''">相互挑逗 </a></div>'
+            end
+            if a!4 and 3<=q and q<=16:
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''上原_事件'',''上原_Fuck_后浴室''">母女口交 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonR3"><a href="exec:a=5 & gt ''上原_事件'',''上原_Fuck_后浴室''">口爆<<$SY.name>> </a></div>'
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''上原_事件'',''上原_Fuck_后浴室''">口爆<<$LJ.name>> </a></div>'
+            end
+            if a=5 or a=7:
+            '<div class="buttonR3"><a href="exec:a+=1 & gt ''上原_事件'',''上原_Fuck_后浴室''">交换精液 </a></div>'
+            end
+            if a=6 or a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''上原_事件'',''上原_Fuck_后浴室''">对话 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                if  $SY.SECOND>=1: '<div class="buttonGn"><a href="exec:a=0 & q=0 & gt ''上原_事件'',''上原_Fuck_夜睡''">过夜</a></div>'else:'<div class="buttonGr"><a href="exec:">过夜</a></div>'
+                '<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p>·该做什么呢…</p>'
+             if a=1:'<p><<$SY.name>>: ？！你刚刚在偷看我闺女什么？！</p>'
+             if a>=2:'<p><<$SY.name>>: 我女儿有我的大吗？</p>'
+             if a>=3:'<p><<$LJ.name>>: 妈！我到底是不是你亲生的啊？</p>'
+             if a>=4:'<p><<$SY.name>>: 看来你的口活也没继承妈妈<<$娇喘声>></p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 闺女，妈妈说的没错吧？每个人精液的味道都是不一样的吧！</p>'
+             '<p>我: 呃…每个人？</p>'
+             '<p><<$LJ.name>>: <<$主角姓名>>的…有点腥臭味❤</p>'
+             $SY.BAD+=15
+             $LJ.BAD+=15
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="上原_Fuck_夜睡":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIAS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''上原_Fuck_夜睡''">假寐 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''上原_Fuck_夜睡''">母女侍奉 </a></div>'
+            end
+            if q>=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''上原_事件'',''上原_Fuck_夜睡''">操<<$SY.name>> </a></div>'
+            '<div class="buttonP"><a href="exec:a=6 & gt ''上原_事件'',''上原_Fuck_夜睡''">操<<$LJ.name>> </a></div>'
+            end
+            if a=3 or a=6:
+            '<div class="buttonS"><a href="exec:a+=1 & gt ''上原_事件'',''上原_Fuck_夜睡''">射精</a></div>'
+            end
+            if a=4 or a=7:
+            '<div class="buttonGn"><a href="exec:a+=1 & gt ''上原_事件'',''上原_Fuck_夜睡''">舔干净</a></div>'
+            end
+            if a=5 or a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''上原_事件'',''上原_Fuck_夜睡''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=1440 & hour=7 & gt ''地铁''">第二天</a></div>'
+            '</div>'
+    end
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$SY.name>>: 嘘——闺女你跟我来，今天妈妈要教你一点性知识…</p>'
+             if a=1:'<p><<$LJ.name>>: 好！</p>'
+             if a>=2:'<p><<$SY.name>>: 跟着妈妈学<<$娇喘声>></p>'
+             if a>=4:'<p><<$LJ.name>>: <<$娇喘声2>></p>'
+
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 闺女，妈妈你为什么这么熟练？</p>'
+             '<p><<$LJ.name>>: 是妈妈教得好！</p>'
+             '<p><<$SY.name>>: 不愧是我女儿！</p>'
+             '<p><<$LJ.name>>: 那我可以不被那些陌生的叔叔们肏了吗？我只想和<<$主角姓名>>做爱。</p>'
+             '<p><<$SY.name>>: 那你可不能再被留级了！</p>'  
+             $SY.BAD+=15+my.魅力
+             $LJ.BAD+=15
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="SY_Fuck_work2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\work2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+           if $XN.审判=1 and q=0:'<div class="buttonPu2"><a href="exec:q=0 & gt ''修女_事件'',''XN_Fuck_风俗''">❐假装离开</a></div>'
+        
+            if a!1 and q<=1:
+            '<div class="button"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_work2''">舌吻</a></div>'
+            end
+            if a!2 and q<=2:
+            '<div class="button"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_work2''">揉奶</a></div>'
+            end
+            if a!3 and 3>=q and q>=2:
+            '<div class="buttonS"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_work2''">特殊服务</a></div>'
+            end
+            if a=3:
+            '<div class="buttonG"><a href="exec:a=4 & money-=200 & gt ''上原_事件'',''SY_Fuck_work2''">加钱！200￥</a></div>'
+            '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">离开</a></div>'
+            end
+            if a!5 and 7>=q and q>=4 and a>=3:
+            '<div class="button"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_work2''">继续口交</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''上原_事件'',''SY_Fuck_work2''">口爆</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS"><a href="exec:a=7 & gt ''上原_事件'',''SY_Fuck_work2''">更多服务❤</a></div>'
+            end
+            if a=7:
+            '<div class="buttonG"><a href="exec:a=8 & money-=500 & gt ''上原_事件'',''SY_Fuck_work2''">加钱！500￥</a></div>'
+            end
+            if a!9 and 12>=q and q>=7 and a>=8:
+            '<div class="button"><a href="exec:a=9 & gt ''上原_事件'',''SY_Fuck_work2''">加速抽插</a></div>'
+            end
+            if a!10 and 15>=q and q>=8 and a>=8:
+            '<div class="button"><a href="exec:a=10 & gt ''上原_事件'',''SY_Fuck_work2''">操到爽</a></div>'
+            end
+            if a=10:
+            '<div class="button"><a href="exec:a=11 & gt ''上原_事件'',''SY_Fuck_work2''">大力冲刺</a></div>'
+            end
+            if a=11:
+            '<div class="buttonS"><a href="exec:a=12 &  gt ''上原_事件'',''SY_Fuck_work2''">颜射</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">结账离开</a></div>'
+				if tuc_level3>=1 and $SY.bad>=100 and SYcos!1:'<div class="buttonS"><a href="exec:SYcos=1 & gt ''歌舞伎町''">邀请COS</a></div>'else:'<div class="buttonGr"><a href="exec:">邀请COS</a></div>'
+            '</div>'
+    end
+
+    if a=0 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 感谢您的指名！喜欢我的胸部吗？</p>'
+             '<p>我:兔女郎装扮还不错…</p>'
+         '</div>'
+    end
+
+
+
+    if 3>=a and a>=1 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:很软吧<<$娇喘声>></p>'
+             if a=3:'<p><<$SY.name>>:还想要更多嘛？</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=4 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:<<$娇喘声>><<$话>></p>'
+             if a=7:'<p><<$SY.name>>:还想要更多嘛？</p>'
+         '</div>'
+    end
+
+    if 11>=a and a>=8 :
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:<<$娇喘声>><<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=12:
+         $SY.love+=5
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:欢迎下次再来！</p>'
+             '<p>·她喜欢你。</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $ARGS[0]="上原家立绘":
+	a=0 & q=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SY\vids\LH1-<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''上原_事件'',''SY_Fuck_JIAWU''">委托</a></div>'
+		if 精油>0 and MGF>0:'<div class="buttonS2"><a href="exec:精油-=1 & MGF-=1 & gt ''上原_事件'',''SY_Fuck_AM1''">上手精油按摩</a></div>'else:'<div class="buttonGr"><a href="exec: ">缺少按摩材料</a></div>'
+		if $SY.bad>=50:'<div class="buttonS3"><a href="exec:gt ''上原_事件'',''SY_Fuck_nxkh''">女婿考核</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
+		if $SY.FUCK>=4:'<div class="buttonS4"><a href="exec:gt ''上原_事件'',''SY_Fuck_nxkh2''">坚定考核</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
+		if  $SY.无限=1 and $SY.SECOND=1:'<div class="buttonS5"><a href="exec:gt ''上原_事件'',''SY_Fuck_nxkh3''">百人考核</a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？</a></div>'
+		'<div class="button"><a href="exec:gt ''地铁''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p><<$SY.name>>：下次进来要敲门喔❤</p>'
+	'</div>'
+end
+
+
+if $args[0]="SY_Fuck_AM1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\AM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_AM1''">推油</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_AM1''">上玩具</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_AM1''">搞喷她</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_AM1''">震动棒</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_AM1''">插喷她</a></div>'
+            end
+            if a!6 and 5<= q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''上原_事件'',''SY_Fuck_AM1''">阴部保养</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''上原_事件'',''SY_Fuck_AM1''">内部也要❤</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''上原_事件'',''SY_Fuck_AM1''">绝顶潮吹</a></div>'
+            end
+            if a=8:
+            '<div class="button"><a href="exec:a=9 & gt ''上原_事件'',''SY_Fuck_AM1''">对话邀请</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:好热❤这个精油里面加了东西吧？</p>'
+             if a>=1:'<p>我:呃…那你还想要更多嘛？</p>'
+             if a>=1:'<p><<$SY.name>>:快把我沙发上的玩具给我拿过来❤</p>'
+             if a>=2:'<p><<$SY.name>>:我要<<$娇喘声>></p>'
+             if a>=3:'<p>我:我的手法还不错吧？</p>'
+             if a>=4:'<p><<$SY.name>>:太棒了<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=9:
+         $SY.love+=q*2
+         $SY.bad+=q*2+my.魅力
+         $SY.按摩=1
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:你的手法真不错！你好会啊！</p>'
+             '<p>我： 如果你还想按摩的话，你知道去哪里找我。</p>'
+             '<p><<$SY.name>>:免费的话我就会来❤</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_WQ":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\WQ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_WQ''">直接插入 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_WQ''">女上位 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_WQ''">加速抽插 </a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_WQ''">内射 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_WQ''">对话 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a>=0:'<p><<$SY.name>>: <<$娇喘声2>></p>'
+             if a>=1:'<p>我: 自己动起来！</p>'
+             if a>=2:'<p><<$SY.name>>: 嗯<<$话>></p>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>瘫在了床上…</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="SY_Fuck_DKH":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\PS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+
+        '<div class="button_menu">'
+            if 0<=a and a<=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''上原_事件'',''SY_Fuck_DKH''">有资格继续 </a></div>'
+
+
+            if a=6 and my.烹饪<5:'<div class="button"><a href="exec:gt ''地铁''">离开：烹饪5等级不够 </a></div>'
+
+
+            if 6<=a and a<=9 and my.烹饪>=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''上原_事件'',''SY_Fuck_DKH''">有资格继续 </a></div>'
+
+
+            if a=10 and my.烹饪<8:'<div class="button"><a href="exec:gt ''地铁''">离开：烹饪8等级不够 </a></div>'
+            if a=10 and my.烹饪>=8:'<div class="buttonS1"><a href="exec:a+=1 & gt ''上原_事件'',''SY_Fuck_DKH''">烹饪8等级 </a></div>'
+            if a=11:
+                if my.烹饪>=10:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''上原_事件'',''SY_Fuck_DKH2''">独家享用 </a></div>'else:'<div class="buttonGr"><a href="exec:gt ''地铁''">烹饪等级不够 </a></div>'
+                '<div class="buttonS1"><a href="exec:a=0 & q=0 & gt ''地铁''">离开 </a></div>'
+            end
+
+        '</div>'
+
+
+
+    if 5>=a and a>=0:
+		 
+         '<div class="dialog_menu">'
+             if a>=0:'<p><<$SY.name>>: 呀哈咯❤每周日的饮酒会开始咯！</p>'
+             if a>=1:'<p><<$SY.name>>: 让我们嗨起来！</p>'
+             if a>=2:'<p><<$SY.name>>: 干杯❤</p>'
+             '</div>'
+    end
+
+    if 10>=a and a>=6:
+         '<div class="dialog_menu">'
+             if a>=6:'<p><<$SY.name>>: 喝了！</p>'
+             if a>=7:'<p><<$SY.name>>: 这里也要被灌满❤</p>'
+             if a>=8:'<p><<$SY.name>>: 干杯❤</p>'
+             '</div>'
+    end
+
+
+    if a=11:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 之后只有米其林级别的才可以独家享用我喔❤</p>'
+         '</div>'
+    end
+	Exp_烹饪+=5
+  q+=1
+End
+
+if $args[0]="SY_Fuck_DKH2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\PS3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_DKH2''">呃…</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_DKH2''">继续操她</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_DKH2''">第三名射精</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_DKH2''">第二名射精</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_DKH2''">加速抽插</a></div>'
+            end
+            if a!6 and 5<= q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''上原_事件'',''SY_Fuck_DKH2''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''上原_事件'',''SY_Fuck_DKH2''">事后</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:你不介意操我的时候我被人颜射吧？</p>'
+             if a>=1:'<p>我:呃…</p>'
+             if a>=2:'<p><<$SY.name>>:快来！射在我脸上！</p>'
+             if a>=3:'<p><<$SY.name>>:太棒了<<$话>></p>'
+
+         '</div>'
+    end
+
+
+
+    if a=7:
+         $SY.love+=q
+         $SY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>气喘吁吁…</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_JIAWU":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<4:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_JIAWU''">呃…</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_JIAWU''">还有呢</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_JIAWU''">口爆</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_JIAWU''">。。。</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $SY.制服>=1:'<div class="button"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''上原_事件'',''SY_Fuck_JIAWU2''">给她制服</a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:我有一些事想拜托你。</p>'
+             if a>=1:'<p>我:呃…什么事？</p>'
+             if a>=2:'<p><<$SY.name>>:我的年纪也有点大了…但是我还是想穿一套学生制服。</p>'
+             if a>=3:'<p>我:你想让我去帮你搞一套学生制服？</p>'
+             if a>=3:'<p><<$SY.name>>:我听我女儿说最近学校里会有体检，我想……</p>'
+			 $SY.接制服=1
+         '</div>'
+    end
+
+
+
+    if a=4:
+         $SY.love+=q
+         $SY.bad+=q
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:只要你帮我搞到了学生制服…我就会奖励你❤</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_JIAWU2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\JIA3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_JIAWU2''">慢速抽插</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_JIAWU2''">加速抽插</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_JIAWU2''">再快点</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_JIAWU2''">操到失神</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_JIAWU2''">肏喷她</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:有了这套制服我就能做更多的活动了…</p>'
+             if a>=1:'<p>我:呃…什么活动？</p>'
+             if a>=2:'<p><<$SY.name>>:<<$话>></p>'
+
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SY.love+=q
+         $SY.bad+=q
+         if $SY.制服=1:$SY.制服=2
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:有了这套制服我就能混进学校里了…嘿嘿嘿</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_WC":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\WC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_WC''">看过去</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_WC''">插队</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_WC''">再快点</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_WC''">射精</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_WC''">喝干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大学''">下一位</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>男同学A:这是哪个班的啊…怎么以前没见过……</p>'
+             '<p>男同学B:喂喂…你能不能搞快点？</p>'
+             if a>=1:'<p><<$SY.name>>:年轻的鸡巴就是好❤</p>'
+             if a>=2:'<p>我:呃…你在这里搞什么？</p>'
+             if a>=3:'<p><<$SY.name>>:你管我干嘛<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SY.love+=q
+         '<div class="dialog_menu">'
+             '<p>男同学B:喂喂…你好了没啊？我的牛子快炸了！</p>'
+             '<p><<$SY.name>>:嘿嘿❤你再不走就要被围殴了❤</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_nxkh":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\BJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_nxkh''">接受考验</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_nxkh''">接受考验</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_nxkh''">接受考验</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_nxkh''">射精</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_nxkh''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $SY.FUCK<=1:'<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">回去想想</a></div>'
+                if $SY.FUCK>=2:'<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">明白了</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 以我对我闺女的了解…你应该上过她了吧？</p>'
+             '<p>我:呃………………</p>'
+             '<p><<$SY.name>>: 你知道我最看中一个男人的什么特质吗？</p>'
+             '<p>我:什么………</p>'
+             '<p><<$SY.name>>: 能不能给女人带来性福❤</p>'
+             if a>=1:'<p><<$SY.name>>:看看你能忍多久❤</p>'
+         '</div>'
+    end
+
+
+
+    if a=5:
+         $SY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:才这么点时间就射了？真令我失望……</p>'
+             '<p>我:今天不在状态…</p>'
+             '<p><<$SY.name>>: 我问你，你懂什么是爱吗？</p>'
+             '<p>我:……</p>'
+             if $SY.FUCK>=2:'<p>我:我不知道……</p>'
+             if $SY.FUCK>=2:'<p><<$SY.name>>:爱是…坚定的选择TA。</p>'
+             $SY.FUCK+=1
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_nxkh2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\BJ2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_nxkh2''">听下去</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_nxkh2''">听下去</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_nxkh2''">忍不住了</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_nxkh2''">射精</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_nxkh2''">舔干净</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''上原_事件'',''SY_Fuck_nxkh2''">忠诚呢？</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">回去想想</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 所谓坚定的选择，就是在芸芸众生之中，克制住诱惑❤</p>'
+             '<p>我:呃………………</p>'
+             '<p><<$SY.name>>: 比如我能专心地只为你口交……</p>'
+             '<p>我:………</p>'
+             if a>=1:'<p><<$SY.name>>: 这几位也是我精挑细选的女婿候选人❤</p>'
+             if a>=5:'<p><<$SY.name>>: 忠诚？你没有实力留住女人，谈什么忠诚？</p>'
+         '</div>'
+    end
+
+
+
+    if a=6:
+         $SY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>: 想娶我女儿的话❤就得先过了我这关❤</p>'
+             '<p>我:那我算是过关了吗……</p>'
+             '<p><<$SY.name>>: 你？还差得远呢❤</p>'
+             $SY.FUCK+=1
+             $SY.SECOND=1
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+if $args[0]="SY_Fuck_FNN":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\FNN0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_FNN''">依次口交</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_FNN''">围剿她</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_FNN''">看别人操</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_FNN''">推给我</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_FNN''">内射她</a></div>'
+            end
+            if a!6 and 5<= q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''上原_事件'',''SY_Fuck_FNN''">下一位</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''上原_事件'',''SY_Fuck_FNN''">痉挛中</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''上原_事件'',''SY_Fuck_FNN''">持续喷水中</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                if $SY.制服>1:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''上原_事件'',''SY_Fuck_FNN2''">换身制服</a></div>'else:'<div class="buttonGr"><a href="exec:">换制服</a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">到此为止</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:我最爱的周六！大家是不是都是为了我而来的！</p>'
+             if a>=1:'<p>男人A:没错❤</p>'
+             if a>=2:'<p>>男人B:让我也摸摸❤</p>'
+             if a>=3:'<p><<$SY.name>>:太棒了<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SY.love+=q
+         $SY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>受不了了…</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+if $args[0]="SY_Fuck_FNN2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\FNN1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<15:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_FNN2''">依次口交</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_FNN2''">看她口交</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_FNN2''">给我口</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_FNN2''">骑在我身上</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_FNN2''">换姿势插</a></div>'
+            end
+            if 5<=a and  a<=8:
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''上原_事件'',''SY_Fuck_FNN2''">下一位</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS4"><a href="exec:a=10 & gt ''上原_事件'',''SY_Fuck_FNN2''">又是我！</a></div>'
+            end
+            if a=10:
+            '<div class="buttonS5"><a href="exec:a=11 & gt ''上原_事件'',''SY_Fuck_FNN2''">内射她！</a></div>'
+            end
+            if a=11:
+            '<div class="buttonS4"><a href="exec:a=12 & gt ''上原_事件'',''SY_Fuck_FNN2''">拔出来！</a></div>'
+            end
+            if a=12:
+            '<div class="buttonS5"><a href="exec:a=13 & gt ''上原_事件'',''SY_Fuck_FNN2''">舔干净！</a></div>'
+            end
+            if a=13:
+            '<div class="buttonS4"><a href="exec:a=14 & gt ''上原_事件'',''SY_Fuck_FNN2''">休息？</a></div>'
+            end
+            if a=14:
+            '<div class="buttonS5"><a href="exec:a=15 & gt ''上原_事件'',''SY_Fuck_FNN2''">起来嗨！</a></div>'
+            end
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">先行离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 14>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:我为各位准备了校服喲！</p>'
+             if a=1:'<p>男人A:快过来口我❤</p>'
+             if a=10:'<p><<$SY.name>>:像操我闺女那样操我！你这个渣男！</p>'
+             if a=11:'<p><<$SY.name>>:太棒了<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=15:
+         $SY.love+=q+my.魅力
+         $SY.bad+=q+my.魅力
+         $SY.无限=1
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:太棒了<<$话>></p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+
+
+
+
+
+if $args[0]="SY_Fuck_nxkh3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\G1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a!1 and 0<= q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''上原_事件'',''SY_Fuck_nxkh3''">掰开小穴</a></div>'
+            end
+            if a!2 and 1<= q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''上原_事件'',''SY_Fuck_nxkh3''">舔她</a></div>'
+            end
+            if a!3 and 2<= q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''上原_事件'',''SY_Fuck_nxkh3''">筛选尺寸</a></div>'
+            end
+            if a!4 and 3<= q and q<=8:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''上原_事件'',''SY_Fuck_nxkh3''">骑在我身上</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''上原_事件'',''SY_Fuck_nxkh3''">注入子宫</a></div>'
+            end
+            if 5<=a and  a<=8:
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''上原_事件'',''SY_Fuck_nxkh3''">下一位</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''上原_事件'',''SY_Fuck_nxkh3''">无限中出</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">先行离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:既然各位都是我的女婿候选人！为了我闺女的幸福，我有必要检查各位的精子质量！</p>'
+             if a>=1:'<p><<$SY.name>>:就这样<<$娇喘声>></p>'
+             if a>=5:'<p><<$SY.name>>:太棒了<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=10:
+         $SY.love+=q+my.魅力
+         $SY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SY.name>>:太棒了<<$话>></p>'
+             '<p><<$SY.name>>:不如女婿的事我们先放一边……先满足一下老娘吧！快点下一根肉棒在哪里？！</p>'
+             '<p>·此事件为该人物当前版本的最终事件。</p>'
+         '</div>'
+    end
+
+        
+ 
+ q+=1
+
+End
+--- 上原_事件 ---------------------------------
+

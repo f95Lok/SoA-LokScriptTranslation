@@ -1,0 +1,1410 @@
+# 桥本_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="买单":
+	'<div class ="show_menu"><img src="images\NPC\ZL\pics\手术.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & minutes+=4320 & gt ''桥本_事件'',''整形完成''">三天后</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:emmmmmmm...你这种男人可真难得。</p>'
+		'<p>·手术进行得很顺利，不愧是整形界的一姐。三天后，她顺利拆线出院了，速度之快，堪比奇迹。</p>'
+		if $QB签约链=4:$QB签约链=5
+	'</div>'
+End
+
+
+if $args[0]="整形完成":
+	'<div class ="show_menu"><img src="images\NPC\QB\pics\效果.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">整形成功</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>:效果还可以吗？</p>'
+		'<p>我: 太完美了！一会跟我去见老板。</p>'
+		'<p><<$QB.name>>: 好的，经纪人先生…</p>'
+		if $QB签约链=5:$QB签约链=6
+	'</div>'
+End
+
+
+if $args[0]="压力":
+		QB.压力+=10
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\围攻.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">逃走</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>记者A: 请问你对之前“梅西是谁？”的言论不作出公开道歉吗？！</p>'
+		'<p><<$QB.name>>: 啊…对…对不起！</p>'
+		'<p>记者B: 就目前的得票排名，你觉得谁最有可能夺冠？</p>'
+		'<p>记者C: 之前打工的便利店长爆料说你整容了，这是真的吗？</p>'
+		'<p>记者D: 你作为一名新人就参加如此盛大且专业的比赛，是不是走了后门？</p>'
+		'<p><<$QB.name>>: 啊…这……</p>'
+		$QB事件链=1
+	'</div>'
+End
+
+if $args[0]="便利店":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\店1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">改日再找她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 请问需要加热吗？…如果使用会员卡的话可以享受8折的优惠…</p>'
+		'<p>顾客A: 奇怪…你是新来的嘛？这么好看…</p>'
+		'<p>顾客B: ………嘶，我怎么看你这么眼熟呢…</p>'
+		'<p><<$QB.name>>: 啊…您…认错人了…我只是看店长不在临时兼职一会…</p>'
+		$QB事件链=2
+	'</div>'
+End
+
+if $args[0]="便利店2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\店1-1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">英雄救美</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>店长: 嘿嘿，你想让我改口你没有整容？你以前的旧照片我可都有呢。</p>'
+		'<p><<$QB.name>>: 拜托了……</p>'
+		'<p>店长: 我还没尝过大明星的滋味呢…嘻嘻嘻…</p>'
+		'<p><<$QB.name>>: 别…别这样…</p>'
+		'<p>店长: 嘴上说不要…我看你的身体很享受嘛…一会儿跟我回出租屋里叙叙旧好不好？</p>'
+		$QB事件链=3
+	'</div>'
+End
+
+
+if $args[0]="店长的出租屋":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\店01-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:a=1 & gt ''桥本_事件'',''店长的出租屋''">英雄救美</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=1 & gt ''居民区''">回去吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=0:
+		'<p>*嗡嗡嗡——</p>'
+		'<p><<$QB.name>>: 别…嗯嗯…好爽…</p>'
+		'<p>店长: 只要你今晚从了我…这东西你喜欢我就送你…</p>'
+		'<p><<$QB.name>>: 嗯…嗯喜欢…</p>'
+		'<p>店长: 好嘛…这可是释放压力的好东西！</p>'
+		end
+		
+		if a=1:
+		'<p>我: 老流氓，我已经报警了，不想被抓就快滚！</p>'
+		'<p>店长: ……真的假的？算我倒霉！快溜！</p>'
+		'<p>我: 没事吧？你怎么一个人跑出来了…</p>'
+		'<p><<$QB.name>>: 经纪人…对不起…我以为我能解决…</p>'
+		'<p>我: 没事的…不怪你…</p>'
+		end
+		$QB事件链=4
+		QB.压力=0
+	'</div>'
+End
+
+
+if $args[0]="压力2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\围攻.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''桥本_事件'',''厕所''">逃走</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>记者A: 之前爆料你整容的便利店店长声称你恐吓威胁他！这是真的吗？</p>'
+		'<p><<$QB.name>>: 啊…这…</p>'
+		'<p>记者B: 他还说你从他家偷了东西！这是真的吗？</p>'
+		'<p><<$QB.name>>: 啊…这…</p>'
+		'<p>记者C: 网上有超过2000名观众联名希望封杀你，你怎么看待？</p>'
+		'<p><<$QB.name>>: 啊…啊啊啊……</p>'
+	'</div>'
+End
+
+
+if $args[0]="厕所":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\自慰.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''竞演''">。。。</a></div>'
+		if $桥本晚安=1:
+		'<div class="buttonR1"><a href="exec:$泛解压=1 & gt ''桥本_事件'',''QB_Fuck_泛解压''">特殊解压</a></div>'
+		if $QB.love>=100:'<div class="buttonR2"><a href="exec:$泛解压=2 & gt ''桥本_事件'',''QB_Fuck_泛解压''">禁锢解压</a></div>'else:'<div class="buttonGr"><a href="exec:">未解锁</a></div>'
+		if $QB.love>=125:'<div class="buttonR3"><a href="exec:$泛解压=3 & gt ''桥本_事件'',''QB_Fuck_泛解压''">约束解压</a></div>'else:'<div class="buttonGr"><a href="exec:">未解锁</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QB.name>>: 拜托了…嗯…嗯…为什么不能放过我…嗯…</p>'
+		'<p><<$QB.name>>: 嗯…大脑放空的感觉真好…</p>'
+		'<p>·压力小幅缓解了…</p>'
+		'<p>我：（看来她偷偷拿走的是这个东西）</p>'
+		QB.压力-=10+$QB事件链*4
+		$QB.bad+=5
+		if $QB事件链=4:$QB事件链=5
+	'</div>'
+End
+
+
+if $args[0]="QB_Fuck_询问":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\爽1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_询问''">掰开腿 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_询问''">另一条 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_询问''">找到了 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_询问''">喜欢吗 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_询问''">解压吗 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_询问''">让她自己玩 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_询问''">承诺 </a></div>'
+            end
+
+
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人…怎么了…</p>'
+             '<p>我:这是哪里来的？</p>'
+             '<p><<$QB.name>>: ……你翻我东西？！这是…我…</p>'
+             '<p>我: 不是喔，这是我买的。</p>'
+             '<p><<$QB.name>>: ……………………</p>'
+         '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 那问题来了…你为什么会说“翻我东西”？</p>'
+             '<p><<$QB.name>>: ……</p>'
+             if a>=2:'<p>我: 难道说…你也有这个东西？</p>'
+             if a>=3:'<p>我: 原来一直戴着呢？你的内裤都湿了。</p>'
+             if a>=4:'<p>我: 是不是…喜欢这种感觉…？</p>'
+             if a>=5:'<p>我: 没事的…我知道你有压力需要缓解…</p>'
+             if a>=6:'<p><<$QB.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $QB.love+=q
+         $QB.bad+=10
+         QB.压力-=10
+         if $QB事件链=5:$QB事件链=6
+         '<div class="dialog_menu">'
+             '<p>我:这件事我不会说出去的…每个人都有自己的解压方式…</p>'
+             '<p><<$QB.name>>: 嗯…谢谢你…</p>'
+             '<p>·她的压力减小了…</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="QB_Fuck_助眠":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\录1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_助眠''">单独解压 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_助眠''">今天没有道具 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_助眠''">慢速插入 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_助眠''">稍微快点 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_助眠''">射精 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_助眠''">对话 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_助眠''">开始拍摄 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人…不行不行…我感觉我完全做不到……</p>'
+             '<p>我:怎么了……</p>'
+             '<p><<$QB.name>>: 万一…万一我…万一我做不好怎么办…</p>'
+             '<p>♯她的压力值：75</p>'
+
+         '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 没有振动棒用这个代替吧？</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         $QB.love+=q
+         $QB.bad+=q
+         QB.压力-=5
+         '<div class="dialog_menu">'
+             '<p>我:感觉怎么样…</p>'
+             '<p><<$QB.name>>: 我感觉轻松多了…可以开拍了…</p>'
+             '<p>·她的压力减小了…</p>'
+         '</div>'
+    end
+    
+    if a=7:
+		$桥本助眠=1
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 嘘——让我们戴上耳机……</p>'
+             '<p>我:拍摄很成功……</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="应援交易":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QB\vids\援交0-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''桥本_事件'',''QB_Fuck_援交1''">自媒体人</a></div>'
+		if $QB.bad>=50:'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''桥本_事件'',''QB_Fuck_援交2''">黑粉头子</a></div>'else:'<div class="buttonGr"><a href="exec:">未知联系人</a></div>'
+		if $QB.bad>=75:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''桥本_事件'',''QB_Fuck_援交3''">金主爸爸</a></div>'else:'<div class="buttonGr"><a href="exec:">未知联系人</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''居民区''">算了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: ……你知道要去做什么吗？</p>'
+		'<p><<$QB.name>>: 呃…援交对吧…</p>'
+		'<p>我: …是应援啦！但是…如果想要他们支持你的话…可能要被他们占点便宜…</p>'
+		'<p><<$QB.name>>: 你会在旁边保护我的…对吗？</p>'
+		'<p>我: …约的人到了，你好好表现！</p>'
+	'</div>'
+End
+
+if $args[0]="QB_Fuck_援交1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\援交1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_援交1''">用腿 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_援交1''">小舔一下 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_援交1''">撸管 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_援交1''">射精 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_援交1''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>自媒体人: 哇偶…没想到是这种采访……</p>'
+             '<p><<$QB.name>>: 会给我写正面报道的对吧…</p>'
+             '<p>自媒体人: 当然当然！一定一定！</p>'
+             '<p>我:咳咳……</p>'
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>自媒体人: 真是个全面发展的偶像呢…我一定会为你拉票的！</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             '<p>♯她的压力值：<<QB.压力>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $QB.bad+=q
+         '<div class="dialog_menu">'
+             '<p>我:咳咳…差不多了！</p>'
+             '<p><<$QB.name>>: ……………</p>'
+             '<p>自媒体人: 真不错呀…那个说你整容的店长，一定是造谣！我马上写稿…</p>'
+             '<p>♯她的压力值：<<QB.压力>></p>'
+         '</div>'
+    end
+
+
+  q+=1
+  QB.压力+=q+3
+End
+
+if $args[0]="QB_Fuck_援交2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\援交2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_援交2''">膝枕 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_援交2''">验货 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_援交2''">舔脚 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_援交2''">撸管 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_援交2''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>黑粉头子: 哇偶…之前隔着屏幕…对你不是很了解…相信这一次我们能更加深刻地了解一下彼此…</p>'
+             '<p><<$QB.name>>: 还希望你能在这次见面后黑转粉呢…</p>'
+             '<p>黑粉头子: 粉不粉还要我亲自验验…</p>'
+             '<p>我:咳咳……</p>'
+         '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>黑粉头子: 好清香的味道…和我想象的浓厚骚臭味完全不同！</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             '<p>♯她的压力值：<<QB.压力>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $QB.bad+=q
+         '<div class="dialog_menu">'
+             '<p>我:咳咳…差不多了！</p>'
+             '<p><<$QB.name>>: ……………</p>'
+             '<p>黑粉头子: 之前完全是我的偏见…请你不要放在心上，我回去了会帮你宣传的…</p>'
+             '<p>♯她的压力值：<<QB.压力>></p>'
+         '</div>'
+    end
+
+
+  q+=1
+  QB.压力+=q+4
+End
+
+if $args[0]="QB_Fuck_援交3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\援交3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!4:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_援交3''">袭胸 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_援交3''">舔屁眼 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_援交3''">扒开内裤 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_援交3''">准备上 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & q=0 & gt ''桥本_事件'',''QB_Fuck_援交4''">请他离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 还希望您能多多支持…</p>'
+             '<p>金主爸爸: 来…先喝一杯！</p>'
+             '<p>我:咳咳……</p>'
+             '<p>金主爸爸: 怎么？你有意见？</p>'
+         '</div>'
+    end
+
+
+
+
+    if 3>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>金主爸爸: 什么是投票？是投钱！你们这些小骚逼，一个个都是吞金兽啊！</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             '<p>♯她的压力值：<<QB.压力>></p>'
+         '</div>'
+    end
+
+    if a=4:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         '<div class="dialog_menu">'
+             '<p>我: 咳咳…差不多了！</p>'
+             '<p><<$QB.name>>: ……………</p>'
+             '<p>金主爸爸: 你是不想要我的赞助了？装什么正人君子，你明明和我一样是个玩弄女人的败类！我早就看出来了！</p>'
+             '<p>我: 真是失礼呢…</p>'
+             '<p>♯她的压力值：<<QB.压力>></p>'
+         '</div>'
+    end
+
+
+  q+=1
+  QB.压力+=q+5
+End
+
+if $args[0]="QB_Fuck_援交4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\援交4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_援交4''">现在也不迟 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_援交4''">释放压力吧 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_援交4''">释放 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_援交4''">口交 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_援交4''">骑上来 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_援交4''">加速 </a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_援交4''">大力抽插 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS2"><a href="exec:a=8 & gt ''桥本_事件'',''QB_Fuck_援交4''">颜射 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''桥本_事件'',''QB_Fuck_援交4''">对话 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonS2"><a href="exec:a=10 & gt ''桥本_事件'',''QB_Fuck_援交4''">拍摄宣传物料 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人……为什么要保护我…</p>'
+             '<p>我:看这个…我偷拍下来了…之后可以一直敲诈他了！</p>'
+             '<p><<$QB.name>>: ……我还以为你要玩浪漫的呢……</p>'
+         '</div>'
+    end
+
+
+
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>我: *一段浪漫且温柔的话</p>'
+             '<p><<$QB.name>>: 你真是…这样想的嘛…那我也是…</p>'
+         '</div>'
+    end
+
+    if 8>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p>我: 我知道你压力很大…别再压抑自己了…</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             if a>=5:'<p><<$QB.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         QB.压力=0
+         '<div class="dialog_menu">'
+             '<p>·她的压力清零了…</p>'
+             '<p>我:你现在的样子真美……</p>'
+             '<p><<$QB.name>>: 是因为我感觉轻松多了吗…</p>'
+             '<p>我:快把脸上的精液擦擦…以你现在的状态一定能拍出超有价值的宣传物料…</p>'
+         '</div>'
+    end
+
+    if a=10:
+         $桥本晚安=1
+         '<div class="dialog_menu">'
+             '<p>我: *拍摄十分顺利</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="QB_Fuck_泛解压":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\解压<<$泛解压>>-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_泛解压''">上手 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_泛解压''">玩弄 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_泛解压''">插嘴巴 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_泛解压''">开操 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_泛解压''">骑上来 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_泛解压''">加速抽插 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_泛解压''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS2"><a href="exec:a=8 & gt ''桥本_事件'',''QB_Fuck_泛解压''">事后 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人…我想试试“更加有效”的解压方式…</p>'
+             '<p>我:就这么喜欢被绑住嘛…为你放松解压我可不会手软！</p>'
+             '<p><<$QB.name>>: 来吧…</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 我知道你压力很大…别再压抑自己了…</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             if a>=3:'<p><<$QB.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         QB.压力=0
+         if $泛解压=3 and $QB事件链=6:$QB事件链=7
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 好舒服…我还想要更多……</p>'
+             '<p>·她的压力清零了…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="QB_Fuck_泛解压1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\解压1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">上手 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">玩弄 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">插嘴巴 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">开操 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">骑上来 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">加速抽插 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS2"><a href="exec:a=8 & gt ''桥本_事件'',''QB_Fuck_泛解压1''">事后 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: <<$主角姓>>经纪人…我表现地不好…请你惩罚我…</p>'
+             '<p>我:就这么喜欢被绑住嘛…为你放松解压我可不会手软！</p>'
+             '<p><<$QB.name>>: 来吧…</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 这不是惩罚…是对你的奖励…</p>'
+             '<p><<$QB.name>>: 好耶<<$娇喘声>></p>'
+             if a>=3:'<p><<$QB.name>>: 爽<<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 好舒服…我还想要更多……</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="QB_Fuck_诱人":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\拍摄1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_诱人''">摸她 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_诱人''">抱她坐上来 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_诱人''">侧着插 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_诱人''">加速抽插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_诱人''">射精 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_诱人''">事后 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_诱人''">开始拍摄 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''竞演''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 拍之前…经纪人…我想和你“调整”一下状态…</p>'
+             '<p>我:来吧…</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             if a>=3:'<p><<$QB.name>>: <<$话>></p>'
+             if a>=6:'<p>我: 舒服了吧，舒服了就快工作，大家都在外面等着呢。</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         $桥本诱人=1
+         '<div class="dialog_menu">'
+             '<p>·拍摄十分顺利！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="QB_Fuck_双人":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\双人1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!12 and a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_双人''">一起上！ </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonP"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_双人''"><<$QB.name>>口 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_双人''"><<$SSYY.name>>口 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_双人''">含住手指 </a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_双人''">揉她们的奶 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_双人''">插她们的逼 </a></div>'
+            end
+            if a!7 and 6<=q:
+            '<div class="buttonP"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_双人''">干<<$QB.name>> </a></div>'
+            end
+            if a!10 and 6<=q:
+            '<div class="buttonS2"><a href="exec:a=10 & gt ''桥本_事件'',''QB_Fuck_双人''">干<<$SSYY.name>> </a></div>'
+            end
+            if a=7 or a=10:
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''桥本_事件'',''QB_Fuck_双人''">换姿势 </a></div>'
+            end
+            if a=8 or a=11:
+            '<div class="buttonS5"><a href="exec:a+=1 & gt ''桥本_事件'',''QB_Fuck_双人''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_双人''">还能做 </a></div>'
+                '<div class="buttonR4"><a href="exec:minutes+=30 & gt ''大别墅'',''主卧''">累了</a></div>'
+            '</div>'
+    end
+
+
+
+    if 11>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人❤</p>'
+             '<p><<$SSYY.name>>: 这几件演出服怎么样❤</p>'
+             '<p>我:哇偶❤</p>'
+             if a>=1:'<p><<$QB.name>>: 经纪人❤<<$娇喘声>></p>'
+             if a>=2:'<p><<$SSYY.name>>: <<$娇喘声2>></p>'
+             if a>=7:'<p><<$QB.name>>: <<$话2>></p>'
+             if a>=9:'<p><<$SSYY.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+
+    
+    if a=12:
+         $QB.love+=q+my.魅力
+         $SSYY.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 怎么了…不行了吗？都没射出来多少…</p>'
+             '<p><<$QB.name>>: 因为都射给我啦❤</p>'
+             '<p>我:呃…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="QB_Fuck_早起":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\早起1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!3:
+        '<div class="button_menu">'
+            if a<2: '<div class="buttonP"><a href="exec:a+=1 & gt ''桥本_事件'',''QB_Fuck_早起''">一起侍奉 </a></div>'
+            if a=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''桥本_事件'',''QB_Fuck_早起''">射精 </a></div>'
+            '</div>'
+            
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:minutes+=45 & gt ''大别墅'',''主卧''">起床 </a></div>'
+            '</div>'
+    end
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人❤起床啦❤</p>'
+             '<p><<$SSYY.name>>: 我们的早安闹铃怎么样❤</p>'
+             '<p>我:哇偶❤</p>'
+         '</div>'
+    end
+
+
+    
+    if a=3:
+         $QB.love+=q
+         $SSYY.love+=q
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 射了❤</p>'
+             '<p><<$QB.name>>: 这下精神百倍了吧❤</p>'
+             '<p>我:呃…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="QB_Fuck_按摩广告":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\MSGG1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">开始拍摄 </a></div>'
+            end
+            if a=1 or a=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">按摩腿部 </a></div>'
+            end
+            if a=2:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">按摩臀部 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonR3"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">暂停拍摄 </a></div>'
+            end
+            if a>=4:
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">口我 </a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">插嘴巴 </a></div>'
+            end
+            if a!7 and 7<=q and q<=9:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">肏弄她 </a></div>'
+            end
+            if a!8 and 8<=q and q<=10:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">换姿势 </a></div>'
+            end
+            if a!9 and a!10 and 9<=q and q<=12:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">大力抽插 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">射精 </a></div>'
+            end
+            if a=10:
+            '<div class="buttonGn"><a href="exec:a=11 & gt ''桥本_事件'',''QB_Fuck_按摩广告''">恢复拍摄 </a></div>'
+            end
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''公司''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人…这家按摩院是你开的？</p>'
+             '<p>我:是啊…请你来做代言人，一定能吸引更多的客户。</p>'
+             '<p><<$QB.name>>: 好，那我一定会全力以赴的！</p>'
+         '</div>'
+    end
+
+
+    if 3>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 光临私人按摩院，您会发现身心焕然一新的感觉。</p>'
+             if a>=2:'<p>我: 让我们的按摩师为您缓解疼痛，舒缓压力。</p>'
+             if a>=3:'<p>我: 暂停一下，所有人都给我出去！现在！</p>'
+         '</div>'
+    end
+
+    if 10>=a and a>=4:
+         '<div class="dialog_menu">'
+             if a=4:'<p><<$QB.name>>: 怎么清场了？啊！！这么激烈…喷喷了啊啊啊！</p>'
+             if a>=5:'<p>我: 突然来感觉了就想肏你了，你也忍不住了吧？</p>'
+             if a>=6:'<p><<$QB.name>>: <<$娇喘声>></p>'
+             if a>=7:'<p><<$QB.name>>: <<$话2>></p>'
+             if a>=10:'<p>我: 啊啊啊啊啊！射了！</p>'
+         '</div>'
+    end
+
+
+
+    if a=11:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         $QB按过=1
+         '<div class="dialog_menu">'
+             '<p>我: 所有人进来！拍摄继续，别忘了说词。</p>'
+             '<p><<$QB.name>>: 呼——呼…体验全身放松，焕发活力，此处是您不二的选择…</p>'
+             '<p><<$QB.name>>: 欢…欢迎前来体验…*差点忘词了</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="挑选工作":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\挑选工作.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+
+        '<div class="button_menu">'
+			'<div class="buttonG1"><a href="exec:gt ''桥本_事件'',''QB_Fuck_按摩广告''">代言按摩房</a></div>'
+			if $QB.多面>=15:'<div class="buttonG2"><a href="exec:gt ''桥本_事件'',''电台采访''">电台采访</a></div>'else:'<div class="buttonGr"><a href="exec:">多面能力不足</a></div>'
+			if $QB.多面>=20:'<div class="buttonG3"><a href="exec:gt ''桥本_事件'',''杂志拍摄''">杂志拍摄</a></div>'else:'<div class="buttonGr"><a href="exec:">多面能力不足</a></div>'
+			if $同意新演出=1:'<div class="buttonPu4"><a href="exec:gt ''群演_事件'',''新新节目''">今夜三人行 </a></div>'else:'<div class="buttonGr"><a href="exec:">没被允许三人行</a></div>'
+			if $丝袜事件链=4:'<div class="buttonP"><a href="exec:gt ''丝袜店_事件'',''丝袜代言''">丝袜代言 </a></div>'
+      '</div>'
+
+
+
+         '<div class="dialog_menu">'
+             '<p><<$SSYY.name>>: 拿了冠军以后居然有这么多工作邀请？！</p>'
+             '<p>我: 让我看看…</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="电台采访":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\电台采访<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+
+        '<div class="button_menu">'
+			if a=0:'<div class="button"><a href="exec:a=1 & gt ''桥本_事件'',''电台采访''">揭晓嘉宾</a></div>'
+			if a=1:'<div class="buttonB1"><a href="exec:minutes+=60 & a=0 & gt ''桥本_事件'',''QB_Fuck_电台采访''">等待结束</a></div>'
+			'<div class="button"><a href="exec:gt ''电视台''">离开</a></div>'
+      '</div>'
+
+
+
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>: 各位听众，欢迎来到电台之声，我是你们的播音主持人，下面为大家介绍本期的重量级嘉宾！没错她就是……</p>'
+			 if a>=1:
+			 '<p><<$QB.name>>: 哈喽！大家好…很高兴见到各位！我就是新一届的冠军！</p>'
+             '<p><<$QT.name>>: 让我们热恋欢迎<<$QB>>小姐！</p>'
+			 '<p>㊖获得了报酬，积累了人气</p>'
+			 OMoney+=QB_fans*$QB.多面
+			 QB_fans+=rand(5,10)
+			 end
+         '</div>'
+
+
+End
+
+if $args[0]="QB_Fuck_电台采访":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\QTB1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_电台采访''">插一脚 </a></div>'
+            end
+            if a!0:
+            '<div class="buttonP"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_电台采访''">干<<$QB.name>> </a></div>'
+            end
+            if a!0:
+            '<div class="buttonB1"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_电台采访''">干<<$QT.name>> </a></div>'
+            end
+            if 2<=a and a<=4:
+            '<div class="buttonP"><a href="exec:a+=1 & gt ''桥本_事件'',''QB_Fuck_电台采访''">继续干她 </a></div>'
+            end
+            if 6<=a and a<=8:
+            '<div class="buttonB1"><a href="exec:a+=1 & gt ''桥本_事件'',''QB_Fuck_电台采访''">继续干她 </a></div>'
+            end
+            if a=5 or a=9:
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''桥本_事件'',''QB_Fuck_电台采访''">射精 </a></div>'
+            end
+            if a=10:
+            '<div class="buttonS2"><a href="exec:a=rand(2,8) & gt ''桥本_事件'',''QB_Fuck_电台采访''">再起！ </a></div>'
+            '<div class="buttonS3"><a href="exec:a=11 & gt ''桥本_事件'',''QB_Fuck_电台采访''">舔干净 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS2"><a href="exec:a=rand(2,8) &  gt ''桥本_事件'',''QB_Fuck_电台采访''">回马枪！ </a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">累了</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人…看什么呢？</p>'
+             '<p><<$QT.name>>: 想不想一起来玩呀❤</p>'
+             '<p>我:呃*咽口水</p>'
+         '</div>'
+    end
+
+
+    if 10>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             '<p><<$QT.name>>: <<$娇喘声2>></p>' 
+             if 5>=a and a>=1:'<p><<$QB.name>>: <<$话>></p>'
+             if 9>=a and a>=6:'<p><<$QT.name>>: <<$话2>></p>'
+             if a=10:'<p>我: 忍不住了啊啊啊！射了！</p>' 
+         '</div>'
+    end
+
+
+    if a=11:
+         $QB.love+=q
+         $QB.bad+=q
+         $QT.love+=q
+         $QT.bad+=q
+         QBQT=1
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>: 我们俩的性相很合得来呢❤</p>' 
+             '<p><<$QB.name>>: 嗯——嗯<<$娇喘声>></p>'
+             '<p>·二人的关系加深了❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="房袭":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\袭_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+
+        '<div class="button_menu">'
+			'<div class="buttonS"><a href="exec:gt ''桥本_事件'',''QB_Fuck_别房间''">和她做爱</a></div>'
+      '</div>'
+
+
+
+         '<div class="dialog_menu">'
+             '<p>·回到卧室，发现<<$QB.name>>正在大落地窗前等着你。</p>'
+             '<p>我: 怎么了？找我有事？</p>'
+             '<p><<$QB.name>>: 你最近都在忙什么？跟我都没那么频繁了…我…我…想你想得快委屈死了…</p>'
+         '</div>'
+
+End
+
+if $args[0]="QB_Fuck_别房间":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\袭_<<$times_of_day>>-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!7:
+        '<div class="button_menu">'
+            if a!0 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=0 & gt ''桥本_事件'',''QB_Fuck_别房间''">舔侍 </a></div>'
+            end
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_别房间''">口交 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_别房间''">抠逼 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_别房间''">坐上来 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_别房间''">加速抽插 </a></div>'
+            end
+            if a<5 and 4<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_别房间''">大力抽插 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_别房间''">射精 </a></div>'
+            end
+            if a=6:
+            if $times_of_day='night':'<div class="buttonGn"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_别房间''">晚安 </a></div>'else:'<div class="buttonS5"><a href="exec:a=7 & gt ''桥本_事件'',''QB_Fuck_别房间''">舔干净 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''大别墅'',''主卧''">我也是</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+            if $times_of_day='night':'<p>我: 怎么你一到晚上就欲火焚身了？</p>'else:'<p>我:  大白天的，这么想要？</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+             if a>=3:'<p><<$QB.name>>: <<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         桥本CD=0
+         '<div class="dialog_menu">'
+            if $times_of_day='night':'<p><<$QB.name>>: <<$主角姓名>>，偶像退役以后，我想和你生活在一起❤</p>'else:'<p><<$QB.name>>: <<$主角姓名>>，我想我有点离不开你了❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="杂志拍摄":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\宣传物料3.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+        '<div class="button_menu">'
+			'<div class="buttonS4"><a href="exec:gt ''桥本_事件'',''QB_Fuck_新助眠''">❤拍摄间隙</a></div>'
+			'<div class="buttonG"><a href="exec:gt ''台长_事件'',''TZ_Fuck_谢师宴''">♕拜访<<$TZ.name>> </a></div>'
+			'<div class="button"><a href="exec:gt ''大别墅''">一起回去</a></div>'
+      '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>·<<$QB.name>>已经在镜头前表现得游刃有余，和刚出道平平犯错相比完全是两个人</p>'
+             '<p>摄影师: 很好，太完美了！再来一张！</p>'
+			 '<p><<$QB.name>>: 好的喔！</p>'
+			 '<p>㊖获得了报酬，积累了人气</p>'
+			 OMoney+=QB_fans*$QB.多面
+			 QB_fans+=rand(5,10)
+         '</div>'
+
+End
+
+if $args[0]="QB_Fuck_新助眠":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QB\vids\录1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''桥本_事件'',''QB_Fuck_新助眠''">没骗我吧 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''桥本_事件'',''QB_Fuck_新助眠''">今天没有道具 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''桥本_事件'',''QB_Fuck_新助眠''">慢速插入 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''桥本_事件'',''QB_Fuck_新助眠''">稍微快点 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''桥本_事件'',''QB_Fuck_新助眠''">射精 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''桥本_事件'',''QB_Fuck_新助眠''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">恢复拍摄</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 经纪人…经纪人…过来一下！</p>'
+             '<p>我:怎么了……</p>'
+             '<p><<$QB.name>>: 我…有点紧张，而且…湿了…</p>'
+             '<p>♯她的压力值：0.5</p>'
+         '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>我: 没有振动棒用这个代替吧？</p>'
+             '<p><<$QB.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    
+    if a=6:
+         $QB.love+=q
+         $QB.bad+=q
+         '<div class="dialog_menu">'
+             '<p><<$QB.name>>: 真棒(＾－＾)V没有压力了！</p>'
+             '<p>我: 那快回去吧，可别让摄影师等急了。</p>'
+         '</div>'
+    end
+  q+=1
+End
+--- 桥本_事件 ---------------------------------
+

@@ -1,0 +1,1269 @@
+# vice_principal_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+
+
+if $args[0]="competition_test":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\测试.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	$competition_title[1]='Which of the following styles of architecture is the Palace of Versailles in Paris, France?(Damn, how do I know)'
+	$competition_options[1]='A-Baroque style B-Classicism C-Renaissance '
+	$competition_title[2]='The 10th DOTA2 International Invitational Final PSG.In LGD`s game against TSpirit, what major decisions did LGD make?'
+	$competition_options[2]='A-Believe in small 8 B-Mammoth ptsd C-all of the above '
+	$competition_title[3]='Among the three main requirements set out in the [2020 New Policy], how much do high-precision and certain social status occupations need to be given to women to engage in?'
+	$competition_options[3]='A-50% B-70% C-90% '
+	$competition_title[4]='Which country was the Goddess of Liberty originally given to by France?'
+	$competition_options[4]='A-United Kingdom B-United States C-Egypt '
+	$competition_title[5]='On June 4, 1942, the Battle of Midway broke out, and the winner was： '
+	$competition_options[5]='A-Imperial Japanese Navy B-U.S. Pacific Fleet C-Beiyang Navy '
+	$competition_title[6]='What do you mean, I actually broadcast it live?What am I doing if I don`t live broadcast?”From：'
+	$competition_options[6]='A-Xiaobao exploring flowers B-anchor!Undergraduate!   C-Mongolia on the order '
+	$competition_title[7]='The first wave of female leadership emphasized political rights and fought for political equality for women.'
+	$competition_options[7]='A-Correct B-wrong C-don`t know '
+	$competition_title[8]='Football superstar Leo Messi has died in Barcelona.'
+	$competition_options[8]='A-Correct B-wrong C-don`t know '
+	$competition_title[9]='Has the women`s leadership movement had a negative impact? '
+	$competition_options[9]='A-There is B-there is no C-I don`t know '
+	$competition_title[10]='All citizens should actively promote and develop the women`s leadership movement.'
+	$competition_options[10]='A-Correct B-wrong C-don`t know '
+	if a!11:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 &pick_a+=1& gt ''vice_principal_event'',''competition_test''">Choose A</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &pick_b+=1& gt ''vice_principal_event'',''competition_test''">Choose B</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 &pick_c+=1& gt ''vice_principal_event'',''competition_test''">Choose C</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 &$fxz_event_counseling=1& gt ''university''">Participate in competition counseling</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a!11:
+	 '<div class="dialog_menu">'
+		 '<p><<$FXZ.name>>:Oh?Do you want to sign up for the [Citywide History Competition]?No problem, these are ten audition questions.With a full score of 100, you can sign up if you pass 60 points.</p>'
+		 '<p><<$competition_title[a]>></p>'
+		 '<p><<$competition_options[a]>></p>'
+	 '</div>'
+	 end 
+
+	if a=11:
+		if pick_a>=2:pick_a=2
+		if pick_b>=6:pick_b=6
+		if pick_c>=2:pick_c=2
+
+		$score=(pick_a+pick_b+pick_c)*10
+	 '<div class="dialog_menu">'
+		 '<p><<$FXZ.name>>:Your score is 【<<$score>>Points], if you pass more than 60 points, you can find me to participate in the special training of the competition!</p>'
+	 '</div>'
+	 end 
+
+	 a+=1
+End
+
+
+if $args[0]="additional_requirements":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\补习要求<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!4:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''additional_requirements''">continue</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=30 &a=0 & q=0 & gt ''vice_principal_event'',''fxz_touring_tex''">Help me</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...what?What do you mean, you can`t concentrate and can`t go to the competition?</p>'
+			 '<p>Me: I went to the hospital for an examination after I had a stomach ache last time. The doctor said that I couldn`t concentrate and was distracted.</p>'
+			 '<p><<$FXZ.name>>:...where are you all distracted?</p>'
+			 '<p>Me: Me..Below me..As long as you think of the teacher, you will get an erection...I am very focused on reviewing..</p>'
+			 '<p><<$FXZ.name>>: Dizzy, you give me this one out?*What can I do about this? It`s easy to do if it`s good, but it`s not easy to do if it`s not good.…</p>'
+
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: If the teacher can`t help it....I can only abandon the game...</p>'
+			 '<p><<$FXZ.name>>: No, you must not abandon the game!If your one…………</p>'
+			 '<p><<$FXZ.name>>:That...if you can stay calm, you can concentrate on reviewing, right?……</p>'
+			 '<p>Me: Probably……</p>'
+			 '<p><<$FXZ.name>>:I see... follow me to the small classroom.You must not abandon the game.The names are all reported... It`s a big deal... it`s not that I haven`t seen it before.…</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:Don`t look at the teacher first, block the teacher`s face with the exam syllabus!</p>'
+			 '<p>Me: No way...teacher..I feel it.</p>'
+			 '<p><<$FXZ.name>>:…...Then you go to the toilet to solve it, go and go back quickly.</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>You went to the toilet and pretended to be doing it for a long time.</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 $FXZ.bad+=2
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:Why has it been so long?Precious review time is wasted!</p>'
+			 '<p>Me: Deputy...principal...I... I have delayed ejaculation syndrome, which is generally difficult to ejaculate.……</p>'
+			 '<p><<$FXZ.name>>:Now that it has been resolved, let`s continue to take the time to review, come on.Let`s look at this knowledge point……</p>'
+			 '<p>After a while……</p>'
+			 '<p>Me: No, teacher... I feel it again……</p>'
+	         if $FXZ.bad<=70:
+	             '<p><<$FXZ.name>>:It`s a waste of time for you to come and go like this!Forget it, there is really nothing I can do with you!</p>'
+	         else:
+	             '<p><<$FXZ.name>>:It`s okay, the teacher will help you shoot it out, don`t hold it back.</p>'
+	         end
+		 '</div>'
+	end
+ q+=1
+
+End
+
+
+
+if $args[0]="fxz_touring_tex":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\辅导<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_touring_tex''">Jerk off</a></div>'
+			end
+			if a!2 and $FXZ.bad>58 and 10>q and q>3:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_touring_tex''">Oral sex</a></div>'
+			end
+			if a!3 and $FXZ.bad>=9 and q<=4:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_touring_tex''">serve</a></div>'
+			end
+			if a!4 and $FXZ.bad>19 and 10>q and q>=2:
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''fxz_touring_tex''">Rub your buttocks</a></div>'
+			end
+			if a!5 and $FXZ.bad>34 and 10>q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_touring_tex''">Seeing rape and rubbing buttocks</a></div>'
+			end
+			if a!6 and $FXZ.bad>60 and 10>q and q>=4:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''vice_principal_event'',''fxz_touring_tex''">insert</a></div>'
+			end
+			if  $FXZ.bad<=70:'<div class="buttonGr"><a href="exec:">Unlocked</a></div>'
+			if q>0:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''vice_principal_event'',''fxz_touring_tex''">Ejaculation</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $FXZ.bad>70:'<div class="button"><a href="exec:minutes+=30 &a=0&q=0&gt ''vice_principal_event'',''set_off_for_the_competition''">Set off for the competition</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">Ok</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...Don`t think too much, the teacher will help you...just so you can concentrate on reviewing…</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...That`s right, it`s correct to choose A, yes!That`s it, continue to review.</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:Um...um...um...um...um...hurry up and shoot it out...um...um...young meat sticks are good...hard enough and thick enough...long enough…</p>'
+		 '</div>'
+	end
+
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...what about this?Can the teacher lick your nipples with his tongue to shoot out faster?Shoot it out quickly and hurry up to review.</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...Touching the teacher`s buttocks like this, will it make you...hmm.........( Hmm... it`s really hard under you...the teacher who rubbed feels it too...)</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: The naked sight made her even more excited, so she shot it out quickly. If she stared at the teacher`s cock in this way, the teacher would be shy.(Rubbing so hard...um... it seems to be flowing water...is my ass soft enough and big enough...a kid like you shouldn`t be able to stand it...)</p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>The fat cock instantly sucked your cock, her buttocks swayed unconsciously, and the thick cock made the small hole shrink constantly, and the abundance of lewd water inside made the pumping very smooth.</p>'
+			 '<p><<$FXZ.name>>:…...it`s too deep...it`s so thick...this matter...must be kept secret...can`t...can`t let others know... do you hear me?…</p>'
+		 '</div>'
+	end
+	if a=7:
+		 $FXZ.love+=1
+		 $FXZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...Why did you shoot it all in the teacher`s hands? It`s disgusting...You have to review the competition questions when you go back, don`t forget.</p>'
+		 '</div>'
+	end
+ 
+ q+=1
+
+End
+
+
+if $args[0]="set_off_for_the_competition":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\竞赛<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!4:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''set_off_for_the_competition''">continue</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">Back to school</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·Pre-match-backstage preparation</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: I... actually don`t have much confidence…</p>'
+			 '<p><<$FXZ.name>>: Don`t be nervous..The teacher helps you relieve stress...Take a good look, some knowledge points are very obscure..</p>'
+			 '<p><<$FXZ.name>>:You have to get a good grade, and I won`t treat you badly when I become the principal.</p>'
+			 '<p>Me: What is this competition system like?……<<$FXZ.name>>It seems to be used to “serving” me.</p>'
+			 '<p><<$FXZ.name>>: This competition system is a rush to answer, whoever completes the 20 questions first will win.Don`t worry, put this in your asshole later, and the teacher will prompt you with the remote control button!！</p>'
+			 '<p>· <<$FXZ.name>>Took out a remote control vibrating egg.</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: For a while..The teacher will be in the audience for a while..Cheat for you..You have to clamp your asshole a little bit....correct...Harder...correct..I can`t control so much, it`s taboo for teachers and students...As long as I get a high score, I will be a good student.</p>'
+			 '<p>Me: Then if I win, can the teacher reward me?</p>'
+			 '<p><<$FXZ.name>>: It`s okay..As long as you can get the winner..The teacher will give you whatever you want....correct..Continue to top me...</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>·After a while, the game began.</p>'
+			 '<p>Examiner: Everyone, please listen to the questions. In 1813, the Russian Empire, the Kingdom of Prussia, the British Empire, the Austrian Empire and other countries formed the first time...</p>'
+			 '<p>Me: Ding!Before the examiner finishes reading the question, you press the answer button.</p>'
+			 '<p>·Om-om-om-close your eyes and feel the vibration of the vibrating egg in your anus.</p>'
+		     '<p>Me: Three times..Choose C!The sixth time!</p>'
+		     '<p>Examiner: Congratulations on the correct answer!Please listen to the next question....</p>'
+		     '<p>Me: Ding!</p>'
+		     '<p>Examiner: Congratulations on the correct answer!Please listen to the next question....</p>'
+		     '<p>Me: Ding!</p>'
+		     '<p>You win 30 consecutive victories all the way through the strategy of answering first and then feeling the frequency of jumping eggs.In the audience<<$FXZ.name>>All jumped up with excitement!</p>'
+
+		 '</div>'
+	end
+
+	if a=4:
+		 $FXZ.love=100
+		 $FXZ.bad+=30
+		 $fxz_event_counseling=2
+		 '<div class="dialog_menu">'
+			 '<p>·After the game-backstage rewards</p>'
+			 '<p><<$FXZ.name>>:The teacher really didn`t misunderstand you, you are my godson!No one in history has won 30 consecutive victories.Great, now my hole card is thicker.</p>'
+			 '<p>Me: It`s all the credit of the teacher`s remote help.</p>'
+			 '<p><<$FXZ.name>>: The teacher loves you so much. You are awesome. You are smart and you are good at learning. You can`t reward you if you don`t!(And the dick is so thick and so big.I haven`t had an orgasm in a long time...）</p>'
+			 '<p>Me: I`m going to shoot, teacher, you are so special today, you can twist.I`m going to shoot.</p>'
+			 '<p><<$FXZ.name>>:Hold back!Didn`t it last in school before?Endure it for a while, will you do it with the teacher every day from now on?On the table, I am your teacher, the vice principal of your classmates, and in private, I am your sexual desire handler.</p>'
+     		 '<p>2 hours later，<<$FXZ.name>>I felt a stream of heat gushing in her womb, and this warmth mixed with happiness and joy melted her body and mind.She collapsed to the ground, her thighs trembled uncontrollably, and a pale yellow liquid flowed out with the white turbidity.Although she was incontinent in front of her favorite students, she became more determined.</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+if $args[0]="in_the_room":
+	if $FXZ_ZJ>2:$fxza=4
+	if $FXZ_ZJ=2:$fxza=3
+	if $FXZ_ZJ=1:$fxza=2
+	if $FXZ_ZJ=0:$fxza=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\偷看<<$fxza>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &  a=1 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">Strengthen her</a></div>'
+		if $FXZ_ZJ>=2:'<div class="buttonS"><a href="exec:minutes+=5 &  gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Mother and daughter rice bowl: stay overnight</a></div>'else:'<div class="buttonGr"><a href="exec:">❤？❤？❤？</a></div>'
+		 '<div class="buttonS1"><a href="exec:minutes+=15 & gt ''vice_principal_office'',''win_over''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>The door is unlocked, you look in from outside the door.</p>'
+		'<p><<$FXZ.name>>: Oh~ It`s all because of the new policy, my husband chose to settle in other cities all year round.</p>'
+		if  $fxza=1:'<p><<$FXZ.name>>:...I kind of want it……</p>'
+		if  $fxza=2:'<p><<$FXZ.name>>:...is it the sound of screaming?...do not know<<$protagonists_name>>What are you doing in my daughter`s room…</p>'
+		if  $fxza>2:'<p><<$FXZ.name>>:...I really want to be with them……</p>'
+	'</div>'
+End
+
+if $args[0]="fxz_fuck_qiang_shang":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\家里<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!6:
+		'<div class="button_menu">'
+			if  q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">Thrusting</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">Deep throat</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">Throat pinching female upper position</a></div>'
+			end
+			if a!4 and 13>=q and q>=3:         
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">sprint</a></div>'
+			end
+			if a=4:  
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">Shoot in the mouth</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''vice_principal_event'',''fxz_fuck_qiang_shang''">Swallow sperm</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=10 & gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: Ah ah..you...Why did you come in..slow..Slow down....</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:......ah...…<<$words>>…<<$panting>>… </p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: You really are....Necrosis...The teacher will drink it obediently......</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="zj_fuck_mother_and_daughter_overnight":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\母女过夜<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	if  a!9:
+		'<div class="button_menu">'
+			if a!0 and q<3:
+			'<div class="button"><a href="exec:a=0 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Three people kissing</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Mother and daughter serve</a></div>'
+			end
+			if a!2 and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Mother and daughter blowjob</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Common orgasm</a></div>'
+			end
+			if a!4 and q>3:
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Fuck daughter</a></div>'
+			end
+			if a!5 and q>3:
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Fuck mom</a></div>'
+			end
+			if a=4 or a=5:
+			'<div class="button"><a href="exec:a+=2 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Ejaculation</a></div>'
+			end
+			if a=4 or a=5:
+			'<div class="button"><a href="exec:a=8 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Female ♂female salvo</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''vice_principal_event'',''zj_fuck_mother_and_daughter_overnight''">Gentle</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:hour=7 & minutes+=1440 &$my.energy=mymax[$energy] & gt ''vice_principal_house''">Three people sleep</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: Want to sleep here...We must first obtain our consent.</p>'
+			 '<p><<$ZJ.name>>:...Mom can`t eat alone!！ </p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>... </p>'
+			 '<p><<$ZJ.name>>:...<<$words>>... </p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $FXZ.love+=q*2+$my.charm
+		 $FXZ.bad+=q
+		 $ZJ.love+=q*2+$my.charm
+		 $ZJ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>·They were limp on the bed, their cunt trembling every time they shot semen, and their slender fingers were still rubbing their dry, red and swollen cunt with lewd water.</p>'
+			 '<p><<$FXZ.name>>:Will you come to see our mother and daughter every day from now on?</p>'
+			 '<p>·This kind of perverted nondescript relationship has made the connection between mother and daughter closer.The relationship has become more promiscuous!</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="have_a_shot":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\教室口<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:minutes+=15 & a=1 &  gt ''vice_principal_event'',''have_a_shot''">Oral sex</a></div>'
+		if a=1:'<div class="button"><a href="exec:minutes+=15 & a=2 &  gt ''vice_principal_event'',''have_a_shot''">Ejaculation</a></div>'
+		if a=2:'<div class="button"><a href="exec:minutes+=15 & gt ''classroom'',''have_a_shot''">Back to classroom</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if a=0:'<p><<$FXZ.name>>: Today we will do a follow-up test, our history competition winning representative<<$protagonists_name>>Classmates, exempt from the exam!Come and invigilate the exam with the teacher.</p>'
+	   if a=1:
+		'<p>Me: Hmm~ The treatment of exemption from the exam is really good.</p>'
+		'<p><<$FXZ.name>>:Yo Chi yo chi....</p>'
+	   end
+	   if a=2:
+	   '<p><<$FXZ.name>>: Really!Your semen is fishy and thick, and the teacher who shot it is all over his face.What should I do if I am discovered by other classmates.</p>'
+		 $FXZ.love+=3+$my.charm
+		 $FXZ.bad+=3
+	   end
+	'</div>'
+End
+
+if $args[0]="fxz_fuck_winning_reward":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\奖励<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!5:
+		'<div class="button_menu">'
+			if a!0 and q<3:
+			'<div class="button"><a href="exec:a=0 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">kiss</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">Riding position</a></div>'
+			end
+			if a!2 and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">Normal bit</a></div>'
+			end
+			if a!3 and 2<=q and q<6:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">Sideways position</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">Back position</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_fuck_winning_reward''">Internal injection</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=10 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>Kiss you proficiently, as if this kind of reward is deserved.</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>... </p>'
+			 '<p><<$FXZ.name>>:...<<$words>>... </p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: Really amazing..Sure enough, nothing disappointed the teacher.</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="fxz_fuck_picket_team":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\纠察队<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!4:
+		'<div class="button_menu">'
+			if a!0 and q<3:
+			'<div class="button"><a href="exec:a=0 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Slap in the face</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Deep throat examination</a></div>'
+			end
+			if a!2 and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Vaginal examination</a></div>'
+			end
+			if a!3 and q<6:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Anal examination</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Ejaculation</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=10 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Picket team member: Hello!Madam Vice-principal, if you sign and abandon the election for the next principal, you can retire safely.</p>'
+			 '<p><<$FXZ.name>>:Damn it!Why are you doing this?Don`t you think this is too much?！</p>'
+			 '<p>Picket team member: Don`t look at the coffin and don`t cry. The picket team is now going to check your mouth, vagina, and anus for contraband. You have to cooperate well!</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Picket team member: Hello!Give me a good hold to the deepest part!You all gave me a good look!This is the contraband inspection method of the picket team!</p>'
+			 '<p><<$FXZ.name>>:Woohoo...Woohoo...!</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>...please, let me go! </p>'
+			 '<p>Picket team member: This is<<$XZ.name>>The privilege of acquiescence, want us to let you go?Just sign the letter of commitment obediently!</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...it hurts!...it hurts!The anus is like being burned by fire... don`t stick it in anymore!<<$protagonists_name>>, help me! </p>'
+			 '<p>Picket team member:<<$protagonists_name>>！Take a good look and learn well!</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:You bastards!When I take office, I will never let you go!</p>'
+			 $picket_mission=99
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="fxz_fuck_office":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室早-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!7:
+		'<div class="button_menu">'
+			if a!0 and q<3:
+			'<div class="button"><a href="exec:a=0 & gt ''vice_principal_event'',''fxz_fuck_office''">Insert your finger</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_fuck_office''">insert</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_fuck_office''">accelerate</a></div>'
+			end
+			if a!3 and 0<q and q<6:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_fuck_office''">Riding position</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''fxz_fuck_office''">Turn around</a></div>'
+			end
+			if a!5 and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_fuck_office''">sprint</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''vice_principal_event'',''fxz_fuck_office''">Ejaculation</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''vice_principal_event'',''fxz_fuck_office''">afterwards</a></div>'
+			end
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=10 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Hey hey!Madam vice principal, your pussy sucks my fingers so tightly!</p>'
+			 '<p><<$FXZ.name>>:Don`t you like it?！<<$panting>></p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:Oh oh oh...!It`s at the mouth of the uterus!The big meat stick feels so cool stroking the uterine mouth!</p>'
+		 '</div>'
+	end
+
+
+	if 6>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>...<<$words>>！ </p>'
+		 '</div>'
+	end
+
+	if a=7:
+		  $FXZ.love+=q*3/2+$my.charm
+		  $FXZ.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...do this kind of thing in broad daylight!I`m really indiscriminate... you have to keep it a secret for me, you know? </p>'
+			 '<p>Me: You obviously yelled very loudly……</p>'
+		 '</div>'
+	end
+
+
+
+ q+=1
+
+End
+
+if $args[0]="fxz_fuck_principal`s_office":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\放学-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!10:
+		'<div class="button_menu">'
+			if a!1 and q=0:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">Oral sex</a></div>'
+			end
+			if a!2 and q>0:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">She dominates</a></div>'
+			end
+			if a!7 and q>0:
+			'<div class="button"><a href="exec:a=6 & gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">I dominate</a></div>'
+			end
+			if 8>=a and a>=2:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">Keep doing</a></div>'
+			end
+			if a=4 or a=8:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">Ejaculation</a></div>'
+			end
+			if a=5 or a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">Lick clean</a></div>'
+			end
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=10 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me:<<$FXZ.name>>, Is that okay?</p>'
+			 '<p><<$FXZ.name>>:What are you afraid of?That woman will never come to school again after get off work!This is my office sooner or later!<<$panting>></p>'
+			 '<p>Me: This is not necessarily...</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:Do you like me using this posture to give you oral sex?My husband said that my ass is very sexy!</p>'
+		 '</div>'
+	end
+
+
+	if 9>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>...<<$words>>！ </p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: The teacher will help you lick it clean... You have to help the teacher take that woman down… </p>'
+			 '<p>I:……</p>'
+		 '</div>'
+	end
+
+
+
+ q+=1
+
+End
+
+if $args[0]="random_home":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\家里事件-<<$FXZhomeEvent>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:minutes+=15 & $FXZhomeEvent+=4 &a=1 &  gt ''vice_principal_event'',''random_home''">Ejaculation</a></div>'
+		if a=1:'<div class="button"><a href="exec:minutes+=15 &  gt ''vice_principal_house''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   '<p><<$FXZ.name>>: What are you doing?！If you want to do it, go to the room to do it too?！<<$words>></p>'
+	   if a=1:
+		   '<p><<$FXZ.name>>: Really!Your semen was fishy and thick, and it was shot in the teacher.What should I do if my daughter finds out.</p>'
+			 $FXZ.love+=3+$my.charm
+			 $FXZ.bad+=3
+	   end
+	'</div>'
+End
+
+if $args[0]="home_visit":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\家访00.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $jj.bad>=200 and $FXZ.bad>=200:'<div class="buttonS"><a href="exec:minutes+=15 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Undress</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''home''">End of home visit</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	    '<p><<$FXZ.name>>: Hello, I am<<$FXZ.name>>, I`m here today for a routine monthly home visit!</p>'
+		'<p><<$JJ.name>>: My mother is busy with matters, so I can do it for her.My brother didn`t cause you any trouble, did he?He is not your serious student either.</p>'
+		'<p><<$FXZ.name>>: This is just routine!Do you think I want to come?Tell me about your brother`s value that can be used by the school.</p>'
+		if $JJ.bad>=100:'<p><<$JJ.name>>: My brother has many specialties, and he is also very capable.</p>'
+		if $FXZ.bad>=100:'<p><<$FXZ.name>>：........</p>'
+		if $JJ.bad>=150:'<p><<$JJ.name>>: He is really capable!</p>'
+		if $FXZ.bad>=150:'<p><<$FXZ.name>>：........</p>'
+		if $JJ.bad>=200:'<p><<$JJ.name>>: I have been doing scientific research for so long, and I have never seen a man who can ejaculate better than him!</p>'
+		if $FXZ.bad>=200:'<p><<$FXZ.name>>：.........？！There is no one at home now, so why don`t you let me learn?</p>'
+		
+	'</div>'
+End
+
+
+if $args[0]="fxz_fuck_home_visit":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\家访-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+	if  a!18:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Lick together!</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_fuck_home_visit''"><<$jj.name>>mouth</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_fuck_home_visit''"><<$fxz.name>>mouth</a></div>'
+			end
+			if a=2 or a=5:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">continue</a></div>'
+			end
+			if a=3 or a=6:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Ejaculation</a></div>'
+			end
+			if a=4 or a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Rub fat buttocks</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Pull force</a></div>'
+			end
+			if a=9 or a=17:
+			'<div class="button"><a href="exec:a=10 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">fuck<<$jj.name>></a></div>'
+			end
+			if a=9 or a=13:
+			'<div class="button"><a href="exec:a=14 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">fuck<<$fxz.name>></a></div>'
+			end
+			if a=10 or a=11 or a=14 or a=15:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">continue</a></div>'
+			end
+			if a=12 or a=16:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Ejaculation</a></div>'
+			end
+			if a=13 or a=17:
+			'<div class="button"><a href="exec:a=18 & gt ''vice_principal_event'',''fxz_fuck_home_visit''">Appreciate the results</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">Go out and get some air</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me:<<$FXZ.name>>, Is that okay?</p>'
+			 '<p><<$FXZ.name>>:What are you afraid of?I don`t think your sister is ashamed at all. Have you fucked all the women in your family?</p>'
+			 '<p><<$JJ.name>>: My baby brother is amazing...`Don`t have to pity the jade!</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:Your sister can do oral work, you little pervert are so blessed!Do you want me to help you or use your sister`s mouth?</p>'
+		 '</div>'
+	end
+
+
+	if 8>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>... </p>'
+			 '<p><<$JJ.name>>:<<$words>>！</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>: Your sister likes your dick so much, do you usually have sex with her a lot? </p>'
+			 '<p>I:……</p>'
+		 '</div>'
+	end
+
+
+	if 17>=a and a>=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$words>>... </p>'
+			 '<p><<$JJ.name>>:<<$panting>>！</p>'
+		 '</div>'
+	end
+
+	if a=18:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q
+		 $JJ.love+=q*2+$my.charm
+		 $JJ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>·They were fucked limply by the bed by you, you know, they have completely fallen into the pleasure of sex.It seems that it will take a while for them to slow down.</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="fxz_sw_hot_spring_a":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\温泉<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!5:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_sw_hot_spring_a''">Knock on the door</a></div>'
+			end
+			if a=1 and $SW.bad>=50:
+			'<div class="buttonS"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_sw_hot_spring_a''">Fuck her</a></div>'
+			end
+			if a=1 and $SW.bad<50:
+			'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+			'<div class="button"><a href="exec:minutes+=30 & gt ''suburbs''">leave</a></div>'
+			end
+
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_sw_hot_spring_a''">sprint</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''vice_principal_event'',''fxz_sw_hot_spring_a''">Ejaculation</a></div>'
+			end
+			if a=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_sw_hot_spring_a''">dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $SW.bad>=100 and $FXZ.bad>=100: '<div class="buttonS4"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''vice_principal_event'',''fxz_sw_total_bath''">Three-person mixed bath</a></div>'else:'<div class="buttonGr"><a href="exec:">Three people?？</a></div>'
+				if $SW.bad>=200 and $FXZ.bad>=200: '<div class="buttonS5"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''vice_principal_event'',''fxz_sw_overnight''">Spend the night here</a></div>'else:'<div class="buttonGr"><a href="exec:">here?？</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''suburbs''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>>:<<$FXZ.name>>It`s so generous, and I`m invited to enjoy it again.It`s just that I`m actually not interested in soaking in hot springs.</p>'
+			 '<p><<$FXZ.name>>:I understand, you are only interested in handsome guys and hunks.As for the conditions you put forward last time……</p>'
+			 '<p><<$SW.name>>:Oh?Can &quot;Featured Biology Class: Classroom Sex Experience&quot; be approved?</p>'
+			 '<p><<$FXZ.name>>:This has to wait... you know... I`m just a vice principal and I still need your help.</p>'
+			 '<p><<$SW.name>>:Then it seems that I still have to<<$XZ.name>>It`s okay to be courteous…</p>'
+			 '<p><<$FXZ.name>>:Look at what you said, I naturally won`t let you suffer... Ahem!Come in!</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>> :This is a beauty supplement from Mugou Pharmaceutical…<<$SW.name>>I don`t think I dislike it.</p>'
+			 '<p><<$SW.name>> :...<<$protagonists_surname>>classmate?...it seems<<$FXZ.name>>Know what I want.But...in front of<<$FXZ.name>>Where`s the face</p>'
+			 '<p>· <<$SW.name>>My eyes keep looking at you.</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>> :<<$protagonists_surname>>Classmate, it`s the winner of the history competition. It`s very capable, isn`t it?</p>'
+			 '<p><<$SW.name>> :...<<$panting>>...really capable!</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>> :...<<$words>>！</p>'
+		 '</div>'
+	end
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>> :...<<$words>>！</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q+$my.charm
+		 $SW.love+=q+$my.charm
+		 $SW.bad+=q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>> :<<$FXZ.name>>...you can`t watch it from the side!If you don`t do it, don`t think I will vote for you!</p>'
+			 '<p><<$FXZ.name>> :Look at what you said，<<$protagonists_surname>>Classmate, I specially arranged to serve you.(Oh, it seems that this woman is going to pull me into the water together?）</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="fxz_sw_total_bath":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\共浴<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!5:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonP"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_sw_total_bath''"><<$SW.name>>good</a></div>'
+			end
+			if a=0:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_sw_total_bath''"><<$FXZ.name>>good</a></div>'
+			end
+			if a=1 or a=2:
+			'<div class="button"><a href="exec:a+=2 & gt ''vice_principal_event'',''fxz_sw_total_bath''">sprint</a></div>'
+			end
+			if a=3 or a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''vice_principal_event'',''fxz_sw_total_bath''">Ejaculation</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $SW.bad>=200 and $FXZ.bad>=200: '<div class="buttonS4"><a href="exec:minutes+=30 & a=0 & q=0 & gt ''vice_principal_event'',''fxz_sw_overnight''">Spend the night here</a></div>'else:'<div class="buttonGr"><a href="exec:">here?？</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''suburbs''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:It`s okay to do this to such an extent.</p>'
+			 '<p><<$SW.name>>:Worthy of being<<$FXZ.name>>!!It seems that I am going to learn more from you!</p>'
+			 '<p><<$FXZ.name>>:Ha ha!How can my skills be comparable to yours.</p>'
+			 '<p><<$SW.name>>:Then you let<<$protagonists_name>>Let`s evaluate it, classmates!</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>> :...<<$protagonists_surname>>classmate?...Then the teacher is going to suck your big dick hard.</p>'
+			 '<p><<$FXZ.name>> :You are quite clever, you know that the teacher will not treat you badly if you make her happy.</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>> :...look... the client is with you.</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>> :...<<$panting>>！</p>'
+		 '</div>'
+	end
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>> :...<<$panting>>！</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q
+		 $SW.love+=q+$my.charm
+		 $SW.bad+=q+5
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>> :Is it okay to do this to such an extent?Now we are also like-minded &quot;comrades-in-arms”, right?</p>'
+			 '<p><<$SW.name>> :Huh?This is not enough, comrades-in-arms, but you have to have experienced a hearty battle!</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="fxz_sw_overnight":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\过夜<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	if  a!9:
+		'<div class="button_menu">'
+			if a!1 and q<2:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_sw_overnight''">Licking nipples</a></div>'
+			end
+			if a!2 and 0<q and q<4:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_sw_overnight''">Lick cock</a></div>'
+			end
+			if a!3 and a!4 and a!5 and q>=2:
+			'<div class="buttonGn"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_sw_overnight''">fuck<<$FXZ.name>></a></div>'
+			end
+			if a!6 and a!7 and a!8 and q>=2:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''vice_principal_event'',''fxz_sw_overnight''">fuck<<$SW.name>></a></div>'
+			end
+			if a=3 or a=6:
+			'<div class="button"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_sw_overnight''">Move fast!</a></div>'
+			end
+			if a=4 or a=7:
+			'<div class="buttonS"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_sw_overnight''">Internal injection</a></div>'
+			end
+			if a=5 or a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''vice_principal_event'',''fxz_sw_overnight''">Clean up</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:hour=6 & minutes+=1440 &$my.energy=mymax[$energy] & a=0 & q=0 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Three people sleep</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SW.name>>:That`s right!<<$FXZ.name>>I thought you were the kind of good wife and good mother, but I didn`t expect you to be a slut too.</p>'
+			 '<p><<$FXZ.name>>:...less long-winded. </p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>... </p>'
+			 '<p><<$SW.name>>:...<<$words>>... </p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q*2
+		 $SW.love+=q+$my.charm
+		 $SW.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p>·They cleaned up the remaining semen with their mouths and were very satisfied with your performance.</p>'
+			 '<p>·This kind of nondescript teacher-student relationship has made their relationship closer!</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="fxz_sw_the_next_day":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\翌日<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	if  a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Open your eyes</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Oral sex together</a></div>'
+			end
+			if a!3 and a!4  and q>=2:
+			'<div class="buttonP"><a href="exec:a=3 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Keep fucking<<$SW.name>></a></div>'
+			end
+			if a!7 and a!8  and q>=2:
+			'<div class="buttonGn"><a href="exec:a=7 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Keep fucking<<$FXZ.name>></a></div>'
+			end
+			if a=3 or a=7:
+			'<div class="buttonS1"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Accelerate the sprint</a></div>'
+			end
+			if a=4 or a=8:
+			'<div class="buttonS2"><a href="exec:a+=1 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Bukkake</a></div>'
+			end
+			if a=4 or a=8:
+			'<div class="buttonS3"><a href="exec:a+=2 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">Internal injection</a></div>'
+			end
+
+			if q>=10:
+			'<div class="button"><a href="exec:a=11 & gt ''vice_principal_event'',''fxz_sw_the_next_day''">One hour later</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''suburbs''">leave</a></div>'
+			'</div>'
+	end
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·The next day<<$SW.name>>Woke you up with your mouth</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:<<$ZJ.name>>...the energy is really strong!It`s really well-deserved! </p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$FXZ.name>>:...<<$panting>>... </p>'
+			 '<p><<$SW.name>>:...<<$words>>... </p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $FXZ.love+=q+$my.charm
+		 $FXZ.bad+=q
+		 $SW.love+=q+$my.charm
+		 $SW.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>As you ejaculate again and again, time flies by. </p>'
+			 '<p><<$FXZ.name>>:It`s been so long before I know it, if I have to go to class today, I must be late!</p>'
+			 '<p><<$SW.name>>:Yeah, but<<$FXZ.name>>I didn`t expect you to be fucked so happily.</p>'
+			 '<p><<$FXZ.name>>:Now we can be regarded as “comrades-in-arms” who have experienced the baptism of artillery fire together!</p>'
+			 '<p><<$SW.name>>:Haha, you are right.</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+
+--- vice_principal_event ---------------------------------
+

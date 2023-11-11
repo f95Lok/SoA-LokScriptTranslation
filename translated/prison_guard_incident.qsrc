@@ -1,0 +1,437 @@
+# prison_guard_incident
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+if $args[0]="yj_event_punishment":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\惩罚1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	m=$YJ.bad+100
+	if q < m:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''prison_guard_incident'',''yj_event_punishment''">Take off the headgear</a></div>'
+			end
+			if a!0 and a!2 and q>=-5:
+			'<div class="buttonR1"><a href="exec:a=2 & gt ''prison_guard_incident'',''yj_event_punishment''">Whip +5</a></div>'
+			end
+			if a!0 and ( a=2 or  q>-5 ):
+			'<div class="buttonR2"><a href="exec:a=3 & gt ''prison_guard_incident'',''yj_event_punishment''">Shoot cock +10</a></div>'
+			end
+			if a!0 and a!4 and q>=0:
+			'<div class="buttonR3"><a href="exec:a=4 & gt ''prison_guard_incident'',''yj_event_punishment''">Step on the cock +15</a></div>'
+			end
+			if a!5 and q>=5:
+			'<div class="buttonR4"><a href="exec:a=5 & gt ''prison_guard_incident'',''yj_event_punishment''">Pumping cock +20</a></div>'
+			end
+			if a!6 and q>=10:
+			'<div class="buttonR5"><a href="exec:a=6 & gt ''prison_guard_incident'',''yj_event_punishment''">Caning +25</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=30 &  gt ''daily_life_in_prison''">Obedient: Dare not</a></div>'
+				'<div class="buttonR"><a href="exec:minutes+=30 & gt ''prison_guard_incident'',''provocation''">Provocation: Haven`t you eaten yet?</a></div>'
+			'</div>'
+	end
+
+	if q < m:
+		 '<div class="dialog_menu">'
+			 if a=0:'<p>·Suddenly someone handcuffed you, blindfolded you, and pushed you to a certain place....</p>'
+			 if a!0:'<p><<$YJ.name>>: What`s the matter with you?It`s been 5 days since the semen bottle was turned in!Dragged down our semen index in area C!I must punish you!</p>'
+			 if a!0:'<p>·Her satisfaction：<<q>>/<<m>></p>'
+		 '</div>'
+	 else:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:I`m tired, that`s it for today!Do you dare not hand in semen in the future?</p>'
+			 '<p>·Her satisfaction：<<q>>/<<m>></p>'
+			 jing_time=year*365+month*30+day
+			 $YJ.love+=a
+			 $YJ.bad+=a+3
+		 '</div>'
+	end
+
+
+
+  q+=(a-1)*5
+End
+
+if $args[0]="provocation":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\惩罚1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">leave</a></div>'
+	'</div>'
+	 '<div class="dialog_menu">'
+		 '<p>Me: I ran out of strength so soon?Did you not drink enough of the semen you handed in?</p>'
+		 '<p><<$YJ.name>>:Hehe, are you tired of living?good!I like idiots like you!I let you stay in this shithole enough!</p>'
+		 '<p>·The sentence was increased by 60 days.</p>'
+		 jailday+=60
+		 $YJ.love+=5
+		 $YJ.bad+=5
+	 '</div>'
+End
+
+if $args[0]="yj_event_punishment_two":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\惩罚2-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	m=$YJ.bad+150
+	if q < m:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''prison_guard_incident'',''yj_event_punishment_two''">Take off the headgear</a></div>'
+			end
+			if a!0 and a!2 and q>=0:
+			'<div class="buttonR1"><a href="exec:a=2 & gt ''prison_guard_incident'',''yj_event_punishment_two''">Swallow +10</a></div>'
+			end
+			if a!0 and ( a=2 or  q>5 ):
+			'<div class="buttonR2"><a href="exec:a=3 & gt ''prison_guard_incident'',''yj_event_punishment_two''">Bite nipple +20</a></div>'
+			end
+			if a!0 and a!4 and q>10:
+			'<div class="buttonR3"><a href="exec:a=4 & gt ''prison_guard_incident'',''yj_event_punishment_two''">Sitting face +30</a></div>'
+			end
+			if a!5 and q>20:
+			'<div class="buttonR5"><a href="exec:a=5 & q+=$YJ.love-50 & gt ''prison_guard_incident'',''yj_event_punishment_two''">Masturbation+<<$YJ.love>></a></div>'
+			end
+			if a=5:
+			'<div class="buttonR4"><a href="exec:a=6 & gt ''prison_guard_incident'',''yj_event_punishment_two''">Spray fine +40</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">Obedient: nod</a></div>'
+				'<div class="buttonR"><a href="exec:minutes+=30 & gt ''prison_guard_incident'',''provocation''">Provocation: Haven`t you eaten yet?</a></div>'
+			'</div>'
+	end
+
+	if q < m:
+		 '<div class="dialog_menu">'
+			 if a=0:'<p>·It`s just dawn, before you can relax, you are bleary-eyed, put on a headgear and thrown rudely on the cold cement floor...</p>'
+			 if a!0:'<p><<$YJ.name>>: What`s going on?The previous lessons are not enough, are they?Your mother hasn`t turned in the semen bottle for 5 days!I have to strengthen my disciplinary methods this time, bastard!</p>'
+			 if a!0:'<p>·Her satisfaction：<<q>>/<<m>></p>'
+		 '</div>'
+	 else:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:I`m so tired of my old lady, have you got a long memory of the bitch?Remember, be a good dog, not a dead dog.</p>'
+			 '<p>·Her satisfaction：<<q>>/<<m>></p>'
+			 jing_time=year*365+month*30+day
+			 $YJ.love+=a
+			 $YJ.bad+=a+5
+		 '</div>'
+	end
+
+
+
+  q+=a*10
+End
+
+if $args[0]="yj_event_punishment_three":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\惩罚3-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	if a!5:
+		'<div class="button_menu">'
+			if a!1 :
+			'<div class="buttonR1"><a href="exec:a=1 & gt ''prison_guard_incident'',''yj_event_punishment_three''">Shoe tip</a></div>'
+			end
+			if a!2 and q>0:
+			'<div class="buttonR2"><a href="exec:a=2 & gt ''prison_guard_incident'',''yj_event_punishment_three''">Step on the cock</a></div>'
+			end
+			if a!3 and q>2:
+			'<div class="buttonR3"><a href="exec:a=3 & gt ''prison_guard_incident'',''yj_event_punishment_three''">Check the anus</a></div>'
+			end
+			if a=3:
+			'<div class="buttonR4"><a href="exec:a=4 & gt ''prison_guard_incident'',''yj_event_punishment_three''">Lick clean</a></div>'
+			end
+			if a=3:
+			'<div class="buttonR5"><a href="exec:a=5 & gt ''prison_guard_incident'',''yj_event_punishment_three''">Would rather die than lick</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">Obedient: understand</a></div>'
+				'<div class="buttonR"><a href="exec:minutes+=30 & gt ''prison_guard_incident'',''provocation''">Provocation: Haven`t you eaten yet?</a></div>'
+			'</div>'
+	end
+
+	if  a!5:
+		 '<div class="dialog_menu">'
+			 '<p>·The sound of high heels came from the darkness..You have a hunch that something is wrong...Stuffed the soap key into his nose...</p>'
+			 '<p><<$YJ.name>>:What`s going on?I heard you are carrying contraband?Take off your pants and check it out for me!</p>'
+		 '</div>'
+	 else:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:What a bitch.Put this on for me, don`t take it out without my order!</p>'
+		 '</div>'
+			 $YJ.love+=q
+			 $YJ.bad+=q+5
+			 $prison_anal_plug=1
+	end
+
+  q+=1
+End
+
+if $args[0]="yj_event_punishment_four":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\惩罚4-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	if a!4:
+		'<div class="button_menu">'
+			if a!1 :
+			'<div class="buttonR1"><a href="exec:a=1 & gt ''prison_guard_incident'',''yj_event_punishment_four''">Plug in</a></div>'
+			end
+			if a!2 and q>0:
+			'<div class="buttonR2"><a href="exec:a=2 & gt ''prison_guard_incident'',''yj_event_punishment_four''">Change posture</a></div>'
+			end
+			if a!3 and q>1:
+			'<div class="buttonR3"><a href="exec:a=3 & gt ''prison_guard_incident'',''yj_event_punishment_four''">Prostate orgasm</a></div>'
+			end
+			if a=3:
+			'<div class="buttonR5"><a href="exec:a=4 & gt ''prison_guard_incident'',''yj_event_punishment_four''">Pull it out</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">Obedience: admit it</a></div>'
+				if $YJ.love>=100 or $YJ.bad>=100:'<div class="buttonS"><a href="exec:minutes+=30 &a=0&q=0& gt ''prison_guard_incident'',''yj_event_punishment_five''">Provocation: I will fuck you</a></div>'else:'<div class="buttonGr"><a href="exec:">Provocation: I will fuck you</a></div>'
+			'</div>'
+	end
+
+	if a!4:
+		 '<div class="dialog_menu">'
+			 if a=0:'<p>·You really can`t stand it anymore, begging to see you<<$YJ.name>>Pull out the anal plug.</p>'
+			 if a!0:'<p><<$YJ.name>>:What`s happened?Can`t you stand it anymore?Then be obedient to me!</p>'
+		 '</div>'
+	 else:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:Very good, the one who listens to the owner is a good dog. Do you want to have sex with the owner?Shove your dog dick into my cock?</p>'
+			 $YJ.love+=q
+			 $YJ.bad+=q
+			 $prison_anal_plug=0
+		 '</div>'
+	end
+
+  q+=1
+End
+
+if $args[0]="yj_event_punishment_five":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\惩罚5-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	m=$YJ.bad+200
+	if q < m:
+		'<div class="button_menu">'
+			if a!1 and q>=0:
+			'<div class="buttonR1"><a href="exec:a=1 & gt ''prison_guard_incident'',''yj_event_punishment_five''">Licking nipples +10</a></div>'
+			end
+			if a!2 and q>=0:
+			'<div class="buttonR1"><a href="exec:a=2 & gt ''prison_guard_incident'',''yj_event_punishment_five''">Lick glans +20</a></div>'
+			end
+			if a!3 and q>=10:
+			'<div class="buttonR2"><a href="exec:a=3 & gt ''prison_guard_incident'',''yj_event_punishment_five''">Lick chrysanthemum +30</a></div>'
+			end
+			if a!4 and q>=30:
+			'<div class="buttonR3"><a href="exec:a=4 & gt ''prison_guard_incident'',''yj_event_punishment_five''">Move by yourself +40</a></div>'
+			end
+			if a!5 and q>70:
+			'<div class="buttonR4"><a href="exec:a=5 & gt ''prison_guard_incident'',''yj_event_punishment_five''">After entering +50</a></div>'
+			end
+			if a=5:
+			'<div class="buttonR5"><a href="exec:a=6 & q+=$YJ.love & gt ''prison_guard_incident'',''yj_event_punishment_five''">Sprint+<<$YJ.love>></a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & q+=30 & gt ''prison_guard_incident'',''yj_event_punishment_five''">Ejaculate!+100</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if a!8:'<div class="buttonR"><a href="exec:a=8 & gt ''prison_guard_incident'',''yj_event_punishment_five''">Identity: Exclusive slave</a></div>'
+				'<div class="buttonR"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">Return to the cell</a></div>'
+			'</div>'
+	end
+
+
+	if q < m:
+		 '<div class="dialog_menu">'
+			 if a=0:'<p><<$YJ.name>>: Come here....Right now!Let me try you!Can you bitch satisfy me?Don`t shoot it out without my order!</p>'
+			 if a!0:'<p><<$YJ.name>>:<<$panting>></p>'
+			 if a!0:'<p>·Her satisfaction：<<q>>/<<m>></p>'
+		 '</div>'
+	 else:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:Huh-I`m exhausted. I will record the total amount of semen that flows out. It is your honor to be my sperm slave.</p>'
+			 if a=8:'<p><<$YJ.name>>:From now on, whenever you hear the bell, you will roll over to me, do you understand?</p>'
+			 '<p>·Her satisfaction：<<q>>/<<m>></p>'
+			 jing_time=year*365+month*30+day
+			 jings=0
+			 $YJ.love+=a
+			 $YJ.bad+=a+5
+			 $YJ.slave=1
+		 '</div>'
+	end
+
+
+
+  q+=a*10
+End
+
+
+if $args[0]="yj_event_tuning":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\YJ\vids\调教1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	m=$YJ.bad+300
+	if q < m:
+		'<div class="button_menu">'
+			if a!1 and a<5:
+			'<div class="buttonR1"><a href="exec:a=1 & gt ''prison_guard_incident'',''yj_event_tuning''">Licking boots +10</a></div>'
+			end
+			if a!2 and q>=0 and a<5:
+			'<div class="buttonR1"><a href="exec:a=2 & gt ''prison_guard_incident'',''yj_event_tuning''">Kiss +20</a></div>'
+			end
+			if a!3 and q>=10 and a<5:
+			'<div class="buttonR2"><a href="exec:a=3 & gt ''prison_guard_incident'',''yj_event_tuning''">Mouth hole +30</a></div>'
+			end
+			if a!4 and q>=20 and a<5:
+			'<div class="buttonR2"><a href="exec:a=4 & gt ''prison_guard_incident'',''yj_event_tuning''">Squirting +40</a></div>'
+			end
+			if a=4:
+			'<div class="buttonR3"><a href="exec:a=5 & q+=$YJ.love & gt ''prison_guard_incident'',''yj_event_tuning''">Orgasm loss+<<$YJ.love>></a></div>'
+			end
+			if a!6 and a>=5:
+			'<div class="buttonR3"><a href="exec:a=6 & gt ''prison_guard_incident'',''yj_event_tuning''">Oral sex +60</a></div>'
+			end
+			if a!7 and a>=5:
+			'<div class="buttonR4"><a href="exec:a=7 & gt ''prison_guard_incident'',''yj_event_tuning''">Ride +70</a></div>'
+			end
+			if a!5 and a>=5:
+			'<div class="buttonR4"><a href="exec:a=8 & gt ''prison_guard_incident'',''yj_event_tuning''">After entering +80</a></div>'
+			end
+			if a!9 and a>=5:
+			'<div class="buttonR5"><a href="exec:a=9 & gt ''prison_guard_incident'',''yj_event_tuning''">Accelerated thrusting +90</a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''prison_guard_incident'',''yj_event_tuning''">Ejaculation +100</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if a!11:'<div class="buttonB"><a href="exec:a=11 & gt ''prison_guard_incident'',''yj_event_tuning''">Apply for the Police dog team<<$YJ.bad>>/200</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">Return to the cell</a></div>'
+			'</div>'
+	end
+
+
+	if q < m:
+		 '<div class="dialog_menu">'
+			 if a=0:'<p>·Hearing the sound of bells, you are like a dog in the Paprov conditioned reflex experiment...It`s just semen flowing out..</p>'
+			 if a!0:'<p><<$YJ.name>>:<<$panting>>What a good dog!</p>'
+			 if a!0:'<p>·Her satisfaction：<<q>>/<<m>></p>'
+		 '</div>'
+	 else:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:Huh-I`m so tired of my old lady, you are so fucking amazing, please, I can give you some gifts if I`m in a good mood.</p>'
+			 if a=11:
+			 '<p><<$YJ.name>>:Want to enter the warden`s kennel?Unless you can maintain this high level of communication, I will introduce you.</p>'
+			 jing_time=year*365+month*30+day
+			 jings=0
+			 $YJ.love+=a*2+$my.charm
+			 $YJ.bad+=a+3
+			 end
+			 
+			 if $YJ.bad>=200:
+				  if dogteam=0:dogteam=1 
+				 '<p><<$YJ.name>>:I have already said hello to the warden, you can go to the police dog team at any time.Don`t forget me when you go, remember who gave you the opportunity!</p>'
+			 end
+		 '</div>'
+	end
+
+  q+=a*10
+End
+
+if $args[0]="yj_event_lesbian":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YJ\vids\女同1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+
+			'<div class="button"><a href="exec:a+=1 & gt ''prison_guard_incident'',''yj_event_lesbian''">Watch it</a></div>'
+
+			'<div class="button"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">leave</a></div>'
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''daily_life_in_prison''">Go back</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·You quietly opened the door with the damaged soap key and looked inside.</p>'
+			 '<p><<$YJ.name>>:How are you doing at school?Has anyone bullied you?</p>'
+			 '<p>???: How long has it been, and now they are all shouting that the president will kick me soon.</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$YJ.name>>:Your little nipples are still rising like when you were a kid, come and lick me.</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 if a=2:'<p><<$YJ.name>>:The tattoo on your thigh is so sexy. I`m so comfortable licking it. Come on, turn around and let me check if your pussy has been loosened by a man.</p>'
+			 if a=3:'<p><<$YJ.name>>:<<$panting>></p>'
+			 if a=4:'<p><<$YJ.name>>:Pour more lubricating oil, otherwise it will be uncomfortable to insert.Let`s start with the anus.</p>'
+			 if a=5:'<p><<$YJ.name>>:Ah!The anus is inserted, it`s so thick and hard, and the intestines are going to be poked!</p>'
+			 if a=6:'<p><<$YJ.name>>:It`s still comfortable to insert the hole, yes, Dudu, it`s going to orgasm!</p>'
+			 if a=7:'<p><<$YJ.name>>:Let`s have an orgasm together, baby!</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>: The sisters of our hot girl gang will always be one-hearted~ You can abuse the bitch here as much as you want. Are you considering doing it together after graduation?</a></p>'
+			 '<p>???: Okay, actually, I have something to ask you this time.</p>'
+		 '</div>'
+	end
+
+ q+=1
+End
+--- prison_guard_incident ---------------------------------
+

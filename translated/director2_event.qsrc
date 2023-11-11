@@ -1,0 +1,1580 @@
+# director2_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="harassment":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\骚扰.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''police_station''">leave </a></div>'
+		'</div>'
+
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>:？！！Ah!！</p>'
+			 '<p>Former Director (Nakata Ichihei): The ass is still so elastic!</p>'
+			 '<p><<$JZ.name>>:Uncle... this is not good, I will sue you for sexual harassment of law enforcement officials.</p>'
+			 '<p>Former Director (Nakata Ichihei): Oh, how many times have I told you that you are called a job when you work!</p>'
+			 '<p><<$JZ.name>>:Yes...Director Nakata, if you do this again, I will tell my aunt.…</p>'
+			 '<p>Former Director (Nakata Ichihei): Why did you mention her?！I have no feelings for her for a long time!</p>'
+			 if $chief_uncle_x=0:$chief_uncle_x=1
+		 '</div>'
+
+End
+
+if $args[0]="rainy_day":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\雨.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if $chief_uncle_x=1:'<div class="buttonPu2"><a href="exec:gt ''director2_event'',''jz_fuck_rainy_night_1''">Secretly observe </a></div>'
+			if $chief_uncle_x>=2:'<div class="buttonPu3"><a href="exec:gt ''director2_event'',''jz_fuck_rainy_night_2''">Secretly peeping </a></div>'
+
+			'<div class="button"><a href="exec:gt ''subway''">leave </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>:……</p>'
+		 '</div>'
+
+
+End
+
+
+if $args[0]="jz_fuck_rainy_night_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\SJ2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if $jz_rainy_day_num >= a and a!9:
+        '<div class="button_menu">'
+            '<div class="buttonPu2"><a href="exec:a+=1 & gt ''director2_event'',''jz_fuck_rainy_night_1''">Keep quiet </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR4"><a href="exec:hour+=3 & gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$JZ.name>>:Sure enough, I still don`t have the habit of playing an umbrella…</p>'
+             if a=1:'<p><<$JZ.name>>:Hmm?Will there be anyone in the office so late?</p>'
+             if a=2:'<p><<$JZ.name>>:Let`s cancel the reports of the disappearance of these men first... No one will find that there are a few men missing in this city.……</p>'
+             if a>=3:'<p>Former Director (Nakata Ichihei): My uncle worked so hard patiently during the day ❤</p>'
+             if a>=4:'<p><<$JZ.name>>:Uncle, don`t do this…</p>'
+             if a>=5:'<p>Former Director (Nakata Ichihei): When you asked me to promote you, you didn`t refuse me... Now you regret it?</p>'
+             if a>=6:'<p><<$JZ.name>>: <<$panting>></p>'
+             if a=9:'<p>Me: It turns out that they still have such a special relationship!</p>'& if $chief_uncle_x=1:$chief_uncle_x=2
+         if $jz_rainy_day_num < a :
+                '<p>·Accidentally touched the vase</p>'
+                '<p><<$JZ.name>>:Who is where?！</p>'
+                '<p>Me: I should come again next time!</p>'
+            $jz_rainy_day_num+=a
+         end
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="jz_fuck_rainy_night_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\SJ3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if $jz_rainy_day_num >= a+9 and a!8:
+        '<div class="button_menu">'
+            '<div class="buttonPu3"><a href="exec:a+=1 & gt ''director2_event'',''jz_fuck_rainy_night_2''">Keep quiet </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR4"><a href="exec:hour+=3 & gt ''subway''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$JZ.name>>:Yes...yes...I have destroyed all the previous [important content], please rest assured…</p>'
+             if a=0:'<p>Former Director (Nakata Ichihei): Who are you calling?</p>'
+             if a=1:'<p><<$JZ.name>>:Head of the Imperial Group…</p>'
+             if a=2:'<p>Former Director (Nakata Ichihei): Their minions have already reached out to law enforcement agencies?</p>'
+             if a>=3:'<p><<$JZ.name>>:Uncle, it`s just a trifle... don`t worry about it…</p>'
+             if a>=4:'<p>Former Director (Nakata Ichihei): I`m just a director who was forcibly transferred away. I don`t have any real power except to fuck you.…</p>'
+             if a>=5:'<p><<$JZ.name>>: <<$panting>></p>'
+             if a=8:'<p>Former Director (Nakata Ichihei): Your aunt can`t know about us.…</p>'  
+             
+             if a=8:'<p>Me: Should I take pictures and threaten her?Threatening the police chief, let`s forget it.</p>'& if $chief_uncle_x=2:$chief_uncle_x=3
+         if $jz_rainy_day_num < a+9 :
+                '<p>·Accidentally touched the vase again</p>'
+                '<p><<$JZ.name>>:Who is where?！</p>'
+                '<p>Me: I should come again next time!</p>'
+            $jz_rainy_day_num+=3
+         end
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="aunt_visits":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\SJ4-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a<6:'<div class="buttonPu3"><a href="exec:a+=1 & gt ''director2_event'',''aunt_visits''">Peek </a></div>'
+			if a=6 and $jz_video=1:'<div class="buttonR3"><a href="exec:a=0 & gt ''director2_event'',''showdown''">showdown </a></div>'
+			'<div class="button"><a href="exec:gt ''city_hall''">leave </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>Gu Zi: I won`t talk to you too much. You know what you have done, right?！</p>'
+             '<p>Former Director (Nakata Ichihei): Of course I don`t want to... We have been married for so many years... Don`t make it too ugly.……</p>'
+              if a>=1:
+			 '<p><<$JZ.name>>:Auntie, I`m sorry...!</p>'
+			 '<p>Gu Zi: Don`t apologize to me!He can`t get hard when he has sex with me, you let him get hard in front of me once, hurry up!</p>'
+			 end
+              if a>=2:
+			 '<p><<$JZ.name>>:Rude…</p>'
+			 '<p>Gu Zi: Hurry up!</p>'
+			 end
+              if a>=3:
+			 '<p><<$JZ.name>>: <<$panting>></p>'
+			 end
+              if a>=6:
+             '<p>Former director (Nakata Ichihei): Wife, I didn`t lie to you, did I?</p>'
+			 '<p>Gu Zi: You are so disgusting!</p>'
+			 if $chief_uncle_x=3:$chief_uncle_x=4
+			 end
+		 '</div>'
+
+
+End
+
+
+if $args[0]="diaoyu_method":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\钓鱼执法.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if $gx_corridor=1:'<div class="buttonS2"><a href="exec:gt ''director2_event'',''show_video''">Show video </a></div>'
+			'<div class="buttonS2"><a href="exec:gt ''subway''">Got it </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>:Through your vigilante points, you can see that you are an excellent and responsible vigilante. Now I have an important task for you.</p>'
+			 '<p>Me: Please say.</p>'
+			 '<p><<$JZ.name>>:I want you to follow a woman, record all her daily trips, and find out what she has to do.</p>'
+			 '<p>Me: What exactly should I do...?</p>'
+			 '<p><<$JZ.name>>:She has a lot of online shopping orders in department stores. You first pretend to be a deliveryman to figure out her preferences.</p>'
+			  if $commissioned_by_director_xs_aunt=0:$commissioned_by_director_xs_aunt=1
+		 '</div>'
+End
+
+
+if $args[0]="home_delivery":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\送货1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a=0 and $GX_love>=1:'<div class="buttonS1"><a href="exec:a+=1 & $GX_love+=1 & gt ''director2_event'',''home_delivery''">dialogue </a></div>'
+			if a=1:'<div class="buttonS2"><a href="exec:a=3 & $GX_love+=1 & gt ''director2_event'',''home_delivery''">Move in </a></div>'
+			if a=1 and $GX_love>=3:'<div class="buttonS3"><a href="exec:a=2 & $GX_love+=10 & gt ''director2_event'',''home_delivery''">Flirting </a></div>'
+			if a>=2 :
+				if $GX_love>=13:'<div class="buttonS4"><a href="exec: gt ''director2_event'',''repair_the_light_bulb''">Repair the light bulb </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+				if  $gx_repair_num>=3:'<div class="buttonS4"><a href="exec:a=0 & gt ''director2_event'',''shower''">Repair shower </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+				if  $gx_shower=1:'<div class="buttonS5"><a href="exec:a=0 & gt ''director2_event'',''corridor''">Kiss her forcibly </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+				if  $gx_corridor=1:'<div class="buttonS5"><a href="exec:a=0 & gt ''director2_event'',''inside_the_house''">Enter THE HOUSE SEX </a></div>'else:'<div class="buttonGr"><a href="exec: ">？？？ </a></div>'
+			end
+			'<div class="button"><a href="exec:$GX_love+=1 & gt ''subway''">leave </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>Gu Zi: I`ve worked hard, just put it here!</p>'
+			  if $GX_love>=1: '<p>Me: Let me put it in for you!</p>'
+			  if a=2:
+			  '<p>Me: A woman entered a sex shop and wanted to buy a vibrator. The boss said: Pick it all by yourself.After the female carefully selected, she said, `I want the red one. The boss glanced at it and said, `Miss, that`s a fire extinguisher.`</p>'
+			  '<p>Gu Zi: Haha, are you seducing me?</p>'
+			  '<p>Me: Guess.</p>'
+			  end
+			  if a>=2 : 
+				if $GX_love>=13:'<p>Gu Zi: What a coincidence, my light bulb is broken, can you fix it?</p>'
+				if $gx_repair_num=0: a=0
+				if $gx_repair_num=1: a=2
+				if $gx_repair_num>=2: a=4
+				if $gx_repair_num>=3:'<p>Gu Zi: There is a problem again. The shower at home is blocked. Can you help me clear it?</p>'
+			 end
+
+		 '</div>'
+End
+
+
+if $args[0]="repair_the_light_bulb":
+
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\修灯1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			if a=5 or a=6 or a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''director2_event'',''repair_the_light_bulb''">At its mercy </a></div>'
+			if a=0 or a=2 or a=4:'<div class="buttonS2"><a href="exec:a+=1 & gt ''director2_event'',''repair_the_light_bulb''">Let me do it </a></div>'else:'<div class="button"><a href="exec:$gx_repair_num+=1 & gt ''subway''">Leave after repair </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			  '<p>Gu Zi: Don`t you want to peek at me, can you change it for me?I am not wearing underwear.</p>'
+			  '<p>Me: Are you seducing me?<<a>></p>'
+			  if a>=1: '<p>Gu Zi: You are really... amazing.</p>'
+			  if a>=5: '<p>Me: Hey?</p>'
+			  if a>=6: '<p>Gu Zi: Obviously you are seducing me<<$panting>></p>'
+			  if a=8:'<p>Me: (It seems she is interested in me)</p>'
+		 '</div>'
+End
+
+if $args[0]="shower":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\送货2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''director2_event'',''shower''">Check the shower</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''director2_event'',''shower''">Check pants</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''director2_event'',''shower''">Passionate kiss</a></div>'
+            end
+
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''director2_event'',''shower''">Oral sex</a></div>'
+            end
+            if a!5 and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''director2_event'',''shower''">Lactation</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''director2_event'',''shower''">Ejaculate!</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''director2_event'',''shower''">Reluctantly</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: Look, you just can`t spray it out.</p>'
+             '<p>Me: Let me see……</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a>=1:'<p>Gu Zi: Ah, why are you okay by yourself?</p>'
+             if a>=2:'<p>Me: Madam, it shouldn`t be the shower that is blocked, right?</p>'
+             if a>=3:'<p>Gu Zi: <<$panting>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $GX_love+=q+$my.charm
+         $gx_shower=1
+         money+=200
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: I`ve worked hard today, this is a little careful, go back and make up for your body❤</p>'
+             '<p>·Received a red envelope of 200￥</p>'
+             
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="corridor":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\送货3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''director2_event'',''corridor''">Kneading milk</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="button"><a href="exec:a=2 & gt ''director2_event'',''corridor''">serve</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''director2_event'',''corridor''">Oral sex</a></div>'
+            end
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''director2_event'',''corridor''">Back position</a></div>'
+            end
+            if a!5 and 7>=q and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''director2_event'',''corridor''">Riding position</a></div>'
+            end
+            if a!6 and 9>=q and q>=5:
+            '<div class="button"><a href="exec:a=6 & gt ''director2_event'',''corridor''">Vigorously pump</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''director2_event'',''corridor''">Ejaculation</a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''director2_event'',''corridor''">Reluctantly</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: Do you want to do it here?</p>'
+             '<p>Me: Are you afraid?</p>'
+             '<p>Gu Zi: I like the guts of young people…</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a>=1:'<p>Gu Zi：<<$panting>></p>'
+             if a>=1:'<p>·The candid camera recorded everything</p>'
+             if a>=2:'<p>Me: Madam, is it exciting?</p>'
+             if a>=4:'<p>Gu Zi: Exciting<<$words>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $GX_love+=q+$my.charm
+         $gx_corridor=1
+         money+=500
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: You are much better than my husband❤</p>'
+             '<p>·Received a red envelope of 500￥</p>'
+             '<p>·The candid camera recorded everything... I can ask<<$JZ.NAME>>Report to work.</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="inside_the_house":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\屋内2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''director2_event'',''inside_the_house''">Oral sex</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="button"><a href="exec:a=2 & gt ''director2_event'',''inside_the_house''">Pull force</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''director2_event'',''inside_the_house''">sex</a></div>'
+            end
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''director2_event'',''inside_the_house''">Back in</a></div>'
+            end
+            if a!5 and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''director2_event'',''inside_the_house''">Riding position</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''director2_event'',''inside_the_house''">Internal injection</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''director2_event'',''inside_the_house''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: Come on... Sister has been waiting for you for a long time…</p>'
+             '<p>Me: Madam, isn`t it good for us to be like this?</p>'
+             '<p>Gu Zi: It`s too late to regret it now…</p>'
+         '</div>'
+    end
+
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a>=1:'<p>Gu Zi：<<$panting>></p>'
+             if a>=2:'<p>Me: Madam, does your husband care about you?</p>'
+             if a>=3:'<p>Gu Zi: Shut up<<$words>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $GX_love+=q+$my.charm
+         $gx_house=1
+         money+=500
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: There are also strong deliverymen like you who can introduce them all to me ❤</p>'
+             '<p>Me: OK.</p>'
+             '<p>Gu Zi: Remuneration is indispensable ❤</p>'
+             '<p>·Received a red envelope of 500￥</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="show_video":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\好处1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''director2_event'',''show_video''">Ask for benefits</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="button"><a href="exec:a=2 & gt ''director2_event'',''show_video''">Kneading milk</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="button"><a href="exec:a=3 & gt ''director2_event'',''show_video''">FAP</a></div>'
+            end
+            if a!4 and 6>=q and q>=3:
+            '<div class="button"><a href="exec:a=4 & gt ''director2_event'',''show_video''">Oral sex</a></div>'
+            end
+            if a!5 and 7>=q and q>=4:
+            '<div class="button"><a href="exec:a=5 & gt ''director2_event'',''show_video''">Lactation</a></div>'
+            end
+            if a=5:
+            '<div class="button"><a href="exec:a=6 & gt ''director2_event'',''show_video''">Ejaculation</a></div>'
+            end
+            if a=6:
+            '<div class="button"><a href="exec:a=7 & gt ''director2_event'',''show_video''">Hand over the video</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:
+               '<p><<$JZ.name>>: This is...you and...her...cheating video?！</p>'
+               '<p>Me: The work is going well, she has been dissatisfied with her desires for a long time.</p>'
+               '<p><<$JZ.name>>: Bring it!</p>'
+               '<p>Me: Wait, I have a small request.</p>'
+             end
+             if a>=1:'<p><<$JZ.name>>: This is what you want?I won`t have anything to do with you.</p>'
+             if a>=2:'<p>Me: Understand, I just want the chief to type it out for me with a certain part.</p>'
+             if a>=3:'<p><<$JZ.name>>: <<$panting>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $JZ.bad+=q+$my.charm
+         $jz_video=1
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>:This matter is well done, from now on, you will rot in your stomach about this matter.</p>'
+             '<p>Me: OK.</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="showdown":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\状态0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonS5"><a href="exec:gt ''director2_event'',''showdown_2''">Erection </a></div>'
+			'<div class="button"><a href="exec:gt ''subway''">leave </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>:Aunt... this little brother is no stranger, right?I still have a passionate picture of you in the stairs.</p>'
+			 '<p>Me: ... hi?</p>'
+             '<p>Former director (Nakata Ichihei): Wife, you actually cheated on me behind your back?</p>'
+			 '<p>Gu Zi: What`s the matter?！Aren`t you hard on me?What`s wrong with me solving my physical needs?</p>'
+			 '<p><<$JZ.name>>:Auntie, what about the current situation, either we are dead and the net is broken, or we are both injured, or we turn a blind eye to each other, what do you think?</p>'
+			 '<p>Gu Zi: ... From then on, our well water will not violate the river water.We just play our own.</p>'
+		 '</div>'
+End
+
+if $args[0]="showdown_2":
+		a=0 & q=0
+		if $JZ.love>=200 and $JZ.bad>=200:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\状态2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\状态1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+
+
+		'<div class="button_menu">'
+			'<div class="buttonS3"><a href="exec:gt ''director2_event'',''jz_fuck_aunt''">Fuck aunt </a></div>'
+			if $JZ.bad>=150:'<div class="buttonS4"><a href="exec:gt ''director2_event'',''JZ_Fuck_3P''">fuck<<$JZ.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			if $JZ.bad>=250:'<div class="buttonS5"><a href="exec:gt ''director2_event'',''JZ_Fuck_3P2''">Let them watch </a></div>'else:'<div class="buttonGr"><a href="exec:">？？？ </a></div>'
+			'<div class="button"><a href="exec:gt ''subway''">leave </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+             '<p>Former Director (Nakata Ichihei): Wife, that`s what you said!Then let`s just play our own games?</p>'
+			 '<p><<$JZ.name>>:Auntie, he actually has an erection now, do you think it`s up to the two of us to solve it for him?</p>'
+			 '<p>Me: Uh......?</p>'
+			 '<p>Gu Zi: ... *Swallow saliva</p>'
+		 '</div>'
+End
+
+
+if $args[0]="jz_fuck_aunt":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\屋里1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_aunt''">serve</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_aunt''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_aunt''">Lactation</a></div>'
+            end
+            if a!4 and 5>=q and q>=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_aunt''">Ride up</a></div>'
+            end
+            if a!5 and 6>=q and q>=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_aunt''">Tease anus</a></div>'
+            end
+            if a!6 and 7>=q and q>=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_aunt''">Plug in to the end</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_aunt''">Ejaculation</a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''director2_event'',''jz_fuck_aunt''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a=0:
+               '<p>Gu Zi: Hurry up, kiss me, husband, show me carefully, how did I get fucked by another man?…</p>'
+               '<p>Me: What a hungry woman…</p>'
+             end
+             if a>=1:'<p>Gu Zi: <<$panting>></p>'
+             if a>=2:'<p><<$JZ.NAME>>:Uncle, auntie is so happy to play, let`s start too…</p>'  
+             if a>=3:'<p>Me: * Yu Guang glanced at<<$JZ.NAME>>...</p>'   
+             if a>=4:'<p>Gu Zi: <<$words>></p>'  
+         '</div>'
+    end
+
+    if a=8:
+         $GX_love+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: Let`s deal with this matter like this in the future. I also want to make a good reputation!</p>'
+             '<p>Me: My pleasure.</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_3P":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\三人1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''JZ_Fuck_3P''">Fuck her</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''JZ_Fuck_3P''">Hurry up and fuck her</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''JZ_Fuck_3P''">Rub her milk</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''JZ_Fuck_3P''">Let the director shoot first</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''JZ_Fuck_3P''">Shoot by yourself</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''JZ_Fuck_3P''">dialogue</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>Me: Do you mind?</p>'
+           '<p>Former Director (Nakata Ichihei): Little brother, I am so old, can I still have real feelings?</p>'
+             if a>=1:'<p><<$JZ.NAME>>: <<$panting>></p>'
+             if a>=2:'<p>Me: Then I`m relieved…</p>'
+             if a>=3:'<p><<$JZ.NAME>>: <<$words>></p>'  
+         '</div>'
+    end
+
+    if a=6:
+         $JZ.love+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p>Former Director (Nakata Ichihei): Little brother, I think you are very promising and have a promising future.</p>'
+             '<p><<$JZ.NAME>>:Don`t you thank your uncle for his appreciation?</p>'  
+             '<p>Me: Thank you for your compliment.</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="JZ_Fuck_3P2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\换1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''JZ_Fuck_3P2''">Mouth me</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''JZ_Fuck_3P2''">Lactation</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''JZ_Fuck_3P2''">Ride up</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''JZ_Fuck_3P2''">After entering her</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''JZ_Fuck_3P2''">Holding hands</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''JZ_Fuck_3P2''">Internal injection</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''director2_event'',''JZ_Fuck_3P2''">end</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>Me: Sorry, just watch from the side.</p>'
+           '<p>Former Director (Nakata Ichihei): Little brother, you are not kind.</p>'
+           '<p>Gu Zi: ... you are really good.</p>'
+             if a>=1:'<p><<$JZ.NAME>>: <<$panting>></p>'
+             if a>=2:'<p>Me: So comfortable…</p>'
+             if a>=3:'<p><<$JZ.NAME>>: <<$words>></p>'  
+         '</div>'
+    end
+
+    if a=7:
+         $JZ.love+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         $JZ3P=1
+         '<div class="dialog_menu">'
+             '<p>Gu Zi: ... stop!I can`t watch it anymore!</p>'
+             '<p>Former Director (Nakata Ichihei): It`s really boring, I still work hard by myself.</p>'
+             '<p>I：……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="bribery":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\行贿.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''subway''">Silently write down </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>？？？: Bureau J, what the BOSS explained was done very well, and she was very satisfied.</p>'
+			 '<p><<$JZ.name>>:I am a public official and I cannot accept it.</p>'
+			 '<p>？？？: This is what BOSS means, there is what you want in the refrigerator.</p>'
+			 '<p><<$JZ.name>>:Is it [that thing]?</p>'
+			 '<p>？？？:**As for what you want to do with it, it`s your own business.</p>'
+			 '<p><<$JZ.name>>:This is the key to the rental house in Shenxiang, right, I see.</p>'
+			 '<p>？？？: Please also ask about Mugou Pharmaceutical.</p>'
+			 $director_xs_house=1
+		 '</div>'
+End
+
+if $args[0]="director`s_house":
+	if $search_location=1: $search_desktop_num+=rand(15,20)
+	if $search_location=2: $search_bedroom_num+=rand(25,30)
+	if $search_location=3: $search_compartment_num+=rand(25,35)
+	$random_number=rand(0,10)
+	if $random_number>=6 and $search_location=1: gt'director2_event','jz_fuck_catch_1'
+	if $random_number>=7 and $search_location=2: gt'director2_event','jz_fuck_catch_2'
+	if $random_number>=8 and $search_location=3: gt'director2_event','jz_fuck_succubus'
+	
+	
+	'<div class ="show_menu"><img src="images\NPC\JZ\pics\安全屋.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonB2"><a href="exec:$search_location=1 & gt ''director2_event'',''director`s_house''">Search desktop<<$search_desktop_num>>% </a></div>'
+			'<div class="buttonP"><a href="exec:$search_location=2 & gt ''director2_event'',''director`s_house''">Search bedroom<<$search_bedroom_num>>% </a></div>'
+			'<div class="buttonR"><a href="exec:$search_location=3 & gt ''director2_event'',''director`s_house''">Search compartment<<$search_compartment_num>>% </a></div>'
+			if $search_desktop_num>=100 and $search_bedroom_num>=100 and $search_compartment_num>=100:'<div class="buttonR"><a href="exec:gt ''director2_event'',''videotape''">Videotape in the mezzanine </a></div>'
+			'<div class="button"><a href="exec:gt ''deep_alley''">leave </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>Me: The door is not locked... there seems to be no one?</p>'
+			 if $search_location!0: '<p>Me: Searched this area... it seems that someone is watching me?</p>' & $my.energy-=$my.energy/2+10
+		 '</div>'
+End
+
+
+
+
+if $args[0]="jz_fuck_succubus":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\魅魔1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_succubus''">Lick</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_succubus''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_succubus''">Forced extraction</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_succubus''">Strangulation in the chamber</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_succubus''">Accelerate the ride</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_succubus''">Internal injection</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_succubus''">？？？</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''director2_event'',''jz_fuck_succubus''">zzZ</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>Me:?！？！？！My head hurts so much, am I dreaming?</p>'
+           '<p>？？？: ……</p>'
+           if a=6: $my.energy=-999
+         '</div>'
+    end
+
+    if a=7:
+         $my.energy=-999
+         '<div class="dialog_menu">'
+             '<p>Me: I`m going to lose consciousness……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="jz_fuck_catch_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\逮1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_catch_1''">Lick</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_catch_1''">Poisonous dragon</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_catch_1''">punishment</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_catch_1''">Lactation</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS5"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_catch_1''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''daily_life_in_prison'',''front_of_the_prison''">arrested</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>:What are you doing here sneakily?</p>'
+           '<p>Me:?！？！？！Huh?</p>'
+           '<p><<$JZ.name>>:Now that you are here, don`t think about leaving.</p>'
+         '</div>'
+    end
+
+    if a=8:
+         $my.energy=-999
+         '<div class="dialog_menu">'
+             '<p>Me: I`m going to lose consciousness……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="jz_fuck_catch_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\逮2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_catch_2''">Lick</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_catch_2''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_catch_2''">Toying with</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_catch_2''">Prime stock</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_catch_2''">Footjob</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_catch_2''">Ride up</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_catch_2''">Accelerate thrusting</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''director2_event'',''jz_fuck_catch_2''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''daily_life_in_prison'',''front_of_the_prison''">arrested</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>:What are you doing here sneakily?</p>'
+           '<p>Me:?！？！？！Huh?</p>'
+           '<p><<$JZ.name>>:Now that you are here, don`t think about leaving.</p>'
+         '</div>'
+    end
+
+    if a=8:
+         $my.energy=-999
+         '<div class="dialog_menu">'
+             '<p>Me: I`m going to lose consciousness……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="videotape":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\录像.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:gt ''subway''">Silently write down </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>？？？: The mental state of the tester?It looks okay.</p>'
+			 '<p><<$JZ.name>>: <<$panting>></p>'
+			 '<p>？？？: Then continue to increase the dose of this bitch.</p>'
+			 '<p><<$JZ.name>>: <<$panting_2>></p>'
+			 '<p>？？？: Drug dependence is also an important indicator for testing B-137.</p>'
+			 '<p>————————</p>'
+			 '<p>Me: It seems<<$JZ.name>>Have you participated in McGovern`s human trials before?</p>'
+			 $the_director_received_the_medicine=1
+		 '</div>'
+End
+
+if $args[0]="JZ_Fuck_MGF":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\MGF1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''JZ_Fuck_MGF''">Play with nipples</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''JZ_Fuck_MGF''">Pull force</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''JZ_Fuck_MGF''">Lactation</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''JZ_Fuck_MGF''">Oral sex</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''JZ_Fuck_MGF''">Accelerate thrusting</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''JZ_Fuck_MGF''">Change posture</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''director2_event'',''JZ_Fuck_MGF''">Vigorously pump</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''director2_event'',''JZ_Fuck_MGF''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>:？！？！？Is this?</p>'
+           '<p>Me: Something that makes you linger and obsessed.</p>'
+           if a>=1:'<p><<$JZ.name>>:How come you have this?</p>'
+           if a>=2:'<p>Me: Exclusive formula.</p>'
+           if a>=3:'<p><<$JZ.name>>: <<$panting>></p>'
+           if a>=5:'<p><<$JZ.name>>: <<$words>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $JZ.love+=q+$my.charm
+         $JZ.bad+=q*2+$my.charm
+         $jz.massage=1
+         '<div class="dialog_menu">'
+             '<p>Me: I know you like this, you can find the same style in my massage parlor…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="jz_fuck_temptation":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\诱惑1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_temptation''">Can`t rub in</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_temptation''">Forced oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_temptation''">Forced deep throat</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_temptation''">Slow thrusting</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_temptation''">Accelerate thrusting</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_temptation''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p><<$JZ.name>>:？！？！？What do you want to do?</p>'
+           '<p>Me: I want to do it, do you want to?</p>'
+           if a>=1:'<p><<$JZ.name>>: <<$panting>></p>'
+           if a>=2:'<p>Me: Shall we make it quick?</p>'
+           if a>=3:'<p><<$JZ.name>>:good<<$words>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         $JZ.LOVE+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: <<$panting>></p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="jz_fuck_temptation_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\SJ5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_temptation_2''">Play with her</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_temptation_2''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_temptation_2''">insert</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_temptation_2''">Change posture</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_temptation_2''">Accelerate thrusting</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_temptation_2''">Ejaculation</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_temptation_2''">afterwards</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           '<p>Me:?！？！？What do you want to do?</p>'
+           '<p><<$JZ.name>>: I want to do it, do you want to?</p>'
+           if a>=1:'<p>Me: Shall we make it quick?</p>'
+           if a>=2:'<p><<$JZ.name>>: <<$panting>></p>'
+           if a>=3:'<p><<$JZ.name>>: <<$words>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $JZ.LOVE+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>: <<$panting>></p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="jz_fuck_cooperate_with_the_investigation":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\审查1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">It`s a misunderstanding</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">I testify</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">Hurry up</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">Undress</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">Oral sex</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">Back in</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">accelerate</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">Ejaculation</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''director2_event'',''jz_fuck_cooperate_with_the_investigation''">dialogue</a></div>'
+            end
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>Investigator: The spouse of the former director seems to have made some unethical accusations against you?</p>'
+           if a=1:'<p>Investigator: Can you testify for her?</p>'
+           if a=2:'<p><<$JZ.name>>:Now we have resolved the misunderstanding.</p>'
+           if a=3:'<p>Investigator: Very good, then I will leave.</p>'
+           if a=4:'<p>Me: Huh--he almost found out?</p>'
+           if a>=5:'<p><<$JZ.name>>: <<$panting>></p>'
+           if a>=6:'<p><<$JZ.name>>: <<$words>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $JZ.LOVE+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>:I like you more and more.</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="jz_fuck_suspend_investigation":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\审查1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_suspend_investigation''">It`s a misunderstanding</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_suspend_investigation''">I testify</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_suspend_investigation''">Hurry up</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_suspend_investigation''">Undress</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_suspend_investigation''">Oral sex</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_suspend_investigation''">Back in</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_suspend_investigation''">accelerate</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''director2_event'',''jz_fuck_suspend_investigation''">Ejaculation</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''director2_event'',''jz_fuck_suspend_investigation''">dialogue</a></div>'
+            end
+
+
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>Investigator: You said it wasn`t the crazy little brother who set the fire?？</p>'
+           if a=1:'<p><<$JZ.name>>:I don`t think the investigation can end like this, there may be some misunderstandings.</p>'
+           if a=2:'<p>Me: My little brother was with me at the time.</p>'
+           if a=3:'<p>Investigator: Really?Since<<$JZ.name>>If you say that, then I will leave.</p>'
+           if a=4:'<p>Me: Huh--he almost found out?</p>'
+           if a>=5:'<p><<$JZ.name>>: <<$panting>></p>'
+           if a>=6:'<p><<$JZ.name>>: <<$words>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $JZ.LOVE+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         $the_boss_suspended_the_investigation=1
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>:Are you going to fish for crazy little brother?This is not an easy task, I heard<<$CJ.name>>and<<$SZ.name>>Very angry.You`d better explore their style first!This is very important!</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="jz_fuck_special_rewards":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\协助1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_special_rewards''">Kneading milk</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_special_rewards''">Oral sex</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_special_rewards''">Lactation</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_special_rewards''">Mouth explosion</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_special_rewards''">dialogue</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JZ.name>>:Take it easy.</p>'
+           if a=1:'<p>Me: Huh-won`t it be discovered by others here, right?</p>'
+           if a>=2:'<p><<$JZ.name>>: <<$panting>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $JZ.LOVE+=q+$my.charm
+         $JZ.bad+=q+$my.charm
+         '<div class="dialog_menu">'
+             '<p>Me: Do other vigilantes also have this treatment?</p>'
+             '<p><<$JZ.name>>:No, only you are the exception.</p>'
+             '<p>————————</p>'
+             '<p>·This event marks that all events can be triggered/triggered</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+
+if $args[0]="JZ_Fuck_D1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\办公室D1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''director2_event'',''JZ_Fuck_D1''">Request lactation</a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director2_event'',''JZ_Fuck_D1''">insert</a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''director2_event'',''JZ_Fuck_D1''">Riding position</a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''director2_event'',''JZ_Fuck_D1''">Accelerate thrusting</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''director2_event'',''JZ_Fuck_D1''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonR"><a href="exec:gt ''police_station''">leave</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$JZ.name>>:Stop it, there will be a meeting soon.</p>'
+           if a=1:'<p><<$JZ.name>>:You`d better shoot it out for me right away!</p>'
+           if a>=2:'<p><<$JZ.name>>: <<$panting>></p>'
+         '</div>'
+    end
+
+    if a=5:
+         $JZ.LOVE+=q+$my.charm
+         $JZ.bad+=q
+         '<div class="dialog_menu">'
+             '<p>Me: So cool.</p>'
+             '<p><<$JZ.name>>:I really served you.</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="jz_fuck_hypnosis":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JZ\vids\催眠1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonPu1"><a href="exec:a=1 & gt ''director2_event'',''jz_fuck_hypnosis''">Oral sex</a></div>'
+            '<div class="buttonPu1"><a href="exec:a=2 & gt ''director2_event'',''jz_fuck_hypnosis''">Roll with your hands</a></div>'
+            '<div class="buttonPu1"><a href="exec:a=3 & gt ''director2_event'',''jz_fuck_hypnosis''">One-handed breastfeeding</a></div>'
+            end
+            if q=1:
+            '<div class="buttonPu2"><a href="exec:a=4 & gt ''director2_event'',''jz_fuck_hypnosis''">Female upper</a></div>'
+            '<div class="buttonPu2"><a href="exec:a=5 & gt ''director2_event'',''jz_fuck_hypnosis''">Back position</a></div>'
+            '<div class="buttonPu2"><a href="exec:a=6 & gt ''director2_event'',''jz_fuck_hypnosis''">Carry your legs on your shoulders</a></div>'
+            '<div class="buttonPu2"><a href="exec:a=7 & gt ''director2_event'',''jz_fuck_hypnosis''">Rub milk with both hands</a></div>'
+
+            end
+            if q=2:
+            '<div class="buttonPu3"><a href="exec:a=8 & gt ''director2_event'',''jz_fuck_hypnosis''">Accelerate the sprint</a></div>'
+            end
+            if q=3:
+            '<div class="buttonPu4"><a href="exec:a=9 & gt ''director2_event'',''jz_fuck_hypnosis''">Ejaculation</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonPu5"><a href="exec:gt ''police_station''">End hypnosis</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+				'<p>·The hypnosis was successful!</p>'
+				'<p><<$JZ.name>>:I`m a bitch<<$panting>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$JZ.name>>:I am<<$protagonists_name>>Owner`s bitch meat toilet❤</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="director_of_hypnosis":
+		
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\催眠0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+		if $succubus_energy>=1:'<div class="buttonPu3"><a href="exec:$succubus_energy-=1 & gt ''director2_event'',''director_of_hypnosis''">Hypnotize again<<$JZ.name>><font color="#FF00FF">❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize again<font color="#FF00FF">❤</font></a></div>'
+		if $succubus_energy>=2:'<div class="buttonPu5"><a href="exec:$succubus_energy-=2 & gt ''director2_event'',''jz_fuck_hypnosis''">Deep hypnosis<<$JZ.name>><font color="#FF00FF">❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Deep hypnosis<font color="#FF00FF">❤❤</font></a></div>'
+			'<div class="button"><a href="exec:gt ''director2_event'',''hypnosis_director_2''">Give up </a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p>·You concentrate and shoot a hypnotic light at her❤</p>'
+			 '<p><<$JZ.name>>:？！！Ah!！</p>'
+			 '<p>·But the strange thing is that she doesn`t seem to be under control</p>'
+		 '</div>'
+
+End
+
+if $args[0]="hypnosis_director_2":
+		
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JZ\vids\催眠1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:$my.energy=-10 & gt ''director2_event'',''hypnosis_director_2''">Look into her eyes</a></div>'
+		'</div>'
+
+		 '<div class="dialog_menu">'
+			 '<p><<$JZ.name>>:Huh, do you still want to hypnotize me at this level?It`s ridiculous!</p>'
+			 '<p>·The surrounding time seems to be still, and you feel cold and viscous air drilling into your lungs from your nasal cavity.…</p>'
+			 '<p><<$JZ.name>>:Did some succubus teach you?Let me guess who it is…</p>'
+			 '<p>Me: Let go...let go...me……</p>'
+			 '<p><<$JZ.name>>:Huh... I thought I was well disguised, now that you have discovered this form, what should I do?</p>'
+			 '<p>Me: I... I won`t say it…</p>'
+			 '<p><<$JZ.name>>:You have seen it a long time ago, right, look into my eyes, you will forget everything that happened today!</p>'
+		 '</div>'
+
+End
+--- director2_event ---------------------------------
+

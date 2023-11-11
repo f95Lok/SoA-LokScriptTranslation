@@ -1,0 +1,285 @@
+# 整形科
+ cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=5
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="私立医院" href="exec:minutes+=5 & gt ''医院''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="整形科前等待":
+	$ZX.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\wait<<ZX等待num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if ZX等待num<=3:'<div class="button"><a href="exec:ZX等待num+=1 & gt ''整形科'',''整形科前等待''">耐心等待</a></div>'
+		if ZX等待num=4:'<div class="buttonGn"><a href="exec:ZX等待num+=1 & gt ''整形科'',''整形科前等待''">等待叫号</a></div>'
+		if $ZX.love>=50:'<div class="buttonS"><a href="exec:gt ''整形_事件'',''ZX_Fuck_敲玻璃''">敲玻璃</a></div>'
+		if ZX等待num=5:'<div class="buttonGn"><a href="exec:gt ''整形科''">坐下</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if ZX等待num!5:'<p><<$ZX.name>>:嗯<<$娇喘声>></p>'
+		if ZX等待num=5:'<p><<$ZX.name>>:咳咳…下一位！</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="":
+	$ZX.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if  $ZL_Event_face=1:'<div class="button"><a href="exec:minutes+=5 & gt ''整形科'',''咨询''">为<<$ZL.name>>咨询</a></div>'
+		if  $QB签约链=4:'<div class="button"><a href="exec:minutes+=5 & gt ''整形科'',''QB整形''">为<<$QB.name>>咨询</a></div>'
+		if $QB签约链=5:'<div class="button"><a href="exec:minutes+=5 & gt ''桥本_事件'',''整形完成''">术后恢复</a></div>'
+		if money>=1500:'<div class="buttonG"><a href="exec:money-=1500 & gt ''整形_事件'',''ZX_Fuck_美牙''">牙齿美白-1500￥</a></div>'else:'<div class="buttonGr"><a href="exec:">牙齿美白-1500￥</a></div>'
+		if $ZX事件链=1 or $ZX事件链=2:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''整形科'',''公厕的照片''">公厕的照片</a></div>'
+		if $ZX事件链>=3:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''整形科'',''公厕的事''">公厕的事</a></div>'
+		if $凯撒事件链=5:'<div class="buttonPu4"><a href="exec:minutes+=5 & gt ''整形科'',''冠军整形''">凯撒和<<$GJ.name>></a></div>'
+		if 抗氧化设备=1:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''整形科'',''抗氧化设备''">拿出抗氧化设备</a></div>'
+        if 授精室=1 and $ZX.bad>=200 and $ZX.授精=0:'<div class="buttonS"><a href="exec:$ZX.授精=1 & gt ''整形科''">邀请人工授精</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">没事</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:男性做整形?真是少见啊。</p>'
+	'</div>'
+End
+
+
+if $args[0]="咨询":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if money>=50000:
+		'<div class="buttonG"><a href="exec:minutes+=5 &money-=50000 & gt ''援交_事件'',''买单''">替她买单￥50000</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">替她买单￥50000</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">没事了</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:小妹妹底子不错，做一个鼻综合35000，开眼角8000，打几针玻尿酸，加一起算你5万。</p>'
+		'<p><<$ZL.name>>:5万……好多啊。</p>'
+	'</div>'
+End
+
+
+if $args[0]="QB整形":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if money>=60000:
+		'<div class="buttonG"><a href="exec:minutes+=5 &money-=60000 & gt ''桥本_事件'',''买单''">替她买单￥60000</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">替她买单￥60000</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">暂不进行</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:全脸整容的价格不固定，大概范围在100000￥-200000￥。不过最近正好有活动，做一个鼻综合30000，磨下颌骨25000，打几针瘦脸针，加一起算你6万。</p>'
+		'<p><<$QB.name>>:我再回去…考虑一下？</p>'
+	'</div>'
+End
+
+if $args[0]="公厕的照片":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''整形科'',''公厕的照片2''">现在？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我:医生，不知道是不是我看错了，您和某张照片里的女人非常相似呢。</p>'
+		'<p><<$ZX.name>>:我这里每个月都有超过100人像整形成我的样子，在网络上和我相似的女人很多。</p>'
+		'<p>我:是吗，可是在公厕里的照片可不多见呢。</p>'
+		'<p><<$ZX.name>>:公厕里…什么照片？</p>'
+		'<p>我:是一个淫荡的女人，可能是我看错了吧。</p>'
+		'<p><<$ZX.name>>:那…你能带我去实地看看吗？</p>'
+	'</div>'
+End
+
+
+if $args[0]="公厕的照片2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">现在？</a></div>'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''医院''">约好晚上23点</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:那…你能带我去实地看看吗？</p>'
+		'<p>我:现在？</p>'
+		'<p><<$ZX.name>>:怎么了，不行吗？</p>'
+		'<p>我:是公园的男厕所，你直接走进去不太好吧？</p>'
+		'<p><<$ZX.name>>:那…就晚上去，挑个没人的时间。</p>'
+		if $ZX事件链=1:$ZX事件链=2
+	'</div>'
+End
+
+if $args[0]="公厕的事":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''医院''">悻悻离开</a></div>'
+		if 公厕底片=1:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''整形_事件'',''拿出底片''">拿出底片</a></div>'
+		if 公厕底片=1 and $ZX.bad>=30:'<div class="buttonR3"><a href="exec:gt ''整形科'',''不是你''">我认错人了</a></div>'else:'<div class="buttonGr"><a href="exec:">我认错人了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:公共厕所里给我口交的时候是什么个情况？</p>'
+		'<p><<$ZX.name>>:公共厕所？口交？你在说什么？</p>'
+		'<p>我:公园的男厕所！晚上23点！你给我口……</p>'
+		'<p><<$ZX.name>>:打住打住，我最近一直在加班，根本没离开过医院，你认错人了吧。</p>'
+		'<p>我:不可能！</p>'
+		'<p><<$ZX.name>>:真的是我吗？你再好好想想。</p>'
+	'</div>'
+End
+
+if $args[0]="不是你":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''医院''">那晚上见</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:真的是我吗？你再好好想想。</p>'
+		'<p>我:可能是我认错人了，确实不是你，我再去找找别人！</p>'
+		'<p><<$ZX.name>>:等等！你再好好想想！</p>'
+		'<p>我:我只记得在公园的男厕所！晚上23点！其他的想不起来了…</p>'
+		'<p><<$ZX.name>>:那这样，今天晚上23点，我们一起去厕所里抓她。</p>'
+		if $ZX事件链=3:$ZX事件链=4
+	'</div>'
+End
+
+if $args[0]="冠军整形":
+	'<div class ="show_menu"><img src="images\NPC\GJ\pics\GJ整形.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''整形科'',''冠军整形2''">继续偷听</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>凯撒:咳咳，整形的事比较私密，你们俩单独谈吧。</p>'
+		'<p><<$ZX.name>>:什么需求？</p>'
+		'<p><<$GJ.name>>:我想……</p>'
+		'<p>·…………</p>'
+	'</div>'
+End
+
+
+if $args[0]="冠军整形2":
+	'<div class ="show_menu"><img src="images\NPC\GJ\pics\GJ整形.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''整形科'',''冠军整形3''">立即安排手术</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:现在全脸都是这个价，不过你的运气很好！办理贷款即可立享1000万减免！</p>'
+		'<p><<$GJ.name>>:哇？！真的假的！我马上让他进来付钱！</p>'
+		'<p><<$ZX.name>>:等等等等！我们医院有规定的，必须本人办理！今天是最后一天了，办理完了就可以进手术室了。</p>'
+		'<p><<$GJ.name>>:那请你先为我办理贷款手续吧！</p>'
+		'<p><<$ZX.name>>:好的，您在这里签名以后我们就可以进入手术室了。</p>'
+		'<p>·…………</p>'
+		'<p>凯撒:来来来，你先去做手术吧，等你再睁开眼睛的时候你就会发现贷款被个好哥哥还清啦！</p>'
+		'<p><<$GJ.name>>:那真是太谢谢好哥哥啦！快，什么时候可以安排手术？</p>'
+	'</div>'
+End
+
+if $args[0]="冠军整形3":
+	'<div class ="show_menu"><img src="images\NPC\GJ\pics\手术.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">继续偷听</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">原来是这么回事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:麻药推进去了吗？好的，你们出去一下，顺便叫陪同人进来。</p>'
+		'<p>凯撒:嘿，难道出什么事了吗？我可是指望着她赚大钱的，她可是我的摇钱树！</p>'
+		'<p><<$ZX.name>>:冷静点，我喊你进来是想重新谈谈分成，我对人类的欲望理解的更加深刻了。</p>'
+		'<p>凯撒:蛤？从贷款里抽走两成还不满意吗？</p>'
+		'<p><<$ZX.name>>:我知道她会<span class =''red''>因为没人为她偿还贷款而被迫成为地下偶像为你打工</s>，老把戏了。再说等她还清贷款得几十年吧？</p>'
+		'<p>凯撒:嘻嘻嘻，那我把她的工作收益分你两成，只要我们能继续合作，都好说。</p>'
+		'<p><<$ZX.name>>:作为人类我的欲望不止这么点就能满足的，我要五成。</p>'
+		'<p>凯撒:你这个婊子，算了，看在我们这么多年炮友的份上五成就五成吧。</p>'
+		if $凯撒事件链=5:$凯撒事件链=6
+	'</div>'
+End
+
+if $args[0]="抗氧化设备":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''整形_事件'',''ZX_Fuck_奖励3''">好处是啥？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:看看这个，【抗氧化设备】可以有效淡化、阻断黑色素的生成！</p>'
+		'<p><<$ZX.name>>:听说精源项目组正好遗失了一台，不会就是你手上的这一台吧？</p>'
+		'<p>我:是不是这个很重要吗？</p>'
+		'<p><<$ZX.name>>:乳晕去黑变粉嫩，私处去黑色素变粉嫩，都需要这个【抗氧化设备】，你可帮了我一个大忙！</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+--- 整形科 ---------------------------------
+

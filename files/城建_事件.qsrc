@@ -1,0 +1,642 @@
+# 城建_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="城建_Fuck_家1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\家1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if q=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''城建_事件'',''城建_Fuck_家1''">去她家 </a></div>'
+
+            if q=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''城建_事件'',''城建_Fuck_家1''">口我 </a></div>'
+            if q=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''城建_事件'',''城建_Fuck_家1''">颜射 </a></div>'
+            if q=3:'<div class="buttonS1"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_家1''">对话 </a></div>'
+            if q=4:'<div class="buttonS1"><a href="exec:a=5 & gt ''城建_事件'',''城建_Fuck_家1''">外卖到了 </a></div>'
+            if q=5:'<div class="buttonS1"><a href="exec:a=6 & gt ''城建_事件'',''城建_Fuck_家1''">制作护身符 </a></div>'
+            if q=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''城建_事件'',''城建_Fuck_家1''">制作护身符 </a></div>'
+            if q=7:'<div class="buttonS3"><a href="exec:a=8 & gt ''城建_事件'',''城建_Fuck_家1''">制作完毕 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+				if $CJ.倾向>=2:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''城建_事件'',''城建_Fuck_家2''">继续一夜情</a></div>'else:'<div class="buttonGr"><a href="exec:">该倾向不足</a></div>'
+                '<div class="button"><a href="exec:gt ''居民区''">分别</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:你黄头发的样子和你工作时的感觉截然不同❤</p>'
+             '<p><<$CJ.name>>:在市政厅工作，总要着装正式一点对吧？</p>'
+             '<p>我:你现在的样子反差挺大的呢❤</p>'
+             '<p><<$CJ.name>>:你不喜欢我反差的样子吗？现在这个时间还是直接去我家吧，在路上遇到什么熟人可不好。</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:对❤就是这样，我喜欢别人伺候我❤</p>'
+             if a>=2:'<p>我:你也是懂付出的。</p>'
+             if a>=3:'<p><<$CJ.name>>:付出是为了收获更多❤</p>'
+             if a>=4:'<p>我:满意吗？我的精液面膜❤</p>'	
+             if a>=4:'<p><<$CJ.name>>:还不错❤</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:诶？一起做爱后洗澡，再一起吃外卖，这种感觉和我留学的时候好像呢。</p>'
+             '<p>我:那是一种什么感觉？</p>'
+             '<p><<$CJ.name>>:是在很久以前，陌生的感觉。</p>'
+             '<p>我:是幸福的感觉对吧？</p>'
+             '<p><<$CJ.name>>:你知道现在在年轻人里流行一种护身符嘛？</p>'
+         '</div>'
+    end
+
+    if 7>=a and a>=6:
+         '<div class="dialog_menu">'
+             '<p>我:是这种护身符嘛❤</p>'
+             '<p><<$CJ.name>>:对<<$话>></p>'
+         '</div>'
+    end
+
+    if a=8:
+    	 $CJ.倾向+=1
+    	 $CJ.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:你会一直随身携带吗❤</p>'
+             if $CJ.love<100:'<p><<$CJ.name>>:当然不会…我只是想要一个。</p>'else:'<p><<$CJ.name>>:嗯…我会的。</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="城建_Fuck_家2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\夜1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if q=0 or q=1:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''城建_事件'',''城建_Fuck_家2''">舌吻 </a></div>'
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''城建_事件'',''城建_Fuck_家2''">舔舐 </a></div>'
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''城建_事件'',''城建_Fuck_家2''">口交 </a></div>'
+            end
+
+            if q=2 or q=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_家2''">自己动 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''城建_事件'',''城建_Fuck_家2''">屁股对着我 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''城建_事件'',''城建_Fuck_家2''">并腿抽插 </a></div>'
+            end
+
+            if q=4:'<div class="buttonS5"><a href="exec:a=7 & gt ''城建_事件'',''城建_Fuck_家2''">射精 </a></div>'
+            if q=5:'<div class="buttonS1"><a href="exec:a=8 & gt ''城建_事件'',''城建_Fuck_家2''">爱意 </a></div>'
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:a=0 & q=0 & minutes+=1440 & hour=7 & gt ''城建_事件'',''城建_Fuck_家3''">一觉醒来 </a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:今晚就留在这吧？我一个人有时候也很寂寞的❤</p>'
+             if a>=1:'<p>我:你是恋爱脑吗？</p>'
+             if a>=2:'<p><<$CJ.name>>:什么是恋爱脑？</p>'
+             if a>=3:'<p>我:就像你这样的❤</p>'	
+             if a>=4:'<p><<$CJ.name>>:你以为我看得上你嘛<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=8:
+    	 $CJ.倾向+=2
+    	 $CJ.love+=a+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:你喜欢我什么❤</p>'
+             '<p><<$CJ.name>>:喜欢…喜欢你的脸…你的身材…你的大❤肉❤棒❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+
+if $args[0]="城建_Fuck_家3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\Z1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<4:
+        '<div class="button_menu">'
+            if q=0 or q=1:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''城建_事件'',''城建_Fuck_家3''">浅插 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=2 & gt ''城建_事件'',''城建_Fuck_家3''">深插 </a></div>'
+            end
+            if q=2:'<div class="buttonS4"><a href="exec:a=3 & gt ''城建_事件'',''城建_Fuck_家3''">射精 </a></div>'
+            if q=3:'<div class="buttonS5"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_家3''">精液早餐 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+				if $CJ.倾向>=5:'<div class="buttonP"><a href="exec:$CJ.倾向G=1 & gt ''市政厅''">按摩店邀请 </a></div>'else:'<div class="buttonGr"><a href="exec:">该倾向不足</a></div>'
+                '<div class="buttonS1"><a href="exec:gt ''市政厅''">一起上班 </a></div>'
+                '<div class="button"><a href="exec:gt ''居民区''">独自离开 </a></div>'
+            '</div>'
+    end
+
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:醒了？睡得还好吗❤需要我给你做早餐吗❤</p>'
+             if a>=1:'<p>我:想做一些空腹有氧❤</p>'
+             if a>=2:'<p><<$CJ.name>>:嗯<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a=4:
+    	 $CJ.倾向+=2
+    	 $CJ.love+=a+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:需要我陪你一起上班吗❤</p>'
+             '<p><<$CJ.name>>:你说呢❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="城建_Fuck_按摩1":
+	
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\纯爱1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<19:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''城建_事件'',''城建_Fuck_按摩1''">亲自接待 </a></div>'
+            end
+            if q=1 or q=2 or q=3 or q=4 :
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''城建_事件'',''城建_Fuck_按摩1''">胸部按摩 </a></div>'
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''城建_事件'',''城建_Fuck_按摩1''">打开双腿 </a></div>'
+            if a=3:'<div class="buttonS5"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_按摩1''">按摩外阴 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''城建_事件'',''城建_Fuck_按摩1''">舔舐阴蒂 </a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=6 & gt ''城建_事件'',''城建_Fuck_按摩1''">舔到高潮 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''城建_事件'',''城建_Fuck_按摩1''">舔舐肛门 </a></div>'
+            end
+            if q=5 or q=6 or q=7:
+            '<div class="buttonS1"><a href="exec:a=8 & gt ''城建_事件'',''城建_Fuck_按摩1''">服侍我 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''城建_事件'',''城建_Fuck_按摩1''">掏出鸡巴 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''城建_事件'',''城建_Fuck_按摩1''">口水润滑 </a></div>'      
+            '<div class="buttonS4"><a href="exec:a=11 & gt ''城建_事件'',''城建_Fuck_按摩1''">69式 </a></div>'
+            end
+            if 16>=q and q>=8:
+            '<div class="buttonS1"><a href="exec:a=12 & gt ''城建_事件'',''城建_Fuck_按摩1''">阴道按摩 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=13 & gt ''城建_事件'',''城建_Fuck_按摩1''">纯爱抽插 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=14 & gt ''城建_事件'',''城建_Fuck_按摩1''">夹紧双腿 </a></div>'      
+            if a!15:'<div class="buttonS4"><a href="exec:a=15 & gt ''城建_事件'',''城建_Fuck_按摩1''">女上位 </a></div>'
+            if a=15:'<div class="buttonB4"><a href="exec:a=16 & gt ''城建_事件'',''城建_Fuck_按摩1''">背对我 </a></div>'      
+            '<div class="buttonS5"><a href="exec:a=17 & gt ''城建_事件'',''城建_Fuck_按摩1''">高速冲刺 </a></div>'
+            end
+            if q=17 or a=17:'<div class="buttonR"><a href="exec:a=18 & gt ''城建_事件'',''城建_Fuck_按摩1''">射精 </a></div>'
+            if a=18:'<div class="buttonB5"><a href="exec:a=19 & gt ''城建_事件'',''城建_Fuck_按摩1''">纯爱宣言 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''公司''">吻别 </a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:请叫你们老板来，我只接受他的单独服务❤</p>'
+             '<p>服务员:好的，请稍等。</p>'
+         '</div>'
+    end
+
+
+    if 11>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:宝贝❤等你好久了❤</p>'
+             '<p>我:等待会积攒满足时的快乐❤</p>'
+             '<p><<$CJ.name>>:嗯<<$娇喘声>></p>'
+         '</div>'
+    end
+    if 18>=a and a>=12:
+         '<div class="dialog_menu">'
+             '<p>我:我喜欢你身上的气味，从耳朵到脊椎❤</p>'
+             '<p><<$CJ.name>>:我也是<<$话>></p>'
+         '</div>'
+    end
+
+    if a=19:
+    	 $CJ.love+=a*5
+    	 $CJ.向上汇报=1
+         '<div class="dialog_menu">'
+             '<p>我:我会一直陪在你的周围❤无论何时我都会穿过人群拥抱你❤如果你听到这里嘴角上扬❤那它就算发挥了作用❤</p>'
+             '<p><<$CJ.name>>:哈哈哈❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="城建_Fuck_E0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\E0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8 and a!14:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E0''">自己撸管 </a></div>'
+            if 1<=a and a<=5:'<div class="buttonS1"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E0''">忍耐 </a></div>'
+            if 1<=a and a<=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''城建_事件'',''城建_Fuck_E0''">射精 </a></div>'
+            if a=7:'<div class="buttonR"><a href="exec:a=8 & gt ''城建_事件'',''城建_Fuck_E0''">责骂 </a></div>'
+            if a=6:'<div class="buttonB1"><a href="exec:a=9 & gt ''城建_事件'',''城建_Fuck_E0''">去安全通道 </a></div>'
+            if 9<=a and a<=11:'<div class="buttonS2"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E0''">忍耐 </a></div>'
+            if a=12:'<div class="buttonS"><a href="exec:a=13 & gt ''城建_事件'',''城建_Fuck_E0''">口爆 </a></div>'
+            if a=13:'<div class="buttonS"><a href="exec:a=14 & gt ''城建_事件'',''城建_Fuck_E0''">对话 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+            	if $CJ.倾向<=-2:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''城建_事件'',''城建_Fuck_E1''">送她下楼 </a></div>'else:'<div class="buttonGr"><a href="exec:">该倾向不足</a></div>'
+                '<div class="button"><a href="exec:gt ''市政厅''">离开 </a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:忍不住了是吗❤那让我看看呗❤我知道你想对着我打❤</p>'
+             '<p>我:嘿嘿。</p>'
+         '</div>'
+    end
+
+
+    if 7>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:要忍住❤明白吗？我不喜欢早泄的男人❤</p>'
+             '<p>我:明白❤</p>'
+             '<p><<$CJ.name>>:嗯<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=8:
+    	 $CJ.bad+=a
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:啧啧，这样就射了？</p>'
+             '<p>我:抱歉，您实在是太…太诱人了…</p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=9:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:来这里，没人会打扰我们的。</p>'
+             '<p>我:真的嘛？</p>'
+             '<p><<$CJ.name>>:闭上嘴<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=14:
+    	 $CJ.bad+=a
+    	 $CJ.倾向-=1
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:还不错嘛❤姐挺满意你的，下次再约哈❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="城建_Fuck_E1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\E1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E1''">去旅馆 </a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E1''">摇人 </a></div>'
+            if 2<=q and q<=3:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''城建_事件'',''城建_Fuck_E1''">口男模 </a></div>'
+            '<div class="buttonB4"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_E1''">口我 </a></div>'
+            '<div class="buttonS5"><a href="exec:a=5 & gt ''城建_事件'',''城建_Fuck_E1''">一起口 </a></div>'
+            end
+            if 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=6 & gt ''城建_事件'',''城建_Fuck_E1''">让男模肏 </a></div>'
+            '<div class="buttonB4"><a href="exec:a=9 & gt ''城建_事件'',''城建_Fuck_E1''">换我肏 </a></div>'
+            if a=6 or a=9:'<div class="buttonR4"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E1''">插快点 </a></div>'
+            if a=7 or a=10:'<div class="buttonR5"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_E1''">内射她 </a></div>'
+            end
+
+            if a=11 or q=9:'<div class="buttonS"><a href="exec:a=12 & gt ''城建_事件'',''城建_Fuck_E1''">对话 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+            	if $CJ.倾向<=-5:'<div class="buttonS"><a href="exec:$CJ.倾向B=1 & gt ''居民区''">按摩店邀请 </a></div>'else:'<div class="buttonGr"><a href="exec:">该倾向不足</a></div>'
+                '<div class="buttonG"><a href="exec:money+=2000 & gt ''居民区''">拿钱离开 </a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:好冷呢❤你送我出来应该是想第二轮吧？</p>'
+             '<p>我:是啊。</p>'
+         '</div>'
+    end
+
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:喂❤你现在有空吗？你不介意我再叫一个人吧？</p>'
+             '<p>我:当然❤</p>'
+             '<p><<$CJ.name>>:嗯<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+    if 11>=a and a>=6:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:轮流肏我<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=12:
+    	 $CJ.bad+=a
+    	 $CJ.倾向-=2
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:不错❤年轻就是好嘛❤来，姐姐一人给你们点零花钱❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="城建_Fuck_按摩2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\3P1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<18:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2 :
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''城建_事件'',''城建_Fuck_按摩2''">口男模 </a></div>'
+            '<div class="buttonB1"><a href="exec:a=2 & gt ''城建_事件'',''城建_Fuck_按摩2''">口我 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''城建_事件'',''城建_Fuck_按摩2''">同时享用 </a></div>'
+            end
+            if 7>=q and q>=3:
+            if a!4:'<div class="buttonS1"><a href="exec:a=4 & gt ''城建_事件'',''城建_Fuck_按摩2''">男模插她 </a></div>'
+            if a=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''城建_事件'',''城建_Fuck_按摩2''">肏爽她 </a></div>'
+            if a!6:'<div class="buttonB1"><a href="exec:a=6 & gt ''城建_事件'',''城建_Fuck_按摩2''">由我操她 </a></div>'
+            if a=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''城建_事件'',''城建_Fuck_按摩2''">肏爽她 </a></div>'
+            end
+
+
+            if q>=8:
+				if 12>=a and a>=4:'<div class="buttonR4"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_按摩2''">轮流肏她的穴 </a></div>'
+				if a=13:'<div class="buttonR4"><a href="exec:a=7 & gt ''城建_事件'',''城建_Fuck_按摩2''">轮流肏她的穴 </a></div>'
+				if q>=13 and a!14:'<div class="buttonB3"><a href="exec:a=14 & gt ''城建_事件'',''城建_Fuck_按摩2''">仔细看她挨操 </a></div>'
+				if a=14:'<div class="buttonR"><a href="exec:a=15 & gt ''城建_事件'',''城建_Fuck_按摩2''">看她被颜射 </a></div>'
+				if q>=14 and a!16:'<div class="buttonS5"><a href="exec:a=16 & gt ''城建_事件'',''城建_Fuck_按摩2''">超猛烈抽插她 </a></div>'
+				if a=16:'<div class="buttonR"><a href="exec:a=17 & gt ''城建_事件'',''城建_Fuck_按摩2''">颜射她！ </a></div>'
+            end
+            if a=17:'<div class="buttonGn"><a href="exec:a=18 & gt ''城建_事件'',''城建_Fuck_按摩2''">舔干净 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''公司''">先行撤退 </a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:姐，你来了？我给你准备了好东西❤</p>'
+             '<p><<$CJ.name>>:还是你懂我❤</p>'
+         '</div>'
+    end
+
+
+    if 17>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>男模:想我们怎么伺候你？</p>'
+             '<p><<$CJ.name>>:随意发挥<<$娇喘声>></p>'
+             if a>=4:'<p>我:还有呢？</p>'
+             if a>=4:'<p><<$CJ.name>>:别把我当人<<$话>></p>'
+         '</div>'
+    end
+
+    if a=18:
+    	 $CJ.bad+=a*5
+    	 $CJ.向上汇报=1
+         '<div class="dialog_menu">'
+             '<p>男模:呼——满意了嘛❤</p>'
+             '<p><<$CJ.name>>:不满意的话下次还可以再来吗？❤</p>'
+             '<p>我:随时奉陪❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="城建_Fuck_汇报":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\BN0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            '<div class="buttonR5"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_汇报''">偷看 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''市政厅''">走开 </a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><五常会议室内></p>'
+             '<p><<$SZ.name>>:露营区的事情，处理好了吗？</p>'
+             '<p><<$CJ.name>>:是的，市长大人，露营区的事已经处理妥当了。对于在我管辖范围内出现这种问题，属下难辞其咎！</p>'
+             '<p><<$SZ.name>>:除此之外，舆情妥善处理了？</p>'
+             '<p><<$CJ.name>>:是的，市长大人。居民现在对市政厅的处理结果非常满意</p>'
+         '</div>'
+    end
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><五常会议室内></p>'
+             '<p><<$JYB.name>>:你确定吗？看看这些，这是堆积成山的居民投诉！明明流浪汉霸占露营区的问题群众反应了这么久，你都视而不见是吗？</p>'
+             '<p><<$CJ.name>>:…………</p>'
+             '<p><<$JYB.name>>:还有这些新投诉，都快把信箱塞满了，你到底有执行力吗？先把这些投诉给我们一人复印一份去！</p>'
+             '<p><<$CJ.name>>:我去复印？</p>'
+             '<p><<$JYB.name>>:这点小事的执行力都没有吗？怪不得你什么事都做不好！</p>'
+             '<p><<$CJ.name>>:………</p>'	
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p><五常会议室内></p>'
+             '<p><<$JYB.name>>:怎么了？脚软了吗？</p>'
+             '<p><<$CJ.name>>:痛…痛痛……</p>'
+             '<p><<$JYB.name>>:你还要在这里磨蹭多久？</p>'
+             '<p><<$CJ.name>>:………</p>'	
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+             '<p><五常会议室内></p>'
+             '<p><<$CJ.name>>:啊…啊啊啊…不行了…</p>'
+             '<p><<$SZ.name>>:嗯？你怎么了？</p>'
+             '<p><<$DYZ.name>>:啧啧啧，你搞什么啊，怎么在这里尿了啊。这里可不是监狱，可不能随地解决*轻笑</p>'
+             '<p><<$CJ.name>>:我…我…请容我去换一身衣服…非常抱歉！</p>'	
+         '</div>'
+    end
+    if a=4:
+         '<div class="dialog_menu">'
+             '<p><五常会议室外></p>'
+             '<p><<$JYB.name>>:市长大人，我看<<$CJ.name>>身体不适的样子，不如让她去休息，由她的副官代为参加会议吧。</p>'
+             '<p><<$SZ.name>>:她还有副官？</p>'
+             '<p><<$JYB.name>>:咳咳！▊▊▊▊，你可以进来了！</p>'
+         '</div>'
+    end
+
+
+    if a=5:
+		 $CJ.向上汇报+=1
+         '<div class="dialog_menu">'
+             '<p><<$LB.name>>:诸位部长好！我是《自贸自治管理办法》的联合策划者，同时也在《自贸自治管理办法》的具体落实中给予了<<$CJ.name>>不少的帮助。</p>'
+             '<p><<$SZ.name>>:喔？她可没提起过呢？</p>'
+             '<p><<$JYB.name>>:找个位子坐吧，在<<$CJ.name>>身体恢复前，你就代理听取会议意见，会后再向她转达吧。</p>'
+             '<p><<$LB.name>>:明白。</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="城建_Fuck_清场1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CJ\vids\BN1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            '<div class="buttonB5"><a href="exec:a+=1 & gt ''城建_事件'',''城建_Fuck_清场1''">偷看 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''市政厅''">走开 </a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:所有无关人员请离场，我要和<<$CJ.name>>单独聊聊❤</p>'
+         '</div>'
+    end
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$CJ.name>>:我的杯子呢？是你往我的杯子里下的利尿剂对吧？！让我在五常会议上出丑！</p>'
+             '<p><<$JYB.name>>:我？我为什么要这么做？你有证据吗？</p>'
+             '<p><<$CJ.name>>:就因为我不同意你的变态的恶心的，肮脏的女同请求，你就这样报复我？</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:别激动，我的好姐妹，现在接受也不迟喔❤</p>'
+             '<p><<$CJ.name>>:别碰我！</p>'
+             '<p><<$JYB.name>>:别这么抗拒，现在你的实权已经被我巧妙地罢免了喔❤</p>'
+             '<p><<$CJ.name>>:滚开！</p>'	
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:我和<<$YZ.name>>的关系极好，医疗和教育永远是一条心的嘛❤</p>'
+             '<p><<$CJ.name>>:滚开！别碰我！</p>'	
+             '<p><<$JYB.name>>:你是想要你的病例报告上的表现是“转好”还是“恶化”，这取决于你的态度。</p>'
+             '<p><<$CJ.name>>:…………</p>'		
+         '</div>'
+    end
+    if a>=4:
+         '<div class="dialog_menu">'
+             '<p><<$JYB.name>>:每当我想要你的时候，你最好能好好表现❤</p>'
+             '<p><<$CJ.name>>:…………</p>'	
+             if a>=5:'<p><<$JYB.name>>:你以为是谁在暗中提拔你？这次只是一个小小的警告，实权被架空的人，就应该像一条狗一样摇着尾巴讨主人开心！</p>'
+             if a>=6:'<p><<$CJ.name>>:可恶……</p>'	
+             if a>=7:
+             $YJB_CJ+=1
+             '<p><<$JYB.name>>:你是聪明人，我不管你和哪个男人上床，但“女人”你只能和我做！否则，你就马上会被五常议会除名喔❤明白了吗？</p>'
+             '<p><<$CJ.name>>:明白了…</p>'	
+             end
+         '</div>'
+    end
+
+
+
+  q+=1
+End
+--- 城建_事件 ---------------------------------
+

@@ -1,0 +1,1459 @@
+# director_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+
+if $args[0]="end":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\结束.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>:Let`s stop here, and then it`s a bit of playing with fire...After all, we`re still in the station, right...?</p>'
+		'<p>Me: Okay... I have to keep working hard... (Higher ratings or make her more depraved?）</p>'
+	'</div>'
+End
+
+if $args[0]="date":
+		a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\约会.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''director_event'',''tz_fuck_massage''">Propose massage </a></div>'
+
+		if $TZ.love>=150 and $TZ.bad>=150 :'<div class="buttonS3"><a href="exec:gt ''director_event'',''tz_fuck_appointment''">Go open a room </a></div>'else:'<div class="buttonGr"><a href="exec:">Go open a room</a></div>'
+		if $TZ.love>=200 and $TZ.bad>=200 :'<div class="buttonS4"><a href="exec:gt ''director_event'',''tz_fuck_back_to_the_company''">Back to the station </a></div>'else:'<div class="buttonGr"><a href="exec:">Back to the station</a></div>'
+		if $TZ.love>=300 and $TZ.bad>=300 :'<div class="buttonGn"><a href="exec:gt ''director_event'',''hot_spring''">Go to the hot spring </a></div>'else:'<div class="buttonGr"><a href="exec:">Go to the hot spring</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''residential_area''">Go back to each home</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Sweet dinner!</p>'
+		'<p><<$TZ.name>>: <<$protagonists_name>>...Next, what are your plans?</p>'
+		'<p>Me: What do I want to do, do you agree?</p>'
+	'</div>'
+End
+
+if $args[0]="tz_fuck_universal_prize_mouth":
+	if $TZ.bad<(a-3)*7+10:gt'director_event','end'
+	if $ratings<(a+$prize_mouth)*4:gt'director_event','end'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\口<<$prize_mouth>>-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			if $prize_mouth=1:'<div class="buttonB1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Rub silk buttocks </a></div>'
+			if $prize_mouth=2:'<div class="buttonB1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Thigh clip shot </a></div>'
+			if $prize_mouth=3:'<div class="buttonB1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Lick the glans </a></div>'
+			if $prize_mouth=4:'<div class="buttonB1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Mouth me </a></div>'
+			end
+
+			if a!2 and 0<q and q<=4:
+			if $prize_mouth=4 and a=1:
+			'<div class="buttonR4"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Shoot her in the mouth </a></div>'
+			else:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">serve </a></div>'
+			end
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Oral sex </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			if $prize_mouth=4:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Lick the balls </a></div>'
+			else:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Be gentle </a></div>'
+			end
+			end
+			if a!5 and 3<q and q<=7 and a!6:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Be intense </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">Ejaculation </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_universal_prize_mouth''">dialogue </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+	$directors_words[0]="So impatient?You are doing well, and you deserve some rewards.…"
+	$directors_words[1]="Don`t worry, how could I forget to reward you?"
+	$directors_words[2]="Can`t wait for me to reward you~ Let`s talk about it, what reward do you want."
+	$directors_words[3]="Although you are not a regular employee, can you enjoy work rewards that regular employees do not have?…"
+	$directors_words[4]="I think the spiritual rewards are far less real than the physical rewards, don`t you think?"
+	$directors_words[5]="If this kind of reward can mobilize your enthusiasm for better ratings, then I think I earned it.…"
+	$directors_words[6]="One-time reward?I think so too…"
+	$directors_words="<<$directors_words[rand(0,6)]>>"
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Follow me…</p>'
+			 '<p><<$TZ.name>>: <<$directors_words>></p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting_2>></p>'
+			 '<p>Me: Shot!</p>'
+			 '<p><<$TZ.name>>:It`s all shot out…</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $TZ.love+=(q+$my.charm)/5
+		 $TZ.bad+=q/2
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:You have contributed greatly to the improvement of ratings, and I am very optimistic about you.</p>'
+			 '<p>Me: I will make persistent efforts!</p>'
+		 '</div>'
+	end
+ $TZ.love+=(1+$my.charm)/5
+ $TZ.bad+=1
+  q+=1
+End
+
+
+if $args[0]="tz_fuck_pan_reward_event":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\奖励<<$awards>>-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			if $awards=1:'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_pan_reward_event''">Rub silk buttocks </a></div>'
+			if $awards=2:'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_pan_reward_event''">Footjob </a></div>'
+			if $awards=3:'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_pan_reward_event''">Lick me </a></div>'
+			if $awards=4:'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_pan_reward_event''">Lick the balls </a></div>'
+			end
+
+			if a!2 and 0<q and q<=4:
+			if $awards<=2:'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_pan_reward_event''">Silk butt friction </a></div>'
+			if $awards=3:'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_pan_reward_event''">Finger insertion </a></div>'
+			if $awards=4:'<div class="buttonR4"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_pan_reward_event''">Lick butthole </a></div>'
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_pan_reward_event''">Mouth me </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_pan_reward_event''">Fuck! </a></div>'
+			end
+			if a!5 and 3<q and q<=7:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_pan_reward_event''">Change posture </a></div>'
+			end
+			if a!6 and 4<q  and a!7:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_pan_reward_event''">Accelerate the sprint </a></div>'
+			end
+			if a=6:
+			'<div class="buttonR4"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_pan_reward_event''">Ejaculation </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''director_event'',''tz_fuck_pan_reward_event''">afterwards </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 if $awards=1:'<p><<$TZ.name>>:I`m not going home so late... are you waiting for me?</p>'
+			 if $awards=2:'<p><<$TZ.name>>:Early in the morning... aerobic on an empty stomach helps to lose weight…</p>'
+			 if $awards=3:'<p><<$TZ.name>>:Don`t worry, as long as you hide behind the video screen...they won`t find us.……</p>'
+			 if $awards=4:'<p><<$TZ.name>>:Still editing video material...?It`s really hard for you, guess what surprise I brought you?</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 if $awards=1:'<p><<$TZ.name>>:It`s so late, you have to pay attention to rest, if you are sick... I will be heartbroken…</p>'
+			 if $awards=2:'<p><<$TZ.name>>:How many calories are consumed...?Why don`t you plan a sports program!</p>'
+			 if $awards=3:'<p><<$TZ.name>>:They don`t seem to have found us?Let`s sneak out the back door!</p>'
+			 if $awards=4:'<p><<$TZ.name>>:Your semen is as energetic as your program planning!I love you so much!If you have time... go on a date with me!</p>'
+			 '<p>Me:<<$affirmative_answer>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_appointment":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\约会1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_appointment''">Hunger and thirst are unbearable </a></div>'
+			end
+			if a!2 and 0<q and q<=4:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_appointment''">Mouth me </a></div>'
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_appointment''">Lick my asshole </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_appointment''">Insert heavily </a></div>'
+			end
+			if a!5 and 3<q and q<=7:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_appointment''">Violent thrusting </a></div>'
+			end
+			if a!6 and 4<q  and a!7:
+			'<div class="buttonR4"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_appointment''">Ejaculation</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_appointment''">Take her home </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=60 & gt ''residential_area''">respectively</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Hurry up and fuck me... I want you…</p>'
+			 '<p>Me: You keep seducing me with your feet in the restaurant…</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:I am really happy today!I want to...keep going like this with you…</p>'
+			 '<p>Me:<<$affirmative_answer>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_back_to_the_company":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\超1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_back_to_the_company''">Touch fat buttocks </a></div>'
+			end
+			if a!2 and 0<q and q<=4:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_back_to_the_company''">Mouth me </a></div>'
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_back_to_the_company''">insert </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_back_to_the_company''">Move by yourself </a></div>'
+			end
+			if a!5 and 3<q and q<=7:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_back_to_the_company''">Violent thrusting </a></div>'
+			end
+
+			if a!7 and 4<q :
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_back_to_the_company''">Change posture </a></div>'
+			end
+
+
+			if a=5 or a=7:
+			'<div class="buttonR4"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_back_to_the_company''">Internal injection</a></div>'
+			end
+			if a!9 and 7<q :
+			'<div class="buttonS5"><a href="exec:a=9 & gt ''director_event'',''tz_fuck_back_to_the_company''">Final sprint </a></div>'
+			end
+			if a=9:
+			'<div class="buttonR4"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_back_to_the_company''">Bukkake</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''director_event'',''tz_fuck_back_to_the_company''">One hour later </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">respectively</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Actually go back to the station to do it... isn`t it good to open a room... Haven`t you fucked me enough here?</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 minutes+=60
+		 '<div class="dialog_menu">'
+			 '<p>·In the next hour, you turned the office upside down... her lewd water and your semen were scattered everywhere.…</p>'
+			 '<p><<$TZ.name>>:Come and love me again tomorrow, okay?…</p>'
+			 '<p>Me:<<$affirmative_answer>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_massage":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\MGF1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!10 and a!1:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_massage''">Normal massage </a></div>'
+			if MGF>0:'<div class="buttonS1"><a href="exec:MGF-=1 & a=2 & gt ''director_event'',''tz_fuck_massage''">Apply McGovern Essence</a></div>'else:'<div class="buttonGr"><a href="exec:">Missing?？？</a></div>'
+			end
+
+			if a>=2 and a!3:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_massage''">Are you allowed to masturbate? </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_massage''">Listen to my orders! </a></div>'
+			end
+			if a!5 and 3<=q and q<=7:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_massage''">Pull her to orgasm </a></div>'
+			end
+			if a!6 and 4<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_massage''">Violent thrusting </a></div>'
+			end
+			if a!7 and 5<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_massage''">Pick it up and fuck </a></div>'
+			end
+			if a!8 and 6<q :
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''director_event'',''tz_fuck_massage''">Accelerate the sprint </a></div>'
+			end
+			if a=8:
+			'<div class="buttonR4"><a href="exec:a=9 & gt ''director_event'',''tz_fuck_massage''">Internal injection</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''director_event'',''tz_fuck_massage''">dialogue </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">respectively</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:I didn`t see it, do you still know how to massage?</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Is this the level?Not very good……</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+			 if a=3:
+			 	'<p><<$TZ.name>>:So cool... I`m going to spray……</p>'
+			 	'<p>Me: Did I allow you to masturbate?</p>'
+			 end
+			 if a>=4:'<p><<$TZ.name>>:Please...let me have an orgasm...let me have an orgasm…</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Let me orgasm<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q*3
+		 $tz.pressed=1
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Great... why are you so good…</p>'
+			 '<p>Me: Now you know how good I am!You know where you can find me for a massage!</p>'
+			 '<p><<$TZ.name>>:I will go……</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_celebration_banquet":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\庆功宴1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_celebration_banquet''">Pour the wine on your body </a></div>'
+			end
+			if a!2 and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_celebration_banquet''">Let her take a sip of wine </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_celebration_banquet''">With wine in my mouth </a></div>'
+			end
+			if a!4 and 2<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_celebration_banquet''">Pour the wine on the cock </a></div>'
+			end
+			if a!5 and 3<=q and q<=7:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_celebration_banquet''">Press on the bed to fuck </a></div>'
+			end
+			if a!6 and 4<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_celebration_banquet''">Violent thrusting </a></div>'
+			end
+			if a!7 and 5<q and a!8:
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_celebration_banquet''">Accelerate the sprint </a></div>'
+			end
+			if a=7:
+			'<div class="buttonR"><a href="exec:a=8 & gt ''director_event'',''tz_fuck_celebration_banquet''">Ejaculation </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''director_event'',''tz_fuck_celebration_banquet''">dialogue </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">respectively</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Great, our TV station`s viewing position has firmly ranked first!I also won the Best leadership Award!</p>'
+			 '<p>Me: Congratulations!Cheers!</p>'
+			 '<p><<$TZ.name>>:Cheers!Let`s make love presumptuously, I don`t want to care about anything now!</p>'
+
+		 '</div>'
+	end
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>>So delicious…</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $TZ.love+=q*2+$my.charm
+		 $TZ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:I want to...have a formal relationship with you...would you like to…</p>'
+			 '<p>Me: Let me think about it…</p>'
+			 '<p><<$TZ.name>>:？！？You... are very good at whetting my appetite…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_rest":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\旅馆1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_rest''">Pull up and fuck her </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_rest''">Hold and fuck </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_rest''">Ride up </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_rest''">Accelerate thrusting </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_rest''">Ejaculation </a></div>'
+			end
+			if a!6 and 4<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_rest''">Go to the bathroom to do it </a></div>'
+			end
+			if a!7 and 5<q and a!8:
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_rest''">Press on the glass to operate </a></div>'
+			end
+			if a=7:
+			'<div class="buttonR"><a href="exec:a=8 & gt ''director_event'',''tz_fuck_rest''">Ejaculation </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''director_event'',''tz_fuck_rest''">dialogue </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">respectively</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:It`s so comfortable... it`s rare to skip work... it feels great not to worry about the ratings!</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>>...don`t...don`t go too far...let me rest.…</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>>Be stimulated in the bathroom…</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>Me: How is it?...are you still sleepy?</p>'
+			 '<p><<$TZ.name>>:……...huh!What do you say!</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="hot_spring":
+		a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''director_event'',''tz_fuck_hot_spring_1''">Take a bath </a></div>'
+		'<div class="buttonS2"><a href="exec:gt ''director_event'',''tz_fuck_hot_spring_2''">Can`t wait </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>:It`s been a long time since I took a bath in a hot spring... You will also ask me to take a bath in the future.</p>'
+		'<p>Me: Then I will call you directly from now on?</p>'
+		'<p><<$TZ.name>>:No problem.</p>'
+		$tz.hot_springs_are_available=1
+	'</div>'
+End
+
+if $args[0]="tz_fuck_hot_spring_1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!3:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_hot_spring_1''">Wash together </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_hot_spring_1''">Lick </a></div>'
+			end
+			if a!3 and 2<=q :
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_hot_spring_1''">Ejaculation </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=1440 & hour=7 & $my.energy=mymax[$energy]  & a=0 & q=0 & gt ''director_event'',''tz_fuck_hot_spring_3''">Overnight zzZ</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:The essence of hot springs... of course, is mixed bathing.</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+
+	if a=3:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Call————</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_hot_spring_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!6:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_hot_spring_2''">Go to bed </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_hot_spring_2''">Lick her </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_hot_spring_2''">Move by yourself </a></div>'
+			end
+			if a!4 and 2<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_hot_spring_2''">Ride up </a></div>'
+			end
+			if a=4:
+			'<div class="buttonPu4"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_hot_spring_2''">Outdoor situation </a></div>'
+			end
+			if a!5 and 3<=q :
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_hot_spring_2''">Twist by yourself </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_hot_spring_2''">Ejaculation </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=1440 & hour=7 & $my.energy=mymax[$energy]  & a=0 & q=0 & gt ''director_event'',''tz_fuck_hot_spring_3''">Overnight zzZ</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Can`t wait... I wanted it when I was in the restaurant just now.…</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>>...</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:It`s hot in the vagina...so comfortable…</p>'
+		 '</div>'
+	end
+	
+	if a=7:
+		 $WQ.love+=1
+		 $WQ.bad+=1
+		 '<div class="dialog_menu">'
+			 '<p>？？？: Damn it... why?…</p>'
+		 '</div>'
+	end
+	
+  q+=1
+End
+
+if $args[0]="tz_fuck_hot_spring_3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!6:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_hot_spring_3''">Blowjob for me </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_hot_spring_3''">Lick butthole </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_hot_spring_3''">Move by yourself </a></div>'
+			end
+			if a!4 and 2<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_hot_spring_3''">After entering her </a></div>'
+			end
+			if a!5 and 3<=q :
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_hot_spring_3''">Vigorously pump </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_hot_spring_3''">Ejaculation </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''tv_station''">Work together</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+
+			 '<p>·The next day</p>'
+			 '<p><<$TZ.name>>:Are you awake... are you sleeping comfortably?</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$words>>...</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:Huh----It`s comfortable, let`s go to work together.</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_loop":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\口循环1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_loop''">Four people tongue kiss </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_loop''">Lick me </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_loop''">The blowjob bomb begins! </a></div>'
+			end
+
+			if a=3 or a=5 or a=7:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_loop''">Prepare to speak for ten minutes! </a></div>'
+			end
+
+			if a=9:
+			'<div class="buttonR3"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_loop''">Prepare to speak for ten minutes! </a></div>'
+			end
+
+			if a=4:
+			'<div class="buttonGn"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_loop''">Pass it on<<$TZ.name>>→ </a></div>'
+			end
+
+			if a=6:
+			'<div class="buttonGn"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_loop''">Pass it on<<$LY.name>>→ </a></div>'
+			end
+
+			if a=8:
+			'<div class="buttonGn"><a href="exec:a=9 & gt ''director_event'',''tz_fuck_loop''">Pass it on<<$BD.name>>←← </a></div>'
+			end
+
+
+			if q>=10:
+			'<div class="buttonS5"><a href="exec:a=10 & gt ''director_event'',''tz_fuck_loop''">Ejaculation </a></div>'
+			end
+			if a=10:
+			'<div class="buttonS"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_loop''">Do it again</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''director_event'',''tz_fuck_loop''">Stop playing </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:What`s happened?Am I not welcome here?</p>'
+			 '<p><<$LY.name>>:I am working with<<$BD.name>>Exchange scripts?</p>'
+			 '<p><<$TZ.name>>:New script?Blowjob bomb?The female guests have oral sex with their amateur girlfriends?Whoever shoots in the mouth will be eliminated?So funny!</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$panting>></p>'
+			 '<p><<$LY.name>>:<<$panting_2>></p>'
+			 if a=3:'<p>·Oral sex bomb started……</p>'
+		 '</div>'
+	end
+
+	if a=4 or a=6 or a=8:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Ah ah ah ah... the meat stick is trembling!</p>'
+			 if a=4:'<p><<$BD.name>>:Hold on to me!</p>'
+			 if a=6:'<p><<$TZ.name>>:Show some skills!</p>'
+			 if a=8:'<p><<$LY.name>>:No, no... don`t hold back!</p>'
+		 '</div>'
+	end
+
+	if a=5 or a=7 or a=9:
+		 '<div class="dialog_menu">'
+			 if a=5:'<p><<$BD.name>>:Pick it up for me!<<$TZ.NAME>>！Put your mouth together!</p>'
+			 if a=7:'<p><<$TZ.name>>It`s your turn!<<$LY.name>></p>'
+			 if a=9:'<p><<$LY.name>>:No way no way……<<$BD.name>>, Give it back to you!</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:What!？</p>'
+			 '<p><<$TZ.name>>:Shot?！？</p>'
+			 '<p><<$LY.name>>:Hey hey!Whose is this!</p>'
+		 '</div>'
+	end
+
+
+	if a=11:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Don`t do it again!What a disappointment?</p>'
+			 '<p><<$TZ.name>>:Okay, let`s all rest, I think he is tired too.</p>'
+			 '<p><<$LY.name>>:I will not disappoint the guidance of my predecessors in this reality show!</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_intelligence":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\TZLY1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!13:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_intelligence''">Give them some color </a></div>'
+			end
+			if a!2 and 0<q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_intelligence''">Mouth me </a></div>'
+			end
+			if a!3 and 1<q :
+			'<div class="buttonB2"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_intelligence''">fuck<<$LY.NAME>> </a></div>'
+			end
+			if a!8 and 1<q :
+			'<div class="buttonS3"><a href="exec:a=8 & gt ''director_event'',''tz_fuck_intelligence''">fuck<<$TZ.NAME>> </a></div>'
+			end
+			if  3<=a and a<=5:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_intelligence''">Change posture and insert </a></div>'
+			end
+
+			if  8<=a and a<=10:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_intelligence''">Change posture and insert </a></div>'
+			end
+
+
+			if a=6 or a=11:
+			'<div class="buttonR5"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_intelligence''">Ejaculation</a></div>'
+			end
+			if a=7 or a=12:
+			'<div class="button"><a href="exec:a=13 & gt ''director_event'',''tz_fuck_intelligence''">I`m tired </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=60 & gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: <<$LY.name>>...I`ve heard so much about you, thanks to you for the success of the reality show!</p>'
+			 '<p><<$LY.name>>:You are flattered!It`s all the credit of the leaders…</p>'
+			 '<p><<$TZ.name>>:Oh?It turns out<<$protagonists_name>>Didn`t you contribute?！</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Who said I didn`t contribute?Explain to me, what the hell is it!</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$words>></p>'
+			 '<p><<$TZ.name>>: <<$panting>></p>'
+		 '</div>'
+	end
+
+	if 12>=a and a>=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$TZ.name>>: <<$words>></p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 $LY.love+=q+$my.charm
+		 $LY.bad+=q
+		 TZLY+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>and<<$LY.name>>The relationship has risen!</p>'
+			 '<p>Me: It`s not easy, I`m exhausted.</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_invite_credit":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\邀功1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!14:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_invite_credit''">Pushed down </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_invite_credit''">violated </a></div>'
+			end
+			if a!3 and 1<q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_invite_credit''">Be ridden on the face </a></div>'
+			end
+
+			if a!4 and 2<q :
+			'<div class="buttonP"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_invite_credit''">Choose ass </a></div>'
+			end
+
+
+			if a=4:
+			'<div class="buttonR1"><a href="exec:a=9 & gt ''director_event'',''tz_fuck_invite_credit''">Choose←<<$TZ.NAME>> </a></div>'
+			'<div class="buttonR1"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_invite_credit''">Choose→<<$BD.NAME>> </a></div>'
+			end
+
+			if  5<=a and a<=10 and a!7 and a!8:
+			'<div class="buttonR2"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_invite_credit''">Change posture and insert </a></div>'
+			end
+
+			if a=7 or a=11:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_invite_credit''">Sprint violently</a></div>'
+			end
+			if a=8 or a=12:
+			'<div class="buttonR4"><a href="exec:a=13 & gt ''director_event'',''tz_fuck_invite_credit''">Ejaculation </a></div>'
+			end
+			if a=13:
+			'<div class="button"><a href="exec:a=14 & gt ''director_event'',''tz_fuck_invite_credit''">A little tired </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=60 & gt ''tv_station''">leave</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: <<$BD.name>>...how could it be with<<$protagonists_name>>Come to me together?</p>'
+			 '<p><<$BD.name>>:The ratings on the station are so good now... I think……</p>'
+			 '<p><<$TZ.name>>:Oh?I see, in that case, I will reward you with a big baby!</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Isn`t the big baby good?……</p>'
+			 '<p><<$TZ.name>>: <<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>·They pursed their asses, and the scene was very lewd.</p>'
+			 '<p><<$BD.name>>:Who to plug in?</p>'
+			 '<p><<$TZ.name>>:Plug me in first!</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$words>></p>'
+			 '<p><<$TZ.name>>: <<$panting>></p>'
+		 '</div>'
+	end
+
+	if 13>=a and a>=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$panting>></p>'
+			 '<p><<$TZ.name>>: <<$words>></p>'
+		 '</div>'
+	end
+
+	if a=14:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 BDTZ+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>and<<$BD.name>>The relationship has risen subtly!</p>'
+			 '<p>Me: It`s not easy, I`m a little tired……</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_fuck":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\4p1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!12:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS2"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_fuck''">Let`s go together! </a></div>'
+			end
+			if a=1:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_fuck''">Choose ass </a></div>'
+			end
+
+
+			if a=2:
+			'<div class="buttonR1"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_fuck''">Choose←<<$TZ.NAME>> </a></div>'
+			'<div class="buttonR1"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_fuck''">Choose↑<<$BD.NAME>> </a></div>'
+			'<div class="buttonR1"><a href="exec:a=5 & gt ''director_event'',''tz_fuck_fuck''">Choose→<<$LY.NAME>> </a></div>'
+			end
+
+			if  3<=a and a<=5 :
+			'<div class="buttonS4"><a href="exec:a+=3 & gt ''director_event'',''tz_fuck_fuck''">Fuck her </a></div>'
+			end
+
+			if  6<=a and a<=8 :
+			'<div class="buttonS5"><a href="exec:a+=3 & gt ''director_event'',''tz_fuck_fuck''">Ejaculation </a></div>'
+			end
+
+			if  9<=a and a<=11 :
+			'<div class="buttonP"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_fuck''">Choose ass </a></div>'
+			'<div class="button"><a href="exec:a=12 & gt ''director_event'',''tz_fuck_fuck''">Slip away</a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonG"><a href="exec:minutes+=60 & gt ''tv_station''">Achievement: The king of TV stations in the United States</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$protagonists_name>>What are you asking us to gather for?Can`t you come to me directly if you miss me?</p>'
+			 '<p><<$TZ.name>>: Are we the only ones?<<$QT.name>>Won`t you come?I quite like her.</p>'
+			 '<p><<$LY.name>>: Just a few of us are enough for him to fade his skin!Muaaaaaaaa…</p>'
+		 '</div>'
+	end
+
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:Look at the trick!</p>'
+			 '<p><<$TZ.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>·They pursed their asses and lined up for you to choose from.</p>'
+			 '<p><<$TZ.name>>: <<$panting>></p>'
+			 '<p><<$BD.name>>:Who to plug in?</p>'
+			 '<p><<$LY.name>>:Choose me!Choose me!</p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: <<$panting>></p>'
+			 '<p><<$BD.name>>: <<$words>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
+		 '</div>'
+	end
+
+
+	if a=12:
+		 $TZ.love+=q+$my.charm
+		 $TZ.bad+=q
+		 $BD.love+=q+$my.charm
+		 $BD.bad+=q
+		 $LY.love+=q+$my.charm
+		 $LY.bad+=q
+		 $king_of_tv_stations="【The King of TV Stations】"
+		 '<div class="dialog_menu">'
+			 '<p>I:……………………</p>'
+			 '<p><<$TZ.name>>: <<$panting>>Don`t go!</p>'
+			 '<p><<$BD.name>>: <<$words>>Come back and continue!</p>'
+			 '<p><<$LY.name>>: <<$panting_2>>Hurry up, hurry up!Don`t want to run!</p>'
+			 '<p>解锁Unlock achievements:<<$king_of_tv_stations>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="tz_fuck_xie_shiyan":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TZ\vids\TZQ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            if $TZ.bad>=$my.charm*25 and $QB.bad>=$my.charm*25 :'<div class="buttonS"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_xie_shiyan''">Shut up to me! </a></div>'else:'<div class="buttonGr"><a href="exec:">Someone pretends to be reserved </a></div>'
+            '<div class="button"><a href="exec:a=1 & gt ''tv_station''">leave </a></div>'
+            end
+            if a!0 and a!2:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_xie_shiyan''">Let`s spray together! </a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_xie_shiyan''">Choose to force sex </a></div>'
+            end
+
+            if a=3:
+            '<div class="buttonP"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_xie_shiyan''">fuck<<$QB.name>> </a></div>'
+            '<div class="buttonPu1"><a href="exec:a=7 & gt ''director_event'',''tz_fuck_xie_shiyan''">fuck<<$TZ.name>> </a></div>'
+            end
+
+            if a=4 or a=5:
+            '<div class="buttonP"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_xie_shiyan''">❤Fuck her❤ </a></div>'
+            end
+            if a=7 or a=8:
+            '<div class="buttonPu1"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_xie_shiyan''">❤Don`t stop❤ </a></div>'
+            end
+            if a=6 or a=9:
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''director_event'',''tz_fuck_xie_shiyan''">❤Ejaculation❤ </a></div>'
+            end
+            if a=10:
+            '<div class="button"><a href="exec:a=11 & gt ''director_event'',''tz_fuck_xie_shiyan''">❤Exchange semen❤ </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS5"><a href="exec:a=rand(2,8) & gt ''director_event'',''tz_fuck_xie_shiyan''">Keep doing it! </a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''tv_station''">Time to rest…</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>Me: Ahem... In the end, you were able to miraculously counterattack with the first-place votes. You must have secretly helped a lot.</p>'
+             '<p><<$TZ.name>>:No... I just did my part.</p>'
+             '<p><<$QB.name>>:Director, anyway, you suggested that I follow<<$protagonists_surname>>Honey, this is the most important choice in my life.</p>'
+             '<p>Me: I don`t believe you didn`t contribute.</p>'
+             '<p><<$TZ.name>>:Speechless, then you will contribute to me now?You have an unusual relationship with her, right?</p>'
+         '</div>'
+    end
+
+
+    if 10>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: <<$panting>></p>'
+             '<p><<$QB.name>>: <<$panting_2>></p>' 
+             if 6>=a and a>=4:'<p><<$QB.name>>: <<$words>></p>'
+             if 9>=a and a>=7:'<p><<$TZ.name>>: <<$words_2>></p>'
+             if a=10:'<p>Me: Launch!</p>' 
+         '</div>'
+    end
+
+
+    if a=11:
+         $TZ.love+=q
+         $TZ.bad+=q
+         $QB.love+=q
+         $QB.bad+=q
+         QBTZ=1
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>:It seems that you have been well trained by him❤</p>'
+             '<p><<$QB.name>>:Hee hee❤</p>' 
+             '<p>·The relationship between the two has deepened❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="tz_fuck_full_staff_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TZ\vids\QQT4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''director_event'',''tz_fuck_full_staff_2''">Let`s go together! </a></div>'
+            end
+            if a=1:
+            '<div class="buttonP"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_full_staff_2''">Enjoy serving </a></div>'
+            end
+            if a=2:
+            '<div class="buttonP"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_full_staff_2''">Three tongue kisses </a></div>'
+            end
+
+            if a=3:
+            '<div class="buttonR1"><a href="exec:a=4 & gt ''director_event'',''tz_fuck_full_staff_2''">Choose←<<$QT.NAME>> </a></div>'
+            '<div class="buttonR1"><a href="exec:a=8 & gt ''director_event'',''tz_fuck_full_staff_2''">Choose↑<<$QB.NAME>> </a></div>'
+            '<div class="buttonR1"><a href="exec:a=6 & gt ''director_event'',''tz_fuck_full_staff_2''">Choose→<<$TZ.NAME>> </a></div>'
+            end
+
+            if  a=4 or a=6 or a=8 :
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''director_event'',''tz_fuck_full_staff_2''">Change posture </a></div>'
+            end
+
+            if  a=5 or a=7 or a=9 :
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''director_event'',''tz_fuck_full_staff_2''">Line up bukkake </a></div>'
+            end
+
+            if  a=10:
+            '<div class="buttonP"><a href="exec:a=3 & gt ''director_event'',''tz_fuck_full_staff_2''">Share semen </a></div>'
+            '<div class="buttonS5"><a href="exec:a=11 & gt ''director_event'',''tz_fuck_full_staff_2''">❤Done❤</a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=2 & gt ''director_event'',''tz_fuck_full_staff_2''">Blow me hard!Sorcerer!</a></div>'
+                '<div class="buttonG"><a href="exec:minutes+=60 & gt ''tv_station''">Achievement:✩Screen master</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>:This time<<$QT.name>>I got good results, I am very happy.<<$QB.name>>It was also discovered from our station. Do you consider returning to the station for the exam?</p>'
+             '<p><<$QB.name>>: <<$protagonists_surname>>The agent helped me a lot!I can`t do without him now…</p>'
+             '<p><<$QT.name>>: <<$protagonists_name>>It also helped me a lot, it`s not as good as the three of us…</p>'
+             '<p>Me: Huh?</p>'
+         '</div>'
+    end
+
+
+
+    if a=1 or a=2:
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>:Director, you are in charge of the key positions, and leave the rest to us!</p>'
+             '<p><<$TZ.name>>: <<$panting>></p>'
+             '<p><<$QB.name>>: <<$panting_2>></p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+             '<p>·They kissed their tongues together lovingly, for you to choose from.</p>'
+             '<p><<$TZ.name>>: <<$panting>></p>'
+             '<p><<$QT.name>>:Who to choose?</p>'
+             '<p><<$QB.name>>:Choose me!Choose me ❤</p>'
+         '</div>'
+    end
+
+    if 10>=a and a>=4:
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: <<$panting>></p>'
+             '<p><<$QT.name>>: <<$words>></p>'
+             '<p><<$QB.name>>: <<$panting_2>></p>'
+         '</div>'
+    end
+
+
+    if a=11:
+         $TZ.love+=q+$my.charm
+         $TZ.bad+=q
+         $QT.love+=q+$my.charm
+         $QT.bad+=q
+         $QB.love+=q+$my.charm
+         $QB.bad+=q
+         $screen_master="【✩Screen master】"
+         '<div class="dialog_menu">'
+             '<p>I:……………………</p>'
+             '<p><<$QT.name>>: <<$words>>I haven`t had enough fun yet…</p>'
+             '<p><<$QB.name>>: <<$panting_2>></p>'
+             '<p><<$TZ.name>>: <<$panting>>Give me some points too…</p>'
+             '<p>解锁Unlock achievements:<<$screen_master>></p>'
+         '</div>'
+    end
+  q+=1
+End
+--- director_event ---------------------------------
+

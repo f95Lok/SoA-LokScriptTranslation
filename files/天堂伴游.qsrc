@@ -1,0 +1,257 @@
+# 天堂伴游
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+$oxhbao=rand(2,23)
+minutes+=15
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="歌舞伎町" href="exec:minutes+=5 & gt ''歌舞伎町''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if piaozi<2000 : 
+	$piaolv="无"
+ elseif piaozi <5000: $piaolv="VIP"
+ elseif piaozi <15000: $piaolv="VVIP"
+  elseif piaozi <25000: $piaolv="VVVIP"
+   elseif piaozi <50000: $piaolv="VVVVIP"
+   else:$piaolv="SVIP"
+END
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\天堂伴游2.jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''天堂伴游'',''电子屏幕''">♝伴游说明书♝</a></div>'
+		if $凯撒事件链!0:'<div class="buttonB4"><a href="exec:minutes+=15 & 凯撒对话=0 & gt ''天堂伴游'',''凯撒门''">『凯撒办公室』</a></div>'else:'<div class="buttonGr"><a href="exec:">『凯撒办公室』</a></div>'
+		if $银行事件链=2:'<div class="buttonPu4"><a href="exec:minutes+=15 & gt ''银行_事件'',''喝酒选择''"><<$YH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·天堂伴游，主打的是高质量的陪伴，为寂寞的您建立更亲密的情感联结。</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="电子屏幕":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''天堂伴游'',''申请伴游''">申请伴游</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''天堂伴游'',''缴纳保证金''">缴纳保证金</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·声明：以下的金额系本人自愿的赠予行为，不存在嫖资，入籍费，等涉嫌性交易的费用。</p>'
+		'<p>·备注：对于客户我们设有VIP、VVIP、VVVIP、VVVVIP、SVIP 五个会员等级。</p>'
+		'<p>·目前账户已累计缴纳￥<<piaozi>>。您目前的等级为:<<$piaolv>></p>'
+	'</div>'
+End
+
+if $args[0]="缴纳保证金":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像<<$oxhbao>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if money>=500:
+		'<div class="buttonG"><a href="exec:minutes+=5 & money-=500 & piaozi+=500 &  gt ''天堂伴游'',''缴纳保证金''">缴纳500￥</a></div>'
+		end
+		if money>=5000:
+		'<div class="buttonG"><a href="exec:minutes+=5 & money-=5000 & piaozi+=5000 &  gt ''天堂伴游'',''缴纳保证金''">缴纳5000￥</a></div>'
+		end
+		if money>=50000:
+		'<div class="buttonG"><a href="exec:minutes+=5 & money-=50000 & piaozi+=50000 &  gt ''天堂伴游'',''缴纳保证金''">缴纳50000￥</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''天堂伴游''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·感谢您的支持，以上是优质客户们的好评返图。</p>'
+	'</div>'
+End
+
+if $args[0]="申请伴游":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\地下偶像1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if piaozi>=2000:
+		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''群演_事件'',''地下偶像_Fuck''">出发</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·正在对您进行验资，请等待....</p>'
+		if piaozi<2000:
+		'<p>·非常抱歉，您的账户累计缴纳金不足。</p>'
+		else:
+		'<p>·尊敬的客户，马上会有专车来接待您。</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="凯撒门":
+	if rand(0,30)>=20: gt'天堂伴游','凯撒立绘'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\KS_door_<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=15 & gt ''天堂伴游'',''凯撒门2''">稍等一会</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·办公室里传来了淫靡的声音…</p>'
+	'</div>'
+End
+
+if $args[0]="凯撒门2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\杂\KS_door_99.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=15 & gt ''天堂伴游'',''凯撒立绘''">推门进入</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·办公室里好像完事了…</p>'
+	'</div>'
+End
+
+if $args[0]="凯撒立绘":
+	'<div class ="show_menu"><img src="images\place\天堂伴游3.jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if $凯撒事件链=1 or $凯撒事件链=2:'<div class="buttonB4"><a href="exec:凯撒对话=1 & gt ''天堂伴游'',''凯撒立绘''">索要底片</a></div>'
+		if $凯撒事件链>=5 and 公厕底片=0:'<div class="buttonB4"><a href="exec:凯撒对话=8 & gt ''天堂伴游'',''凯撒立绘''">索要底片</a></div>'
+		if 凯撒对话=1:'<div class="buttonB4"><a href="exec:凯撒对话=2 & gt ''天堂伴游'',''凯撒立绘''">或者？</a></div>'
+		if 凯撒对话=2:'<div class="buttonS"><a href="exec:凯撒对话=3 & gt ''天堂伴游'',''凯撒立绘''">邪恶：妥协</a></div>'
+		if 凯撒对话=2:'<div class="buttonGn"><a href="exec:凯撒对话=4 & gt ''天堂伴游'',''凯撒立绘''">正义：否决</a></div>'
+		if 凯撒对话=3 or 凯撒对话=4:'<div class="buttonGn"><a href="exec:凯撒对话=5 & gt ''天堂伴游'',''凯撒立绘''">不可置否</a></div>'
+		if $凯撒事件链=3 or $凯撒事件链=4 :'<div class="buttonS"><a href="exec:凯撒对话=6 & gt ''天堂伴游'',''凯撒立绘''"><<$GJ.name>></a></div>'
+		if 凯撒对话=6:'<div class="buttonS"><a href="exec: gt ''冠军_事件'',''GJ_Fuck_YQH''">一同去吃饭</a></div>'
+		if $凯撒事件链=6:'<div class="buttonP"><a href="exec:凯撒对话=7 & gt ''天堂伴游'',''凯撒立绘''"><<$GJ.name>></a></div>'
+		if 凯撒对话=7:
+			'<div class="buttonS3"><a href="exec: gt ''冠军_事件'',''GJ_Fuck_FALL1''">验收成果</a></div>'
+			if $GJ差评=1:
+				'<div class="buttonR"><a href="exec: gt ''冠军_事件'',''GJ_Fuck_调教F''">纠正差评</a></div>'
+				'<div class="buttonPu5"><a href="exec:凯撒对话=9 & gt ''天堂伴游'',''凯撒立绘''">同流合污？</a></div>'
+			end
+		end
+		if $凯撒事件链>=6:'<div class="buttonB3"><a href="exec:gt ''天堂伴游'',''ZX立绘来''"><<$ZX.name>>拜访</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 凯撒对话=0:
+		'<p>凯撒：<<$主角姓名>>，你怎么不敲门就进来了？你知道失败者存在的价值是什么吗？如果没有失败者，就不存在成功者了。</p>'
+		'<p>我：那作为成功者的你为什么要戴着猩猩头套？</p>'
+		'<p>凯撒：那按照你的道理，你为什么戴着伪善的面具？</p>'
+		end
+		if 凯撒对话=1:
+		'<p>我：把底片给我！你设计偷拍我的目的是什么？</p>'
+		'<p>凯撒：你说我？设下计谋？偷拍？我所做的不都是你拿手的吗？难道你没有做过？</p>'
+		'<p>我：说吧，到底想要什么。</p>'
+		'<p>凯撒：那我就开门见山了，地下的娱乐产业你懂的，最近受到了一点阻力。发展情况大不如前了。</p>'
+		'<p>我：阻力？我造成的吗？</p>'
+		'<p>凯撒：当然了，听说帝国娱乐的新偶像们都搬进了豪华别墅里，我手下的小妞们很是羡慕呢。</p>'
+		'<p>我：想要什么直接说吧。</p>'
+		'<p>凯撒：拿5000万给我的小妞们升级一下职工宿舍；或者…</p>'
+		end
+		if 凯撒对话=2:
+		'<p>凯撒：或者不要钱，我要一个人！</p>'
+		'<p>我：我手下的艺人？</p>'
+		'<p>凯撒：啧啧，当然不是。偶像大赛结束后<<$GJ.name>>应该一直处于失业中对吧，你和<<$PW.name>>联手封杀了她。</p>'
+		'<p>我：所以呢？你想操她？</p>'
+		'<p>凯撒：格局小了，我想让她成为地下偶像的头牌！在这里花钱就可以让一个冠军偶像成为三通的母猪。哈哈哈哈哈哈哈哈哈！</p>'
+		end
+		if 凯撒对话=3:
+		'<p>我：三通的母猪？这听起来不错。</p>'
+		'<p>凯撒：有了她，地下偶像也能重新繁荣起来。你说呢？</p>'
+		end
+		if 凯撒对话=4:
+		'<p>我：抱歉，出于正义感，我做不到这种事！</p>'
+		'<p>凯撒：真是个伪善的人啊，是你亲手封杀的她。你已经毁了她的人生！</p>'
+		'<p>我：是她先对我妹妹出手的！她已经付出了代价了！</p>'
+		'<p>凯撒：哦，那你付出了什么代价？！</p>'
+		end
+		if 凯撒对话=5:
+		'<p>凯撒：好了，一有她的消息就给我打电话！</p>'
+		'<p>我：如果我实在联系不到她呢？</p>'
+		'<p>凯撒：相信我，你会找到她的。</p>'
+		if $凯撒事件链=1:$凯撒事件链=2
+		end
+		if 凯撒对话=6:
+		'<p>凯撒：有<<$GJ.name>>的消息了吗？</p>'
+		'<p>我：是的，而且她也愿意见你，不过她要5万的出场费。</p>'
+		'<p>凯撒：这点小钱你不会还要找我要吧？！嗯？</p>'
+		'<p>我：……</p>'
+		'<p>凯撒：少他妈废话了！带我去见她！</p>'
+		end
+		if 凯撒对话=7:
+		'<p>我：<<$GJ.name>>…怎么样了？</p>'
+		'<p>凯撒：嗯？你真的想知道？</p>'
+		'<p>我：嗯。</p>'
+		'<p>凯撒：来人，把她带到客房里去。</p>'
+		end
+		if 凯撒对话=8:
+		'<p>我：把底片给我当面销毁！</p>'
+		'<p>凯撒：当面销毁？我还以为你会拿着这张底片去威胁照片里另一个人呢。</p>'
+		'<p>我：喔？</p>'
+		'<p>凯撒：拿去把，我才不会管你会怎么做，你不是一个伪善的人，我知道。</p>'
+		'<p>·拿走底片</p>'
+		 if 公厕底片=0:公厕底片=1
+		end
+		if 凯撒对话=9:
+		'<p>我：你真是太恶毒了，你诱骗她去办理天价医美贷款，最后逼她卖身还债…</p>'
+		'<p>凯撒：怎么了？反倒是你好像乐在其中的样子？</p>'
+		'<p>我：我有吗？</p>'
+		'<p>凯撒：那她都苦苦哀求你了，你还给她打了差评？别装了，放下你伪善的面具吧。为我去物色猎物怎么样？动动嘴皮子就能拿到客观的报酬喔！</p>'
+		'<p>我：……</p>'
+		'<p>凯撒：别那么有心理负担，你只是向陌生的路人，介绍出众的医美服务。每成功办理一次贷款，我分给你10,000￥。</p>'
+		'<p>我： *微笑</p>'
+		$凯撒打工=1
+		end
+	'</div>'
+End
+
+
+
+if $args[0]="ZX立绘来":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\KS0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=15 & gt ''整形_事件'',''ZX_Fuck_KS1''">假装回避</a></div>'
+				if $ZX.bad>=600-$ZX.bad:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''整形_事件'',''ZX_Fuck_KS2''">进入3P </a></div>'else:'<div class="buttonGr"><a href="exec:">进入3P·好感不足 </a></div>'
+				'<div class="button"><a href="exec:gt ''歌舞伎町''">离开 </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>：账结一下？</p>'
+		'<p>凯撒：你想用哪种方式结？<<$主角姓>>经纪人，您是不是该回避一下？</p>'
+		'<p>我：……</p>'
+	'</div>'
+End
+
+
+ 
+--- 天堂伴游 ---------------------------------
+

@@ -1,0 +1,254 @@
+# 帝国健康
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+n=0
+
+	 if $JK.bad<=10: $董事立绘=RAND(0,1)
+	 if 10<=$JK.bad and $JK.bad<=50: $董事立绘=RAND(0,3)
+	 if 50<=$JK.bad and $JK.bad<=100: $董事立绘=RAND(0,5)
+	 if 100<=$JK.bad and $JK.bad<=150: $董事立绘=RAND(0,6)
+	 if $JK.bad>=150: $董事立绘=RAND(0,7)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="帝国集团大厅" href="exec:minutes+=15 & gt ''帝国集团''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if 9>hour or hour >17:
+	'<div class ="show_menu"><img src="images\place\帝国健康.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>=标语=『每天一杯精，美颜又年轻』</p>'
+		'<p>·请各位打工人务必遵守以下规则，以确保你们的安全，否则后果自负。</p>'
+		'<p>·我司在午夜不需要工作，您的上班时间为早上9：00~晚上17：00。可以适当迟到早退，但千万不要早到和加班。</p>'
+	'</div>'
+end
+
+if $args[0]="":
+	 $健康地点num=0
+	 $健康对话=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\电梯1-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+
+		'<div class="buttonB1"><a href="exec:$健康地点=''办公室''& gt ''帝国健康'',''内部''">『办公室』</a></div>'
+		'<div class="buttonB2"><a href="exec:$健康地点=''电梯''& gt ''帝国健康'',''内部''">『电梯间』</a></div>'
+		'<div class="buttonB3"><a href="exec:$健康地点=''品''& gt ''帝国健康'',''内部''">『品精室』</a></div>'
+		if hour<=9 or hour>=17:'<div class="buttonB4"><a href="exec:$健康地点=''打卡''& gt ''帝国健康'',''内部''">『打卡机』</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>=标语=『每天一杯精，美颜又年轻』</p>'
+		'<p>·请各位打工人务必遵守以下规则，以确保你们的安全，否则后果自负。</p>'
+	'</div>'
+end
+
+
+
+
+if $args[0]="内部":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\<<$健康地点>>1-<<$健康地点num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		if  $健康地点num<=3:
+			if $健康地点num<=2:'<div class="buttonS1"><a href="exec:$健康地点num+=1 & gt ''帝国健康'',''内部''">提供服务</a></div>'
+			if $健康地点num=3:'<div class="buttonS"><a href="exec:$健康地点num+=1 & gt ''帝国健康'',''内部''">射精</a></div>'
+			if $健康地点='办公室' and 帝国level>=4:'<div class="buttonS2"><a href="exec:gt ''群演_事件'',''帝国健康_专属服务_职员''">1v1专属服务</a></div>'
+			if $健康地点='品' and 帝国level>=4:'<div class="buttonS3"><a href="exec:gt ''群演_事件'',''帝国健康_品''">1v1犒赏服务</a></div>'
+			if 帝国level<4:'<div class="buttonGr"><a href="exec:">级别不够</a></div>'
+		end
+	
+		if $健康地点num=0:
+		 if $健康地点='品' : '<div class="buttonR4"><a href="exec:$健康对话=1 & gt ''帝国健康'',''内部''">『员工守则②』</a></div>'
+		 if $健康地点='办公室': '<div class="buttonR4"><a href="exec:$健康对话=2 & gt ''帝国健康'',''内部''">『员工守则①』</a></div>'
+		 if $健康地点='打卡' and hour>=17: '<div class="buttonB"><a href="exec:$健康对话=3 & gt ''帝国健康'',''内部''">『便签条』</a></div>'
+		 if $健康地点='打卡' and hour<=9: '<div class="buttonR4"><a href="exec:$健康对话=4 & gt ''帝国健康'',''内部''">『员工守则③』</a></div>'
+		 if $健康地点='办公室':'<div class="buttonS5"><a href="exec:gt ''帝国健康'',''董事办公室''">♝董事办公室♝</a></div>'
+		end
+		
+		'<div class="button"><a href="exec: gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>=标语=『每天一杯精，美颜又年轻』</p>'
+		if $健康对话=1:
+		'<p><s><span class =''red''>『员工守则②』：作废</p>'
+		'<p>1、品精过程中请确保记录员与品精官【2人】协同作业</p>'
+		'<p>2、品精结束后请不要独自逗留在品精室的凹墙内。</p>'
+		'<p>3、参与测试的肉棒主体都是人类。</s></p>'
+		end
+		
+		if $健康对话=2:
+		'<p><s><span class =''red''>『员工守则①』：作废</p>'
+		'<p>我司拥有极高的员工福利，十倍加班费和大量年假额度，且为所有员工购买保险。希望您在牢记员工守则的前提下尽心尽力工作，确保自己的安全。生命可贵，仅此一次。</p>'
+		'<p>1、牢记不要【单独】进入无人的品精室。</p>'
+		'<p>2、如遇危险，前台放置有电击棒和麻醉枪。安全出口在办公室右侧的尽头。</p>'
+		'<p>3、倘若违背以上条例，安全问题后果自负。</s></p>'
+		end
+
+		if $健康对话=3:
+		'<p>『便签条』</p>'
+		'<p>1、如果撤离失败，您在17：10之前没有走出公司，而“它”发现了您或正在快速靠近您，请前往厕所避险，15分钟后迅速撤离。如果再次遇见“它”，重复上述步骤。</p>'
+		'<p>2、如果您与同事一起避险，同事想要离开避险场所，请尽量劝阻，如劝阻无效，可以放其离开。如果同事离开后再次回来叫您出去，请忽视他，不要发出声音，不要为他开门，他不一定是您的同事。</p>'
+		'<p>3、如果不慎违反第2条，请立即停止一切交流，在更恐怖的事情发生之前，不计任何代价逃离公司。</p>'
+		'<p><s>4、请时刻牢记：加班开会是不存在的。而劳动法是存存在@！￥@！在的！</s></p>'
+		end
+
+		if $健康对话=4:
+		'<p><s>『员工守则③』</s>『员工守则①』</p>'
+		'<p>1、我司在午夜不需要工作，您的上班时间为早上9：00~晚上17：00。可以适当迟到早退，但千万不要早到和加班。</p>'
+		'<p>2、下班后应尽快离开公司享受生活，不要理会任何一个试图留下您的声音。</p>'
+		'<p>3、倘若违背以上条例，安全问题后果自负。</s></p>'
+		end
+
+
+		'<p>你通读了一遍，没有觉得异常。</p>'
+		if  $健康地点num>=4:xp+=2 & '<p>♟♟工作经验增加了2♟♟</p>'
+	'</div>'
+end
+
+if $args[0]="董事办公室":
+	 $JK.available=1
+	 $董事对话=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕<<$董事立绘>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonR1"><a href="exec:gt ''帝国健康'',''职位说明''">职位说明</a></div>'
+		'<div class="buttonR2"><a href="exec:gt ''帝国健康'',''提供服务''">提供服务</a></div>'
+		if 帝国level>=6 and $JK.love>=50:'<div class="buttonR3"><a href="exec:gt ''帝国健康'',''涉外业务''">涉外业务</a></div>'else:'<div class="buttonGr"><a href="exec:">？？业务</a></div>'
+		if $JK.love>=50 and $拉赞助=1:'<div class="buttonGn"><a href="exec:gt ''帝国健康'',''广告业务''">广告业务</a></div>'
+		if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''JK'' & $ma=$JK.name & gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>:要知道一個正常而健康的男性每月約可生產300亳升精液，一年約可產生3500亳升精液，以一個常見的2公升寶特瓶來算，一年仅仅只能生产1瓶半的量。</p>'
+		'<p><<$jk.name>>:有何贵干？想必你已经熟悉基础业务了吧？就是为女性员工提供精液供给！*嗡嗡嗡*嗡嗡嗡</p>'
+	'</div>'
+end
+
+
+
+
+if $args[0]="职位说明":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕<<$董事立绘>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:$董事对话=1 & gt ''帝国健康'',''职位说明''">层级说明</a></div>'
+		'<div class="buttonB"><a href="exec:$董事对话=2 & gt ''帝国健康'',''职位说明''">追问吞精的好处</a></div>'
+		'<div class="button"><a href="exec:$董事对话=0 & gt ''帝国健康'',''董事办公室''">明白了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>:而现阶段的研究表明，雄性动物的精液对女性有诸多好处。我希望你能做一只优秀的人形射精家畜,负责为女性员工提供精液。当然，这也是只有我们独有的职工福利。</p>'
+		if $董事对话=1:
+			'<p>我:我对职位的分级还是不太了解。</p>'
+			'<p><<$jk.name>>:谁招你进来的？怎么什么都不知道？1级2级先不谈。3级开始女性走S级也就是Supervisor-主管路线，跟你也没关系。男性走M级，Marbling-和牛路线。</p>'
+			'<p><<$jk.name>>:M3级从事基础供精服务，M4级可以作为优秀女性职员的“奖赏”，达到M5级和牛授权性交及阴道内射，M6级可以作为优质和牛参加特殊的事件。至于M7级以上的精品和牛，你不需要知道。</p>'
+		end
+		if $董事对话=2:
+			'<p>我:吞精真的对人体有益吗？</p>'
+			'<p><<$jk.name>>:1、保护女性皮肤、有养颜美白的作用。这是由于健康的男性精子含有大量的水分和蛋白质以及锌、铁等微量元素，不管是食用还是做面膜使用对皮肤都有美白补水作用。</p>'
+			'<p><<$jk.name>>:2、精液有助于女性阴道的消毒。实验证明精液中有一种抗菌物质——精液胞浆素，它能杀灭葡萄球菌、链球菌、肺炎球菌等致病菌。所以可以帮助女性生殖器免遭微生物的侵袭。</p>'
+			'<p><<$jk.name>>:3、有延缓衰老、保持年轻的作用。精子里含有的锌元素和雄激素都有抗衰老的作用。  </p>'
+			'<p><<$jk.name>>:4、镇静安神、改善睡眠、调节内分泌失调状况。食用精子可以治疗失眠，使你睡得更香。 </p>'
+			'<p><<$jk.name>>:5、推迟女性更年期。食用精子的女性体内雌激素分泌较多，生理机能更强大，由此身体素质较好，这样的话更年期到来的时间也会延迟。 </p>'
+			'<p>·她开始滔滔不绝得赘述起来，你不得不打断了她。</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="提供服务":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕5~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''健康_事件'',''JK_Fuck_口交''">精液直饮</a></div>'
+		if 帝国level>=6:'<div class="button"><a href="exec:gt ''健康_事件'',''JK_Fuck_sex''">主动出鸡</a></div>'else:'<div class="buttonGr"><a href="exec:">级别不足</a></div>'
+		if 帝国level>=6:'<div class="button"><a href="exec:gt ''健康_事件'',''JK_Fuck_职工3P''">和牛体测</a></div>'else:'<div class="buttonGr"><a href="exec:">级别不足</a></div>'
+		if 帝国level>=5 and $DYZ.friend>=1:'<div class="button"><a href="exec: gt ''健康_事件'',''JK_Fuck_品精3P''">首席品精师：指名</a></div>'else:'<div class="buttonGr"><a href="exec:">某人条件不足</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国健康'',''董事办公室''">没事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>:而现阶段的研究表明，雄性动物的精液对女性有诸多好处。我希望你能做一只优秀的人形射精家畜,负责为女性员工提供精液。当然，这也是只有我们独有的职工福利。</p>'
+	'</div>'
+end
+
+if $args[0]="涉外业务":
+	 $等红灯=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕<<$董事立绘>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec: gt ''健康_事件'',''JK_Event_检查''">让她检查</a></div>'
+		'<div class="button"><a href="exec:gt ''健康_事件'',''上车''">现在出发</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$jk.name>>:你的能力我挺看好的，跟我一起去谈业务吧。有什么比让客户亲自体验更棒的产品宣传呢？</p>'
+		'<p>我:感谢董事您的提拔。</p>'
+		'<p><<$jk.name>>:该带的文件和材料...还有最重要的东西..指了指你的裤裆，都准备好了吗？</p>'
+	'</div>'
+end
+
+if $args[0]="广告业务":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JK\vids\开幕5~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国集团''">包在我身上</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我觉得我们应该在电视上多投放广告。</p>'
+		'<p><<$jk.name>>:我们的口号还不够响亮吗？</p>'
+		'<p>我:口号是一方面，如果在电视上能看到我们的精品人形射精家畜，客户的可接纳程度会潜移默化地提高吧。</p>'
+		'<p><<$jk.name>>:在电视上直接展示我们的精品和牛？这是个不错的主意！我给你批30万的预算，你去敲定细节吧！</p>'
+	 $拉赞助=2
+	'</div>'
+end
+
+
+
+
+
+
+
+
+--- 帝国健康 ---------------------------------
+

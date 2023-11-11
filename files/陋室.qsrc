@@ -1,0 +1,178 @@
+# 陋室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=30
+'<div id="right-column">'
+	gs"精力判定"
+	if hour>=7: gt"地铁"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="出租房" href="exec:gt ''陋室''"><img class="img_stretch" src="images\place\陋室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="地铁" href="exec:gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+	
+
+
+if $ARGS[0]="":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''陋室'',''抽屉''">搜索抽屉</a></div>'
+		'<div class="button"><a href="exec: gt ''陋室'',''柜子''">搜索柜子</a></div>'
+		'<div class="button"><a href="exec: gt ''陋室'',''电脑''">搜索电脑</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>  一路跟踪，七拐八拐，终于在一个偏僻的城中村中停下了脚步。</p>'
+		'<p>  一进房间他就呼呼大睡了起来，全然没有发现身后竟然还跟着一个人。</p>'
+		'<p>  搜索哪里？在天亮之前我必须离开....</p>'
+	'</div>'
+End
+
+if $ARGS[0]="抽屉":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''陋室'',''白色信封''">白色信封</a></div>'
+		'<div class="button"><a href="exec: gt ''陋室'',''红色信封''">红色信封</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 抽屉里有两个信封</p>'
+	'</div>'
+End
+
+if $ARGS[0]="白色信封":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 【 遗书 】</p>'
+		'<p>   当你看到这封信的时候，可能妈妈已经坚持不住了，妈妈从来都没有怪过你，儿子你也别难过，你永远是我的骄傲。勇敢地继续科研吧！妈妈会一直支持你的！救更多像妈妈一样的人吧！</p>'
+	'</div>'
+End
+
+if $ARGS[0]="红色信封":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 【 没有邮戳的信 】</p>'
+		'<p> 	亲爱的，你还好吗？我终于要有钱了！我们可以过上好日子了。过去你总说我没有时间陪你，现在研究成果已经公布了，我们成功提取出麦高芬(MacGuffin)了！等把你接回来了再亲口和你讲！比你想象的还要精彩！</p>'
+	'</div>'
+End
+
+if $ARGS[0]="电脑":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''陋室'',''压缩包''">加密的压缩包</a></div>'
+		'<div class="button"><a href="exec: gt ''陋室'',''文件夹''">加密的文件夹</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 电脑里有两个可疑的文件</p>'
+	'</div>'
+End
+
+if $ARGS[0]="压缩包":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		if 压缩包code <100:
+		'<div class="button"><a href="exec: gt ''陋室'',''压缩包''">密码破译<<压缩包code>>%</a></div>'
+		else:
+		'<div class="button"><a href="exec: gt ''陋室'',''压缩包成功''">破译成功<<压缩包code>>%</a></div>'
+		end
+	 '</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 花了一点时间破译压缩包的密码，智力起到了决定性作用。</p>'
+		压缩包code+=MY.智力*5
+	'</div>'
+End
+
+if $ARGS[0]="文件夹":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		if 文件夹code <100:
+		'<div class="button"><a href="exec: gt ''陋室'',''文件夹''">密码破译<<文件夹code>>%</a></div>'
+		else:
+		'<div class="button"><a href="exec: gt ''陋室'',''文件夹成功''">破译成功<<文件夹code>>%</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 花了一点时间破译文件夹的密码，智力起到了决定性作用。</p>'
+		文件夹code+=MY.智力*5
+	'</div>'
+End
+
+if $ARGS[0]="压缩包成功":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>  里面是一款超过200GB的QSP游戏......</p>'
+	'</div>'
+End
+
+if $ARGS[0]="文件夹成功":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 成功进入了主机，点开了一个名为《非常重要：切记勿删》的文件夹，果然在其中找到了《B-137项目责任书》，这就是你要找的东西，你直接将硬盘拆了下来！</p>'
+		'<p> 该是邀功的时候了。</p>'
+		$JM_Event_store=3
+	'</div>'
+End
+
+if $ARGS[0]="柜子":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''陋室'',''玻璃''">玻璃的盒子</a></div>'
+		'<div class="button"><a href="exec: gt ''陋室'',''木质''">木质的盒子</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 柜子上有两个材质不同的盒子。</p>'
+	'</div>'
+End
+
+if $ARGS[0]="玻璃":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 拿起它才发现，这是一副倒置的相框，上面布满了灰尘和蛛网。</p>'
+		'<p> 照片中的女人笑颜如花，身着婚礼长裙，手挽着的另一半被撕去了。</p>'
+	'</div>'
+End
+
+if $ARGS[0]="木质":   
+	 '<div class ="show_menu"><img src="images\place\陋室.jpg" width="854"></div>'
+	 '<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p> 与周围布满的灰尘和蛛网格格不入，被擦拭地锃亮。你大致猜到是什么了，毕恭毕敬地放了回去。</p>'
+	'</div>'
+End
+
+
+
+ 
+--- 陋室 ---------------------------------
+

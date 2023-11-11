@@ -1,0 +1,687 @@
+# energy_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="ny_fuck_massage":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\按摩0-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!2:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_massage''">massage </a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_massage''">Observe </a></div>'
+			if MGF>0 and $essential_oil>0:'<div class="buttonS"><a href="exec:MGF-=1 & $essential_oil-=1 &a=0 & q=0 & gt ''energy_event'',''ny_fuck_massage_2''">Go into battle in person </a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of massage essential oils + McGovern </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''massage_room''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>· <<$NY.name>>The light car came familiarly.</p>'
+			 '<p><<$NY.name>>:Call me your best technician!</p>' 
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.name>>:Is this the only level?Give me the best essential oil!</p>'
+		 '</div>'
+	end
+
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>After 30 minutes, the massage is over.</p>'
+			 spa+=rand(3,5)
+			 $cmoney_massage+=spa*100
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+
+if $args[0]="ny_fuck_massage_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\按摩1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_massage_2''">Kneading milk </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_massage_2''">Kneading point </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''energy_event'',''ny_fuck_massage_2''">Finger cross </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''energy_event'',''ny_fuck_massage_2''">Toy insert </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''energy_event'',''ny_fuck_massage_2''">Oral sex </a></div>'
+			end
+			if a!6 and 10>q and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''energy_event'',''ny_fuck_massage_2''">sex </a></div>'
+			end
+			if a!7 and 11>=q and q>=6:
+			'<div class="button"><a href="exec:a=7 & gt ''energy_event'',''ny_fuck_massage_2''">Break your leg and insert it </a></div>'
+			end
+			if a!8 and 12>=q and q>=6:
+			'<div class="button"><a href="exec:a=8 & gt ''energy_event'',''ny_fuck_massage_2''">Lift and insert </a></div>'
+			end
+			if a!9 and q>=8:
+			'<div class="button"><a href="exec:a=9 & gt ''energy_event'',''ny_fuck_massage_2''">sprint </a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''energy_event'',''ny_fuck_massage_2''">Ejaculation </a></div>'
+			end
+			if a=10:
+			'<div class="buttonR4"><a href="exec:a=11 & gt ''energy_event'',''ny_fuck_massage_2''">Dry her for an hour </a></div>'
+			end
+
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''massage_room''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: This is the essential oil of the rose plant, which can improve irregular menstruation and delay aging....Of course, there are some of our unique recipes.</p>'
+		 '</div>'
+	end
+
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Is this strength okay?</p>'
+			 '<p><<$NY.NAME>>:Can<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p>Me: You don`t mind, do you?</p>'
+			 '<p><<$NY.NAME>>:Um...no...don`t mind<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $NY.love+=q+$my.charm
+		 $NY.bad+=q*8/10
+		 minutes+=45
+		 spa+=6
+		 $cmoney_massage+=spa*200
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:Ha-ha-ha-ha-ha——</p>'
+			 '<p>·In the next hour, she panted and gasped for breath.She kept feeling the burning heat spreading in her body, and she felt that she was about to collapse.She was short of breath and her consciousness was blurred.</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ny_jia":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\儿子0-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+			'<div class="button_menu">'
+				'<div class="buttonP"><a href="exec:gt ''energy_event'',''ny_fuck_son''">Stop: Family fun</a></div>'
+				if $ny_event_imprisonment=2:'<div class="buttonGn"><a href="exec:gt ''energy_event'',''ny_fuck_home''">Apology: Guilty in my heart</a></div>'else:'<div class="buttonGr"><a href="exec:">Apology: Guilty in my heart</a></div>'
+				'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			'</div>'
+		
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>She is tutoring her two sons.</p>'
+		 '</div>'
+End
+
+
+if $args[0]="ny_fuck_son":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\儿子1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_son''">Play force </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_son''">Lick and force </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''energy_event'',''ny_fuck_son''">Oral sex </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''energy_event'',''ny_fuck_son''">Have sex with sons </a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''energy_event'',''ny_fuck_son''">Mother and child cooperation </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''energy_event'',''ny_fuck_son''">Son shoots mom in the mouth </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''energy_event'',''ny_fuck_son''">Son shoots mom </a></div>'
+			end
+			if a>=6:
+			'<div class="button"><a href="exec:a=8 & gt ''energy_event'',''ny_fuck_son''">Finished </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·It didn`t take long for you to be surprised by the nondescript drama staged in front of you.</p>'
+			 '<p><<$NY.name>>:Alright!It`s time to review the girl`s physiological structure again!My sons can`t be cheap. The group of flirtatious bitches outside are neither light nor heavy.</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$panting>>My sons have to grow up quickly.</p>'
+			 '<p>Sons: Mom, we are already adults!</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p>Sons: Mom, we are already adults!</p>'
+			 '<p><<$NY.NAME>>:Um... the sons really grew up<<$words>></p>'
+			 if a>=6:'<p><<$NY.NAME>>:<<$panting>>The little babies are awesome!Shot mom so much!</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $NY.love+=q+$my.charm
+		 $NY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:You are all good sons of your mother....If you have something you don`t understand, mom will be happy to teach you....</p>'
+			 '<p>.....I still don`t want to disturb her family fun....</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+
+if $args[0]="ny_fuck_home":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\居家1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_home''">tease </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_home''">Footjob </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''energy_event'',''ny_fuck_home''">Oral sex </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''energy_event'',''ny_fuck_home''">Slow down. </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''energy_event'',''ny_fuck_home''">Hurry up! </a></div>'
+			end
+			if a!6 and q>=6:
+			'<div class="button"><a href="exec:a=6 & gt ''energy_event'',''ny_fuck_home''">Climax sprint </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''energy_event'',''ny_fuck_home''">Shoot it out </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''energy_event'',''ny_fuck_home''">Shoot it out </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I threatened you for my dad...And me..The imprisonment of you..Apologize to you.I know it`s useless to apologize, but I can`t get anything out of it..</p>'
+			 '<p><<$NY.name>>:Yo?Did I hear you right?I thought you were here to confront me.</p>'
+			 '<p>Me: Uh... I know it`s useless to apologize, but I can`t get anything out of it.…</p>'
+			 '<p><<$NY.name>>: You have something that my husband can`t handle, and I know you want to fuck me.*She suddenly blurred her eyes and pointed under you.</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p><<$NY.NAME>>:I ask you, why do you want to do it with an old woman like me?Isn`t the young woman in the company who can make you fuck a lot?</p>'
+			 if a=2:'<p>Me: First of all, as far as I know, you are lonely.Secondly, your husband and your children..Hmm..Can`t fill your emptiness..Hmm..moreover..</p>'
+			 if a=3:'<p>Me: It is my duty as a fine cow to have sex with you in the company.And in your house, in private, because I want to do it with you, at this moment, I only do it with you...</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:Slick and tongue-in-cheek, just like your dad.</p>'
+			 '<p>Me: Then I won`t talk anymore.</p>'
+			 '<p><<$NY.NAME>>:<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $NY.love+=q*2+$my.charm
+		 $NY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>: It`s almost there..They will come out if the movement is too loud..My naughty sons must miss their mother...</p>'
+			 '<p>Me: Then I will leave.....</p>'
+		 '</div>'
+	end
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$words>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="ny_fuck_inquiry":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\厕所0-0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:$dialogue=0 & gt''energy_event'', ''ny_fuck_inquiry_2''">Ask her</a></div>'
+			'</div>'
+			
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$protagonists_surname>>The boss doesn`t seem to be dead yet.The plot R&M in his hand is always a hidden danger.</p>'
+		 '</div>'
+End
+
+if $args[0]="ny_fuck_inquiry_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\厕所0-1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+			'<div class="button_menu">'
+				if $dialogue=0:'<div class="button"><a href="exec:$dialogue=1 & gt''energy_event'', ''ny_fuck_inquiry_2''">Relationship with father</a></div>'
+				if $dialogue=1:'<div class="button"><a href="exec:$dialogue=2 & gt''energy_event'', ''ny_fuck_inquiry_2''">Father`s coma</a></div>'
+				if $dialogue=2:'<div class="button"><a href="exec:$dialogue=3 & gt''energy_event'', ''ny_fuck_inquiry_2''">Plot R&M</a></div>'
+				if $dialogue=3:'<div class="button"><a href="exec:gt''energy_event'', ''ny_fuck_toilet''">Teach her a lesson</a></div>'
+			'</div>'
+			
+		 '<div class="dialog_menu">'
+			if $dialogue=0:
+			 '<p><<$NY.NAME>>:Help!Come on!</p>'
+			 '<p>Me: Be quiet, I just want to ask you a few questions.</p>'
+			 '<p><<$NY.NAME>>:Okay... you ask.</p>'
+			 end
+			if $dialogue=1:
+			 '<p>Me: Be quiet, what is your relationship with my father?</p>'
+			 '<p><<$NY.NAME>>:father?！Are you his own son?！Sure enough, if there is a father, there must be a son!Bah!You are all scum!</p>'
+			 end
+			if $dialogue=2:
+			 '<p>Me: Be quiet, is your father`s coma related to you?</p>'
+			 '<p><<$NY.NAME>>:It has nothing to do with me!He did it all by himself!</p>'
+			 end
+			if $dialogue=3:
+			 '<p>Me: Be quiet, why is this R&M a hidden danger?</p>'
+			 '<p><<$NY.NAME>>:Excuse me?Why are you asking this?I do not know!No comment!</p>'
+			 end
+		 '</div>'
+End
+
+
+if $args[0]="ny_fuck_toilet":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\厕所1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_toilet''">Pinch nipples </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_toilet''">Buckle and force </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''energy_event'',''ny_fuck_toilet''">Forced oral sex </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''energy_event'',''ny_fuck_toilet''">Plug in directly </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''energy_event'',''ny_fuck_toilet''">Back position </a></div>'
+			end
+			if a!6 and q>=6:
+			'<div class="button"><a href="exec:a=6 & gt ''energy_event'',''ny_fuck_toilet''">sprint </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''energy_event'',''ny_fuck_toilet''">Ejaculation </a></div>'
+			end
+			if a=7:
+			'<div class="buttonR"><a href="exec:a=8 & gt ''energy_event'',''ny_fuck_toilet''">torture </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:a=0 &q=0& gt ''energy_event'',''ny_fuck_imprisonment''">Catch it back</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: The bitch doesn`t tell the truth, does she?</p>'
+			 '<p><<$NY.name>>:You, what are you going to do?</p>'
+			 '<p>Me: It`s time to teach you a lesson!</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$panting>>Help!……</p>'
+
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Remember me deeply with my body!</p>'
+			 '<p><<$NY.NAME>>:Woohoo…<<$panting>>Help...help...ah……</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $NY.love-=q
+		 $NY.bad+=q
+		 $ny_event_imprisonment=1
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:Uh-uh, my mouth is blocked by your meat stick and I can`t speak at all.</p>'
+			 '<p>Me: Can you be honest now?Let me ask you again.</p>'
+			 '<p>·Suddenly she took advantage of the moment you relaxed and rushed out!</p>'
+			 '<p>Me: This is my company, where can you escape?-___,-</p>'
+		 '</div>'
+	end
+
+  q+=1
+End
+
+
+
+if $args[0]="ny_fuck_imprisonment":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\监禁1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_imprisonment''">View Sao Cunt </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_imprisonment''">Buckle </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''energy_event'',''ny_fuck_imprisonment''">Quick fiddle </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''energy_event'',''ny_fuck_imprisonment''">Squirting </a></div>'
+			end
+			if a!5 and 9>=q and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''energy_event'',''ny_fuck_imprisonment''">Take out the cock </a></div>'
+			end
+			if a!6 and 10>=q and q>=5:
+			'<div class="button"><a href="exec:a=6 & gt ''energy_event'',''ny_fuck_imprisonment''">Oral sex </a></div>'
+			end
+			if a!7 and 12>=q and q>=6:
+			'<div class="buttonR"><a href="exec:a=7 & gt ''energy_event'',''ny_fuck_imprisonment''">Replay </a></div>'
+			end
+			if a!8 and 12>=q and q>=6:
+			'<div class="buttonS"><a href="exec:a=8 & gt ''energy_event'',''ny_fuck_imprisonment''">Quick thrusting </a></div>'
+			end
+			if a!8 and q>=8:
+			'<div class="buttonS"><a href="exec:a=9 & gt ''energy_event'',''ny_fuck_imprisonment''">Climax sprint </a></div>'
+			end
+			if a=9:
+			'<div class="buttonS"><a href="exec:a=10 & gt ''energy_event'',''ny_fuck_imprisonment''">Ejaculation </a></div>'
+			end
+			if a=10:
+			'<div class="buttonR"><a href="exec:a=11 & gt ''energy_event'',''ny_fuck_imprisonment''">Continuous orgasm </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonR"><a href="exec:a=0 &q=0& gt ''energy_event'',''ny_fuck_imprisonment''">Continuous tuning</a></div>'
+				if $NY.obey>=100:'<div class="buttonGn"><a href="exec:a=0 &q=0&$dialogue=0 &gt ''energy_event'',''ny_fuck_to_be_honest''">To be honest<<$NY.obey>>/100</a></div>'else:'<div class="buttonGr"><a href="exec:">To be honest<<$NY.obey>>/100</a></div>'
+				'<div class="button"><a href="exec:a=0 &q=0& gt ''massage_room''">leave</a></div>'
+
+			'</div>'
+	end
+
+  $NY.obey+=q/5+1
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I will keep training you until you are willing to tell the truth!</p>'
+			 '<p><<$NY.name>>: I*your mother!</p>'
+			 '<p>Me: It seems that you don`t see the coffin and don`t cry.</p>'
+			 '<p>·Her obedience<<$NY.obey>>/100</p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$panting>>Help!……</p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$panting>><<$words>></p>'
+			 '<p>我>:没想到你其实是个如此软弱的女人呢。</p>'
+			 '<p>·Her obedience<<$NY.obey>>/100</p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $NY.love-=q
+		 $NY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>·The training was still not over, her fingers flicked one by one, sending her to the paradise of orgasm again and again, and then falling to the bottom of desire.</p>'
+			 '<p>·Her obedience<<$NY.obey>>/100</p>'
+		 '</div>'
+	end
+
+  q+=1
+
+End
+
+
+if $args[0]="ny_fuck_to_be_honest":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\监禁1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+			'<div class="button_menu">'
+				if $dialogue=0:'<div class="buttonPu1"><a href="exec:$dialogue=1 & a+=1 & gt''energy_event'', ''ny_fuck_to_be_honest''">Relationship with father</a></div>'
+				if $dialogue=1:'<div class="buttonPu2"><a href="exec:$dialogue=2 & a+=1 & gt''energy_event'', ''ny_fuck_to_be_honest''">Father`s coma</a></div>'
+				if $dialogue=2:'<div class="buttonPu3"><a href="exec:$dialogue=3 & a+=1 & gt''energy_event'', ''ny_fuck_to_be_honest''">Plot R&M</a></div>'
+				if $dialogue=3:'<div class="buttonPu4"><a href="exec:$dialogue=4 & a=5 & gt''energy_event'', ''ny_fuck_to_be_honest''">Finished asking</a></div>'
+				if $dialogue=4:'<div class="button"><a href="exec:$ny_event_imprisonment=2 & gt''company''">Let her go</a></div>'
+
+			'</div>'
+			
+		 '<div class="dialog_menu">'
+			if $dialogue=0:
+			 '<p><<$NY.NAME>>:Okay, what do you want to ask?</p>'
+			 '<p>Me: Be quiet, it`s still those questions.</p>'
+			 '<p><<$NY.NAME>>:Okay... you ask.</p>'
+			 end
+			if $dialogue=1:
+			 '<p>Me: Be quiet, what is your relationship with my father?</p>'
+			 '<p><<$NY.NAME>>:...Your dad is a shameless bastard!He threatened me with some ghost metal found in R&M!Force me to be his mistress!</p>'
+			 '<p>Me:?！？Ah this…</p>'
+			 end
+			if $dialogue=2:
+			 '<p>Me: Be quiet, is your father`s coma related to you?</p>'
+			 '<p><<$NY.NAME>>:That scumbag was already depressed, eating irregularly, and he had to fuck his secretary all day and all night. He was overworked. What does his coma matter to me?！</p>'
+			 '<p>Me: I thought there was a big conspiracy behind my father`s coma.</p>'
+			 '<p><<$NY.NAME>>:Have you read too many novels?</p>'
+			 end
+			if $dialogue=3:
+			 '<p>Me: Be quiet, why is this R&M a hidden danger?</p>'
+			 '<p><<$NY.NAME>>:This land is a rare earth land.Your dad used the lease title deed to extort money everywhere, coercing many people to conduct money transactions in the dark.</p>'
+			 '<p>Me: Does my dad still have this ability?</p>'
+			 '<p><<$NY.NAME>>:…………</p>'
+			 end
+			if $dialogue=4:
+			 '<p>Me:…………</p>'
+			 '<p><<$NY.NAME>>:I have said everything you want to ask, can you let me go?</p>'
+			 '<p>Me: Uh, yes.In order to save my life, I recorded all the training process and what you just said.If I encounter any danger..</p>'
+			 '<p><<$NY.NAME>>:Listen..I don`t want to have anything to do with this anymore, I can treat it as if nothing happened...</p>'
+			 '<p>Me: Do you think I will trust you easily?</p>'
+			 '<p><<$NY.NAME>>: This is the key to my house. You can come and confront me at any time. What I said is true!</p>'
+			 $NY.key=1
+			 end
+		 '</div>'
+End
+
+if $args[0]="ny_fuck_company":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\公司1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''energy_event'',''ny_fuck_company''">Toying with </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''energy_event'',''ny_fuck_company''">Lactation </a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''energy_event'',''ny_fuck_company''">Oral sex </a></div>'
+			end
+			if a!4 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=4 & gt ''energy_event'',''ny_fuck_company''">ride </a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="button"><a href="exec:a=5 & gt ''energy_event'',''ny_fuck_company''">Back in </a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''energy_event'',''ny_fuck_company''">sprint </a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 & gt ''energy_event'',''ny_fuck_company''">Ejaculation </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''energy_event'',''ny_fuck_company''">dialogue </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:gt ''empire_health_cmo''">leave</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.name>>: Since you are M<<$empire_level>>Grade fine cattle, it is also your obligation to serve me.</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:You are indeed an indispensable talent in our group…<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>:<<$words>></p>'
+			 if a>=6:'<p><<$NY.NAME>>:Yeah, yeah, just shoot me in the mouth like this</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $NY.love+=q+$my.charm
+		 $NY.bad+=q
+		 xp+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$NY.NAME>>: It`s really delicious....I am happy to promote you.</p>'
+			 '<p>·Work experience has improved<<q>>！</p>'
+		 '</div>'
+	end
+  q+=1
+End
+--- energy_event ---------------------------------
+

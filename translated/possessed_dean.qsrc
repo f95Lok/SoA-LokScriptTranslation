@@ -1,0 +1,271 @@
+# possessed_dean
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=30
+a=0 & q=0
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if hour <=6 or hour>=21:
+			'<a class="photo" data-title="Master bedroom" href="exec:minutes+=5 & gt ''possessed_dean'',''master_bedroom''"><img class="img_stretch" src="images\NPC\YZ\pics\主卧0.jpg"></a>'
+			else:
+			'<a class="photo" data-title="Master bedroom" href="exec:minutes+=5 & gt ''possessed_dean'',''master_bedroom''"><img class="img_stretch" src="images\NPC\YZ\pics\主卧1.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if hour <=6 or hour>=21:
+			'<a class="photo" data-title="Living room"><img class="img_stretch" src="images\NPC\YZ\pics\客厅0.jpg"></a>'
+			else:
+			'<a class="photo" data-title="Living room" href="exec:minutes+=5 & gt ''possessed_dean'',''living_room''"><img class="img_stretch" src="images\NPC\YZ\pics\客厅1.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if hour <=6 or hour>=21:
+			'<a class="photo" data-title="Sons` room" href="exec:minutes+=5 & gt ''possessed_dean'',''son_room_0''"><img class="img_stretch" src="images\NPC\YZ\pics\儿子房间0.jpg"></a>'
+			else:
+			'<a class="photo" data-title="Sons` room" href="exec:minutes+=5 & gt ''possessed_dean'',''son_room_1''"><img class="img_stretch" src="images\NPC\YZ\pics\儿子房间1.jpg"></a>'
+			end
+		'</div>'
+		
+		'<div class="action">'
+			if hour <=6 or hour>=21:'<a class="photo" data-title="Eldest daughter`s room" href="exec:minutes+=5 & gt ''possessed_dean'',''daughter_room_0''"><img class="img_stretch" src="images\NPC\YZ\pics\女儿房间0.jpg"></a>'
+			if 12>=hour and hour>=7:'<a class="photo" data-title="Eldest daughter`s room" href="exec:minutes+=5 & gt ''possessed_dean'',''daughter_room_1''"><img class="img_stretch" src="images\NPC\YZ\pics\女儿房间1.jpg"></a>'
+			if 20>=hour and hour>=13:'<a class="photo" data-title="Eldest daughter`s room" href="exec:minutes+=5 & gt ''possessed_dean'',''daughter_room_2''"><img class="img_stretch" src="images\NPC\YZ\pics\女儿房间2.jpg"></a>'
+
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="bathroom" href="exec:minutes+=5 & gt ''possessed_dean'',''bathroom''"><img class="img_stretch" src="images\NPC\YZ\pics\浴室.jpg"></a>'
+		'</div>'
+
+		
+	'</div>'
+'</div>'
+
+
+if $args[0]="possessed":
+	 '<div class ="show_menu"><img src="images\place\迷幻.jpg" width="854"></div>'
+	 
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=30 & gt ''possessed_dean'',''master_bedroom''">Wake up</a></div>'
+		'</div>'
+		
+		'<div class="dialog_menu">'
+			'<p>·An indescribable feeling arises spontaneously, you feel that your soul has been pulled away and peeled off…</p>'
+		'</div>'
+End
+
+
+if $args[0]="master_bedroom":
+	if hour <=6 or hour>=21:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\睡觉0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\睡觉1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''possessed_dean'',''masturbation''">Masturbate and sleep</a></div>'
+	if hour <=6 or hour>=21:
+		if $the_second_son_found_out=1:'<div class="buttonS"><a href="exec:gt ''dean_event'',''yz_fuck_counterattack''">Light sleep</a></div>'else:'<div class="buttonGr"><a href="exec:">Light sleep</a></div>'
+	end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I remember I was obviously in the hospital... my head hurts so much... Why is it so itchy under me?</p>'
+		'<p>Me: Um... I rely on (`o`) convex, what`s the matter?！I actually became the dean?？How is this possible?！</p>'
+		'<p>Me: Is this a dream?！It`s too real, isn`t it?……</p>'
+	'</div>'
+End
+
+if $args[0]="masturbation":
+	$yz_masturbation=rand(0,3)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\自慰1-<<$yz_masturbation>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$my.energy=0 & gt ''possessed_dean'',''master_bedroom''">Sleeping</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Is this the dean`s body?It feels so good❤</p>'
+		$YZ.bad+=1
+		$my.energy-=$my.energy*1/10
+	'</div>'
+End
+
+if $args[0]="son_room_0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YZ\vids\夜袭儿1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+            if $YZ.bad>=65:'<div class="buttonPu2"><a href="exec:gt ''dean_event'',''yz_fuck_night_attack''">enter </a></div>'else:'<div class="buttonGr"><a href="exec:">enter </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·You carefully opened the door of your sons` room!</p>'
+	'</div>'
+End
+
+if $args[0]="son_room_1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\儿房0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''possessed_dean'',''pick_up_vr''">Pick up VR</a></div>'
+		'<div class="button"><a href="exec:gt ''possessed_dean'',''criticize_and_educate_them''">Criticize and educate them</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Hehe, I knew it!The place where the pornographic films are hidden is really here!</p>'
+	'</div>'
+End
+
+if $args[0]="pick_up_vr":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\儿房1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS2"><a href="exec:gt ''possessed_dean'',''pick_up_vr''">masturbation</a></div>'
+		'<div class="button"><a href="exec:gt ''possessed_dean'',''master_bedroom''">Back to the room</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Why have I never seen this film?！</p>'
+		$YZ.bad+=1
+		$my.energy-=$my.energy*1/10
+	'</div>'
+End
+
+
+if $args[0]="criticize_and_educate_them":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\教育.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''possessed_dean'',''master_bedroom''">Back to the room</a></div>'
+		if $the_second_son_found_out=1 and $YZ.bad>=100:'<div class="buttonS"><a href="exec:gt ''dean_event'',''yz_fuck_erfang_sex''">Let the eldest son stay</a></div>'else: '<div class="buttonGr"><a href="exec:">Let the eldest son stay</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: You guys really let me down!Don`t learn well every day!It`s actually yellow every day!</p>'
+		'<p>Second son: Mom!I didn`t watch it!</p>'
+		'<p>Me: Still lying!</p>'
+		'<p>Eldest son: Mom!Don`t blame your brother!</p>'
+		'<p>Me: I want to punish you!Go and pull out all the weeds in the yard for me!</p>'
+	'</div>'
+End
+
+if $args[0]="living_room":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\辅导1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:gt ''dean_event'',''yz_fuck_counseling''">Reward the eldest son</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The sons are reviewing the entrance examination. This is the third time they have repeated the college entrance examination.</p>'
+		'<p>Eldest son: Mom, I got the top three in the class this time... There is great hope for medical science!</p>'
+	'</div>'
+End
+
+if $args[0]="daughter_room_0":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\袭女1-0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $YZ.bad>=15 and  $daughter_finished_washing=1:'<div class="buttonPu3"><a href="exec:a=1 & q=0 & gt ''dean_event'',''yz_fuck_women''">Night attack daughter </a></div>'else:'<div class="buttonGr"><a href="exec:">Night attack daughter </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Daughter: zzZ zzZ zzZ</p>'
+	'</div>'
+End
+
+if $args[0]="daughter_room_1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\女卧.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·My daughter went out on a date... you played with your daughter`s bra for a while…</p>'
+		$YZ.bad+=1
+		$my.energy-=$my.energy*1/10
+	'</div>'
+End
+
+if $args[0]="daughter_room_2":
+		$met_my_daughters_boyfriend=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\女儿房间2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $the_attack_on_the_girl_is_over=1:'<div class="buttonPu1"><a href="exec:gt ''dean_event'',''yz_fuck_women`s_bedroom''">Alone with my daughter</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+		if $finish_washing_with_boyfriend=1:'<div class="buttonPu2"><a href="exec:gt ''dean_event'',''yz_fuck_girlfriend''">Waiting outside the door</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+		if $finish_with_boyfriend=1:'<div class="buttonPu3"><a href="exec:gt ''dean_event'',''yz_fuck_girlfriend_3''">Bring tea in</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Daughter: Help me bring drinks and snacks!If you really want to marry me, you have to do what I say!</p>'
+		'<p>Boyfriend: Okay... do you need me to wash you some more fruit?</p>'
+		'<p>Daughter: Why don`t you help me buy a cup of strawberry grapefruit frozen lemon tea!Big cup!Go to the ice!Less sugar!Add another mango!</p>'
+		'<p>boyfriend: ………</p>'
+	'</div>'
+End
+
+if $args[0]="bathroom":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\YZ\vids\洗澡.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	
+		if 20>=hour and hour>=13 and $met_my_daughters_boyfriend=1:'<div class="button"><a href="exec:gt ''dean_event'',''yz_fuck_bathroom_2''">Who is peeking?</a></div>'
+		if $YZ.bad>=5 and hour>=18:'<div class="buttonP"><a href="exec:gt ''dean_event'',''yz_fuck_bathroom''">Wash with my daughter</a></div>'else:'<div class="buttonGr"><a href="exec:">Wash with my daughter</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=45 & gt ''possessed_dean'',''master_bedroom''">Go back to the room</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: With such a big chest, it`s really hard to clean... (Why do you always feel that someone is peeking at me)</p>'
+	'</div>'
+End
+
+
+--- possessed_dean ---------------------------------
+

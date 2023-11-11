@@ -1,0 +1,274 @@
+# geological_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+minutes+=5
+
+A_time=year*365+month*30+day
+if DZ_time=0:DZ_time=year*365+month*30+day
+ if A_time - DZ_time>=7:
+     $DZ_Event_date14.available=1
+ else:
+     $DZ_Event_date14.available=0
+ end
+DZ_time=year*365+month*30+day
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "mugou_pharmacy_map"
+'</div>'
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\地质办公室.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>In the geological office, a large number of precision instruments and soil samples can be seen everywhere.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="dialogue_with_the_geological_office":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		if soil_b>=100: soil_b-=100 & soil_a+=1
+		!'<div class="button"><a href="exec:$聊天=''DZ''& $出去的位置 = ''姆苟制药'' & addlove=0 &addbad=0 & gt ''通用聊天''">互动</a></div>'
+		if soil_a<100:
+		'<div class="button"><a href="exec:soil_b+=Rand(1,10) & gt ''geological_office'',''deal_with''">Ordinary soil testing<<soil_a>>.<<soil_b>>﹪</a></div>'
+		end
+		if $dz.event_device=1 and soil_a<100:
+		'<div class="button"><a href="exec:soil_b+=Rand(50,70) & soil_a+=100 & gt ''geological_office'',''deal_with''">New type of soil testing<<soil_a>>.<<soil_b>>﹪</a></div>'
+		end
+		if soil_a>=100 and $test_report=0:
+		'<div class="button"><a href="exec:$test_report+=1 &  gt ''geological_office''">Get the soil test report</a></div>'
+		end
+		
+		if $DZ_Event_date14.available=1:
+		'<div class="button"><a href="exec: gt ''geological_office'',''jealous''">Jealous</a></div>'
+		end
+		if $DZ.love>=30 and hour >=16:
+		'<div class="button"><a href="exec: gt ''geological_office'',''invite_dinner''">Invite dinner</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">Invite dinner</a></div>'
+		end
+		if $DZ.love>=100 or $DZ.bad>=100:
+		'<div class="button"><a href="exec: gt ''geological_office'',''weekend_date''">Weekend date</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">Weekend date</a></div>'
+		end
+		if $DZ.love>=100 and $DZ.bad>=100:
+		'<div class="button"><a href="exec: gt ''geological_office'',''missing_documents''">Missing documents</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">？？？？</a></div>'
+		end
+		if $DZ.love>=150 and $DZ.bad>=150 and MGF>0:
+		'<div class="buttonB3"><a href="exec: gt ''geological_office'',''mcgovern_research''">McGovern Research</a></div>'
+		end
+		if $DZ.love>=200 and $DZ.bad>=200 and $JJ.love>=200 and $JJ.bad>=200:
+		'<div class="buttonS"><a href="exec: gt ''geological_office'',''talk_to_my_sister_3p''">❤Find sister 3P</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec: ">❤？？？</a></div>'
+		end
+		
+		'<div class="button"><a href="exec: gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>：<<$protagonists_surname>>...<<$protagonist_name>>, can I help you?OS: Some relationships are over as long as I don`t take the initiative. Why don`t those licking dogs understand.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="deal_with":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室2~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>: Sorry, there are several urgent projects that need to be analyzed above, and the current progress is very slow...There is no free equipment for you.OS: If<<$jm.name>>It would be nice if the boss could approve the project funds to purchase a few more equipment..</p>'
+	'</div>'
+end
+
+if $ARGS[0]="jealous":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\处理~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+	 if $ARGS[1]!"looking_for_you" and $ARGS[1]!"find_sister"and $ARGS[1]!"molesting" :
+		'<div class="button"><a href="exec: $DZ.love+=2 + $my.charm & gt ''geological_office'',''jealous'',''looking_for_you''">Looking for you</a></div>'
+		'<div class="button"><a href="exec: $DZ.love-=10 & gt ''geological_office'',''jealous'',''find_sister''">Find sister</a></div>'
+		if $my.ethics<=-20:
+		'<div class="button"><a href="exec: $DZ.love+=2 & gt ''geological_office'',''jealous'',''molesting''">Molesting</a></div>'
+		end
+	 end
+	 if $ARGS[1]="molesting":
+		'<div class="button"><a href="exec: gt ''geology_event'',''eat''">Ok</a></div>'
+	 end
+	 '<div class="button"><a href="exec: gt ''mugou_pharmaceutical''">leave</a></div>'
+	'</div>'
+
+	if $ARGS[1]="":
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>: Hello, what have you been up to recently?I haven`t seen you for a while.OS: Other men can`t wait to stay away every day. YOU haven`t been here for more than a week. GO to your sister`s office....</p>'
+		'<p> Me: No, no.OS: It seems that the icy goddess is used to being licked by dogs...I haven`t tried to be left out.</p>'
+		'<p><<$DZ.name>>:Humph!no?Then let me ask you, if your sister and I are looking for you at the same time, whose office do you go to first?</p>'
+	'</div>'
+	END
+	if $ARGS[1]="looking_for_you":
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>: Hehe, I don`t believe it.A liar has to swallow a thousand needles!OS: Even if it`s a lie, I won.</p>'
+	'</div>'
+	END
+	if $ARGS[1]="find_sister":
+	'<div class="dialog_menu">'
+		'<p><<$DZ.name>>: Also, after all, you only have your sister in your heart.OS: Hehe, keep wagging your tail around your sister.</p>'
+	'</div>'
+	END
+	if $ARGS[1]="molesting":
+	'<div class="dialog_menu">'
+		'<p> Me: It`s hard to say, which side is important to go to first?</p>'
+		'<p><<$DZ.name>>: Just as important!Your sister and I, where are you going first?</p>'
+		'<p> Me: Uh, where do you go first to see who is close to me?</p>'
+		'<p><<$DZ.name>>: It`s all the same close!Your sister and I, where are you going first?</p>'
+		'<p> Me: It depends on which side is better for me, so I`ll go to which side first!</p>'
+		'<p><<$DZ.name>>: As good as you!</p>'
+		'<p> Me: Really?My sister treated me well, she bought me things and invited me to dinner.</p>'
+		'<p><<$DZ.name>>：@！￥！@Coincidentally, I happen to be hungry, let`s go, let`s go eat together.OS：....Hmm?....and many more..Am I on the set?</p>'
+		'<p><<$DZ.name>>: Forget it, just get used to you once for the sake of being her younger brother. I still want to have a younger brother.OS: But you are still the first man who can make me a treat...</p>'
+	'</div>'
+	END
+end
+
+if $ARGS[0]="invite_dinner":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\处理~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		if $RION.available=1 and  $DZ.love>=100 and $DZ.bad>=100:
+		'<div class="button"><a href="exec: gt ''geology_event'',''invite_home''">Go home and eat</a></div>'
+		end
+		'<div class="button"><a href="exec: $filename_reference=''喝酒1'' & gt ''geology_event'',''go_to_the_restaurant'',''drink_1''">Go to the restaurant</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> Me: You are working every time you come. It`s really hard. Why don`t you relax and have a meal first?..</p>'
+		'<p><<$DZ.name>>：.....All right..After being busy for so long, it`s time to drink some wine to relax your nerves.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="weekend_date":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''mugou_pharmaceutical''">See you soon</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> Me: When are you free this week~ Let`s go have a good meal together, and do something by the way~</p>'
+		'<p><<$DZ.name>>：<<$protagonists_name>>, Finally remembered to ask me out?I am very busy.</p>'
+		'<p> Me: Then I`ll ask<<$jj.name>>, She should be free~</p>'
+		'<p><<$DZ.name>>：<<$protagonists_name>>！See you at the restaurant on weekend nights!</p>'
+		$dz.event_restaurant_appointment=1
+	'</div>'
+end
+
+if $ARGS[0]="missing_documents":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\文件~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: $filename_reference=''家0开幕'' & gt ''geology_event'',''dz_fuck_home'',''home_0_opening''">Go to her house</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> <<$DZ.name>>I was rummaging through the boxes and looking for something.....</p>'
+		'<p><<$DZ.name>>：<<$protagonists_name>>！！It just so happens that you can accompany me to my house. I have forgotten the documents at home.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="mcgovern_research":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\按摩~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: $filename_reference=''药0开幕'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_0_opening''">Relax</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> Me: I`ve been working hard, do you want to experience the McGovern Essence developed by your sister?It is said to be a transformed, strong natural central stimulant.</p>'
+		'<p><<$DZ.name>>: Yes, since you are a scientist, you should dedicate yourself to science.So what should I do?</p>'
+	'</div>'
+end
+
+if $ARGS[0]="talk_to_my_sister_3p":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\DZ\vids\办公室~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: $filename_reference=''3P0开幕'' & gt ''geology_event'',''dzjj_fuck_inverse_3p'',''3p0_opening''">Open operation</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p> Me: Phone) Sister, come to the geological office.(Hung up without waiting for her to answer.）</p>'
+		'<p><<$DZ.name>>: Yes, your sister has already obeyed your orders?</p>'
+		'<p> Me: If I want to 3P with you and my sister, would you mind?</p>'
+		'<p><<$DZ.name>>: I don`t care...I`m afraid she will be embarrassed......</p>'
+		'<p><<$JJ.name>>: Hehe, who do you think will be embarrassed~ (My sister is here at this time)</p>'
+		'<p><<$JJ.name>>: I know an idle basement with a bed and a sofa. We can have a good taste of your power~</p>'
+	'</div>'
+end
+
+
+
+ 
+--- geological_office ---------------------------------
+

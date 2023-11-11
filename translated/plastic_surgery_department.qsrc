@@ -1,0 +1,285 @@
+# plastic_surgery_department
+ cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=5
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Private hospital" href="exec:minutes+=5 & gt ''hospital''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="waiting_before_plastic_surgery":
+	$ZX.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\wait<<$zx_waits_for_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $zx_waits_for_num<=3:'<div class="button"><a href="exec:$zx_waits_for_num+=1 & gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Be patient</a></div>'
+		if $zx_waits_for_num=4:'<div class="buttonGn"><a href="exec:$zx_waits_for_num+=1 & gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Waiting for the call</a></div>'
+		if $ZX.love>=50:'<div class="buttonS"><a href="exec:gt ''plasticity_event'',''zx_fuck_knock_on_the_glass''">Knock on the glass</a></div>'
+		if $zx_waits_for_num=5:'<div class="buttonGn"><a href="exec:gt ''plastic_surgery_department''">Sit down</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if $zx_waits_for_num!5:'<p><<$ZX.name>>:Hmm<<$panting>></p>'
+		if $zx_waits_for_num=5:'<p><<$ZX.name>>:Ahem... next one!</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="":
+	$ZX.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if  $ZL_Event_face=1:'<div class="button"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''consultation''">for<<$ZL.name>>consultation</a></div>'
+		if  $qb_contract_chain=4:'<div class="button"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''qb_plastic_surgery''">for<<$QB.name>>consultation</a></div>'
+		if $qb_contract_chain=5:'<div class="button"><a href="exec:minutes+=5 & gt ''hashimoto_event'',''plastic_surgery_completed''">Postoperative recovery</a></div>'
+		if money>=1500:'<div class="buttonG"><a href="exec:money-=1500 & gt ''plasticity_event'',''zx_fuck_meiya''">Teeth whitening-1500￥</a></div>'else:'<div class="buttonGr"><a href="exec:">Teeth whitening-1500￥</a></div>'
+		if $zx_event_chain=1 or $zx_event_chain=2:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''photos_of_public_toilets''">Photos of public toilets</a></div>'
+		if $zx_event_chain>=3:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''about_the_public_toilet''">About the public toilet</a></div>'
+		if $caesar_event_chain=5:'<div class="buttonPu4"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''champion_plastic_surgery''">Caesar and<<$GJ.name>></a></div>'
+		if $antioxidant_equipment=1:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''antioxidant_equipment''">Take out the antioxidant equipment</a></div>'
+        if $insemination_room=1 and $ZX.bad>=200 and $zx.insemination=0:'<div class="buttonS"><a href="exec:$zx.insemination=1 & gt ''plastic_surgery_department''">Invite artificial insemination</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">It`s okay</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:Plastic surgery for men?It`s really rare.</p>'
+	'</div>'
+End
+
+
+if $args[0]="consultation":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if money>=50000:
+		'<div class="buttonG"><a href="exec:minutes+=5 &money-=50000 & gt ''aid_event'',''pay''">Pay for her ￥50,000</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Pay for her ￥50,000</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">It`s okay</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>: The little sister has a good foundation. Make a nose job for 35,000, open the corners of the eyes for 8,000, and get a few injections of hyaluronic acid. Add it together to count you as 50,000.</p>'
+		'<p><<$ZL.name>>: 50,000...a lot.</p>'
+	'</div>'
+End
+
+
+if $args[0]="qb_plastic_surgery":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if money>=60000:
+		'<div class="buttonG"><a href="exec:minutes+=5 &money-=60000 & gt ''hashimoto_event'',''pay''">Pay for her ￥60,000</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Pay for her ￥60,000</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">Not going on yet</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>: The price of full-face plastic surgery is not fixed, it probably ranges from 100,000 ￥-200,000￥.But recently, there happened to be activities. Do a nose job for 30,000, grind the mandible for 25,000, and get a few face-lifting injections. Together, you will be counted as 60,000.</p>'
+		'<p><<$QB.name>>:I`ll go back again... think about it?</p>'
+	'</div>'
+End
+
+if $args[0]="photos_of_public_toilets":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''photos_of_public_toilets_2''">now?</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Doctor, I don`t know if I read it wrong. You are very similar to the woman in a certain photo.</p>'
+		'<p><<$ZX.name>>: I have more than 100 portraits of me every month, and there are many women who are similar to me on the Internet.</p>'
+		'<p>Me: Really, but photos in public toilets are rare.</p>'
+		'<p><<$ZX.name>>:In the public toilet... what picture?</p>'
+		'<p>Me: It`s a lascivious woman, maybe I read it wrong.</p>'
+		'<p><<$ZX.name>>:Then...can you take me to the field to see?</p>'
+	'</div>'
+End
+
+
+if $args[0]="photos_of_public_toilets_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">now?</a></div>'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''hospital''">Make an appointment at 23 o`clock in the evening</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:Then...can you take me to the field to see?</p>'
+		'<p>Me: Now?</p>'
+		'<p><<$ZX.name>>:What`s the matter, can`t you?</p>'
+		'<p>Me: It`s the men`s restroom in the park. Isn`t it good for you to walk in directly?</p>'
+		'<p><<$ZX.name>>:Then...just go at night and pick a time when there is no one.</p>'
+		if $zx_event_chain=1:$zx_event_chain=2
+	'</div>'
+End
+
+if $args[0]="about_the_public_toilet":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''hospital''">Leave bitterly</a></div>'
+		if $public_toilet_negatives=1:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''plasticity_event'',''take_out_the_negatives''">Take out the negatives</a></div>'
+		if $public_toilet_negatives=1 and $ZX.bad>=30:'<div class="buttonR3"><a href="exec:gt ''plastic_surgery_department'',''not_you''">I admit the wrong person</a></div>'else:'<div class="buttonGr"><a href="exec:">I admit the wrong person</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: What is the situation when you give me oral sex in a public toilet?</p>'
+		'<p><<$ZX.name>>:Public toilets?Oral sex?What`re you saying?</p>'
+		'<p>Me: The men`s toilet in the park!23 o`clock in the evening!You give me a mouth……</p>'
+		'<p><<$ZX.name>>:Stop, stop, I`ve been working overtime recently and I haven`t left the hospital at all. Have you admitted the wrong person?</p>'
+		'<p>Me: Impossible!</p>'
+		'<p><<$ZX.name>>:Is it really me?Think about it again.</p>'
+	'</div>'
+End
+
+if $args[0]="not_you":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''hospital''">See you that night</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:Is it really me?Think about it again.</p>'
+		'<p>Me: Maybe I confessed to the wrong person, it`s really not you, I`ll find someone else!</p>'
+		'<p><<$ZX.name>>:wait!Think about it again!</p>'
+		'<p>Me: I just remember the men`s room in the park!23 o`clock in the evening!I can`t remember the others…</p>'
+		'<p><<$ZX.name>>: Well, at 23 o`clock tonight, we will go to the toilet together to catch her.</p>'
+		if $zx_event_chain=3:$zx_event_chain=4
+	'</div>'
+End
+
+if $args[0]="champion_plastic_surgery":
+	'<div class ="show_menu"><img src="images\NPC\GJ\pics\GJ整形.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''champion_plastic_surgery_2''">Keep eavesdropping</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Caesar: Ahem, plastic surgery is more private, let`s talk about it alone.</p>'
+		'<p><<$ZX.name>>:What is the demand?</p>'
+		'<p><<$GJ.name>>:I think……</p>'
+		'<p>·…………</p>'
+	'</div>'
+End
+
+
+if $args[0]="champion_plastic_surgery_2":
+	'<div class ="show_menu"><img src="images\NPC\GJ\pics\GJ整形.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''plastic_surgery_department'',''champion_plastic_surgery_3''">Arrange surgery now</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>: Now the whole face is at this price, but your luck is very good!Apply for a loan and you can enjoy 10 million relief immediately!</p>'
+		'<p><<$GJ.name>>:Wow?！Really fake!I will let him come in and pay right away!</p>'
+		'<p><<$ZX.name>>:Wait, wait, wait!If our hospital has regulations, you must do it in person!Today is the last day, and you can enter the operating room after you have processed it.</p>'
+		'<p><<$GJ.name>>:Then please go through the loan procedures for me first!</p>'
+		'<p><<$ZX.name>>:Okay, after you sign here, we can enter the operating room.</p>'
+		'<p>·…………</p>'
+		'<p>Caesar: Come, come, go for the operation first. When you open your eyes again, you will find that the loan has been paid off by a good brother!</p>'
+		'<p><<$GJ.name>>:Thank you so much, good brother!Come on, when can I arrange the operation?</p>'
+	'</div>'
+End
+
+if $args[0]="champion_plastic_surgery_3":
+	'<div class ="show_menu"><img src="images\NPC\GJ\pics\手术.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:">Keep eavesdropping</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">It turned out to be like this</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>:Has the anesthetic been pushed forward?Okay, you guys go out for a while and call the escort in by the way.</p>'
+		'<p>Caesar: Hey, is something wrong?I am counting on her to make a lot of money, she is my cash cow!</p>'
+		'<p><<$ZX.name>>:Calm down, I called you in to talk about it again. I have a deeper understanding of human desires.</p>'
+		'<p>Caesar: Clams?Are you still dissatisfied with taking 20% off the loan?</p>'
+		'<p><<$ZX.name>>:I know she will<span class =''red''>Because no one repaid her loan, she was forced to become an underground idol to work for you.</s>, The old trick.Besides, it will take decades for her to pay off the loan, right?</p>'
+		'<p>Caesar: Hehe Hehe, then I will divide her work income into 20% of yours. As long as we can continue to cooperate, it`s easy to say.</p>'
+		'<p><<$ZX.name>>:As a human being, my desires can be satisfied more than that, I want 50%.</p>'
+		'<p>Caesar: You bitch, forget it, for the sake of our sex friends for so many years, let`s get 50% off.</p>'
+		if $caesar_event_chain=5:$caesar_event_chain=6
+	'</div>'
+End
+
+if $args[0]="antioxidant_equipment":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\face<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''plasticity_event'',''zx_fuck_reward_3''">What are the benefits?</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Look at this, [antioxidant equipment] can effectively dilute and block the production of melanin!</p>'
+		'<p><<$ZX.name>>:I heard that the Jingyuan project team happened to have lost one. Wouldn`t it be the one in your hand?</p>'
+		'<p>Me: Is this important?</p>'
+		'<p><<$ZX.name>>:The areola goes black and becomes pink, and the private parts go to melanin and become pink. You all need this [antioxidant equipment]. You can help me a lot!</p>'
+	'</div>'
+End
+
+
+
+
+
+
+
+
+--- plastic_surgery_department ---------------------------------
+

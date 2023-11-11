@@ -1,0 +1,224 @@
+# home_tv
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Go to the lobby" href="exec:minutes+=5 & gt ''home''"><img class="img_stretch" src="images\place\家.jpg"></a>
+		</div>
+		
+		<div class="action">
+			<a class="photo" data-title="computer" href="exec:minutes+=5 & gt ''home_computer''"><img class="img_stretch" src="images\place\电脑.jpg"></a>
+		</div>
+		
+		<div class="action">
+			<a class="photo" data-title="Plasma TV" href="exec:minutes+=5 & gt ''home_tv''"><img class="img_stretch" src="images\place\电视.jpg"></a>
+		</div>
+	</div>'
+'</div>'
+
+$watched_tv=1
+$paid_content=0
+if 0<=hour and hour<3:
+		$program='Late night fighting show'
+		$program_evaluation='Who wants to see such a big guy now?We want to see hot girls!'
+		if $fighting_front=4:
+			$program='Women`s naked fighting show'
+			$program_evaluation='The novel naked fighting + the psychology of gamblers who can bet has attracted a lot of popularity.'
+			$fighting_show_num=6
+			if $fighting_show=7 and hour>=2:$fighting_show_num=7
+			$program_evaluation='The first women`s non-violent naked fighting competition ended successfully'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\格斗节目<<$fighting_show_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 3<=hour and hour<=6:
+		if $paid_program_pre_=2 :
+		$program='&quot;National Contribution-I want to be on TV&quot;'
+		$program_evaluation='You only need to be willing to spend money, support videos, MV on demand, want your videos to appear on TV?Anything is fine!'
+		$paid_content=1
+		$paid_channel_num=rand (1,7)
+		if $paid_channel_num=7:$paid_content='Submitted by the `Graphic Raiders`...Postscript: The New Year is here, the fireworks are up~ That sailor wave is my last youth.Finally, I wish you all a happy Spring Festival!'
+		if $paid_channel_num=6:$paid_content='Wow... this is the standard for idol singers... I don`t know who submitted the contribution.…'
+		if $paid_channel_num=5:$paid_content='What kind of advertisement is this?…'
+		if $paid_channel_num=4:$paid_content='The audience`s second favorite paid song ordering link…'
+		if $paid_channel_num=3:$paid_content='The audience`s second favorite paid song ordering link…'
+		if $paid_channel_num=2:$paid_content='Paid MV on demand... what kind of songs are these?'
+		if $paid_channel_num=1:$paid_content='both<<year>>It`s been years, how can anyone still pay to support such an uncle?…'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\付费频道<<$paid_channel_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		else:
+		$program='No program yet'
+		$program_evaluation='I don`t know what good shows will be in the future…'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\暂无节目0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		end
+end
+if 6<hour and hour<=8:
+		$program='Weather forecast'
+		$program_evaluation='Today`s weather is my favorite weather…'
+		if $pull_sponsorship=3:
+			$program='Weather forecast-Imperial Health greets you with high-quality fine cattle'
+			$program_evaluation='Let us advocate “one glass of essence a day, the more we drink, the younger we are”'
+			$weather_forecast_num+=2
+			if $weather_forecast_num>=8:$weather_forecast_num=2
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\天气预报<<$weather_forecast_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 8<hour and hour<=10:
+		$program='News program'
+		$program_evaluation='Dull news programs... it would be great if the host could be more lively…'
+		if $front_of_news_program=1:
+			$program='&quot;News Squirting Endurance Competition&quot;'
+			$program_evaluation='Hey, did you place a bet?This stuffy host will definitely not last ten minutes…'
+			$news_program_num=rand(7,13)
+			if $XM.job=1:$news_program_num=rand(6,13)
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\新闻节目<<$news_program_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 10<hour and hour<=12:
+		$program='Reality show'
+		$program_evaluation='It`s boring... who wants to watch a fake reality show?……'
+		if $reality_show_front=4:
+			$reality_show_num+=1
+			if $reality_show_num<10:$reality_show_num=10
+			if $reality_show_num>=19:$reality_show_num=10
+			$program='Brand new reality show `If you are a man, just stick to it for 10 minutes`'
+			$program_evaluation='Damn it!How to sign up?！I can definitely withstand the temptation of a slut!'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\真人秀<<$reality_show_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 12<hour and hour<15:
+		if $QT.job=2:
+			$program='Radio program'
+			$program_evaluation='It seems she is doing well…'
+			'<div class="show_menu">'
+				 '<video preload="metadata" autoplay loop height="480">
+				 <source src="images\videos\news\TV\电台节目0.webm" type=''video/webm;''></video></div>'
+			'</div>'
+		else:
+			$program='Focus on the World Cup'
+			$program_evaluation='Quadrennial Cloud Fan Carnival Day…'
+			'<div class ="show_menu"><img src="images\NPC\QB\pics\世界杯0.jpg" width="854"></div>'
+		end
+
+end
+if 15<=hour and hour<=18:
+		$program='Cartoon'
+			$program_evaluation='Why haven`t I watched this episode?…'
+		 
+		if $cartoon_front=3:
+			if $cartoon_num<2:$cartoon_num=4
+			$program='`About my sister, a fornication erotic novelist, who was fucked 24 hours after I found out and finally became a bitch sex slave.`'
+			$program_evaluation='It`s so exciting!This is the anime we want to watch!No one wants to see the hypocritical impotence harem Fan for a long time!'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\动画片<<$cartoon_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		$cartoon_num+=1
+		if $cartoon_front=3:
+			if $cartoon_num=8:$cartoon_num=4
+		else:
+			if $cartoon_num=2:$cartoon_num=0
+		end
+end
+if 18<hour and hour<=20:
+		$program='TV series'
+			$program_evaluation='Why haven`t I watched this episode?…'
+			
+		if $idol_drama_front=1:
+			$tv_series_num+=1
+			if $tv_series_num>=6:$tv_series_num=1
+			$program='&quot;The Fallen Daughter Falls in Love with Me&quot;'
+			$program_evaluation='Aside from the plot and acting skills, just looking at the appearance and milk volume, we still have to chase more!'
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\电视剧<<$tv_series_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 20<hour and hour<=22:
+		$program='Special drama'
+		$program_evaluation='It`s this routine for special dramas to be filmed and filmed... I`m tired of watching it.……'
+		if  $special_camera_front=4 :
+			$program='&quot;Like to help recharge the Heroine&quot;'
+			$program_evaluation='Excuse me?The heroine was actually knocked down?There must be a reversal in this play!Go after it and have a look!'
+			$special_drama_num+=2
+			if $special_drama_num>=15:$special_drama_num=2
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\特摄片<<$special_drama_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+if 22<hour :
+		$program='Reading program'
+		$program_evaluation='It deserves to be a show that supports late-night shows…'
+		$reading_program_num=1
+		if $pre_reading_program=1:
+			$reading_program_num=rand(3,4)
+		end
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\news\TV\读书节目<<$reading_program_num>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+end
+'<div class="button_menu">'
+	if hour<12:'<div class="button"><a href="exec:minutes+=90  &  gt ''home_tv''">Take a nap</a></div>'
+	if hour>=12:'<div class="button"><a href="exec:minutes+=120  &  gt ''home_tv''">Take a nap</a></div>'
+	
+	if $program='Women`s naked fighting show':
+		if $fighting_show<6:'<div class="buttonR2"><a href="exec:gt ''group_performation_event'',''fighting_game_show''">Match chart</a></div>'
+		if $fighting_show=6:'<div class="buttonR3"><a href="exec:gt ''group_performation_event'',''fighting_match_show_finals''">Finals</a></div>'
+	end
+	if $program_list=0:'<div class="button"><a href="exec:$program_list=1 & gt ''home_tv''">Open the program list</a></div>'else:'<div class="button"><a href="exec:$program_list=0 & gt ''home_tv''">Close the program list</a></div>'
+'</div>'
+
+'<div class="dialog_menu">'
+	'<p>Playing：<<$program>></p>'
+	'<p>Sharp review: <<$program_evaluation>></p>'
+	if $paid_content!0:'<p>·I: <<$paid_content>></p>'
+
+	if $program_list=1:
+	'<p>——————TV program list——————</p>'
+	'<p>00:00-03:00: Late night program</p>'
+	if $paid_program_pre_!2:'<p>03:00-07:00: No content yet</p>'
+	if $paid_program_pre_=2:'<p>03:00-07:00: Paid channels</p>'
+	'<p>07:00-09:00: Weather forecast</p>'
+	'<p>09:00-11:00: News program</p>'
+	'<p>11:00-13:00: Reality show</p>'
+	'<p>13:00-15:00: Radio program [tentative]</p>'
+	'<p>15:00-19:00: Cartoon</p>'
+	'<p>19:00-21:00: TV series</p>'
+	'<p>21:00-23:00: Special filming drama</p>'
+	'<p>23:00-00:00: Reading program</p>'
+	'<p>——————TV program list——————</p>'
+	end
+'</div>'
+--- home_tv ---------------------------------
+

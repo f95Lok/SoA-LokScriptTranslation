@@ -1,0 +1,174 @@
+# 温泉
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	'<div class="show_menu">'
+		 $WQ.available=1
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\温泉接待~<<rand(1,2)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''温泉'',''温泉立绘''">对话</a></div>'
+		if $FXZ_Event_SW=1 and hour >=18:'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''副校长_事件'',''FXZ_SW_温泉A''">等待<<$FXZ.name>></a></div>'
+		if $QT.温泉=1 and hour >=12 and week_day >=6:'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''前台_事件'',''温泉游''">等待<<$QT.name>></a></div>'
+		if money>=1000:'<div class="buttonG"><a href="exec:minutes+=15 & money-=1000 & gt ''温泉'',''套间''">买票进入￥1000</a></div>'else:'<div class="buttonGr"><a href="exec:">买票进入￥1000</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>:欢迎光临，女宾价格为200￥/人，男宾需要额外征税价格为1000￥/人，并且由于新政策出台已取消男汤并改设私汤以及混浴。</p>'
+		'<p>·特殊规定：本温泉一律禁止任何客人携带秘拍设备，保证每一位客人的隐私安全，是我们唯一的宗旨。</p>'
+		'<p>——————————</p>'
+		'<p>·温泉舒适度：<<温泉舒适度>>/100（MAX）</p>'
+	'</div>'
+End
+
+if $ARGS[0]="约人":
+	 '<div class ="show_menu"><img src="images\place\打电话.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+	 if money>=200:
+	 if $JM_Event_date=1  and week_day >=5:'<div class="buttonG"><a href="exec:minutes+=5 & money-=200 & gt ''继母_事件'',''出发约会''"><<$JM.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$JM.name>>周末有空</a></div>'
+	 if $MM.love>=15 and $MM.bad>=15:'<div class="buttonG"><a href="exec:minutes+=15 & money-=200 & gt ''妹妹_事件'',''MM_Event_温泉游''"><<$MM.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$MM.name>></a></div>'
+	 if $RION_NTR=1:'<div class="buttonG"><a href="exec:minutes+=15 & money-=200 & gt ''RION_事件'',''RION_Fuck_温泉''"><<$RION.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$RION.name>></a></div>'
+	 if $TZ.温泉可约=1:'<div class="buttonG"><a href="exec:money-=200 & gt ''台长_事件'',''温泉''"><<$TZ.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$TZ.name>></a></div>'
+	 if $DC.love>=400-$DC.bad:'<div class="buttonG"><a href="exec:money-=200 & gt ''督察_事件'',''温泉旅行''"><<$DC.NAME>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$DC.NAME>></a></div>'
+	 if $BGH.温泉=1:'<div class="buttonG"><a href="exec:money-=200 & gt ''邻家_事件'',''温泉''"><<$BGH.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$BGH.name>></a></div>'
+
+	 else:
+		'<div class="buttonGr"><a href="exec:minutes+=15 & gt ''温泉''">金钱不足</a></div>'
+	 end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''温泉'',''套间''">没有更多的人</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·约谁？</p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="套间":
+	if $WQ.love>=1000-$WQ.bad and hour=7:gt'温泉_事件','WQ_Fuck_早1'
+	
+	'<div class ="show_menu"><img src="images\place\温泉双人房.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉走廊''">四处逛逛</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''温泉'',''约人''">约人</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">休息</a></div>'
+		if $RION_面试=3 and $RION.bad>0 and  10<=hour and hour<=14 and week_day =7:'<div class="buttonP"><a href="exec:minutes+=60 & gt ''RION_事件'',''RION_Event_NTR前置''">偷窥隔壁</a></div>'else:'<div class="buttonGr"><a href="exec:">偷窥？？</a></div>'
+		if $冠军事件链=1 and hour=22 and week_day =7:'<div class="buttonP"><a href="exec: gt ''冠军_事件'',''GJ_Fuck_温泉''">偷窥VIP包房</a></div>'
+		if $冠军事件链=3 and hour>=20 :'<div class="buttonP"><a href="exec: gt ''冠军_事件'',''GJ_Fuck_温泉2''">偷窥VIP包房</a></div>'
+		if $冠军事件链=9 and hour>=20 :'<div class="buttonP"><a href="exec: gt ''冠军_事件'',''温泉3''">偷窥VIP包房</a></div>'
+		if $老板事件链>=4 and hour=13 and week_day =6:'<div class="buttonG5"><a href="exec: gt ''群演_事件'',''富婆_Fuck_DD2''">SVIP包房</a></div>' 
+		if $XN.审判=1 and hour=13 and week_day =7:'<div class="buttonPu3"><a href="exec: gt ''修女_事件'',''XN_Fuck_女学生''">❐偷窥VIP包房</a></div>'
+		'<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">回市里</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·人生须尽欢，玩的时候不辜负风景，泡温泉就是享受一种悠闲，一种安然，一种宁静。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="温泉立绘":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\对话.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & 温泉舒适度+=my.体力+rand(1,5) & gt ''温泉'',''帮她打扫''">帮她打扫</a></div>'
+		if 温泉舒适度>=33:'<div class="button"><a href="exec:minutes+=15 & 温泉舒适度+=my.体力+rand(10,15) & gt ''温泉'',''新菜品''">研究新菜品</a></div>'else:'<div class="buttonGr"><a href="exec:">舒适度不足</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>: 生意不是很好呢，没有更多的钱请人打扫…</p>'
+		'<p>我: 我可以帮你的忙。</p>'
+		if 温泉舒适度>=33:
+		'<p><<$WQ.name>>: 明明已经很干净了…客人还是不来呢…</p>'
+		'<p>我: 我注意到菜品的质量下降了…</p>'
+		end
+		'<p><<$WQ.name>>: 真的嘛？</p>'
+		'<p>·我该说什么？</p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="帮她打扫":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\work<<rand(1,2)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if money>=1000:'<div class="buttonG"><a href="exec:minutes+=15 & money-=1000 & gt ''温泉'',''套间''">买票进入￥1000</a></div>'else:'<div class="buttonGr"><a href="exec:">买票进入￥1000</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>: 让你帮忙一起打扫真是不好意思…</p>'
+		'<p>我: 就当做有氧运动了。</p>'
+		'<p>·好感度上升了！温泉也更干净了！</p>'
+		$WQ.love+=2
+	'</div>'
+End
+
+
+if $ARGS[0]="新菜品":
+	 '<div class ="show_menu"><img src="images\NPC\WQ\pics\work<<rand(3,4)>>.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if  my.烹饪>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''温泉'',''给她露一手''">给她露一手</a></div>'else:'<div class="buttonGr"><a href="exec:">烹饪等级需求5</a></div>'
+		if  $WQ.照片销毁=1 :'<div class="buttonS"><a href="exec:minutes+=15 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">上手</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if WQMMS>0:'<div class="buttonP"><a href="exec:gt ''魅魔_事件'',''魅魔_Fuck_cook''"><<$MMS.name>>？</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 好香啊，所有的菜都是你自己做的吗？。</p>'
+		'<p><<$WQ.name>>: 前阵子是我老公做的…但温泉效益不好…他就去城里做他的大锅饭去了…</p>'
+		'<p>我: 这样啊…（怪不得菜品没以前好吃了）</p>'
+		$WQ.love+=2
+	'</div>'
+End
+
+if $ARGS[0]="给她露一手":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\work<<rand(3,4)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''温泉_事件'',''WQ_Fuck_cook2''">传授经验</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>: ？！？！！你的菜做的真好吃！你是怎么做到的？教教我！</p>'
+		'<p>我: 呃…这个嘛……</p>'
+		'<p><<$WQ.name>>: 拜托你了！</p>'
+		'<p>·好感度上升了！温泉舒适度上升了！</p>'
+		$WQ.love+=2
+	'</div>'
+End
+
+
+--- 温泉 ---------------------------------
+

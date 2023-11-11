@@ -1,0 +1,110 @@
+# 帝国能源
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+
+
+ if hour<=7:$职员名="A"&$职员颜色=1
+ if 8<=hour and hour <=12:$职员名="B"&$职员颜色=2
+ if 13<=hour and hour <=17:$职员名="C"&$职员颜色=3
+ if hour>=19:$职员名="D"&$职员颜色=4
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="帝国集团大厅" href="exec:minutes+=15 & gt ''帝国集团''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	随机数=rand(0,100)
+	if 随机数 =0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\彩蛋2.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	if 随机数 =1:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\彩蛋3.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	if 随机数 >1:'<div class ="show_menu"><img src="images\place\帝国能源.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $NY_Event_监禁!1:'<div class="buttonGn"><a href="exec:gt''帝国能源'',''董事办公室''">『董事办公室』</a></div>'
+		'<div class="buttonPu<<$职员颜色>>"><a href="exec:minutes+=15 &gt ''群演_事件'',''能源_Fuck_职员''">『提供服务』</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·机械AI声：据上周财报，帝国能源市值估价在174亿￥浮动，在未来领域将会更加的广阔，原因是未来轻源更加受人关注，越来越多清洁能源将代替的化石能源，公司的客户也越来越多。</p>'
+	'</div>'
+End
+
+if $args[0]="董事办公室":
+	if $NY.available=0:gt'帝国能源','介绍'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\NY介绍~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		if 按摩房=1:'<div class="button"><a href="exec:gt''帝国能源'',''推荐按摩店''">推荐按摩店</a></div>'else:'<div class="buttonGr"><a href="exec:">推荐按摩店</a></div>'
+		if $NY.love>=50 and $NY.bad>=100:'<div class="buttonPu5"><a href="exec: gt ''能源_事件'',''NY_Fuck_公司''">『提供服务』</a></div>'else:'<div class="buttonGr"><a href="exec:">『提供服务』</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$NY.name>>：看够了没？.......OS:最近被那俩孩子弄的颈椎好酸呢...</p>'
+	'</div>'
+End
+
+if $args[0]="介绍":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\NY照片.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt''帝国能源'',''董事办公室''">『董事办公室』</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·她作为初代前女子偶像组合惠比寿麝香葡萄的队长，在【新政策】出台后宣布组合解散，解散公演举办了超过2200名观众的感谢祭。在暴雨中，湿透了的绝不只少年们的眼睛。</p>'
+		'<p>·如今她已经摇身一变，通过敏锐的商业头脑，立足于帝国集团担任最重要的能源董事一职，传闻中她涉及不少权色交易，她的名字也无人不知。</p>'
+		$NY.available=1
+	'</div>'
+End
+
+if $args[0]="推荐按摩店":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NY\vids\NY开幕~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt''帝国能源'',''董事办公室''">『董事办公室』</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我知道一家不错的按摩院，上次我去做了理疗，原本浑身酸痛一下就清除了！</p>'
+		if spa>=50:
+			'<p><<$NY.name>>：...是吗？我改天去看看吧。喔？是这个地方？<<$主角姓>>老板和你是什么关系？自从<<$主角姓>>老板昏迷以后我就再也没去过了。</p>'
+			$NY.spa=1
+		else:
+			'<p><<$NY.name>>：什么破地方，听都没听说过。没名气的地方我才不会去！</p>'
+		end
+	'</div>'
+End
+--- 帝国能源 ---------------------------------
+

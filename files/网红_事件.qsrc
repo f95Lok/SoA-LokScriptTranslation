@@ -1,0 +1,1179 @@
+# 网红_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="见面":
+	$WH.available=1
+	a=0
+	q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\见面.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''网红_事件'',''WH_Fuck_电影院''">电影院</a></div>'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$WH.name>>:等久了吗❤<<$主角姓名>>❤</p>'
+		'<p>我:现实中的你和抖音上不太一样呢…</p>'
+		'<p><<$WH.name>>:都是自动美颜的锅啦！对了，你想去哪里玩呢？</p>'
+	'</div>'
+End
+
+if $args[0]="WH_Fuck_电影院":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\电影院1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_电影院''">硬了</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_电影院''">求求了</a></div>'
+            end
+            if a=2:
+            '<div class="buttonG4"><a href="exec:a=3 & money-=8000 & gt ''网红_事件'',''WH_Fuck_电影院''">￥8000</a></div>'
+            '<div class="buttonR3"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_电影院''">那算了</a></div>'
+            end
+            if a=3:
+            '<div class="buttonG"><a href="exec:a=4 & money-=8000 & gt ''网红_事件'',''WH_Fuck_电影院''">口我</a></div>'
+            end
+            if a=4:
+            '<div class="buttonG"><a href="exec:a=5 & money-=8000 & gt ''网红_事件'',''WH_Fuck_电影院''">认真点！</a></div>'
+            end
+            if a=5:
+            '<div class="buttonR2"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_电影院''">有人来了？</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_电影院''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonGn3"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_电影院''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''网红_事件'',''送回''">送她回去</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：光看电影会不会很无聊？我今天穿了一条很性感的内裤喔❤</p>'
+         '</div>'
+    end
+
+    if a=1 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:哈哈哈，实在忍不住的话…求我啊❤</p>'
+         '</div>'
+    end
+
+    if a=2 :
+         '<div class="dialog_menu">'
+             '<p>我:求求了……</p>'
+             '<p><<$WH.name>>:想让我帮你弄出来的话❤得付一些清洁费喔❤</p>'
+         '</div>'
+    end
+
+
+    if 3<=a and a<=6 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:只是这种程度的话…你应该不会满足吧❤</p>'
+             '<p>我:能…帮我口出来吗？</p>'
+             if a=6:'<p>我:可以插入你吗❤</p>'
+             if a=6:'<p><<$WH.name>>:不行喔，外面有人来呢了，好危险呢❤</p>'
+         '</div>'
+    end
+    if a=7 :
+         '<div class="dialog_menu">'
+             '<p>我:那就射在你的小屁股上吧……</p>'
+             '<p><<$WH.name>>:清洁费别忘了喔❤</p>'
+         '</div>'
+    end
+
+    if a=8 :
+         $WH.love+=q
+         $WH.bad+=q+2
+         '<div class="dialog_menu">'
+             '<p>我:电影好看吗…</p>'
+             '<p><<$WH.name>>:我可没兴趣看电影❤</p>'
+         '</div>'
+    end
+ q+=1
+
+End
+
+
+if $args[0]="送回":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\送回.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonPu4"><a href="exec:gt ''深巷''">送达深巷</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p>我:你现在住在哪里呢？</p>'
+		'<p><span class =''red''><<$WH.name>>:暂时还在【深巷】里租房子住啦❤怎么啦？想给我买大房子吗❤*笑</s></p>'
+		'<p>我:我能上去坐坐吗？</p>'
+		'<p><<$WH.name>>:可以啊❤但你要付参观费喔❤</p>'
+		$WH.love+=1
+	'</div>'
+End
+
+if $args[0]="网红家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\thom1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+            if a=0:'<div class="buttonR2"><a href="exec:a=1 & gt ''网红_事件'',''网红家''">清洁费？</a></div>'
+            if a=1:
+				if money>=4000:
+				'<div class="buttonG"><a href="exec:a=2 & money-=4000+money/10 & gt ''网红_事件'',''网红家''">支付清洁费￥<<4000+money/10>></a></div>'
+				else:
+				'<div class="buttonGr"><a href="exec:">支付清洁费￥<<4000+money/10>></a></div>'
+				'<div class="buttonPu4"><a href="exec:gt ''深巷''">离开</a></div>'
+				end
+			end
+            if a=2:'<div class="button"><a href="exec:gt ''网红_事件'',''真网红家''">坐下等她</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><span class =''red''><<$WH.name>>:参观费就免啦❤*笑</s></p>'
+		'<p>我:你眼睛里只有钱吗？</p>'
+		'<p><<$WH.name>>:干嘛这样说我！那我还要收你￥<<4000+money/10>>的清洁费！*挑逗</p>'
+		if a>=1:'<p>我:清洁费？</p>'
+		if a>=1:'<p><<$WH.name>>:你能保证不弄脏我吗❤*笑</p>'
+		if a>=2:'<p><<$WH.name>>:嘿嘿，你先坐着等我会，我得去洗干净再换身衣服❤</p>'
+	'</div>'
+End
+
+if $args[0]="真网红家":
+	 a=0 
+	 q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\坐下.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''网红_事件'', ''见面2''">与她出门</a></div>'
+		if $WH.男友>=1:'<div class="buttonR3"><a href="exec:gt ''网红_事件'', ''敲门声''">敲门声</a></div>'
+		if $WH.温泉进程=1:'<div class="buttonG4"><a href="exec:gt ''网红_事件'', ''拍抖音''">拍抖音</a></div>'
+		'<div class="buttonPu4"><a href="exec:gt ''深巷''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p>我:玩一会新出的游戏吧，这个游戏没神原氪金严重…</p>'
+		if $WH.love<30:'<p>*浴室里传来声音*神原怎么你了？</p>'
+		if $WH.love>=30:'<p>*浴室里传来声音*神原怎么你了？<a href="exec:gt ''网红_事件'',''WH_Fuck_wash''">-进去</a></p>'
+	'</div>'
+End
+
+if $args[0]="拍抖音":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\私信.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:$WH拍摄编号=1 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">温馨甜妹</a></div>'
+		if $WH.拍摄完成>=1:'<div class="buttonS2"><a href="exec:$WH拍摄编号=2 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">抖S魅魔</a></div>'else:'<div class="buttonGr"><a href="exec:">抖S魅魔</a></div>'
+		if $WH.拍摄完成>=2:'<div class="buttonS3"><a href="exec:$WH拍摄编号=3 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">个人势偶像</a></div>'else:'<div class="buttonGr"><a href="exec:">个人势偶像</a></div>'
+		if $WH.婚纱=1:'<div class="buttonG"><a href="exec:gt ''网红_事件'',''WH_Fuck_hun''">婚纱新娘</a></div>'else:'<div class="buttonGr"><a href="exec:">婚纱新娘</a></div>'
+		'<div class="buttonPu4"><a href="exec:gt ''深巷''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$WH.name>>:先说好❤是免费帮我拍的喔~我可不会付钱！</p>'
+	'</div>'
+End
+
+if $args[0]="见面2":
+	 a=0
+	 q=0
+	 if $WH.男友=0:gt '网红_事件', '见面男友前置'
+	 
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\中转.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonG1"><a href="exec:gt ''网红_事件'',''WH_Fuck_电影院''">电影院</a></div>'
+		if $WH.男友>=3:'<div class="buttonG3"><a href="exec:gt ''网红_事件'',''去温泉''">去温泉</a></div>'
+		if $WH.男友>=3:'<div class="buttonR2"><a href="exec:gt ''网红_事件'',''WH_Fuck_足球''">陪他去训练</a></div>'
+		if $WH.拍摄完成>=3:'<div class="buttonS"><a href="exec:gt ''网红_事件'',''WH_Fuck_HTL''">直奔旅馆肏逼</a></div>'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p>小空翼:宝贝，你们要去哪？</p>'
+		'<p><<$WH.name>>:在外面不要这样叫我❤我现在可是个小网红，被粉丝们发现了就糟糕了！</p>'
+		'<p>小空翼:对不起…我总忍不住…对了，有一支野球队花钱请我去陪练！</p>'
+		'<p><<$WH.name>>:好好好，那我和<<$主角姓名>>还有事先去忙了❤</p>'
+		'<p>我:你想去哪？</p>'
+	'</div>'
+End
+
+if $args[0]="见面男友前置":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\km1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!3:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''网红_事件'',''见面男友前置''">让他们独处</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''网红_事件'',''见面男友前置''">偷听</a></div>'
+            end
+            if a=2:
+            '<div class="button"><a href="exec:a=3 & gt ''网红_事件'',''见面男友前置''">偷听</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：诶？小空翼？你怎么会在这？你不是去国外踢球了吗？</p>'
+             '<p>小空翼：我…我在联赛中因为放弃射门而导致球队失利，被球队开除了……</p>'
+             '<p><<$WH.name>>：那真是可惜呢，以前你可是我们学校的王牌前锋！</p>'
+             '<p>小空翼：唉…你现在过的好吗？哪个…方便我们单独聊聊吗？我有话想对你说…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:几年没见，你变化真大！我记得学校里我还给你表白来着，还被你拒绝了，哈哈哈哈哈。</p>'
+             '<p>小空翼：我就是想说那件事的……当时我只想专心踢球…</p>'
+             '<p><<$WH.name>>:没事啦……</p>'
+         '</div>'
+    end
+
+    if a=2 :
+         '<div class="dialog_menu">'
+             '<p>小空翼：我…我其实一直以来，都喜欢着你！请你跟我交往！</p>'
+             '<p><<$WH.name>>:诶？！这么突然…那你有多少存款啊？</p>'
+             '<p>小空翼：球队只发了不到20万的薪水…</p>'
+         '</div>'
+    end
+
+    if a=3 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:20万？也行吧，那你可要全部给我花喔❤</p>'
+             '<p>小空翼：好！我会努力工作养你的！</p>'
+             if $WH.男友=0:$WH.男友=1
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="敲门声":
+	 a=0 
+	 q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\家.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="buttonS3"><a href="exec:gt ''网红_事件'',''WH_Fuck_晚餐''">共进晚餐</a></div>'
+		if $WH.男友>=2:'<div class="buttonR4"><a href="exec:gt ''网红_事件'',''WH_Fuck_他走''">让他离开</a></div>'
+		'<div class="buttonPu4"><a href="exec:gt ''深巷''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p>小空翼:呃…这位是……</p>'
+		'<p><<$WH.name>>:我现在可是一个网红，有个男助理啊，摄影师啊很正常吧？</p>'
+		'<p>小空翼:我理解，但在家里拍摄是不是很奇怪？</p>'
+		'<p><<$WH.name>>:奇怪什么？不然你租场地给我拍啊？！</p>'
+		'<p>我:………</p>'
+	'</div>'
+End
+
+if $args[0]="WH_Fuck_晚餐":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\居酒屋1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonG4"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_晚餐''">举杯喝</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_晚餐''">对话</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_晚餐''">继续口我</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_晚餐''">站起来口</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_晚餐''">口腔飞机杯</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_晚餐''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="buttonR4"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_晚餐''">他醒了</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">拉着离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>小空翼：诶…他也要留下来和我们一起吃饭吗…</p>'
+             '<p><<$WH.name>>：不行吗？多一双筷子花你几个钱啦？心疼这个吗？</p>'
+             '<p>小空翼：我不是这个意思…我想和你有独处的时间……</p>'
+             '<p><<$WH.name>>：等你赚够了钱，我们什么时候不能待在一起啊？你说是不是啊？<<$主角姓>>先生？</p>'
+             '<p>我：呃…是的</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:这样就醉啦？逊爆了呢，一点都没有上学那会儿酷。</p>'
+             '<p>小空翼：Zzz…Zzz…Zzz…</p>'
+             '<p>我:你喜欢他吗？不喜欢他干嘛跟他在一起？</p>'
+         '</div>'
+    end
+
+    if 2<=a and a<=6 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:你问我喜欢他吗？那你喜欢我吗❤</p>'
+             if a>=3:'<p>我：你…你这样我没法回答…</p>'
+             if a>=4:'<p><<$WH.name>>:那就不要回答，只管享受就行❤</p>'
+         '</div>'
+    end
+
+    if a=7 :
+		 $WH.love+=q
+		 $WH.bad+=q+my.魅力
+		  if $WH.男友=1:$WH.男友=2
+         '<div class="dialog_menu">'
+             '<p>小空翼：嗯？我睡了多久？</p>'
+             '<p>我：20分钟吧？</p>'
+             '<p>小空翼：她怎么不说话？</p>'
+             '<p>我：她也喝多了。</p>'
+             '<p>小空翼：那你必…须跟我走，我可不…想你趁我女…人喝醉…的时候占…她便宜！</p>'
+             '<p>我：你也喝多了。</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_足球":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\足球1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonR"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_足球''">拿她泄火</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_足球''">刺激吗？</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_足球''">射给她</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_足球''">还想要吗？</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_足球''">再次射精</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_足球''">刺激吗？</a></div>'
+            '<div class="buttonR4"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_足球''">有人来了？</a></div>'
+            end
+            if a=6:
+            '<div class="buttonR5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_足球''">最后一发</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">拉着离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>小空翼：<<$主角姓名>>，要不要和我来两轮？我可以让你5个球！</p>'
+             '<p><<$WH.name>>：哎呀，你是小孩子吗？<<$主角姓名>>，可不擅长这种粗暴的运动。</p>'
+             '<p>小空翼：那你擅长什么运动？</p>'
+             '<p>我：呃…不好说。</p>'
+             '<p>小空翼：哼，娘炮一个。</p>'
+             '<p>我：你说什么？！</p>'
+             '<p><<$WH.name>>：唉，你跟他较劲什么？别理他，我们走吧❤</p>'
+         '</div>'
+    end
+
+
+    if 1<=a and a<=6 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:真是的<<$话>></p>'
+             if a=2:'<p>我：刺激吗？</p>'
+             if a=4:'<p>我：还想要吗？</p>'
+             if a=2 or a=4:'<p><<$WH.name>>:当然<<$话2>></p>'
+             if a=6:'<p>我：好像有人来了？</p>'
+         '</div>'
+    end
+
+    if a=7 :
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         if $WH.男友=3:$WH.男友=4
+         '<div class="dialog_menu">'
+             '<p>我：那这就是最后一发了！</p>'
+             '<p><<$WH.name>>:嗯<<$娇喘声>>…我们快走吧❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_他走":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\jga1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonR"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_他走''">等他关上门</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_他走''">肆意玩弄</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_他走''">插入她</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_他走''">操爽她</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_他走''">去床上肏</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_他走''">加速抽插</a></div>'
+            end
+            if a=6:
+            '<div class="buttonR5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_他走''">颜射她</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：我还要和他拍点新作品，你在这会打扰到我们的！</p>'
+             '<p>小空翼：亲爱的，看来今天不是时候，我先走了。<<$主角姓名>>，我相信你是个正人君子！</p>'
+             '<p><<$WH.name>>：你哪来的那么多屁话呢，要走快走❤</p>'
+         '</div>'
+    end
+
+
+    if 1<=a and a<=6 :
+         '<div class="dialog_menu">'
+             '<p>我：这么急赶走他？你很急吗？</p>'
+             if a>=2:'<p><<$WH.name>>:很想要<<$娇喘声>></p>'
+             if a>=3:'<p>我：你和他做过吗？</p>'
+             if a>=4:'<p><<$WH.name>>:偶尔<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=7 :
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         if $WH.男友=2:$WH.男友=3
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:你的精液好滚烫…</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_wash":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\wash1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_wash''">帮她脱奶罩</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_wash''">对话</a></div>'
+            end
+            if a=2:
+            '<div class="buttonG"><a href="exec:a=3 & money-=money/4 & gt ''网红_事件'',''WH_Fuck_wash''">清洁费￥<<money/4>></a></div>'
+            '<div class="buttonB2"><a href="exec:minutes+=30 & gt ''网红_事件'',''真网红家''">出去等她</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_wash''">清洁鸡巴</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_wash''">清洁睾丸</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_wash''">清洁龟头</a></div>'
+            end
+            if a=6:
+            '<div class="buttonR5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_wash''">颜射她</a></div>'
+            end
+            if a=7:
+            '<div class="buttonB4"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_wash''">洗干净全身</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:minutes+=30 & gt ''网红_事件'',''见面2''">出发约会</a></div>'
+            '</div>'
+    end
+
+    if a<=1:
+         '<div class="dialog_menu">'
+             '<p>我：你刚刚说了啥？</p>'
+             '<p><<$WH.name>>：没什么呀❤</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：你能在外面乖乖等我吗？鸳鸯浴的话要付额外的清洁费喔❤</p>'
+         '</div>'
+    end
+
+    if 3<=a and a<=7 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:好的老板，我将用心为你服务❤</p>'
+             if a>=4:'<p>我：你很缺钱吗？</p>'
+             if a>=5:'<p><<$WH.name>>:钱可是万能的<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:好啦…我们可以一起出门啦❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="去温泉":
+	 a=0
+	 q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\WH\vids\温泉.webm" type=''video/webm;''></video></div>'
+		'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonG1"><a href="exec:gt ''网红_事件'',''WH_Fuck_温泉游戏''">抽卡游戏</a></div>'
+		if $WH.love>=20+my.魅力*5:'<div class="buttonG2"><a href="exec:gt ''网红_事件'',''WH_Fuck_温泉喝酒''">去喝一杯</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足<<20+my.魅力*5>></a></div>'
+		if $WH.bad>=120+my.魅力*6:'<div class="buttonG3"><a href="exec:gt ''网红_事件'',''WH_Fuck_温泉洗''">尊享私汤</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<120+my.魅力*6>></a></div>'
+		if $WH.bad>=150+my.魅力*9:'<div class="buttonG4"><a href="exec:gt ''网红_事件'',''WH_Fuck_温泉插''">直接开操</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<150+my.魅力*9>></a></div>'
+		'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$WH.name>>:这里你很熟悉嘛？看来和不少女人来过呢❤</p>'
+	'</div>'
+End
+
+if $args[0]="WH_Fuck_温泉游戏":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\游戏1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">左边</a></div>'
+            '<div class="button"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">右边</a></div>'
+            end
+            if a=1:
+            '<div class="button"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">我输了</a></div>'
+            end
+            if a=2:
+            '<div class="button"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">左边</a></div>'
+            '<div class="button"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">中间</a></div>'
+            '<div class="button"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">右边</a></div>'
+            end
+            if a=3:
+            '<div class="button"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">我赢了</a></div>'
+            end
+            if a=4:
+            '<div class="button"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">左边</a></div>'
+            '<div class="button"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">右边</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS1"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">舌吻我</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">侍奉我</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">玩弄她</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">插入她</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">更大力</a></div>'
+            end
+            if a=10:
+            '<div class="buttonR5"><a href="exec:a=11 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">射精</a></div>'
+            end
+            if a=11:
+            '<div class="buttonB4"><a href="exec:a=12 & gt ''网红_事件'',''WH_Fuck_温泉游戏''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG3"><a href="exec:money-=money/4 & gt ''居民区''">心满意足￥<<money/4>></a></div>'
+            '</div>'
+    end
+
+    if a<=5:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：抓鬼牌的游戏你会玩吧？输了的话可是要脱光光的喔❤</p>'
+         '</div>'
+    end
+
+
+
+    if 6<=a and a<=11:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:你怎么这么厉害呀❤你是不是能读懂我的心呢❤</p>'
+             if a>=7:'<p>我：是你故意让我赢的吧？</p>'
+             if a>=8:'<p><<$WH.name>>:才没有呢<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=12:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:今天我很开心呢，怎么样？陪玩服务超赞的吧❤</p>'
+             '<p>我：是的呢。</p>'
+             '<p><<$WH.name>>:来，那把钱交一下❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_温泉喝酒":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\bar1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">再来一杯</a></div>'
+            end
+            if a=1:
+            '<div class="buttonG"><a href="exec:a=2 & money-=money/5 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">超贵的酒￥<<money/5>></a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">喝上头了</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">吻我</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">口我</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">口到最深处</a></div>'
+            end
+            if a=6:
+            '<div class="buttonR5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">射精</a></div>'
+            end
+            if a=7:
+            '<div class="buttonB4"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_温泉喝酒''">舔干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG3"><a href="exec:money-=money/4 & gt ''居民区''">心满意足￥<<money/4>></a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我：你挺能喝的嘛？</p>'
+             '<p><<$WH.name>>：没什么呀，我以前可是干过陪酒的喔❤</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：可以再请人家喝一杯嘛❤</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>：真美味呢❤喝得我全身上下火火热❤</p>'
+         '</div>'
+    end
+
+    if 3<=a and a<=7 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:你不热吗❤</p>'
+             if a>=4:'<p>我：现在有点了。</p>'
+             if a>=5:'<p><<$WH.name>>:嗯<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=8:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:今天我很开心呢，怎么样？陪玩服务超赞的吧❤</p>'
+             '<p>我：是的呢。</p>'
+             '<p><<$WH.name>>:来，那把钱交一下❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_温泉洗":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\dzai1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_温泉洗''">挑逗她</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_温泉洗''">舌吻</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_温泉洗''">挑逗我</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_温泉洗''">口我</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_温泉洗''">坐上来</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_温泉洗''">搞快点</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_温泉洗''">换个姿势</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_温泉洗''">暴力抽插</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''网红_事件'',''WH_Fuck_温泉洗''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonB4"><a href="exec:a=10 & gt ''网红_事件'',''WH_Fuck_温泉洗''">舔干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG3"><a href="exec:money-=money/4 & gt ''居民区''">心满意足￥<<money/4>></a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=9 :
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:私汤永远是我的最爱❤</p>'
+             if a>=1:'<p>我：因为可以边洗边操你吗？</p>'
+             if a>=2:'<p><<$WH.name>>:是啊<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:今天我很开心呢，怎么样？陪玩服务超赞的吧❤</p>'
+             '<p>我：是的呢。</p>'
+             '<p><<$WH.name>>:来，那把钱交一下❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_温泉插":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\wca1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_温泉插''">挑逗我</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_温泉插''">口我</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_温泉插''">足交</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_温泉插''">坐上来</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_温泉插''">搞快点</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_温泉插''">换个姿势</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_温泉插''">暴力抽插</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_温泉插''">突然减速</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''网红_事件'',''WH_Fuck_温泉插''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonB4"><a href="exec:a=10 & gt ''网红_事件'',''WH_Fuck_温泉插''">舔干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec: gt ''居民区''">答应拍摄</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=9 :
+         '<div class="dialog_menu">'
+             '<p>我：我可以操你的肛门吗？</p>'
+             '<p><<$WH.name>>:喂喂，别以为跟我做过几十次爱就可以用男朋友的口吻命令我❤</p>'
+             if a>=1:'<p>我：好吧。</p>'
+             if a>=2:'<p><<$WH.name>>:现在这样不好吗<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         $WH.温泉进程=1
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:现在这样不好吗❤</p>'
+             '<p>我：挺好的。</p>'
+             '<p><<$WH.name>>:我想我们已经很熟了喔，不如下次你来我家帮我拍抖音吧？</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_拍摄呢":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\pais<<$WH拍摄编号>>-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">看看涨粉情况</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">要奖励我</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">舌吻</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">口我</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">插入她</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">突然加速</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">换个姿势</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">大力抽插</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonB4"><a href="exec:a=10 & gt ''网红_事件'',''WH_Fuck_拍摄呢''">舔干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=1:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:拍的好看吗❤</p>'
+             if a>=1:'<p>我：怎么样？能涨粉吗？</p>'
+             if a>=1:'<p><<$WH.name>>:还行，涨了<<rand(1500,3000)>>个粉丝。</p>'
+         '</div>'
+    end
+
+    if 2<=a and a<=9:
+         '<div class="dialog_menu">'
+             '<p>我：那我有奖励吗？</p>'
+             if a>=3:'<p><<$WH.name>>:当然啦<<$娇喘声>></p>'
+             if a>=5:'<p>我：要挨插咯？</p>'
+             if a>=6:'<p><<$WH.name>>:好<<$话>></p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力
+         if $WH.拍摄完成<$WH拍摄编号:$WH.拍摄完成=$WH拍摄编号
+         '<div class="dialog_menu">'
+             '<p>我：你的口活越来越好了。</p>'
+             '<p><<$WH.name>>:多亏了你嘛❤</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_HTL":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\htl1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_HTL''">吹硬我</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_HTL''">操她</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_HTL''">自己坐上来</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_HTL''">操她</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_HTL''">电话来了</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_HTL''">接电话</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_HTL''">另一边</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_HTL''">边操边说</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''网红_事件'',''WH_Fuck_HTL''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="buttonB4"><a href="exec:a=10 & gt ''网红_事件'',''WH_Fuck_HTL''">不要紧吧？</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if 0<=a and a<=1:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:快点❤我等不及了❤</p>'
+             if a>=1:'<p>我：那你也要先把我吹硬再说！</p>'
+         '</div>'
+    end
+
+    if 2<=a and a<=9:
+         '<div class="dialog_menu">'
+             if a<=4:'<p><<$WH.name>>:好爽<<$话>></p>'
+             if a>=5:'<p>我：你有电话来了，好像是你男朋友打的？</p>'
+             if a>=6:'<p><<$WH.name>>:我…在忙…你到底有什么事不……</p>'
+             if a>=7:'<p>小空翼:我…我有一个好消息告诉你…我给你买了一套婚纱…我觉得…我们可以先领证怎么样…</p>' 
+             if a>=8:'<p><<$WH.name>>:慢点<<$话>></p>'
+             if a>=8:'<p>小空翼:慢点？你…你不着急嘛？</p>' 
+             if a>=9:'<p><<$WH.name>>:嗯…我现在…不急了…</p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力*2
+         $WH.婚纱=1
+         '<div class="dialog_menu">'
+             '<p>我：不要紧吧？</p>'
+             '<p><<$WH.name>>:买了婚纱是嘛❤先寄到我家里来，我看看合不合身吧❤</p>'
+             '<p>小空翼:好，好。</p>' 
+         '</div>'
+    end
+
+ q+=1
+End
+
+if $args[0]="WH_Fuck_hun":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WH\vids\hun1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''网红_事件'',''WH_Fuck_hun''">舌吻</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''网红_事件'',''WH_Fuck_hun''">侍奉我</a></div>'
+            end
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''网红_事件'',''WH_Fuck_hun''">口我</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''网红_事件'',''WH_Fuck_hun''">侍奉她</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''网红_事件'',''WH_Fuck_hun''">慢慢插入</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''网红_事件'',''WH_Fuck_hun''">加速抽插</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS5"><a href="exec:a=7 & gt ''网红_事件'',''WH_Fuck_hun''">操爽她</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''网红_事件'',''WH_Fuck_hun''">爱情誓言</a></div>'
+            end
+            if a=8:
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''网红_事件'',''WH_Fuck_hun''">射精宣誓</a></div>'
+            end
+            if a=9:
+            '<div class="buttonB4"><a href="exec:a=10 & gt ''网红_事件'',''WH_Fuck_hun''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn3"><a href="exec:gt ''居民区''">保守秘密</a></div>'
+            '</div>'
+    end
+
+
+    if 0=a:
+         '<div class="dialog_menu">'
+             '<p><<$WH.name>>:快点❤我等不及了❤</p>'
+             '<p>我：你想要这样子拍抖音吗？会违规的吧！</p>'
+         '</div>'
+    end
+
+    if 1<=a and a<=9:
+         '<div class="dialog_menu">'
+             if a>=1:'<p><<$WH.name>>:谁说要拍给别人看了？</p>'
+             if a>=2:'<p>我：那你什么打算？</p>'
+             if a>=3:'<p><<$WH.name>>:你不能拍下来自己看吗？</p>'
+             if a>=4:'<p>我:好啊，那就是我们俩的小秘密咯？</p>' 
+             if a>=5:'<p><<$WH.name>>:把我的逼操得越开，视频里的效果越好喔❤</p>'
+             if a>=8:'<p>我:老婆，你愿意永远和我在一起吗？</p>' 
+             if a>=9:'<p><<$WH.name>>:老公，我愿意！</p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WH.love+=q+my.魅力
+         $WH.bad+=q+my.魅力*2
+         $WH.GE=1
+         '<div class="dialog_menu">'
+             '<p>我：不要紧吧？把婚纱都弄脏了。</p>'
+             '<p><<$WH.name>>:管它呢，反正又花的不是我的钱❤</p>'
+             '<p>*电话声</p>'
+             '<p>小空翼:亲爱的，婚纱收到了吗？</p>' 
+             '<p><<$WH.name>>:收到了喔，穿上去的效果很好❤</p>'
+             '<p>小空翼:那我们什么时候去教堂结婚？</p>' 
+             '<p><B><span class =''red''><<$WH.name>>:我的钻戒呢？还要一套400平的大豪宅！还要888万的彩礼，你准备好了再说吧❤</p>'
+             '<p>·————此处为人物故事结尾—————</p>'
+         '</div>'
+    end
+
+ q+=1
+End
+--- 网红_事件 ---------------------------------
+

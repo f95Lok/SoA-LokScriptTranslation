@@ -1,0 +1,1035 @@
+# 西语_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+
+
+
+if $args[0]="眉头紧锁":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\办公室1~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''西语_事件'',''眉头紧锁2''">好的</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：*眉头紧锁*真是烦人....怎么偏偏是我要上课的时候呢，唉。</p>'
+		'<p>我：老师，有什么烦心事吗？</p>'
+		'<p><<$XY.name>>：你好像很闲？陪我去个地方。</p>'
+	'</div>'
+End
+
+
+if $args[0]="眉头紧锁2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\逛街~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''西语_事件'',''眉头紧锁3''">进商场</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：我们要去的地方是商场里新开的百货商店。每天下午1点到3点会有打卡活动，累积打卡就可以参与抽奖。</p>'
+		'<p>我：（正好是老师要上课的时间呢）那么奖品是什么呢？</p>'
+		'<p><<$XY.name>>：是最新款包包的购买资格。</p>'
+		'<p>我：意思是就算抽中了还要花钱买吗？</p>'
+		'<p><<$XY.name>>：你懂什么啊（白眼）首发价格非常便宜！但是限量版转手就可以溢价50%！！</p>'
+	'</div>'
+End
+
+
+if $args[0]="眉头紧锁3":
+	'<div class ="show_menu"><img src="images\place\百货商店.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $XY_Event_bag=1 & gt ''百货商店''">答应</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：这是我的签到卡，你也办一张签到卡。接下来你帮我签到。</p>'
+		'<p>我：啊？说帮就帮吗？我的好处呢？</p>'
+		'<p><<$XY.name>>：唉，我们俩这关系还需要好处吗？帮老师一个小忙呗。</p>'
+		'<p>·说完往你跟前凑了凑。她的香水味让你分了神。恍惚间你就答应了。</p>'
+	'</div>'
+End
+
+if $args[0]="送包要求":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\包调教000~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & a=1 & gt ''西语_事件'',''XY_Fuck_占便宜''">邪恶：占点便宜</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''西语_事件'',''课堂上见''">邪恶：课堂上见</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''西语_事件'',''XY_Fuck_按摩''">友好：为我揉腿</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XY.name>>：卧槽！你....你..这是送给我的吗？</p>'
+		'<p>我：这个包嘛，可不是白送你的，我每天去排队抽奖，可辛苦了呢。</p>'
+		'<p><<$XY.name>>：你想干什么？可别太过分了！（委屈一下自己让你占点便宜就是了）</p>'
+	'</div>'
+End
+
+if $args[0]="XY_Fuck_占便宜":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\包调教00<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	 if $XY.bad>=a*11-20:
+		else:
+		a=8
+		end
+	if  a!8:
+		'<div class="button_menu">'
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_占便宜''">摸脸</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_占便宜''">脱奶罩</a></div>'
+			end
+			if a=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_占便宜''">玩奶头</a></div>'
+			end
+			if a=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_占便宜''">摸小穴</a></div>'
+			end
+			if a=5 :
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_占便宜''">强制口交</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=7 & gt ''西语_事件'',''XY_Fuck_占便宜''">肏逼</a></div>'
+			end
+			if a=7 :
+			'<div class="button"><a href="exec:a=8 & gt ''西语_事件'',''XY_Fuck_占便宜''">颜射！</a></div>'
+			end
+			if $XY.bad<a*11-9 and a!7:
+			'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">把包给她</a></div>'
+			'</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:<<$XY.name>>，你好像不是很开心嘛，想想那可是限量版的包包。</p>'
+			 '<p><<$XY.name>>:哈？！希望你信守诺言，看在包包的份上，给你5分钟时间！</p>'
+		 '</div>'
+	end
+
+
+	if 7>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:…………</p>'
+			 '<p>我:…想想包包，再忍耐一下呗。</p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q*2+10
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:差不多了吧！把包拿来！...她的心态发生了微妙的变化。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="课堂上见":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\包调教001~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">明白</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：有这种好事，我还是想留到课堂上再做呢。</p>'
+		'<p><<$XY.name>>：课堂上？你真是太龌龊了。</p>'
+		'<p>我：能白拿一个包，还是限量款的喔。</p>'
+		'<p><<$XY.name>>：我知道了，别再说了。不要做太出格的事！我可不想被校内纠察队缠上。</p>'
+		$西语课堂约定=1
+	'</div>'
+End
+
+if $args[0]="XY_Fuck_性骚扰":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\教室00<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	 if $XY.bad>=a*11-20:
+		else:
+		a=6
+		end
+
+	if  a!6:
+		'<div class="button_menu">'
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_性骚扰''">揉胸</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_性骚扰''">玩奶头</a></div>'
+			end
+			if a=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_性骚扰''">蹭小穴</a></div>'
+			end
+			if a=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_性骚扰''">用跳蛋</a></div>'
+			end
+			if a=5 :
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_性骚扰''">手指插入</a></div>'
+			end
+			if $XY.bad<a*11-9:
+			'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if $XY.bad>=100-$XY.love:'<div class="buttonS"><a href="exec:minutes+=15 & q=0 & a=0 & gt ''西语_事件'',''XY_Fuck_隔壁教室''">去隔壁教室</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">给她包</a></div>'
+			'</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>我:<<$XY.name>>，我有问题不明白！</p>'
+			 '<p><<$XY.name>>:…………</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:…………</p>'
+			 '<p>我:再忍耐一下…包包就到手了喔…</p>'
+		 '</div>'
+	end
+
+
+
+	if a=6:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q*5/2+10
+		 $西语课堂约定=0
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:差不多了吧！把包拿来！...她的心态发生了微妙的变化。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_按摩":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\按摩-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	 if $XY.love>=a*25-20:
+		else:
+		a=7
+		end
+
+	if  a!7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_按摩''">轻语</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_按摩''">贴上来</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_按摩''">接吻</a></div>'
+			end
+			if a=3 :
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_按摩''">舔奶</a></div>'
+			end
+			if a=4 :
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_按摩''">口交</a></div>'
+			end
+			if a=5 :
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_按摩''">舔屁眼</a></div>'
+			end
+			if a=6 :
+			'<div class="button"><a href="exec:a=7 & gt ''西语_事件'',''XY_Fuck_按摩''">射精</a></div>'
+			end
+			if $XY.love<a*25+5 and a!6:
+			'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">给她包</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:没问题！看你的大腿，都肿啦。老师帮你揉揉，还有哪里肿？告诉老师。</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:舒服了吗？只要有包包，老师保证让你舒舒服服的。</p>'
+		 '</div>'
+	end
+
+
+	if 6>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:你给老师我想要的东西，我就会给你想要的东西。很公平吧。</p>'
+		 '</div>'
+	end
+
+
+
+	if a=7:
+		 $XY.love+=q+20+my.魅力
+		 $XY.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:舒服了吗？只要有包包，老师保证让你舒舒服服的。</p>'
+			 '<p><<$XY.name>>:差不多了吧！把包拿来！...她的心态发生了微妙的变化。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_隔壁教室":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\空教室-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if  a!4:
+		'<div class="button_menu">'
+			if a!1:
+			'<div class="button"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_隔壁教室''">深喉</a></div>'
+			end
+			if a!2 and q>0:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_隔壁教室''">按头</a></div>'
+			end
+			if a!3 and q>1:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_隔壁教室''">冲刺</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_隔壁教室''">口爆</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">给她包</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:你最好快点射出来，我还要回去上课。</p>'
+		 '</div>'
+	end
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:呜…呜……呜呜……</p>'
+		 '</div>'
+	end
+
+
+
+	if a=4:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:咳嗽——好浓的精...都灌进我的食道了...她的心态发生了微妙的变化。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_办公室干":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\办公室干-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!0 and q<4:
+			'<div class="button"><a href="exec:a=0 & gt ''西语_事件'',''XY_Fuck_办公室干''">强吻</a></div>'
+			end
+			if a!1 and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_办公室干''">口交</a></div>'
+			end
+			if a!2 and 0<q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_办公室干''">舔阴</a></div>'
+			end
+			if a!3 and 1<q and q<7:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_办公室干''">骑乘</a></div>'
+			end
+			if a!4 and 3<q and q<9:
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_办公室干''">后入</a></div>'
+			end
+			if a!5 and 4<q and q<11:
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_办公室干''">按在桌上</a></div>'
+			end
+			if a!6 and 4<q and q<13:
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_办公室干''">冲刺</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''西语_事件'',''XY_Fuck_办公室干''">外射</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:呜呜……你干什么？不要这样…</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$娇喘声>>……</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$话>>……</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$娇喘声>>……</p>'
+			 '<p>·你射在了她的丝袜上...她的心态发生了微妙的变化。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_课后辅导":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\课后00<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!3 and q<5:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_课后辅导''">口交</a></div>'
+			end
+			if a!4 and 0<q and q<9:
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_课后辅导''">后入</a></div>'
+			end
+			if a!5 and 1<q and q<11:
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_课后辅导''">后背骑乘</a></div>'
+			end
+			if a!6 and 1<q and q<13:
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_课后辅导''">正面骑乘</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''西语_事件'',''XY_Fuck_课后辅导''">射精</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if 2>=a and a>=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:这是不是你想要的…?还假惺惺的说想要补习，我看你对西语根本就不感兴趣吧…</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$话>>……<<$娇喘声>>……</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$娇喘声>>……你这么能干的男人真是少见…以后跟老师回家吧?</p>'
+			 '<p>·她的心态发生了微妙的变化。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_家":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\家里<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<3:
+			'<div class="button"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_家''">接吻</a></div>'
+			end
+			if a!2 and 0<q and q<4:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_家''">侍奉</a></div>'
+			end
+			if a!3 and 1<q and q<5:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_家''">女上位</a></div>'
+			end
+			if a!4 and 2<q and q<7:
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_家''">火车便当</a></div>'
+			end
+			if a!5 and 3<q and q<11:
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_家''">后入抽插</a></div>'
+			end
+			if a>=3 and a!6:
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_家''">内射</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''西语_事件'',''XY_Fuck_家''">对话</a></div>'
+			end
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=300 & a=0 & q=0 & gt ''西语_事件'',''XY_Fuck_通宵''">肏个通宵</a></div>'
+				if $FXZ.love>=200 and $FXZ.bad>=200: '<div class="buttonS"><a href="exec:minutes+=300 & a=0 & q=0 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">邀请<<$FXZ.name>>3P</a></div>'else:'<div class="buttonGr"><a href="exec:">邀请？？3P</a></div>'
+				if $FXZ.love>=200 and $FXZ.bad>=200 and $YDM.LOVE>=400-$YDM.bad: '<div class="buttonS"><a href="exec:minutes+=300 & a=0 & q=0 &gt ''一代目_事件'',''YDM_Fuck_4P''">邀请<<$YDM.name>>4P</a></div>'else:'<div class="buttonGr"><a href="exec:">邀请？？4P</a></div>'
+				if $EDM.love>=100 and $EDM.bad>=100:'<div class="buttonS"><a href="exec:minutes+=300 & a=0 & q=0 & gt ''二代目_事件'',''EDM_Fuck_西语''">邀请<<$edm.name>>3P</a></div>'else:'<div class="buttonGr"><a href="exec:">邀请？？3P</a></div>'
+				'<div class="button"><a href="exec:minutes+=30  & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:在这里我们可以肆无忌惮地做了……比学校里自由多了吧……</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$话>>……<<$娇喘声>>……</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:就这样要走了吗？夜生活才刚刚开始呢！今晚要跟你肏个痛快……让你平时这么欺负我……</p>'
+			 '<p>我:或许我可以联络一些其他人?</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_通宵":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\通宵<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!7:
+		'<div class="button_menu">'
+			if a!0 and q<3:
+			'<div class="button"><a href="exec:a=0 & gt ''西语_事件'',''XY_Fuck_通宵''">调情</a></div>'
+			end
+			if a!1 and a!3 and q<9:
+			'<div class="button"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_通宵''">操逼</a></div>'
+			end
+			if a!2 and a!4  and q<9:
+			'<div class="button"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_通宵''">肛交</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_通宵''">大力抽插</a></div>'
+			end
+			if a=2:
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_通宵''">疯狂抽插</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_通宵''">阴道内射</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_通宵''">肛内中出</a></div>'
+			end
+			if a=5 or a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''西语_事件'',''XY_Fuck_通宵''">三小时后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=1440 &hour=7 &a=0&q=0& my.精力=mymax[精力]  & gt ''西语_事件'',''第二天''">过夜</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:跟我做爱爽还是跟别的男人做爱爽？</p>'
+			 '<p><<$XY.name>>:啊…啊…当然是你了…继续大力顶我…把我的花心撞烂…继续肏我…用你的精把我的小嘴喂饱…啊…慢点啊…</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$话>>……<<$娇喘声>>……</p>'
+			 if a=2:'<p><<$XY.name>>:啊…不可以……我的肛穴还很嫩…不可以肏这么大力…肛穴会被插坏的…</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 '<div class="dialog_menu">'
+		 	 '<p><<$XY.name>>:<<$话>>…<<$娇喘声>></p>'
+			 '<p>·淫水肆溢的骚穴又被肉棒狠狠插了下去，笔直地捣进了子宫里，她绷紧了身体颤抖尖叫着，媚肉剧烈的蠕动痉挛着，大股大股的喷出淫水，攀上了今晚的不记得第几个高潮。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="第二天":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\醒来<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	if a!1:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & 西语聊天=1 &a=2& gt ''西语_事件'',''第二天''">聊天:感情与金钱</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & 西语聊天=2 &a=2& gt ''西语_事件'',''第二天''">聊天:你的故事</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & 西语聊天=3 &a=2& gt ''西语_事件'',''第二天''">聊天:<<$FXZ.name>>的情报</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & 西语聊天=0 &a=0& gt ''西语_事件'',''第二天''">继续口</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & 西语聊天=0 &a=1& gt ''西语_事件'',''第二天''">射精</a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if week_day <6:'<div class="button"><a href="exec:minutes+=30 & gt ''大学''">一起去学校</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·第二天</p>'
+			 '<p>我:嗯？你迷迷糊糊地醒来...</p>'
+			 '<p><<$XY.name>>:啊？你醒啦？昨晚是我认输了..不过下次就不一定了喔..这是优胜者的奖励...</p>'
+		 '</div>'
+	end
+	if a!0:
+		 '<div class="dialog_menu">'
+		 	 if 西语聊天=1:
+			 '<p>我:感情与金钱在你这里哪个更重要呢？</p>'
+			 '<p><<$XY.name>>:啊？有些感情不是能用金钱解决的，甚至是没用办法用物质衡量的。</p>'
+			 '<p>我:硬要做出选择呢？</p>'
+			 '<p><<$XY.name>>:感情是无价的，不爱就是不爱了。所以比起感情，我更相信金钱。希望你能理解我，如果你也能感同身受的话。</p>'
+		 	 end 
+		 	 if 西语聊天=2:
+			 '<p>我:说说你的感情故事吧？</p>'
+			 '<p><<$XY.name>>:一个女孩拼了命在按摩店兼职打工供男友留学却被狠心抛弃的烂俗故事，有什么可讲的。</p>'
+			 '<p>我:好吧，怪不得你很会按。</p>'
+		 	 end 
+		 	 if 西语聊天=3:
+			 '<p>我:你好像是站队<<$FXZ.name>>的人，一定知道她的情报吧？</p>'
+			 '<p><<$XY.name>>:我可以告诉你，但你不能告诉别人。毕竟<<$FXZ.name>>许诺了我很多好处......</p>'
+			 '<p>我:我一定守口如瓶。</p>'
+			 '<p><<$XY.name>>:<<$FXZ.name>>的父母我有耳闻，都是老一辈的知识分子。他们是按科学家，大法官，甚至政客的目标培养她的。虽然她现在是副校长，但对于她的父母来说还远远没有达到期望。所以她和父母的关系并不融洽。</p>'
+			 '<p>我:那她现在应该是在一门心思想成为校长。</p>'
+			 '<p><<$XY.name>>:对，没错，她应该会为了“校长”这个头衔付出一切。毕竟...这是她父母的愿望吧。</p>'
+			 '<p>我:那她的胜算是多少？</p>'
+			 '<p><<$XY.name>>:我不知道，但她应该已经招兵买马蓄谋很久了。她也是蛮可怜的，事业不顺，老公又因为新政策远走他乡，好像还有个女儿，但好像关系也不是很好....</p>'
+
+		 	 end  
+		 '</div>'
+	end
+
+End
+
+if $args[0]="XY_Fuck_家_副校长3P":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\家副校长1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!10:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonB"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">和<<$fxz.name>>舌吻</a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">和<<$XY.name>>舌吻</a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">插逼口交</a></div>'
+			end
+			if a!4 and q>=4:
+			'<div class="buttonB"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">操<<$fxz.name>></a></div>'
+			end
+			if a!5 and q>=4:
+			'<div class="buttonP"><a href="exec:a=5 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">操<<$XY.name>></a></div>'
+			end
+			if a=4 or a=5:
+			'<div class="button"><a href="exec:a+=2 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">冲刺</a></div>'
+			end
+			if a=6 or a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''西语_事件'',''XY_Fuck_家_副校长3P''">射精</a></div>'
+			end
+			if a=8:
+			'<div class="buttonB"><a href="exec:a=9 &minutes+=60& gt ''西语_事件'',''XY_Fuck_家_副校长3P''">1小时后</a></div>'
+			end
+			if a=9:
+			'<div class="buttonP"><a href="exec:a=10 &minutes+=120& gt ''西语_事件'',''XY_Fuck_家_副校长3P''">2小时后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=1440 &hour=7 & my.精力=mymax[精力]  & a=0 & q=0 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">过夜</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:没想到我一喊你就来了，还以为你不会来呢。</p>'
+			 '<p><<$fxz.name>>:大晚上把我叫过来应该不只是单单喝酒的吧。</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$娇喘声>>……</p>'
+			 '<p><<$fxz.name>>:<<$话>>…</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:…<<$话>>…</p>'
+			 '<p><<$fxz.name>>:…<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a>=9:
+		 $XY.love+=q/2+my.魅力
+		 $XY.bad+=q/2
+		 $FXZ.love+=q/2+my.魅力
+		 $FXZ.bad+=q/2
+		 '<div class="dialog_menu">'
+		 	 '<p><<$XY.name>>:<<$话>>…</p>'
+		 	 '<p><<$fxz.name>>:真是的…像什么样子啊…</p>'
+			 '<p>·当然这只是前菜，随后你们从床上干到浴室，又从浴室干到餐桌上。邻居甚至无法想象这种朗叫了一整晚的淫荡婊子竟然是两位高校老师。。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="XY_Fuck_家_副校长3P_早上":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XY\vids\晨炮1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonB"><a href="exec:a=1 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">舔<<$fxz.name>></a></div>'
+			end
+			if a!2 and q<=3:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">舔<<$XY.name>></a></div>'
+			end
+			if a!3 and 5>=q and q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">一起舔屌</a></div>'
+			end
+			if a!4 and q>=3:
+			'<div class="buttonB"><a href="exec:a=4 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">操<<$fxz.name>></a></div>'
+			end
+			if a!6 and q>=3:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">操<<$XY.name>></a></div>'
+			end
+			if a=4 or a=6:
+			'<div class="button"><a href="exec:a+=1 & gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">射精</a></div>'
+			end
+			if a=5 or a=7:
+			'<div class="button"><a href="exec:a=8 &minutes+=60& gt ''西语_事件'',''XY_Fuck_家_副校长3P_早上''">一小时后</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15  & gt ''居民区''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:无语，你们倒是快点啊。再玩就要迟到了！逼里全是黏糊糊的精...黑丝上全是精斑..怎么给学生上课啊..</p>'
+			 '<p><<$fxz.name>>:你急什么，平时也没见你准时到啊。</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$娇喘声>>…先说好，不准射在脸上，丝袜上，小穴里，肛门里...要全部射进我嘴里...我可不想弄脏了..…</p>'
+			 '<p><<$fxz.name>>:<<$话>>…</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:…<<$话>>…</p>'
+			 '<p><<$fxz.name>>:…<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a>=8:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 $FXZ.love+=q+my.魅力
+		 $FXZ.bad+=q
+		 FXZ_XY+=1
+		 '<div class="dialog_menu">'
+		 	 '<p><<$XY.name>>:<<$话>>…你果然内射了…不管了，内射就内射吧…</p>'
+		 	 '<p><<$fxz.name>>:真是的…结果最后害我们都迟到了…</p>'
+		 	 '<p>·彼此的关系加深了</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="FXZ_Fuck_下午茶":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\餐厅1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!5:
+		'<div class="button_menu">'
+			if a<=2:
+			'<div class="button"><a href="exec:a+=1 & gt ''西语_事件'',''FXZ_Fuck_下午茶''">对话</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''西语_事件'',''FXZ_Fuck_下午茶''">射精</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''西语_事件'',''FXZ_Fuck_下午茶''">对话</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">回学校</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>我:<<$fxz.name>>也在呢？</p>'
+			 '<p><<$xy.name>>:自从女性领导组织把畜牧业搬出港口以后，现在的奶精可是不容易搞到了呢~</p>'
+		 '</div>'
+	end
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$fxz.name>>:你应该不习惯喝黑咖啡吧？不如加点人造奶精？</p>'
+		 '</div>'
+	end
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$xy.name>>:那老师们就不客气了喔，<<$主角姓名>>同学~</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$XY.name>>:<<$娇喘声>>…</p>'
+			 '<p><<$fxz.name>>:不能满足我们<<$xy.name>>的胃口的话可是要惩罚你的喔…</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$XY.name>>:<<$话>>…啊~射了这么多！真是满满一大口。</p>'
+			 '<p><<$fxz.name>>:…!!</p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 $FXZ.love+=q+my.魅力
+		 $FXZ.bad+=q
+		 FXZ_XY+=2
+		 my.精力+=50
+		 '<div class="dialog_menu">'
+		 	 '<p><<$XY.name>>:你是不知道，现在的上流社会开始提倡饮精丰胸，精液美颜了。</p>'
+		 	 '<p><<$fxz.name>>:我听说了，口号还是什么“一天一口精，越喝越年轻。”今天你是有福了呀。</p>'
+		 	 '<p><<$XY.name>>:那我可不客气了。</p>'
+		 	 '<p>·因为咖啡的缘故，精力得到了一些恢复。</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+if $args[0]="FXZ_Fuck_党羽":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\教室党羽1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!5 and a!7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=3 & gt ''西语_事件'',''FXZ_Fuck_党羽''">接受</a></div>'
+			end
+			if a!1 and 1<=q:
+			'<div class="buttonB"><a href="exec:a=1 & gt ''西语_事件'',''FXZ_Fuck_党羽''">肏<<$fxz.name>></a></div>'
+			end
+			if a!2 and 1<=q:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''西语_事件'',''FXZ_Fuck_党羽''">肏<<$xy.name>></a></div>'
+			end
+			if a=1 :
+			'<div class="buttonB"><a href="exec:a=4 & gt ''西语_事件'',''FXZ_Fuck_党羽''">换姿势</a></div>'
+			end
+			if a=2:
+			'<div class="buttonP"><a href="exec:a=6 & gt ''西语_事件'',''FXZ_Fuck_党羽''">换姿势</a></div>'
+			end
+			if a=1 or a=4:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''西语_事件'',''FXZ_Fuck_党羽''">换人操</a></div>'
+			end
+			if a=2 or a=6:
+			'<div class="buttonB"><a href="exec:a=1 & gt ''西语_事件'',''FXZ_Fuck_党羽''">换人操</a></div>'
+			end
+			if a=4 or a=6:
+			'<div class="buttonS"><a href="exec:a+=1 & gt ''西语_事件'',''FXZ_Fuck_党羽''">内射</a></div>'
+			end
+
+
+
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">离开</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$fxz.name>>:事已至此我们就一起做吧，从此我们就是一根绳上的蚂蚱了。</p>'
+			 '<p><<$xy.name>>:从此我们就是一路货色了。哟，<<$主角姓名>>同学，你也想来和老师们在这里“开会”吗？</p>'
+			 '<p>我:呃...<<$fxz.name>>,你们在说什么呢？</p>'
+			 '<p><<$fxz.name>>:正在想办法，给<<$XZ.name>>那个女人出出难题。</p>'
+			 '<p><<$xy.name>>:不如加入我们吧？<<$XZ.name>>下台以后，你做学生会主席！</p>'
+		 '</div>'
+	end
+	if 6>=a and a>=1 and a!5:
+		 '<div class="dialog_menu">'
+			 '<p><<$fxz.name>> & <<$xy.name>>:<<$娇喘声>>…</p>'
+		 '</div>'
+	end
+
+
+	if a=5 or a=7:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q
+		 $FXZ.love+=q+my.魅力
+		 $FXZ.bad+=q
+		 FXZ_XY+=10
+		 '<div class="dialog_menu">'
+		 	 '<p><<$XY.name>>:<<$娇喘声>>…</p>'
+		 	 '<p><<$fxz.name>>:这下我们阵营的关系巩固得更紧密了！</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+--- 西语_事件 ---------------------------------
+

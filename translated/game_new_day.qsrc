@@ -1,0 +1,74 @@
+# game_new_day
+my.basement-=1
+if my.basement<=0:my.basement=0
+
+$dailydraw=0
+$dailyneighborbed=0
+$pickupthegoodsdaily=0
+$dailyrollcall=0
+$parttimetechnician=0
+$dailycoldknowledge=0
+$daily_weather=0
+$dailytram=0
+$dailyfootball=0
+$dailyeditor_and_director=0
+$daily_chores=0
+$dailysurvey=0
+$dailystock_price=0
+$daily_succubus=0
+$dcm_study=0
+
+$daily_tz_wq=0
+
+if $qt.reply>=1:$qt.reply+=1
+
+
+if $xm_videotape>=2:$the_number_of_days_the_xm_video_has_not_been_watched+=1
+
+if $countdown_to_the_competition=1:$remaining_dates_of_the_competition-=1
+
+if $bigvillaforthefirsttime>0 and $SSYY.love>=200: $yuya_cd+=1
+if $bigvillaforthefirsttime>0 and $QB.love>=200: $hashimoto_cd+=1
+if $bigvillaforthefirsttime>0 and $SF.love>=200: $xunguo_cd+=1
+if $TS.ROOM>0 and TSMM>0: $angel_cd+=1
+if $MMS.love>5: $succubus_cd+=1
+
+if $entering_a_convenience_store_for_the_first_time=1:
+	!if $FW.积极性>=$FW.积极性上限:$FW.积极性=$FW.积极性上限
+	if $night_shift.enthusiasm>=$fw.upper_limit_of_enthusiasm:$night_shift.enthusiasm=$fw.upper_limit_of_enthusiasm
+	if $typesofconveniencestoreproducts>=150:$typesofconveniencestoreproducts=150
+	if $convenience_store_environment>=$fw.upper_limit_of_internal_environment:$convenience_store_environment=$fw.upper_limit_of_internal_environment
+	
+	$conveniencestoreserviceattitudestatistics=$fw.enthusiasm+$night_shift.enthusiasm
+	$conveniencestoreserviceattitude=$conveniencestoreserviceattitudestatistics/2 
+	$conveniencestoreenvironment=($typesofconveniencestoreproducts+$convenience_store_environment)/2
+	
+	$numberofcustomersyesterday=22*$conveniencestoreserviceattitude*$conveniencestoreenvironment+rand(5,250)+$numberofadditionalcustomers
+	
+	$yesterdaysextraprofitandloss=$additionalprofit_and_loss
+	$additionalprofit_and_loss=0
+	
+	$yesterdaysprofit=$numberofcustomersyesterday*$commodityprofitmargin/100+$yesterdaysextraprofitandloss
+	!if 昨日利润<=0:昨日利润=0
+	if $numberofcustomersyesterday<0:$numberofcustomersyesterday=rand(5,25)
+	
+	$my_mental_power+=$yesterdaysprofit
+	$significant_cumulative_profit_this_month=$my_mental_power+1
+	
+	$thief_1_enters_the_room_2-=1
+	$thief_2_enters_the_room_2-=1
+	$principal_nightclub+=1
+	$dean_nightclub+=1
+	$qb_store_manager-=1
+end
+
+
+
+
+
+KILLVAR 'day_label'
+
+
+
+--- game_new_day ---------------------------------
+

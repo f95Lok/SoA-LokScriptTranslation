@@ -1,0 +1,129 @@
+# dance_room
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="Imperial Group Hall" href="exec:minutes+=15 & gt ''empire_group''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		if $MM_Event_idol>=3 and ((hour=18)or (week_day >=6 and hour>=13 and hour<19)):
+		'<div class="action">'
+			'<a class="photo" data-title="Dance practice room" href="exec:minutes+=15 & gt ''dance_room''"><img class="img_stretch" src="images\NPC\MM\pics\舞蹈房2.jpg"></a>'
+		'</div>'
+		else:
+		'<div class="action">'
+			'<a class="photo" data-title="Dance practice room" ><img class="img_stretch" src="images\place\舞蹈房.jpg"></a>'
+		'</div>'
+		end 
+	'</div>'
+'</div>'
+
+if  $args[0]="":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\舞蹈房~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $MM_Event_idol<5:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''dance_room'',''other_trainees''">Other trainees</a></div>'
+		else:
+		 if $camera>0:
+		  '<div class="button"><a href="exec:minutes+=15 & gt ''dance_room'',''take_a_sexy_photo''">Take a sexy photo</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
+		 end
+		 if $essential_oil>0:
+		  '<div class="button"><a href="exec:minutes+=15 & $essential_oil-=1 & gt ''sister2_event'',''mm_fuck_essential_oil''">Essential oil massage</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">Need essential oils</a></div>'
+		 end
+		 if $mm.bad>=200 and $mm.love>=200 and $jm.love>=200 and $jm.bad>=200:
+		  '<div class="buttonS"><a href="exec:minutes+=15 & gt ''sister2_event'',''mm_fuck_mother_and_sister''">Mother and daughter guidance</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+		 end
+		end
+		if money>=1280 :
+		'<div class="button"><a href="exec:minutes+=30 & money-=1280 & gt ''sister2_event'',''mm_event_hot_spring_tour''">Hot spring travel ￥1280</a></div>'
+		else:
+		 '<div class="buttonGr"><a href="exec:">Hot spring travel ￥1280</a></div>'
+		end
+		
+		if $bluetooth_maid>=3:'<div class="buttonB2"><a href="exec:gt ''anchor_event'',''sister_loop_0''">and<<$LY.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">With a certain anchor?</a></div>'
+		
+		'<div class="button"><a href="exec:minutes+=15 & gt ''dance_room''">Kill time</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Seriously posing in imaginary photography action....Current number of fans：<<mm_fans>>.<<mm_fans0>> k</p>'
+		if $MM_Event_idol>=5:
+		'<p>·I think I can own a Canon R6 SLR to shoot some photo albums.</p>'
+		end 
+	'</div>'
+End
+
+if  $args[0]="other_trainees":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\4P0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $MM_Event_idol=4 and $mm.love>=-$mm.bad+250:
+		'<div class="button"><a href="exec:minutes+=15 & gt ''sister2_event'',''MM_Fuck_4p''">Convince the four of them to love</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$mm.name>>: These are my unprotected trainees in the same period...Only one of the four of us can become a contract trainee....</p>'
+		'<p>Me: Work hard!I won`t bother you.(These are not your opponents at all, you are not stable anymore...）</p>'
+		if $MM_Event_idol=4:
+		'<p>Me: (Want to convince my sister....If you become a porn idol...I still need to work harder to make her more obedient....）</p>'
+		end 
+	'</div>'
+End
+
+if  $args[0]="take_a_sexy_photo":
+	 mm_fans0+=rand(1,3)
+	 if mm_fans0>=10:
+		mm_fans0-=10
+		mm_fans+=1
+	  end
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\MM\vids\舞蹈房~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if mm_fans > 0 :
+		'<div class="button"><a href="exec:minutes+=15 & gt ''sister2_event'',''mm_fuck_thanksgiving_festival''">Hold a thanksgiving festival</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">Insufficient number of fans</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''empire_entertainment''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: The number of fans has risen!Current number of fans：<<mm_fans>>.<<mm_fans0>> K.</p>'
+		'<p><<$mm.name>>：emmm.....I can do more!</p>'
+		end 
+	'</div>'
+End
+
+
+
+ 
+--- dance_room ---------------------------------
+

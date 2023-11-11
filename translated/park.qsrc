@@ -1,0 +1,299 @@
+# park
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+$random_events_in_the_park=0
+$random_number=rand(-2,500)
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Go home" href="exec:minutes+=5 & gt ''home''"><img class="img_stretch" src="images\place\回家_小图.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Town_house" href="exec:minutes+=5 & gt ''town_house''"><img class="img_stretch" src="images\place\联排别墅_<<$times_of_day>>.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Shopping mall" href="exec:minutes+=5 & gt ''shopping_mall''"><img class="img_stretch" src="images\place\商场.jpg"></a>
+		</div>'
+		
+		'<div class="action">
+			<a class="photo" data-title="Private hospital" href="exec:minutes+=5 & gt ''hospital''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="Underground transportation" href="exec:minutes+=5 & gt ''subway''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+			if $boss_event_chain<5:'<a class="photo" data-title="Camping area" href="exec:minutes+=5 & gt ''park'',''camping_area''"><img class="img_stretch" src="images\place\流浪营.jpg"></a>'
+			if $boss_event_chain=5 or $boss_event_chain=6 and $boss_on_the_top!999:'<a class="photo" data-title="Camping area" href="exec:minutes+=5 & gt ''park'',''camping_area_fire''"><img class="img_stretch" src="images\place\营火.jpg"></a>'
+			if $boss_on_the_top=999:'<a class="photo" data-title="Camping area" href="exec:minutes+=5 & gt ''park'',''camping_area_2''"><img class="img_stretch" src="images\place\露营区2.jpg"></a>'
+		'</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="Central Park" href="exec:minutes+=5 & gt ''park''"><img class="img_stretch" src="images\place\park_<<$times_of_day>>.jpg"></a>
+			<a class="photo" data-title="Public toilets" href="exec:minutes+=5 & gt ''park'',''public_toilets''"><img class="img_stretch" src="images\place\公共厕所.jpg"></a>
+		</div>'
+		
+		if $times_of_day="night":
+		'<div class="action">
+			<a class="photo" data-title="Kabukicho" href="exec:minutes+=5 & gt ''kabukicho''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+		end
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	if  (75<=$random_number and $random_number<=80) and  (hour>=22 or hour<=4) and $devils_pupil>0:gt 'task_event','succubus_incident'
+	if $caesar_works_part_time=1 and $times_of_day='' and 150<=$random_number and $random_number<=180:gt 'task_event','huntingpassersby'
+
+	if $random_number<=10 and $times_of_day='':
+		'<div class ="show_menu"><img src="images\videos\杂\park<<$random_number>>.jpg"  height="480"></div>'
+		$random_events_in_the_park=1
+
+	else:
+		if $random_number<=5 and $times_of_day!'':
+		'<div class ="show_menu"><img src="images\videos\杂\parkN<<$random_number>>.jpg"  height="480"></div>'
+		$random_events_in_the_park=1
+		else
+		'<div class ="show_menu"><img src="images\place\park_<<$times_of_day>>.jpg" width="854"></div>'
+		end
+	end
+	
+	'<div class="button_menu">'
+		if $random_events_in_the_park=0:'<div class="button"><a href="exec:minutes+=15 & gt ''park''">Take a walk</a></div>'else:'<div class="buttonGr"><a href="exec:">Take a walk</a></div>'
+		if hour=8 and minutes<30:'<div class="button"><a href="exec:gt ''park'',''ridicule''">Ridicule</a></div>'
+		if week_day=6 and hour=16:'<div class="button"><a href="exec:gt ''park'',''in_preparation_for_the_music_festival''">In preparation for the music festival</a></div>'
+		if week_day=6 and hour=21:'<div class="button"><a href="exec:gt ''park'',''music_festival''">Music festival in progress</a></div>'
+		if $times_of_day="" and $random_number>=480:'<div class="buttonS"><a href="exec:gt ''task_event'',''play_tennis''">Tennis sparring</a></div>'
+		if $random_number<=10 and $random_number>0 and $times_of_day='':'<div class="button"><a href="exec:$park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
+		if $random_number=3 and  $times_of_day!'':'<div class="button"><a href="exec:$park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
+		if $zx_about_the_park=1 and hour=12:'<div class="button"><a href="exec:gt ''plasticity_event'',''zx_fuck_park_field_battle''"><<$ZX.name>></a></div>'
+		
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·After a lapse of several years, the City Council finally passed the `Special Park Management Law`, which promoted the development of the city`s central Park and provided a leisurely place for people`s busy and stressful lives.</p>'
+		if $random_number<1:'<p>·`Special Park Management Law`: Regulations ① If the weather is too hot, you don`t want to wear it. There are no hard and fast regulations.——When Adam and Eve wandered unknowingly in the Garden of Eden, as God`s creation, their bodies were empty and they never felt uncomfortable about it.</p>'
+		if $random_number=1 and $times_of_day='':'<p>？？？: Hey, I fell, can you help me up?</p>'
+		if ($random_number=2 or $random_number=6 or $random_number=7or $random_number=8)  and $times_of_day='':'<p>？？？: Hello, can you take a picture for me?</p>'
+		if ($random_number=3 or $random_number=9or $random_number=10) and $times_of_day='':'<p>？？？: Hi, I can`t find my belongings, can you help me find them?</p>'
+		if ($random_number=4 or $random_number=5) and $times_of_day='':'<p>？？？: I heard that there will be exposed people in this area. Can you help me see if there are any suspicious people?</p>'
+		if $random_number=3 and  $times_of_day!'':'<p>？？？: I heard that there will be exposed people in this area. Can you help me see if there are any suspicious people?</p>'
+		if $yy.home_can_be_entered=1 and $times_of_day='' and $random_number>=250:
+			if $yy.played_big=1:'<p>·Someone is sleeping on the bench<a href="exec:a=3 & gt ''empire_event'',''empire_fuck_swimming_coach_big''">-Wake him up</a></p>'else:'<p>·Someone is sleeping on the bench</p>'
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="music_festival":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\videos\杂\Festival<<rand(0,11)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if hour>=21:'<div class="button"><a href="exec:minutes+=45 & $my.energy+=99 & gt ''park'',''music_festival''">Immersed in music</a></div>'else:'<div class="button"><a href="exec:gt ''park''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·A limited-time music festival that will only open on Saturday night.</p>'
+		'<p>·————————————</p>'
+		'<p>·I think if my game can be like music, so that you can forget your troubles for a short time, I will be really happy.I sincerely hope that you can live the life you want, have the people you like, and have a happy life.Thank you again for your support.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="in_preparation_for_the_music_festival":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\videos\杂\音乐节前夕.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $hz.music_festival_date=1:'<div class="buttonP"><a href="exec:gt ''president_event'',''hz_fuck_music_festival''">find<<$HZ.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''park''">leave</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·The limited-time music festival, which will only open on Saturday night, has already gathered many young people here in the afternoon.</p>'
+		'<p>·————————————</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="ridicule":
+	'<div class ="show_menu"><img src="images\male\maleA.jpg" height="480"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''park'',''custom_roles''">Custom roles</a></div>'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''park''">Ignore him</a></div>'
+		if $bitter_master_setting=1:'<div class="button"><a href="exec:minutes+=25 & gt ''park'',''look_at_his_wife''">Look at his wife</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·The other party smiled contemptuously: Yo, this is not<<$protagonists_name>>Is it?</p>'
+		'<p>Me: You are……</p>'
+		if $bitter_master_setting=1:
+		'<p><<$name_of_the_suffering_master>>: Come on!I would like to introduce you to my wife. I am really lucky to have met such a good woman in my life.</p>'
+		end
+		
+	'</div>'
+end
+
+
+if $ARGS[0]="custom_roles":
+
+	'<div class ="show_menu"><img src="images\male\maleA.jpg" height="480"></div>'
+
+$bitter_masters_surname = $TRIM($LCASE($input('The name of the opponent (bitter master) is')))
+if $bitter_masters_surname="":$bitter_masters_surname="Dongzi"
+if $bitter_name="":$bitter_name="(Bitter master)"
+$name_of_the_suffering_master="<<$bitter_masters_surname>><<$bitter_name>>"
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''park'',''ridicule''">Ignore him</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$name_of_the_suffering_master>>: Forgot about you being beaten and cried by me before?Your childhood sweetheart came to me, and I touched her ass!</p>'
+		'<p>I：<<$bitter_masters_surname>>...it`s you...you transferred to junior high school…</p>'
+		'<p><<$name_of_the_suffering_master>>: Where does your childhood sweetheart live now?*Laugh</p>'
+		'<p>Me: She also transferred soon…</p>'
+		'<p><<$name_of_the_suffering_master>>: It`s a pity, I haven`t touched her ass for a long time* Laughing</p>'
+		'<p>I：<<$bitter_masters_surname>>...don`t go too far!</p>'
+		'<p><<$name_of_the_suffering_master>>: Haha*Laugh</p>'
+		'<p>·————————————————</p>'
+		'<p>·Picture replacement path:...\assets\standalone_content\images\maleA</p>'
+		$bitter_master_setting=1
+	'</div>'
+end
+
+
+if $ARGS[0]="look_at_his_wife":
+	'<div class ="show_menu"><img src="images\NPC\RQ\pics\ET2-N6yUYAAG7Vb.jpg" height="480"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''park''">Ignore him</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$name_of_the_suffering_master>>: Are your eyes straight?！We`ve been talking for three years, you don`t have a chance to laugh</p>'
+		'<p>I：……</p>'
+		'<p><<$name_of_the_suffering_master>>: Go to my house for two drinks when you have time* Laugh</p>'
+	'</div>'
+end
+
+if $ARGS[0]="help_her":
+	 if $times_of_day!'':
+	   '<div class ="show_menu"><img src="images\videos\杂\parkN<<$park_green>>.jpg"  height="480"></div>'
+	 else:
+		'<div class ="show_menu"><img src="images\videos\杂\park<<$park_green>>.jpg"  height="480"></div>'
+	 end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''park''">。。。</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>？？？: Hehe!Thank you❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="public_toilets":
+	'<div class ="show_menu"><img src="images\place\公共厕所.jpg"  height="480"></div>'
+
+	'<div class="button_menu">'
+		if hour!7:'<div class="buttonPu1"><a href="exec:minutes+=15 & gt ''plasticity_event'',''in_front_of_the_plastic_toilet''">The innermost one</a></div>'
+		if ($zx_event_chain=2 or $zx_event_chain=3) and hour=23:'<div class="buttonPu4"><a href="exec:minutes+=15 & gt ''plasticity_event'',''zx_fuck_strategy''">等待Wait<<$ZX.name>></a></div>'
+		if $zx_event_chain=4 and hour=23:'<div class="buttonPu3"><a href="exec:minutes+=15 & gt ''plasticity_event'',''zx_fuck_strategy_2''">等待Wait<<$ZX.name>></a></div>'
+		if hour=7:'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''group_performation_event'',''zy_toilet''">Cleaning time</a></div>'
+		if hour=1 and minutes>=30 :'<div class="buttonPu2"><a href="exec:minutes+=15 & gt ''andrology_event'',''nk_fuck_toilet''">Phantom of the Toilet</a></div>'
+		if week_day=7 and hour=12 and $JM.love>=300:'<div class="buttonS"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''general_fuck_public_toilet''"><<$JM.name>>inside</a></div>'
+		if week_day=1 and hour=12 and $WQ.love>=300:'<div class="buttonS"><a href="exec:$m=''WQ'' & $ma=$WQ.name & gt ''group_performation_event'',''general_fuck_public_toilet''"><<$WQ.name>>inside</a></div>'
+		if hour=21 and $imperial_swimming_coach>=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_swimming_coach_toilet''">Coercion<<$YY.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''park''">Back to the park</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·In our city, where economic civilization is highly developed, urban public toilets are essential facilities to meet people`s physiological needs.</p>'
+		if $random_number>=450 and 8<=hour and hour<=17:'<p>·Violence is happening<a href="exec:gt ''park'',''violent_incident''">-Peek</a></p>'
+		if $random_number>400 and 19<=hour and hour<=20:'<p>·Strong smell of alcohol<a href="exec:gt ''group_performation_event'',''rich_woman_fuck_ck3''">-Peek</a></p>'
+		if $bigvillaforthefirsttime>=1 and $public_toilet_hammer=0:'<p>·Someone abandoned a smelly [sledgehammer] here<a href="exec:$sledgehammer+=1 & $public_toilet_hammer=1 &  gt ''park''">-Take it away</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="violent_incident":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\videos\杂\CF1-<<rand(0,14)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''park''">Nothing can be done</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>Tramp A: Little girl, the meaning of public toilets is that you can go to them anytime you want!</p>'
+		'<p>Female student: Help<<$panting>></p>'
+		'<p>Hobo B: It`s all your fault!If it weren`t for you to seize our employment opportunities!How could we lose our jobs?Fortunately, we met a female bodhisattva!The days are much more nourishing now than when I was a social animal!</p>'
+	'</div>'
+end
+
+if $ARGS[0]="camping_area":
+	'<div class ="show_menu"><img src="images\place\流浪营.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if hour=12 or hour=18:'<div class="button"><a href="exec: gt ''group_performation_event'',''rich_woman_fuck_ck1''">Female bodhisattva</a></div>'
+		'<div class="button"><a href="exec:gt ''park''">return</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·A free camping area open to the public, but there are currently homeless homeless people who have occupied it for a long time.</p>'
+		'<p>·The surrounding residents complained to the Ministry of Urban Construction countless times, but the result was a sea of stones.</p>'
+	'</div>'
+end
+
+if $ARGS[0]="camping_area_fire":
+	'<div class ="show_menu"><img src="images\place\营火.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''park''">return</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·An endless fire is churning in the camping area</p>'
+		'<p><<$JY.name>>: A number of homeless people suffered burns of varying degrees. The fire was uncontrollable. The arsonist has been arrested.</p>'
+		'<p><<$JZ.name>>: When the ashes are in pairs, the fire ignites.Since the fire is uncontrollable, let it burn.</p>'
+		'<p>——</p>'
+		'<p>Me: Hey, hey, things seem to be getting serious.</p>'
+		if $boss_event_chain=5:$boss_event_chain=6
+	'</div>'
+end
+
+if $ARGS[0]="camping_area_2":
+	'<div class ="show_menu"><img src="images\place\露营区2.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if hour=16 and $LXS.love>=100:'<div class="button"><a href="exec:$international_student_tent=0 & gt ''study_abroad_event'',''tent_dating''">approximately<<$LXS.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''park''">return</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·A free camping area open to the public, it is said that there are still unemployed people who have just become homeless who are watching and occupying it.</p>'
+		if $camping_garbage=1 and $times_of_day="":	'<p>·Due to the trouble of garbage sorting and the careful thinking of the homeless, a large amount of flammable garbage is piled up in one corner.<a href="exec:gt ''park'',''flammable_garbage''">-Clean up</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="flammable_garbage":
+	'<div class ="show_menu"><img src="images\task\LJN (<<rand(1,13)>>).jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$camping_garbage=3 &  gt ''group_performation_event'',''random_fuck_fuck_girl''">Carry her to take a shower</a></div>'
+		'<div class="buttonGn"><a href="exec:$camping_garbage=2 & gt ''park''">Clean up the garbage</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·There is a drunk woman in the garbage dump, please make your choice.</p>'
+	'</div>'
+end
+
+
+
+
+
+
+--- park ---------------------------------
+

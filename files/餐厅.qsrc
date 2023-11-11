@@ -1,0 +1,218 @@
+# 餐厅
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "商场_地图"
+'</div>'
+
+
+if $ARGS[0] ="":
+	$随机数=rand(1,100)
+	'<div class ="show_menu"><img src="images\place\餐厅.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $寻枪事件链>=2:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''餐厅'',''酒保立绘''">酒保</a></div>'
+		if $JJ.bad>=50 and $随机数<=50 and 20<=hour and hour<=22 :
+		'<div class="button"><a href="exec:minutes+=5 & gt ''餐厅'',''姐姐吃饭''">熟悉的声音</a></div>'
+		end
+		if $DZ.event_见面=1 and 13<=hour and hour<=14 :
+		'<div class="button"><a href="exec:minutes+=5 & gt ''地质_事件'',''初次见面'',''等人''">与姐姐碰面</a></div>'
+		end
+		if $DZ.event_餐厅约会=1 and 18<=hour and hour<=20 and  week_day >=6 :
+		'<div class="button"><a href="exec:minutes+=5 & gt ''地质_事件'',''周末约会''">和<<$DZ.name>>吃饭</a></div>'
+		$DZ.event_餐厅约会=0
+		end
+		
+		if $SW.available=1 and $SW_Event_迷=0:'<div class="button"><a href="exec:minutes+=30 & gt ''生物_事件'',''餐厅遇见''">熟悉的声音</a></div>'
+		
+		if hour=15 and $QT新约会=1:'<div class="button"><a href="exec:minutes+=30 & gt ''前台_事件'',''餐厅''">约会<<$QT.name>></a></div>'
+		
+		if $销售_Event_买车=1 and week_day=6 and hour>=21:'<div class="button"><a href="exec:gt ''销售_事件'',''餐厅''"><<$XS.name>></a></div>'
+		if $悠亚任务=1:'<div class="button"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_餐厅''">等待<<$SSYY.name>></a></div>'
+		if $TZ约会=1 and week_day>=6 and hour>=21:'<div class="button"><a href="exec:$TZ约会=0 & gt ''台长_事件'',''约会''">约会<<$TZ.name>></a></div>'
+		if $花姐事件链=1 and hour>=20:'<div class="button"><a href="exec:gt ''评委_事件'',''PW_Fuck_喝酒''">偷听<<$PW.name>></a></div>'
+		if 集印卡=1 and hour=12 and week_day =3:'<div class="buttonS"><a href="exec:集印编号=3 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪食客❤</a></div>'
+		if $天使事件链=1 and week_day=6 and hour>=21:'<div class="button"><a href="exec:gt ''天使_事件'',''TS_Fuck_事件1''">聚餐庆祝</a></div>'
+		if 蓝牙女仆=2 and hour >=12:'<div class="button"><a href="exec:gt ''主播_事件'',''LY_Event_邀约''"><<$LY.name>></a></div>'
+		if $局长x家=0 and $JZ.love>=1:'<div class="button"><a href="exec:gt ''局长_事件'',''行贿''"><<$JZ.name>></a></div>'
+		if $CH事件链>=4 and week_day=5 and hour=18:'<div class="buttonP"><a href="exec:gt ''车行_事件'',''陪吃饭''">陪同<<$CH.name>></a></div>'
+		if $XN.审判=1 and week_day=6 and hour=18:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''修女_事件'',''XN_Fuck_人妻''">❐鬼鬼祟祟的一桌</a></div>'
+		
+		
+		if $班长事件链B=1 and hour=17:'<div class="buttonPu3"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''班长B3''"><<$BZ.name>></a></div>'
+		if $班长事件链B=3 and hour=17:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''班长B6前''"><<$BZ.name>></a></div>'
+		if $CT考验2>=1 and 餐厅经营<1:'<div class="buttonG3"><a href="exec:gt ''餐厅'',''餐厅收购''">谈论收购事宜</a></div>'
+		if 餐厅经营=1:'<div class="buttonG5"><a href="exec:gt ''餐厅'',''经营餐厅''">经营餐厅</a></div>'
+		if 餐厅经营=2:'<div class="buttonG5"><a href="exec:a=0 & q=0 & gt ''帝国_事件'',''帝国_Fuck_餐厅情况''">经营餐厅</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><B><span class =''red''>赤色餐厅独具特色创意，美食精湛，服务无微不至，是味蕾的极致享受。</p>'
+	'</div>'
+
+ end
+ 
+ if $ARGS[0] ="姐姐吃饭":
+	$随机数=rand(1,2)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JJ\vids\餐厅<<$随机数>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$JJ.name>>正在和男性友人聚餐。</p>'
+		'<p><<$JJ.name>>:前辈，没想到你也回国了，有时间的话来我实验室一趟，我有新的研究成果可以向你展示。</p>'
+		'<p>？？？:真不愧是你，在我以前的助手团里，我最欣赏的就是你。</p>'
+		'<p><<$JJ.name>>:前辈，你现在还是单身嘛。</p>'
+	'</div>'
+
+end
+
+ 
+if $ARGS[0] ="酒保立绘":
+	$JB.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JB\vids\酒保.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $寻枪事件链=2:'<div class="button"><a href="exec:my.精力+=300 &  gt ''警员_事件'',''寻枪嫌疑人''">✣询问特色冰沙 </a></div>'
+		if $催债=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & 催债编号=1 & gt ''群演_事件'',''泛用_Fuck_催债''">暴力催收</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我: 你是新来的？你这么漂亮的人如果我见过一定有影响。</p>'
+		'<p><<$JB.name>>: 老板❤你是在撩我吗？</p>'
+		'<p>我: 嗯？</p>'
+		'<p><<$JB.name>>: 我喜欢直来直往的❤人家以前可是在歌舞伎町的酒吧工作的喔❤</p>'
+	'</div>'
+
+end
+
+ 
+ 
+if $ARGS[0]="餐厅收购":
+	
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\chef-cooking.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $看过平面图<3:'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀_事件'',''餐厅对话''">和她对话</a></div>'
+		if $主厨招呼=1:'<div class="button"><a href="exec:$主厨招呼=2 & gt ''餐厅'',''餐厅收购''">和他对话</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>主厨: 没看见我在忙吗？！*摆了摆手</p>'
+		'<p>·——————————</p>'
+		'<p>·我拥有的股份：<<餐厅股份>>%</p>'
+		if 餐厅股份>=60:'<p>·我已经拥有了超过半数股份！<a href="exec:gt ''餐厅'',''架空他''">-复命-架空他！</a></p>'
+		'<p>·——————————</p>'
+		if $看过平面图<3:
+		'<p><<$YS.name>>：唷，<<$主角姓名>>，不去陪我的儿媳妇玩偶像游戏，跑来这里干什么？</p>'
+		'<p>·————————————————</p>'
+		'<p>·如果你忘记了N久以前的剧情，可以点击观看<a href="exec:gt ''病房'',''争吵声1''">【前倾提要】</a></p>'
+		'<p>·————————————————</p>'
+		'<p>·——放心，只是看一段剧情，不会损坏您的存档——</p>'
+		end
+		if $看过平面图=3:
+		'<p>我：<<$YS.name>>是不是遇到危险了？</p>'
+		'<p>主厨: 大门口站着的可都是社会人，我可不想沾这趟浑水，你担心她不如去找警察啊？</p>'
+		'<p>·————————————————</p>'
+		end
+		if $主厨招呼=2:
+		'<p>我：<<$YS.name>>回来了！</p>'
+		'<p>主厨: 什么？大门口站着的可都是社会人，怎么会轻易放过她？我得去看看她！她现在正需要我的安慰！逞英雄的时候到了！哈哈！</p>'
+		'<p>·————————————————</p>'
+		end
+	'</div>'
+End
+
+
+ 
+if $ARGS[0]="架空他":
+	
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\plane.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if 餐厅CT对话=0:'<div class="buttonG"><a href="exec:餐厅CT对话=1 & gt ''餐厅'',''架空他''">我的奖励？</a></div>'
+		if 餐厅CT对话=1:'<div class="buttonG"><a href="exec:餐厅CT对话=2 & gt ''餐厅'',''架空他''">便利店已经很累了</a></div>'
+		if 餐厅CT对话=2:'<div class="buttonS"><a href="exec:餐厅CT对话=3 & gt ''餐厅'',''架空他''">多谢总裁岳母！</a></div>'
+		if 餐厅CT对话=3:'<div class="buttonG"><a href="exec:gt ''餐厅''">开始经营！</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if 餐厅CT对话=0:
+		'<p><<$CT.name>>: 做的好！居然都不需要帝国集团出手就拿下了60%的股份？</p>'
+		'<p>主厨: 喂喂！你们想对我的餐厅做什么？！</p>'
+		'<p><<$CT.name>>: <<$主角姓名>>作为餐厅最大股东，在餐厅重大事项上通常享有决策权。现在，你被解除主厨职位了。你可以保留自己可怜的股份，但我愿意出资￥3,000,000收购你手里那20%股份。</p>'
+		'<p>主厨: 你别做梦了！</p>'
+		'<p><<$CT.name>>: ￥2,000,000，我的耐心有限！</p>'
+		'<p>主厨: 等等！你刚刚说的是￥3,000,000！</p>'
+		'<p><<$CT.name>>: 呵呵，那是刚才的价格，现在只值￥1,000,000了。</p>'
+		'<p>主厨: 成交！把钱给我！</p>'
+	 end
+		
+	 if 餐厅CT对话=1:
+		'<p>我: 总裁，那我的奖励呢？</p>'
+		'<p><<$CT.name>>: 这是原计划收购剩下的￥2,000,000，我打给你的公司账户上了。</p>'
+		Cmoney+=200
+		'<p>我: 非常感谢！</p>'
+		'<p><<$CT.name>>: <<$主角姓名>>，餐厅想接手管理吗？</p>'
+	 end
+	 
+	 if 餐厅CT对话=2:
+		'<p>我: 总裁，便利店已经很累了。</p>'
+		'<p><<$CT.name>>: 累？那我安排我女儿来辅助你吧，她刚从国外学完工商管理，正需要练手。</p>'
+		'<p>我: 辅助…这哪是辅助啊…</p>'
+		'<p><<$CT.name>>: <<$主角姓名>>，不想成为我的女婿吗？我这是在给你机会喔。</p>'
+	 end
+	 if 餐厅CT对话=3:
+	    if 餐厅经营=0:餐厅经营=1
+		'<p>我: 多谢总裁岳母！</p>'
+		'<p><<$CT.name>>: 岳母？叫早了，而且我也不答应。</p>'
+		'<p>我: 营业额不会还是…</p>'
+		'<p><<$CT.name>>: 100万差点把你累死，这次因为帮助我女儿的练手，月盈余10万就行了！</p>'
+	 end
+	'</div>'
+End
+
+
+if $ARGS[0] ="经营餐厅":
+	a=0 & q=0 
+	'<div class ="show_menu"><img src="images\place\赤色餐厅新.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''帝国_事件'',''帝国_Fuck_女儿见1''">见识她女儿</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·按照<<$CT.name>>的要求，月净利润必须超过10万</p>'
+		'<p>·——————————————————</p>'
+		'<p>·<<month>>月累积净利润：￥4369  ；昨日净利润：￥433</p>'
+		'<p>·㊐服务积极性：12%；食材新鲜度：50%；昨日顾客数：17人</p>'
+		'<p>·㊰服务积极性：11%；门店整洁度：7%；当前净利润：14%</p>'   
+		'<p>·——————————————————</p>'
+		'<p>我：干，又来一次啊？饶了我吧！</p>'
+	'</div>'
+end
+
+
+--- 餐厅 ---------------------------------
+

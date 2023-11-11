@@ -1,0 +1,1028 @@
+# 留学_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="留学生家":
+	  if  留学生面试=1 and 留学生学校=1:gt'留学_事件','家'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\家前<<$留学生对话>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	   if $留学生对话=0:'<div class="button"><a href="exec:$留学生对话=1 & gt ''留学_事件'',''留学生家''">闲聊</a></div>'
+		'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $留学生对话=0:
+			'<p>我: 嗨，看来你已经找到落脚点了，我还担心你会迷路呢。</p>'
+			'<p><<$LXS.name>>: 嗨，<<$主角姓名>>！很高兴认识你。虽然我之前经历了一场空难，但在这里的新生活给了我新的勇气和希望。我正在逐渐适应这个城市的生活，充满了对未知世界的好奇和探索欲望。</p>'
+		end
+		if $留学生对话=1:
+			'<p>我: 有什么可以帮到你的吗？</p>'
+			'<p><<$LXS.name>>: 我作为一个外国人，怎么样才能在这里立足呢？</p>'
+			'<p>我: 你要做这几件事①通过出入境管理局的入境审核。②在学校注册成为留学生。③找一份兼职工作</p>'
+			if 留学生面试=0:
+				'<p><<$LXS.name>>: 哈哈，这听上去也不难嘛？那我明天先去出入境管理局看看，正好我准备了一套面试用的制服。</p>'
+				'<p>我: 祝你顺利。（希望面试你的人是我）</p>'
+			end
+			if 留学生学校=0:
+				'<p><<$LXS.name>>: 学校的申请对我有一些难度，你可以帮帮我吗。</p>'
+				'<p>我: 我可以去问问<<$XZ.name>>。</p>'
+			end
+			
+		end
+	'</div>'
+End
+
+
+if $args[0]="家":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\家<<$留学生对话>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	   if $留学生对话=0:'<div class="button"><a href="exec:$留学生对话=1 & gt ''留学_事件'',''家''">劝劝她</a></div>'
+	   if $留学生对话=1:
+		   '<div class="buttonR3"><a href="exec:gt ''留学_事件'',''留学_Fuck_教训''">教训她</a></div>'
+		   if $LXS.love>=100:'<div class="buttonP"><a href="exec:gt ''留学_事件'',''留学_Fuck_陪玩''">和她一起玩</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+	   end
+	   if 保时捷=1:'<div class="buttonG"><a href="exec: $留学生对话=0 & gt ''留学_事件'',''上车''">载她出去玩</a></div>'
+		'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $留学生对话=0:
+			'<p>我: 嗨，怎么成天在家里打游戏？</p>'
+			'<p><<$LXS.name>>: 哎呀呀，<<$主角姓名>>！这个叫《神·原》的游戏真好玩，电子游戏简直就是我的终极糖果！每次拿起手柄或者键盘，就像是进入了一个神奇的次元，我可以成为超级英雄、探险家，还能在虚拟世界里变身成各种角色。</p>'
+			'<p>我: ……</p>'
+			'<p><<$LXS.name>>: 每次进入瓦提特世界，我都会被那美丽的风景和奇幻的冒险所迷住。我喜欢在龙脊雪山滑行，感受风的呼啸，还有在花风节上和朋友们一起尽情嬉戏。每个角色都有独特的技能和故事，让我陷入其中无法自拔。快来和我一起探索未知的秘境吧，神原，启动！</p>'
+		end
+		if $留学生对话=1:
+			'<p>我: 你没事吧？你不远万里乘飞机来…就为了玩《神·原》？</p>'
+			'<p><<$LXS.name>>: 喂喂，《神·原》怎么你了？你又不是我爸爸！你好烦！</p>'
+			'<p>我: 你的择校费可是我付的！</p>'
+			'<p><<$LXS.name>>: 《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？《神·原》怎么你了？</p>'
+			$LXS.love-=10
+		end
+	'</div>'
+End
+
+
+
+if $args[0]="留学_Fuck_入境11":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\入境1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<12:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_入境11''">我来审核 </a></div>'
+            end
+            if q=1 or q=2 or q=3 or q=4:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_入境11''">检查耳穴 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_入境11''">检查口穴 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_入境11''">填充假奶？ </a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_入境11''">检查小穴 </a></div>'
+            end
+            if q=5:
+            '<div class="buttonS1"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_入境11''">检查完毕 </a></div>'
+            end
+            if q=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_入境11''">舔干净 </a></div>'
+            end
+            if q=7:
+            '<div class="buttonR4"><a href="exec:a=8 & gt ''留学_事件'',''留学_Fuck_入境11''">？！？！ </a></div>'
+            end
+
+            if 10>=q and  q>=8:
+            '<div class="buttonR3"><a href="exec:a=8 & gt ''留学_事件'',''留学_Fuck_入境11''">激烈舌吻 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=9 & gt ''留学_事件'',''留学_Fuck_入境11''">屁股坐上来 </a></div>'
+            '<div class="buttonR5"><a href="exec:a=10 & gt ''留学_事件'',''留学_Fuck_入境11''">撞击子宫口 </a></div>'
+            end
+            if q=11:
+            '<div class="buttonS3"><a href="exec:a=11 & gt ''留学_事件'',''留学_Fuck_入境11''">口射 </a></div>'
+            end
+            if q=12:
+            '<div class="buttonR3"><a href="exec:a=12 & gt ''留学_事件'',''留学_Fuck_入境11''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">送她离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:审核官你好，我是来自…</p>'
+             '<p>☑姓名：『Melody Marks』 ➤职业：『学生』</p>'
+			 '<p>☑身高：『169CM』 ☑体重：『55KG』 ☑三围：『B94 W59 H87』</p>'
+             '<p>审核官:你是学生？看起来不像啊…</p>'
+             '<p><<$LXS.name>>:啊啊，这套衣服是我从飞机上拿的。</p>'
+             '<p>审核官:拿的？不是偷的吧？</p>'
+         '</div>'
+    end
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>我:咳咳…我来吧，你去休息吧。累了一天了。</p>'
+             '<p>审核官:行吧。</p>'
+             '<p><<$LXS.name>>:嗨！<<$主角姓名>>！</p>'
+         '</div>'
+    end
+
+
+
+    if 7>=a and a>=2:
+         '<div class="dialog_menu">'
+         	 '<p>我:在这里不要直呼其名，要用官职称呼。</p>'
+             '<p><<$LXS.name>>:明白了，<<$主机姓>>审核官。</p>'
+             if a>=3:'<p>我:你知道审核的流程和步骤吧❤</p>'
+             if a>=4:'<p><<$LXS.name>>:嗯<<$娇喘声2>></p>'
+         '</div>'
+    end
+    if a=8:
+         '<div class="dialog_menu">'
+             '<p>我:嘿！你怎么了？。</p>'
+             '<p><<$LXS.name>>:我忍不住了！<<$主角姓名>>！我要你！操我！</p>'
+         '</div>'
+    end
+
+    if 11>=a and a>=9:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:操我<<$娇喘声2>></p>'
+             '<p>我:这就是外国人嘛…</p>'
+         '</div>'
+    end
+
+    if a>=12:
+    	 $LXS.love+=a+my.魅力
+    	 $LXS.bad+=q+my.魅力
+    	 留学生面试=1
+         '<div class="dialog_menu">'
+             '<p>我:审核的材料我已经帮你通过了。</p>'
+             '<p><<$LXS.name>>:嗯，谢谢你的照顾❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="留学_Fuck_学校申请":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\XZ\vids\办公室B-1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:money-=5000  & 留学生学校=1 & gt ''大学''">注册：$5000</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			'<p>我: 留学生注册需要什么条件吗？</p>'
+			'<p><<$XZ.name>>: 需要监护人的收入证明，还有无性病检测报告，以及择校费$2500</p>'
+			'<p>我: 有没有便捷一点的绿色通道？</p>'
+			'<p><<$XZ.name>>: 呃……你给我$5000…我可以帮你搞定。</p>'
+	'</div>'
+End
+
+if $args[0]="留学_Fuck_教训":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\kun1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2 or q=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_教训''">道具玩弄 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_教训''">鸡巴刷牙 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_教训''">强制深喉 </a></div>'
+            if q>=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_教训''">高速抽插 </a></div>'
+            end
+            if q=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_教训''">口内射精 </a></div>'
+            
+            if q=5:
+            '<div class="buttonR3"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_教训''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:嘿…你要干什么，快放开我！</p>'
+             if a>=1:'<p>我:坏孩子就要受到教训！</p>'
+             if a>=2:'<p><<$LXS.name>>:我错了！<<$主角姓名>>！我错了！</p>'
+         '</div>'
+    end
+
+    if a>=6:
+    	 $LXS.love-= my.魅力
+    	 $LXS.bad+= my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:别忘了，我给你注册学籍可是花了我不少钱的。</p>'
+             '<p><<$LXS.name>>:切，真小气。我现在不想再看到你了，快给我出去好吗？！</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="留学_Fuck_陪玩":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\jia1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2 or q=3:
+            '<div class="buttonS1"><a href="exec:a=0 & gt ''留学_事件'',''留学_Fuck_陪玩''">摸屁股 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_陪玩''">口我 </a></div>'
+            if q>0:'<div class="buttonS3"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_陪玩''">坐上来 </a></div>'
+            if a!4 and q>1:'<div class="buttonS4"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_陪玩''">并腿抽插 </a></div>'
+            if a=4 and q>1:'<div class="buttonR4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_陪玩''">分开腿插 </a></div>'
+            end
+
+            if q=4 or q=5:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_陪玩''">老汉推车 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_陪玩''">掐她喉咙 </a></div>'
+            if a!4:'<div class="buttonS4"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_陪玩''">并腿抽插 </a></div>'
+            if a=4:'<div class="buttonR4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_陪玩''">分开腿插 </a></div>'
+            end
+            if q=6:
+            '<div class="buttonR3"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_陪玩''">内射中出 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:money-=648 & gt ''歌舞伎町''">给她钱</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:你不是说要陪我一起玩的吗？</p>'
+             '<p>我:没错啊，你玩游戏，我玩你嘛❤</p>'
+             if a>=1:'<p><<$LXS.name>>:这样玩不了的<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=7:
+    	 $LXS.love+= my.魅力+11
+    	 $LXS.bad+= my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:呼———你不会怀孕吧？</p>'
+             '<p><<$LXS.name>>:怀不怀孕先放一边，你能给我$648吗？我…我想买一套新的课外书！</p>'
+             '<p>我:真的假的O_o</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="学校辅导":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\scstudy1-<<$留学生对话>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $留学生对话=0:'<div class="button"><a href="exec:$留学生对话=1 & gt ''留学_事件'',''学校辅导''">耐心辅导</a></div>'
+		if $留学生对话=0:'<div class="button"><a href="exec: gt ''留学_事件'',''图书馆查资料''">去图书馆查资料</a></div>'
+		!if 保时捷=1:'<div class="buttonG"><a href="exec: $留学生对话=0 & gt ''留学_事件'',''上车''">载她出去玩</a></div>'
+		if $留学生对话=1:'<div class="buttonS"><a href="exec:gt ''留学_事件'',''留学_Fuck_辅学''">在这上她</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $留学生对话=0:
+			'<p><<$LXS.name>>: 哎呀呀，<<$主角姓名>>！这个习题好难啊。</p>'
+			'<p>我: 什么题目？我看看。</p>'
+			'<p><<$LXS.name>>: 假设我们有一个角色名为琴，她的基础攻击力为1000点，暴击率为30%，暴击伤害为50%，技能倍率为200%，元素伤害加成为20%，那么琴使用技能攻击时的平均伤害值是多少？</p>'
+			'<p>我: ……</p>'
+		end
+		if $留学生对话=1:
+		    $LXS.love+=15
+			'<p>我: 平均伤害 = 基础攻击力 * 技能倍率 * (1 + 元素伤害加成) * (1 + 暴击率 * 暴击伤害)</p>'
+			'<p><<$LXS.name>>: 我明白了，答案是2400！</p>'
+			'<p>我: 话说…这真的是学校布置的习题吗？</p>'
+			'<p><<$LXS.name>>:<<$主角姓名>>❤你的奶头怎么激凸啦❤</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="图书馆查资料":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\sc图书1-<<$留学生对话>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $留学生对话=0:'<div class="button"><a href="exec:$留学生对话=1 & gt ''留学_事件'',''图书馆查资料''">偷看裙底</a></div>'
+		if 精油>0:'<div class="buttonS"><a href="exec:gt ''留学_事件'',''留学_Fuck_按摩她''">为她按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">精油不足</a></div>'
+		if $留学生对话=1:'<div class="buttonR3"><a href="exec:gt ''留学_事件'',''留学_Fuck_按摩''">假装摔倒</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $留学生对话=0:
+			'<p><<$LXS.name>>: 我记得这里应该有辅导书。</p>'
+		end
+		if $留学生对话=1:
+			'<p>我: 这种题目还需要辅导书？我看看。</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0]="留学_Fuck_辅学":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\scf1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if q=0 or q=1:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_辅学''">舔我 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_辅学''">口我 </a></div>'
+            end
+
+            if q=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_辅学''">坐上来 </a></div>'
+
+            if q=3 or q=4 or q=5 or q=6:
+            if a!4:'<div class="buttonS4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_辅学''">正面骑乘 </a></div>'
+            if a=4:'<div class="buttonR4"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_辅学''">转过去 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_辅学''">老汉推车 </a></div>'
+            '<div class="buttonR4"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_辅学''">急速抽插 </a></div>'
+            end
+
+
+            if q=7:
+            '<div class="buttonR3"><a href="exec:a=8 & gt ''留学_事件'',''留学_Fuck_辅学''">内射中出 </a></div>'
+            end
+            if q=8:
+            '<div class="button"><a href="exec:a=9 & gt ''留学_事件'',''留学_Fuck_辅学''">对话 </a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:嘿嘿，要在这里做吗？</p>'
+             '<p>我:还不是你害得❤</p>'
+             if a>=3:'<p><<$LXS.name>>:怪我嘛<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=9:
+    	 $LXS.love+= my.魅力+q
+    	 $LXS.bad+= my.魅力+q
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:你每天放学来接我回家好不，我不喜欢搭电车。</p>'
+             '<p>我:看情况呗。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="留学_Fuck_偷偷":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\scntr1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<5:
+        '<div class="button_menu">'
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''留学_事件'',''留学_Fuck_偷偷''">看下去 </a></div>'
+            '<div class="button"><a href="exec:minutes+=60 & gt ''大学''">不看了</a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:宝贝❤今天怎么来这么晚？</p>'
+             '<p>？？？:小洋妞❤哥哥来满足你了。</p>'
+             if a>=1:'<p><<$LXS.name>>:哥哥操我<<$娇喘声2>></p>'
+             if a>=2:'<p>？？？:是哥哥操得你舒服还是<<$主角姓名>>操得你舒服？</p>'
+             if a>=3:'<p><<$LXS.name>>:当然是宝贝的大鸡巴最舒服了❤</p>'
+             if a>=4:'<p>？？？:哈哈❤你个小骚货，给我接好哥哥的浓精❤</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+         	 '<p>？？？:<<$主角姓名>>知道你每天都和不同的男人乱搞吗？</p>'
+             '<p><<$LXS.name>>:你们都别告诉他，不就好啦❤再说了，我们又不是什么男女朋友❤</p>'
+             '<p>我:真的假的O_o</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="留学_Fuck_按摩":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\sc按摩1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''留学_事件'',''留学_Fuck_按摩''">按下去 </a></div>'
+            '<div class="button"><a href="exec:minutes+=60 & gt ''大学''">不按了</a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>我:啊啊啊啊啊啊——*噗通</p>'
+             '<p><<$LXS.name>>:没摔疼吧？我帮你揉揉。</p>'
+             '<p>我:揉揉？你揉的地方也不太对吧？应该揉这里❤</p>'
+             if a>=1:'<p><<$LXS.name>>:像这样吗<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=6:
+         '<div class="dialog_menu">'
+         	 '<p>我:辛苦啦。</p>'
+             '<p><<$LXS.name>>:不辛苦❤不过我都忘了，我本来想找的题目是什么❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="留学_Fuck_按摩她":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\sc按摩2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if q=0 or q=1:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_按摩她''">乳腺按摩 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_按摩她''">私处按摩 </a></div>'
+            end
+
+            if q=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_按摩她''">振动模式 </a></div>'
+
+            if q=3 or q=4 or q=5 or q=6:
+            if a!4:'<div class="buttonS4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_按摩她''">顺便口我 </a></div>'
+            if a=4:'<div class="buttonR4"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_按摩她''">加快速度 </a></div>'
+            end
+
+
+            if q=7:
+            '<div class="buttonR3"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_按摩她''">口内射精 </a></div>'
+            end
+
+            if q=8:
+            '<div class="buttonR2"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_按摩她''">吐出来 </a></div>'
+            end
+            if q=9:
+            '<div class="buttonR1"><a href="exec:a=8 & gt ''留学_事件'',''留学_Fuck_按摩她''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+				if $LXS.按过=0:'<div class="button"><a href="exec:$LXS.按过=1 & gt ''大学''">邀请进按摩院</a></div>'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''大学''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:哇偶，这感觉好奇怪。</p>'
+             '<p>我:按摩这方面我可是有信心的❤</p>'
+             if a>=1:'<p><<$LXS.name>>:我不信<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=8:
+    	 $LXS.love+= my.魅力+q
+    	 $LXS.bad+= my.魅力+q
+         '<div class="dialog_menu">'
+             '<p>我:怎么样？知道我的厉害了吧？</p>'
+             '<p><<$LXS.name>>:是挺厉害的呢❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+
+if $args[0]="上车":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\车<<$留学生对话>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+	   if $留学生对话=0:
+			'<div class="buttonS1"><a href="exec:$留学生对话=2 & gt ''留学_事件'',''上车''">吃点好的</a></div>'
+			'<div class="buttonS2"><a href="exec:$留学生对话=3 & gt ''留学_事件'',''上车''">拍照打卡</a></div>'
+			'<div class="buttonPu4"><a href="exec:$留学生对话=4 & gt ''留学_事件'',''上车''">去夜店玩</a></div>'
+			if $LXS.love<=100:'<div class="buttonP"><a href="exec:$留学生对话=1 & gt ''留学_事件'',''上车''">摸她下体</a></div>'
+			if $LXS.love>100:'<div class="buttonP"><a href="exec:$留学生对话=1 & gt ''留学_事件'',''留学_Fuck_按她''">摸她下体</a></div>'
+	  end
+	   if $留学生对话=2:
+	       '<div class="button"><a href="exec:gt ''留学_事件'',''温泉起始''">出发去温泉</a></div>'
+	  end
+	   if $留学生对话=3:
+	       '<div class="button"><a href="exec:gt ''公司''">推荐COS馆</a></div>'
+	  end
+	   if $留学生对话=4:
+	       if $LXS.bad>=my.魅力*25:'<div class="button"><a href="exec:LXS夜店工作=1 & gt ''夜色精巢''">留她当风俗娘</a></div>'else:'<div class="buttonGr"><a href="exec:">担任风俗娘需要堕落><<my.魅力*25>></a></div>'
+	  end
+		'<div class="button"><a href="exec:gt ''居民区''">分别</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if $留学生对话=0:
+			'<p><<$LXS.name>>: 嚯，<<$主角姓名>>！你这车不错。</p>'
+			'<p>我: 是吧…女孩对我有感觉，只因我有…</p>'
+			'<p><<$LXS.name>>: 你打算带我去哪？</p>'
+	   end
+	   if $留学生对话=1:
+			'<p><<$LXS.name>>: 这是危险驾驶！<<$主角姓名>>！住手！</p>'
+			'<p>我: 好吧…</p>'
+			$LXS.love-=my.魅力
+	   end
+	   if $留学生对话=2:
+			'<p><<$LXS.name>>: 哇塞，拉面简直就是一碗满满的幸福！那柔软的面条，搭配浓郁的汤底，简直就是舌尖上的艺术品。</p>'
+			'<p>我: 有这么夸张嘛…</p>'
+			'<p><<$LXS.name>>: 无论是鸡肉拉面、牛肉拉面，还是各种口味的味噌拉面，每一口都能带来满满的满足感。哪怕只是想象一下那热腾腾的拉面，都能让我垂涎欲滴。真是一碗暖心的美味，每次都能带来无限的舒适和满足。让我们一起为拉面这份美食鼓掌喝彩吧！</p>'
+			'<p>我: 那吃饱喝足去…</p>'
+	   end
+	   if $留学生对话=3:
+			LXSCOS=1
+			'<p><<$LXS.name>>: 我仿佛能感受到它的智慧和安抚，好像在微笑地告诉我们要保持宁静、善良。拍照的时候，真的好感动，因为这一刻是与文化与信仰的美妙邂逅。</p>'
+			'<p>我: 哪有人COS成精灵在佛像面前拍照的啊…</p>'
+			'<p><<$LXS.name>>: 我喜欢COSPALY，要你管啊。</p>'
+	   end
+	   if $留学生对话=4:
+			'<p><<$LXS.name>>: 这里的氛围真是燃爆了，感觉整个身体都在跟着节奏摇摆。这个舞池简直就是个能量满满的舞台，我都有点不想离开了</p>'
+			'<p>我: 让我们一起摇摆…</p>'
+			'<p><<$LXS.name>>: 超爱这种狂欢！这里有没有类似我可以做的工作呢？</p>'
+	   end
+	'</div>'
+End
+
+
+if $args[0]="留学_Fuck_按她":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\che1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<4:
+        '<div class="button_menu">'
+            if q=0 :'<div class="buttonS2"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_按她''">为我口交 </a></div>'
+			if q=1 :'<div class="buttonS3"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_按她''">用力吸啊 </a></div>'
+            if q=2 :'<div class="buttonS4"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_按她''">口爆她 </a></div>'
+			if q=3 :'<div class="buttonS5"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_按她''">对话 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:$留学生对话=2 & gt ''留学_事件'',''上车''">带她吃点主食</a></div>'
+            '</div>'
+    end
+
+
+
+    if 3>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:快点，人家下面都湿哒哒的了。</p>'
+             '<p>我:不排斥吗❤</p>'
+             if a>=1:'<p><<$LXS.name>>:喜欢还来不及呢<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=4:
+    	 $LXS.love+=q
+    	 $LXS.bad+=q
+         '<div class="dialog_menu">'
+             '<p>我:很苦吗？你刚才的表情很痛苦。</p>'
+             '<p><<$LXS.name>>:苦尽甘来嘛❤开胃菜之后该吃什么呢❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="温泉起始":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\wq0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:$留学温泉num=3 & gt ''留学_事件'',''留学_Fuck_温泉''">在这里做</a></div>'
+		if $LXS.bad>=my.魅力*6:'<div class="buttonS3"><a href="exec:$留学温泉num=2 & gt ''留学_事件'',''留学_Fuck_温泉''">在温泉里做</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<my.魅力*6>></a></div>'
+		if $LXS.bad>=my.魅力*13:'<div class="buttonS5"><a href="exec:$留学温泉num=1 & gt ''留学_事件'',''留学_Fuck_温泉''">去室外做</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<my.魅力*13>></a></div>'
+		if 温泉油压馆=1:
+				if $LXS.bad>=my.魅力*20:'<div class="buttonG"><a href="exec:LSX温泉=1 & gt ''温泉走廊''">介绍在油压馆工作</a></div>'else:'<div class="buttonGr"><a href="exec:">工作需要堕落><<my.魅力*20>></a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+			a=0 
+			q=0
+			'<p>我: 喜欢这里吗？</p>'
+			'<p><<$LXS.name>>: 当然了，温泉真是天赐的恩惠，它如同大自然的温柔拥抱，将所有疲惫和烦忧一一洗去。融入温暖的泉水中，身心仿佛在柔软的云端漂浮，每一滴水珠都是对心灵的温暖问候。</p>'
+			if 温泉油压馆=1:
+			'<p>我: 我在这里有一家油压馆，你可以来这里打工，只是…我不太放心那些客人会对你动手动脚…</p>'
+			'<p><<$LXS.name>>: 没事的啦…我会狠狠地告诉他们，绝对不可以！</p>'
+			end
+	'</div>'
+End
+
+
+if $args[0]="留学_Fuck_温泉":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\wq<<$留学温泉num>>-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+        '<div class="button_menu">'
+            if q=0 :'<div class="buttonS2"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_温泉''">偷偷插入 </a></div>'
+			if q=1 :'<div class="buttonS3"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_温泉''">加速抽插 </a></div>'
+            if q=2 :'<div class="buttonS4"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_温泉''">射精 </a></div>'
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:a=0 & q=0 & gt ''留学_事件'',''留学_Fuck_房间里''">去房间里</a></div>'
+            '</div>'
+    end
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:要在这里做？不会有人来吧？我有点……兴奋了！</p>'
+             '<p>我:嘘——没人会发现的❤</p>'
+             if a>=1:'<p><<$LXS.name>>:嗯嗯<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=3:
+    	 $LXS.love+=q
+    	 $LXS.bad+=q
+         '<div class="dialog_menu">'
+             if $留学温泉num=2:'<p><<$LXS.name>>:在温泉做爱的那份愉悦真是无法言喻！踏入温暖的泉水，身体仿佛被温柔的慈爱环绕，每一寸肌肤都被释放了压力。泉水的温度恰到好处，让人感觉舒适而宁静。闭上眼睛，深呼吸着清新的空气，仿佛能感受到大自然的怀抱。</p>'
+             if $留学温泉num=3:'<p><<$LXS.name>>:浴衣的带子上都沾满了你的精液，即使浴衣的款式和图案也多种多样，无论是花朵、动物还是传统的和纹，都没有你沾上精液的样子好看。</p>'
+             if $留学温泉num=1:'<p><<$LXS.name>>:快走快走！有人来啦！</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+
+if $args[0]="留学_Fuck_房间里":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\wq4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+
+            if q=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_房间里''">自慰给我看 </a></div>'
+
+            if q=1 or q=2 or q=3 or q=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_房间里''">口我 </a></div>'
+            if q>1:'<div class="buttonS3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_房间里''">坐上来 </a></div>'
+            if a!4 and q>2:'<div class="buttonS4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_房间里''">老汉推车 </a></div>'
+            if a=4 and q>2:'<div class="buttonR4"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_房间里''">换八字腿 </a></div>'
+            end
+
+
+            if q=5:
+            '<div class="buttonR4"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_房间里''">肏到翻白眼 </a></div>'
+            end
+            if q=6:
+            '<div class="buttonR5"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_房间里''">内射中出 </a></div>'
+            end
+            if q=7:
+            '<div class="button"><a href="exec:a=8 & gt ''留学_事件'',''留学_Fuck_房间里''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:继续❤人家还要更多❤满足我饥渴的小穴嘛❤</p>'
+             if a>=1:'<p>我:自慰给我看❤</p>'
+             if a>=2:'<p><<$LXS.name>>:好大❤好硬<<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a>=8:
+    	 $LXS.love+= my.魅力+11
+    	 $LXS.bad+= my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:呼——温泉旅行的感受还不错吧？这种地方很适合情侣来❤</p>'
+             '<p><<$LXS.name>>:在泉水中轻轻相拥，聆听着泉水流淌的声音，仿佛心灵也在共鸣。温泉的温暖不仅融化了疲惫，还融化了心中的种种烦恼，我们彼此更加靠近，更加亲密。温泉旅行成为了我们关系的美好见证❤</p>'
+             '<p>我:真的假的O_o你的语文突飞猛进啊。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="留学_Fuck_接客":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\接客1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+
+            if q=0:'<div class="buttonG1"><a href="exec:a=1 & money-=1888 & gt ''留学_事件'',''留学_Fuck_接客''">更多服务$1888 </a></div>'
+            if q=0:'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+            if q=1 or q=2 or q=3 or q=4:
+            '<div class="buttonG2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_接客''">全身润滑 </a></div>'
+            '<div class="buttonG3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_接客''">私处按摩 </a></div>'
+            '<div class="buttonG4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_接客''">胸推 </a></div>'
+            '<div class="buttonG5"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_接客''">口交 </a></div>'
+            end
+
+
+            if q=5:
+            '<div class="buttonG4"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_接客''">坐上来 </a></div>'
+            end
+            if q=6 or q=7 or q=8:
+            if a!8: '<div class="buttonG5"><a href="exec:a=8 & gt ''留学_事件'',''留学_Fuck_接客''">背过身去 </a></div>'
+            if a=8: '<div class="buttonG4"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_接客''">转过来 </a></div>'
+            end
+
+            if q=9:
+            '<div class="buttonG"><a href="exec:a=9 & gt ''留学_事件'',''留学_Fuck_接客''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:gt ''歌舞伎町''">结账离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:<<$主角姓名>>❤我现在在这里当风俗娘，不过你要相信我，绝对没有哪种服务。</p>'
+             if a>=1:'<p>我:真的吗？</p>'
+             if a>=2:'<p><<$LXS.name>>:嗯，我不和客人做的<<$娇喘声2>></p>'
+         '</div>'
+    end
+    if 8>=a and a>=6:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:<<$主角姓名>>❤这也是只有你才有的特殊服务，你要相信我，绝对没有哪种服务。</p>'
+         '</div>'
+    end
+
+
+    if a>=9:
+    	 $LXS.love+= my.魅力
+    	 $LXS.bad+= my.魅力
+         '<div class="dialog_menu">'
+             '<p>我:我没带套不要紧吧？</p>'
+             '<p><<$LXS.name>>:没事的啦❤早习惯了，现在避孕药我每天都当维生素吃的。</p>'
+             '<p>我:嗯？O_o</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="帐篷约会":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\LXS\vids\帐篷1-<<$留学生帐篷>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		if $留学生帐篷=0:'<div class="button"><a href="exec:$留学生帐篷=1 & gt ''留学_事件'',''帐篷约会''">去生火</a></div>'
+		if $留学生帐篷=1:'<div class="button"><a href="exec:$留学生帐篷=2 & gt ''留学_事件'',''帐篷约会''">烤棉花糖</a></div>'
+		if $留学生帐篷=1:'<div class="button"><a href="exec:$留学生帐篷=3 & gt ''留学_事件'',''帐篷约会''">烤牛排</a></div>'
+		if $留学生帐篷=3:
+			'<div class="buttonG3"><a href="exec:money-=200 & gt ''留学_事件'',''留学_Fuck_帐篷花''">放烟花￥200</a></div>'
+			if 茅台>0:'<div class="buttonR3"><a href="exec:茅台-=1 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">喝红色茅台酒</a></div>'else:'<div class="buttonGr"><a href="exec:">缺少茅台酒</a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''公园''">差不多了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $留学生帐篷=0:
+			'<p><<$LXS.name>>: 我来啦~这次是去露营吗？好耶好耶！</p>'
+		end
+		if $留学生帐篷=1:
+			'<p>我: 你很擅长这个吗？</p>'
+		end
+		if $留学生帐篷=2:
+			'<p><<$LXS.name>>:  棉花糖烤焦了……</p>'
+		end
+		if $留学生帐篷=3:
+			'<p><<$LXS.name>>:  完美的五分熟牛排！大成功</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="留学_Fuck_帐篷酒":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\帐篷3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if q=0 or q=1 or q=2 or q=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">醉酒口交 </a></div>'
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">玩弄骚穴 </a></div>'
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">酒后乱叫 </a></div>'
+            if q>=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">大力抽插 </a></div>'
+            end
+            if q=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">醉酒狂暴抽插 </a></div>'
+            
+            if q=5:
+            '<div class="buttonR3"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_帐篷酒''">射精 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''歌舞伎町''">送她回家</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:这是什么？我只喝过红色的葡萄酒。</p>'
+             '<p>我:尝尝这个，红色的茅台酒。</p>'
+         '</div>'
+    end
+
+    if 5>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:想要了<<$娇喘声>></p>'
+             '<p>我:酒劲这么足吗？</p>'
+             if a>=3:'<p><<$LXS.name>>:哦哦哦噢噢噢噢还要哦哦哦哦哦哦噢噢噢噢很棒哦哦哦哦哦哦噢噢噢噢给我啊啊哦哦哦噢噢噢噢给我❤</p>'
+         '</div>'
+    end
+
+
+    if a>=6:
+    	 $LXS.love+=my.魅力+q
+    	 $LXS.bad+=my.魅力+q
+         '<div class="dialog_menu">'
+             '<p>我:Hello，还有意识吗？</p>'
+             '<p><<$LXS.name>>:I am, like, so happy right now, you have no idea.Ohhhh, never drinking again after tonight.</p>'
+             '<p>我:看来是到位了。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="留学_Fuck_帐篷花":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LXS\vids\帐篷2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if q=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''留学_事件'',''留学_Fuck_帐篷花''">揉奶子 </a></div>'
+            if q=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''留学_事件'',''留学_Fuck_帐篷花''">脱裤子 </a></div>'
+            if q=2 or q=3:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''留学_事件'',''留学_Fuck_帐篷花''">含住口我 </a></div>'
+            '<div class="buttonS4"><a href="exec:a=4 & gt ''留学_事件'',''留学_Fuck_帐篷花''">摸下体 </a></div>'
+            end
+            if q=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''留学_事件'',''留学_Fuck_帐篷花''">深深插入她 </a></div>'
+            
+            if q=5:'<div class="buttonR3"><a href="exec:a=6 & gt ''留学_事件'',''留学_Fuck_帐篷花''">加速抽插 </a></div>'
+
+            if q=6:'<div class="buttonR3"><a href="exec:a=7 & gt ''留学_事件'',''留学_Fuck_帐篷花''">射精 </a></div>'
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=60 & gt ''歌舞伎町''">送她回家</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$LXS.name>>:烟花的声音在夜空中轻轻回荡，仿佛在为夜晚增添了一丝神秘的音乐。当彩色火花绽放时，我几乎能感受到它们的温暖和能量，仿佛是大自然为我点燃的一把火焰。在烟花绚烂的瞬间，我不禁陶醉其中，忘记了一切烦恼，只剩下心中的喜悦和宁静。</p>'
+             '<p>我:能看到你这样说，我对你的语言水平很放心。</p>'
+         '</div>'
+    end
+
+    if 6>=a and a>=1:
+         '<div class="dialog_menu">'
+         	 '<p>我:来做吧，我忍不住了。</p>'
+             '<p><<$LXS.name>>:在这里吗<<$娇喘声>></p>'
+             if a>=5:'<p><<$LXS.name>>:嗯嗯<<$话>></p>'
+         '</div>'
+    end
+
+
+    if a>=7:
+    	 $LXS.love+=my.魅力+q
+    	 $LXS.bad+=my.魅力+q
+         '<div class="dialog_menu">'
+             '<p>我:可以教我几句英语吗？</p>'
+             '<p><<$LXS.name>>:I am such a goofball.</p>'
+             '<p>我:啥意思？</p>'
+             '<p><<$LXS.name>>:我是个大帅哥。</p>'
+             '<p>我:I am such a goofball.</p>'
+             '<p><<$LXS.name>>:哈哈哈。</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+--- 留学_事件 ---------------------------------
+

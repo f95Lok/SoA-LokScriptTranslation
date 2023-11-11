@@ -1,0 +1,311 @@
+# 炸弹学校
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+!gs'menu_gif'
+my.精力=999
+hour=1
+$随机数=rand(0,100)
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+				'<a class="photo" data-title="校长室"><img class="img_stretch" src="images\place\校长室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="副校长室"><img class="img_stretch" src="images\place\副校长室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="西语办公室"><img class="img_stretch" src="images\place\西语办公室2.jpg"></a>'
+			'</div>'
+				
+			'<div class="action">'
+				'<a class="photo" data-title="生物办公室"><img class="img_stretch" src="images\place\生物办公室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="学生会"><img class="img_stretch" src="images\place\学生会2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="教室" ><img class="img_stretch" src="images\place\教室2.jpg"></a>'
+			'</div>'
+			
+			'<div class="action">'
+				'<a class="photo" data-title="午夜走廊" href="exec:gt ''炸弹学校''"><img class="img_stretch" src="images\place\午夜走廊.jpg"></a>'
+			'</div>'
+			
+		'<div class="action">
+			<a class="photo" data-title="地下交通[停运]" ><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+			
+		'<div class="action">'
+			'<a class="photo" data-title="器材室" href="exec:gt ''炸弹学校'',''器材室''"><img class="img_stretch" src="images\NPC\TS\pics\器材室.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="游泳池" href="exec:gt ''炸弹学校'',''游泳池''"><img class="img_stretch" src="images\NPC\TS\pics\游泳池.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="学生社团" href="exec:gt ''炸弹学校'',''社团''"><img class="img_stretch" src="images\NPC\TS\pics\社团.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="多媒体教室" href="exec:gt ''炸弹学校'',''多媒体教室''"><img class="img_stretch" src="images\NPC\TS\pics\多媒体教室.jpg"></a>'
+		'</div>'
+     '</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\午夜走廊.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''拆除炸弹''">☠炸弹☠</a></div>'
+		'<div class="buttonGr"><a href="exec:">逃出去</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：嘘，小声点，这可是绝对机密。有颗炸弹就在你的学校里，而你是唯一一个能够拆除它的人。如果你不想看到你所爱的人受到伤害，那就感受…痛苦吧！</p>'
+		'<p>我: 可恶的混蛋！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="器材室":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''器材室解码''">尝试解码</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：嘘，小声点，听到了没？难道说这颗炸弹就在里面吗？！我想起来了！这里可是我们发生第一次的地方…</p>'
+		'<p>我: 可恶的混蛋！</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="器材室解码":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\不同.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''小丑失败''">2处</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''器材室成功''">3处</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''小丑失败''">4处</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''小丑失败''">5处</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：嘿！看看这两台相机，其中一台是我的，另一台是假的。它们有几处不同，我希望你能找出它们的不同之处，然后告诉我哪一台是我的相机。我的天使！你应该还记得吧！</p>'
+		'<p><<$TS.name>>: 右边那台是他的…</p>'
+		'<p>【校园广播】：天哪！我的天使！你居然一眼就认出了它！好吧，如果你的小男友能找几处不同，我就会让你们继续前进，去寻找那个臭氧味十足的炸弹！</p>'
+		'<p>我: ………</p>'
+	'</div>'
+end
+
+if $ARGS[0]="器材室成功":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\开锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''炸弹学校''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·随着一串提示音，保险箱打开了，其中掉出了一卷录影带，很明显就是来自这台相机的。</p>'
+		'<p>【校园广播】：哦，看来你完成了一个挑战。我要承认，你的表现还算可以，但是我觉得你需要更加努力才能挑战到我的极限！</p>'
+		'<p>我: ………</p>'
+		TS录像1=1
+	'</div>'
+end
+
+
+if $ARGS[0]="游泳池":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\学校1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''天使_事件'',''TS_Fuck_学校''">答应</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校''">拒绝</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+             '<p><<$TS.name>>:那家伙一定躲在广播室里窥视我们，我们得把他引出来。</p>'
+             '<p>我:怎么引？</p>' 
+             '<p><<$TS.name>>:按我说的做就行……</p>'
+	'</div>'
+end
+
+if $ARGS[0]="社团":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:小丑问题=0 & 小丑统计B=0 & 小丑统计C=0 & gt ''炸弹学校'',''社团解码''">尝试解码</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：嘘，滴答滴答…滴答滴答…死亡的倒计时…</p>'
+		'<p>我: 可恶的混蛋！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="社团解码":
+	小丑问题+=1
+	if 小丑问题=6:
+		if 小丑统计B=3 and 小丑统计C=2:gt'炸弹学校','社团成功'else:gt'炸弹学校','小丑失败'
+	end
+
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\问题<<小丑问题>>.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''社团解码''">A</a></div>'
+		'<div class="buttonR"><a href="exec:小丑统计B+=1 & gt ''炸弹学校'',''社团解码''">B</a></div>'
+		'<div class="buttonR"><a href="exec:小丑统计C+=1 & gt ''炸弹学校'',''社团解码''">C</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''炸弹学校'',''社团解码''">D</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：我是在你们眼里可能是疯子、神经病的人，但是我是一个天才，一个充满创造力和想象力的天才！所以，别急着嘲笑我，先来看看你自己能不能做到，嘿嘿嘿……</p>'
+		'<p><<$TS.name>>: ……</p>'
+		'<p>【校园广播】：啊！我的天使！让我们一起被炸飞吧！</p>'
+		'<p>我: ………</p>'
+		
+	'</div>'
+end
+
+
+if $ARGS[0]="小丑失败":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\TS\vids\游戏开始.webm" type=''video/webm;''></video></div>'
+	'</div>'
+        
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''炸弹学校''">挣脱束缚</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：嘿嘿嘿嘿，你不断尝试的模样真像一个小丑！听啊…滴答滴答…死亡的倒计时又开始了…</p>'
+		'<p>我: ………</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="社团成功":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\开锁.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''炸弹学校''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·随着咔哒一声，保险箱打开了，其中掉出了一卷录影带……</p>'
+		'<p>【校园广播】：哇偶，难以置信！你看起来比蝙蝠侠还聪明！我不得不承认，你的智商简直是犯罪级别的！哈哈哈！</p>'
+		'<p>我: ………</p>'
+		TS录像3=1
+	'</div>'
+end
+
+
+if $ARGS[0]="多媒体教室":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\多媒体教室.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if TS录像1+TS录像2+TS录像3>0:'<div class="button"><a href="exec:gt ''炸弹学校'',''独自观看''">留她独自观看</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">？？？</a></div>'
+		if TS录像1=1:'<div class="button"><a href="exec:gt ''天使_事件'',''TS_Fuck_录像1''">观看第一卷</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">未插入</a></div>'
+		if TS录像2=1:'<div class="button"><a href="exec:gt ''天使_事件'',''TS_Fuck_录像2''">观看第二卷</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">未插入</a></div>'
+		if TS录像3=1:'<div class="button"><a href="exec:gt ''天使_事件'',''TS_Fuck_录像3''">观看第三卷</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''">未插入</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：友情提示！解除炸弹的密码我放在了影片最后！这么大的屏幕，你们能看得更仔细！</p>'
+		'<p>我: 可恶的混蛋！</p>'
+		'<p><<$TS.name>>: <<$主角姓名>>…录像带我想自己一个人看，我答应你我会告诉你密码的。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="独自观看":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\独自.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''炸弹学校''">记在心里</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$TS.name>>: 你没有偷看吧？我念给你听…</p>'
+		if TS录像1=1:'<p><<$TS.name>>: 第一卷的密码是…CH</p>'
+		'<p><<$TS.name>>: ……</p>'
+		if TS录像2=1:'<p><<$TS.name>>: 第二卷的密码是…AO</p>'
+		'<p><<$TS.name>>: ……</p>'
+		if TS录像3=1:'<p><<$TS.name>>: 第三卷的密码是…S</p>'
+		'<p><<$TS.name>>: ……</p>'
+	'</div>'
+end
+
+if $ARGS[0]="拆除炸弹":
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\炸弹.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''炸弹学校'',''拆除炸弹2''">尝试拆除</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【校园广播】：感受到…我的…痛苦了吗？你從來沒在聽我说的话，對吧？患上精神病最可悲的是，旁人總期待你假裝自己沒病。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="拆除炸弹2":
+	$拆弹密码 = $TRIM($LCASE($input('拆弹密码')))
+	if $拆弹密码!'chaos':gt'炸弹学校','小丑失败'
+	'<div class ="show_menu"><img src="images\NPC\TS\pics\炸弹2.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:gt ''炸弹学校'',''拆除成功''">等到天亮</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>☠☠☠☠☠☠</p>'
+		'<p><font size="50">砰——！</font></p>'
+		'<p>杰罗姆: 啊哈哈哈哈哈哈！有没有被我吓一跳？这从头到尾就是一个假炸弹！你不会真的以为我的发疯到要把学校炸了吧？</p>'
+		'<p>我: 快放了我们…</p>'
+		'<p>杰罗姆: 放了你们？我又没有囚禁你们，天亮了学校的大门会自动打开，你们被我骗了吧！嘻嘻嘻！</p>'
+		'<p><<$TS.name>>：清水君…我…</p>'
+		'<p>杰罗姆: 喔？！糟糕！再不回去我就要被发现了，我的天使！别为我难过！哈啊哈哈哈啊啊哈啊啊啊哈哈哈哈哈哈！让让让我们下次再见，我的天使！</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="拆除成功":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TS\vids\拆除成功.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        
+	'<div class="button_menu">'
+		'<div class="buttonGn"><a href="exec:$炸弹事件=1 & hour=8 & gt ''大学''">天亮了</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我：………</p>'
+		'<p><<$TS.name>>：………</p>'
+		'<p>我：那…现在…我们是什么关系了？</p>'
+		'<p><<$TS.name>>：我能托付你，信赖你，依靠你吗？</p>'
+		'<p>我：人不能犯错两次，对吗？</p>'
+	'</div>'
+end
+
+
+
+
+
+--- 炸弹学校 ---------------------------------
+

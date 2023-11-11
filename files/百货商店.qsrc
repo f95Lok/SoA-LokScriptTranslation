@@ -1,0 +1,213 @@
+# 百货商店
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+if 大别墅初次=2:gt'群演_事件','开启锤子帮'
+
+if TJ任务=1:gt'执行官_事件','执行官_Fuck_超市'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+
+	 if 金坷垃>=0 and money>=500:
+		'<div class="action">'
+		'<a class="photo" data-title="金坷垃 (500￥/10袋) " href="exec:money-=500 & 金坷垃+=10 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\金坷垃.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if 金坷垃>=0 and money<500:
+		'<div class="action">'
+		'<a class="photo" data-title="金坷垃 (500￥/10袋) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\金坷垃.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $JM_Event_grandpa=1 and money>=6:
+		'<div class="action">'
+		'<a class="photo" data-title="灯泡 (6￥) " href="exec:money-=6 & 灯泡+=1 & $JM_Event_grandpa=2 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\灯泡.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if $JM_Event_grandpa=1 and money<6:
+		'<div class="action">'
+		'<a class="photo" data-title="灯泡 (6￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\灯泡.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if 茅台>=0 and money>=2799:
+		'<div class="action">'
+		'<a class="photo" data-title="飞天茅台 (2799￥) " href="exec:money-=2799 & 茅台+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\茅台.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if 茅台>=0 and money<2799:
+		'<div class="action">'
+		'<a class="photo" data-title="飞天茅台 (2799￥)  " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\茅台.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if 精油>=0 and money>=198:
+		'<div class="action">'
+		'<a class="photo" data-title="按摩精油 (198￥) " href="exec:money-=198 & 精油+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\精油.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if 精油>=0 and money<198:
+		'<div class="action">'
+		'<a class="photo" data-title="按摩精油 (198￥)  " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\精油.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if 燃气阀=0 and money>=198:
+		'<div class="action">'
+		'<a class="photo" data-title="燃气阀 (198￥) " href="exec:money-=198 & 燃气阀+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\燃气阀.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if 燃气阀=0 and money<198:
+		'<div class="action">'
+		'<a class="photo" data-title="燃气阀 (198￥)  " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\燃气阀.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if 摄像头>=0 and money>=1499:
+		'<div class="action">'
+		'<a class="photo" data-title="隐形摄像头 (1499￥) " href="exec:money-=1499 & 摄像头+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\摄像头.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if 摄像头>=0 and money<1499:
+		'<div class="action">'
+		'<a class="photo" data-title="隐形摄像头 (1499￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\摄像头.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if 相机=0 and money>=14999:
+		'<div class="action">'
+		'<a class="photo" data-title="佳能R6单反 (14999￥) " href="exec:money-=14999 & 相机+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\佳能R6单反.jpg"></a>'
+		'</div>'
+	 end
+		
+	 if 相机=0 and money<14999:
+		'<div class="action">'
+		'<a class="photo" data-title="佳能R6单反 (14999￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\佳能R6单反.jpg"></a>'
+		'</div>'
+	 end
+	 
+	 if 电视机=0:
+		if money>=7999:
+			'<div class="action">'
+			'<a class="photo" data-title="8K电视机 (7999￥) " href="exec:money-=7999 & 电视机+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\电视.jpg"></a>'
+			'</div>'
+		else:
+		'<div class="action">'
+		'<a class="photo" data-title="8K电视机 (7999￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\电视.jpg"></a>'
+		'</div>'
+		end
+	 end
+	 
+     if 电吉他=0 and $选秀事件链=1:
+        if money>=7999:
+            '<div class="action">'
+            '<a class="photo" data-title="电吉他 (7999￥) " href="exec:money-=7999 & $选秀事件链=2 & 电吉他+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\电吉他.jpg"></a>'
+            '</div>'
+        else:
+        '<div class="action">'
+        '<a class="photo" data-title="电吉他 (7999￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\电吉他.jpg"></a>'
+        '</div>'
+        end
+     end
+	 
+	 if 大别墅初次=3:
+        if money>=500:
+            '<div class="action">'
+            '<a class="photo" data-title="大锤 (500￥) " href="exec:money-=500 & 大别墅初次=4 & 大锤+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\大锤.jpg"></a>'
+            '</div>'
+        else:
+        '<div class="action">'
+        '<a class="photo" data-title="大锤 (500￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\大锤.jpg"></a>'
+        '</div>'
+        end
+     end
+     
+     
+	 if Anal_plug=0:
+		if money>=199:
+			'<div class="action">'
+			'<a class="photo" data-title="粉钻肛塞 (199￥) " href="exec:money-=199 & Anal_plug+=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\Anal_plug.jpg"></a>'
+			'</div>'
+		else:
+		'<div class="action">'
+		'<a class="photo" data-title="粉钻肛塞 (199￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\Anal_plug.jpg"></a>'
+		'</div>'
+		end
+	 end
+     
+     
+     
+	'</div>'
+'</div>'
+
+if rand(0,100)>2:
+'<div class ="show_menu"><img src="images\place\百货商店.jpg" width="854"></div>'
+else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\彩蛋4.webm" type=''video/webm;''></video></div>'
+        '</div>'
+end
+
+'<div class="button_menu">'
+	if $JJ.event_购物=1:
+	'<div class="button"><a href="exec:minutes+=30 & $JJ.event_购物=2 & gt ''百货商店''">姐姐的采购清单</a></div>'
+	end
+	if $SF_Event_gold=1 and money>=8000:
+	 '<div class="button"><a href="exec:minutes+=30 & $SF_Event_gold=2 &money-=8000 & gt ''百货商店''">赎回古董表￥8000</a></div>'
+	 elseif $SF_Event_gold=1 and money<8000:
+	 '<div class="buttonGr"><a href="exec:">赎回古董表￥8000</a></div>'
+	end
+	if $局长x舅妈委托=1:'<div class="button"><a href="exec:minutes+=30 & gt ''任务_事件'',''送货任务''">送货上门</a></div>'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+'</div>'
+
+
+if $ARGS[0]="":
+'<div class="dialog_menu">'
+	'<p>百货商店，可以买到一切商品！（广告语写的未免也太夸张了...）</p>'
+	'<p>————————————————————————————————</p>'
+	if $JJ.event_购物=2:
+	'<p>花了很多时间，才买齐了尿素1.1千克，普钙3.17千克，硫酸钾3.17千克，硫酸镁0.45千克</p>'
+	'<p>接下来应该去姐姐的药厂交给她。</p>'
+	'<p>————————————————————————————————</p>'
+	end
+	if $XY_Event_bag=1 :
+		bagrand=bagcount*10
+		bagrand1=rand(0,100)
+		'<p>首发版限量包包的每日签到抽奖活动正在进行中，每日13-15时即可参加。</p>'
+		if 每日抽奖=0 and 13<=hour and hour<=15 :'<p><a href="exec:minutes+=15 & bagcount+=1 &每日抽奖=1& gt ''百货商店''">打卡签到</a></p>'
+		'<p>签到次数：<<bagcount>>/∞</p>'
+		if bagrand<bagrand1:'<p>中奖概率：<<bagrand>>% <a href="exec:minutes+=15 & bagcount=0 & gt ''百货商店''">参与抽奖</a></p>'
+	 if bagrand>=bagrand1:'<p>中奖概率：<<bagrand>>% <a href="exec:minutes+=15 & bagcount=0 & bagrand2+=1 & gt ''百货商店''">参与抽奖</a></p>'
+		if bagrand2>0:'<p>购买资格✔POCHETTE MÉTIS EAST WEST 手袋 13700￥ <a href="exec:minutes+=15 & bagrand2-=1 & bag+=1 & money-=13700  & gt ''百货商店''">贷款购买 13700￥</a></p>'
+		if bag>0:'<p>现已拥有✔POCHETTE MÉTIS EAST WEST 手袋 13700￥ <a href="exec:minutes+=15 & bag-=1 & money+=20550  & gt ''百货商店''">卖给黄牛20550￥</a></p>'
+		'<p>————————————————————————————————</p>'
+	end
+'</div>'
+end
+
+
+if $ARGS[0]!"":
+'<div class="dialog_menu">'
+	'<p>百货商店，可以买到一切商品！（广告语写的未免也太夸张了...）</p>'
+	'<p>————————————————————————————————</p>'
+	'<p>*<<$ARGS[0]>></p>'
+	'<p>————————————————————————————————</p>'
+'</div>'
+end
+
+ 
+--- 百货商店 ---------------------------------
+

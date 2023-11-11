@@ -1,0 +1,102 @@
+# menu_charac_gg
+cls
+gs'menu_time_calc'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_mainnpc'
+	gs'menu_act_hidden'
+'</div>'
+
+!'<div id="left-column">'
+'<div id="left-column1">'
+	'<div class="charac_gg_foto"><img src="images\intro\pick<<intro_pick>>.jpg" width="300" height="430"></div>'
+	'<p><span class="bold">名字：<<$主角姓名>></p>'
+	'<p><span class="bold">生日：2000年1月1日</p>'
+	'<p><span class="bold">魅力：<<$显示魅力>></p>'
+	'<p><span class="bold">智力：Lv<<my.智力>>_✭<<$智力[my.智力]>> ▶▶▶ ( <<Exp_智力>>△ / <<needExp_智力>> ) </p>'
+	'<p><span class="bold">道德：<<my.道德>></p>'
+
+	'<p><span class="bold">身材：Lv<<my.体力>>_✭<<$身材[my.体力]>> ▶▶▶ ( <<Exp_身材>>△ / <<needExp_身材>> ) </p>'
+
+	'<p><span class="bold">技能：<<$烹饪[my.烹饪]>> </p>'
+
+
+
+	'<p><span class="bold">兼职：<<$健身教练>><<$入境审核员>></p>'
+
+	'<p><span class="bold">成就：<<$异世界归来>><<$改写未来之人>><<$钱包鼓鼓者>><<$帝国001>><<$一家之主>><<$校园话事人>><<$电视台之王>><<$荧幕主宰>><<$模范囚犯>><<$魅力异常者>><<$精力异常者>></p>'
+
+	if 帝国level>=1:'<p><span class="bold">帝国职位：M<<帝国level>>级 ▶▶▶ 晋升条件：<<xp>>/<<exp>> 经验</p>'
+
+
+
+
+	'<div class ="charac_quest_txt1">'
+		'<p>你好，我叫【<<$主角姓名>>】！'
+		if intro_pick=1: 
+		'呃(⊙o⊙)…我只知道，我天生就特别聪明，学得飞快。 </p>'
+		'我是妈妈生的，但我从没见过她。我的父亲在大山里野炊时遇到了雪豹...已经成植物人2年了。 </p>'
+		end
+		
+		if intro_pick=2: 
+		'好了，我知道我很帅，别再盯着我的脸看了！ </p>'
+		'听着，我的父亲是一名知名导演，从小就有无数的化妆师，造型师陪我玩耍。耳濡目染的我天生就受人瞩目，我的梦想就是出演男一号！但父亲2年前因为酗酒导致了中风昏迷，这对我来说是个坏消息。</p>'
+		end
+		
+		if intro_pick=3: 
+		'如你所见，我老爹很有钱！ </p>'
+		'我的老爹？他在一场全球性的疫情中倒卖呼吸机发了一大笔横财，但2年前因为质量问题被患者家属打成了脑梗，现在还躺在ICU里呢....不过，这对我来说其实是个继承遗产的好机会。 </p>'
+		end
+		
+		if intro_pick=4: 
+		'从异世界归来是什么感受？老实说那里的妹子可给劲多了！ </p>'
+		'我现世的老爹居然还昏迷不醒？拜托，这都过去多久了？看来我得想想办法了....</p>'
+		end
+		
+		'如今父亲不省人事多年，公司也已经停摆许久。是时候有人来 <b>接管他的公司，照顾他的女人了！</b></p>'
+		
+		'</div>'
+'</div>'
+
+'<div class="options_back"><a href="exec:gt''menu_charac_gg'',''info''"><div class="settings_back_menu1"></div></a></div>'
+'<div class="options_back"><a href="exec:gt $loc,$metka"><div class="settings_back_menu"></div></a></div>'
+
+if $args[0] = 'info':
+	cls
+	'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs'menu_act_hidden'
+'</div>'
+	'<div id ="main-show-menu">'
+	'</p>保存文件位于 C:\Users\Your Name\Documents\Сохраненияигр Quest Navigator</p>'
+	'可用于后续版本的存档替换工作。</p>'
+	'————————————</p>'
+	'当前版本号为V48.8正式版</p>'
+	if year>=2024 and 日期计数君>=9:
+	'更新内容请访问下方链接↓</p>'
+	'<a href="https://airtable.com/shrTk6XoBuLuMlI3s"> https://airtable.com/shrTk6XoBuLuMlI3s</a></p>'
+	'这是我唯一的游戏发布页↑更没更新您看这里就行了，我没理由秘密更新不通知你的</p>'
+	end
+	'————————————</p>'
+	'·如果您看到此版本，说明我已经踏上了远洋的货轮。</p>'
+	'·我装满了所有可以携带的硬盘，用于后续游戏的制作。</p>'
+	'·船上枯燥的生活浇灭不了我的热情，而正是你们的支持才让我重燃希望。 </p>'
+	'·作者目前已出境，孜然一身。 </p>'
+	'·抱薪者毙于风雪，开路者死于荆棘是这个时代的悲哀。 </p>'
+	'·每一代人都有每一代人的长征，而现在，我的长征开始了。 </p>'
+	'  ..   ....  .-  ...-  .   -  .-.  -.--   --  -.--   -...  .  ...  - </p>'
+	'————————————</p>'
+
+	'</div>'
+	
+	
+
+'<div class="options_back"><a href="exec:gt $loc,$metka"><div class="settings_back_menu"></div></a></div>'
+	
+	
+end
+--- menu_charac_gg ---------------------------------
+

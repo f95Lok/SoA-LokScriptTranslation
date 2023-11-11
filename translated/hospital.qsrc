@@ -1,0 +1,89 @@
+# hospital
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+
+$killer_dialogue=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Go home" href="exec:minutes+=25 & gt ''home''"><img class="img_stretch" src="images\place\回家_小图.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Residential area" href="exec:minutes+=15 & gt ''residential_area''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	if $caesar_works_part_time=1 and hour=14 and 50<= rand(0,100) : gt 'task_event','huntingpassersby'
+	'<div class ="show_menu"><img src="images\place\医院_<<$times_of_day>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital'',''hospital_administration_building''">3F Administrative Building</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''ward''">Ward 2F</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''hospital'', ''hospital_outpatient''">1F outpatient clinic</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·This private hospital has a complete range of outpatient treatments, from traditional medicines to happy dream treatments.In addition to the medical aesthetic plastic surgery that makes the hospital proud, there is also an innovative project “recruitment of drug testers” that is completely isolated from the outside world.</p>'
+		'<p>·Some people believe that drug testing is the key to clinical trials of new drugs.Others suspect that these so-called psychologists are doing shady things!</p>'
+	'</div>'
+End
+
+
+ if $args[0]="hospital_administration_building":
+	'<div class ="show_menu"><img src="images\place\医院_<<$times_of_day>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		
+		'<div class="button"><a href="exec:minutes+=5 & gt ''deans_office''">Dean`s Office</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·This private hospital has a complete range of outpatient treatment methods, from traditional medicines to sleep therapy.In addition to the medical aesthetic plastic surgery that makes the hospital proud, there is also an innovative project “drug tester recruitment program” that is completely isolated from the outside world.</p>'
+		'<p>·Some people believe that drug testing is the key to clinical trials of new drugs.Others suspect that these so-called psychologists are doing shady things!</p>'
+	'</div>'
+End
+
+if $args[0]="hospital_outpatient":
+	'<div class ="show_menu"><img src="images\place\医院场景\门诊走廊0.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$zx_waits_for_num=rand(0,2) &  gt ''plastic_surgery_department'',''waiting_before_plastic_surgery''">Plastic Surgery Department</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''andrology''">Andrology</a></div>'
+		if $front_desk_event_throat=4:'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''foreground_event'',''throat_department''">Throat department</a></div>'
+		if $SS_Event_free>=1:'<div class="button"><a href="exec:minutes+=5 & gt ''sperm_donation_room''">Sperm donation room</a></div>'else:'<div class="buttonGr"><a href="exec:">Under repair</a></div>'
+		if $squad_leader_event_chain_b=2:'<div class="buttonPu4"><a href="exec:minutes+=5 & gt ''student_group_event'',''squad_leader_b5''">Department of Anesthesiology</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·No examination + no illness= If you don`t have an examination, you say you are not sick. Will you see a doctor?</p>'
+		'<p>·No examination + sick= If you don`t have an examination, you will say you are sick. Will you see a doctor?</p>'
+		'<p>·Checked + not sick= You are fucking not sick and let Lao Tzu waste money for an examination, will you see a doctor?</p>'
+		'<p>·Checked + sick= You can`t see if you don`t have a fucking machine!</p>'
+		'<p>·Diagnosed= This doctor is not good at the level, I will change another one!</p>'
+		'<p>·Undiagnosed= This doctor`s level is not good, I will change it again!</p>'
+		'<p>·Cured=Huh, except for death in life, everything else is a scratch!</p>'
+		'<p>·Not cured=**Doctor, make money and kill!</p>'
+	'</div>'
+End
+
+
+
+
+--- hospital ---------------------------------
+

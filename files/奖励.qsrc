@@ -1,0 +1,242 @@
+# 奖励
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	'<div class="actions_menu"></div>'
+'</div>'
+
+
+if $args[0] ='':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg0.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:  gt ''奖励'',''输入密码''">输入密码</a></div>'
+		if 日期计数君>=2:'<div class="button"><a href="exec:  gt ''奖励'',''下载''">哪里能下载？！</a></div>'else:'<div class="buttonGr"><a href="exec:">哪里能下载？！</a></div>'
+		'<div class="button"><a href="exec:  gt ''警察局''">返回</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑</p>'
+		'<p>如果你完成了本游戏的《独立番外篇·NONLETHAL毒药》就可以凭借通关密码获得丰厚奖励。</p>'
+		'<p>☹说句实话，QSP引擎完全限制了我讲故事的能力，这篇短作才能看出我的叙事水准。</p>'
+	'</div>'
+End
+
+if $args[0] ='输入密码':
+	$彩蛋密码 = $TRIM($LCASE($input('通关密码')))
+	'<div class="show_menu">'
+		'<img src="images\intro\bg0.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $彩蛋密码=20230404:'<div class="buttonG"><a href="exec:  gt ''奖励'',''领取奖励''">领取奖励</a></div>'
+		if $彩蛋密码!20230404:'<div class="button"><a href="exec:  gt ''奖励'',''下载''">哪里能下载？！</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·爱因斯坦说：“过去、现在和未来的区别只是执着的幻觉。”</p>'
+		if $彩蛋密码=20230404:
+		'<p>·通关密码正确！再次感谢您的游玩。我相信您已经知道下毒的人是谁了，他是整个游戏中唯一的色盲。</p>'
+		end
+		if $彩蛋密码!20230404:
+		'<p>·阿偶，密码错误。</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0] ='下载':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg0.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec:  gt ''警察局''">返回</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>↓↓《独立番外篇·NONLETHAL毒药》下载地址↓↓</p>'
+		'<p></p>'
+			'<a href="https://airtable.com/appwOhEh0imH0enzP/shrTzofTAgFVYvDCq"> https://airtable.com/appwOhEh0imH0enzP/shrTzofTAgFVYvDCq</a></p>'
+		'<p></p>'
+		!'<p>·当然您懒得游玩也可以直接购买奖励密钥！</p>'
+		'<p></p>'
+	'</div>'
+End
+
+
+if $args[0] ='领取奖励':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec:  gt ''警察局''">领取并返回</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>？？？：恭喜您获得，金钱+50000，三围（魅力/智力/身材）+3 ，精力值上限+100  ，以及一个✌的胜利手势。</p>'
+		'<p>？？？：最后 ，再次感谢您的游玩，祝您玩的开心。</p>'
+		通关奖励领取+=1
+		if  通关奖励领取=1:
+			money+=50000
+			my.魅力 += 3
+			my.智力 += 3
+			my.体力 += 3
+			mymax[精力] += 100
+		end
+		if  通关奖励领取>1:'<p>？？？：呃(⊙o⊙)…您已经领取过了，小傻瓜。</p>'
+	'</div>'
+End
+
+
+if $args[0] ='传送阵':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class ="show_menu"><img src="images\place\大别墅\召唤仪式2.jpg" width="854"></div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+         '<div class="buttonG"><a href="exec:gt ''奖励'',''输入DLC奖励''">DLC通关奖励</a></div>'
+         '<div class="button"><a href="exec:my.精力=0 & gt ''群演_事件'',''迷_Fuck_D魅魔''">zzZ</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·地上的传送阵突然开始发光了</p>'
+		'<p>↓↓DLC下载地址↓↓</p>'
+		'<p>·新·<a href="https://airtable.com/appTA0ybIvQo8NUtC/shrqAGe9tVRTijS4a"> https://airtable.com/appTA0ybIvQo8NUtC/shrqAGe9tVRTijS4a</a></p>'
+		'<p>·当然您懒得游玩同样也可以直接购买DLC奖励密钥！</p>'
+		'<p></p>'
+	'</div>'
+End
+
+
+if $args[0] ='输入DLC奖励':
+	$DLC密码 = $TRIM($LCASE($input('DLC密码')))
+	'<div class ="show_menu"><img src="images\place\大别墅\place7_8.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $DLC密码='9t4515043u266915b':'<div class="buttonG"><a href="exec:  my.精力=0 & gt ''群演_事件'',''迷_Fuck_D魅魔''">领取奖励</a></div>'else:'<div class="button"><a href="exec:  gt ''奖励'',''传送阵''">密码错误！</a></div>'
+		'<div class="button"><a href="exec:my.精力=0 & gt ''群演_事件'',''迷_Fuck_D魅魔''">离开</a></div>'
+		!嗨，你好，既然你看到了这段留言就说明了你可以通过代码直接获得奖励密码，这是你的本事，我不会有怨言，但恳请你不要外泄给其他人，游戏制作不易，赏我口饭吃，兄弟在这谢谢你了。
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·圣印已毁，王不见其踪</p>'
+		'<p>✧奖励内容为：</p>'
+		'<p>✧存档绑定装备【魔王之瞳】：三围（魅力/智力/体质）+5 ，体力值上限+299  ，专属称号及一个♕的标志</p>'
+		'<p>✧转生可选身份+1【异世界归来】：初始金钱为100万，三围（魅力/智力/体质）均为10，初始精力为999</p>'
+		'<p>✧【魔王之瞳】特殊效果：可以无限次转生</p>'
+		
+		if $DLC密码='9t4515043u266915b':
+			魔王之瞳=1
+			'<p>·DLC密码正确！再次感谢您的游玩。</p>'
+			'<p>֍我要转生֎<a href="exec:gt ''开幕''">-点击转生</a></p>'
+		end
+		if $DLC密码!'9t4515043u266915b':
+			'<p>·抱歉，密码错误。</p>'
+		end
+	'</div>'
+End
+
+
+if $args[0] ='自己买营业额':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:  gt ''奖励'',''氪金作弊2''">我愿意花钱</a></div>'
+		'<div class="button"><a href="exec:  gt ''便利店''">返回</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>我：我真的要作弊吗？我将解除便利店的100万盈利限制。</p>'
+		'<p>·————————————————————————</p>'
+	'</div>'
+End
+
+
+if $args[0] ='氪金作弊2':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:gt ''奖励'',''输入密码氪金作弊''">输入V48便利店卡密</a></div>'
+		'<div class="button"><a href="exec:  gt ''便利店''">算了，返回</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·氪金嘛，你有钱，自然是你说了算。</p>'
+		'<p>·————————打不开换浏览器————————</p>'
+		'<p>·购买地址：<a href="https://airtable.com/app5nAgaGmboJewqz/shrAbqA8JyiEhuChb">https://airtable.com/app5nAgaGmboJewqz/shrAbqA8JyiEhuChb</a></p>'
+		'<p>·————————————————————————</p>'
+		'<p><B><span class =''red''>㊟支付网址请用电脑登录，手机端登录会有收不到卡密的情况发生。</p>'
+		'<p>㊟仅作为便利店作弊使用不与其他赞助互通。</p>'
+		'<p>㊟购买所得的卡密就是密码。</p>'
+	'</div>'
+End
+
+
+if $args[0] ='氪金作弊3':
+	if $氪金口令随机数=0:$氪金口令随机数=rand(3588,4388)+year+day
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG"><a href="exec:  gt ''帝国穹顶'',''总裁立绘3''">懂了➤复命</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·恭喜您！您已经没有便利店的100万盈利限制。</p>'
+		'<p>·当然，便利店的剧情是可以重复体验的，与是否有100万的条件无关。</p>'
+		'<p>·————————————————————————</p>'
+	'</div>'
+End
+
+
+if $args[0] ='输入密码氪金作弊':
+	$氪金口令 = $TRIM($LCASE($input('输入卡密')))
+	$氪金正确口令='hhddntmjsytsghh'
+	'<div class="show_menu">'
+		'<img src="images\intro\bg1.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $氪金口令=$氪金正确口令:'<div class="buttonG"><a href="exec:  gt ''帝国穹顶'',''总裁立绘3''">懂了➤复命</a></div>'
+		if $氪金口令!$氪金正确口令:
+			'<div class="button"><a href="exec:  gt ''居民区''">口令错误</a></div>'
+			'<div class="buttonG"><a href="exec:  gt ''奖励'',''氪金作弊2''">再试一次</a></div>'
+		end
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		if $氪金口令=$氪金正确口令:
+		'<p>·口令正确！您已经没有便利店的100万盈利限制。</p>'
+		'<p>·当然，便利店的剧情是可以重复体验的，与是否有100万的条件无关。</p>'
+		'<p>·————————————————————————</p>'
+		'<p>·最后，希望您不要无私地把卡密告诉别人，请尊重您自己的金钱，赚它的过程是辛苦的。</p>'
+		else:
+		'<p>·抱歉，密码错误。</p>'
+		end
+	'</div>'
+End
+
+
+
+--- 奖励 ---------------------------------
+

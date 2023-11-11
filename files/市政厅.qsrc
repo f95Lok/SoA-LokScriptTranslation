@@ -1,0 +1,226 @@
+# 市政厅
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="市长办公室" href="exec:gt ''市长办公室''"><img class="img_stretch" src="images\place\市长办公室.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			'<a class="photo" data-title="出入境管理局" href="exec:minutes+=5 & gt ''出入境管理局''"><img class="img_stretch" src="images\place\出入境管理局.jpg"></a>'
+		'</div>'
+
+		'<div class="action">'
+			if year>=2024:
+			'<a class="photo" data-title="警察局" href="exec:minutes+=5 & gt ''警察局''"><img class="img_stretch" src="images\place\警察局小图.jpg"></a>'
+			else:
+			'<a class="photo" data-title="【警局装修中·30天后开放】"><img class="img_stretch" src="images\place\警察局小图.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="电视台" href="exec:gt ''电视台''"><img class="img_stretch" src="images\place\电视台.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="地下交通" href="exec:minutes+=15 & gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="金融中心" href="exec:gt ''银行''"><img class="img_stretch" src="images\place\银行大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	if $前台_Event_喉咙=4:gt'市政厅','顶班中'
+	
+	if 20>hour and hour>=8 and $QT.job!2:
+	'<div class ="show_menu"><img src="images\\NPC\QT\pics\市政厅前台.jpg" width="854"></div>'
+	else: 
+	'<div class ="show_menu"><img src="images\place\市政大厅.jpg" width="854"></div>'
+	end
+	
+	'<div class="button_menu">'
+		if 20>hour and hour>=8 and $QT.job!2:
+		'<div class="button"><a href="exec:gt ''市政厅'',''前台立绘''">对话</a></div>'
+		end
+		if $花姐事件链=2:'<div class="button"><a href="exec:gt ''评委_事件'',''PW_Fuck_走秀''">隐秘会议室</a></div>'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''地铁''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·市政办公室开放时间：8:00——21:00 全年无休</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="前台立绘":
+		$QT.available=1
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\接待0~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅'',''前台约会''">约会</a></div>'
+		if week_day >5 and $QT.date=1 and  hour <= 16:'<div class="buttonB3"><a href="exec:gt ''前台_事件'',''去海边''">去海边</a></div>'
+		if $前台_Event_喉咙=1 or $前台_Event_喉咙=2:'<div class="buttonR4"><a href="exec:gt ''市政厅'',''声带的问题''">声带的问题</a></div>'
+		if $前台_Event_喉咙=3:'<div class="buttonR4"><a href="exec:gt ''市政厅'',''顶班''">顶班</a></div>'
+		if hour=19 and minutes>=30:'<div class="button"><a href="exec:gt ''前台_事件'',''陪她下班''">陪她下班</a></div>'else:'<div class="buttonGr"><a href="exec:">等她下班</a></div>'
+		if $前台_Event_喉咙=5:'<div class="buttonR4"><a href="exec:gt ''市政厅'',''应聘播音员''">应聘播音员</a></div>'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">没事</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if  $前台_Event_喉咙=5:
+			'<p><<$QT.name>>:<<$主角姓名>>！谢谢你！我现在声带感觉好多了！正在恢复中！</p>'
+			else:
+			'<p><<$QT.name>>:咳咳，请问你找谁？</p>'
+			end
+	'</div>'
+end
+
+if $ARGS[0]="前台约会":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\接待1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">行</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:最近忙不忙？我听说商场里有一家不错的餐厅，要不周末一起去？</p>'
+		if $QT.LOVE<20:
+		'<p><<$QT.name>>:咳咳，不好意思，我没时间呢。</p>'
+		else:
+		'<p><<$QT.name>>:嗯，不过…我倒是想去海边诶。</p>'
+		'<p>我:那我们这周末去海边吧！我来接你！</p>'
+		'<p><<$QT.name>>:欸？！真的吗？太好了！</p>'
+		$QT.date=1
+		end
+	'</div>'
+end
+
+
+if $ARGS[0]="声带的问题":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\接待1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">行</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:还在咳嗽吗？</p>'
+		'<p><<$QT.name>>:咳咳，还好吧…咳咳。医生说是声带结节的问题。虽然说手术治疗效果明显，一般都能彻底康复。可是我需要一笔手术费…而且我没有公休假…</p>'
+		'<p>我:找个人帮你顶班就好了吧…</p>'
+		'<p><<$QT.name>>:咳咳…找谁呢？窥伺这个岗位的人巴不得把我踢了自己上位…</p>'
+				if $前台_Event_喉咙=1:$前台_Event_喉咙=2
+	'</div>'
+end
+
+
+if $ARGS[0]="顶班":
+	'<div class ="show_menu"><img src="images\NPC\MS\pics\市政大厅顶班.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">暂时顶班</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:这位是我公司的秘书…</p>'
+		'<p><<$MS.name>>:您好，老板安排我来协助您的工作。</p>'
+		'<p><<$QT.name>>:咳咳…<<$主角姓名>>！…你以为你是谁？凭什么为我做决定？</p>'
+		'<p>我:…抱歉…我…</p>'
+		'<p><<$MS.name>>:老板也是为了您好，如果您想要成为播音员，就必须要有一个清晰流畅的声音。我可以向您保证我对您的岗位绝无窥伺之心。您可以放心地去做手术。</p>'
+		'<p><<$QT.name>>:咳咳…咳咳…那…我去向领导请示一下…</p>'
+		'<p>·之后<<$QT.name>>教了<<$MS.name>>一些基本工作流程…秘书能力上升了！</p>'
+		if $前台_Event_喉咙=3:$前台_Event_喉咙=4
+		MS.power+=10
+	'</div>'
+end
+
+
+if $ARGS[0]="顶班中":
+	if 20>hour and hour>=8:
+	'<div class ="show_menu"><img src="images\NPC\MS\pics\市政大厅顶班.jpg" width="854"></div>'
+	else: 
+	'<div class ="show_menu"><img src="images\place\市政大厅.jpg" width="854"></div>'
+	end
+	'<div class="button_menu">'
+		if 20>hour and hour>=8:
+		'<div class="button"><a href="exec:gt ''市政厅'',''前台顶班立绘''">对话</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=20 & gt ''地铁''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>·市政厅开放时间：8:00——20:00 全年无休</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="前台顶班立绘":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\MS\vids\市政大厅顶班.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">没事</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$MS.name>>:<<$主角姓>>老板，<<$QT.name>>的治疗还顺利吗？不用担心我，这里的工作很简单。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="应聘播音员":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\接待1~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">为你留意</a></div>'
+		if $QT.job=1:'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅'',''应聘播音员2''">试音机会</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 最近我报了播音辅导班，老师表扬我的语速和发音，是全班最棒的。</p>'
+		'<p>我: 真厉害！看来你离梦想又近了一步！</p>'
+		'<p><<$QT.name>>: 唉，可是电视台里都是一个萝卜一个坑，哪里会有我的位置呢……</p>'
+		'<p>我: 别着急，耐心、等待、坚持都是要想取得成功必须具备的品质。</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="应聘播音员2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\QT\vids\试音~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=20 & gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QT.name>>: 听众朋友们大家好，接下来是本周热点话题…</p>'
+		'<p>·流畅又不失俏皮的主持风格…</p>'
+		'<p><<$QT.name>>: …以上就是本周的新闻速报，让我们下次再见！</p>'
+		'<p><<$BD.name>>: 不错啊，口齿清晰，反应灵敏。台长，你觉得怎么样？</p>'
+		'<p><<$TZ.name>>: 很好，就决定是她了。你带她去人事那里办理入职手续吧。</p>'
+		'<p><<$BD.name>>:  好的。</p>'
+		$QT.job=2
+		$QT.name='相沢南(播音主持)'
+	'</div>'
+end
+
+
+
+
+--- 市政厅 ---------------------------------
+

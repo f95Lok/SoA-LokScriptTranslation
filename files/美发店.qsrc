@@ -1,0 +1,80 @@
+# 美发店
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=5
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "商场_地图"
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class ="show_menu"><img src="images\place\美发店0.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $寻枪事件链=1 and $美发店调查=0:'<div class="button"><a href="exec:minutes+=5 & gt ''警员_事件'',''JY_Fuck_理发师''">✣询问理发师</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''美发店'',''价目表''">看价目表</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''美发店'',''充值办卡''">充值办卡</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·新开的理发店，不透明的消费价格让顾客们望而生畏。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0] ="价目表":
+	'<div class ="show_menu"><img src="images\place\美发店<<rand(2,3)>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if BarCard>0:'<div class="buttonG1"><a href="exec:Barber=0 & gt ''群演_事件'',''泛用_Fuck_Barber''">实习理发师</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=2000:'<div class="buttonG2"><a href="exec:Barber=1 & gt ''群演_事件'',''泛用_Fuck_Barber''">人气洗剪吹</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=4000:'<div class="buttonG3"><a href="exec:Barber=2 & gt ''群演_事件'',''泛用_Fuck_Barber''">高端烫染师</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=8000:'<div class="buttonG4"><a href="exec:Barber=3 & gt ''群演_事件'',''泛用_Fuck_Barber''">资深美发师</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=16000:'<div class="buttonG5"><a href="exec:Barber=4 & gt ''群演_事件'',''泛用_Fuck_Barber''">特邀造型师</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=32000:'<div class="buttonPu3"><a href="exec:Barber=5 & gt ''群演_事件'',''泛用_Fuck_Barber''">首席设计师</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=64000:'<div class="buttonPu4"><a href="exec:Barber=6 & gt ''群演_事件'',''泛用_Fuck_Barber''">造型总监</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+		if BarCard>=128000:'<div class="buttonPu5"><a href="exec:Barber=7 & gt ''群演_事件'',''泛用_Fuck_Barber''">店长亲临</a></div>'else:'<div class="buttonGr"><a href="exec:">余额不足</a></div>'
+
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·现在办卡立即享受充1000送1000的超值服务！</p>'
+		'<p>·当前美发卡的余额为：<<BarCard>>￥</p>'
+	'</div>'
+
+end
+
+if $ARGS[0] ="充值办卡":
+	'<div class ="show_menu"><img src="images\place\美发店1.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if money>=1000:'<div class="buttonG1"><a href="exec:minutes+=5 & money-=1000 & BarCard+=2000 & gt ''美发店'',''充值办卡''">充1000</a></div>'else:'<div class="buttonGr"><a href="exec:">金钱不足</a></div>'
+		if money>=10000:'<div class="buttonG5"><a href="exec:minutes+=5 & money-=10000 & BarCard+=20000 & gt ''美发店'',''充值办卡''">充10000</a></div>'else:'<div class="buttonGr"><a href="exec:">金钱不足</a></div>'
+		if money>=100000:'<div class="buttonS"><a href="exec:minutes+=5 & money-=100000 & BarCard+=200000 & gt ''群演_事件'',''泛用_Fuck_Barber2''">充100000</a></div>'else:'<div class="buttonGr"><a href="exec:">金钱不足</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·现在办卡立即享受充1000送1000的超值服务！</p>'
+		'<p>·当前美发卡的余额为：<<BarCard>>￥</p>'
+	'</div>'
+
+end
+
+
+--- 美发店 ---------------------------------
+

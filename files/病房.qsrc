@@ -1,0 +1,201 @@
+# 病房
+ cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+邻床随机数=rand(0,10)
+邻床早=rand(10,17)
+邻床晚=邻床早+3
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="私立医院" href="exec:minutes+=5 & gt ''医院''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\医院场景\病床爸.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &my.道德+=1 &jx_1=1& gt ''病房''">尽孝</a></div>'
+		if $YS.available=0:'<div class="button"><a href="exec:minutes+=5 & gt ''病房'',''争吵声1''">争吵声</a></div>'
+		if $SF.available=1:'<div class="buttonS1"><a href="exec:minutes+=5 & gt ''病房'',''偷听''">偷听</a></div>'
+		if 每日邻床=0 and 邻床早<=hour and hour <=邻床晚:'<div class="buttonS2"><a href="exec:minutes+=5 &gt ''群演_事件'',''群演_Fuck_邻床''">㊐探视隔壁床</a></div>'else:'<div class="buttonGr"><a href="exec:">㊐无人探视</a></div>'
+		if 每日邻床=0 and week_day>=6 and 邻床随机数>=6 and hour>=12:'<div class="buttonS3"><a href="exec:minutes+=5 &gt ''群演_事件'',''群演_Fuck_邻床S''">㊕隔壁床的骚逼</a></div>'
+		if $SF_Event_gold=10 and $SF.love>=100:'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''病房'',''NTR''"><<$SF.name>></a></div>'
+		if $ZX.bad>100:'<div class="buttonB4"><a href="exec:minutes+=5 & gt ''病房'',''偷听整形''">偷听<<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">偷听<<$ZX.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &jx_1=0 & gt ''医院''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·你的父亲保持着植物人状态，何时醒来依旧是个未知数。</p>'
+		if jx_1=1:'<p>·你擦了擦父亲的呼吸机...心里得到了一点慰藉。</p>'
+	'</div>'
+End
+
+if $args[0]="争吵声1":
+	'<div class ="show_menu"><img src="images\place\医院场景\病床隔壁.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''病房'',''争吵声2''">皱眉</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·隔壁病床传来男人的怒吼*你打眼望去...</p>'
+		'<p>？？？:我凭什么住这？这是小爷我这种身份的人该住的地方吗？快去给我安排VIP病房！</p>'
+		'<p>我:咳咳，这里是医院，请保持安静...</p>'
+		'<p>·女人背对着你，男人对着电话那头高声呵斥着。仿佛你的存在是空气。</p>'
+		
+	'</div>'
+End
+
+if $args[0]="争吵声2":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房见面.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''病房'',''争吵声3''">拉上帘子</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·女人回过头来，你对她的容貌惊叹不已</p>'
+		'<p><<$SF.name>>:不好意思吵到你们了，这是我老公“律茂南”。他最近心情不好.....还请见谅。</p>'
+	'</div>'
+End
+
+if $args[0]="争吵声3":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''病房'',''争吵声4''">回头看</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SF.name>>:我的小宝贝，【新政策】下男性是不能居住在VIP病房的，VIP病房只有女性...老公，你就忍忍嘛。</p>'
+		'<p>律茂南:怎么忍？肋骨、胯骨、骨盆、右脚粉碎性骨折已经算个残废了！肋骨还把肺刺破了，这辈子都不能剧烈运动，医生告诉我连赛车都不能开了！ </p>'
+		'<p><<$SF.name>>:你冲我发什么火？你撞成这样难道我就开心了吗？一辈子要伺候你我就乐意了吗？ </p>'
+		'<p>律茂南:小爷需要你伺候？老头子一命归西，小爷大难不死。这就说明我命硬！</p>'
+		'<p>？？？: 哼！你命硬个屁，还不是钱硬！不是花了150万给你做心脏支架，你早就死了。</p>'
+	'</div>'
+End
+
+if $args[0]="争吵声4":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''病房''">目送离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SF.name>>:小妈，好久不见啊。</p>'
+		'<p><<$YS.name>>:谁是你妈？我是来和我不成器的假儿子谈遗产归属的，我们的家事你管不着吧？</p>'
+		'<p><<$SF.name>>:呵呵，妈！昨天我刚和茂南领了结婚证，现在我也算半个“家人”了吧？</p>'
+		'<p><<$YS.name>>:昨天？！我看你们是想分家产想疯了吧！你这个废物儿子不是也等着遗产吗？天天游手好闲没把家底败光我已经谢天谢地了。</p>'
+		'<p>律茂南:小妈，你就别假惺惺的了，您当时三十岁嫁给一个六十岁的老头子图什么你也清楚。怕你不知道跟你说一声，老头子在我妈死后就结扎了！蠢货！</p>'
+		'<p><<$YS.name>>:哼！怕你不知道我也跟你说一声，老头子一死就没人给你发生活费了。你和这个野女人又没有收入来源！我会想办法延长遗嘱生效时间，没有经济来源的你们，能和我耗多久呢？</p>'
+	'</div>'
+	$YS.available=1
+	$SF.available=1
+End
+
+if $args[0]="偷听":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &act_不满=0 & gt ''少妇_事件''">不满</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>律茂南:他妈的跟你说了几遍了！！给我转VIP病房！！你就是个废物花瓶！中看不中用！！</p>'
+		'<p>律茂南:没钱了不会去借去贷？等遗产拿到还掉不就行了？真是没脑子的蠢女人。</p>'
+		'<p>律茂南:快点想办法去搞钱，傻逼女人，现在把老子伺候舒服了，以后有的是你享福的时候！</p>'
+	'</div>'
+End
+
+
+if $args[0]="NTR":
+	'<div class ="show_menu"><img src="images\place\医院场景\病房吵架.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5  & gt ''病房'',''NTR地点''">招呼她过来</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>律茂南:哼，真是个没用的女人。之前搞了你这么多次都没怀上，猪也能生,鸭也能生,鸡也能生,狗也能生，你却连个畜生都不如！早知道就娶别人了，当时在场这么多女人，总有中枪的。中看不中用！！</p>'
+		'<p><<$SF.name>>:呵呵！你放心马上就能怀上！</p>'
+		'<p>律茂南:闭嘴吧！去放一首《A大调第23钢琴协奏曲》，我要开始享受了！对，这让我想起来去年秋天在维也纳布鲁克剧院，当时..你说你一直有个明星梦.....Zzz</p>'
+	'</div>'
+End
+
+
+if $args[0]="NTR地点":
+	q_num=rand(0,9)
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SF\vids\病房开始~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5  &gt ''少妇_事件'',''SF_Fuck_厕所受孕''">去厕所</a></div>'
+		if $SF.bad>=50:
+		'<div class="buttonS"><a href="exec:minutes+=5  &gt ''少妇_事件'',''SF_Fuck_病房受孕''">在这做</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">在这做</a></div>'
+		end
+		if $SF.bad>=100:
+			if q_num>=6:'<div class="buttonS"><a href="exec:minutes+=5  &gt ''少妇_事件'',''去她家''">去她家</a></div>'
+			if q_num<6:'<div class="buttonS"><a href="exec:minutes+=5  &gt ''少妇_事件'',''SF_Fuck_家''">去她家</a></div>'
+		 else:
+		 '<div class="buttonGr"><a href="exec:">去她家</a></div>'
+		 end
+		if 电吉他=1:
+			if $SF.love>=200:'<div class="buttonG"><a href="exec:电吉他-=1 & gt ''少妇_事件'',''电吉他''">礼物：电吉他</a></div>'else:'<div class="buttonGr"><a href="exec:">礼物：好感不足</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SF.name>>:快点让我怀孕吧，我一秒也不想多待了。错的人就是错的人，错的人不会因为时间的煎熬就变成对的人！</p>'
+		'<p>我:想玩刺激的吗？</p>'
+		'<p><<$SF.name>>:你不怕我就不怕！</p>'
+	'</div>'
+End
+
+if $args[0]="偷听整形":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\ZX\vids\SD1-<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	'<div class="button_menu">'
+		if 抗氧化设备=0:'<div class="button"><a href="exec:minutes+=5  &gt ''医院''">记在心上</a></div>'
+		if 抗氧化设备=1:'<div class="buttonS"><a href="exec:gt ''整形_事件'',''ZX_Fuck_SD2''">出面解释</a></div>'
+		if $ZX.love>=400-$ZX.bad:'<div class="buttonR3"><a href="exec:gt ''整形_事件'',''ZX_Fuck_假摔''">假装摔倒</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="buttonS"><a href="exec:minutes+=5  &gt ''医院''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$ZX.name>>：主任，之前向您申请的设备什么时候可以通过审批？</p>'
+		'<p>精源项目主任：再等等嘛，你知道精源项目现在是整个医院的核心项目，<<$YZ.name>>把所有的预算都投给了我们组嘛。</p>'
+		'<p><<$ZX.name>>： 帮帮忙嘛，乳晕去黑变粉嫩，私处去黑色素变粉嫩，都需要这个【抗氧化设备】，帮我去偷一台出来嘛，你们有这么多台，缺一台看不出来的！</p>'
+		'<p>精源项目主任：你可饶了我吧，我可不敢。</p>'
+		if 抗氧化设备=0:'<p>我：精源项目？说不定我能想想办法？</p>' & 可拿氧化设备=1
+		if 抗氧化设备=1:
+		'<p>·————————</p>'
+		'<p>精源项目主任：喂喂喂，昨天清点的时候发现少了一台【抗氧化设备】，你能解释一下吗？</p>'
+		'<p><<$ZX.name>>： 我今天就是专门来解释的呀❤</p>'
+		'<p>精源项目主任：喔？这件事可大可小…</p>'
+		end
+	'</div>'
+End
+
+
+
+
+--- 病房 ---------------------------------
+

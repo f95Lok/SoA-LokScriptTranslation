@@ -1,0 +1,920 @@
+# 银行_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+
+if $args[0]="YH_Fuck_Bank":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\bank1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_Bank''">验资￥1,000,000</a></div>'
+            if a=1:
+                if money>=1000000:'<div class="buttonG2"><a href="exec:money-=1000000 & a=2 & gt ''银行_事件'',''YH_Fuck_Bank''">签字购买</a></div>'
+                if money<1000000:'<div class="buttonGr"><a href="exec:">资金不足</a></div>'
+                '<div class="button"><a href="exec:gt ''银行''">算了</a></div>'
+            end
+            if a>=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_Bank''">附赠福利</a></div>'
+            if a>=3:'<div class="buttonS2"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_Bank''">操她</a></div>'
+            if a>=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_Bank''">换个姿势</a></div>'
+            if a>=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_Bank''">高速抽插</a></div>'
+            if a>=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_Bank''">射精</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''银行''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>基金经理: <<$主角姓>>先生…我们起购价是￥1,000,000❤</p>'
+              if a>=1:'<p>我:那可真不便宜呢，是保本的吗？</p>' 
+              if a>=1:'<p>基金经理:那当然不是了❤哪有回报率200%的保本型理财产品啊？如果您认购的话，就当帮帮小妹了，现在银行经理给小妹的指标很高呢❤</p>' 
+              if a>=2:'<p>基金经理:尊敬的<<$主角姓>>先生，签完了以后…小妹还有附赠福利喔❤</p>' 
+              if a>=3:'<p>我:和我想的一样吗？</p>' 
+              if a>=4:'<p>基金经理:当然了<<$娇喘声>></p>' 
+         '</div>'
+    end
+
+    if a=7:
+         $YH.基金+=1
+         '<div class="dialog_menu">'
+              '<p>基金经理:<<$主角姓名>>先生，这是你的保单❤</p>' 
+              '<p>我:好的，辛苦你了。</p>' 
+              '<p>基金经理:嗯，也辛苦你了❤</p>' 
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_km":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\km1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!3:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_km''">默不作声</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_km''">替她说话</a></div>'
+            if a=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_km''">如果我解决了呢</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''银行''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>信贷部经理: 你是瞎的吗？这种程度的假账都没看出来？马上给我下跪道歉！</p>'
+              if a>=1:'<p><<$YH.name>>:是我的错…但……但是您强行要投资他才导致基金部大面积亏损的…而且我当时作出了风险提示…</p>' 
+              if a>=1:'<p>信贷部经理:闭嘴！难道不是因为你没有阻止我，才导致的坏账吗？这不就是你的错吗！</p>' 
+              if a>=2:'<p>我:喂，别太欺负人了，明明就不是她的错！</p>' 
+              if a>=2:'<p>副行长:尊敬的<<$主角姓>>先生，你可能不知道这一句话…</p>' 
+              if a>=2:'<p>副行长:听清楚了话…就请离开吧，这可是高达5亿的无担保贷款，不是你这种小喽啰能插手的。</p>' 
+         '</div>'
+    end
+
+    if a=3:
+		if $银行事件链=0:$银行事件链=1
+         '<div class="dialog_menu">'
+              if a>=2:'<p>我:如果我解决了呢？</p>' 
+              if a>=2:'<p>副行长:哼，实在可笑。这可是5亿！如果你能追回这笔损失，我不光会亲自给你下跪，还会把这个副行长的位置让给你坐。</p>' 
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="喝酒选择":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\bar0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:gt ''银行_事件'',''喝酒选择2''">静观其变</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:您叫我来这里是为了说什么呢？</p>' 
+              '<p>信贷部经理:你的神经一直紧绷着，看的出来你压力很大❤来，先喝一杯❤</p>' 
+              '<p><<$YH.name>>:我…我没事的…</p>' 
+              '<p>信贷部经理:喝不喝？不喝的话很多事我没有办法告诉你❤</p>' 
+              '<p><<$YH.name>>:………</p>' 
+              '<p>*你注意到杯子里有一些奇怪的粉末沉淀物</p>' 
+         '</div>'
+End
+
+if $args[0]="喝酒选择2":
+	 a=0
+	 q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\bar1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec:gt ''银行_事件'',''YH_Fuck_A1''">尾行跟踪</a></div>'
+            '<div class="buttonGn"><a href="exec:gt ''银行_事件'',''YH_Fuck_B1''">我偏要带她走</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:我的头好晕…我…</p>' 
+              '<p>我:（看来酒里肯定加了什么东西…）</p>' 
+              '<p>信贷部经理:来，再喝一杯❤</p>' 
+              '<p>我：嘿！<<$YH.name>>你怎么在这里？</p>' 
+              '<p>信贷部经理:<<$主角姓>>先生，我记得你，我警告你，别坏我的好事。</p>' 
+              '<p>我：……</p>' 
+              '<p>·——此处是一个故事分支——·</p>' 
+         '</div>'
+End
+
+
+if $args[0]="YH_Fuck_A1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\bar1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            '<div class="buttonS5"><a href="exec:a+=1 & gt ''银行_事件'',''YH_Fuck_A1''">门外偷看</a></div>'
+        '</div>'
+        else:
+        '<div class="button_menu">'
+            '<div class="buttonGn"><a href="exec: gt ''歌舞伎町''">记在心中</a></div>'
+        '</div>'
+    end
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>信贷部经理: 长腿美人❤终于让我逮着机会了❤</p>'
+              if a>=1:'<p><<$YH.name>>:你要干嘛…我怎么浑身都没力气了……</p>' 
+              if a>=1:'<p>信贷部经理:等你满足了我❤我会告诉你追回5亿坏账的方法的❤</p>' 
+              if a>=2:'<p><<$YH.name>>:不行<<$娇喘声>></p>' 
+              if a>=3:'<p>信贷部经理:闭嘴吧你❤</p>' 
+         '</div>'
+    end
+
+    if a=10:
+		$银行事件链=3
+		if $银行事件链A=0:$银行事件链A=1
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:告…诉我，追回5亿坏账的方法的……</p>' 
+              '<p>信贷部经理:居然意识还清醒嘛❤那我就告诉你，只要能拿到东田钢铁厂的真实账本，就能找出这5亿贷款的去向…</p>' 
+              '<p><<$YH.name>>:东田钢铁厂…就是因为直接申请破产了…才变成坏账的…</p>' 
+              '<p>信贷部经理:你是不是脑子只长在腿上了？东田钢铁厂刚拿到5亿就直接申请破产，一定是把这5亿秘密转移了…</p>' 
+              '<p><<$YH.name>>:东田钢铁厂…现在只有一个破产清算办公室…在郊外…</p>' 
+         '</div>'
+         
+    end
+
+  q+=1
+End
+
+if $ARGS[0]="钢铁厂":
+	'<div class ="show_menu"><img src="images\place\钢铁厂.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $银行事件链A>=1:'<div class="buttonR"><a href="exec:gt ''银行_事件'',''钢铁厂办公室''">破产办公室</a></div>'
+		if $银行事件链B=2 or $银行事件链B=3:'<div class="buttonPu3"><a href="exec:gt ''银行_事件'',''钢铁厂办公室2''">秘书办公室</a></div>'
+		if $银行事件链B>=5:'<div class="buttonPu4"><a href="exec:gt ''银行_事件'',''钢铁厂办公室3''">秘书办公室</a></div>'
+		'<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·钢铁厂已经申请破产，正在做资产清算…</p>'
+	'</div>'
+end
+
+if $args[0]="钢铁厂办公室":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\破产.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if $银行事件链A=1:'<div class="buttonS1"><a href="exec:gt ''银行_事件'',''YH_Fuck_A2''">透过门缝看</a></div>'
+            if $银行事件链A=2 and week_day=4:'<div class="buttonS2"><a href="exec:gt ''银行_事件'',''YH_Fuck_A3''">透过门缝看</a></div>'
+            if $银行事件链A=3 and week_day=3:'<div class="buttonS3"><a href="exec:gt ''银行_事件'',''YH_Fuck_A4''">透过门缝看</a></div>'
+            '<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>会计:我们正在做破产清算，你应该看得出来，我们现在能卖的都已经变卖了。</p>' 
+              '<p>我:那我能见厂长吗？</p>' 
+              '<p>会计:厂长暂时不接待任何投资者。</p>' 
+         '</div>'
+End
+
+if $args[0]="钢铁厂办公室2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\秘书0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $魅魔能量-=1 & gt ''银行_事件'',''YH_Fuck_秘书C''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+            '<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>秘书:我们正在做破产清算，暂时不接待任何投资者。</p>' 
+              '<p>我:这样啊…</p>' 
+         '</div>'
+End
+
+if $args[0]="钢铁厂办公室3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\秘书2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonR4"><a href="exec:a=1 & gt ''银行_事件'',''钢铁厂办公室3''">把你老板绑起来</a></div>'
+            if a=1:'<div class="buttonR4"><a href="exec:a=2 & gt ''银行_事件'',''钢铁厂办公室3''">表扬她</a></div>'
+            if a=2:'<div class="buttonS"><a href="exec:a=0 & gt ''银行_事件'',''YH_Fuck_秘书D''">给予奖励</a></div>'
+            '<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>秘书:主人❤今日来访可是来日我？</p>' 
+              '<p>我:呃…</p>' 
+              if a>=1:'<p>秘书:我已经按照主人的吩咐❤把我的老板五花大绑啦❤</p>' 
+              if a>=2:'<p>我:做的好，赏你大肉棒吃！</p>' 
+              if a>=2:'<p>秘书:求求主人操我吧❤小母狗想要主人的肉棒了❤</p>' 
+         '</div>'
+End
+
+if $args[0]="YH_Fuck_A2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\A2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            '<div class="buttonS5"><a href="exec:a+=1 & gt ''银行_事件'',''YH_Fuck_A2''">门缝偷看</a></div>'
+        '</div>'
+        else:
+        '<div class="button_menu">'
+            '<div class="buttonGn"><a href="exec: gt ''郊外''">她还会再来吗？</a></div>'
+        '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>钢铁厂厂长: 没钱没钱，我一拿到5个亿就全部买了一座铁矿，但铁矿下面有一座古墓，挖不了，只能破产了。真不好意思❤</p>'
+              '<p><<$YH.name>>:你骗人…这里哪有铁矿啊？你告诉我铁矿的地址！</p>' 
+              if a>=1:'<p>钢铁厂厂长: 哎哟，我的瞧瞧我的记性，我得摸点什么东西才能回忆起来…</p>' 
+              if a>=1:'<p><<$YH.name>>:请别这样…</p>' 
+              if a>=2:'<p>钢铁厂厂长:嘘——我快想起来了！</p>' 
+              if a>=3:'<p><<$YH.name>>:…………*忍耐</p>' 
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:告…诉我，铁矿的地址…</p>' 
+              '<p>钢铁厂厂长:我想起来了…铁矿的地址…我写在日记里了……</p>' 
+              '<p><<$YH.name>>:日…日记？</p>' 
+              '<p>钢铁厂厂长:我得回家看了日记才能告诉你！</p>' 
+         '</div>'
+    end
+
+    if a=8:
+         if $银行事件链A=1:$银行事件链A=2
+         '<div class="dialog_menu">'
+              '<p>钢铁厂厂长:你下周四再来吧…我保证下次一定告诉你❤</p>' 
+              '<p><<$YH.name>>:………</p>' 
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_A3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\A3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!11:
+        '<div class="button_menu">'
+            '<div class="buttonS5"><a href="exec:a+=1 & gt ''银行_事件'',''YH_Fuck_A3''">门缝偷看</a></div>'
+        '</div>'
+        else:
+        '<div class="button_menu">'
+            '<div class="buttonGn"><a href="exec: gt ''郊外''">她一定会再来！</a></div>'
+        '</div>'
+    end
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:日…日记看了吗？直接告诉我铁矿的具体地址吧！</p>' 
+              '<p>钢铁厂厂长:咋滴？！你是不信任我是吗？你这可不是求人的态度呢？</p>' 
+              if a>=1:'<p><<$YH.name>>:请…请您告诉我…铁矿…的具体地址…*忍耐</p>' 
+              if a>=1:'<p>钢铁厂厂长:你这也不是求人的态度呀，谁会在求人的时候骚穴湿了呢？说！是不是想要了？</p>' 
+              if a>=2:'<p><<$YH.name>>:不是<<$娇喘声>></p>' 
+              if a>=3:'<p>钢铁厂厂长:不是？那我不想告诉你了呢❤再给你一次机会。</p>' 
+              if a>=4:'<p><<$YH.name>>:是，我的骚穴湿了，我很想要！</p>' 
+              if a>=5:'<p>钢铁厂厂长:那我就好好地给你泄泄火吧❤</p>' 
+         '</div>'
+    end
+
+    if a=11:
+         if $银行事件链A=2:$银行事件链A=3
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:请…请您告诉我吧…铁矿…的具体地址…</p>'  
+              '<p>钢铁厂厂长:这可是我跟矿主签了保密协议的❤如果要告诉你的话，他也得在场才行喔❤</p>' 
+              '<p><<$YH.name>>:那…那请您…安排我们的见面…</p>' 
+              '<p>钢铁厂厂长:这么主动吗？那我和他约个时间❤你周三来月经吗？</p>' 
+              '<p><<$YH.name>>:不…不来…</p>' 
+              '<p>钢铁厂厂长:那就周三吧！</p>' 
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_A4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\A4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!14:
+        '<div class="button_menu">'
+            '<div class="buttonS5"><a href="exec:a+=1 & gt ''银行_事件'',''YH_Fuck_A4''">门缝偷看</a></div>'
+        '</div>'
+        else:
+        '<div class="button_menu">'
+            '<div class="buttonGn"><a href="exec: gt ''郊外''">她同意了</a></div>'
+        '</div>'
+    end
+
+
+
+    if 13>=a and a>=0:
+         '<div class="dialog_menu">'
+              if a=0:'<p><<$YH.name>>:铁矿的矿主…有两个人？</p>' 
+              if a=0:'<p>信贷部经理:她还真的以为这5亿拿去买铁矿了？哈哈</p>' 
+              if a=0:'<p>钢铁厂厂长:给你介绍一下，这两位是我的合作伙伴。一位是你们银行的信贷部经理，你应该很熟，另一位是……</p>' 
+              if a=0:'<p>海外别墅中介:5亿资金已经分成17笔，已在海外购置了17栋豪华别墅，目前已经操作完毕。</p>' 
+              if a=0:'<p>钢铁厂厂长:听明白了吧？</p>' 
+              if a>=0:'<p><<$YH.name>>:那…那你今天还骗我过来做什么？！</p>' 
+              if a>=1:'<p>钢铁厂厂长:你每来一次，我就还给你￥50,000，只要10次就是50万喔！这样你也能向上面交代对吧？</p>' 
+              if a>=1:'<p><<$YH.name>>:这…这和做妓女卖身有什么区别？！</p>' 
+              if a>=2:'<p>信贷部经理:当然有区别了，区别在于…你不会被银行开除沦为真正的妓女…</p>' 
+              if a>=2:'<p>海外别墅中介:一次5万的话…我还嫌多了呢❤</p>' 
+              if a>=3:'<p><<$YH.name>>:我…我知道了…你们不能赖账…</p>' 
+              if a>=3:'<p>钢铁厂厂长:哈哈❤那就哥几个好好享用你咯❤</p>' 
+         '</div>'
+    end
+
+    if a=14:
+         if $银行事件链A=3:$银行事件链A=4
+         '<div class="dialog_menu">' 
+              '<p>钢铁厂厂长:这是￥50,000❤怎么样？我够大气吧！</p>' 
+              '<p><<$YH.name>>:…………</p>' 
+              '<p>信贷部经理:既然都这样了…那如果有愤怒的投资者来投诉，你也一并“安抚”了吧❤</p>' 
+              '<p><<$YH.name>>:安，安抚？是…是要做性服务吗…</p>'
+              '<p>信贷部经理:你以为这件事副行长能替你压多久？万一控制不住投诉消息总会传到行长耳朵里的！</p>' 
+              '<p><<$YH.name>>:……………</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_be":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\be1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_be''">安抚情绪</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_be''">掏出JB</a></div>'
+            if a=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_be''">“等等”</a></div>'
+            if 6>=a and a>=3:
+            if a>=3:'<div class="buttonS2"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_be''">可以口了</a></div>'
+            if a>=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_be''">心情愉悦</a></div>'
+            if a>=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_be''">高速口交</a></div>'
+            if a>=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_be''">口内射精</a></div>'
+            end
+            if a=7:'<div class="buttonS1"><a href="exec:a=8 & gt ''银行_事件'',''YH_Fuck_be''">回味无穷</a></div>'
+            if a=8:'<div class="buttonS2"><a href="exec:a=9 & gt ''银行_事件'',''YH_Fuck_be''">摘下眼罩</a></div>'
+            if a=9:'<div class="buttonR2"><a href="exec:a=10 & gt ''银行_事件'',''YH_Fuck_be''">她很羞愧</a></div>'
+            if a=10:'<div class="buttonR3"><a href="exec:a=11 & gt ''银行_事件'',''YH_Fuck_be''">羞愧中被口爆</a></div>'
+            if a=11:'<div class="buttonR4"><a href="exec:a=12 & gt ''银行_事件'',''YH_Fuck_be''">对话信贷部经理</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec: gt ''银行''">Bed end:离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>信贷部经理: <<$主角姓>>先生…息怒息怒，我为您提供了特殊的情绪安抚服务❤</p>'
+              if a>=1:'<p>我:怎么样安抚我的情绪？</p>' 
+              if a>=3:'<p>信贷部经理:等等，她还需要这个才能进入状态❤今天已经是她第17次进行服务了。</p>' 
+              if a>=4:'<p>信贷部经理:现在您可以享受服务了❤</p>' 
+              if a>=5:'<p>我:确实心情愉悦了不少…</p>' 
+         '</div>'
+    end
+
+    if 11>=a and a>=9:
+         '<div class="dialog_menu">'
+              '<p>我:真的是你？我还以为是别人……</p>' 
+              if a>=10:'<p><<$YH.name>>: <<$主角姓>>先生…我…我…</p>'
+              if a>=10:'<p>我:别解释了，我知道你在钢铁厂里做了什么。你就是个被人玩弄成母狗的婊子罢了，现在乖乖给我服务吧❤</p>' 
+              if a>=11:'<p><<$YH.name>>: 好的…<<$主角姓>>先生…只要您不对基金亏损进行投诉…</p>'
+         '</div>'
+    end
+
+
+    if a=12:
+         $YH.bad+=5
+         $YH.love+=1
+         $YH.BE=1
+         '<div class="dialog_menu">'
+              '<p>信贷部经理:做的好，投诉率下降了，真是辛苦你了，5亿的坏账还欠着￥<<rand(498000000,499900000)>>，慢慢还吧。</p>' 
+              '<p><<$YH.name>>:我…我…我会努力的！</p>' 
+              '<p>·</p>' 
+              '<p>·———此处为故事结局———·</p>'  
+              '<p>·我不会对玩家区别对待，无论您是否赞助这个按钮都是提供给您游玩别的结局的·<a href="exec:gt ''银行_事件'',''喝酒选择''">-点击</a></p>'
+              '<p>·我也没有刻意增加游戏难度，无论您是否购买攻略CDK，细心一点是一定是能通关的。当然了，如果您有余力的话非常感谢您的赞助，我希望我能日子过的好一点，上岸后可以不像从前那样窘迫。</p>' 
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_B1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_B1''">去冲个澡</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_B1''">回到床上</a></div>'
+            if a=2:'<div class="buttonS1"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_B1''">口住屌</a></div>'
+            if 7>=a and a>=3:
+            if a>=3:'<div class="buttonS1"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_B1''">满足她吧</a></div>'
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_B1''">由她插入</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_B1''">高速顶她</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_B1''">控制住操</a></div>'
+            if a=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''银行_事件'',''YH_Fuck_B1''">大力抽插</a></div>'
+            end
+            if a=8:'<div class="buttonS5"><a href="exec:a=9 & gt ''银行_事件'',''YH_Fuck_B1''">射精</a></div>'
+            if a=9:'<div class="buttonR2"><a href="exec:a=10 & gt ''银行_事件'',''YH_Fuck_B1''">欲求不满</a></div>'
+            if a=10:'<div class="buttonB3"><a href="exec:a=11 & gt ''银行_事件'',''YH_Fuck_B1''">第二天早上</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''居民区''">分别</a></div>'
+            '</div>'
+    end
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>: <<$主角姓>>先生…我…我好热❤</p>'
+              '<p>我:那怎么办？冲个澡凉快一下？</p>' 
+              if a>=1:'<p><<$YH.name>>:好热❤好热❤好热❤</p>' 
+              if a>=2:'<p><<$YH.name>>:不行……<<$主角姓>>先生…我…我好热…我好想要…</p>' 
+              if a>=4:'<p>我:恭敬不如从命了❤</p>' 
+              if a>=5:'<p><<$YH.name>>:好棒<<$话>></p>' 
+         '</div>'
+    end
+
+
+    if a=11:
+         $YH.bad+=q+my.魅力
+         $YH.love+=my.魅力
+         $银行事件链=3
+         if $银行事件链B=0:$银行事件链B=1
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:<<$主角姓>>先生…昨天晚上…我们是不是…</p>' 
+              '<p>我:我不是故意的…</p>' 
+              '<p><<$YH.name>>:我明白，我是想谢谢你， 可恶的信贷部经理，居然敢对我下药！我一定会让他付出代价！</p>' 
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_秘书C":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\秘书1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_秘书C''">口交问话</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_秘书C''">按到桌上</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_秘书C''">吐露真话</a></div>'
+            if a>=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_秘书C''">更多刺激</a></div>'
+            if a>=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_秘书C''">内射中出</a></div>'
+            if a>=5:'<div class="buttonPu5"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_秘书C''">秘密情报</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''居民区''">我会去监视他的</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>我:从现在起，我是你的主人，同时也是你的老板。你将服从我的全部指令，回答我的所有问题。</p>' 
+              if a>=1:'<p>秘书:好的❤我唯一的主人❤</p>' 
+              if a>=2:'<p>我:厂长拿到的5个亿贷款去了哪里？</p>' 
+              if a>=3:'<p>秘书:一小部分用于包养我和其他情人的私人消费，其他全部都转移到了海外❤</p>' 
+              if a>=4:'<p>秘书:噢噢噢噢❤主人❤操死我操死我❤</p>' 
+              if a>=5:'<p>我:我从哪里能拿到他资产转移的证据？</p>' 
+              if a>=6:
+              '<p>秘书:这个有点难，但他会把5000万作为好处费交给银行里给他指派贷款的信贷部经理…走的是海外账户…下周三到账……</p>' 
+              if $银行事件链B=2:$银行事件链B=3
+              end
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_秘书D":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\秘书1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_秘书D''">继续口我</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_秘书D''">按到桌上</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_秘书D''">玩弄舌头</a></div>'
+            if a>=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_秘书D''">持续爆插</a></div>'
+            if a>=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_秘书D''">内射中出</a></div>'
+            if a>=5:'<div class="buttonPu5"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_秘书D''">对话</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''郊外''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>我:没错，我就是来日你的！</p>' 
+              if a>=1:'<p>秘书:好的❤我唯一的主人❤</p>' 
+              if a>=3:'<p>我:爽吗？我的母狗？</p>' 
+              if a>=4:'<p>秘书:小母狗真爽<<$话>></p>' 
+              if a>=6:
+				'<p>我:永远做主人的小母狗，知道了吗？</p>'  
+				'<p>秘书:嗯嗯❤</p>' 
+				if $银行事件链B=5:$银行事件链B=6
+		    end
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_B4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!7:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_B4''">在这口我</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_B4''">放心没人的</a></div>'
+            if 6>=a and a>=2:
+            if a>=2:'<div class="buttonR3"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_B4''">有人来了？</a></div>'
+            if a>=3:'<div class="buttonS2"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_B4''">进隔间里</a></div>'
+            if a>=4:'<div class="buttonS3"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_B4''">抱着她操</a></div>'
+            if a>=5:'<div class="buttonS4"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_B4''">抬腿爆肏</a></div>'
+            if a>=6:'<div class="buttonS5"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_B4''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''银行''">出去</a></div>'
+            '</div>'
+    end
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+              if $银行事件链B>=4:'<p>我:看来我们知道了他们的交易地点，不庆祝一下吗？</p>' else:'<p>我:闲着总不是办法对吧？</p>' 
+              if a>=1:'<p><<$YH.name>>:这里太危险了…</p>' 
+              if a>=2:'<p>我:放心没人的。</p>' 
+              if a>=3:'<p>？？？:你听说了没？有个大热的动漫角色被腰斩了…</p>' 
+              if a>=3:'<p>？？？:我听说又复活了…</p>' 
+              if a>=4:'<p>我:在这里应该不会被发现了吧❤</p>' 
+              if a>=5:'<p><<$YH.name>>:好险啊<<$话>></p>' 
+         '</div>'
+    end
+
+
+    if a=7:
+         $YH.bad+=q+my.魅力
+         $YH.love+=q+my.魅力
+         '<div class="dialog_menu">'
+              if $银行事件链B>=4:'<p>我:看来我们知道了他们的交易地点：下午14:00，地铁站的A9522号寄存柜…我们是不是应该捷足先登？</p>' else:'<p>我:他们应该走了吧？</p>' 
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="YH_Fuck_B5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B5-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_B5''">打开看看</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_B5''">给我点奖励</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_B5''">给我口交</a></div>'
+            if 8>=a and a>=3:
+            if a>=3:'<div class="buttonS1"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_B5''">坐我鸡巴上</a></div>'
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_B5''">腿伸到桌上</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_B5''">抬腿爆肏</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_B5''">捅入深处</a></div>'
+            if a>=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''银行_事件'',''YH_Fuck_B5''">持续抽插</a></div>'
+            if a>=8:'<div class="buttonR"><a href="exec:a=9 & gt ''银行_事件'',''YH_Fuck_B5''">射在丝袜上</a></div>'
+            end
+            if a=9:'<div class="buttonS"><a href="exec:a=10 & gt ''银行_事件'',''YH_Fuck_B5''">对话</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''银行''">明白</a></div>'
+            '</div>'
+    end
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>我:这箱子里的应该就是地契的转让赠予合同了对吧？</p>' 
+              if a>=1:'<p><<$YH.name>>:让我看看…授予人是信贷部经理的名字没错…赠予人是钢铁厂的厂长…这下他百口莫辩了！</p>' 
+              if a>=2:'<p>我:那是不是该给我点奖励？</p>' 
+              if a>=3:'<p><<$YH.name>>:必须的❤</p>' 
+              if a>=4:'<p>我:你的腿可真长，是我见过最长的❤</p>' 
+              if a>=5:'<p><<$YH.name>>:你的屌也是我见过最长的❤</p>' 
+         '</div>'
+    end
+
+
+    if a=10:
+         $YH.bad+=q+my.魅力*3
+         $YH.love+=q+my.魅力*4
+         if $银行事件链B=4:$银行事件链B=5
+         '<div class="dialog_menu">'
+              '<p>我:看来这下信贷部经理要吃不了兜着走了，搞不好5亿的坏账都能追缴回来…</p>' 
+              '<p><<$YH.name>>:如果要追缴钢铁厂厂长的海外资产的话，就必须把他控制住！可不能让他出境跑了！</p>' 
+              '<p>我:那现在该怎么办？</p>' 
+              '<p><<$YH.name>>:你现在就去钢铁厂把他控制住！</p>' 
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="总行董事会":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B6-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonR"><a href="exec:a=1 & gt ''银行_事件'',''总行董事会''">揭露5亿坏账内幕</a></div>'
+            if a=1:'<div class="buttonR3"><a href="exec:a=2 & gt ''银行_事件'',''总行董事会''">行长打断了你们</a></div>'
+            if a=2:'<div class="buttonR4"><a href="exec:a=3 & gt ''银行_事件'',''总行董事会''">看向副行长</a></div>'
+            if a=3:'<div class="buttonR4"><a href="exec:a=4 & gt ''银行_事件'',''总行董事会''">处罚：调任乡下</a></div>'
+            if a=4:'<div class="buttonG"><a href="exec:$YH.按摩=1 & gt ''公司''">推荐按摩放松</a></div>'
+        '</div>'
+
+        if a<=1:
+         '<div class="dialog_menu">'
+              '<p>·总行董事会正在召开…</p>'  
+              if a>=1:'<p>我:打扰一下，我要揭露一个5亿坏账内幕！</p>' 
+              if a>=1:'<p>副行长:你在干什么？这里不是你胡闹的地方！</p>' 
+              if a>=1:'<p>我:这个5亿坏账的罪魁祸首正是你的部下——信贷部经理！</p>' 
+              if a>=1:'<p>副行长:放你妈的狗屁，如果你没有证据的话…就给我下跪磕头道歉！</p>' 
+         '</div>'
+        end
+
+        if a=2:
+         '<div class="dialog_menu">'
+              if a>=2:'<p>行长:你可有证据？这可是严重的指控！</p>' 
+              if a>=2:'<p><<$YH.name>>:这是内幕交易的录音…这是信贷部经理受赠别墅的证明…</p>' 
+              if a>=2:'<p>我:钢铁厂厂长也已经被我控制住了，您可以随时盘问他！</p>' 
+              if a>=2:'<p>副行长:什…什么！不可能…</p>' 
+              if a>=2:'<p>信贷部经理:副行长…救…救救我……</p>' 
+              if a>=2:'<p>副行长:滚！</p>' 
+         '</div>'
+        end
+
+        if a=3:
+         '<div class="dialog_menu">'
+              '<p>我:还记得当时你说了什么吗？如果我能解决5亿坏账的话…</p>' 
+              '<p>副行长:我…我……我…我…我……我我…我……向你下跪磕头！</p>' 
+              '<p>我:不是还要把这个副行长的位置让给我坐吗？</p>' 
+              '<p>副行长:行长大人…请…请保留我的…职位…这是我下属的过错…我是无辜的…</p>' 
+              '<p>行长:如果这件事不在今天被爆出，我猜你还会一直瞒下去吧？你难道没有一点责任吗？</p>' 
+              '<p>我:没想到吧？现在属下的过错演变成上司的过错了…</p>'
+              '<p>行长:你做的不错，再没有找到合适的副行长之前，请你代我揪出银行内部腐败的蛀虫。</p>' 
+              '<p>副行长:行长大人…不…不！</p>' 
+         '</div>'
+        end   
+
+        if a=4:
+            if $银行事件链B=6:$银行事件链B=7
+            $MY.银行=1
+         '<div class="dialog_menu">'
+              '<p>副行长:行长大人…不…不！再给我一次机会！我不要去那种乡下地方！</p>' 
+              '<p>行长:这是人事变动结果，就按你说的，把位子给他坐吧！</p>' 
+              '<p><<$YH.name>>:呼——<<$主角姓名>>！心里的石头终于落地了呢！</p>' 
+              '<p>我:是啊，是该好好去放松一下了。</p>' 
+         '</div>'
+        end   
+
+End
+
+if $args[0]="YH_Fuck_B7":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B7-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_B7''">几个意思？</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_B7''">感谢我？</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_B7''">接受挑逗</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_B7''">为我足交</a></div>'
+            if 8>=a and a>=4:
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_B7''">弯腰口交</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_B7''">从后插她</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_B7''">肥臀骑乘</a></div>'
+            if a>=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''银行_事件'',''YH_Fuck_B7''">V字大开脚</a></div>'
+            if a>=8:'<div class="buttonR"><a href="exec:a=9 & gt ''银行_事件'',''YH_Fuck_B7''">剧烈抽插</a></div>'
+            end
+            if a=9:'<div class="buttonS"><a href="exec:a=10 & gt ''银行_事件'',''YH_Fuck_B7''">射在棉袜上</a></div>'
+            if a=10:'<div class="button"><a href="exec:a=11 & gt ''银行_事件'',''YH_Fuck_B7''">对话</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec: gt ''银行''">教堂见</a></div>'
+            '</div>'
+    end
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>我:嚯？这是什么情况？怎么穿成学生装了？</p>' 
+              if a>=1:'<p><<$YH.name>>:人家特意穿成这样来感谢你的❤没有你的帮助我无论如何不会成功…</p>' 
+              if a>=2:'<p>我:那你打算怎么感谢？</p>' 
+              if a>=3:'<p><<$YH.name>>:我…我愿意穿上你想让我穿上的一切服装❤</p>' 
+              if a>=5:'<p>我:你的腿可真长，是我见过最长的❤</p>' 
+              if a>=6:'<p><<$YH.name>>:你的屌也是我见过最长的❤</p>' 
+              if a>=7:'<p>我:被肏得舒服吗❤</p>' 
+              if a>=8:'<p><<$YH.name>>:舒服<<$话>></p>' 
+         '</div>'
+    end
+
+
+    if a=11:
+         $YH.bad+=q+my.魅力*3
+         $YH.love+=q+my.魅力*4
+         if $银行事件链B=7:$银行事件链B=8
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:你有特别想要我穿的服装嘛…我愿意穿上你想让我穿上的一切服装❤</p>' 
+              '<p>我:婚纱怎么样？</p>' 
+              '<p><<$YH.name>>:婚纱？这么神圣的东西……当然可以！我听说教堂里可以开设婚礼业务…我们可以试试❤</p>' 
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="YH_Fuck_B8":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B8-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''银行_事件'',''YH_Fuck_B8''">你好美❤</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''银行_事件'',''YH_Fuck_B8''">温柔地❤</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''银行_事件'',''YH_Fuck_B8''">舔舐嫩逼❤</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a=4 & gt ''银行_事件'',''YH_Fuck_B8''">弯腰口交❤</a></div>'
+            if 8>=a and a>=4:
+            if a>=4:'<div class="buttonS2"><a href="exec:a=5 & gt ''银行_事件'',''YH_Fuck_B8''">插入她❤</a></div>'
+            if a>=5:'<div class="buttonS3"><a href="exec:a=6 & gt ''银行_事件'',''YH_Fuck_B8''">自己坐上来❤</a></div>'
+            if a>=6:'<div class="buttonS4"><a href="exec:a=7 & gt ''银行_事件'',''YH_Fuck_B8''">冲刺抽插❤</a></div>'
+            if a>=7:'<div class="buttonS5"><a href="exec:a=8 & gt ''银行_事件'',''YH_Fuck_B8''">射精❤</a></div>'
+            if a>=8:'<div class="buttonGn"><a href="exec:a=9 & gt ''银行_事件'',''YH_Fuck_B8''">舔干净❤</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec: gt ''教堂''">Good End</a></div>'
+            '</div>'
+    end
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+              '<p>我:你穿婚纱的样子真美❤</p>' 
+              if a>=1:'<p><<$YH.name>>:<<$主角姓名>>，这是我第一次穿婚纱❤</p>' 
+              if a>=2:'<p>我:我会温柔对你的❤</p>' 
+              if a>=3:'<p><<$YH.name>>:好喜欢你<<$娇喘声>></p>' 
+              if a>=5:'<p>我:进来了❤</p>' 
+              if a>=8:'<p><<$YH.name>>:好舒服<<$话>></p>' 
+         '</div>'
+    end
+
+
+    if a=9:
+         $YH.bad+=q+my.魅力*3
+         $YH.love+=q+my.魅力*4
+         if $银行事件链B=8:$银行事件链B=9
+         $YH.GE=1
+         '<div class="dialog_menu">'
+              '<p><<$YH.name>>:<<$主角姓名>>，我还要…我已经彻底爱上你了❤</p>'
+              '<p>我:我的荣幸❤</p>' 
+              '<p>·</p>' 
+              '<p>·————此处为角色故事结尾————·</p>' 
+              '<p>·我不会对玩家区别对待，无论您是否赞助这个按钮都是提供给您游玩别的结局的·<a href="exec:gt ''银行_事件'',''喝酒选择''">-点击</a></p>'
+              '<p>·我也没有刻意增加游戏难度，无论您是否购买攻略CDK，细心一点是一定是能通关的。当然了，如果您有余力的话非常感谢您的赞助，我希望我能日子过的好一点，上岸后可以不像从前那样窘迫。</p>' 
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+
+
+
+--- 银行_事件 ---------------------------------
+

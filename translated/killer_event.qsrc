@@ -1,0 +1,1327 @@
+# killer_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+		if $camera_ss=0 and $camera>0 and $args[0]="ss_event_kitchen":
+		'<div class="action">
+			<a class="photo" data-title="Install the camera" href="exec:$camera_ss=1 & $camera-=1 & gt ''killer_event'',''ss_event_kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
+		</div>'
+		end
+'</div>'
+
+
+if $args[0]="ss_event_bar":
+	$SS.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\SS\vids\酒吧1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a=0:
+				'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_event_bar''">Noisy sound</a></div>'
+			end
+			if a=1:
+				'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_event_bar''">Wait a minute</a></div>'
+			end
+			if a=2:
+				'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_event_bar''">Wait a while</a></div>'
+			end
+			if a>2:
+				'<div class="button"><a href="exec:a=8 & gt ''killer_event'',''ss_event_bar_end''">Justice: Heroes Save Beauty</a></div>'
+			end
+			if a>2:
+				'<div class="button"><a href="exec:a+=1 & gt ''killer_event'',''ss_event_bar''">Evil: Diaoyu Method</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				if a=8:'<div class="button"><a href="exec:minutes+=30 & a+=1 & gt ''killer_event'',''ss_event_bar''">Follow out</a></div>'
+				if a=9:'<div class="button"><a href="exec:gt ''kabukicho''">leave</a></div>'
+			'</div>'
+	end
+
+	if a>=0:
+	 '<div class="dialog_menu">'
+	 	 if a=0:
+	 	 '<p>Me: Have you seen a character like a scout recently?</p>'
+	 	 '<p>Bartender: Huh?Excuse me?What task?</p>'
+	 	 '<p>Me: I mean scouts!Scout!</p>'
+	 	 '<p>Bartender: Huh?Excuse me?mentality?</p>'
+	 	 '<p>Me: Forget it, go ahead.</p>'
+	 	 '<p>Bartender: Okay~ If you need to order, remember to ring the bell.</p>'
+	 	 end
+	 	 if a=1:
+	 	 '<p>·At this time, a woman in the distance attracted your attention.</p>'
+	 	 '<p><<$SS.name>> :Hello?Is it Mr. Scout?I have arrived!We have contacted before!My nickname is: Tia</p>'
+	 	 '<p><<$SS.name>> :Are you here to pick me up?Okay, then I will wait for you here.</p>'
+	 	 '<p>Me: Scout...?</p>'
+	 	 end
+	 	 if a=2:
+	 	 '<p>·The beautiful face and sexy figure attracted many men who were about to move.</p>'
+	 	 '<p>Men: Beauties, are you alone?Depending on your dress, you should be a frequent visitor, right?Have a drink with us!</p>'
+	 	 '<p><<$SS.name>> : Okay, it just so happens that I am also waiting for someone.(Huh, I hope everything goes well...)</p>'
+	 	 end
+	 	 if a=3:
+	 	 '<p>·After a few glasses of wine, the men began to be dishonest.</p>'
+	 	 end
+		 if 7>=a and a>=4:
+		 	'<p><<$SS.name>> :Please stop... her afterglow glanced at you seemingly endlessly.……</p>'
+		 end
+		 if a=8:
+		 	'<p>·Just at the climax, a man appeared, picked up the unconscious her and took her away.</p>'
+		 	'<p>Men: Beauties, don`t go!You are also in the mood!Don`t spoil the fun!</p>'
+		 end
+
+		 if a=9:
+		 	'<p>·A limo has been parked at the door.</p>'
+		 	'<p>Me: This person should be a scout!I have to write down the license plate number!The license plate number is...IPZ-905, IPZ-905, IPZ-905!</p>'
+		 	$JZ_Event_rape=10
+		 end
+	 '</div>'
+	 end 
+End
+
+if $args[0]="ss_event_bar_end":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\SS\vids\酒吧1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if a=8:'<div class="button"><a href="exec:minutes+=30 & a+=1 &$SS.love+=25& gt ''killer_event'',''ss_event_bar_end''">Take her out</a></div>'
+		if a=9:'<div class="button"><a href="exec:gt ''kabukicho''">leave</a></div>'
+	'</div>'
+
+
+	if a>=0:
+	 '<div class="dialog_menu">'
+		 if a=8:
+		 	'<p>Me: Sorry, I`m late.(Take her hand)</p>'
+		 	'<p>Men: Beauties, don`t go!You are also in the mood!Don`t spoil the fun!</p>'
+		 end
+
+		 if a=9:
+		 	'<p><<$SS.name>>:…...thank you.</p>'
+		 	'<p>·When she arrived at the door, her phone rang just in time, and after a while a limo picked her up.</p>'
+		 	'<p>Me: This person should be a scout!I have to write down the license plate number!The license plate number is...IPZ-905, IPZ-905, IPZ-905!</p>'
+		 	$JZ_Event_rape=10
+		 end
+	 '</div>'
+	 end 
+End
+
+if $args[0]="ss_event_license_plate":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\SS\vids\酒吧1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:minutes+=30 & a+=1 & gt ''killer_event'',''ss_event_license_plate''">Phone sound</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=9 & gt ''killer_event'',''ss_event_license_plate''">Take her to rent a house</a></div>'
+		if a=9:'<div class="button"><a href="exec:a=10 & gt ''killer_event'',''ss_event_license_plate''">Take her to rent a house</a></div>'
+		if a=10:'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
+	'</div>'
+
+
+	if a>=0:
+	 '<div class="dialog_menu">'
+		 if a=0:
+ 		 	'<p>·wo: Does the bar provide parking service?`</p>'
+ 		 	'<p>*Bartender: What?Excuse me?betting?Gaming services?！Gaming is not our main business!</p>'
+ 		 	'<p>·wo: I mean parking!Parking!</p>'
+ 		 	'<p>*Bartender: What?Excuse me?Pack to eat?How can I pack food?！We are all clearly priced!</p>'
+ 		 	'<p>·wo: Forget it, go ahead.</p>'
+ 		 	'<p>·Bartender: Okay~ Remember to ring the bell if you need to order.</p>'
+		 end
+
+		 if a=1:
+		 	'<p>Me: Why is she here again...</p>'
+		 	'<p><<$SS.name>>:*Phone) Yes, I haven`t found a residence yet...Can performing arts companies also provide accommodation?But I am still used to living alone..</p>'
+		 end
+
+		 if a=9:
+		 	'<p>Me: Excuse me, I know there are cheap rental houses here.</p>'
+		 	'<p><<$SS.name>>:Oh?Can you take me there?</p>'
+		 end
+		 if a=10:
+		 	'<p>Me: It`s not bad here, is it?</p>'
+		 	'<p><<$SS.name>>:Oh?It`s really nice!Wide field of vision...The location is also good..The rent is still so cheap!It was decided that it was here!</p>'
+		 	'<p>Me: (After knowing her address, you should be able to get a lot of information, right?）</p>'
+		 	$JZ_Event_rape=20
+		 	$SS.room=1
+		 end
+	 '</div>'
+	 end 
+End
+
+if $args[0]="ss_event_room":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\租房~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+		'<div class="button_menu">'
+
+			'<div class="button"><a href="exec:gt ''killer_event'',''ss_event_balcony''">Go to the balcony</a></div>'
+
+			if $ss_event_gas_valve=0 or $camera_ss=0:'<div class="button"><a href="exec:gt ''killer_event'',''ss_event_kitchen''">Go to the kitchen</a></div>'
+
+			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
+
+		'</div>'
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>> :Do you drink?Let`s go for a drink on the balcony.</p>'
+			 if $ss_event_gas_valve=0:'<p><<$SS.name>> :Oh, by the way, the gas valve in the kitchen seems to be broken. Can you fix it for me?</p>'
+		 '</div>'
+	end
+
+End
+
+if $args[0]="ss_event_balcony":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\阳台~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a!3:
+		'<div class="button_menu">'
+			if q>=0:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_event_balcony''">praise</a></div>'
+			end
+			if q>=1:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_event_balcony''">Talk about work</a></div>'
+			end
+			if q>=2:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_event_balcony''">Propose to pick you up</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''deep_alley''">It`s a deal</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>> : Look, the scenery today is so beautiful.Let`s have a drink!*Clink the cup——</p>'
+		 '</div>'
+	end
+	if a=1 :
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: I think...You are more beautiful than the scenery~</p>'
+			 '<p><<$SS.name>> :Haha, you are flattered!</p>'
+		 '</div>'
+	end
+
+	if a=2 :
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: Is the work going well?</p>'
+			 '<p><<$SS.name>> :It`s okay, I haven`t contacted the high-level for the time being.Huh-but it should be soon.</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 $SS.love+=1
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: It`s hard for you to leave early and return late every day, right? Why don`t I pick you up from get off work next time?</p>'
+			 '<p><<$SS.name>> :(thinking).....That`s great, I`m worried that I don`t have the right person.</p>'
+		 	 '<p>Me: Then tell me where you work.</p>'
+			 '<p><<$SS.name>> :...I will call you when I get off work at the specific location.</p>'
+			 if $JZ_Event_rape<=50: $JZ_Event_rape=50	
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="ss_event_kitchen":
+	'<div class ="show_menu"><img src="images\NPC\SS\pics\厨房.jpg" width="854"></div>'
+		'<div class="button_menu">'
+			if $gas_valve>0:'<div class="button"><a href="exec:$ss_event_gas_valve=1 & $gas_valve-=1 &gt ''killer_event'',''ss_event_balcony''">Repair gas valve</a></div>'else:'<div class="buttonGr"><a href="exec:">Need a gas valve</a></div>'
+			if $camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
+			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
+		'</div>'
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>> :Where are gas valves sold?I am a newcomer to life and I am not familiar with it.</p>'
+			 '<p>Me: Take care of me.(You noticed an inconspicuous dead corner of the field of vision, which is a good place to install the camera.）</p>'
+		 '</div>'
+End
+
+if $args[0]="guidelines":
+	'<div class ="show_menu"><img src="images\place\歌舞伎町.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & a=0 & q=0 & gt ''idol_event'',''ox_fuck_kidnapping''">Go to</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·phone.</p>'
+		'<p>· <<$SS.name>>:<<$protagonists_name>>, I`m about to get off work, the location is XXXX, you promised me to pick me up!</p>'
+	'</div>'
+End
+
+
+if $args[0]="kitchen_monitoring":
+	'<div class ="show_menu"><img src="images\NPC\SS\pics\厨房.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $JZ_Event_rape>=100:'<div class="button"><a href="exec:minutes+=15 & gt ''killer_event'',''kitchen_monitoring_2''">The night of the bombing</a></div>'else:'<div class="buttonGr"><a href="exec:">No signal</a></div>'
+		if $ss_arrest=2:'<div class="button"><a href="exec:minutes+=15 & gt ''killer_event'',''kitchen_monitoring_3''">After bail</a></div>'else:'<div class="buttonGr"><a href="exec:">No signal</a></div>'
+
+		'<div class="button"><a href="exec:minutes+=15 & gt ''home_computer''">close</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><Weekday video>·A still picture of no one.Strange, where is she usually?</p>'
+	'</div>'
+End
+
+if $args[0]="kitchen_monitoring_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\SS\vids\狙击~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''home_computer''">close</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Everything you see on the screen is extremely surprising to you!</p>'
+		'<p>The bullet that passed over your head and the explosion close at hand seemed to make sense in an instant!</p>'
+	'</div>'
+End
+
+if $args[0]="kitchen_monitoring_3":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+	 	 <source src="images\NPC\SS\vids\手枪~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''home_computer''">close</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·She actually stayed in this city....It seems that there are still tasks that have not been completed?</p>'
+	'</div>'
+End
+
+if $args[0]="ss_event_stealing":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\偷窃<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!4:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''killer_event'',''ss_event_stealing''">dialogue </a></div>'
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">Leave safely </a></div>'
+			'</div>'
+	end
+
+	if a=-1:
+		 '<div class="dialog_menu">'
+			 '<p><<$JY.name>>Dressed in plainclothes, he looked full of youth and vitality, and the person next to him was an informant in the bureau.</p>'
+			 '<p>Informant: Let`s go, the action begins!</p>'
+		 '</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>·When I came to the office, the electricity was cut off.Only a figure can be vaguely seen.</p>'
+			 '<p>Me: Who is where?me..I am a plainclothes policeman!Raise your hand!</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Ah, this is not<<$protagonists_surname>>Sir?What a coincidence, you see, I don`t wear any weapons on me.</p>'
+			 '<p>Me:...How did you show up here?Who on earth are you?</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Who am I?Do you still not see clearly enough?</p>'
+			 '<p>Me:...Wow, it`s the first time you have observed her so close.</p>'
+			 '<p>·You are deeply attracted to her ketone body.</p>'
+			 '<p>Me:...uh...Uh... (oo⊙)....</p>'
+			 '<p><<$SS.name>>: Ah, are you distracted!Don`t move!You men really know how to eat this set....</p>'
+			 '<p>Me:..#？！@@！Hey hey!....</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I have something to say~ Calm down, calm down, I don`t have a weapon!</p>'
+			 '<p><<$SS.name>>: Don`t worry, I am very professional, one hit is my strength.I didn`t want to hurt you either.Now that you discovered it....Then don`t blame me for being ruthless..</p>'
+			 '<p>Me: I still have a lot of dreams that have not come true!Before I died...Can I do it with you once?</p>'
+			 '<p><<$SS.name>>:Haha, you are so cute. If you could come earlier, maybe we would have done it. It`s a pity that I have to catch a plane and leave here.</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>·Horn outside the window: Gunmen, please lay down your weapons!You have been targeted by the female flying tiger, give up resistance!Surrender!</p>'
+			 '<p>Me: Look at your chest...You are targeted...</p>'
+			 '<p><<$SS.name>>: What...what...?</p>'
+			 '<p>Me: It seems that it`s your turn to be distracted this time...!I don`t want to die here!</p>'
+			 '<p>➤In the end, with the help of the female Flying tiger team members，<<$SS.name>>Raise your hand and surrender, you and<<$JY.name>>Was successfully rescued.</p>'
+			 $JZ_Event_gun=100
+			 $ss_arrest=1
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="ss_event_interrogation":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\审讯1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_event_interrogation''">Nipple head interrogation</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_event_interrogation''">Whipping the clitoris</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_event_interrogation''">Picking holes</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''killer_event'',''ss_event_interrogation''">Toy tuning</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''killer_event'',''ss_event_interrogation''">Sexual intercourse</a></div>'
+			end
+			if a<6 and 4<=q:
+			'<div class="button"><a href="exec:a=6 & gt ''killer_event'',''ss_event_interrogation''">sprint</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''killer_event'',''ss_event_interrogation''">Ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''killer_event'',''ss_event_interrogation''">Propose a transaction</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if a=8:'<div class="button"><a href="exec:CMoney+=500 & a=9 & $ss_arrest=2 & gt ''killer_event'',''ss_event_interrogation''">Write it off!</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''police_station''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Okay, let`s continue to liquidate the old and new accounts.</p>'
+			 '<p><<$SS.name>>: What do you want?I am professionally trained, so you can`t pry information out of my mouth.</p>'
+
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: If you don`t want to suffer, tell me who you really are!</p>'
+			 '<p><<$SS.name>>: My true identity?Hehe..■■■■..Code name 007, killer number 47, I was granted the power by ■■■ to remove anyone who hinders my actions.</p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>Me: What is the truth about the bombing?！Did you lead me over on purpose?</p>'
+			 '<p><<$SS.name>>: In vain, I got your fingerprints with a wine glass, and you were blown up without becoming the “assailant`...Fortunately, the backup plan has taken effect..</p>'
+			 '<p>Me: What backup plan?</p>'
+			 '<p><<$SS.name>>: The torture here is really watery. It`s just an important witness to the plan to dispose of a few slag and stumbling blocks with the fire after the explosion.</p>'
+		 '</div>'
+	end
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Don`t you have nightmares after killing so many people?</p>'
+			 '<p><<$SS.name>>：...nightmare?At least nightmares will wake up, but reality will not....</p>'
+		 '</div>'
+	end
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Where`s the sperm bank!I heard that the sperm bank has been invaded!Did you do it too?</p>'
+			 '<p><<$SS.name>>:Sperm bank?What you said is “the mayor is encoding and counting citizens by screening DNA. If there are nanorobots that can target DNA for precise strikes, it will be a devastating weapon”?。</p>'
+			 '<p>Me: Huh?Is there such a thing?</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Will you hate me?</p>'
+			 '<p><<$SS.name>>: The people I hate can`t finish killing, you can`t even rank in the list.And you are not the first person to do this to me.</p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>Me: When you pointed a gun at me, you said you had a good impression of me. Is it true?</p>'
+			 '<p><<$SS.name>>: Haha, do you remember, you are quite cute.</p>'
+		 '</div>'
+	end
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Damn it...Is this the end?Stun gun, where`s the electric drill?*She is vaguely dissatisfied..</p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 $SS.love-=q
+		 $SS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Wait!I heard that your company is not operating very well. I can contact overseas forces to inject 3 million capital into your company.Since then, we have written it off.</p>'
+			 '<p>Me: Hey, it exploded again and pointed a gun at me...My life was almost lost in your hands..</p>'
+			 '<p><<$SS.name>>: 5 million!As long as you agree, the money will be credited to your company`s account immediately!</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 '<div class="dialog_menu">'
+			 '<p>·Dingdong----The company`s assets have changed.</p>'
+			 '<p><<$SS.name>>:We are destined to see you again，<<$protagonists_surname>>sir.</p>'
+			 '<p>·It didn`t take long for several senior female officials to come in and let her go.</p>'
+			 '<p><<$jz.name>>: How much did she promise you?The bail alone was allocated 40 million by the police department.....</p>'
+		 '</div>'
+	end
+ 
+ q+=1
+
+End
+
+if $args[0]="ss_event_home":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\家1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+		'<div class="button_menu">'
+			if $killer_dialogue=0:'<div class="buttonPu1"><a href="exec:$killer_dialogue=1 & gt ''killer_event'',''ss_event_home''">New agreement</a></div>'
+			if $killer_dialogue=1:'<div class="buttonPu1"><a href="exec:$killer_dialogue=2 & a=1 & gt ''killer_event'',''ss_event_home''">In name?</a></div>'
+			if $SS_Event_free>=1:'<div class="buttonPu2"><a href="exec:a=-1 & gt ''killer_event'',''ss_fuck_hostel''">Go out and step on it</a></div>'
+			if $SS_Event_free>=2:'<div class="buttonPu3"><a href="exec:a=0   & gt ''killer_event'',''ss_fuck_show''">Shooting video</a></div>'
+			if $SS_Event_free>=3:'<div class="buttonPu4"><a href="exec:a=0  &  gt ''killer_event'',''ss_fuck_home_3p''">Temporarily avoid</a></div>'
+			if $SS_Event_free>=4:'<div class="buttonPu5"><a href="exec:a=0  &  gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Entertain guests</a></div>'
+			if $xm_videotape=1:'<div class="buttonPu5"><a href="exec:gt ''killer_event'',''please_follow''">Please follow<<$XM.name>></a></div>'
+			if $champion_event_chain=12:'<div class="buttonR"><a href="exec:gt ''killer_event'',''lesson_gj''">lesson<<$GJ.name>></a></div>'
+            if tuc_level3=1 and SScos=0:'<div class="buttonS3"><a href="exec:SScos=1 &  $m=''SS'' & $ma=$SS.name & gt ''group_performation_event'',''group_performation_fuck_coser_exclusive''">Invite cosplay to shoot </a></div>'
+			if $insemination_room=1 and $SS.bad>=200 and $ss.insemination=0:'<div class="buttonG1"><a href="exec:$ss.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
+			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
+		'</div>'
+
+
+
+
+		 '<div class="dialog_menu">'
+		 	if $killer_dialogue=0:
+			 '<p><<$SS.name>> : What`s the matter, are you surprised to see me?Legal citizens live in houses where they have paid the rent. Is there any problem?</p>'
+			 '<p>Me: Haven`t you been extradited?</p>'
+			 '<p><<$SS.name>> :We should have reached an agreement and let go of the past，<<$protagonists_name>>。Although I am still wanted, the news is that I have left. Wouldn`t this be the safest place?</p>'
+			 '<p>Me: Don`t you hate me?After all, I tortured you.</p>'
+			 '<p><<$SS.name>> :That`s quite interesting to say, isn`t it?</p>'
+			 end
+
+		 	if $killer_dialogue=1:
+			 '<p><<$SS.name>> :I still have a lot of things to deal with here.First of all, I think we need to reach a new agreement.The content is...be my husband.</p>'
+			 '<p>Me: What?Excuse me?Who would marry a murderous female killer like you?</p>'
+			 '<p><<$SS.name>> :*Laugh.Don`t you feel moved by my appearance and figure?Don`t you want to know what I call in bed?</p>'
+			 '<p><<$SS.name>> :Okay, I won`t tease you anymore.I am now pretending to be working with the target in the hospital. He has a strong possessiveness and desire to conquer. His sexual addiction is voyeurism and cheating.I need you to play a cowardly husband, how about?Are you interested?</p>'
+			 end
+
+		 	if $killer_dialogue=2:
+			 '<p>Me: OK, just in name?</p>'
+			 '<p><<$SS.name>> :We have to do it in front of him with real guns and live ammunition.You tied me up before, but you didn`t let you see how good I was.</p>'
+			 '<p>Me: You won`t kill me later, will you?</p>'
+			 '<p><<$SS.name>> : It`s possible~Ah----Open your mouth, husband.*Laugh</p>'
+			 if $SS_Event_free<=1:$SS_Event_free=1
+			 end
+		 '</div>'
+
+
+End
+
+if $args[0]="ss_fuck_hostel":
+	$killer_dialogue=0
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\爱情0-<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+
+		'<div class="button_menu">'
+			if a=-1:
+			if $SS.love>=100:'<div class="buttonS"><a href="exec:a=0 & gt ''killer_event'',''ss_fuck_hostel''">Go to the hotel</a></div>'else:'<div class="buttonGr"><a href="exec:">go?？</a></div>'
+			'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+			end
+
+			if a=0:
+			'<div class="buttonB1"><a href="exec:a=1 & gt ''killer_event'',''ss_fuck_hostel''">Take a bath</a></div>'
+			'<div class="buttonP"><a href="exec:a=0 & q=0 & gt ''killer_event'',''ss_event_love''">Go to bed</a></div>'
+			end
+			
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_fuck_hostel''">dialogue</a></div>'
+			end
+
+			if a=2:
+			'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''killer_event'',''ss_event_love''">Hug to bed</a></div>'
+			end
+		'</div>'
+
+
+
+
+
+		if a=-1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>> : Digging dolls is so dangerous!My marksmanship is not bad, right?！A normal rifle should not have such a large bullet capacity....</p>'
+			 '<p>Me: I think you just want to play, right?</p>'
+			 '<p><<$SS.name>> :I want you to take care of it!</p>'
+			 $SS.love+=$my.charm
+		 '</div>'
+		 end
+		if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I suddenly found that you are still a bit cute when you are not talking.</p>'
+			 '<p><<$SS.name>> : It`s not too late to find out.Do you want to wash with me?*Laugh</p>'
+		 '</div>'
+		 end
+		if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Do you still have to pose in the mirror when you take a shower?Wow.</p>'
+			 '<p><<$SS.name>> :You are very annoying!</p>'
+		 '</div>'
+		 end
+		if a=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>> : You are the only one who talks a lot of nonsense, just shut your mouth obediently.Help you lick your dick clean, don`t make me get gynecological disease...</p>'
+			 '<p>Me: Just wear a condom.</p>'
+		 '</div>'
+		 end
+End
+
+if $args[0]="ss_event_love":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\爱情1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<7:
+		'<div class="button_menu">'
+			if $killer_dialogue=0:
+			'<div class="button"><a href="exec:a=0 & $killer_dialogue=1 & gt ''killer_event'',''ss_event_love''">agree</a></div>'
+			'<div class="button"><a href="exec:a=0 & $killer_dialogue=2 & gt ''killer_event'',''ss_event_love''">negative</a></div>'
+			end
+
+			if $killer_dialogue!0  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_event_love''">Oral sex</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_event_love''">Tease her</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_event_love''">Normal bit</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''killer_event'',''ss_event_love''">Sideways position</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''killer_event'',''ss_event_love''">Go to the door to do it</a></div>'
+			end
+			if a<6 and 4<=q:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''killer_event'',''ss_event_love''">Ejaculation</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 &gt ''killer_event'',''ss_event_love''">dialogue</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if a=7:'<div class="buttonPu2"><a href="exec:a=8 & gt ''killer_event'',''ss_event_love''">Me too</a></div>'
+				if a=7:'<div class="buttonS2"><a href="exec:a=8 & gt ''killer_event'',''ss_event_love''">I love you</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: What are you doing hiding in the quilt?</p>'
+			 '<p><<$SS.name>>: Hey, do you like that kind of pure and lovely little girl?</p>'
+			 if $killer_dialogue=1:'<p><<$SS.name>>: Oh.</p>'
+			 if $killer_dialogue=2:'<p><<$SS.name>>: I knew it, men just like skank.</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: What`s wrong with you?Still jealous?</p>'
+			 '<p><<$SS.name>>: What about me like this, do you like it?</p>'
+			 '<p>Me: If there is no assault rifle or sniper rifle at home...</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：...？！Why did you still open the door? What if someone passes by and hears it?！</p>'
+			 '<p>Me: You are not afraid of killing people, are you still afraid of this?</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: I can`t stand it anymore, you are amazing, hurry up, hurry up!Fuck me!</p>'
+		 '</div>'
+	end
+
+
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p>Me: What`s the matter, how did you enter Sage mode?</p>'
+			 '<p><<$SS.name>>:.....uh...nothing...I was thinking..Could it be that in another parallel world, we are really a loving couple?</p>'
+			 '<p>Me: Oh?</p>'
+			 '<p><<$SS.name>>: Because..When I`m with you...I feel very relieved...(Oh, what am I thinking.He is just a safe house that knows my true identity..）</p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $SS.love+=q
+		 $SS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Then I wish we will never be awakened in this beautiful dream.</p>'
+			 '<p>Me: What you look like now, you are really a pure and lovely little girl.</p>'
+			 '<p><<$SS.name>>: Hehe..What nonsense are you talking about..Kill you!...Neuropathy....*Her eyes can`t do without you </p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+if $args[0]="ss_fuck_sperm_donation":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\捐精1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			if a!1  and q<5:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_fuck_sperm_donation''">Toying with</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_fuck_sperm_donation''">Lick the glans</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_fuck_sperm_donation''">Deep throat</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''killer_event'',''ss_fuck_sperm_donation''">Quick blowjob</a></div>'
+			end
+			if a<5 and 4<=q:
+			'<div class="button"><a href="exec:a=5 & gt ''killer_event'',''ss_fuck_sperm_donation''">Ejaculation</a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''killer_event'',''ss_fuck_sperm_donation''">Hard work</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''hospital''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: Hey, let me serve you personally, aren`t you afraid that I will physically castrate you?</p>'
+		 '</div>'
+	end
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+		 '</div>'
+	end
+
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：？！Why did you shoot so much? It seems that you have accumulated a lot!</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $SS.love+=q+$my.charm
+		 $SS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:A total of shots were fired<<q>>Oh, very good!</p>'
+			 '<p>Me: Thank you for your hard work.</p>'
+		 '</div>'
+	end
+ q+=1
+
+End
+
+if $args[0]="ss_event_hospital_judgment":
+
+	if $SS_Event_free<2:gt 'killer_event','ss_event_hospital'
+	if $SS_Event_free=2:gt 'killer_event','ss_event_hospital_2'
+	if $SS_Event_free>=3:gt 'killer_event','ss_event_hospital_3'
+
+end
+
+if $args[0]="ss_event_hospital":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\出轨1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+
+		'<div class="button_menu">'
+
+			if q=0 or q=2:'<div class="button"><a href="exec:a=0 &gt ''killer_event'',''ss_event_hospital''">Watch it</a></div>'
+			if q=1:'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_event_hospital''">Watch it</a></div>'
+			if q=3:'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_event_hospital''">Watch it</a></div>'
+
+			if q=4:'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">Get out of the car</a></div>'
+
+		'</div>'
+
+
+	if q=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$protagonists_name>>, Can you wait for me at the door now?I will be back soon.</p>'
+			 '<p>Jingyuan Project Director：<<$SS.name>>Doctor, come here!</p>'
+			 '<p>Me: Let me see what medicine you sell in gourd...</p>'
+		 '</div>'
+	end
+
+	if q=1:
+		 '<div class="dialog_menu">'
+			 '<p>Jingyuan Project Director：<<$SS.name>>Doctor, is that your husband?</p>'
+			 '<p><<$SS.name>>: Yes, director, what can I do for you?</p>'
+			 '<p>Jingyuan Project Director: It`s just that your research report is doing very well, and the patient`s clinical response is no different.</p>'
+			 '<p><<$SS.name>>: You have won the award. It is far from your Jingyuan project. If I can join the Jingyuan project and study with you, it will be my honor!</p>'
+			 '<p>Jingyuan Project Director: This is not okay, the team members are from the Empire..</p>'
+		 '</div>'
+	end
+
+	if q=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: Director.....It would be great if my husband was as good as you...</p>'
+			 '<p>Jingyuan Project Director: Cough...It`s not for scientific research that you can`t hold your breath like this!You followed me to do the Jingyuan project...Invite an assistant!</p>'
+		 '</div>'
+	end
+
+	if q=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: Sorry, I made a gaffe....</p>'
+			 '<p>Jingyuan Project Director: Cough..As a condition, I want you to repeat what you just said...</p>'
+			 '<p><<$SS.name>>: Director.....such as..fruit..me..old..public..also..like..you..this..like..excellent..show..just..good..up......</p>'
+			 '<p>Jingyuan Project Director: Don`t let your husband wait in a hurry, I will teach you slowly in the future..</p>'
+		 '</div>'
+	end
+
+
+	if q=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Does it feel good to peek?The target person seems to have taken the bait, he is really a simple man.</p>'
+			 '<p>Me: I put a green hat on my head inexplicably, what do you think.</p>'
+			 '<p><<$SS.name>>:Hehe, just go back and make it up to you.</p>'
+			 $SS.love+=15
+			 if $SS_Event_free<=2:$SS_Event_free=2
+		 '</div>'
+	end
+ q+=1
+
+End
+
+if $args[0]="ss_event_hospital_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\诱1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<6:
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:a+=1 & gt ''killer_event'',''ss_event_hospital_2''">Peek</a></div>'
+
+			'<div class="button"><a href="exec:minutes+=30 & gt ''hospital''">leave</a></div>'
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''hospital''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: You go back first, the director and I have something important to do!</p>'
+			 '<p>Me:...............</p>'
+			 '<p><<$SS.name>>: Director, I am so wronged!My husband treats me coldly at home!I haven`t touched me since I got married, I`m really lonely!</p>'
+		 '</div>'
+	end
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+			 '<p>Jingyuan Project Director: I compare with your husband...Who is it better to have sex with?</p>'
+		 '</div>'
+	end
+
+	if a=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: Of course it`s you, the director!</p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>Jingyuan Project Director: Do you want to be fucked by more people?I have a group full of top geneticists who have been dismissed and delegated by the [new policy].As long as you are willing to dedicate yourself to science, you can leave you a co-signature when you post an article.</p>'
+		 '</div>'
+	end
+	if a=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: Of course, I always dream of working with more men as good as you!Dedicate yourself to science, this will be my dogma.</p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>Jingyuan Project Director: Very good!After that, I will take you to a group meeting with several people in charge of the Jingyuan project!！</p>'
+			 '<p><<$SS.name>>: Director, you are so kind.</p>'
+			 $SS_Event_free=3
+		 '</div>'
+	end
+ q+=1
+
+End
+
+if $args[0]="ss_event_hospital_3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\加入1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a!1  and q<4:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_event_hospital_3''">Playing with small holes</a></div>'
+			end
+			if a!2  and 1<=q and q<5:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_event_hospital_3''">Vibrator to play with</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_event_hospital_3''">Oral sex</a></div>'
+			end
+			if a!4 and 3<=q and q<=7:
+			'<div class="button"><a href="exec:a=4 & gt ''killer_event'',''ss_event_hospital_3''">Sexual intercourse</a></div>'
+			end
+			if a!5 and 4<=q and q<=8:
+			'<div class="button"><a href="exec:a=5 & gt ''killer_event'',''ss_event_hospital_3''">sprint</a></div>'
+			end
+			if a<6 and 4<=q:
+			'<div class="button"><a href="exec:a=6 & gt ''killer_event'',''ss_event_hospital_3''">Incontinence</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''killer_event'',''ss_event_hospital_3''">Ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 &gt ''killer_event'',''ss_event_hospital_3''">Make a big laugh</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				if medicine=1:'<div class="button"><a href="exec:minutes+=30 & gt ''daily_drug_test''">return</a></div>'
+				if medicine!1:'<div class="button"><a href="exec:minutes+=30 & gt ''hospital''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 if medicine!1 and  $peeping_ss_experiment!1:'<p><<$SS.name>>: You go back first, I have a group meeting with several people in charge of the Jingyuan project!！</p>'
+			 '<p>Me:.........</p>'
+			 '<p>Jingyuan Project director: What a show, I lied to your husband to have a group meeting, it was actually group sex!Haha!</p>'
+			 if $can_take_oxidation_equipment=1:'<p>【Antioxidant equipment】<a href="exec:$antioxidant_equipment=1 & a=1 & gt ''killer_event'',''ss_event_hospital_3''">-Take it quietly</a></p>'
+		 '</div>'
+	end
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$words>></p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p>Jingyuan Project Director: Haha!!Why did you leak urine so dry, the semen that shot into your pussy in a while is going to be clamped!If it flows out before you get home, you will be fired!</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:Great, everyone`s semen is a hundred times stronger than my husband`s!Can I be everyone`s meat toilet wife?</p>'
+		 '</div>'
+	end
+
+
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p>Jingyuan Project Director: Hahahaha!This is not okay, you are only valuable if you are someone else`s wife!</p>'
+			 '<p>Everyone: Director!I know a new black-skinned young woman!Next time I will bring her together to have a good time!</p>'
+			 '<p>Jingyuan Project Director: Ok!</p>'
+			 $SS_Event_free=4
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="ss_fuck_show":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\展示1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<9:
+		'<div class="button_menu">'
+			if a!1  and q<3:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_fuck_show''">Rub your chest</a></div>'
+			end
+			if a!2  and 1<=q and q<4:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_fuck_show''">Insert hole</a></div>'
+			end
+			if a!3 and 2<=q and q<=6:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_fuck_show''">Oral sex</a></div>'
+			end
+			if a!4 and 3<=q and q<=12:
+			'<div class="button"><a href="exec:a=4 & gt ''killer_event'',''ss_fuck_show''">Female upper</a></div>'
+			end
+			if a!5 and 4<=q and q<=12:
+			'<div class="button"><a href="exec:a=5 & gt ''killer_event'',''ss_fuck_show''">Normal bit</a></div>'
+			end
+			if a=4 or a=5:
+			'<div class="button"><a href="exec:a+=2 & gt ''killer_event'',''ss_fuck_show''">sprint</a></div>'
+			end
+			if a=6 or a=7:
+			'<div class="buttonS"><a href="exec:a=8 &gt ''killer_event'',''ss_fuck_show''">Ejaculation</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 &gt ''killer_event'',''ss_fuck_show''">Lick clean</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">End shooting</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: I have prepared a camera, and I will record the process for him to see in a while.There is no need to act on the spot, just do it really.</p>'
+			 '<p>Me: Okay....</p>'
+			 '<p><<$SS.name>>: How about this dress, do you like uniforms?</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$protagonists_name>>, Are my tits comfortable to rub?</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+		 '</div>'
+	end
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$protagonists_name>>, hurry up!I`m coming!I`m going to spray!</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$words>></p>'
+		 '</div>'
+	end
+
+
+	if a=9:
+		 $SS.love+=q+$my.charm
+		 $SS.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>:<<$protagonists_name>>, I love you so much, I will never betray you in my life.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="ss_fuck_home_3p":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\家3P1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<8:
+		'<div class="button_menu">'
+			if a!1  and q<=2:
+			'<div class="button"><a href="exec:a=1 & gt ''killer_event'',''ss_fuck_home_3p''">Lick mine!</a></div>'
+			end
+			if a!2  and q<=3:
+			'<div class="button"><a href="exec:a=2 & gt ''killer_event'',''ss_fuck_home_3p''">Lick this way!</a></div>'
+			end
+			if a!3 and 2<=q and q<=7:
+			'<div class="button"><a href="exec:a=3 & gt ''killer_event'',''ss_fuck_home_3p''">Back entrance delivery</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=rand(4,5) & gt ''killer_event'',''ss_fuck_home_3p''">Fuck while talking</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''killer_event'',''ss_fuck_home_3p''">Change population</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=4 & gt ''killer_event'',''ss_fuck_home_3p''">Thrusting</a></div>'
+			end
+			if a!6 and q>=7:
+			'<div class="button"><a href="exec:a=6 & gt ''killer_event'',''ss_fuck_home_3p''">sprint</a></div>'
+			end
+			if a=6:
+			'<div class="buttonS"><a href="exec:a=7 &gt ''killer_event'',''ss_fuck_home_3p''">Shoot in the mouth</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & minutes+=60 &gt ''killer_event'',''ss_fuck_home_3p''">One hour later</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: I have an appointment in a while, so you can avoid it for a while.If you want to stay and take a peek, it`s best not to be discovered by them..</p>'
+			 '<p>Me: Okay....</p>'
+			 '<p>Professor of Genetics: When will your husband come back?</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Jingyuan Project director: What are you panicking about? Her husband is said to be a loser. What can he do to us?The policy of one wife and multiple husbands is about to be implemented!Maybe you will join our 4P!Which hole did you say to leave for her husband to insert?</p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$words>></p>'
+			 '<p>Jingyuan Project director: You have to swallow it all without a drop, or you will be kicked out of the project!You slut!</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: I still want it, give it to me, dear big dick husbands~~ I can`t do without you anymore!</p>'
+			 '<p>Professor of Genetics: How can we be willing to let you bitch go?</p>'
+			 '<p>Jingyuan Project Director: You will always be tied to us from now on!</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="ss_fuck_jia_inverse_3p":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\SS\vids\家逆3P1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a<12:
+		'<div class="button_menu">'
+			if a>=6 or q=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Fuck<<$ss.name>></a></div>'
+			end
+			if a<=5:
+			'<div class="buttonB"><a href="exec:a=2 & gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Fuck 008</a></div>'
+			end
+			if q!0 and a<=9:
+			'<div class="buttonPu1"><a href="exec:a+=1 &gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Keep fucking</a></div>'
+			end
+
+			if q!0 and a=10:
+			'<div class="buttonPu1"><a href="exec:a=1 &gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Keep fucking</a></div>'
+			end
+
+			if a=10 or a=5:
+			'<div class="buttonS"><a href="exec:a=11 & gt ''killer_event'',''ss_fuck_jia_inverse_3p''">Ejaculation</a></div>'
+			end
+
+			if a=11:
+			'<div class="button"><a href="exec:a=12 & gt ''killer_event'',''ss_fuck_jia_inverse_3p''">afterwards</a></div>'
+			end
+		'</div>'
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''deep_alley''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>: This is used as a safe house...One of mine in a while...friend?I want to borrow it.Do you want to fuck her?</p>'
+			 '<p>Me: Of course.</p>'
+			 '<p><<$SS.name>>: This is the code name 008, you can trust her.We resolved the overdose crisis together in South Africa.</p>'
+			 '<p>Me: The black-skinned young woman is not talking about you, is it?</p>'
+			 '<p>008: It`s your honor to meet me.</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$SS.name>>：<<$words>></p>'
+			 '<p>008：<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p>008：<<$words>></p>'
+			 '<p><<$SS.name>>：<<$panting>></p>'
+			 if a=11:'<p>008: There is still me, don`t forget me, shoot me~~baby~~</p>'
+		 '</div>'
+	end
+
+	if a=12:
+		 $SS.love+=(q+$my.charm)*2
+		 $SS.bad+=(q+$my.charm)*2
+		 '<div class="dialog_menu">'
+			 '<p>008: Your sex doll is awesome!Can I come again?</p>'
+			 '<p><<$SS.name>>:This is not my sex doll，<<$protagonists_name>>It`s mine...husband.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="please_follow":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\爱情0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''home''">Go home</a></div>'
+	'</div>'
+
+
+	 '<div class="dialog_menu">'
+		 '<p>Me: Can you help me track someone?She is<<$XM.name>>.</p>'
+		 '<p><<$SS.name>> :woman?Huh, now you think of me?</p>'
+		 '<p>Me: Won`t you help me?</p>'
+		 '<p><<$SS.name>> :Okay, I see, I really can`t stand you.The investigation will take some time. How do you want me to track it?</p>'
+		 '<p>Me: It`s best to be able to photograph what she is doing with strangers in the deep alley in the middle of the night……</p>'
+		 '<p><<$SS.name>> :I will send you the videotape after the investigation is over, so you have to be mentally prepared when the time comes!</p>'
+		 $xm_videotape=2
+	 '</div>'
+End
+
+if $args[0]="lesson_gj":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SS\vids\爱情0-0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''home''">Got it</a></div>'
+	'</div>'
+
+
+	 '<div class="dialog_menu">'
+		 '<p>Me: Can you help me teach someone a lesson?She sent someone to bully my sister!</p>'
+		 '<p><<$SS.name>> :Oh, my sister remembered me when she was bullied?</p>'
+		 '<p>Me: Please, help me.</p>'
+		 '<p><<$SS.name>> :…...I see, isn`t your sister my sister?Give me her name!</p>'
+		 '<p>I :<<$GJ.name>></p>'
+		 '<p><<$SS.name>> :How do you want me to teach her?Forget it, let`s leave it to you for a lesson!Remember to rent a basement in Shenxiang, and I will invite her over.</p>'
+		 $champion_event_chain=13
+	 '</div>'
+End
+
+if $args[0]="phone_1":
+	 '<div class ="show_menu"><img src="images\place\打电话.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$xm_videotape+=1 & gt ''home_bedroom''">Got it</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'	
+		'<p><<$SS.name>>:To make a long story short, there is new progress in what you asked for, and I will send it to you right away.</p>'
+		$the_number_of_days_the_xm_video_has_not_been_watched=0
+	'</div>'
+End
+
+--- killer_event ---------------------------------
+

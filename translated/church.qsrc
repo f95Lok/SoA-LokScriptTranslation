@@ -1,0 +1,410 @@
+# church
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+if $lei_video_event_chain=8:gt 'nun_event','LEI_Fuck_jy'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	if $xn.trial=2 and $my_bishop=0:gt'nun_event','mybishop'
+
+	'<div class ="show_menu"><img src="images\place\教堂_<<$times_of_day>>.jpg" width="854"></div>'
+		
+	if $times_of_day="night":
+	'<div class="button_menu">'
+		if $xn.trial=0:'<div class="buttonPu1"><a href="exec:minutes+=15 & gt ''nun_event'',''xn_fuck_bishop_fan''">Bishop`s room</a></div>'
+		if $xn.trial=1:'<div class="buttonPu2"><a href="exec:minutes+=15 & gt ''nun_event'',''xn_fuck_bishop_trainee''">Bishop`s room</a></div>'
+		if $xn.trial<2:'<div class="buttonG1"><a href="exec:minutes+=15 & gt ''nun_event'',''xn_fuck_communion''">Watching the Eucharist</a></div>'
+		if $my_bishop=1:'<div class="buttonG2"><a href="exec:minutes+=15 & gt ''church'',''bishop_position''">Sit on the bishop`s seat</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·As night fell, the believers got up one after another, put one hand on their chests, made a gesture of forgiveness, and the other hand made strange movements under the vestments.</p>'
+		if $xn.trial<2:'<p>Bishop: Sorry, the communion has begun.</p>'
+		if $xn.trial=1:'<p>· <<$XN.name>>In no one`s<a href="exec:gt ''church'',''dialogue''">In the Department of Corrections</a></p>'
+		'<p>——————————</p>'
+			if hour=0:'<p>·Accidentally stepped on the mysterious fragment<a href="exec:$mysterious_string=''·—·'' & gt ''mysterious''">-Reach out and touch</a></p>'
+	'</div>'
+ !###################↓↓↓↓↓↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓
+	else:
+	'<div class="button_menu">'
+		if $XN.available=1 and $bishopschoice=0:'<div class="button"><a href="exec:minutes+=15 &  gt ''church'',''bishopschoice''">Dialoguewiththebishop</a></div>'
+		if $bishopschoice=1 and $xn.trial<2:'<div class="buttonGn4"><a href="exec:gt ''church'',''confessionofthebishop''">`Confession` & `Dedication”</a></div>'
+		if $bishopschoice=2 and $xn.trial<2:'<div class="buttonR3"><a href="exec:gt ''church'',''bishopblasphemy''"> Dialoguewiththebishop</a></div>'
+		if $xn.trial=1:'<div class="buttonG1"><a href="exec:gt ''church'',''trainee_nun''"> Trainee nun</a></div>'
+		if $xn.trial=1:'<div class="buttonG2"><a href="exec:gt ''nun_event'',''xn_fuck_women_believer''"> ❐Female believers are &quot;consecrated”</a></div>'
+		if $my_bishop=1:'<div class="buttonG4"><a href="exec:minutes+=15 & gt ''church'',''bishop_position''">Sit on the bishop`s seat</a></div>'
+		if $lei.finally=1:'<div class="buttonG5"><a href="exec:minutes+=15 & gt ''church'',''church_wedding''">Business: Church wedding</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·The believers knelt down on both sides, and the statue of Shimolos was enshrined in the center of the church, which represented “uncontrollable desire.”</p>'
+		if $xn.trial=1:'<p>· <<$XN.name>>Placed in the correctional hall in the church<a href="exec:a=4 & gt ''nun_event'',''xn_fuck_trial''">Accept purification</a></p>'
+		if $lei.finally=1:'<p><font color="#FF1493">· <<$LEI.name>>Guiding worshippers</font><a href="exec:gt ''church'',''leifinally''">-View</a></p>'
+		'<p>——————————</p>'
+		'<p>·And what exactly do I believe in?</p>'
+	'</div>'
+	end
+End
+
+if $args[0]="bishopschoice":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\主教.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonGn2"><a href="exec:$bishopschoice=1 & gt ''church'',''confessionofthebishop''">Confession: Choose `Dedication”</a></div>'
+            '<div class="buttonR4"><a href="exec:$bishopschoice=2 & gt ''church'',''bishopblasphemy''">Blasphemy: Spit on him</a></div>'
+            '<div class="button"><a href="exec: gt ''church''">Think again</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+              '<p>Bishop: Confessor, everyone is born with sin and salvation.Now, it`s time for you to “dedicate” to salvation.…</p>' 
+			  '<p>Me: What do you mean?</p>'
+              '<p>Bishop: In order to atone for your sins, you must be willing to let yourself suffer inner torture. </p>' 
+			  '<p>I：………</p>'
+			  '<p>·————————</p>' 
+			  '<p>·This is a branch selection. If you choose, you can skip the NTR plot of dedicating your family.Of course, you can choose to back up the archive here to experience different branches of the plot.</p>'
+         '</div>'
+
+End
+
+if $args[0]="confessionofthebishop":
+	 if $xn.mark=1:$xn.mark=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\主教忏悔.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            if $jm.confession=1:'<div class="buttonG1"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''nun_event'',''xn_fuck_confession''">dedication<<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Invitation required<<$JM.name>></a></div>'
+            if $jj.confession=1:'<div class="buttonG2"><a href="exec:$m=''JJ'' & $ma=$JJ.name & gt ''nun_event'',''xn_fuck_confession''">dedication<<$JJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Invitation required<<$JJ.name>></a></div>'
+            if $mm.confession=1:'<div class="buttonG3"><a href="exec:$m=''MM'' & $ma=$MM.name & gt ''nun_event'',''xn_fuck_confession''">dedication<<$MM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">Invitation required<<$MM.name>></a></div>'
+            if $jm.confession+$jj.confession+$mm.confession=3:'<div class="buttonG5"><a href="exec:gt ''nun_event'',''xn_fuck_trial''">I became a believer</a></div>'
+            '<div class="button"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>Bishop: You made a wise choice, my child.As far as I know, you have a bad relationship with your family. This is blasphemy!</p>' 
+			  '<p>Me: Then what should I do?</p>'
+              '<p>Bishop: Bring your family members, and I will purify them myself. </p>' 
+			  '<p>Me: So you can atone for your sins?</p>'
+			  '<p>Bishop: Yes, I am willing to let myself bear the torment of my heart, and salvation is in it... `Dedication” can connect the hearts of all believers who desire to be redeemed.…</p>'
+         '</div>'
+End
+
+if $args[0]="bishopblasphemy":
+		if $xn.mark=1:$xn.mark=10
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\主教.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p>Me: I bah--!</p>'
+              '<p>Bishop: Rude person!Your soul will be condemned to depravity and eternity! </p>' 
+			  '<p>Me: We`ll see!</p>'
+         '</div>'
+End
+
+if $args[0]="trainee_nun":
+		$LEI.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\见习修女.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p>Lei (Trainee nun): Believers, please line up... don`t make noise…</p>'
+              '<p>Nail polish: Cut, tits are so small…</p>' 
+              '<p>Believer B: Mind your own business…</p>' 
+         '</div>'
+End
+
+if $args[0]="dialogue":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\地对话.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="button"><a href="exec: gt ''church''">Got it</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: Are you...okay?</p>'
+              '<p><<$XN.name>>Slowly open your eyes </p>' 
+              '<p><<$XN.name>>：<font color="#e6a422">I...I saw a little light...you...must be the Savior...please help me.…</font></p>'
+			  '<p>Me: I am not the savior. You have followed the bishop for so many years. You must be very clear about his daily arrangements, right?Tell me and I can help you.</p>'
+              '<p><<$XN.name>>：<font color="#FF3939">The Bishop... usually accepts the consecration of believers during the day; purifies the unclean soul of the custom mother every Friday; goes to the restaurant to meet guests at 18:00 every Saturday night; and goes to the hot spring at 13:00 every Sunday afternoon to get rid of evil spirits. </font></p>' 
+         '</div>'
+		$xn.asked=1
+End
+
+if $args[0]="bishop_position":
+	$LEI.available=1
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\主教位.jpg" width="854"></div>'
+        '<div class="button_menu">'
+            '<div class="buttonPu3"><a href="exec: gt ''church'',''confession_room''">&quot;Confession room&quot;</a></div>'
+            '<div class="buttonG"><a href="exec: gt ''church'',''nun_standing_painting''">Summon<<$XN.name>></a></div>'
+            '<div class="buttonG1"><a href="exec: gt ''church'',''lei_liyi''">Summon<<$LEI.name>></a></div>'
+            '<div class="button"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: I didn`t expect to be forced to serve as a bishop…</p>'
+				'<p>——————————</p>'
+				'<p>·And what exactly do I believe in?</p>'
+         '</div>'
+End
+
+if $args[0]="nun_standing_painting":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\对话0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonGn1"><a href="exec: gt ''church'',''nun_out''">Take her out</a></div>'
+            '<div class="buttonPu1"><a href="exec: gt ''nun_event'',''xn_fuck_boy''">Her prayer room</a></div>'
+            if $nun_guilt>0:'<div class="buttonR"><a href="exec: gt ''nun_event'',''xn_fuck_confession_training''">Repent of sin</a></div>'
+            if $xn.bitch=1:'<div class="buttonS"><a href="exec: gt ''nun_event'',''xn_fuck_bitch_set''">Training bitch</a></div>'
+            if $xn.fall_in=1:'<div class="buttonPu5"><a href="exec: gt ''nun_event'',''XN_Fuck_KFC''">Ending: Fallen Nun</a></div>'else:'<div class="buttonGr"><a href="exec: ">Ending:???</a></div>'
+            '<div class="button"><a href="exec: gt ''church''">Got it</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: Don`t you...can you see it?Why are you still wearing a mask?</p>'
+              '<p><<$XN.name>>: I`m used to wearing a mask in church, I can take it off if you mind…</p>' 
+			  '<p>Me: No, according to your habits, do you have any plans?</p>'
+			  if $nun_guilt>0:
+              '<p><B><span class =''red''><<$XN.name>>：<<$protagonists_name>>My lord, I need to repent of my sins... please punish me!</p>' 
+			  else:
+              '<p><<$XN.name>>: I...after the restoration of the Ming Dynasty...I want to go outside more, can you take me there?</p>' 
+              end
+              '<p>·Her guilt: `<<$nun_guilt>>✟</p>' 
+         '</div>'
+End
+
+if $args[0]="nun_out":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\out.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonG3"><a href="exec: gt ''nun_event'',''xn_fuck_hot_spring''">Take her to the hot spring</a></div>'
+            if $xn.waiter=0:'<div class="buttonPu3"><a href="exec: gt ''nun_event'',''xn_fuck_night_1''">Take her to the night club</a></div>'
+            '<div class="buttonR"><a href="exec: gt ''nun_event'',''xn_fuck_black''">She has to go</a></div>'
+
+            '<div class="button"><a href="exec: gt ''church''">Got it</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: Where do you want to go?</p>'
+              '<p><<$XN.name>>: I want to try everything I haven`t tried... Wait, I`ll answer the phone.</p>' 
+			  '<p>Strange man: Hello❤Sister?I need a one-time prayer ❤ Can you come to my house?</p>'
+              '<p><<$XN.name>>: Uh...*She looks at you</p>' 
+			  '<p>Me: Don`t go.</p>'
+              '<p><<$XN.name>>: Okay* She is not very happy.</p>' 
+         '</div>'
+End
+
+if $args[0]="lei_liyi":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\nxn1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+			if $lei_video_event_chain=3:'<div class="buttonS"><a href="exec: gt ''nun_event'',''lei_fuck_video_1_candid_shot''">Talk about the videotape ①</a></div>'
+			if $lei_video_event_chain=6:
+				if MGF>0:'<div class="buttonS"><a href="exec:MGF-=1 & gt ''nun_event'',''LEI_Fuck_MGF''">Talk about the videotape ②</a></div>'else:'<div class="buttonGr"><a href="exec: ">Need McGovern</a></div>'
+			end
+			if $lei_video_event_chain>=9:
+				if MGF>0:'<div class="buttonS"><a href="exec:MGF-=1 & gt ''nun_event'',''LEI_Fuck_MGF''">Use McGovern</a></div>'else:'<div class="buttonGr"><a href="exec: ">Need McGovern</a></div>'
+				'<div class="buttonG"><a href="exec:gt ''nun_event'',''LEI_Fuck_LEI''">Celebrate liberation</a></div>'
+			end
+            '<div class="button"><a href="exec: gt ''church''">Got it</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+              '<p><<$LEI.name>>：<<$protagonists_name>>My lord... is there anything you can do to summon me?</p>' 
+			  '<p>Me: Uh, the man at the door of the church is your boyfriend, right?He wants you to go back.</p>'
+              '<p><<$LEI.name>>: Please, I...I have chosen to join the church...by his side...only endless violent debt collection and abuse...only here can my heart be calm...and I beg you not to expel me...please.…</p>' 
+			  if $lei_video_event_chain>=9:'<p>Me: Don`t worry, he has been permanently expelled.</p>'
+              if $lei_video_event_chain<=1:'<p><<$LEI.name>>: This is the [proposal ring] he gave me, you can return it to him for me…<a href="exec:$lei_video_event_chain=1 & gt ''church''">-Take the ring</a></p>'
+         '</div>'
+End
+
+if $args[0]="confession_room":
+	 $churchgrade=($churchprestige/10)+1
+	 $number_of_confessors=rand(1,$churchgrade)
+	 if  $number_of_confessors>=6:$number_of_confessors=rand(1,6)
+		'<div class ="show_menu"><img src="images\NPC\XN\pics\忏悔室.jpg" width="854"></div>'
+		
+        '<div class="button_menu">'
+            '<div class="button"><a href="exec: gt ''church'',''listen_to_confession''">Listen to confession</a></div>'
+            '<div class="button"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>In this confession room, believers can have one-on-one conversations with me or the nun, and take the initiative to confess their crimes, guilt, and repentance.And I can decide how to make it repent.</p>'
+			  '<p>Because of my prestige：<<$churchprestige>>----The higher the prestige, the more sinful the person who comes to repent.</p>'
+         '</div>'
+End
+
+if $args[0]="listen_to_confession":
+		'<div class ="show_menu2"><img src="images\入境\character\入境人员<<rand(1,140)>>.jpg" height="492"></div>'
+		
+        '<div class="button_menu">'
+            if $xn.teaching_assistant=1:'<div class="buttonS"><a href="exec:$listen_to_the_numbers=20 & gt ''church'',''listen_to_confession_2''">Thinking under the crotch</a></div>'
+            if $lei.teaching_assistant=1: '<div class="buttonP"><a href="exec:$listen_to_the_numbers=10 & gt ''church'',''listen_to_confession_2''">Crotch response</a></div>'
+            '<div class="buttonB2"><a href="exec:gt ''church'',''confession_ruling''">Independent thinking</a></div>'
+            '<div class="button"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Because of my prestige：<<$churchprestige>>----The higher the prestige, the more sinful the person who comes to repent.</p>'
+			  '<p>Me: Welcome to this holy place to seek repentance and forgiveness.Please tell me, why did you come to the confessional?</p>'
+			  '<p>woman：<<$title_of_bishop>>, Me and mine<<$bishop_confession_1>>...happened<<$bishop_confession_2>>, I am now<<$bishop_confession_3>>...in addition, I am also with other<<$number_of_confessors>>People have improper sexual relations... please forgive, guide, or punish me!</p>'
+         '</div>'
+End
+
+if $args[0]="listen_to_confession_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\聆听<<$listen_to_the_numbers>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            if $listen_to_the_numbers=20 or $listen_to_the_numbers=10:'<div class="button"><a href="exec:$listen_to_the_numbers+=1 & gt ''church'',''listen_to_confession_2''">Her answer</a></div>'
+            if $listen_to_the_numbers=21 or $listen_to_the_numbers=11:'<div class="button"><a href="exec: gt ''church'',''confession_ruling''">Got it</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: What do you think of this matter?Should she be punished or forgiven?</p>'
+               if $listen_to_the_numbers=21:'<p><<$XN.name>>: Hand her over to the believers for punishment, and I will forgive those men❤</p>' 
+               if $listen_to_the_numbers=11:'<p><<$LEI.name>>: If there are more than 5 men, you can leave it to me ❤ I will forgive those men❤</p>' 
+         '</div>'
+End
+
+if $args[0]="confession_ruling":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\聆听1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''church'',''confessor''">Sin comes from you!</a></div>'
+            if $xn.teaching_assistant=1:'<div class="buttonS"><a href="exec: $churchprestige+=$churchgrade+5 & gt ''church'',''confession_man''">Sin comes from men!</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: Say it again!How many people do you have improper relationships with?！</p>'
+			  '<p>woman：<<$title_of_bishop>>, me and<<$number_of_confessors>>People have improper sexual relations... please forgive, guide, or punish me!</p>'
+         '</div>'
+End
+
+if $args[0]="confession_man":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\对话0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+			if $number_of_confessors=1:'<div class="buttonS1"><a href="exec: gt ''nun_event'',''xn_fuck_confession_male''">Number of people 1 person</a></div>'else:'<div class="buttonGr"><a href="exec: ">Number of people 1 person</a></div>'
+			if $number_of_confessors=2:'<div class="buttonS2"><a href="exec: gt ''nun_event'',''xn_fuck_confession_male''">Number of people 2</a></div>'else:'<div class="buttonGr"><a href="exec: ">Number of people 2</a></div>'
+			if $number_of_confessors=3:'<div class="buttonS3"><a href="exec: gt ''nun_event'',''xn_fuck_confession_male''">Number of people 3</a></div>'else:'<div class="buttonGr"><a href="exec: ">Number of people 3</a></div>'
+			if $number_of_confessors=4:'<div class="buttonS4"><a href="exec: gt ''nun_event'',''xn_fuck_confession_male''">Number of people 4 people</a></div>'else:'<div class="buttonGr"><a href="exec: ">Number of people 4 people</a></div>'
+			
+			if $lei.teaching_assistant=1:
+				if $number_of_confessors>4:'<div class="buttonS5"><a href="exec: gt ''nun_event'',''xn_fuck_confession_male_2''">Number of people 5+ people</a></div>'else:'<div class="buttonGr"><a href="exec: ">Number of people 5+ people</a></div>'
+			else:
+				if $number_of_confessors>4:'<div class="buttonR"><a href="exec: gt ''church''">Understaffed</a></div>'else:'<div class="buttonGr"><a href="exec: ">Number of people 5+ people</a></div>'
+			end
+			
+			
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: Take this<<$number_of_confessors>>A man brought，<<$XN.name>>Will personally forgive their crimes!</p>'
+			  '<p><<$XN.name>>: Yes, please leave it to me with confidence❤</p>'
+			  '<p>woman：<<$title_of_bishop>>, Thank you!I will be your loyal believer!</p>'
+			  '<p>·My prestige has increased</p>'
+         '</div>'
+End
+
+if $args[0]="confessor":
+		'<div class ="show_menu"><img src="images\NPC\XN\pics\忏悔室.jpg" width="854"></div>'
+		
+        '<div class="button_menu">'
+			'<div class="buttonR"><a href="exec:$confessionnumber=2 & $repent_of_the_crime=''arrogant'' & gt ''nun_event'',''xn_fuck_confession_girl''">Crime of arrogance</a></div>'
+			if $churchgrade>=2:'<div class="buttonR"><a href="exec:$confessionnumber=1 & $repent_of_the_crime=''lazy'' & gt ''nun_event'',''xn_fuck_confession_girl''">The crime of laziness</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of prestige</a></div>'
+			if $churchgrade>=3:'<div class="buttonR"><a href="exec:$confessionnumber=3 & $repent_of_the_crime=''jealous'' & gt ''nun_event'',''xn_fuck_confession_girl''">Crime of jealousy</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of prestige</a></div>'
+			if $churchgrade>=4:'<div class="buttonR"><a href="exec:$confessionnumber=4 & $repent_of_the_crime=''greedy'' & gt ''nun_event'',''xn_fuck_confession_girl''">Crime of greed</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of prestige</a></div>'
+			if $churchgrade>=5:'<div class="buttonR"><a href="exec:$confessionnumber=5 & $repent_of_the_crime=''Rage'' & gt ''nun_event'',''xn_fuck_confession_girl''">Crime of wrath</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of prestige</a></div>'
+			if $churchgrade>=6:'<div class="buttonR"><a href="exec:$confessionnumber=6 & $repent_of_the_crime=''Lust'' & gt ''nun_event'',''xn_fuck_confession_girl''">The crime of lust</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of prestige</a></div>'
+			if $churchgrade>=7:'<div class="buttonR"><a href="exec:gt ''nun_event'',''xn_fuck_gluttony''">The crime of gluttony</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of prestige</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Me: Sin comes from you!You must personally atone for your crimes!</p>'
+			  '<p>Woman: No!Lord Bishop!What crime did I commit?！</p>'
+         '</div>'
+End
+
+if $args[0]="leifinally":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LEI\vids\final.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''church''">leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p><<$LEI.name>>: Thank you for your worship... You need to pay the teaching fee, please go here…</p>'
+			  '<p>Believers: She has changed so much…</p>'
+			  '<p>·——————————</p>'
+			  '<p>·This is the end of the character`s story·</p>'
+         '</div>'
+End
+
+if $args[0]="church_wedding":
+        '<div class ="show_menu2"><img src="images\NPC\XN\pics\wed (<<rand(1,7)>>).jpg" height="492"></div>'
+       
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec: gt ''nun_event'',''XN_Fuck_WED''">Take her to your room</a></div>'
+            '<div class="buttonGn3"><a href="exec: gt ''church''">leave</a></div>'
+            if $bank_event_chain_b>=8:'<div class="buttonG4"><a href="exec: gt ''bank_event'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
+            if $wh.wedding_dress=1:'<div class="buttonG4"><a href="exec:gt ''net_celebrity_event'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p>Bride: Damn it... how could anyone be late for the wedding rehearsal!</p>'
+			  '<p>Me: That`s contempt and blasphemy for sacred marriage…</p>'
+			  '<p>Bride: Master Priest!You are really right!How can I punish him so that he can know his mistake?</p>'
+			  '<p>Me: The deepest way to punish a person is...not to love him at all.</p>'
+			  '<p>Bride: I see, Master Priest... why don`t you take advantage of him before he comes... you “punish” me first?Don`t look at me like this, I`m a bitch❤</p>'
+         '</div>'
+End
+
+
+
+
+
+
+--- church ---------------------------------
+

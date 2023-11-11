@@ -1,0 +1,216 @@
+# 帝国穹顶
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+a=0
+q=0
+n=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="100楼：帝国穹顶" href="exec:minutes+=5 & gt ''帝国穹顶''"><img class="img_stretch" src="images\place\帝国穹顶.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="地下交通" href="exec:minutes+=15 & gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="帝国集团大厅" href="exec:minutes+=15 & gt ''帝国集团''"><img class="img_stretch" src="images\place\帝国集团_大厅.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\空白.jpg"></a>'
+		'</div>'
+		
+
+		
+
+
+
+		
+
+		
+	'</div>'
+'</div>'
+
+
+
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\总裁办公室.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国穹顶'',''总裁立绘''">『<<$CT.name>>』</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>『巨大的落地窗被一幕幕的绿色植物所遮挡』</p>'
+	'</div>'
+end
+
+if $args[0]="总裁立绘":
+	 if $便利店=0:gt'帝国穹顶','总裁立绘1'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\LH<<rand(0,4)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		if $CT.家>0 and $机场进度<3:'<div class="button"><a href="exec:gt ''帝国穹顶'',''配合执行''">协助配合</a></div>'
+		if 异色植物种子>0:
+			if 异色植物幼苗>0:'<div class="buttonGn5"><a href="exec:异色植物幼苗-=1 & gt ''帝国_事件'',''帝国_Fuck_异色幼苗''">给她异色植物幼苗</a></div>'else:'<div class="buttonGr"><a href="exec:">没有异色植物幼苗</a></div>'
+		end
+		if $CT.love>=50+my.魅力*10:'<div class="buttonP"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_CT按摩''">提议按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足<<50+my.魅力*10>></a></div>'
+		if $CT.bad>=115+my.魅力*15:'<div class="buttonS"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_厕所搞''">拖进厕所搞</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足<<115+my.魅力*15>></a></div>'
+		
+		'<div class="button"><a href="exec:gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: 你来的正好，坐吧。*她的双峰对她的颈椎造成了很大的负担</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="总裁立绘1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		if $便利店=0:'<div class="button"><a href="exec:gt ''帝国穹顶'',''总裁立绘2''">『新的考验』</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: 你来的正好，坐吧。</p>'
+	'</div>'
+end
+
+
+if $args[0]="总裁立绘2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:$便利店=1 & gt ''帝国集团''">接受</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">拒绝</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: 你应该知道，我们集团收购了别墅区的十几栋联排别墅打造成了人才公寓，位于公寓黄金位置的便利店却经营不佳，我想指派你作为店长，参与管理。</p>'
+		'<p><<$CT.NAME>>: 我们对这个便利店抱有很高的期望，希望你能确保店铺的正常运营和顾客的满意度。当然，这其中包括保持店铺的形象和环境，还有提供良好的服务和有效管理员工。对于一个像你这样的人，我相信这些事情应该不在话下吧？</p>'
+		'<p>我:  当然，虽然我从未经营过便利店，但我有信心可以做好。</p>'
+		'<p><<$CT.NAME>>: 呵，你是不是觉得你自己特别了不起？我希望你明白，这可不是什么轻松的差事。这个便利店的月利润要超过一百万。是的，你没听错，一百万！我不知道你有没有能力做到，但是我希望你能以创新的思维和务实的行动，努力实现这个目标。如果你做不到，那就别怪我换人了。</p>'
+		'<p><<$CT.NAME>>: 好了，你现在可以考虑一下，是否愿意接受这个任务。如果你觉得自己有能力，那就接受吧。但是别忘了，我对你的期望很高，我希望你能成为我们便利店的杰出店长，给我带来惊喜。</p>'
+	'</div>'
+end
+
+
+if $args[0]="总裁立绘3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国_事件'',''帝国_Fuck_奖励1''">先接受奖励</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国穹顶'',''总裁立绘4''">『新的考验2.0』</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">拒绝</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: 一百万的目标达成了？！我承认当初是有些小瞧你了。还打算继续为我效力吗？</p>'
+		'<p>我:  当然，我有信心可以做好。</p>'
+	'</div>'
+end
+
+if $args[0]="总裁立绘4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\初2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:a=-3 & gt ''帝国_事件'',''帝国_Fuck_目标1''">下楼</a></div>'
+		'<div class="button"><a href="exec:gt ''帝国集团''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: 你的经营能力已经充分得到了我的认可，接下来我想看看你的野心和胆量。</p>'
+		'<p>我:  您请说。</p>'
+		'<p><<$CT.NAME>>: 你看，这是偶像大赛的真实得票情况，实际上<<$SSYY.name>>是第一名，但我通过一些内幕交易把你带的哪个新人捧上了第一，现在你不会还觉得是你的功劳了吧？</p>'
+		'<p>我:  原来是这样，怪不得<<$QB.name>>会莫名逆袭夺冠。</p>'
+		'<p><<$CT.NAME>>:从结果上看我们迫使<<$PW.name>>因为高额负债将<<$SSYY.name>>抛售给帝国娱乐，作为冠军的别墅奖品实际上也还是在帝国集团名下，我们什么也没失去反而一箭三雕。</p>'
+		'<p>我:  那还有什么我能帮上忙的吗？</p>'
+   '</div>'
+end
+
+if $args[0]="配合执行":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\配合执行.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''帝国集团''">明白</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.NAME>>: 帝国航空最近的乘客满意度以及机组人员积极性普遍低于同期水平，我认为需要采取必要措施解决这个问题，我决定你和<<$主角姓名>>一起负责这项任务。</p>'
+		'<p><<$QJ.NAME>>:  他也一起去嘛。</p>'
+		'<p><<$CT.NAME>>: 不行吗？是他欺负你了？</p>'
+		'<p>我:  那我怎么敢呢。</p>'
+		'<p><<$CT.NAME>>:那就这样吧。</p>'
+		'<p><<$QJ.NAME>>:  走吧，<<$主角姓名>>。</p>'
+		if $机场进度=0:$机场进度=1
+   '</div>'
+end
+
+
+
+
+
+
+--- 帝国穹顶 ---------------------------------
+

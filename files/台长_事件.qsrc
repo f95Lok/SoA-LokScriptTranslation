@@ -1,0 +1,1459 @@
+# 台长_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+
+if $args[0]="结束":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\结束.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>: 到此为止吧，再接下去就有点玩火了…毕竟我们还在台里对吧…？</p>'
+		'<p>我: 好吧…我还得继续努力…（更高的收视率或者让她更堕落？）</p>'
+	'</div>'
+End
+
+if $args[0]="约会":
+		a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\约会.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:gt ''台长_事件'',''TZ_Fuck_按摩''">提议按摩 </a></div>'
+
+		if $TZ.love>=150 and $TZ.bad>=150 :'<div class="buttonS3"><a href="exec:gt ''台长_事件'',''TZ_Fuck_约会''">去开房 </a></div>'else:'<div class="buttonGr"><a href="exec:">去开房</a></div>'
+		if $TZ.love>=200 and $TZ.bad>=200 :'<div class="buttonS4"><a href="exec:gt ''台长_事件'',''TZ_Fuck_回公司''">回台里 </a></div>'else:'<div class="buttonGr"><a href="exec:">回台里</a></div>'
+		if $TZ.love>=300 and $TZ.bad>=300 :'<div class="buttonGn"><a href="exec:gt ''台长_事件'',''温泉''">去泡温泉 </a></div>'else:'<div class="buttonGr"><a href="exec:">去泡温泉</a></div>'
+		
+		'<div class="button"><a href="exec:gt ''居民区''">各回各家</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·甜蜜的晚餐！</p>'
+		'<p><<$TZ.name>>: <<$主角姓名>>…接下来，你有什么打算呢？</p>'
+		'<p>我: 我想干什么，你都答应嘛？</p>'
+	'</div>'
+End
+
+if $args[0]="TZ_Fuck_泛用奖口":
+	if $TZ.bad<(a-3)*7+10:gt'台长_事件','结束'
+	if 收视率<(a+$奖口)*4:gt'台长_事件','结束'
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\口<<$奖口>>-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			if $奖口=1:'<div class="buttonB1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">揉丝臀 </a></div>'
+			if $奖口=2:'<div class="buttonB1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">大腿夹射 </a></div>'
+			if $奖口=3:'<div class="buttonB1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">舔龟头 </a></div>'
+			if $奖口=4:'<div class="buttonB1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">口我 </a></div>'
+			end
+
+			if a!2 and 0<q and q<=4:
+			if $奖口=4 and a=1:
+			'<div class="buttonR4"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">射嘴她里 </a></div>'
+			else:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">侍奉 </a></div>'
+			end
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">口交 </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			if $奖口=4:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">舔蛋蛋 </a></div>'
+			else:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">温柔点 </a></div>'
+			end
+			end
+			if a!5 and 3<q and q<=7 and a!6:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">激烈点 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">射精 </a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_泛用奖口''">对话 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+	$台长话[0]="这么心急？你表现得很好，得到一些奖励也是应该的…"
+	$台长话[1]="放心，我怎么会忘了奖励你？"
+	$台长话[2]="等不及我奖励你了吗~说吧，想要什么奖励呢。"
+	$台长话[3]="虽然你不是正式员工，但能享受到正式员工没有的工作奖励呢…"
+	$台长话[4]="我觉得呢，精神上的奖励远远没有肉体上的奖励来的实在，你说呢？"
+	$台长话[5]="这种奖励如果能调动你争取更好收视率的积极性，那我觉得是我赚了…"
+	$台长话[6]="一次性奖励？我也是这么想的…"
+	$台长话="<<$台长话[rand(0,6)]>>"
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 跟我来…</p>'
+			 '<p><<$TZ.name>>: <<$台长话>></p>'
+		 '</div>'
+	end
+
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声2>></p>'
+			 '<p>我:射了！</p>'
+			 '<p><<$TZ.name>>:全部射出来了呢…</p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $TZ.love+=(q+my.魅力)/5
+		 $TZ.bad+=q/2
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:收视率的提升你功不可没，我很看好你。</p>'
+			 '<p>我:我会再接再厉的！</p>'
+		 '</div>'
+	end
+ $TZ.love+=(1+my.魅力)/5
+ $TZ.bad+=1
+  q+=1
+End
+
+
+if $args[0]="TZ_Fuck_泛奖励事件":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\奖励<<$奖事>>-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			if $奖事=1:'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">揉丝臀 </a></div>'
+			if $奖事=2:'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">足交 </a></div>'
+			if $奖事=3:'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">舔我 </a></div>'
+			if $奖事=4:'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">舔蛋蛋 </a></div>'
+			end
+
+			if a!2 and 0<q and q<=4:
+			if $奖事<=2:'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">丝臀摩擦 </a></div>'
+			if $奖事=3:'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">手指插入 </a></div>'
+			if $奖事=4:'<div class="buttonR4"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">舔屁眼 </a></div>'
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">口我 </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">开操！ </a></div>'
+			end
+			if a!5 and 3<q and q<=7:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">换姿势 </a></div>'
+			end
+			if a!6 and 4<q  and a!7:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">加速冲刺 </a></div>'
+			end
+			if a=6:
+			'<div class="buttonR4"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">射精 </a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''台长_事件'',''TZ_Fuck_泛奖励事件''">事后 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 if $奖事=1:'<p><<$TZ.name>>: 这么晚了还不回家…是在等我吗？</p>'
+			 if $奖事=2:'<p><<$TZ.name>>: 一大早的…空腹有氧有助于减肥呢…</p>'
+			 if $奖事=3:'<p><<$TZ.name>>: 放心，只要躲在录影幕布后面…他们就不会发现我们……</p>'
+			 if $奖事=4:'<p><<$TZ.name>>: 还在剪辑视频素材…？真是辛苦你了，猜猜我给你带了什么惊喜？</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 if $奖事=1:'<p><<$TZ.name>>: 这么晚了，你也要注意休息，你生病的话…我会心疼的…</p>'
+			 if $奖事=2:'<p><<$TZ.name>>: 消耗的卡路里有多少…？不如你策划一个运动节目吧！</p>'
+			 if $奖事=3:'<p><<$TZ.name>>: 他们好像没发现我们？我们从后门溜出去吧！</p>'
+			 if $奖事=4:'<p><<$TZ.name>>: 你的精液和你的节目策划一样充满活力！我真是太爱你了！有时间的话…和我约会吧！</p>'
+			 '<p>我:<<$肯定回答>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_约会":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\约会1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!7:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_约会''">饥渴难耐 </a></div>'
+			end
+			if a!2 and 0<q and q<=4:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_约会''">口我 </a></div>'
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_约会''">舔我屁眼 </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_约会''">重重插入 </a></div>'
+			end
+			if a!5 and 3<q and q<=7:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_约会''">猛烈抽插 </a></div>'
+			end
+			if a!6 and 4<q  and a!7:
+			'<div class="buttonR4"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_约会''">射精</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_约会''">送她回家 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=60 & gt ''居民区''">分别</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 快点干我…我想要你了…</p>'
+			 '<p>我: 在餐厅里你就一直用脚勾引我…</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=7:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 今天我真的很开心！我想…和你一直这样下去…</p>'
+			 '<p>我:<<$肯定回答>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_回公司":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\超1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!11:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_回公司''">摸肥臀 </a></div>'
+			end
+			if a!2 and 0<q and q<=4:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_回公司''">口我 </a></div>'
+			end
+			if a!3 and 1<q and q<=5:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_回公司''">插入 </a></div>'
+			end
+			if a!4 and 2<q and q<=6:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_回公司''">自己动 </a></div>'
+			end
+			if a!5 and 3<q and q<=7:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_回公司''">猛烈抽插 </a></div>'
+			end
+
+			if a!7 and 4<q :
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_回公司''">换姿势 </a></div>'
+			end
+
+
+			if a=5 or a=7:
+			'<div class="buttonR4"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_回公司''">内射</a></div>'
+			end
+			if a!9 and 7<q :
+			'<div class="buttonS5"><a href="exec:a=9 & gt ''台长_事件'',''TZ_Fuck_回公司''">最后の冲刺 </a></div>'
+			end
+			if a=9:
+			'<div class="buttonR4"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_回公司''">颜射</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''台长_事件'',''TZ_Fuck_回公司''">一小时后 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">分别</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 居然回台里做…去开房不好吗…平时在这里还没操够我吗？</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 10>=a and a>=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=11:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 minutes+=60
+		 '<div class="dialog_menu">'
+			 '<p>·之后的一小时里你们把办公室搅得天翻地覆…她的淫水和你的精液散落在了每个地方…</p>'
+			 '<p><<$TZ.name>>: 明天再来爱我好不好…</p>'
+			 '<p>我:<<$肯定回答>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_按摩":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\MGF1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!10 and a!1:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_按摩''">正常按摩 </a></div>'
+			if MGF>0:'<div class="buttonS1"><a href="exec:MGF-=1 & a=2 & gt ''台长_事件'',''TZ_Fuck_按摩''">涂抹麦高芬精华</a></div>'else:'<div class="buttonGr"><a href="exec:">缺少？？？</a></div>'
+			end
+
+			if a>=2 and a!3:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_按摩''">允许你自慰了？ </a></div>'
+			end
+			if a=3:
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_按摩''">听我的命令！ </a></div>'
+			end
+			if a!5 and 3<=q and q<=7:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_按摩''">把她抠高潮 </a></div>'
+			end
+			if a!6 and 4<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_按摩''">猛烈抽插 </a></div>'
+			end
+			if a!7 and 5<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_按摩''">抱起来操 </a></div>'
+			end
+			if a!8 and 6<q :
+			'<div class="buttonS5"><a href="exec:a=8 & gt ''台长_事件'',''TZ_Fuck_按摩''">加速冲刺 </a></div>'
+			end
+			if a=8:
+			'<div class="buttonR4"><a href="exec:a=9 & gt ''台长_事件'',''TZ_Fuck_按摩''">内射</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''台长_事件'',''TZ_Fuck_按摩''">对话 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">分别</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 没看出来，你还会按摩呢？</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 就这点水平？不怎么样嘛……</p>'
+		 '</div>'
+	end
+
+	if 6>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+			 if a=3:
+			 	'<p><<$TZ.name>>:好爽…要喷了……</p>'
+			 	'<p>我:我允许你自慰了？</p>'
+			 end
+			 if a>=4:'<p><<$TZ.name>>:求你了…让我高潮吧…让我高潮吧…</p>'
+		 '</div>'
+	end
+
+	if 9>=a and a>=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:让我高潮吧<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q*3
+		 $TZ.按过=1
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 好棒…你怎么这么厉害…</p>'
+			 '<p>我:现在你知道我的厉害了吧！你知道可以去哪里找我按摩！</p>'
+			 '<p><<$TZ.name>>: 我会去的……</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_庆功宴":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\庆功宴1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">把酒倒身上 </a></div>'
+			end
+			if a!2 and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">让她含一口酒 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">含着酒口我 </a></div>'
+			end
+			if a!4 and 2<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">把酒倒屌上 </a></div>'
+			end
+			if a!5 and 3<=q and q<=7:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">按到床上操 </a></div>'
+			end
+			if a!6 and 4<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">猛烈抽插 </a></div>'
+			end
+			if a!7 and 5<q and a!8:
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">加速冲刺 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonR"><a href="exec:a=8 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">射精 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''台长_事件'',''TZ_Fuck_庆功宴''">对话 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">分别</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 太好了，我们电视台的收视地位已经稳居第一了！我也荣获了最佳领导奖！</p>'
+			 '<p>我: 恭喜你！干杯！</p>'
+			 '<p><<$TZ.name>>: 干杯！就让我们放肆地做一次爱吧，我现在什么都不想管了！</p>'
+
+		 '</div>'
+	end
+
+
+	if 4>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>>真好喝…</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>></p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $TZ.love+=q*2+my.魅力
+		 $TZ.bad+=q*2
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 我想…和你正式交往…你愿意嘛…</p>'
+			 '<p>我: 我考虑考虑吧…</p>'
+			 '<p><<$TZ.name>>: ？！？你…挺会吊我胃口嘛…</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_休息":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\旅馆1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!9:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_休息''">拉起来操她 </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_休息''">抱着操 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_休息''">骑上来 </a></div>'
+			end
+			if a!4 and 3<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_休息''">加速抽插 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_休息''">射精 </a></div>'
+			end
+			if a!6 and 4<q and q<=8:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_休息''">去浴室做 </a></div>'
+			end
+			if a!7 and 5<q and a!8:
+			'<div class="buttonS5"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_休息''">按在玻璃上操 </a></div>'
+			end
+			if a=7:
+			'<div class="buttonR"><a href="exec:a=8 & gt ''台长_事件'',''TZ_Fuck_休息''">射精 </a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''台长_事件'',''TZ_Fuck_休息''">对话 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">分别</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 好舒服…难得可以翘班…不用为收视率操心的感觉实在是太棒了！</p>'
+		 '</div>'
+	end
+
+
+	if 5>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>>…别…别太过分了…让我休息休息啊…</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>>在浴室做好刺激…</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p>我: 怎么样？…还困吗？</p>'
+			 '<p><<$TZ.name>>: ………哼！你说呢！</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="温泉":
+		a=0 & q=0
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉0.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''台长_事件'',''TZ_Fuck_温泉1''">泡澡 </a></div>'
+		'<div class="buttonS2"><a href="exec:gt ''台长_事件'',''TZ_Fuck_温泉2''">迫不及待 </a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$TZ.name>>: 好久没泡温泉了呢…你以后也多约约我来泡呗。</p>'
+		'<p>我: 那我以后就直接打电话约你咯？</p>'
+		'<p><<$TZ.name>>: 没问题。</p>'
+		$TZ.温泉可约=1
+	'</div>'
+End
+
+if $args[0]="TZ_Fuck_温泉1":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!3:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_温泉1''">一起洗 </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_温泉1''">舔舐 </a></div>'
+			end
+			if a!3 and 2<=q :
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_温泉1''">射精 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=1440 & hour=7 & my.精力=mymax[精力]  & a=0 & q=0 & gt ''台长_事件'',''TZ_Fuck_温泉3''">过夜zzZ</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 温泉的精髓……当然就是混浴了。</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+
+	if a=3:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 呼————</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_温泉2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!6:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_温泉2''">去床上 </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_温泉2''">给她舔 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_温泉2''">自己动 </a></div>'
+			end
+			if a!4 and 2<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_温泉2''">骑上来 </a></div>'
+			end
+			if a=4:
+			'<div class="buttonPu4"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_温泉2''">室外情况 </a></div>'
+			end
+			if a!5 and 3<=q :
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_温泉2''">自己扭 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_温泉2''">射精 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=1440 & hour=7 & my.精力=mymax[精力]  & a=0 & q=0 & gt ''台长_事件'',''TZ_Fuck_温泉3''">过夜zzZ</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 等不及了啦…刚才在餐厅的时候人家就想要了…</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>>…</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 阴道里热热的…好舒服…</p>'
+		 '</div>'
+	end
+	
+	if a=7:
+		 $WQ.love+=1
+		 $WQ.bad+=1
+		 '<div class="dialog_menu">'
+			 '<p>？？？: 可恶…凭什么…</p>'
+		 '</div>'
+	end
+	
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_温泉3":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\温泉3-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!6:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_温泉3''">为我口交 </a></div>'
+			end
+			if a!2 and 1<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_温泉3''">舔屁眼 </a></div>'
+			end
+			if a!3 and 2<=q and q<=5:
+			'<div class="buttonS2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_温泉3''">自己动 </a></div>'
+			end
+			if a!4 and 2<=q and q<=6:
+			'<div class="buttonS3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_温泉3''">后入她 </a></div>'
+			end
+			if a!5 and 3<=q :
+			'<div class="buttonS4"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_温泉3''">大力抽插 </a></div>'
+			end
+			if a=5:
+			'<div class="buttonS5"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_温泉3''">射精 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">一起上班</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+
+			 '<p>·第二天</p>'
+			 '<p><<$TZ.name>>: 醒了吗…睡的还舒服嘛？</p>'
+		 '</div>'
+	end
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 5>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>:<<$话>>…</p>'
+		 '</div>'
+	end
+
+	if a=6:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 呼————舒服了，我们一起去上班吧。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_循环":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\口循环1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!11:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_循环''">四人舌吻 </a></div>'
+			end
+			if a=1:
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_循环''">舔我 </a></div>'
+			end
+			if a=2:
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_循环''">口交炸弹开始！ </a></div>'
+			end
+
+			if a=3 or a=5 or a=7:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_循环''">准备口十分钟！ </a></div>'
+			end
+
+			if a=9:
+			'<div class="buttonR3"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_循环''">准备口十分钟！ </a></div>'
+			end
+
+			if a=4:
+			'<div class="buttonGn"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_循环''">传给<<$TZ.name>>→ </a></div>'
+			end
+
+			if a=6:
+			'<div class="buttonGn"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_循环''">传给<<$LY.name>>→ </a></div>'
+			end
+
+			if a=8:
+			'<div class="buttonGn"><a href="exec:a=9 & gt ''台长_事件'',''TZ_Fuck_循环''">传给<<$BD.name>>←← </a></div>'
+			end
+
+
+			if q>=10:
+			'<div class="buttonS5"><a href="exec:a=10 & gt ''台长_事件'',''TZ_Fuck_循环''">射精 </a></div>'
+			end
+			if a=10:
+			'<div class="buttonS"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_循环''">再来一次</a></div>'
+			end
+			if a=10:
+			'<div class="button"><a href="exec:a=11 & gt ''台长_事件'',''TZ_Fuck_循环''">不玩了 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: 怎么了？这里不欢迎我吗？</p>'
+			 '<p><<$LY.name>>: 我正在和<<$BD.name>>交流剧本？</p>'
+			 '<p><<$TZ.name>>: 新的剧本？口交炸弹？女嘉宾们和素人女友循环口交？射在谁的嘴巴里谁就淘汰？真有趣！</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>:<<$娇喘声>></p>'
+			 '<p><<$LY.name>>:<<$娇喘声2>></p>'
+			 if a=3:'<p>·口交传炸弹开始了……</p>'
+		 '</div>'
+	end
+
+	if a=4 or a=6 or a=8:
+		 '<div class="dialog_menu">'
+			 '<p>我:啊啊啊啊……肉棒在颤抖！</p>'
+			 if a=4:'<p><<$BD.name>>:给我坚持住！</p>'
+			 if a=6:'<p><<$TZ.name>>:拿出点本事来！</p>'
+			 if a=8:'<p><<$LY.name>>:不行不行……千万要忍住！</p>'
+		 '</div>'
+	end
+
+	if a=5 or a=7 or a=9:
+		 '<div class="dialog_menu">'
+			 if a=5:'<p><<$BD.name>>:给我接好了！<<$TZ.NAME>>！把你的嘴巴凑过来！</p>'
+			 if a=7:'<p><<$TZ.name>>轮到你了！<<$LY.name>></p>'
+			 if a=9:'<p><<$LY.name>>:不行不行……<<$BD.name>>，还给你！</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: 什么嘛！？</p>'
+			 '<p><<$TZ.name>>: 射了？！？</p>'
+			 '<p><<$LY.name>>: 喂喂！这样算谁的啊！</p>'
+		 '</div>'
+	end
+
+
+	if a=11:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: 不再来一次嘛！真扫兴诶？</p>'
+			 '<p><<$TZ.name>>: 行了，大家都休息吧，我看他也累了。</p>'
+			 '<p><<$LY.name>>: 这次的真人秀我不会辜负前辈们的指导！</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_引荐":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\TZLY1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!13:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_引荐''">给她们点颜色 </a></div>'
+			end
+			if a!2 and 0<q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_引荐''">口我 </a></div>'
+			end
+			if a!3 and 1<q :
+			'<div class="buttonB2"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_引荐''">操<<$LY.NAME>> </a></div>'
+			end
+			if a!8 and 1<q :
+			'<div class="buttonS3"><a href="exec:a=8 & gt ''台长_事件'',''TZ_Fuck_引荐''">操<<$TZ.NAME>> </a></div>'
+			end
+			if  3<=a and a<=5:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_引荐''">换姿势插 </a></div>'
+			end
+
+			if  8<=a and a<=10:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_引荐''">换姿势插 </a></div>'
+			end
+
+
+			if a=6 or a=11:
+			'<div class="buttonR5"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_引荐''">射精</a></div>'
+			end
+			if a=7 or a=12:
+			'<div class="button"><a href="exec:a=13 & gt ''台长_事件'',''TZ_Fuck_引荐''">我累了 </a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=60 & gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: <<$LY.name>>…久仰大名，真人秀节目的成功多亏了你！</p>'
+			 '<p><<$LY.name>>: 您过奖啦！都是领导们的功劳…</p>'
+			 '<p><<$TZ.name>>: 喔？原来<<$主角姓名>>没出力啊？！</p>'
+		 '</div>'
+	end
+
+
+
+	if 2>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p>我: 谁说我没出力？都给我解释解释，什么叫TMD出力！</p>'
+		 '</div>'
+	end
+
+	if 7>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$话>></p>'
+			 '<p><<$TZ.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 12>=a and a>=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$LY.name>>: <<$娇喘声>></p>'
+			 '<p><<$TZ.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 $LY.love+=q+my.魅力
+		 $LY.bad+=q
+		 TZLY+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>和<<$LY.name>>的关系上升了！</p>'
+			 '<p>我:真不容易，累死我了。</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_邀功":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\邀功1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!14:
+		'<div class="button_menu">'
+			if a!1 and q<=2:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_邀功''">被推倒 </a></div>'
+			end
+			if a!2 and 0<q and q<=3:
+			'<div class="buttonS1"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_邀功''">被侵犯 </a></div>'
+			end
+			if a!3 and 1<q and q<=4:
+			'<div class="buttonS1"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_邀功''">被骑脸 </a></div>'
+			end
+
+			if a!4 and 2<q :
+			'<div class="buttonP"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_邀功''">选屁股 </a></div>'
+			end
+
+
+			if a=4:
+			'<div class="buttonR1"><a href="exec:a=9 & gt ''台长_事件'',''TZ_Fuck_邀功''">选←<<$TZ.NAME>> </a></div>'
+			'<div class="buttonR1"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_邀功''">选→<<$BD.NAME>> </a></div>'
+			end
+
+			if  5<=a and a<=10 and a!7 and a!8:
+			'<div class="buttonR2"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_邀功''">换姿势插 </a></div>'
+			end
+
+			if a=7 or a=11:
+			'<div class="buttonR3"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_邀功''">猛烈冲刺</a></div>'
+			end
+			if a=8 or a=12:
+			'<div class="buttonR4"><a href="exec:a=13 & gt ''台长_事件'',''TZ_Fuck_邀功''">射精 </a></div>'
+			end
+			if a=13:
+			'<div class="button"><a href="exec:a=14 & gt ''台长_事件'',''TZ_Fuck_邀功''">有点累 </a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=60 & gt ''电视台''">离开</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: <<$BD.name>>…怎么会和<<$主角姓名>>一起来找我？</p>'
+			 '<p><<$BD.name>>: 台里现在收视率这么好…我觉得……</p>'
+			 '<p><<$TZ.name>>: 喔？我明白了，既然这样，我就奖励给你一个大宝贝！</p>'
+		 '</div>'
+	end
+
+
+
+	if 3>=a and a>=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: 大宝贝不错吧……</p>'
+			 '<p><<$TZ.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if a=4:
+		 '<div class="dialog_menu">'
+			 '<p>·她们把屁股撅了起来，场面淫乱极了</p>'
+			 '<p><<$BD.name>>: 插谁？</p>'
+			 '<p><<$TZ.name>>: 先插我！</p>'
+		 '</div>'
+	end
+
+	if 8>=a and a>=5:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$话>></p>'
+			 '<p><<$TZ.name>>: <<$娇喘声>></p>'
+		 '</div>'
+	end
+
+	if 13>=a and a>=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$娇喘声>></p>'
+			 '<p><<$TZ.name>>: <<$话>></p>'
+		 '</div>'
+	end
+
+	if a=14:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 $BD.love+=q+my.魅力
+		 $BD.bad+=q
+		 BDTZ+=1
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>和<<$BD.name>>的关系微妙上升了！</p>'
+			 '<p>我:真不容易，有丶小累……</p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_全员":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\TZ\vids\4p1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	
+	if a!12:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS2"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_全员''">一起上吧！ </a></div>'
+			end
+			if a=1:
+			'<div class="buttonP"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_全员''">选屁股 </a></div>'
+			end
+
+
+			if a=2:
+			'<div class="buttonR1"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_全员''">选←<<$TZ.NAME>> </a></div>'
+			'<div class="buttonR1"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_全员''">选↑<<$BD.NAME>> </a></div>'
+			'<div class="buttonR1"><a href="exec:a=5 & gt ''台长_事件'',''TZ_Fuck_全员''">选→<<$LY.NAME>> </a></div>'
+			end
+
+			if  3<=a and a<=5 :
+			'<div class="buttonS4"><a href="exec:a+=3 & gt ''台长_事件'',''TZ_Fuck_全员''">艹烂她 </a></div>'
+			end
+
+			if  6<=a and a<=8 :
+			'<div class="buttonS5"><a href="exec:a+=3 & gt ''台长_事件'',''TZ_Fuck_全员''">射精 </a></div>'
+			end
+
+			if  9<=a and a<=11 :
+			'<div class="buttonP"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_全员''">选屁股 </a></div>'
+			'<div class="button"><a href="exec:a=12 & gt ''台长_事件'',''TZ_Fuck_全员''">溜走</a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonG"><a href="exec:minutes+=60 & gt ''电视台''">成就：✩电视台之王</a></div>'
+			'</div>'
+	end
+
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: <<$主角姓名>>叫我们集合干什么？想我了直接来找我不好吗？</p>'
+			 '<p><<$TZ.name>>: 就光我们吗?<<$QT.name>>不来吗？我还挺喜欢她的。</p>'
+			 '<p><<$LY.name>>: 光我们几个就够他褪层皮的了！Muaaaaaaaa…</p>'
+		 '</div>'
+	end
+
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$BD.name>>: 看招！</p>'
+			 '<p><<$TZ.name>>: <<$娇喘声>></p>'
+			 '<p><<$LY.name>>: <<$娇喘声2>></p>'
+		 '</div>'
+	end
+
+	if a=2:
+		 '<div class="dialog_menu">'
+			 '<p>·她们把屁股撅了起来，排成一排，供你挑选。</p>'
+			 '<p><<$TZ.name>>: <<$娇喘声>></p>'
+			 '<p><<$BD.name>>: 插谁？</p>'
+			 '<p><<$LY.name>>: 选我！选我！</p>'
+		 '</div>'
+	end
+
+	if 11>=a and a>=3:
+		 '<div class="dialog_menu">'
+			 '<p><<$TZ.name>>: <<$娇喘声>></p>'
+			 '<p><<$BD.name>>: <<$话>></p>'
+			 '<p><<$LY.name>>: <<$娇喘声2>></p>'
+		 '</div>'
+	end
+
+
+	if a=12:
+		 $TZ.love+=q+my.魅力
+		 $TZ.bad+=q
+		 $BD.love+=q+my.魅力
+		 $BD.bad+=q
+		 $LY.love+=q+my.魅力
+		 $LY.bad+=q
+		 $电视台之王="【✩电视台之王】"
+		 '<div class="dialog_menu">'
+			 '<p>我:……………………</p>'
+			 '<p><<$TZ.name>>: <<$娇喘声>>别走啊！</p>'
+			 '<p><<$BD.name>>: <<$话>>回来继续啊！</p>'
+			 '<p><<$LY.name>>: <<$娇喘声2>>快点快点！别想跑！</p>'
+			 '<p>✩解锁成就:<<$电视台之王>></p>'
+		 '</div>'
+	end
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_谢师宴":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TZ\vids\TZQ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            if $TZ.bad>=my.魅力*25 and $QB.bad>=my.魅力*25 :'<div class="buttonS"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">闭嘴口我！ </a></div>'else:'<div class="buttonGr"><a href="exec:">有人装矜持 </a></div>'
+            '<div class="button"><a href="exec:a=1 & gt ''电视台''">离开 </a></div>'
+            end
+            if a!0 and a!2:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">一起喷吧！ </a></div>'
+            end
+            if a=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">选逼肏 </a></div>'
+            end
+
+            if a=3:
+            '<div class="buttonP"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">操<<$QB.name>> </a></div>'
+            '<div class="buttonPu1"><a href="exec:a=7 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">操<<$TZ.name>> </a></div>'
+            end
+
+            if a=4 or a=5:
+            '<div class="buttonP"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">❤操她❤ </a></div>'
+            end
+            if a=7 or a=8:
+            '<div class="buttonPu1"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">❤别停❤ </a></div>'
+            end
+            if a=6 or a=9:
+            '<div class="buttonS3"><a href="exec:a=10 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">❤射精❤ </a></div>'
+            end
+            if a=10:
+            '<div class="button"><a href="exec:a=11 & gt ''台长_事件'',''TZ_Fuck_谢师宴''">❤交换精液❤ </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS5"><a href="exec:a=rand(2,8) & gt ''台长_事件'',''TZ_Fuck_谢师宴''">接着干！ </a></div>'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''电视台''">该歇了…</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:咳咳…最后能奇迹般的以第一名的票数逆袭，您一定暗中帮助了不少吧。</p>'
+             '<p><<$TZ.name>>: 没有……我只是做了分内之事。</p>'
+             '<p><<$QB.name>>: 台长，不管怎样，是你建议我跟着<<$主角姓>>经纪人的，这是我人生中最重要的一次选择。</p>'
+             '<p>我: 我才不相信你没出力。</p>'
+             '<p><<$TZ.name>>: 无语，那你现在给我出出力？你和她关系不一般吧？</p>'
+         '</div>'
+    end
+
+
+    if 10>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: <<$娇喘声>></p>'
+             '<p><<$QB.name>>: <<$娇喘声2>></p>' 
+             if 6>=a and a>=4:'<p><<$QB.name>>: <<$话>></p>'
+             if 9>=a and a>=7:'<p><<$TZ.name>>: <<$话2>></p>'
+             if a=10:'<p>我: 发射！</p>' 
+         '</div>'
+    end
+
+
+    if a=11:
+         $TZ.love+=q
+         $TZ.bad+=q
+         $QB.love+=q
+         $QB.bad+=q
+         QBTZ=1
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: 你看来被他调教地很充分了嘛❤</p>'
+             '<p><<$QB.name>>: 嘻嘻❤</p>' 
+             '<p>·二人的关系加深了❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="TZ_Fuck_全员2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TZ\vids\QQT4-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!11:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS2"><a href="exec:a=1 & gt ''台长_事件'',''TZ_Fuck_全员2''">一起上吧！ </a></div>'
+            end
+            if a=1:
+            '<div class="buttonP"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_全员2''">享受侍奉 </a></div>'
+            end
+            if a=2:
+            '<div class="buttonP"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_全员2''">三人舌吻 </a></div>'
+            end
+
+            if a=3:
+            '<div class="buttonR1"><a href="exec:a=4 & gt ''台长_事件'',''TZ_Fuck_全员2''">选←<<$QT.NAME>> </a></div>'
+            '<div class="buttonR1"><a href="exec:a=8 & gt ''台长_事件'',''TZ_Fuck_全员2''">选↑<<$QB.NAME>> </a></div>'
+            '<div class="buttonR1"><a href="exec:a=6 & gt ''台长_事件'',''TZ_Fuck_全员2''">选→<<$TZ.NAME>> </a></div>'
+            end
+
+            if  a=4 or a=6 or a=8 :
+            '<div class="buttonS4"><a href="exec:a+=1 & gt ''台长_事件'',''TZ_Fuck_全员2''">换姿势 </a></div>'
+            end
+
+            if  a=5 or a=7 or a=9 :
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''台长_事件'',''TZ_Fuck_全员2''">排队颜射 </a></div>'
+            end
+
+            if  a=10:
+            '<div class="buttonP"><a href="exec:a=3 & gt ''台长_事件'',''TZ_Fuck_全员2''">分享精液 </a></div>'
+            '<div class="buttonS5"><a href="exec:a=11 & gt ''台长_事件'',''TZ_Fuck_全员2''">❤搞定❤</a></div>'
+            end
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=2 & gt ''台长_事件'',''TZ_Fuck_全员2''">吹硬我！骚逼们！</a></div>'
+                '<div class="buttonG"><a href="exec:minutes+=60 & gt ''电视台''">成就：✩荧幕主宰</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: 这次<<$QT.name>>得到了不错的成绩，我很高兴。<<$QB.name>>也是从我们台里发掘的，考不考虑回台里？</p>'
+             '<p><<$QB.name>>: <<$主角姓>>经纪人帮了我很多呢！现在有点离不开他了…</p>'
+             '<p><<$QT.name>>: <<$主角姓名>>也帮了我不少忙，不如我们三个…</p>'
+             '<p>我: 嗯？</p>'
+         '</div>'
+    end
+
+
+
+    if a=1 or a=2:
+         '<div class="dialog_menu">'
+             '<p><<$QT.name>>: 台长，你来负责关键位置，其他的交给我们！</p>'
+             '<p><<$TZ.name>>: <<$娇喘声>></p>'
+             '<p><<$QB.name>>: <<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+             '<p>·她们忘情地舌吻在一起，供你挑选。</p>'
+             '<p><<$TZ.name>>: <<$娇喘声>></p>'
+             '<p><<$QT.name>>: 选谁？</p>'
+             '<p><<$QB.name>>: 选我！选我❤</p>'
+         '</div>'
+    end
+
+    if 10>=a and a>=4:
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: <<$娇喘声>></p>'
+             '<p><<$QT.name>>: <<$话>></p>'
+             '<p><<$QB.name>>: <<$娇喘声2>></p>'
+         '</div>'
+    end
+
+
+    if a=11:
+         $TZ.love+=q+my.魅力
+         $TZ.bad+=q
+         $QT.love+=q+my.魅力
+         $QT.bad+=q
+         $QB.love+=q+my.魅力
+         $QB.bad+=q
+         $荧幕主宰="【✩荧幕主宰】"
+         '<div class="dialog_menu">'
+             '<p>我:……………………</p>'
+             '<p><<$QT.name>>: <<$话>>我还没爽够呢…</p>'
+             '<p><<$QB.name>>: <<$娇喘声2>></p>'
+             '<p><<$TZ.name>>: <<$娇喘声>>给我也分点…</p>'
+             '<p>✩解锁成就:<<$荧幕主宰>></p>'
+         '</div>'
+    end
+  q+=1
+End
+--- 台长_事件 ---------------------------------
+

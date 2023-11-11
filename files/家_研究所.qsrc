@@ -1,0 +1,58 @@
+# 家_研究所
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="去卧室" href="exec:minutes+=5 & gt ''家_卧室''"><img class="img_stretch" src="images\place\房间_<<$times_of_day>>.jpg"></a>
+		</div>'
+
+		'<div class="action">'
+			'<a class="photo" data-title="测试项目" href="exec:minutes+=5 & gt ''测试项目''"><img class="img_stretch" src="images\place\房间_<<$times_of_day>>.jpg"></a>
+		</div>
+
+	</div>'
+'</div>'
+
+
+
+
+'<div class ="show_menu">'
+	if ceshi=0:
+		'<img src="images\place\研究所.jpg" width="854"></div>'
+	elseif ceshi=1:
+		'<img src="images\place\研究所_1.jpg" width="854"></div>'
+	elseif ceshi=2:
+		'<img src="images\place\研究所_2.jpg" width="854"></div>'
+	elseif ceshi=3:
+		'<img src="images\place\研究所_3.jpg" width="854"></div>'
+	else:
+		'<img src="images\place\研究所_4.jpg" width="854"></div>'
+	end
+'</div>'
+
+
+
+'<div class="button_menu">'
+	if ceshi<=3:
+		'<div class="button"><a href="exec:ceshi+=1 & gt ''家_研究所''">下一张</a></div>'
+	elseif ceshi=4:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''家_卧室'',''离开后发生了爆炸''">离开</a></div>'
+	end
+'</div>'
+
+gs "大测试"
+
+!'<div class="dialog_menu">'
+!	'<p>大厅干净整洁</p>'
+!	'<p>..[bigmoney]<<$bigmoney>>.<<$answer>>..</p>'
+!'</div>'
+--- 家_研究所 ---------------------------------
+

@@ -1,0 +1,178 @@
+# menu_charac_main
+cls
+gs'menu_time_calc'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	!gs'menu_option_hidden'
+
+	
+'<div class="option_menu">
+	<a href="exec:gt ''menu_charac_gg'',''<<$my.charm>>''"><div class="option_gg"></div></a>
+	<a href="exec:gt ''menu_charac_nps'',''0''"><div class="option_nps"></div></a>
+	<a href="exec:gt ''menu_reportbugs''"><div class="option_rebugs"data-title="BUG report"></div></a>
+	<a href="exec:gt ''menu_changelog''"><div class="option_update"data-title="Update_log"></div></a>
+</div>'
+	gs'menu_act_hidden'
+	'<a href="exec:gt ''strategy_sponsorship''"><div class="option_gonglue"data-title="Built-in strategy"></div></a>'
+'</div>'
+
+
+
+'<div id="left-column">'
+	'<div class="charac_npc_list">'
+		if $WH.available=1:
+		'<div class="charac_nps_list_foto">
+			<a class="photo" data-title="<<$WH.name>>" href="exec:gt ''universal_npc_menu'',''<<$WH.name>>'',''<<$WH.love>>'',''<<$WH.bad>>'',''<<$WH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$WH.filename>>.png"></a>'
+		'</div>'
+		else:
+		'<div class="charac_nps_list_foto">
+			<a class="photo" data-title="<<$WH.name>>" href="exec:gt ''universal_npc_menu'',''<<$WH.name>>'',''<<$WH.love>>'',''<<$WH.bad>>'',''<<$WH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$WH.filename>>X.png"></a>'
+		'</div>'
+		end
+		
+            if $SB.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$SB.name>>" href="exec:$filename_reference=''<<$SB.filename>>'' & gt ''universal_npc_menu'',''<<$SB.name>>'',''<<$SB.love>>'',''<<$SB.bad>>'',''<<$SB.bio>>''"><img class="img_stretch" src="images\npc_l\<<$SB.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="We met in the second class of the third year at school." ><img class="img_stretch" src="images\npc_l\<<$SB.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+            if $DCM.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$DCM.name>>" href="exec:gt ''universal_npc_menu'',''<<$DCM.name>>'',''<<$DCM.love>>'',''<<$DCM.bad>>'',''<<$DCM.bio>>''"><img class="img_stretch" src="images\npc_l\<<$DCM.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Second year at university<<$SB.name>>Taking assignments at the office" ><img class="img_stretch" src="images\npc_l\<<$DCM.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+            if $XH.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$XH.name>>" href="exec:gt ''universal_npc_menu'',''<<$XH.name>>'',''<<$XH.love>>'',''<<$XH.bad>>'',''<<$XH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$XH.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Second year at university<<$SB.name>>Taking assignments at the office" ><img class="img_stretch" src="images\npc_l\<<$XH.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+            if $BZ.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$BZ.name>>" href="exec:gt ''universal_npc_menu'',''<<$BZ.name>>'',''<<$BZ.love>>'',''<<$BZ.bad>>'',''<<$BZ.bio>>''"><img class="img_stretch" src="images\npc_l\<<$BZ.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Second year at university<<$SB.name>>Taking assignments at the office" ><img class="img_stretch" src="images\npc_l\<<$BZ.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+            if $MZ.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$MZ.name>>" href="exec:gt ''universal_npc_menu'',''<<$MZ.name>>'',''<<$MZ.love>>'',''<<$MZ.bad>>'',''<<$MZ.bio>>''"><img class="img_stretch" src="images\npc_l\<<$MZ.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Met at a beauty store in a shopping mall" ><img class="img_stretch" src="images\npc_l\<<$MZ.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+            
+            if $YH.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$YH.name>>" href="exec:gt ''universal_npc_menu'',''<<$YH.name>>'',''<<$YH.love>>'',''<<$YH.bad>>'',''<<$YH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$YH.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Acquaintance with the financial center" ><img class="img_stretch" src="images\npc_l\<<$YH.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+            if $SWD.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$SWD.name>>" href="exec:gt ''universal_npc_menu'',''<<$SWD.name>>'',''<<$SWD.love>>'',''<<$SWD.bad>>'',''<<$SWD.bio>>''"><img class="img_stretch" src="images\npc_l\<<$SWD.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Acquaintance in the stockings store in the mall" ><img class="img_stretch" src="images\npc_l\<<$SWD.filename>>a.png"></a>'
+            '</div>'
+            end
+            
+
+	
+            if $DY.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$DY.name>>" href="exec:gt ''universal_npc_menu'',''<<$DY.name>>'',''<<$DY.love>>'',''<<$DY.bad>>'',''<<$DY.bio>>''"><img class="img_stretch" src="images\npc_l\<<$DY.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Meet after the convenience store meets the standards" ><img class="img_stretch" src="images\npc_l\<<$DY.filename>>a.png"></a>'
+            '</div>'
+            end
+	
+            if $XN.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$XN.name>>" href="exec:gt ''universal_npc_menu'',''<<$XN.name>>'',''<<$XN.love>>'',''<<$XN.bad>>'',''<<$XN.bio>>''"><img class="img_stretch" src="images\npc_l\<<$XN.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Acquaintance in the bishop`s room in the church" ><img class="img_stretch" src="images\npc_l\<<$XN.filename>>a.png"></a>'
+            '</div>'
+            end
+            if $LEI.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$LEI.name>>" href="exec:gt ''universal_npc_menu'',''<<$LEI.name>>'',''<<$LEI.love>>'',''<<$LEI.bad>>'',''<<$LEI.bio>>''"><img class="img_stretch" src="images\npc_l\<<$LEI.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Church plot acquaintance" ><img class="img_stretch" src="images\npc_l\<<$LEI.filename>>a.png"></a>'
+            '</div>'
+            end
+			if $YS.available=1:
+			'<div class="charac_nps_list_foto">
+				<a class="photo" data-title="<<$YS.name>>" href="exec:gt ''universal_npc_menu'',''<<$YS.name>>'',''<<$YS.love>>'',''<<$YS.bad>>'',''<<$YS.bio>>''"><img class="img_stretch" src="images\npc_l\<<$YS.filename>>.png"></a>'
+			'</div>'
+			else:
+			'<div class="charac_nps_list_foto">
+				<a class="photo" data-title="<<$YS.name>>Met after a quarrel in the hospital ward" ><img class="img_stretch" src="images\npc_l\<<$YS.filename>>a.png"></a>'
+			'</div>'
+			end
+	        if $CT.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$CT.name>>" href="exec:gt ''universal_npc_menu'',''<<$CT.name>>'',''<<$CT.love>>'',''<<$CT.bad>>'',''<<$CT.bio>>''"><img class="img_stretch" src="images\npc_l\<<$CT.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Pick up and meet after completing the orientation meeting of the big villa" ><img class="img_stretch" src="images\npc_l\<<$CT.filename>>a.png"></a>'
+            '</div>'
+            end
+            if $QJ.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$QJ.name>>" href="exec:gt ''universal_npc_menu'',''<<$QJ.name>>'',''<<$QJ.love>>'',''<<$QJ.bad>>'',''<<$QJ.bio>>''"><img class="img_stretch" src="images\npc_l\<<$QJ.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Get acquainted after completing the convenience store" ><img class="img_stretch" src="images\npc_l\<<$QJ.filename>>a.png"></a>'
+            '</div>'
+            end
+            if $YY.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$YY.name>>" href="exec:gt ''universal_npc_menu'',''<<$YY.name>>'',''<<$YY.love>>'',''<<$YY.bad>>'',''<<$YY.bio>>''"><img class="img_stretch" src="images\npc_l\<<$YY.filename>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="Acquaintance in the Imperial mansion" ><img class="img_stretch" src="images\npc_l\<<$YY.filename>>a.png"></a>'
+            '</div>'
+            end
+'</div>'
+
+
+
+
+'<div class="options_back"><a href="exec:gt $loc,$metka"><div class="settings_back_menu"></div></a></div>'
+--- menu_charac_main ---------------------------------
+

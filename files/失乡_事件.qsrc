@@ -1,0 +1,574 @@
+# 失乡_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="进城女孩":
+	$SX.available=1
+	 '<div class ="show_menu"><img src="images\NPC\SX\pics\进城女孩<<a>>.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:a=1 & gt ''失乡_事件'',''进城女孩''">下一位！</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & gt ''失乡_事件'',''进城女孩''">临近下班</a></div>'
+		if a=2:'<div class="button"><a href="exec:a=2 & gt ''地铁''">下班</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if a=0:
+		'<p>我: 申请驳回！</p>'
+		'<p><<$SX.name>>: 求求你行行好，让我入境吧。你让我做什么都可以……</p>'
+		'<p>·女孩开始脱衣服 </p>'
+		'<p>我: 你这样是没用的，还是请回吧…</p>'
+		'<p>·我把申请表退了回去，用手指不经意的点了点入境理由和城市 </p>'
+		'<p><<$SX.name>>: 好吧，我已经没有去处了，谢谢你…</p>'
+	 end
+	 if a=1:
+		'<p>我: 下一位！</p>'
+		'<p>女人: 嗨，我和<<$RION.name>>是老朋友了，快放我进去！</p>'
+	 end
+	 if a=2:
+		'<p>我: 下一位！</p>'
+		'<p>·快到下班的时候，那名女孩再次走了进了办公室</p>'
+		'<p><<$SX.name>>: 求求你帮帮我…呜呜呜…</p>'
+		'<p>我: 唉，那我再问一遍，你是从魔都来这里探亲的？</p>'
+		'<p><<$SX.name>>: 魔都？不是…啊，对对对！我是从魔都来这里探亲的！ 你，你真是个好人。</p>'
+		'<p>我: 申请通过！趁领导来责怪我之前你快走吧！好人这个词可不吉利。对了，今晚没事的话可以去歌舞伎町看看，那里通常有廉租房。</p>'
+		'<p><<$SX.name>>: 谢谢你…</p>'
+		if 失乡事件链=0:失乡事件链=1
+	 end
+	 
+	'</div>'
+End
+
+if $args[0]="深巷":
+
+	 '<div class ="show_menu"><img src="images\NPC\SX\pics\深巷.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if a=0:'<div class="buttonG"><a href="exec:money-=1500 &a=1& gt ''失乡_事件'',''深巷''">帮她租房1500￥</a></div>'
+		if a=1:'<div class="button"><a href="exec:a=2 & gt ''深巷''">离开</a></div>'
+
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if a=0:
+		'<p>我: 喔？你果然在这找房子？</p>'
+		'<p><<$SX.name>>: 承蒙您的关照，我现在遇到了点麻烦。</p>'
+		'<p>我: 什么麻烦？</p>'
+		'<p><<$SX.name>>: 入境申报填写假信息的事情我担心会被查到…你能帮我租一间房吗？不用担心，房租我打工赚钱了会还给你…</p>'
+	 end
+	 if a=1:
+		'<p>我: 这个简单，我已经帮你租好了，这是钥匙。</p>'
+		'<p><<$SX.name>>: 实在是太感谢你了！</p>'
+		'<p>我: 你先上去看看单间的环境怎么样吧，不满意现在退租还来得及。</p>'
+		'<p><<$SX.name>>: 好！</p>'
+		失乡事件链=2
+		$SX.room=1
+	 end
+
+	 
+	'</div>'
+End
+
+
+
+if $args[0]="失乡家":
+	a=0 & q=0
+	 '<div class ="show_menu"><img src="images\NPC\SX\pics\邀请.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''失乡_事件'',''逛街''">一同逛街</a></div>'
+		if $SX.love>=50:'<div class="buttonS2"><a href="exec:gt ''失乡_事件'',''SX_Fuck_沙发''">坐到沙发上</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+		if $SX.love>=100:'<div class="buttonS3"><a href="exec:gt ''失乡_事件'',''SX_Fuck_温泉''">去温泉一日游</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+		if $SX.bad>=100:'<div class="buttonS4"><a href="exec:gt ''失乡_事件'',''SX_Fuck_酒店''">酒店开房操</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足</a></div>'
+		if $SX.bad>=150:'<div class="buttonS5"><a href="exec:gt ''失乡_事件'',''SX_Fuck_按摩''">按摩指导</a></div>'else:'<div class="buttonGr"><a href="exec:">堕落不足</a></div>'
+		if $SX.bad>=150 and SXcos=0:'<div class="buttonP"><a href="exec:SXcos=1 &  $m=''SX'' & $ma=$SX.name & gt ''群演_事件'',''群演_Fuck_coser专属''">cos约拍</a></div>'
+		'<div class="buttonPu1"><a href="exec:$m=''SX'' & $mcat=$SX.name & gt ''任务_事件'',''喂食任务''">帮忙喂喵</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 怎么样？住的还习惯吗？</p>'
+		'<p><<$SX.name>>: 很舒服，比我以前的家大多了，这段时间谢谢你的照顾。</p>'
+		if $SX.love>=50:'<p>·你走到她身边时，她面带红晕地招呼你到沙发旁</p>'
+	'</div>'
+End
+
+
+
+if $args[0]="逛街":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\逛街<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if a<2:'<div class="button"><a href="exec:a+=1 & gt ''失乡_事件'',''逛街''">继续逛</a></div>'
+	    if a=2:'<div class="buttonG"><a href="exec:money-=500 & a+=1 & gt ''失乡_事件'',''逛街''">全部买下500￥</a></div>'
+	    if a=3:'<div class="button"><a href="exec:gt ''歌舞伎町''">借故离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	   if a<=2:
+		'<p>我: 这里三教九流鱼龙混杂，你不想引起注意，就要打扮的像本地人！</p>'
+		'<p><<$SX.name>>: 知道了，谢谢您的提醒。</p>'
+		 end
+	   if a=1:
+		'<p>我: 这件怎么样？试试这件！</p>'
+		'<p><<$SX.name>>: 这件衣服好漂亮。</p>'
+	   end
+	   if a=2:
+		'<p>我: 再试试这件</p>'
+		'<p><<$SX.name>>: 这件也好漂亮，可是我…</p>'
+	   end
+	   if a=3:
+		'<p><<$SX.name>>: 没想到让您这么破费，我…赚了钱以后还你……</p>'
+		'<p>我: 一个人漂泊在异乡不容易，我只是想让你对生活抱有希望，振作点，生活会好起来的。</p>'
+		'<p>·她的眼眶有些泛红，在你转过身时，几颗小珍珠从她的脸颊滑落</p>'
+		$SX.LOVE+=10
+	   end
+	   
+	'</div>'
+End
+
+
+if $args[0]="SX_Fuck_沙发":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\SF1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''失乡_事件'',''SX_Fuck_沙发''">撸管 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''失乡_事件'',''SX_Fuck_沙发''">口交 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''失乡_事件'',''SX_Fuck_沙发''">坐上来 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''失乡_事件'',''SX_Fuck_沙发''">加速骑乘 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''失乡_事件'',''SX_Fuck_沙发''">玩乳头 </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''失乡_事件'',''SX_Fuck_沙发''">抬腿抽插 </a></div>'
+            end
+            if a!7 and 6<=q and q<=13:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''失乡_事件'',''SX_Fuck_沙发''">到床上去 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''失乡_事件'',''SX_Fuck_沙发''">加速冲刺 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''失乡_事件'',''SX_Fuck_沙发''">射精 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonB"><a href="exec:a=10 & gt ''失乡_事件'',''SX_Fuck_沙发''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:从来没有人这么温柔地对过我……我好像…喜欢…上你了。</p>'
+             '<p>我: 欸？！突如其来的告白！</p>'
+             '<p><<$SX.name>>: 我要好好的报答你…用我的身体……</p>'
+         '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=1:
+         '<div class="dialog_menu">'
+             '<p>·她的眼神逐渐迷离了起来</p>'
+             if a>=2:'<p><<$SX.name>>:<<$娇喘声>></p>'
+             if a=3:'<p>我:你是处女嘛？你的小穴收的好紧，我的鸡巴被你完全包裹住了！</p>'
+             if a>=4:'<p><<$SX.name>>:不行了<<$话>></p>'
+             if a=6:'<p>·你抬起她的一条腿狠肏着，她的脸上已经是失去神智的迷醉，完全沉溺在情欲之中…</p>'
+             if a=9:'<p>·接连不断的快感让她娇喘着泄了出来，大股的淫水从嫩穴中溢出来，在短短的几分钟里就被干到了高潮…</p>'
+
+         '</div>'
+    end
+
+
+    if a=10:
+         $SX.bad+=q+my.魅力
+         $SX.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>: 啊❤啊❤好爽…你怎么…这么厉害❤</p>'
+             '<p>我: 我的人生理念是活十成，一成不变的是爱你，剩下九成是认真干你❤</p>'
+             '<p><<$SX.name>>: HAAA❤脸上炙热滚烫的触感❤这就是幸福的感觉嘛❤</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SX_Fuck_温泉":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\WQ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!14:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''失乡_事件'',''SX_Fuck_温泉''">回房间 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''失乡_事件'',''SX_Fuck_温泉''">挑逗 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''失乡_事件'',''SX_Fuck_温泉''">口交 </a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''失乡_事件'',''SX_Fuck_温泉''">骑乘位 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''失乡_事件'',''SX_Fuck_温泉''">后背位 </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''失乡_事件'',''SX_Fuck_温泉''">M字腿 </a></div>'
+            end
+            if a!7 and 6<=q and q<=13:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''失乡_事件'',''SX_Fuck_温泉''">加速冲刺 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''失乡_事件'',''SX_Fuck_温泉''">射精 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonB1"><a href="exec:a=9 & my.精力+=999 &  gt ''失乡_事件'',''SX_Fuck_温泉''">一起睡觉 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonB1"><a href="exec:a=10 & minutes+=1440 & hour=7 & gt ''失乡_事件'',''SX_Fuck_温泉''">翌日清晨 </a></div>'
+            end
+            if a=10:
+            '<div class="buttonS1"><a href="exec:a=11 & gt ''失乡_事件'',''SX_Fuck_温泉''">温泉口交 </a></div>'
+            end
+            if a=11:
+            '<div class="buttonS3"><a href="exec:a=12 & gt ''失乡_事件'',''SX_Fuck_温泉''">插入她 </a></div>'
+            end
+            if a=12:
+            '<div class="buttonS5"><a href="exec:a=13 & gt ''失乡_事件'',''SX_Fuck_温泉''">射精 </a></div>'
+            end
+            if a=13:
+            '<div class="buttonB1"><a href="exec:a=14 & gt ''失乡_事件'',''SX_Fuck_温泉''">对话 </a></div>'
+            end
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''地铁''">一起离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:哇偶❤泡温泉的感觉好苏胡呀❤</p>'
+             '<p>我: 工作了这么久，确实需要好好享受一下了❤</p>'
+         '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=1:
+         '<div class="dialog_menu">'
+             if a=1:'<p>·一回到房间里，她就含住了你的肉棒</p>'
+             if a>=2:'<p><<$SX.name>>:<<$娇喘声>></p>'
+             if a>=4:'<p>·她的腿心里全是被大鸡吧捣出来的淫水，那根粗壮的肉棒每一下就像干进了她的心里一样，骚穴被烫得快化了，舒服得她浑身打颤</p>'
+             if a>=5:'<p><<$SX.name>>:不行了<<$话>></p>'
+             if a>=7:'<p>·极致的快感，让她忍不住收缩着媚肉，想把这根带给自己快乐的大鸡吧永远留在骚穴里…</p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>似乎是精疲力尽了，很快就入睡了❤</p>'
+             '<p>我: zzZ</p>'
+         '</div>'
+    end
+
+    if 13>=a and a>=10:
+         '<div class="dialog_menu">'
+             if a=10:'<p>·第二天清晨，见温泉四下无人…</p>'
+             if a>=11:'<p><<$SX.name>>:<<$娇喘声>></p>'
+             if a>=12:'<p><<$SX.name>>:呀<<$话>></p>'
+             if a>=13:'<p>我:射了！</p>'
+         '</div>'
+    end
+
+
+
+    if a=14:
+         $SX.bad+=q+q+my.魅力
+         $SX.love+=q+q+my.魅力
+         '<div class="dialog_menu">'
+             '<p>我: 怎么样❤温泉一日游还满意吗？</p>'
+             '<p><<$SX.name>>: 温泉很棒❤一日游也很棒❤好期待下一次再来！</p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SX_Fuck_酒店":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\JD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''失乡_事件'',''SX_Fuck_酒店''">挑逗乳头 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''失乡_事件'',''SX_Fuck_酒店''">玩弄骚逼 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''失乡_事件'',''SX_Fuck_酒店''">口交 </a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''失乡_事件'',''SX_Fuck_酒店''">慢速抽插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''失乡_事件'',''SX_Fuck_酒店''">快速抽插 </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''失乡_事件'',''SX_Fuck_酒店''">大力抽插 </a></div>'
+            end
+            if a!7 and 6<=q and q<=13:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''失乡_事件'',''SX_Fuck_酒店''">抬腿性交 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS4"><a href="exec:a=8 & gt ''失乡_事件'',''SX_Fuck_酒店''">加速冲刺 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''失乡_事件'',''SX_Fuck_酒店''">射精 </a></div>'
+            end
+            if a=9:
+            '<div class="buttonB"><a href="exec:a=10 & gt ''失乡_事件'',''SX_Fuck_酒店''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>:带我来酒店多贵呀，下次在家里做就行了。</p>'
+             if a=1:'<p>我:只要你喜欢，再多都不贵！</p>'
+             if a>=2:'<p><<$SX.name>>:<<$娇喘声>></p>'
+             if a=3:'<p>我:你越来越会口交了嘛！</p>'
+             if a>=5:'<p><<$SX.name>>:好爽<<$话>></p>'
+             if a>=7:'<p>·她一条腿悬在半空，一条腿紧贴在床内侧，小小的花穴被大鸡吧干开了，含着紫黑的粗大性器不肯松开，拼命的蠕动着</p>'
+             if a=9:'<p>·花穴里一阵阵的抽搐喷出淫水，痉挛着达到了高潮</p>'
+         '</div>'
+    end
+
+
+
+    if a=10:
+         $SX.bad+=q+my.魅力
+         $SX.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>: 我们回去吧，我还是习惯在家里做❤</p>'
+             '<p>我: 我听你的❤</p>'
+
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+if $args[0]="SX_Fuck_按摩":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\AM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''失乡_事件'',''SX_Fuck_按摩''">按摩小腹 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''失乡_事件'',''SX_Fuck_按摩''">按摩翘臀 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''失乡_事件'',''SX_Fuck_按摩''">无法忍耐 </a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''失乡_事件'',''SX_Fuck_按摩''">主动骑乘 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''失乡_事件'',''SX_Fuck_按摩''">服务要领 </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''失乡_事件'',''SX_Fuck_按摩''">大力抽插 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''失乡_事件'',''SX_Fuck_按摩''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''失乡_事件'',''SX_Fuck_按摩''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:minutes+=30 & gt ''歌舞伎町''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a<=2:'<p>我:我有一门按摩的绝技，想不想试试！</p>'
+             if a<=2:'<p><<$SX.name>>:好啊，我正好也想学按摩</p>'
+             if a<=2:'<p>我:按摩最重要的是精油的选择，和细腻的手法！</p>'
+             if a=3:'<p><<$SX.name>>:别挑逗我了，我受不了了…下面又酥又痒了…</p>'
+             if a>=4:'<p><<$SX.name>>:<<$娇喘声>></p>'
+             if a=5:'<p>我:给客人服务的要领是——精益求精！</p>'
+             if a>=6:'<p><<$SX.name>>:明白了<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SX.bad+=q+my.魅力
+         $SX.love+=q
+         SX_按摩num+=1
+         '<div class="dialog_menu">'
+             if SX_按摩num<3:
+             '<p><<$SX.name>>: 我想❤我知道该怎么做了❤这是第<<SX_按摩num>>/3次指导</p>'
+             '<p>我: 再多多练习几次❤很快你就能掌握了❤</p>'
+             else:
+             '<p><<$SX.name>>: 这几次的指导下来❤我已经完全掌握了！</p>'
+             '<p>我: 虽然不是很想推荐，但夜色酒吧正在招募女服务员❤</p>'
+             '<p><<$SX.name>>: 我会去看看的❤</p>'
+             end
+         '</div>'
+    end
+
+
+  q+=1
+End
+
+
+if $args[0]="SX_Fuck_风俗":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SX\vids\FS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''失乡_事件'',''SX_Fuck_风俗''">风俗下体 </a></div>'
+            end
+            if a!2 and 1<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''失乡_事件'',''SX_Fuck_风俗''">特殊服务 </a></div>'
+            end
+            if a!3 and 2<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''失乡_事件'',''SX_Fuck_风俗''">顶她 </a></div>'
+            end
+            if a!4 and 3<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''失乡_事件'',''SX_Fuck_风俗''">开腿抽插 </a></div>'
+            end
+            if a!5 and 4<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''失乡_事件'',''SX_Fuck_风俗''">加速抽插 </a></div>'
+            end
+            if a!6 and 5<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''失乡_事件'',''SX_Fuck_风俗''">准备发射 </a></div>'
+            end
+            if a=6:
+            '<div class="buttonS3"><a href="exec:a=7 & gt ''失乡_事件'',''SX_Fuck_风俗''">射精 </a></div>'
+            end
+            if a=7:
+            '<div class="button"><a href="exec:a=8 & gt ''失乡_事件'',''SX_Fuck_风俗''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:minutes+=30 & money-=2000 & gt ''夜色精巢''">付费2000￥</a></div>'
+            '</div>'
+    end
+
+
+
+    if 7>=a and a>=0:
+         '<div class="dialog_menu">'
+             if a<=1:'<p>我:你真来这里工作了？</p>'
+             if a<=1:'<p><<$SX.name>>:嗯…</p>'
+             if a=1:'<p>我:你提供特殊服务吗？</p>'
+             if a=2:'<p><<$SX.name>>:如果是你的话…</p>'
+             if a>=3:'<p>我:少骗我了！说你有没有这样被别的客人操？</p>'
+             if a>=4:'<p><<$SX.name>>:没有<<$娇喘声>></p>'
+             if a>=5:'<p>我:我该相信你吗？</p>'
+             if a>=6:'<p><<$SX.name>>:嗯<<$话>></p>'
+         '</div>'
+    end
+
+
+
+    if a=8:
+         $SX.bad+=q+my.魅力
+         $SX.love+=q+my.魅力
+         '<div class="dialog_menu">'
+             '<p><<$SX.name>>: 我说的都是真的…我是素的…最多只打飞机…</p>'
+             '<p>我:彳亍。 </p>'
+             '<p>【此处为当前版本最终内容】 </p>'    
+             '<p>【该角色由群友供稿，若有创作热情，可加群投稿】 </p>'
+         '</div>'
+    end
+
+
+  q+=1
+End
+--- 失乡_事件 ---------------------------------
+

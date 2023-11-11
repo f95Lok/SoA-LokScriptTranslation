@@ -1,0 +1,105 @@
+# 居民区
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0 & q=0
+gs'menu_gif'
+
+$随机数=rand(0,100)
+
+if $冠军事件链=7 and hour=16 and week_day =6:gt '冠军_事件','GJ_Fuck_旅馆'
+
+if $悠亚事件链=6  and $随机数>=70:gt'悠亚_事件','悠亚任务'
+
+if 5<= $督察事件链 and $督察事件链<=6 and hour>=21 and $随机数>=50:gt '督察_事件','私自行动'
+
+if $随机数<=4 and 8<=hour and hour<=15:gt '任务_事件','女警外套'
+if 10<=$随机数 and $随机数<=15 and 7<=hour and hour<=12:gt '任务_事件','肥臀肛塞'
+if $随机数>=95 and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事件','魅魔事件'
+if 35<=$随机数 and $随机数<=40 and 12<=hour and hour<=16:gt '任务_事件','男路人'
+if $ZX约居民区=1 and week_day >5 and 13<=hour and hour<=14 and $随机数<50:gt '整形_事件','街道偶遇'
+if $凯撒打工=1 and $times_of_day='' and 50<=$随机数 and $随机数<=55:gt '任务_事件','狩猎路人'
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="回家" href="exec:minutes+=5 & gt ''家''"><img class="img_stretch" src="images\place\回家_小图.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="联排别墅" href="exec:minutes+=5 & gt ''联排别墅''"><img class="img_stretch" src="images\place\联排别墅_<<$times_of_day>>.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="商场" href="exec:minutes+=5 & gt ''商场''"><img class="img_stretch" src="images\place\商场.jpg"></a>
+		</div>'
+		
+		'<div class="action">
+			<a class="photo" data-title="私立医院" href="exec:minutes+=5 & gt ''医院''"><img class="img_stretch" src="images\place\医院小图.jpg"></a>
+		</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="地下交通" href="exec:minutes+=5 & gt ''地铁''"><img class="img_stretch" src="images\place\地铁.jpg"></a>
+		</div>'
+
+		'<div class="action">
+			<a class="photo" data-title="中央公园" href="exec:minutes+=5 & gt ''公园''"><img class="img_stretch" src="images\place\park_<<$times_of_day>>.jpg"></a>
+		</div>'
+		
+		if $times_of_day="night":
+		'<div class="action">
+			<a class="photo" data-title="歌舞伎町" href="exec:minutes+=5 & gt ''歌舞伎町''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
+		</div>'
+		end
+		
+	'</div>'
+'</div>'
+
+if  $随机数<=5 and hour>=21:
+		 '<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\杂\彩蛋1.webm" type=''video/webm;''></video></div>'
+		 '</div>'
+else:
+	'<div class ="show_menu"><img src="images\place\居民区_<<$times_of_day>>.jpg" width="854"></div>'
+end
+
+
+
+
+
+'<div class="button_menu">'
+	if 喂猫任务=1 and hour=喂猫时间:'<div class="buttonPu1"><a href="exec:minutes+=30 & gt ''任务_事件'',''喂猫''">喵喵喵</a></div>'
+
+	if  hour=21 and $JM_MGF>0  and $随机数>80:'<div class="buttonS"><a href="exec:  gt ''继母_事件'',''首药遇''"><<$JM.name>>的身影</a></div>'
+
+	if ZXGG2>=100 and 17>=hour and hour>=13 and $随机数>80:'<div class="buttonR4"><a href="exec:  gt ''执行官_事件'',''偶遇''"><<$ZXG.name>>的身影</a></div>'
+
+	if 集印卡=1 and hour=21 and week_day =5 and $新闻节目前置>=1:'<div class="buttonS"><a href="exec:集印编号=5 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
+	if 集印卡=1 and hour=8 and week_day =7:'<div class="buttonS"><a href="exec:集印编号=7 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
+	if 集印卡=1 and hour=22 and $天气='☂雨':'<div class="buttonS"><a href="exec:集印编号=2 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪OL❤</a></div>'
+	if 集印卡=1 and hour=16 and $天气='☀晴':'<div class="buttonR3"><a href="exec:集印编号S=1 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤搭讪熟人❤</a></div>'
+	if $任务_女警外套=2 and $times_of_day!"night":'<div class="buttonPu2"><a href="exec:gt ''任务_事件'',''女警外套''">寻找女警</a></div>'
+	if hour=22 and $凯撒事件链=2:'<div class="buttonR3"><a href="exec:gt ''冠军_事件'',''GJ_Fuck_邂逅''"><<$GJ.name>>？！</a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">消磨时间</a></div>'
+'</div>'
+
+
+'<div class="dialog_menu">'
+	'<p>民风淳朴的居民区到了晚上会变成另一个样子。</p>'
+	'<p>☄</p>'
+	'<p>冷知识:<<	$冷知识>></p>'
+'</div>'
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+--- 居民区 ---------------------------------
+

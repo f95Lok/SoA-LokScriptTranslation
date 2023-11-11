@@ -1,0 +1,320 @@
+# 体育馆
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="大学正门" href="exec:minutes+=5 & gt ''大学''"><img class="img_stretch" src="images\place\大学_<<$times_of_day>>.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\体育馆_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:更衣室选择=0 & gt ''体育馆'',''更衣室过道''">更衣室过道</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·在<<$SB.name>>的撒娇攻势下，体育馆顺利地建成了…</p>'
+		'<p>·室内体育馆里有不少学生正在<a href="exec:gt ''学生群_事件'',''体育馆杂人A''">正常锻炼着</a></p>'
+		'<p>·另一边是<<$SB.name>>策划的<a href="exec:a=rand(0,6) & gt ''学生群_事件'',''体育馆杂人B''">特色体育活动</a></p>'
+	'</div>'
+End
+
+if $args[0]="更衣室过道":
+	'<div class ="show_menu"><img src="images\place\体育馆_过道.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB1"><a href="exec:更衣室选择=0 & gt ''体育馆'',''更衣室过道''">校内更衣室</a></div>'
+		if $体育馆通过=1:
+			'<div class="buttonB2"><a href="exec:更衣室选择=1 & gt ''体育馆'',''更衣室过道''">1号更衣室</a></div>'
+			if 体育馆声望>=2:'<div class="buttonB3"><a href="exec:更衣室选择=2 & gt ''体育馆'',''更衣室过道''">2号更衣室</a></div>'else:'<div class="buttonGr"><a href="exec:">?号更衣室</a></div>'
+			if 体育馆声望>=6:'<div class="buttonB3"><a href="exec:更衣室选择=3 & gt ''体育馆'',''更衣室过道''">3号更衣室</a></div>'else:'<div class="buttonGr"><a href="exec:">?号更衣室</a></div>'
+			if 体育馆声望>=15:'<div class="buttonB4"><a href="exec:更衣室选择=4 & gt ''体育馆'',''更衣室过道''">4号更衣室</a></div>'else:'<div class="buttonGr"><a href="exec:">?号更衣室</a></div>'
+			if 体育馆声望>=27:'<div class="buttonB4"><a href="exec:更衣室选择=5 & gt ''体育馆'',''更衣室过道''">5号更衣室</a></div>'else:'<div class="buttonGr"><a href="exec:">?号更衣室</a></div>'
+			if 体育馆声望>=37:'<div class="buttonB5"><a href="exec:更衣室选择=6 & gt ''体育馆'',''更衣室过道''">6号更衣室</a></div>'else:'<div class="buttonGr"><a href="exec:">?号更衣室</a></div>'
+			if 体育馆声望>=55:'<div class="buttonB5"><a href="exec:更衣室选择=7 & gt ''体育馆'',''更衣室过道''">7号更衣室MAX</a></div>'else:'<div class="buttonGr"><a href="exec:">?号更衣室</a></div>'
+		else:
+		'<div class="buttonGr"><a href="exec:">闲置更衣室</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		if $体育馆通过=0:
+		'<p>·我想我可以去市政厅五常会议提意见，让体育馆对全体市民开放？</p>'
+		else:
+		'<p>·随着体育馆的声望(<<体育馆声望>>)上升，更衣室的数量将会不断扩增。</p>'
+		end
+		'<p>·——————</p>'
+		'<p>*我打眼儿往里面一瞧，您猜怎么着？</p>'
+		if 更衣室选择=0:
+			'<p>*里面有：<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$MM.name>></a>
+			、<a href="exec:ma_L=$XZ.love & $m=''XZ'' & $ma=$XZ.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$XZ.name>></a>
+			、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$FXZ.name>></a>'
+			if $电车事件链>=12:'、<a href="exec:gt ''学生群_事件'',''电车妹TGYM''"><<$DCM.name>></a>'
+			'</p>'
+		end
+		if 更衣室选择=1:
+			'<p>*里面有：<a href="exec:ma_L=$DY.love & $m=''DY'' & $ma=$DY.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$DY.name>></a>
+			、<a href="exec:ma_L=$BGH.love & $m=''BGH'' & $ma=$BGH.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$BGH.name>></a>
+			</p>'
+		end
+		if 更衣室选择=2:
+			'<p>*里面有：<a href="exec:ma_L=$WH.love & $m=''WH'' & $ma=$WH.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$WH.name>></a>
+			    、<a href="exec:ma_L=$MMS.love & $m=''MMS'' & $ma=$MMS.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$MMS.name>></a>
+			</p>'
+		end
+		if 更衣室选择=3:
+			'<p>*里面有：<a href="exec:ma_L=$SS.love & $m=''SS'' & $ma=$SS.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$SS.name>></a>
+			、<a href="exec:ma_L=$SY.love & $m=''SY'' & $ma=$SY.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$SY.name>></a>
+			、<a href="exec:ma_L=$ZX.love & $m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$ZX.name>></a>
+			</p>'
+		end
+		if 更衣室选择=4:
+			'<p>*里面有：<a href="exec:ma_L=$RION.love & $m=''RION'' & $ma=$RION.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$RION.name>></a>
+			、<a href="exec:ma_L=9999 & $m=''ZXG'' & $ma=$ZXG.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$ZXG.name>></a>
+			、<a href="exec:ma_L=$DC.love & $m=''DC'' & $ma=$DC.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$DC.name>></a>
+			</p>'
+		end
+		if 更衣室选择=5:
+			'<p>*里面有：<a href="exec:ma_L=$TZ.love & $m=''TZ'' & $ma=$TZ.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$TZ.name>></a>
+			、<a href="exec:ma_L=$BD.love & $m=''BD'' & $ma=$BD.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$BD.name>></a>
+			</p>'
+		end
+		if 更衣室选择=6:
+			'<p>*里面有：<a href="exec:ma_L=$CH.love & $m=''CH'' & $ma=$CH.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$CH.name>></a>
+			、<a href="exec:ma_L=$XS.love & $m=''XS'' & $ma=$XS.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$XS.name>></a>
+			、<a href="exec:ma_L=$SWD.love & $m=''SWD'' & $ma=$SWD.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$SWD.name>></a>
+			</p>'
+		end
+		if 更衣室选择=7:
+			'<p>*里面有：<a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$TS.name>></a>
+			、<a href="exec:ma_L=$QB.love & $m=''QB'' & $ma=$QB.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$QB.name>></a> 
+			、<a href="exec:ma_L=$SSYY.love & $m=''SSYY'' & $ma=$SSYY.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$SSYY.name>></a> 
+			、<a href="exec:ma_L=$SF.love & $m=''SF'' & $ma=$SF.name & gt ''群演_事件'',''专属_Fuck_体育馆''"><<$SF.name>></a> 
+			</p>'
+		end
+	'</div>'
+End
+
+if $args[0]="图书馆":
+	'<div class ="show_menu"><img src="images\place\图书馆_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:图书馆选择=0 & gt ''体育馆'',''图书馆过道''">查看书籍种类</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·在<<$SB.name>>的小小催促下，图书馆光速建成了…</p>'
+		if rand(0,5)>=4:'<p>·图书馆里不雅事件<a href="exec:gt ''学生群_事件'',''图书馆杂A''">正在发生</a></p>'
+	'</div>'
+End
+
+if $args[0]="图书馆过道":
+    '<div class ="show_menu"><img src="images\place\图书馆_过道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonGn"><a href="exec:图书馆选择=0 & gt ''体育馆'',''图书馆过道''">家庭教育类</a></div>'
+        if $图书馆通过=1:
+		   if 图书馆1=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=1 & gt ''体育馆'',''图书馆过道''">经营管理类</a></div>'
+		  else:
+		    if money>=9999+money/5:'<div class="buttonG"><a href="exec:图书馆1=1 & money-=9999+money/5 & gt ''体育馆'',''图书馆过道''">？类<<9999+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<9999+money/5>>￥</a></div>'
+		   end
+		   if 图书馆2=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=2 & gt ''体育馆'',''图书馆过道''">偶像养成类</a></div>'
+		  else:
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:图书馆2=1 & money-=TSGMoney & gt ''体育馆'',''图书馆过道''">？类<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<TSGMoney>>￥</a></div>'
+		   end
+		   if 图书馆3=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=3 & gt ''体育馆'',''图书馆过道''">病理医学类</a></div>'
+		  else:
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:图书馆3=1 & money-=TSGMoney & gt ''体育馆'',''图书馆过道''">？类<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<TSGMoney>>￥</a></div>'
+		   end
+		   if 图书馆4=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=4 & gt ''体育馆'',''图书馆过道''">家庭烹饪类</a></div>'
+		  else:
+		    if money>=3000+money/5:'<div class="buttonG"><a href="exec:图书馆4=1 & money-=3000+money/5 & gt ''体育馆'',''图书馆过道''">？类<<3000+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<3000+money/5>>￥</a></div>'
+		   end
+		   if 图书馆5=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=5 & gt ''体育馆'',''图书馆过道''">言情文学类</a></div>'
+		  else:
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:图书馆5=1 & money-=TSGMoney & gt ''体育馆'',''图书馆过道''">？类<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<TSGMoney>>￥</a></div>'
+		   end
+		   if 图书馆6=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=6 & gt ''体育馆'',''图书馆过道''">捞男话术类</a></div>'
+		  else:
+		    if money>=TSGMoney:'<div class="buttonG"><a href="exec:图书馆6=1 & money-=TSGMoney & gt ''体育馆'',''图书馆过道''">？类<<TSGMoney>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<TSGMoney>>￥</a></div>'
+		   end
+		   if 图书馆7=1:
+		   '<div class="buttonGn"><a href="exec:图书馆选择=7 & gt ''体育馆'',''图书馆过道''">侦探推理类</a></div>'
+		  else:
+		    if money>=8888+money/5:'<div class="buttonG"><a href="exec:图书馆7=1 & money-=8888+money/5 & gt ''体育馆'',''图书馆过道''">？类<<8888+money/5>>￥</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？类<<8888+money/5>>￥</a></div>'
+		   end
+        else:
+          '<div class="buttonGr"><a href="exec:">无购书权限</a></div>'
+        end
+    '</div>'
+
+    '<div class="dialog_menu">'
+	   if $图书馆通过=1:	
+	   '<p>㊕<<$SB.name>>的特殊规则：校外人员进入图书馆如有条件请身着JK制服❤</p>'
+        '<p>·随着书籍种类的增加，会有不同的人来阅读。</p>'
+        else:
+        '<p>㊕我想我可以去市政厅的五常会议提意见，增加书籍种类</p>'
+        end
+        '<p>·——————</p>'
+        '<p>*没想到这种题材的书籍也有人来看…</p>'
+        if 图书馆选择=0:
+            '<p>*里面有：<a href="exec:ma_L=$JJ.love & $m=''JJ'' & $ma=$JJ.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$JJ.name>></a>
+		     、<a href="exec:ma_L=$JM.love & $m=''JM'' & $ma=$JM.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$JM.name>></a>
+		     、<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$MM.name>></a>
+		     、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$FXZ.name>></a>
+		    </p>'
+        end
+        if 图书馆选择=1:
+            '<p>*里面有：<a href="exec:ma_L=$SWD.love & $m=''SWD'' & $ma=$SWD.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$SWD.name>></a>
+		     、<a href="exec:ma_L=$XZ.love & $m=''XZ'' & $ma=$XZ.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$XZ.name>></a>
+		     、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$FXZ.name>></a>
+		     、<a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$TS.name>></a>
+		    </p>'
+        end
+        if 图书馆选择=2:
+            '<p>*里面有：<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$MM.name>></a>
+		     、<a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$TS.name>></a>
+		     、<a href="exec:ma_L=$QB.love & $m=''QB'' & $ma=$QB.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$QB.name>></a>
+		     、<a href="exec:ma_L=$SSYY.love & $m=''SSYY'' & $ma=$SSYY.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$SSYY.name>></a>
+		    </p>'
+        end
+        if 图书馆选择=3:
+            '<p>*里面有：<a href="exec:ma_L=$ZX.love & $m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$ZX.name>></a>
+		     、<a href="exec:ma_L=$SS.love & $m=''SS'' & $ma=$SS.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$SS.name>></a>
+		     、<a href="exec:ma_L=$JY.love & $m=''JY'' & $ma=$JY.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$JY.name>></a>
+		    </p>'
+        end
+        if 图书馆选择=4:
+            '<p>*里面有：<a href="exec:ma_L=$BGH.love & $m=''BGH'' & $ma=$BGH.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$BGH.name>></a>
+		     、<a href="exec:ma_L=$FXZ.love & $m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$FXZ.name>></a>
+		     、<a href="exec:ma_L=$EDM.love & $m=''EDM'' & $ma=$EDM.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$EDM.name>></a>
+		     、<a href="exec:ma_L=$RION.love & $m=''RION'' & $ma=$RION.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$RION.name>></a>
+		    </p>'
+        end
+        if 图书馆选择=5:
+            '<p>*里面有：<a href="exec:ma_L=$DY.love & $m=''DY'' & $ma=$DY.name & gt ''群演_事件'',''专属_Fuck_图书馆A''"><<$DY.name>></a>
+		     、<a href="exec:ma_L=$DZ.love & $m=''DZ'' & $ma=$DZ.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$DZ.name>></a>
+		     、<a href="exec:ma_L=$JY.love & $m=''JY'' & $ma=$JY.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$JY.name>></a>
+		     、<a href="exec:ma_L=$MM.love & $m=''MM'' & $ma=$MM.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$MM.name>></a>'
+		  if  $XM事件链>=2:'、<a href="exec:gt ''学妹_事件'',''XM_Fuck_图书馆''"><<$XM.name>></a>'
+	       '</p>'
+        end
+        if 图书馆选择=6:
+            '<p>*里面有：<a href="exec:ma_L=$XS.love & $m=''XS'' & $ma=$XS.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$XS.name>></a>
+		      、<a href="exec:ma_L=$WH.love & $m=''WH'' & $ma=$WH.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$WH.name>></a>'
+		   if $ZL.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad:'、<a href="exec:gt ''留级_事件'',''LJZL_Fuck_逆3P''"><<$ZL.name>>&<<$LJ.name>></a>'
+		    '</p>'
+        end
+        if 图书馆选择=7:
+            '<p>*里面有：<a href="exec:ma_L=$SS.love & $m=''SS'' & $ma=$SS.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$SS.name>></a>
+		      、<a href="exec:ma_L=$JY.love & $m=''JY'' & $ma=$JY.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$JY.name>></a>
+		      、<a href="exec:ma_L=$DZ.love & $m=''DZ'' & $ma=$DZ.name & gt ''群演_事件'',''专属_Fuck_图书馆B''"><<$DZ.name>></a>
+		    </p>'
+        end
+    '</div>'
+End
+
+if $args[0]="游泳馆":
+	'<div class ="show_menu"><img src="images\place\游泳馆_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:游泳馆选择=0 & gt ''体育馆'',''游泳馆过道''">游泳馆过道</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>·在<<$SB.name>>的期许下，游泳馆毫无水分地建成了…</p>'
+		if $班长事件链G>=6:'<p>·游泳馆里正在举行<a href="exec:gt ''学生群_事件'',''班长GE1''">自由泳比赛</a></p>'
+		if $邀请YY学校=1:'<p>·<<$YY.name>>正指导完学生<a href="exec:gt ''帝国_事件'',''帝国_Fuck_游泳教练学校''">去看看她</a></p>'
+		if rand(0,6)>=4:'<p>·游泳馆里正在<a href="exec:gt ''学生群_事件'',''游泳馆杂A''">社团招新</a></p>'
+	'</div>'
+End
+
+if $args[0]="游泳馆过道":
+    '<div class ="show_menu"><img src="images\place\游泳馆_过道.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB1"><a href="exec:游泳馆选择=0 & gt ''体育馆'',''游泳馆过道''">校内游泳馆</a></div>'
+        if $游泳馆通过=1:
+		'<div class="buttonB2"><a href="exec:游泳馆选择=1 & gt ''体育馆'',''游泳馆过道''">1号游泳馆</a></div>'
+		   if 游泳馆声望>=3:'<div class="buttonB3"><a href="exec:游泳馆选择=2 & gt ''体育馆'',''游泳馆过道''">2号游泳馆</a></div>'
+		   if 游泳馆声望>=9:'<div class="buttonB4"><a href="exec:游泳馆选择=3 & gt ''体育馆'',''游泳馆过道''">3号游泳馆</a></div>'
+		   if 游泳馆声望>=18:'<div class="buttonB5"><a href="exec:游泳馆选择=4 & gt ''体育馆'',''游泳馆过道''">4号游泳馆MAX</a></div>'
+        end
+    '</div>'
+
+
+    '<div class="dialog_menu">'
+        if $游泳馆通过=0:
+        '<p>·我想我可以去市政厅五常会议提意见，让游泳馆对全体市民开放？</p>'
+        else:
+        '<p>·随着游泳馆的声望(<<游泳馆声望>>)上升，更衣室的数量将会不断扩增。</p>'
+        end
+        '<p>·——————</p>'
+        '<p>*我打眼儿往里面一瞧，您猜怎么着？</p>'
+        if 游泳馆选择=0:
+            '<p>*更衣室里：<a href="exec:ma_L=$XY.bad & $m=''XY'' & $ma=$XY.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$XY.name>></a>'
+            if $班长事件链B<=2:'、<a href="exec:gt ''学生群_事件'',''班长N2''"><<$BZ.name>></a>'
+            if $电车事件链>=11:'、<a href="exec:gt ''学生群_事件'',''电车妹TYYG''"><<$DCM.name>></a></p>'else:'</p>'
+            '<p>*在泳池边的是：<a href="exec:ma_L=$FXZ.bad & $m=''FXZ'' & $ma=$FXZ.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$FXZ.name>></a>
+		    、<a href="exec:ma_L=$ZL.bad & $m=''ZL'' & $ma=$ZL.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$ZL.name>></a>
+		   </p>'
+        end
+        if 游泳馆选择=1:
+            '<p>*更衣室里：<a href="exec:ma_L=$JY.bad & $m=''JY'' & $ma=$JY.name & gt ''群演_事件'',''专属_Fuck_游泳馆A''"><<$JY.name>></a></p>'
+            '<p>*在泳池边的是：<a href="exec:ma_L=$RION.bad & $m=''RION'' & $ma=$RION.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$RION.name>></a>
+		     、<a href="exec:ma_L=9999 & $m=''ZXG'' & $ma=$ZXG.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$ZXG.name>></a>
+		   </p>'
+        end
+        if 游泳馆选择=2:
+            '<p>*更衣室里：<a href="exec:ma_L=$WH.bad & $m=''WH'' & $ma=$WH.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$WH.name>></a></p>'
+            '<p>*在泳池边的是：<a href="exec:ma_L=$YH.bad & $m=''YH'' & $ma=$YH.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$YH.name>></a>
+		    、<a href="exec:ma_L=$TZ.bad & $m=''TZ'' & $ma=$TZ.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$TZ.name>></a>
+		    </p>'
+        end
+        if 游泳馆选择=3:
+            '<p>*更衣室里：<a href="exec:ma_L=$SWD.bad & $m=''SWD'' & $ma=$SWD.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$SWD.name>></a></p>'
+            '<p>*在泳池边的是：<a href="exec:ma_L=$DY.bad & $m=''DY'' & $ma=$DY.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$DY.name>></a>
+		    、<a href="exec:ma_L=$XS.bad & $m=''XS'' & $ma=$XS.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$XS.name>></a>
+		    </p>'
+        end
+        if 游泳馆选择=4:
+            '<p>*更衣室里：<a href="exec:ma_L=$MMS.bad & $m=''MMS'' & $ma=$MMS.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$MMS.name>></a></p>'
+            '<p>*在泳池边的是：<a href="exec:ma_L=$QB.bad & $m=''QB'' & $ma=$QB.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$QB.name>></a>
+		    、<a href="exec:ma_L=$SSYY.bad & $m=''SSYY'' & $ma=$SSYY.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$SSYY.name>></a>
+		    、<a href="exec:ma_L=$SF.bad & $m=''SF'' & $ma=$SF.name & gt ''群演_事件'',''专属_Fuck_游泳馆B''"><<$SF.name>></a>
+		    </p>'
+        end
+    '</div>'
+End
+
+
+
+
+
+--- 体育馆 ---------------------------------
+

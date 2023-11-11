@@ -1,0 +1,87 @@
+# 通用聊天
+!	0  <div class="button"><a href="exec:$聊天=''JM''& $出去的位置 = ''家'' & addlove=0 &addbad=0 & gt ''通用聊天''">互动</a></div>
+!	25
+!	50
+!	100
+!	200
+!说实话有点蠢，好不方便啊函数都写不了。
+
+
+
+态度总和=0
+if $聊天="JM":$人名A=$JM.name & 态度总和+=$JM.love & 态度总和+=$JM.bad & $JM.love+= Addlove & $JM.love+= Addbad
+if $聊天="JJ":$人名A=$jj.name & 态度总和+=$jj.love & 态度总和+=$jj.bad & $jj.love+= Addlove & $jj.love+= Addbad
+if $聊天="MM":$人名A=$mm.name & 态度总和+=$mm.love & 态度总和+=$mm.bad & $mm.love+= Addlove & $mm.love+= Addbad
+if $聊天="DZ":$人名A=$DZ.name & 态度总和+=$DZ.love & 态度总和+=$DZ.bad & $DZ.love+= Addlove & $DZ.love+= Addbad
+if $聊天="RION":$人名A=$RION.name & 态度总和+=$RION.love & 态度总和+=$RION.bad & $RION.love+= Addlove & $RION.love+= Addbad
+
+$内容A[0]="生活" & $内容A[1]="美食" & $内容A[2]="电影" & $内容A[3]="音乐" & $内容A[4]="旅行" & $内容A[5]="哲学"
+$内容A[6]="新法案"&$内容A[7]="天气" & $内容A[8]="运动" & $内容A[9]="初恋" & $内容A[10]="童年"& $内容A[11]="未来"
+$内容A[12]="梦想" &$内容A[13]="理想"& $内容A[14]="疫情"& $内容A[15]="哲学"& $内容A[16]="爱好"& $内容A[17]="一个蹩脚QSP游戏"
+
+if 态度总和<25:
+	$态度=1
+	$称呼A="我现在很忙，长话短说。"
+	elseif 态度总和<50:
+	$态度=2
+	$称呼A="<<$主角姓名>>，找我有什么事？"
+	elseif 态度总和<100:
+	$态度=3
+	$称呼A="❤小可爱，是特意来找我的嘛？"
+	elseif 态度总和<200:
+	$态度=4
+	$称呼A="宝贝❤想我了？"
+	elseif 态度总和<400:
+	$态度=5
+	$称呼A="亲爱的❤想对人家做什么？"
+	elseif 态度总和>=400:
+	$态度=6
+	$称呼A="主人❤我是你的母狗骚婊子，❤想对我做什么都❤可❤以❤！"
+end
+
+
+
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+
+	'</div>'
+'</div>'
+	
+'<div class="show_menu">'
+	 '<video preload="metadata" autoplay loop height="480">
+	 <source src="images\NPC\<<$聊天>>\vids\0态度_<<$态度>>~1.webm" type=''video/webm;''></video></div>'
+'</div>'
+
+'<div class="button_menu">'
+	if $ARGS[0]!"正在聊天":
+	'<div class="button"><a href="exec:addlove = RAND(1,my.魅力) & minutes+=30 & gt ''通用聊天'',''正在聊天''">聊天</a></div>'
+	if $聊天="RION":
+		if RIONcos=0 and tuc_level3=1:'<div class="buttonPu1"><a href="exec: RIONcos=1 & gt ''公司''">邀请cos拍摄</a></div>'
+	end
+	end
+	'<div class="button"><a href="exec:gt ''<<$出去的位置>>''">返回</a></div>'
+'</div>'
+
+if $ARGS[0]!"正在聊天":
+'<div class="dialog_menu">'
+	'<p><<$人名A>> ： <<$称呼A>></p>'
+'</div>'
+end
+
+if $ARGS[0]="正在聊天":
+'<div class="dialog_menu">'
+	'<p> 花费了一点时间，聊了一些关于<<$内容A[RAND(0,17)]>>的话题。</p>'
+	'<p> 受到自身魅力的影响 ღ<<my.魅力>>▲ ，好感度上升了<<addlove>>↑</p>'
+	'<br>'
+	'<p>*聊天时好感度加成是浮动的，自身魅力为理论最大值。'
+'</div>'
+end
+--- 通用聊天 ---------------------------------
+

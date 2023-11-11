@@ -1,0 +1,174 @@
+# hot_spring
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	'<div class="show_menu">'
+		 $WQ.available=1
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\温泉接待~<<rand(1,2)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''hot_spring'',''hot_spring_vertical_painting''">dialogue</a></div>'
+		if $FXZ_Event_SW=1 and hour >=18:'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''vice_principal_event'',''fxz_sw_hot_spring_a''">wait<<$FXZ.name>></a></div>'
+		if $qt.hot_spring=1 and hour >=12 and week_day >=6:'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''foreground_event'',''hot_spring_tour''">wait<<$QT.name>></a></div>'
+		if money>=1000:'<div class="buttonG"><a href="exec:minutes+=15 & money-=1000 & gt ''hot_spring'',''suite''">Buy a ticket to enter ￥1000</a></div>'else:'<div class="buttonGr"><a href="exec:">Buy a ticket to enter ￥1000</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>: Welcome, the price for female guests is 200￥/person, and the price for male guests is 1000￥/person. Due to the introduction of the new policy, the men`s soup has been cancelled and the private soup and mixed bath have been changed.</p>'
+		'<p>·Special regulations: This hot spring prohibits any guests from bringing secret shooting equipment, and it is our only purpose to ensure the privacy and safety of every guest.</p>'
+		'<p>——————————</p>'
+		'<p>·$hot_spring_comfort：<<温泉舒适度>>/100（MAX）</p>'
+	'</div>'
+End
+
+if $ARGS[0]="appointment":
+	 '<div class ="show_menu"><img src="images\place\打电话.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+	 if money>=200:
+	 if $JM_Event_date=1  and week_day >=5:'<div class="buttonG"><a href="exec:minutes+=5 & money-=200 & gt ''stepmom_event'',''set_off_for_an_appointment''"><<$JM.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$JM.name>>Free on weekends</a></div>'
+	 if $MM.love>=15 and $MM.bad>=15:'<div class="buttonG"><a href="exec:minutes+=15 & money-=200 & gt ''sister2_event'',''mm_event_hot_spring_tour''"><<$MM.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$MM.name>></a></div>'
+	 if $RION_NTR=1:'<div class="buttonG"><a href="exec:minutes+=15 & money-=200 & gt ''rion_event'',''rion_fuck_hot_spring''"><<$RION.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$RION.name>></a></div>'
+	 if $tz.hot_springs_are_available=1:'<div class="buttonG"><a href="exec:money-=200 & gt ''director_event'',''hot_spring''"><<$TZ.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$TZ.name>></a></div>'
+	 if $DC.love>=400-$DC.bad:'<div class="buttonG"><a href="exec:money-=200 & gt ''inspector_event'',''hot_spring_travel''"><<$DC.NAME>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$DC.NAME>></a></div>'
+	 if $bgh.hot_spring=1:'<div class="buttonG"><a href="exec:money-=200 & gt ''house_next_door_event'',''hot_spring''"><<$BGH.name>>￥200</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$BGH.name>></a></div>'
+
+	 else:
+		'<div class="buttonGr"><a href="exec:minutes+=15 & gt ''hot_spring''">Lack of money</a></div>'
+	 end
+		'<div class="button"><a href="exec:minutes+=15 & gt ''hot_spring'',''suite''">No more people</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Who is the appointment?</p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="suite":
+	if $WQ.love>=1000-$WQ.bad and hour=7:gt'hot_spring_event','wq_fuck_early_1'
+	
+	'<div class ="show_menu"><img src="images\place\温泉双人房.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:minutes+=60 & $my.energy+=30 & gt ''hot_spring_corridor''">Get around</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''hot_spring'',''appointment''">Appointment</a></div>'
+		'<div class="buttonGn"><a href="exec:minutes+=60 & $my.energy+=30 & gt ''hot_spring'',''suite''">rest</a></div>'
+		if $rion_interview=3 and $RION.bad>0 and  10<=hour and hour<=14 and week_day =7:'<div class="buttonP"><a href="exec:minutes+=60 & gt ''rion_event'',''rion_event_ntr_front''">Peeping next door</a></div>'else:'<div class="buttonGr"><a href="exec:">Peeping?？</a></div>'
+		if $champion_event_chain=1 and hour=22 and week_day =7:'<div class="buttonP"><a href="exec: gt ''champion_event'',''gj_fuck_hot_spring''">Peeping into the VIP private room</a></div>'
+		if $champion_event_chain=3 and hour>=20 :'<div class="buttonP"><a href="exec: gt ''champion_event'',''gj_fuck_hot_spring_2''">Peeping into the VIP private room</a></div>'
+		if $champion_event_chain=9 and hour>=20 :'<div class="buttonP"><a href="exec: gt ''champion_event'',''hot_spring_3''">Peeping into the VIP private room</a></div>'
+		if $boss_event_chain>=4 and hour=13 and week_day =6:'<div class="buttonG5"><a href="exec: gt ''group_performation_event'',''rich_woman_fuck_dd2''">SVIP private room</a></div>' 
+		if $xn.trial=1 and hour=13 and week_day =7:'<div class="buttonPu3"><a href="exec: gt ''nun_event'',''xn_fuck_girls''">偷窥Peeping into VIP private room</a></div>'
+		'<div class="button"><a href="exec:minutes+=60 & gt ''residential_area''">Back to the city</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·Life must be full of joy, and live up to the scenery when playing. Soaking in hot springs is to enjoy a kind of leisure, a kind of peace, and a kind of tranquility.</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="hot_spring_vertical_painting":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\对话.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & $hot_spring_comfort+=$my.physical_strength+rand(1,5) & gt ''hot_spring'',''help_her_clean''">Help her clean</a></div>'
+		if $hot_spring_comfort>=33:'<div class="button"><a href="exec:minutes+=15 & $hot_spring_comfort+=$my.physical_strength+rand(10,15) & gt ''hot_spring'',''new_dishes''">Research on new dishes</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>:Business is not very good, there is no more money to ask someone to clean…</p>'
+		'<p>Me: I can help you.</p>'
+		if $hot_spring_comfort>=33:
+		'<p><<$WQ.name>>:Obviously it`s already very clean... the guests are still not coming…</p>'
+		'<p>Me: I noticed that the quality of the dishes has declined…</p>'
+		end
+		'<p><<$WQ.name>>:Really?</p>'
+		'<p>·What should I say?</p>'
+	'</div>'
+End
+
+
+if $ARGS[0]="help_her_clean":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\work<<rand(1,2)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if money>=1000:'<div class="buttonG"><a href="exec:minutes+=15 & money-=1000 & gt ''hot_spring'',''suite''">Buy a ticket to enter ￥1000</a></div>'else:'<div class="buttonGr"><a href="exec:">Buy a ticket to enter ￥1000</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>:I`m sorry to ask you to help clean up together…</p>'
+		'<p>Me: Just think of it as aerobic exercise.</p>'
+		'<p>·Favorability has risen!The hot springs are also cleaner!</p>'
+		$WQ.love+=2
+	'</div>'
+End
+
+
+if $ARGS[0]="new_dishes":
+	 '<div class ="show_menu"><img src="images\NPC\WQ\pics\work<<rand(3,4)>>.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if  $my.cooking>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_spring'',''show_her_a_hand''">Show her a hand</a></div>'else:'<div class="buttonGr"><a href="exec:">Cooking level requirement 5</a></div>'
+		if  $wq.photo_destruction=1 :'<div class="buttonS"><a href="exec:minutes+=15 & gt ''hot_spring_event'',''WQ_Fuck_kitchen1''">Get started</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if WQMMS>0:'<div class="buttonP"><a href="exec:gt ''succubus_event'',''succubus_fuck_cook''"><<$MMS.name>>？</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It smells so good. Did you cook all the dishes yourself?。</p>'
+		'<p><<$WQ.name>>:My husband made it a while ago... But the benefits of the hot springs are not good... so he went to the city to cook his cauldron rice.…</p>'
+		'<p>Me: That`s it... (No wonder the dishes are not as delicious as before)</p>'
+		$WQ.love+=2
+	'</div>'
+End
+
+if $ARGS[0]="show_her_a_hand":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\WQ\vids\work<<rand(3,4)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''hot_spring_event'',''WQ_Fuck_cook2''">Impart experience</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$WQ.name>>:？！？！！Your dishes are so delicious!How did you do it?Teach me!</p>'
+		'<p>Me: Uh... well……</p>'
+		'<p><<$WQ.name>>:Please!</p>'
+		'<p>·Favorability has risen!The comfort of the hot spring has risen!</p>'
+		$WQ.love+=2
+	'</div>'
+End
+
+
+--- hot_spring ---------------------------------
+

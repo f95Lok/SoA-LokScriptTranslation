@@ -1,0 +1,154 @@
+# 副校长室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+if $args[0]="":
+	$FXZ.available=1
+	if  $FXZ.bad>=200: $FXZLH=4
+	if  $FXZ.bad<=200: $FXZLH=3
+	if  $FXZ.bad<=150: $FXZLH=2
+	if  $FXZ.bad<=125: $FXZLH=1
+	if  $FXZ.bad<=100: $FXZLH=0
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室<<$FXZLH>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if  $XZ_Event_3t=1:'<div class="button"><a href="exec:minutes+=5 & gt ''副校长室'',''对话''">对话</a></div>'
+		if $FXZ_Event_辅导=1:'<div class="button"><a href="exec:minutes+=50 & gt ''副校长室'',''竞赛辅导''">竞赛辅导</a></div>'
+		if $FXZ_Event_辅导=2 and  $FXZ_Event_女儿<=1:'<div class="button"><a href="exec:minutes+=15 & gt ''副校长室'',''她的心事''">她的心事</a></div>'
+		if $FXZ_Event_辅导<2:'<div class="buttonGr"><a href="exec:">尚未取得信任</a></div>'
+		if  day>=28:'<div class="buttonS1"><a href="exec:minutes+=15 &  gt ''副校长_事件'',''家访''">月末家访</a></div>'else:'<div class="buttonGr"><a href="exec:">月末？？</a></div>'
+		if hour=17 and $FXZ_Event_女儿=1: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''作家_事件'',''初次见面''">去她家</a></div>'
+		if  $FXZ_Event_女儿=2 and $ZJ_Event_count<3: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''作家_事件'',''二次见面''">有空</a></div>'
+		if $FXZ_Event_辅导>=2:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''副校长_事件'',''FXZ_Fuck_优胜奖励''">优胜奖励</a></div>'else:'<div class="buttonGr"><a href="exec:">？？奖励</a></div>'
+		if  $FXZ.bad>=150:'<div class="buttonS4"><a href="exec:minutes+=15 &  gt ''副校长_事件'',''FXZ_Fuck_办公室''">干她</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+	    if  $FXZ.bad>=330-$FXZ.love and hour=17:'<div class="buttonS5"><a href="exec:minutes+=15 &  gt ''副校长_事件'',''FXZ_Fuck_校长室''">去校长室做爱</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+        if 授精室=1 and $FXZ.bad>=200 and $FXZ.授精=0:'<div class="buttonS"><a href="exec:$FXZ.授精=1 & gt ''副校长室''">邀请人工授精</a></div>'
+
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：老师好！</p>'
+		'<p><<$FXZ.name>>：唉，注意称谓！要叫我副校长！哼，副校长？谁稀罕！</p>'
+		'<p>我：副校长好！</p>'
+		if  $FXZ_Event_女儿=2 and $ZJ_Event_count<3:  '<p><<$FXZ.name>>：效果不错！我女儿一直问你什么时候去，你现在有空吗？</p>'
+		if  $FXZ_Event_女儿=2 and $ZJ_Event_count>=3: 
+		'<p><<$FXZ.name>>：我女儿最近开朗多了，还和我说要做什么全职小说家...你帮了她不少忙...这是我家的备份钥匙，平时我不在的时候你也多去和她聊聊天！</p>'
+	    if $FXZ.key=0:'<p><a href="exec:minutes+=15 & $FXZ.KEY=1 & gt ''副校长室''">收下钥匙</a></p>'
+	    end 
+	    if  $FXZ.bad>=330-$FXZ.love and  hour!17 :'<p><<$FXZ.name>>：放学了记得来找我，我带你去个好地方！</p>'
+	    if $纠察队任务=1:'<p>·门后校内纠察队的队员们到齐了，他们示意她<a href="exec:minutes+=15 & gt ''副校长_事件'',''FXZ_Fuck_纠察队''">签署弃权声明</a></p>'
+	'</div>'
+End
+
+if $args[0]="对话":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &fxzdh=1& gt ''副校长室'',''对话''">您教书几年了？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &fxzdh=2& gt ''副校长室'',''对话''">您对<<$xz.name>>满意吗？</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if fxzdh=1:
+		'<p>我：您教书几年了？</p>'
+		'<p><<$FXZ.name>>：15年零3个月。我很负责任地告诉你，整个学校的老师教龄加起来都没我多！</p>'
+		'<p>我：那您应该是整个学校最有能力的老师了！</p>'
+		'<p><<$FXZ.name>>：呵呵，现在的年轻老师水平也是不错的。</p>'
+	 end
+	 if fxzdh=2:
+		'<p>我：您对<<$xz.name>>满意吗？</p>'
+		'<p><<$FXZ.name>>：*眼神古怪*那个女人是市长指派的。你这么问，你是校内纠察队的？</p>'
+		'<p>我：您这是答非所问。</p>'
+		'<p><<$FXZ.name>>：有时候答非所问就是答了，你还年轻不明白这个校长我也不会跟你计较。</p>'
+		'<p>我：校长？您现在还是副校长。</p>'
+		'<p><<$FXZ.name>>：我在老师内部颇有威望，下次选举投票，也快要到了。到时候我就会废除校内纠察队，我劝你还是别给我惹麻烦。</p>'
+		$XZ_Event_3tf=1
+	 end
+	'</div>'
+End
+
+
+if $args[0]="竞赛辅导":
+	$复习进度+=my.智力+20
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\测试.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $复习进度>=100:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''副校长_事件'',''额外要求''">额外需求</a></div>'
+		else
+		'<div class="buttonGr"><a href="exec:">复习进度<<$复习进度>>%</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·认真复习了一次。</p>'
+		'<p><<$FXZ.name>>：<<$主角姓>>同学！老师会认真辅导你的！（唉！怎么搞的。只有你一个人报名嘛..这下职称难搞了啊..）</p>'
+		'<p>我：看来我是独苗了？</p>'
+		if $复习进度>=40:'<p><<$FXZ.name>>：不错不错，大的框架已经全面梳理了一遍。我也把你的名字提交上去了。过段时间就可以去比赛了。这段时间我们继续把小知识点过一遍。</p>'
+		if $复习进度>=60:'<p>我：这个名字提交上去以后还能不能改？</p>'
+		if $复习进度>=80:'<p><<$FXZ.name>>：当然不能了！你如果不去<<$XZ.name>>可是要找我麻烦的。</p>'
+		if $复习进度>=100:'<p>我：呃...我肚子有点痛，今天要先回去了！Once someone is exposed.They are at your mercy.</p>'
+	'</div>'
+End
+
+if $args[0]="她的心事":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & $FXZ_Event_女儿=1 &  gt ''大学''">那好吧</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$FXZ.name>>：唉~现在她什么事都不肯跟妈妈说了....她本来又是个敏感脆弱的孩子....该怎么办呢..</p>'
+		'<p>我：您好像有心事？</p>'
+		'<p><<$FXZ.name>>：其实呢，老师有一个女儿，最近突然变得很内向，老是把自己关在房间里，我有点担心她的心理会不会出问题....</p>'
+		'<p>我：青春期的孩子是这样的，您也不用太操心了。</p>'
+		'<p><<$FXZ.name>>：可是...要不你放学了和我去家里一趟吧，如果是同龄人，她可能愿意说点什么吧。</p>'
+	'</div>'
+End
+
+if $args[0]="拉拢":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\温泉前置.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &   gt ''居民区''">没问题</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·临走时，她突然叫住了你。</p>'
+		'<p><<$FXZ.name>>：老师有一个任务想要拜托你，你知道老师还需要一些中立票。<<$SW.name>>如果倒向校长哪边就不好了....</p>'
+		'<p>我：那你需要我做什么？</p>'
+		'<p><<$FXZ.name>>：其实呢，老师已经计划好了，我在明天晚上约了<<$SW.name>>去郊外泡温泉，到时候需要你来帮老师旁敲侧击一下。</p>'
+		$FXZ_Event_SW=1 
+	'</div>'
+End
+
+--- 副校长室 ---------------------------------
+

@@ -1,0 +1,1028 @@
+# president_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+$my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="pick_her_up_and_take_pictures":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\拍摄0<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=1:'<div class="button"><a href="exec:minutes+=5 &a=2& gt ''president_event'',''pick_her_up_and_take_pictures''">Shoot the bottom of the skirt</a></div>'
+		if a=2:'<div class="button"><a href="exec:minutes+=5 & gt ''residential_area''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		if a=1:'<p><<$HZ.name>>:...This one is...Will it be filmed?..</p>'
+		if a=2:
+		'<p><<$HZ.name>>:...？..？？Hey, hey, hey?！Hello?！What are you doing?！Fuck, I knew this one was unreliable.</p>'
+		'<p><<$HZ.name>>:..You wretched photographer, get out of here!</p>'
+		'<p>·The shooting is over</p>'
+		'<p>(It seems she won`t ask me to shoot anymore........Unless I can increase the number of likes of the photo...）</p>'
+		end
+		$HZ_Event_coser=2
+	'</div>'
+End
+
+if $args[0]="take_a_picture_again":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\拍摄01~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''president_event'',''go_to_deep_alley''">Go to Deep Alley</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$HZ.name>>:The response to the last photo was good, but I didn`t expect you to be a little level as a young man?</p>'
+		'<p>Me: Do you have anything you want to shoot?</p>'
+		'<p><<$HZ.name>>:Have you ever been to the slums of Kabukicho? Oh, it`s been renamed Shen Alley now.Where do I want to take pictures? The subject matter is called `The contrast between a super beautiful girl and a dilapidated slum.`</p>'
+		'<p>..........</p>'
+	'</div>'
+End
+
+if $args[0]="go_to_deep_alley":
+	'<div class ="show_menu"><img src="images\place\深巷.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if my.basement>=1:'<div class="button"><a href="exec:minutes+=5 & a=0 & gt ''president_event'',''basement''">Go to your basement</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''deep_alley''">One shot and two scattered</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		'<p><<$HZ.name>>:Hello?Why is it so dirty here.I have nowhere to get off my feet.Hurry up and find a place for Miss Ben to sit down, waste!</p>'
+		'<p>Me:....It`s really hard to serve......</p>'
+	'</div>'
+End
+
+if $args[0]="basement":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\摸<<a>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:minutes+=5 &a+=1& gt ''president_event'',''basement''">Touch her</a></div>'
+		if a=1:'<div class="button"><a href="exec:minutes+=5 &a+=1& gt ''president_event'',''basement''">Touch her</a></div>'
+		if a=2:'<div class="button"><a href="exec:minutes+=5 &a+=1& gt ''president_event'',''basement''">Put on a vibrator</a></div>'
+		if a=3:'<div class="button"><a href="exec:minutes+=5 & gt ''deep_alley''">Hang her for a while</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'	
+		if a=0:
+		'<p>Me: Well, you put this on.</p>'
+		'<p><<$HZ.name>>:...Clam?Why wear this kind of thing?...</p>'
+		'<p>Me: The president won`t be afraid of me as a waste, right? I dare not do anything to the president.</p>'
+		'<p><<$HZ.name>>:Also, you trash, you are all heartless and courageous!</p>'
+		end 
+		if a=1:
+		'<p><<$HZ.name>>:...hello!Where are you touching?！</p>'
+		'<p>Me: Mr. President, your tattoo is so special and beautiful.</p>'
+		'<p><<$HZ.name>>:Shut up!I`m going to call the police!</p>'
+		end 
+		if a=2:
+		'<p><<$HZ.name>>:...？..？？Hey, hey, hey?！hello!It`s disgusting!Let me go!Where are you touching?！</p>'
+		'<p>Me: I`m just taking unforgettable photos of you.</p>'
+		end 
+		if a=3:
+		'<p><<$HZ.name>>:..Wait, stop it, you trash!hello!Who will save me?！Stop it!</p>'
+		'<p>Me: You also said that this is where the hillbilly and the snake live, and there is no ghost place around.</p>'
+		'<p><<$HZ.name>>:..help!Help!！</p>'
+		$HZ_Event_coser=5
+		$HZ.love-=50
+		end
+		
+	'</div>'
+End
+
+if $args[0]="hz_fuck_tuning":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\调教-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+
+	if a<9:
+		'<div class="button_menu">'
+			if a!0 and a<4:
+			'<div class="button"><a href="exec:a=0 & gt ''president_event'',''hz_fuck_tuning''">Regardless of her</a></div>'
+			end
+			if a!1 and q<7:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_tuning''">talk</a></div>'
+			end
+			if a=1:
+			'<div class="buttonS1"><a href="exec:a=-1 &$dialogue_with_the_president=1& gt ''president_event'',''hz_fuck_tuning''">Your pussy is so sensitive</a></div>'
+			'<div class="buttonS2"><a href="exec:a=-1 &$dialogue_with_the_president=2& gt ''president_event'',''hz_fuck_tuning''">Why hate men</a></div>'
+			if $HZ_Event_coser>=6:'<div class="buttonS3"><a href="exec:a=-1 &$dialogue_with_the_president=3& gt ''president_event'',''hz_fuck_tuning''">About black history</a></div>'else:'<div class="buttonGr"><a href="exec:">???</a></div>'
+			end
+			if a!2 and a<4:
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_tuning''">Touch your ass</a></div>'
+			end
+			if a<3 and 5>q and q>2 and $HZ.bad>=10:
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_tuning''">Look at my cock</a></div>'
+			end
+			if a<4 and 6>q and q>3  and $HZ.bad>=20:
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_tuning''">Oral sex</a></div>'
+			end
+			if a!5 and a!8 and q>4 and $HZ_Event_coser>=7 : 
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_tuning''">Back in</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_tuning''">Ride up</a></div>'
+			end
+
+			if a>4 and a!8 and $HZ_Event_coser>=7 :
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_tuning''">sprint</a></div>'
+			end
+
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_tuning''">Internal injection</a></div>'
+			end
+			if $HZ_Event_coser>=7 and  $HZ.bad>=60: 
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_tuning''">Reluctant to give up</a></div>'
+			end
+
+			if a!7:
+			'<div class="button"><a href="exec:a=10 & gt ''president_event'',''hz_fuck_tuning''">Reposition</a></div>'
+			end
+			'</div>'
+		else:
+			'<div class="button_menu">'
+				if a=9 and $HZ.bad>=100:'<div class="button"><a href="exec:minutes+=15 & $HZ_Event_coser=8 & gt ''basement''">Training is over: let her go</a></div>'else:'<div class="buttonGr"><a href="exec:">Can`t let her go yet</a></div>'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''basement''">End today</a></div>'
+			'</div>'
+	end
+
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>> :…………………</p>'
+			 '<p>I :......... Mr. President...can you still insist...?</p>'
+		 '</div>'
+	end
+
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p>Me: ...let`s talk about the heart…</p>'
+			 '<p><<$HZ.name>> :...I have nothing to say to you……</p>'
+			 '<p>Me: ...since you don`t want to say it, then I can only ask netizens about your story.…</p>'
+			 '<p><<$HZ.name>> :...those bugs...!Can know a fart…</p>'
+		 '</div>'
+	end
+
+	if a=-1:
+		 '<div class="dialog_menu">'
+		 if $dialogue_with_the_president=1:
+			 '<p>Me: ...your pussy is so sensitive…</p>'
+			 '<p><<$HZ.name>> :...what does it matter to you?You pervert.Can I be insensitive if I have only done it with one boy once?…</p>'
+			 '<p>Me: ...only with one?</p>'
+			 '<p><<$HZ.name>> :...believe it or not…</p>'
+		 end 
+		 if $dialogue_with_the_president=2:
+			 '<p>Me: Why do you hate men so much?</p>'
+			 '<p><<$HZ.name>> :Let me tell you a story. A rich second-generation boy may be bored and want to change his taste, so he finds a girl and wants to fall in love with her.But to his surprise, the girl gently rejected him, but he told all the classmates and friends around her that she was a bitch and it would take three thousand one nights to have an STD.</p>'
+			 '<p><<$HZ.name>> :...At this time, another boy stood up and bravely protected the girl. As a result, they fell in love and gave their body and mind.But the good times didn`t last long, and the boy was checked out for a heart attack.The ending of the story has not been reversed.The boys left the world, while the girls continued to be harassed by countless rumors and carried false infamy.</p>'
+			 '<p>Me: If you are not good at comforting people, you chose silence...</p>'
+		 end 
+		 if $dialogue_with_the_president=3:
+			 '<p><<$HZ.name>> :...Yes, I have an STD, so if you are not afraid of death, come and fuck me!Coward!…...You incompetent men will only use fabricated facts to maliciously speculate on me!Disgusting!</p>'
+			 '<p>Me: ...Actually, I`m not afraid, because I know that you are not sick, and you are much cleaner than those who slander you and speculate on you maliciously.…</p>'
+			 '<p><<$HZ.name>> :...She was taken aback...what..How is this possible...why..You will say the same thing to him...</p>'
+			 '<p>Me: ...I`m sorry, I`m not apologizing for those who hurt you..I`m sorry for not showing up by your side and supporting you.…</p>'
+			 '<p><<$HZ.name>> : Liar...Stop talking...What to say now...It`s useless..No one will stand up for me anymore..I can only be strong on my own...</p>'
+			 '<p>Me: Please give me a chance to make you believe in me, a chance to be desperate.</p>'
+			 '<p><<$HZ.name>> :Okay, then prove it to me, fuck me, I`m really sick, and I`ll die if I have sex with me.</p>'
+			 '<p>Me: Okay, I`m not afraid, I have to tell everyone.You are my woman.</p>'
+			 '<p><<$HZ.name>> :You..You fool...T﹏T</p>'
+			 if $HZ_Event_coser=6:
+	             $HZ.bad+=40
+	             $HZ.love=100
+	             $HZ_Event_coser=7
+	         end	 
+		 end 
+		 '</div>'
+	end
+
+	if 8>=a and a>=2:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:………</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		if $HZ_Event_coser>=7 :
+		 $HZ.bad+=q*2+5
+		 $HZ.love+=q
+		 end
+		 '<div class="dialog_menu">'
+			 '<p>Me: ...it`s almost time to let you go………</p>'
+			 '<p><<$HZ.name>> :What?You don`t want me……</p>'
+			 '<p>Me: ...fool, what are you thinking!</p>'
+			 '<p><<$HZ.name>> :Let me stay for a few more days……</p>'
+		 '</div>'
+	end
+
+
+	if a=10:
+		 $HZ.bad+=5
+		if $HZ_Event_coser>=7 :
+		 $HZ.bad+=q*2
+		 $HZ.love+=q
+		 end
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>> :………</p>'
+			 '<p>Me: It`s okay, it depends on how long you can hold on, the lewd water makes the sheets wet.</p>'
+			 '<p>·Her mentality has vaguely changed.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="hz_fuck_student_union":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\学生会干<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_student_union''">Pick up her leg</a></div>'
+			end
+			if a!1 and q<3:
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_student_union''">Direct back entry</a></div>'
+			end
+			if a!3 and 1<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_student_union''">Play with small holes</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_student_union''">Help her orgasm</a></div>'
+			end
+			if a!5 and 8>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_student_union''">Hang it around your waist and fuck</a></div>'
+			end
+			if a!6 and 10>=q and q>=4:
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_student_union''">Female upper</a></div>'
+			end
+			if a!7 and 12>=q and q>=5:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_student_union''">Lift your legs and enter</a></div>'
+			end
+			if a!8 and q>=6 and a!9:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_student_union''">sprint</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_student_union''">Internal injection</a></div>'
+			end
+			if a=9 :  
+			'<div class="button"><a href="exec:a=10 & gt ''president_event'',''hz_fuck_student_union''">Begging for mercy</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:Hello!！！This is too sudden!however..I like it!</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$panting>>No way...Too fast..Too fast..You slow down..The pussy is going to be fucked by you.</p>'
+		 '</div>'
+	end
+
+	if 2<=a and a<=9:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$panting>><<$words>></p>'
+		 '</div>'
+	end
+
+
+	if a=10:
+		 $HZ.bad+= q
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>The one who was inserted was almost unconscious....It`s not working, it`s not working..I really can`t stand you!Get out!Those shaking idiots will come in in a while.</a></p>'
+		 	 '<p>Me: It seems to have gone too far...</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="hz_fuck_medicine_dry":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\下药干-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!7:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_medicine_dry''">Mouth me</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_medicine_dry''">Buckle spray her</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_medicine_dry''">Female upper-level hot fuck</a></div>'
+			end
+			if a=3:
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_medicine_dry''">Female orgasm</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_medicine_dry''">Leg lift and thrusting</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_medicine_dry''">Leg lift sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_medicine_dry''">Internal injection</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & a=3 & q=2 &gt ''president_event'',''hz_fuck_medicine_dry''">No problem</a></div>'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang''">end</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>: It seems that nothing has changed after I drank it..</p>'
+		 '</div>'
+	end
+
+	if a=1:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:Come on!People are ready to accept your artillery fire.</p>'
+		 '</div>'
+	end
+
+	if 2<=a and a<=6:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$panting>>No way...Too fast..Too fast..You slow down..The pussy is going to be fucked by you.<<$words>></p>'
+		 '</div>'
+	end
+
+
+	if a=7:
+		 $HZ.bad+= q
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>: Don`t stop....I want more....Come on, big chicken, plug in quickly....Fuck me again.</a></p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="hz_fuck_bathroom":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\浴室1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_bathroom''">serve</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_bathroom''">Kneading milk</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_bathroom''">Oral sex</a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_bathroom''">Back in</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_bathroom''">Press on the glass</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_bathroom''">Sprint in front of the mirror</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_bathroom''">Ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_bathroom''">Lick clean</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonS"><a href="exec:minutes+=15 & a=0 & q=0 &gt ''president_event'',''hz_fuck_bed''">Go to bed and do it</a></div>'
+				'<div class="buttonB"><a href="exec:minutes+=15 & gt ''president_event'',''sleep_together''">Sleep together</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Do you usually take a bath in uniform?</p>'
+			 '<p><<$HZ.name>>:Of course not, it was specially given to you....The temptation of wet uniforms..</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$panting>>…...do you like it?Like to have sex with me every day from now on, okay?…</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $HZ.bad+= q
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+			 '<p>Me: You don`t have to lick it so clean, you have to take a bath anyway.</p>'
+		 	 '<p><<$HZ.name>>:I don`t care, you shot it to me, I want to take it all.</a></p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+if $args[0]="hz_fuck_bed":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\卧室1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_bed''">kiss</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_bed''">dialogue</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_bed''">Oral sex</a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_bed''">Mirror front and rear entry</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_bed''">Accelerate thrusting</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_bed''">Climax sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_bed''">Bukkake</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_bed''">Love you</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=15 & gt ''president_event'',''sleep_together''">Sleep together</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: It feels so good to be held by you.</p>'
+			 '<p><<$HZ.name>>: Well, no one has hugged me to sleep like this for a long time....</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$panting>>……</p>'
+			 if a=2:
+			 '<p><<$HZ.name>>:It feels so good, it`s hard to love one more day.I really want time to slow down like this.We are the only ones left quietly.…</p>'
+			 '<p>Me: I also want to just touch your head like this and never let go.`</p>'
+			 end
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $HZ.bad+= q
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>: Hello....Promise me, don`t leave me.</a></p>'
+			 '<p>Me: How could I leave you, fool.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="sleep_together":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\卧室1-9~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+				'<div class="buttonB"><a href="exec:minutes+=1440 & hour=7 &$my.energy=mymax[$energy]& gt ''hot_girl_gang'',''corridor''">Sleep until the next day</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+		'<p>Me: Good night, Mr. President.</p>'
+		'<p><<$HZ.name>>:Good night, my dear.</p>'
+		'<p>..........</p>'
+	'</div>'
+End
+
+if $args[0]="hz_fuck_hospital_visit":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\医院1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!8:
+		'<div class="button_menu">'
+			if a!1 and q<=3:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_hospital_visit''">check</a></div>'
+			end
+			if a!2 and 1<=q and q<=4: 
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_hospital_visit''">Slow down</a></div>'
+			end
+			if a!3 and 2<=q and q<=5: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_hospital_visit''">Hurry up</a></div>'
+			end
+			if a!4 and 3<=q and q<=7: 
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_hospital_visit''">Female upper</a></div>'
+			end
+			if a!5 and 9>=q and q>=3:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_hospital_visit''">Back position</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_hospital_visit''">sprint</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_hospital_visit''">Internal injection</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_hospital_visit''">Swallow</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''daily_drug_test''">Go back</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: Why are you here?</p>'
+			 '<p><<$HZ.name>>: What are you looking at!What`s the matter, aren`t you glad I came to see you?Let me check if you are injured...You haven`t come to school in the past few days, so you are so worried about me.</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:<<$panting>>...It seems that you are okay, I am relieved…</p>'
+		 '</div>'
+	end
+
+
+	if a=8:
+		 $HZ.bad+= q
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>: Hehe~ All the semen has disappeared~ where have they all gone?</p>'
+			 '<p>Me: Hey, don`t get sick.</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="tea_warning":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HZ\vids\警告1-<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+				if a<=1:'<div class="button"><a href="exec:minutes+=15 & a+=1 &gt ''president_event'',''tea_warning''">Watch it</a></div>'
+				'<div class="button"><a href="exec:minutes+=30 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'	
+	 if a=0:
+		'<p><<$HZ.name>>:You recently and<<$protagonists_name>>It`s pretty close.</p>'
+		'<p><<$LJ.name>>:...The president is also interested in him...thinking...?</p>'
+		'<p><<$HZ.name>>:Listen to me, stay away from him.Otherwise, don`t blame me for being rude.</p>'
+		'<p><<$LJ.name>>:The student union... it seems that only male students have the right to punish.</p>'
+		'<p>………</p>'
+	end
+	 if a=1:
+		'<p><<$HZ.name>>:Hehe.I can understand your embarrassing campus status as a bottom student, and I can also understand your plain-looking trouble of not finding a suitor.</p>'
+		'<p><<$HZ.name>>:I won`t care about anything with you, but I need you to understand one thing.</p>'
+		'<p><<$LJ.name>>:...what…</p>'
+		'<p><<$HZ.name>>:<<$protagonists_name>>I can`t look down on a woman like you anyway, how can you be worthy of him.</p>'
+		'<p><<$LJ.name>>:………</p>'
+		'<p><<$HZ.name>>:See clearly, this is<<$protagonists_name>>After fucking, he is already my man.</p>'
+		'<p><<$LJ.name>>:………</p>'
+	end
+	 if a=2:
+		'<p><<$HZ.name>>:If you understand what I mean, you can leave after drinking this cup of tea.</p>'
+		'<p><<$LJ.name>>:………</p>'
+		'<p><<$HZ.name>>:Do it yourself, otherwise it won`t be tea next time.</p>'
+		'<p>………</p>'
+	end
+	'</div>'
+End
+
+
+if $args[0]="hz_fuck_music_festival":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\音乐节1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_music_festival''">Take her to take a shower</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_music_festival''">Waiting for her in bed</a></div>'
+			end
+			if a=2: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_music_festival''">Let her serve</a></div>'
+			end
+			if 3<=a and a<=6: 
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_music_festival''">Rub fat buttocks</a></div>'
+			end
+			if 3<=a and a<=6: 
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_music_festival''">Top to the depths</a></div>'
+			end
+			if 3<=a and a<=6: 
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_music_festival''">Accelerate thrusting</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_music_festival''">Internal injection</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_music_festival''">dialogue</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_music_festival''">hug</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang''">Send her back</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p>Me: I`ve been looking for you for a long time, so I`m here to draw a water gun... Be careful!</p>'
+			 '<p><<$HZ.name>>:Hey, don`t you fucking have eyes?You bumped into me!You stupid man…</p>'
+			 '<p>Me: Calm down, you don`t need to know him in general.</p>'
+			 '<p><<$HZ.name>>:Hmm... really annoying!The good mood was ruined by him!He was hit by him and his body was so dirty!It`s disgusting!</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=7:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p><<$HZ.name>>:I`m done❤ Won`t you wash it?</p>'
+			 if a=2:'<p>Me: How long will it take?I`m about to fall asleep.</p>'
+			 if a=3:'<p><<$HZ.name>>:Long wait❤</p>'
+			 if a>=4:'<p><<$HZ.name>>:baby<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=8:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:Damn it... In this case, isn`t the bath for nothing?</p>'
+			 '<p>Me: It`s not because I love you so much that I can`t bear to pull it out.</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $HZ.bad+= q
+		 $HZ.love+= q+$my.charm
+		 $hz.music_festival_date=0
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:Damn sweet words... you, you promise me, don`t leave me.</p>'
+			 '<p>Me: I promise you, I will be with you for the rest of my life.</p>'
+			 '<p><<$HZ.name>>:Then I won`t wash it ❤ do you want to have a baby with me...?</p>'
+		 '</div>'
+	end
+
+ q+=1
+
+End
+
+
+if $args[0]="hz_fuck_toy":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\玩具1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!13:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_toy''">Put this on</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_toy''">Put on the vibrating egg</a></div>'
+			end
+			if a=2: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_toy''">Put on a mouth ball</a></div>'
+			end
+			if a=3: 
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_toy''">Put on an eye mask</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_toy''">Place play</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_toy''">Dick interjected</a></div>'
+			end
+			if a=5:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_toy''">Go to bed</a></div>'
+			end
+			if a=7 or a=6:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_toy''">Forced deep throat</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_toy''">Female upper</a></div>'
+			'<div class="button"><a href="exec:a=10 & gt ''president_event'',''hz_fuck_toy''">Back position</a></div>'
+			'<div class="button"><a href="exec:a=11 & gt ''president_event'',''hz_fuck_toy''">Normal bit</a></div>'
+			end
+			if a>=9 and a!12:
+			'<div class="button"><a href="exec:a=12 & gt ''president_event'',''hz_fuck_toy''">Bukkake</a></div>'
+			end
+			if a=12:
+			'<div class="button"><a href="exec:a=13 & gt ''president_event'',''hz_fuck_toy''">dialogue</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="buttonB2"><a href="exec:minutes+=15 & a=0 & q=0 & gt ''president_event'',''hz_fuck_bathroom''">Take a bath together</a></div>'
+				'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''hot_girl_gang''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:Dang Dang dang ❤ These are my little toys, Hehe.</p>'
+			 '<p>Me: Which one do you like best?</p>'
+			 '<p><<$HZ.name>>:Let me think about it, I like quite a lot.</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:This is also what I like ❤</p>'
+		 '</div>'
+	end
+
+	if 5<=a and a<=8:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:Damn it...Woohoo... can`t talk to provoke❤</p>'
+		 '</div>'
+	end
+
+	if 9<=a and a<=12:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:good<<$words>></p>'
+		 '</div>'
+	end
+
+	if a=13:
+		 $HZ.bad+= q+$my.charm
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:Is it good to have sex with me?You didn`t even speak just now.</p>'
+		 	 '<p>Me: It`s so cool that it`s indescribable!</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="hz_fuck_exercise":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\练习1-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!10:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="button"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_exercise''">Look at the mouth</a></div>'
+			end
+			if a=1:
+			'<div class="button"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_exercise''">Look at the skills</a></div>'
+			end
+			if a=2: 
+			'<div class="button"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_exercise''">Look at the depth</a></div>'
+			end
+			if a=3: 
+			'<div class="button"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_exercise''">Come lick this</a></div>'
+			end
+			if a=4:
+			'<div class="button"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_exercise''">Mouth to the end</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_exercise''">Interrupt practice</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_exercise''">Oral ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_exercise''">Open your mouth</a></div>'
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_exercise''">Really amazing</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_exercise''">Check your mouth</a></div>'
+			end
+			if a=9:
+			'<div class="button"><a href="exec:a=10 & gt ''president_event'',''hz_fuck_exercise''">Cheer for her</a></div>'
+			end
+
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:My dear ❤ I plan to do some small exercises, I am going to participate in the hot dog eating competition.</p>'
+			 '<p>Me: Is it the Big Stomach King competition?</p>'
+			 '<p><<$HZ.name>>:Yes, don`t look at me like this, my mouth is very big.</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=5:
+		 '<div class="dialog_menu">'
+			 if a=1:'<p><<$HZ.name>>:Ah ah ah❤ how is it?Have a talent!I also have special skills!</p>'
+			 if a=2:'<p><<$HZ.name>>:The technique of eating hot dogs is to swallow when there is a hot dog in your mouth!</p>'
+			 if a>=3:'<p><<$HZ.name>>:Hmm ❤ So deep…</p>'
+		 '</div>'
+	end
+
+	if 6<=a and a<=7:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:Damn it... can`t eat it❤</p>'
+		 '</div>'
+	end
+
+	if 8<=a and a<=9:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:Ah❤It`s delicious❤</p>'
+		 '</div>'
+	end
+
+	if a=10:
+		 $HZ.bad+= q+$my.charm
+		 $HZ.love+= q+$my.charm
+		 $hz.hot_dog=1
+		 '<div class="dialog_menu">'
+		 	 '<p>Me: You can do it, I will cheer for you!</p>'
+		 	 '<p><<$HZ.name>>:Ok!You have to continue to practice with me too!</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+
+
+if $args[0]="hz_fuck_exercise_2":
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\HZ\vids\练习2-<<a>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+
+	if a!9:
+		'<div class="button_menu">'
+			if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''president_event'',''hz_fuck_exercise_2''">In-depth training</a></div>'
+			'<div class="buttonS2"><a href="exec:a=2 & gt ''president_event'',''hz_fuck_exercise_2''">Swallowing exercises</a></div>'
+			'<div class="buttonS3"><a href="exec:a=3 & gt ''president_event'',''hz_fuck_exercise_2''">Speed training</a></div>'
+			end
+			if a=1 or a=2 or a=3: 
+			'<div class="buttonS4"><a href="exec:a=4 & gt ''president_event'',''hz_fuck_exercise_2''">Mouth explosion</a></div>'
+			end
+			if a=4:
+			'<div class="buttonS5"><a href="exec:a=5 & gt ''president_event'',''hz_fuck_exercise_2''">Swallow sperm</a></div>'
+			end
+			if a=5: 
+			'<div class="button"><a href="exec:a=6 & gt ''president_event'',''hz_fuck_exercise_2''">Change posture</a></div>'
+			end
+			if a=6:
+			'<div class="button"><a href="exec:a=7 & gt ''president_event'',''hz_fuck_exercise_2''">Oral ejaculation</a></div>'
+			end
+			if a=7:
+			'<div class="button"><a href="exec:a=8 & gt ''president_event'',''hz_fuck_exercise_2''">Check your mouth</a></div>'
+			end
+			if a=8:
+			'<div class="button"><a href="exec:a=9 & gt ''president_event'',''hz_fuck_exercise_2''">Cheer for her</a></div>'
+			end
+		'</div>'
+
+		else:
+			'<div class="button_menu">'
+				'<div class="button"><a href="exec:minutes+=15 & gt ''university''">leave</a></div>'
+			'</div>'
+	end
+
+	if a=0:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:My dear❤ It is imperative for me to have a hot dog eating contest.</p>'
+			 '<p>Me: I want to know where there is a dick eating contest……</p>'
+		 '</div>'
+	end
+
+
+
+	if 1<=a and a<=4:
+		 '<div class="dialog_menu">'
+			 '<p><<$HZ.name>>:Hmm ❤ So deep…<<$panting>></p>'
+		 '</div>'
+	end
+
+	if 5<=a and a<=8:
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:This is not my limit❤</p>'
+		 '</div>'
+	end
+
+	if a=9:
+		 $HZ.bad+= q+$my.charm
+		 $HZ.love+= q+$my.charm
+		 '<div class="dialog_menu">'
+		 	 '<p><<$HZ.name>>:What do you think of me?Can you win!</p>'
+		 	 '<p>Me: Of course, if you can`t win like this, I must go and meet the champion!</p>'
+		 '</div>'
+	end
+
+
+ q+=1
+
+End
+--- president_event ---------------------------------
+

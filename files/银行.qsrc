@@ -1,0 +1,251 @@
+# 银行
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="市政大厅" href="exec:minutes+=15 & gt ''市政厅''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\银行大厅.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $MY.银行=1:'<div class="buttonG3"><a href="exec:gt ''银行'',''副行长室''">副行长室</a></div>'
+		'<div class="buttonG2"><a href="exec:gt ''银行'',''理财产品''">理财产品</a></div>'
+		'<div class="buttonG1"><a href="exec:gt ''银行'',''股票交易''">股票交易</a></div>'
+		if $班长事件链B=4 and week_day=7 and hour=12:'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''班长B7''">不吐钱的ATM机</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·金融中心是伴随经济中心的发展而形成，也是经济中心的最高形态。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="副行长室":
+	'<div class ="show_menu"><img src="images\NPC\YH\pics\副行长室.jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我：行长让我揪出银行内腐败份子…有点难度…</p>'
+		'<p>·<<$YH.name>>:<<$主角姓>>先生，不对<<$主角姓>>副行长…您有空吗？<a href="exec:gt ''银行_事件'',''YH_Fuck_B7''">-敲门声</a></p>'
+	'</div>'
+end
+
+if $ARGS[0]="股票交易":
+	if $股票开始=0:
+		stock制药O=430
+		stock娱乐O=5500
+		stock健康O=16500
+		stock能源O=32700
+		stock酒企O=170
+	end
+	
+	if 每日股价=0:
+		stock制药N=stock制药O+rand(-5,7)
+		stock娱乐N=stock娱乐O+rand(-15,15)
+		stock健康N=stock健康O+rand(-25,30)
+		stock能源N=stock能源O+rand(-50,50)
+		stock酒企N=stock酒企O+rand(-1,1)
+		每日股价=1
+		if stock制药C>0 and stock制药N>stock制药B:stock制药N=stock制药B+rand(-1,2)
+	end
+	'<div class ="show_menu"><img src="images\place\银行股票.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''银行'',''股票交易''">股票交易</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>【姆苟制药】现价：<<stock制药N>> 买入价：<<stock制药B>> 持股数：<<stock制药C>>' 
+		if stock制药C>0:'·<a href="exec:money+=stock制药N*stock制药C & stock制药C=0 & gt ''银行'',''股票交易''">全部出售</a>·'
+		if money>=stock制药N: '·<a href="exec:stock制药C=money/stock制药N & money-=stock制药C*stock制药N & stock制药B=stock制药N  & gt ''银行'',''股票交易''">满仓￥</a>·'
+		'</p>'
+		'<p>【帝国娱乐】现价：<<stock娱乐N>> 买入价：<<stock娱乐B>> 持股数：<<stock娱乐C>>' 
+		if stock娱乐C>0:'·<a href="exec:money+=stock娱乐N*stock娱乐C & stock娱乐C=0 & gt ''银行'',''股票交易''">全部出售</a>·'
+		if money>=stock娱乐N*100 and stock娱乐C=0: '·<a href="exec:stock娱乐C=100 & money-=stock娱乐N*100 & stock娱乐B=stock娱乐N  & gt ''银行'',''股票交易''">限购100股￥</a>·'
+		'</p>'
+		'<p>【帝国健康】现价：<<stock健康N>> 买入价：<<stock健康B>> 持股数：<<stock健康C>>' 
+		if stock健康C>0:'·<a href="exec:money+=stock健康N*stock健康C & stock健康C=0 & gt ''银行'',''股票交易''">全部出售</a>·'
+		if money>=stock健康N*100 and stock健康C=0: '·<a href="exec:stock健康C=100 & money-=stock健康N*100 & stock健康B=stock健康N  & gt ''银行'',''股票交易''">限购100股￥</a>·'
+		'</p>'
+		'<p>【帝国能源】现价：<<stock能源N>> 买入价：<<stock能源B>> 持股数：<<stock能源C>>' 
+		if stock能源C>0:'·<a href="exec:money+=stock能源N*stock能源C & stock能源C=0 & gt ''银行'',''股票交易''">全部出售</a>·'
+		if money>=stock能源N*100 and stock能源C=0: '·<a href="exec:stock能源C=100 & money-=stock能源N*100 & stock能源B=stock能源N  & gt ''银行'',''股票交易''">限购100股￥</a>·'
+		'</p>'
+        '<p>【沉思酒企】现价：<<stock酒企N>> 买入价：<<stock酒企B>> 持股数：<<stock酒企C>>' 
+        if stock酒企C>0:'·<a href="exec:money+=stock酒企N*stock酒企C & stock酒企C=0 & gt ''银行'',''股票交易''">全部出售</a>·'
+        if money>=stock酒企N*100 and stock酒企C=0: '·<a href="exec:stock酒企C=100 & money-=stock酒企N*100 & stock酒企B=stock酒企N  & gt ''银行'',''股票交易''">限购100股￥</a>·'
+        '</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="理财产品":
+	'<div class ="show_menu"><img src="images\NPC\YH\pics\bank (<<rand(1,14)>>).jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:gt ''银行_事件'',''YH_Fuck_Bank''">听她介绍</a></div>'
+		if $YH.基金>=1:'<div class="buttonR"><a href="exec:gt ''银行'',''基金亏损''">基金亏损了</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>基金经理：<<$主角姓>>先生，我们目前推出了月月盈项目，年化利率高达200%有没有兴趣呢？</p>'
+		'<p>我：这么高？</p>'
+		'<p>基金经理：是的，您过来我可以跟您好好介绍一下。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="基金亏损":
+	'<div class ="show_menu"><img src="images\NPC\YH\pics\基金亏损.jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:gt ''银行_事件'',''YH_Fuck_Bank''">那我再买一单？</a></div>'
+		if $银行事件链A!4 or $银行事件链B>=1:'<div class="buttonP"><a href="exec:gt ''银行'',''经理立绘''">叫你们经理来！</a></div>'
+		if $银行事件链A=4:'<div class="buttonR"><a href="exec:gt ''银行_事件'',''YH_Fuck_be''">叫你们经理来！</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我：怎么回事？一买就亏损99%？！你这个不是理财产品！是诈骗吧！</p>'
+		'<p>基金经理：<<$主角姓>>先生，您别急嘛…我相信您再给小妹买一单就可以扭亏为盈了❤现在正是抄底的绝佳时机！</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="经理立绘":
+	 $YH.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\立绘.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $银行事件链B<=6:'<div class="button"><a href="exec:gt ''银行_事件'',''YH_Fuck_km''">去副行长室</a></div>'
+		if $银行事件链=1or $银行事件链=2:'<div class="button"><a href="exec:gt ''银行'',''信贷部经理对话''">跟上她</a></div>'
+		if $银行事件链B=1:'<div class="button"><a href="exec:gt ''银行'',''调查坏账''">和她调查坏账</a></div>'
+		if $银行事件链B=3:'<div class="button"><a href="exec:gt ''银行'',''男厕所监听''">去男厕所监听</a></div>'
+		if $银行事件链B=6:'<div class="buttonR"><a href="exec:gt ''银行_事件'',''总行董事会''">总行董事会</a></div>'
+		if $银行事件链B>=7:'<div class="buttonS"><a href="exec:gt ''银行_事件'',''YH_Fuck_B7''">去我的办公室</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $银行事件链B>=7:'<p>我：现在我是副行长了…要不要去我的办公室坐坐？</p>'
+		if $银行事件链>=0:'<p><<$YH.name>>：好，好，副行长…我…我马上就过来……</p>'
+		if $银行事件链=1 or $银行事件链=2:'<p>信贷部经理：跟我来一下！</p>'
+	'</div>'
+end
+
+if $ARGS[0]="信贷部经理对话":
+	if $银行事件链=1:$银行事件链=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\km1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>信贷部经理：副行长暂时把这件事按下了，没有汇报给行长！</p>'
+		'<p><<$YH.name>>：嗯…请替我谢谢他…</p>'
+		'<p>信贷部经理：我有一些小道的消息，今晚23点我们在天堂伴游里碰面的时候再告诉你。</p>'
+		'<p><<$YH.name>>：天堂伴游？在歌舞伎町的…哪种地方见面？</p>'
+		'<p>信贷部经理：怎么了？不想把这5亿的坏帐追回来吗？</p>'
+		'<p><<$YH.name>>：好…我知道了…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="调查坏账":
+	if $银行事件链B=1:$银行事件链B=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\调查.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市政厅''">我自己去就行</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>我：你发现什么了？</p>'
+		'<p><<$YH.name>>：我们把5亿贷款一次性…交给了东田钢铁厂。可是厂长在确认收款后立马就申请了破产清算…这太不对劲了…</p>'
+		'<p>我：确实，不如我们去实地考察一次？</p>'
+		'<p><<$YH.name>>：好主意…它的厂址在郊外，你要陪我一起去吗？</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="男厕所监听":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if week_day=3:'<div class="buttonPu2"><a href="exec:gt ''银行'',''男厕所监听2''">他来了</a></div>'else:'<div class="buttonS"><a href="exec:gt ''银行_事件'',''YH_Fuck_B4''">推她出去</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$YH.name>>：你发现什么了？</p>'
+		'<p>我：他的秘书说信贷部经理将会在周三与厂长发生一笔秘密交易…</p>'
+		'<p><<$YH.name>>：所以我们现在就要躲在这里？单纯地楞等着吗？</p>'
+		'<p>我：…………</p>'
+	'</div>'
+end
+
+if $ARGS[0]="男厕所监听2":
+	if $银行事件链B=3:$银行事件链B=4
+     '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YH\vids\B1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''银行_事件'',''YH_Fuck_B4''">庆祝一下</a></div>'
+		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>信贷部经理：我改变主意了…最近行里查的比较严，我不能接收汇款。</p>'
+		'<p>？？？：那你想要什么？我的好朋友…</p>'
+		'<p>信贷部经理：一份地契转赠的书面合同…我知道你在海外购买了十几栋豪华别墅，用的就是那5亿…</p>'
+		'<p>？？？：你的消息蛮灵通的嘛…你是不是太贪心了呢？</p>'
+		'<p>信贷部经理：听着，如果没有我的话你根本贷不到那5亿，你的账面做得漏洞百出。要不是我给<<$YH.name>>那个白痴女人施压…</p>'
+		'<p>？？？：行了行了，我知道了。受让人的姓名、地址、护照号码等基本信息发给我…</p>'
+		'<p>信贷部经理：你在明天下午14:00，找个陌生人让他放在地铁站A9522号的寄存柜里…</p>'
+		'<p>？？？：你有必要搞得像007一样吗？</p>'
+		'<p>信贷部经理：白痴！不小心点怎么行！小心隔墙有耳！</p>'
+	'</div>'
+end
+
+
+
+
+
+
+--- 银行 ---------------------------------
+

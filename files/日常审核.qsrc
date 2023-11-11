@@ -1,0 +1,404 @@
+# 日常审核
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=10
+now_time=year*365+month*30+day
+if 锁定审核=1:
+	$审核名1[0]="赵"
+	$审核名1[1]="钱"
+	$审核名1[2]="李"
+	$审核名1[3]="王"
+	$审核名1[4]="宋"
+	$审核名1[5]="许"
+	$审核名1[6]="宁"
+	$审核名1[7]="柳"
+	$审核名1[8]="乔"
+	$审核名1[9]="陈"
+	$审核名1[10]="蒋"
+	$审核名1[11]="韩"
+	$审核名1[12]="车"
+	$审核名1[13]="曹"
+	$审核名1[14]="姜"
+	$审核名1[15]="孙"
+	$审核名1[16]="崔"
+	$审核名1[17]="朴"
+	$审核名1[18]="郑"
+	$审核名1[19]="艾"
+	$审核名1[20]="金"
+	$审核名1[21]="三浦"
+	$审核名1[22]="広瀬"
+	$审核名1[23]="欧阳"
+	$审核名1[24]="宫野"
+	$审核名1[25]="钉宫"
+	$审核名1[26]="安室"
+	$审核名1[27]="田中"
+
+	$审核名2[0]="佳"
+	$审核名2[1]="蓓"
+	$审核名2[2]="欢"
+	$审核名2[3]="梦"
+	$审核名2[4]="悦"
+	$审核名2[5]="娇"
+	$审核名2[6]="嘉"
+	$审核名2[7]="娜"
+	$审核名2[8]="泫"
+	$审核名2[9]="诗"
+	$审核名2[10]="欣"
+	$审核名2[11]="盈"
+	$审核名2[12]="怡"
+	$审核名2[13]="慧"
+	$审核名2[14]="菲"
+	$审核名2[15]="晓"
+	$审核名2[16]="芸"
+	$审核名2[17]="敏"
+	$审核名2[18]="妮"
+	$审核名2[19]="秀"
+	$审核名2[20]="艳"
+	$审核名2[21]="婧"
+	$审核名2[22]="艺"
+	$审核名2[23]="希"
+	$审核名2[24]="茹"
+	$审核名2[25]="知"
+	$审核名2[26]="婉"
+	$审核名2[27]="婷"
+	$审核名2[28]="奈"
+	$审核名2[29]="月"
+	$审核名2[30]="彩"
+	$审核名2[31]="井"
+
+
+	$审核名3[0]="佳"
+	$审核名3[1]="蓓"
+	$审核名3[2]="欢"
+	$审核名3[3]="梦"
+	$审核名3[4]="悦"
+	$审核名3[5]="娇"
+	$审核名3[6]="嘉"
+	$审核名3[7]="琪"
+	$审核名3[8]="颖"
+	$审核名3[9]="音"
+	$审核名3[10]="欣"
+	$审核名3[11]="盈"
+	$审核名3[12]="怡"
+	$审核名3[13]="惠"
+	$审核名3[14]="菲"
+	$审核名3[15]="玲"
+	$审核名3[16]="芸"
+	$审核名3[17]="蕾"
+	$审核名3[18]="妮"
+	$审核名3[19]="儿"
+	$审核名3[20]="艳"
+	$审核名3[21]="婧"
+	$审核名3[22]="熙"
+	$审核名3[23]="茹"
+	$审核名3[24]="蒽"
+	$审核名3[25]="琳"
+	$审核名3[26]="妍"
+	$审核名3[27]="雅"
+	$审核名3[28]="奈"
+	$审核名3[29]="月"
+	$审核名3[30]="濑"
+	$审核名3[31]="森"
+	$审核名3[32]="岛"
+	$审核名3[33]=""
+	$审核名3[34]=""
+	$审核名3[35]=""
+
+
+	$地点[0]="亚楠"
+	$地点[1]="伊多尼亚"
+	$地点[2]="哈兰市"
+	$地点[3]="浣熊市"
+	$地点[4]="洛圣都"
+	$地点[5]="哥谭市"
+	$地点[6]="芜湖市"
+	$地点[7]="奥格瑞玛"
+	$地点[8]="魔都"
+	$地点[9]="京城"
+	$地点[10]="雾都"
+	$地点[11]="桜舞町"
+	$地点[12]="米花町"
+	$地点[13]="洞爷湖"
+	$地点[14]="西虹市"
+	$地点[15]="阿什托兹卡"
+	$地点[16]="大都会市"
+	$地点[17]="索科维亚"
+
+	$目的[0]="定居"
+	$目的[1]="探亲"
+	$目的[2]="学习"
+	$目的[3]="工作"
+	$目的[4]="旅行"
+	$目的[5]="商务活动"
+	$目的[6]="劳务派遣"
+	$目的[7]="暂居"
+	$目的[8]="出差"
+	$目的[9]="探监"
+	$目的[10]="访友"
+
+	$职业[0]="女记者"
+	$职业[1]="嫩模"
+	$职业[2]="车模"
+	$职业[3]="女演员"
+	$职业[4]="商务模特"
+	$职业[5]="空姐"
+	$职业[6]="护士"
+	$职业[7]="女秘书"
+	$职业[8]="色情演员"
+	$职业[9]="性工作者"
+	$职业[10]="外围女"
+	$职业[11]="大学生"
+
+	$敏感点[0]="嘴唇"
+	$敏感点[1]="舌头"
+	$敏感点[2]="耳垂"
+	$敏感点[3]="后颈"
+	$敏感点[4]="锁骨"
+	$敏感点[5]="后背"
+	$敏感点[6]="乳头"
+	$敏感点[7]="大腿内侧"
+	$敏感点[8]="阴蒂"
+	$敏感点[9]="阴唇"
+	$敏感点[10]="阴道内壁"
+	$敏感点[11]="子宫口"
+	$敏感点[12]="脚趾"
+	$敏感点[13]="捆绑"
+	$敏感点[14]="出轨"
+	$敏感点[15]="受虐"
+	$敏感点[16]="施虐"
+	$敏感点[17]="潮吹"
+	$敏感点[18]="屁眼"
+	$敏感点[19]="颜射"
+	$敏感点[20]="约炮"
+	$敏感点[21]="乱伦"
+	$敏感点[22]="内射"
+	$敏感点[23]="性玩具"
+	$敏感点[24]="角色扮演"
+	$敏感点[25]="无"
+	$敏感点[26]="吞精"
+	$敏感点[27]="外遇"
+	$敏感点[28]="乱交"
+	$敏感点[29]="滥交"
+	rj_num=rand(1,140)
+	pussy_num=rand(1,250)
+	$rj_name=$审核名1[rand(0,27)]+$审核名2[rand(0,31)]+$审核名3[rand(0,35)]
+	$rj_job=$职业[rand(0,11)]
+	$rj_sex=$敏感点[rand(0,29)]
+	rj_daysex=rand(1,10)
+	rj_weeksex=rj_daysex*2
+	rj_sextimes=rj_daysex*rj_daysex*6-rj_daysex-3+rand(0,4)
+	rj_pregnant= rand(0,10)
+	$rj_height=rand(160,180)
+	$rj_weight=($rj_height-100)*75/100+rand(0,4)
+	$rj_B=$rj_height*55/100+rand(0,3)
+	$rj_W=$rj_height*35/100+rand(0,1)
+	$rj_H=$rj_height*52/100+rand(0,2)
+	审核城市=rand(0,17)
+	$rj_city=$地点[审核城市]
+	$rj_reason=$目的[rand(0,10)]
+	rj_day=day
+	rj_day-=rand(1,20)
+	rj_month=month
+	rj_year=year
+	if rj_day<=0:
+		rj_day+=30
+		rj_month-=1
+		if rj_month<=0:
+			rj_month+=12
+			rj_year-=1
+		end
+	 end
+end
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="市政大厅" href="exec:minutes+=15 & gt ''市政厅''"><img class="img_stretch" src="images\place\市政大厅.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+
+
+
+
+if $ARGS[0]="":
+	'<div class ="show_menu"><img src="images\place\检查室.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 &  gt ''日常审核'',''正式开始''">审核提交材料</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+	
+		'<p>《<<Year>>年入境条例》</p>'
+		'<p>✠下述地区不可入境:伊多尼亚,哈兰市,浣熊市,洛圣都,哥谭市,亚楠。</p>'
+		'<p>·理由：上述地区的防疫等级和疫情风险等级无法评估。</p>'
+		'<p>✠下述职业不可入境:女记者、运动员。➤理由：已经有足够的短跑运动员了。</p>'
+		'<p>✠下述理由不可入境:定居、核酸证明过期。➤理由：配合防范疫情。</p>'
+		'<p>░补充说明#薪资:自<<Month>>月起，男性审核员的基础工资为200/次；如因工作疏忽大意、思想不端正导致的工作失误将取消本次工资并且做出500/次的金额处罚。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="正式开始":
+	锁定审核=2
+	'<div class ="show_menu2"><img src="images\入境\character\入境人员<<rj_num>>.jpg" height="492"></div>'
+	'<div class="button_menu">'
+		'<div class="buttonB"><a href="exec:minutes+=15 & 审核判断=1 & gt ''日常审核'',''判断''">通过</a></div>'
+		'<div class="buttonR"><a href="exec:minutes+=15 & 审核判断=2 & gt ''日常审核'',''判断''">驳回</a></div>'
+		if $审核level>=2:'<div class="buttonS1"><a href="exec:minutes+=15 &  gt ''日常审核'',''阴道特写''">权限:阴道特写</a></div>'else:'<div class="buttonGr"><a href="exec:">权限不足</a></div>'
+		if $审核level>=3:'<div class="buttonS2"><a href="exec:minutes+=15 &  gt ''日常审核'',''口腔检查''">权限:口腔检查</a></div>'else:'<div class="buttonGr"><a href="exec:">权限不足</a></div>'
+		if $审核level>=4:'<div class="buttonS3"><a href="exec:minutes+=15 &  gt ''日常审核'',''肛门检查''">权限:肛门检查</a></div>'else:'<div class="buttonGr"><a href="exec:">权限不足</a></div>'
+		if $审核level>=5:'<div class="buttonS4"><a href="exec:minutes+=15 &  gt ''日常审核'',''阴道检查''">权限:阴道检查</a></div>'else:'<div class="buttonGr"><a href="exec:">权限不足</a></div>'
+		if $审核level>=6:'<div class="buttonS5"><a href="exec:minutes+=15 &  gt ''日常审核'',''二穴检查''">权限:二穴检查</a></div>'else:'<div class="buttonGr"><a href="exec:">权限不足</a></div>'
+
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>☑姓名：『<<$rj_name>>』        ➤职业：『<<$rj_job>>』</p>'
+		'<p>☑身高：『<<$rj_height>>CM』        ☑体重：『<<$rj_weight>>KG』        ☑三围：『B<<$rj_B>>  W<<$rj_W>>  H<<$rj_H>>』</p>'
+		'<p>☑入境城市：『<<$rj_city>>』        ➤入境事由：『<<$rj_reason>>』</p>'
+		'<p>☑14天核酸证明:『健康』        ➤签发日期：『<<rj_Year>>年<<rj_Month>>月<<rj_day>>日』</p>'
+		'<p>☑每周自慰次数：『<<rj_weeksex>>次』        ➤具体经验人数：『<<rj_sextimes>>人』        ➤宫内怀孕次数：『<<rj_pregnant>>次』</p>'
+		'<p>☑性高潮点：『<<$rj_sex>>』</p>'
+		真实判断=1
+		if 审核城市<=5:真实判断=2
+		if $rj_job="女记者":真实判断=2
+		if $rj_reason="定居":真实判断=2
+		if now_time>14+(rj_Year*365+rj_Month*30+rj_day):真实判断=2
+	'</div>'
+end
+
+
+if $ARGS[0]="判断":
+	if 真实判断=审核判断:
+		'<div class="show_menu2">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\cheak\检查成功~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	else:
+		'<div class="show_menu2">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\cheak\检查失败~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:minutes+=15 & 锁定审核=1 & gt ''日常审核'',''正式开始''">下一位</a></div>'
+		if $审核人数>10 and $正确回>净正确回数+$出错回-1:'<div class="buttonG"><a href="exec:minutes+=15 & 锁定审核=1 & $审核level+=1 & gt ''日常审核'',''正式开始''">晋升</a></div>'else:'<div class="buttonGr"><a href="exec:">晋升:条件不足</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''市政厅''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if 审核城市<=5:真实判断=2 & '<p>✘该地区不可入境！</p>'
+		if $rj_job="女记者":真实判断=2 &'<p>✘该职业不可入境！</p>'
+		if $rj_reason="定居":真实判断=2 &'<p>✘该理由不可入境！</p>'
+		if now_time>14+(rj_Year*365+rj_Month*30+rj_day):真实判断=2 &'<p>✘这个核酸证明过期了</p>'
+		if 真实判断=审核判断:
+			'<p><<$RION.name>>:☺你做的很好，没有问题。*获得了基础工资200￥。好感度上升了。</p>'
+			$RION.love+=5
+			money+=200
+			$正确回+=1
+			$审核人数+=1
+		end
+		if 真实判断!审核判断:
+			'<p><<$RION.name>>:☹你犯了一个错误,她大步流星地消失在了人海中。*被扣除了金钱500￥。</p>'
+			money-=500
+			$出错回+=1
+			$审核人数+=1
+		end
+		 
+		 净正确回数=$审核level*5
+			'<p>░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</p>'
+			'<p>░责任统计░░░权限等级:<<$审核level>>级</p>'
+			'<p>░审核人数:<<$审核人数>>人░正确回:<<$正确回>>回✔░出错回:<<$出错回>>回✘░</p>'
+			'<p>░晋升需求①审核人数>10░②净正确回数><<净正确回数>>░</p>'
+	'</div>'
+end
+
+
+
+if $ARGS[0]="阴道特写":
+	'<div class ="show_menu2"><img src="images\入境\pussy\PUSSY (<<pussy_num>>).jpg"  height="480"></div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 &  gt ''日常审核'',''正式开始''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:请自觉掰开阴唇，接受我的检查！</p>'
+		'<p>·对方并不是很情愿，但也配合了你的命令。将她的下体一览无余地展露出来。</p>'
+	'</div>'
+
+end
+
+if $ARGS[0]="口腔检查":
+		$口腔num=rand(1,13)
+		'<div class="show_menu2">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\入境\口腔\检查口腔<<$口腔num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 &  gt ''日常审核'',''正式开始''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:请证明你没有携带违禁品，必要时我们将使用X光机进行检查。(虽然入境条例并没有对违禁品有限制，但这也算是我的特权吧...)</p>'
+		'<p>·对方并不是很情愿，但也配合了你的命令。</p>'
+		'<p>我:很好，看来你的喉咙内没有违禁物。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="肛门检查":
+		$肛门num=rand(1,19)
+		'<div class="show_menu2">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\入境\肛门\检查肛门<<$肛门num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 &  gt ''日常审核'',''正式开始''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:请证明你没有携带违禁品，必要时我们将使用X光机进行检查。(虽然入境条例并没有对违禁品有限制，但这也算是我的特权吧...)</p>'
+		'<p>·对方并不是很情愿，但也配合了你的命令。</p>'
+		'<p>我:很好，看来你的肛门内没有违禁物。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="阴道检查":
+		$阴道num=rand(1,40)
+		'<div class="show_menu2">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\入境\阴道\检查阴道<<$阴道num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 &  gt ''日常审核'',''正式开始''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:请证明你没有携带违禁品，必要时我们将使用X光机进行检查。(虽然入境条例并没有对违禁品有限制，但这也算是我的特权吧...)</p>'
+		'<p>·对方并不是很情愿，但也配合了你的命令。</p>'
+		'<p>我:很好，看来你的逼里没有违禁物。</p>'
+	'</div>'
+end
+
+if $ARGS[0]="二穴检查":
+		$二穴num=rand(1,21)
+		'<div class="show_menu2">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\入境\二穴\检查二穴<<$二穴num>>~1.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=10 &  gt ''日常审核'',''正式开始''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:请证明你没有携带违禁品，必要时我们将使用X光机进行检查。(虽然入境条例并没有对违禁品有限制，但这也算是我的特权吧...)</p>'
+		'<p>·对方并不是很情愿，但也配合了你的命令。</p>'
+	'</div>'
+end
+
+--- 日常审核 ---------------------------------
+

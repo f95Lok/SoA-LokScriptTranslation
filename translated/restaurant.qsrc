@@ -1,0 +1,218 @@
+# restaurant
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "shopping_mall_map"
+'</div>'
+
+
+if $ARGS[0] ="":
+	$random_number=rand(1,100)
+	'<div class ="show_menu"><img src="images\place\餐厅.jpg" width="854"></div>'
+
+
+	'<div class="button_menu">'
+		if $gun_hunting_incident_chain>=2:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''restaurant'',''bartender_liyi''">Bartender</a></div>'
+		if $JJ.bad>=50 and $random_number<=50 and 20<=hour and hour<=22 :
+		'<div class="button"><a href="exec:minutes+=5 & gt ''restaurant'',''sister_eats''">Familiar voice</a></div>'
+		end
+		if $dz.event_meet=1 and 13<=hour and hour<=14 :
+		'<div class="button"><a href="exec:minutes+=5 & $filename_reference=''等人'' & gt ''geology_event'',''first_meeting'',''et al''">Meet my sister</a></div>'
+		end
+		if $dz.event_restaurant_appointment=1 and 18<=hour and hour<=20 and  week_day >=6 :
+		'<div class="button"><a href="exec:minutes+=5 & gt ''geology_event'',''weekend_date''">and<<$DZ.name>>Eat</a></div>'
+		$dz.event_restaurant_appointment=0
+		end
+		
+		if $SW.available=1 and $sw_event_fan=0:'<div class="button"><a href="exec:minutes+=30 & gt ''biology_event'',''meet_in_the_restaurant''">Familiar voice</a></div>'
+		
+		if hour=15 and $qt_new_meeting=1:'<div class="button"><a href="exec:minutes+=30 & gt ''foreground_event'',''restaurant''">date<<$QT.name>></a></div>'
+		
+		if $sell_event_booking_a_car=1 and week_day=6 and hour>=21:'<div class="button"><a href="exec:gt ''sales_event'',''restaurant''"><<$XS.name>></a></div>'
+		if $yuya_mission=1:'<div class="button"><a href="exec:gt ''yuya_event'',''ssyy_fuck_restaurant''">wait<<$SSYY.name>></a></div>'
+		if $tz_dating=1 and week_day>=6 and hour>=21:'<div class="button"><a href="exec:$tz_dating=0 & gt ''director_event'',''date''">date<<$TZ.name>></a></div>'
+		if $sister_hua_event_chain=1 and hour>=20:'<div class="button"><a href="exec:gt ''judges_event'',''pw_fuck_drink''">Eavesdropping<<$PW.name>></a></div>'
+		if $set_printing_card=1 and hour=12 and week_day =3:'<div class="buttonS"><a href="exec:$set_printing_number=3 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with diners❤</a></div>'
+		if $angel_event_chain=1 and week_day=6 and hour>=21:'<div class="button"><a href="exec:gt ''angel_event'',''ts_fuck_event_1''">Dinner to celebrate</a></div>'
+		if $bluetooth_maid=2 and hour >=12:'<div class="button"><a href="exec:gt ''anchor_event'',''ly_event_invitation''"><<$LY.name>></a></div>'
+		if $director_xs_house=0 and $JZ.love>=1:'<div class="button"><a href="exec:gt ''director2_event'',''bribery''"><<$JZ.name>></a></div>'
+		if $ch_event_chain>=4 and week_day=5 and hour=18:'<div class="buttonP"><a href="exec:gt ''dealer_event'',''accompany_dinner''">Accompany<<$CH.name>></a></div>'
+		if $xn.trial=1 and week_day=6 and hour=18:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''nun_event'',''xn_fuck_wife''">❐Sneaky table</a></div>'
+		
+		
+		if $squad_leader_event_chain_b=1 and hour=17:'<div class="buttonPu3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b3''"><<$BZ.name>></a></div>'
+		if $squad_leader_event_chain_b=3 and hour=17:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''in_front_of_squad_leader_b6''"><<$BZ.name>></a></div>'
+		if $ct_test_2>=1 and $restaurant_management<1:'<div class="buttonG3"><a href="exec:gt ''restaurant'',''restaurant_acquisition''">Talk about acquisitions</a></div>'
+		if $restaurant_management=1:'<div class="buttonG5"><a href="exec:gt ''restaurant'',''run_a_restaurant''">Run a restaurant</a></div>'
+		if $restaurant_management=2:'<div class="buttonG5"><a href="exec:a=0 & q=0 & gt ''empire_event'',''empire_fuck_restaurant_situation''">Run a restaurant</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><B><span class =''red''>The red restaurant has unique characteristics and creativity, exquisite cuisine and meticulous service, which is the ultimate enjoyment for taste buds.</p>'
+	'</div>'
+
+ end
+ 
+ if $ARGS[0] ="sister_eats":
+	$random_number=rand(1,2)
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\JJ\vids\餐厅<<$random_number>>.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$JJ.name>>Having dinner with male friends.</p>'
+		'<p><<$JJ.name>>:Senior, I didn`t expect you to return home too. If you have time, come to my laboratory. I have new research results to show you.</p>'
+		'<p>？？？: It really deserves to be you. In my former assistant group, what I admire most is you.</p>'
+		'<p><<$JJ.name>>:Senior, are you still single now?</p>'
+	'</div>'
+
+end
+
+ 
+if $ARGS[0] ="bartender_liyi":
+	$JB.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\JB\vids\酒保.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $gun_hunting_incident_chain=2:'<div class="button"><a href="exec:$my.energy+=300 &  gt ''police_incident'',''gun-hunting_suspect''">✣Ask about specialty smoothies </a></div>'
+		if $debt_collection=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & $debt_collection_number=1 & gt ''group_performation_event'',''general_fuck_debt_collection''">Violent collection</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: Are you new here?If I have seen a beautiful person like you, it will have an impact.</p>'
+		'<p><<$JB.name>>:Boss ❤ Are you teasing me?</p>'
+		'<p>Me: Huh?</p>'
+		'<p><<$JB.name>>:I like to go straight ❤ I used to work in a bar in Kabukicho❤</p>'
+	'</div>'
+
+end
+
+ 
+ 
+if $ARGS[0]="restaurant_acquisition":
+	
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\chef-cooking.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $have_seen_the_floor_plan<3:'<div class="button"><a href="exec:minutes+=15 & gt ''widow_incident'',''restaurant_dialogue''">Talk to her</a></div>'
+		if $hello,_chef=1:'<div class="button"><a href="exec:$hello,_chef=2 & gt ''restaurant'',''restaurant_acquisition''">Talk to him</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Chef: Didn`t you see me busy?！*Waved his hand</p>'
+		'<p>·——————————</p>'
+		'<p>·Shares I own：<<$restaurant_shares>>%</p>'
+		if $restaurant_shares>=60:'<p>·I already own more than half of the shares!<a href="exec:gt ''restaurant'',''overhead_him''">-Return to life-kill him!</a></p>'
+		'<p>·——————————</p>'
+		if $have_seen_the_floor_plan<3:
+		'<p><<$YS.name>>: Yo，<<$protagonists_name>>, If you don`t accompany my daughter-in-law like a game, what are you doing here?</p>'
+		'<p>·————————————————</p>'
+		'<p>·If you have forgotten the plot a long time ago, you can click to watch<a href="exec:gt ''ward'',''quarrel_1''">【Forward Leaning Summary】</a></p>'
+		'<p>·————————————————</p>'
+		'<p>·——Don`t worry, just watch a plot and it won`t damage your archive——</p>'
+		end
+		if $have_seen_the_floor_plan=3:
+		'<p>I：<<$YS.name>>Are you in danger?</p>'
+		'<p>Chef: The people standing at the gate are all social people. I don`t want to get involved in this muddy water. Are you worried that she might as well go to the police?</p>'
+		'<p>·————————————————</p>'
+		end
+		if $hello,_chef=2:
+		'<p>I：<<$YS.name>>Back!</p>'
+		'<p>Chef: What?The people standing at the gate are all social people, how could they let her go easily?I have to see her!She is in need of my comfort now!It`s time to be a hero!Haha!</p>'
+		'<p>·————————————————</p>'
+		end
+	'</div>'
+End
+
+
+ 
+if $ARGS[0]="overhead_him":
+	
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\plane.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if $restaurant_ct_dialogue=0:'<div class="buttonG"><a href="exec:$restaurant_ct_dialogue=1 & gt ''restaurant'',''overhead_him''">My reward?</a></div>'
+		if $restaurant_ct_dialogue=1:'<div class="buttonG"><a href="exec:$restaurant_ct_dialogue=2 & gt ''restaurant'',''overhead_him''">I`m already tired</a></div>'
+		if $restaurant_ct_dialogue=2:'<div class="buttonS"><a href="exec:$restaurant_ct_dialogue=3 & gt ''restaurant'',''overhead_him''">Thank you President`s mother-in-law!</a></div>'
+		if $restaurant_ct_dialogue=3:'<div class="buttonG"><a href="exec:gt ''restaurant''">Start business!</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 if $restaurant_ct_dialogue=0:
+		'<p><<$CT.name>>: Well done!Actually didn`t even need the Imperial Group to take 60% of the shares?</p>'
+		'<p>Chef: Hello!What do you want to do to my restaurant?！</p>'
+		'<p><<$CT.name>>: <<$protagonists_name>>As the largest shareholder of a restaurant, it usually enjoys decision-making power on major matters in the restaurant.Now, you have been relieved of your position as chef.You can keep your poor shares, but I am willing to invest ￥3,000,000 to acquire the 20% of your shares.</p>'
+		'<p>Chef: Don`t dream!</p>'
+		'<p><<$CT.name>>: ￥2,000,000, my patience is limited!</p>'
+		'<p>Chef: Wait!What you just said is ￥3,000,000!</p>'
+		'<p><<$CT.name>>: Hehe, that was the price just now, and now it`s only worth ￥1,000,000.</p>'
+		'<p>Chef: Deal!Give me the money!</p>'
+	 end
+		
+	 if $restaurant_ct_dialogue=1:
+		'<p>Me: President, what about my reward?</p>'
+		'<p><<$CT.name>>: This is the remaining ￥2,000,000 that was originally planned to be acquired. I called your company account.</p>'
+		Cmoney+=200
+		'<p>Me: Thank you very much!</p>'
+		'<p><<$CT.name>>: <<$protagonists_name>>, Does the restaurant want to take over management?</p>'
+	 end
+	 
+	 if $restaurant_ct_dialogue=2:
+		'<p>Me: President, I am already very tired.</p>'
+		'<p><<$CT.name>>:tired?Then I will arrange for my daughter to assist you. She has just finished business management from abroad and needs to practice.</p>'
+		'<p>Me: Auxiliary... how can this be auxiliary?…</p>'
+		'<p><<$CT.name>>: <<$protagonists_name>>, Don`t you want to be my son-in-law?I`m giving you a chance.</p>'
+	 end
+	 if $restaurant_ct_dialogue=3:
+	    if $restaurant_management=0:$restaurant_management=1
+		'<p>Me: Thank you, the president`s mother-in-law!</p>'
+		'<p><<$CT.name>>:Mother-in-law?It`s early, and I won`t agree.</p>'
+		'<p>Me: I won`t still…</p>'
+		'<p><<$CT.name>>: 1 million almost exhausted you to death. This time, because of helping my daughter practice, I will have a monthly surplus of 100,000!</p>'
+	 end
+	'</div>'
+End
+
+
+if $ARGS[0] ="run_a_restaurant":
+	a=0 & q=0 
+	'<div class ="show_menu"><img src="images\place\赤色餐厅新.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''empire_event'',''empire_fuck_daughter_see_1''">Meet her daughter</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·According to<<$CT.name>>The monthly net profit must exceed 100,000</p>'
+		'<p>·——————————————————</p>'
+		'<p>· <<month>>Monthly cumulative net profit: ￥4369; yesterday`s net profit: ￥433</p>'
+		'<p>·Service enthusiasm: 12%; freshness of ingredients: 50%; Number of customers yesterday: 17</p>'
+		'<p>·Service enthusiasm: 11%; store cleanliness: 7%; current net profit: 14%</p>'   
+		'<p>·——————————————————</p>'
+		'<p>Me: Fuck, do it again?Give me a break!</p>'
+	'</div>'
+end
+
+
+--- restaurant ---------------------------------
+

@@ -1,0 +1,257 @@
+# principals_office
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'university_map'
+'</div>'
+
+if $XZ.bad<20:$xzbad=0
+if $XZ.bad>=20:$xzbad=1
+if $XZ.bad>=150-$XZ.love:$xzbad=2
+if $XZ.bad>=250-$XZ.love:$xzbad=3
+if $XZ.bad>=350-$XZ.love:$xzbad=4
+if $XZ.bad>=450-$XZ.love:$xzbad=5
+
+$xzbada=rand(0,$xzbad)
+
+if $args[0]="":
+	$XZ.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbada>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $XZ_Event_3t<=1:
+		'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''side_hearing''">Apply for a side hearing</a></div>'
+			if $XZ_Event_3tf=1 and $XZ_Event_3ts=1 and $XZ_Event_3tx=1 :
+			'<div class="buttonR"><a href="exec:minutes+=5 & gt ''principals_office'',''reply''">On-campus picket team</a></div>'
+			end
+		end
+		if $SW_Event_XZ=1:'<div class="buttonB"><a href="exec:minutes+=5 & gt ''principals_office'',''curriculum_reform_proposal''">Curriculum reform proposal</a></div>'
+		if $ZL.room=1 and $XZ_Event_ghost=5: '<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''aid_and_rectification''">Aid and rectification</a></div>'
+		if $LJ_Event_Steal>=1 and $XZ_Event_ghost=6:'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''theft_complaint''">Theft complaint</a></div>'
+		if $LJ_Event_Steal=4 and $XZ_Event_ghost=6:'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''end_the_theft''">End the theft</a></div>'
+		if $XZ_Event_ghost=5:'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''handling_complaints''">Handling complaints</a></div>'
+		if $XZ_Event_ghost.completed=1:'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'', ''file_a_complaint''">File a complaint</a></div>'
+		if $XZ.bad>=300-$XZ.love:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''principals_office'', ''don`t_go_after_school''">Don`t go after school</a></div>'
+		if $XZ.bad>=75: '<div class="buttonS3"><a href="exec:minutes+=5 &gt ''principal_event'',''xz_fuck_office_b''">Put on a dog chain</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+		if $XZ.bad>=150-$XZ.love:'<div class="buttonS4"><a href="exec:minutes+=5 &gt ''principal_event'',''xz_fuck_office_a''">Shove the cock in her mouth</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+		if $XZ.bad>=200-$XZ.love:'<div class="buttonS5"><a href="exec:minutes+=5 &gt ''principal_event'',''xz_fuck_office_c''">Tie her with tape</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient conditions</a></div>'
+		if $XZ.bad>=200 and $LXS.available=1 and $international_student_school=0:'<div class="buttonG3"><a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_school_application''">International student registration</a></div>'
+        if $insemination_room=1 and $XZ.bad>=210 and $xz.insemination=0:'<div class="buttonS"><a href="exec:$xz.insemination=1 & gt ''principals_office''">Invite artificial insemination</a></div>'
+
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>: Can I help you?</p>'
+		if $side_hearing=1:
+		'<p><On-campus picket team></p>'
+		if $fxz_event_counseling>=1 and $picket_mission=0 :'<p>She is planning<a href="exec: $picket_mission=1 & gt ''principals_office''">suppress<<$FXZ.name>></a></p>'
+		if $school_event_hope=2 and $picket_mission=0 :'<p>A letter about the abuse of the rights of pickets on campus<a href="exec: $picket_mission=1 & gt ''principals_office'',''report_letter''">Report letter</a></p>'
+		if $fxz_event_counseling>=1 and $picket_mission=1:'<p><<$XZ.name>>: I heard that you and<<$FXZ.name>>Very close?It seems that if she doesn`t punish her again, she really thinks she can take me down with that kind of boring competition?Let her know the methods of the school picket team!Gather the team members to go to her office and show her some colors!</p>'
+		if $picket_mission=99:'<p>You reported the results of the picket again.<a href="exec: $picket_mission=0 &$XZ.love+=2 & gt ''principals_office''">  <<$XZ.name>>Very satisfied</a></p>'
+		end
+
+	'</div>'
+End
+
+
+if $args[0]="side_hearing":
+	$XZ_Event_3t=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">agree</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I want to apply for a hearing, how do I apply?I want to learn something.</p>'
+		'<p><<$XZ.name>>: According to the [new law], the school no longer levies male students.However, there are still a few vacancies in the school picket team. If you perform well, I can give you a chance.</p>'
+		'<p>Me: Picket team on campus?</p>'
+		'<p><<$XZ.name>>: Yes, the main task of the campus picket team is to maintain the stability of the campus. When it is found that there are unstable factors in the campus, it is necessary to report to me in a timely manner, and actively take preventive measures to find improper behavior towards classmates, and stop it in time.</p>'
+		'<p>Me: It doesn`t sound difficult.</p>'
+		'<p><<$XZ.name>>: There is no need for waste in the team, your first task.To investigate the positions of the three “main teachers”, if the results are satisfactory, I can let you join the school picket team.</p>'
+	'</div>'
+End
+
+if $args[0]="reply":
+	$XZ_Event_3t=2
+	$side_hearing=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Thanks</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>I：<<$sw.name>>Dissatisfied with the sharp decline in the number of boys in school，<<$XY.name>>On the surface, it is undecided, but in fact it has been<<$fxz.name>>Win over，<<$fxz.name>>Naturally, I have a grudge against you and hope to replace it.</p>'
+		'<p><<$XZ.name>>: Similar to what I expected, I really need a spy to pass me information at all times.</p>'
+		'<p>Me:........</p>'
+		'<p><<$XZ.name>>: This is a good job. I now approve you to join the school picket team.</p>'
+	'</div>'
+End
+
+if $args[0]="handling_complaints":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">understand</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>: Recently, there are rumors that female students in our school are engaged in illegal foreign aid activities. This is a video I recently received.</p>'
+		'<p>Me: From the picture... it really looks like a student in our school.</p>'
+		'<p><<$XZ.name>>: What does it look like?！Restraint training?This is a naked provocation to the supremacy of female leadership!Absolutely put an end to this situation!</p>'
+		if $XZ_Event_ZL=0:$XZ_Event_ZL=1
+	'</div>'
+End
+
+if $args[0]="aid_and_rectification":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\ZL\vids\卖3~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Thanks</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: The student engaged in friendship assistance due to coercion. I have dealt with this matter properly, and she also promised me that this kind of behavior will never happen again in school.</p>'
+		'<p><<$XZ.name>>: Well done!I just like you like this.</p>'
+		$XZ_Event_ghost=6
+		$XZ.love+=1
+	'</div>'
+End
+
+if $args[0]="theft_complaint":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\盗窃~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">understand</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>: Recently, the security department of the shopping mall reported to me that a female student in our school was engaged in theft and flaunted it on social networking sites after the theft was successful.</p>'
+		'<p>Me: Theft?Why don`t you just call the police?</p>'
+		'<p><<$XZ.name>>: All female residents have immunity from 10 crimes, which is applicable to minor crimes, including but not limited to: abuse, abuse, imprisonment, and intentional injury against men.Obviously you haven`t listened to my class seriously!</p>'
+		'<p>Me: Then I`ll go to the mall to find her. Her name is<<$LJ.name>>Right, she actually used her real name to make a social account?</p>'
+		'<p><<$XZ.name>>: What does it look like?！stealing?If it`s less than 2000, you can`t just take it directly!This is a naked provocation to the supremacy of female leadership!Absolutely put an end to this situation!</p>'
+		if $LJ_Event_Steal=1:$LJ_Event_Steal=2
+		$LJ.available=1
+	'</div>'
+End
+
+
+if $args[0]="end_the_theft":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\LJ\vids\盗窃~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Thanks</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: The student went to steal because she was seeking stimulation. I have dealt with this matter properly, and she promised me that stealing will never happen again.</p>'
+		'<p><<$XZ.name>>: Well done!I like you more and more.Keep working hard!</p>'
+		$XZ_Event_ghost=7
+		if $XZ.love<10:$XZ.love+=10
+	'</div>'
+End
+
+if $args[0]="file_a_complaint":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\事件10~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">See you tonight</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Master Principal, you must be able to recognize the person in the photo.</p>'
+		'<p><<$XZ.name>>: You?！What do you want to do?！</p>'
+		'<p>Me: Master Principal, if you make the photos of you masturbating naked in the school hallway public, then I am afraid there is no place for you on this campus!</p>'
+		'<p><<$XZ.name>>: You?！What do you want?</p>'
+		'<p>Me: I want to taste it, the fishy smell in the middle of the night.</p>'
+		if  $XZ_Event_ghost.completed=1: $XZ_Event_ghost.completed=2
+	'</div>'
+End
+
+if $args[0]="don`t_go_after_school":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">See you in the hallway</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>: Don`t leave after school. I asked a few students to clean the equipment room.At that time, we will supervise their work together.</p>'
+		'<p>Me: Huh?Ok</p>'
+		$XZ_classroomB=1
+	'</div>'
+End
+
+if $args[0]="curriculum_reform_proposal":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>: Can I help you?</p>'
+		'<p>Me: Uh，<<$SW.name>>Do you know the curriculum reform proposal?It`s the &quot;Featured Biology Class: Classroom Sex Experience&quot;. She wants you to watch one of her simulation classes after school.……</p>'
+		'<p><<$XZ.name>>: It seems that she has never forgotten it... Well, I will take time to check it out after school.</p>'
+		$SW_Event_XZ=2
+	'</div>'
+End
+
+
+if $args[0]="report_letter":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\XZ\vids\办公室<<$xzbad>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">understand</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: This letter is...asking for the cancellation of the school picket team...?</p>'
+		'<p><<$XZ.name>>: It seems that some people are very dissatisfied with my leadership. Leave this matter to you, is it okay?</p>'
+		$school_event_hope=3
+	'</div>'
+End
+--- principals_office ---------------------------------
+

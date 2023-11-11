@@ -1,0 +1,215 @@
+# 生物办公室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs'大学_地图'
+'</div>'
+
+
+if $SW.love<25:
+	$swlove=0
+elseif $SW.love>=50:$swlove=rand(0,2)
+elseif $SW.love>=25:$swlove=rand(0,1)
+end
+
+
+if $args[0]="":
+	$SW.available=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室00<<$swlove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $swlove=2:'<div class="buttonS1"><a href="exec:minutes+=5 & $swlove2=3 & gt ''生物办公室'',''继续舔''">继续舔</a></div>'
+		if  $XZ_Event_3t=1:'<div class="button"><a href="exec:minutes+=5 & gt ''生物办公室'',''对话''">对话</a></div>'
+		if  $SW_Event_迷>=1:'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''生物办公室'',''性爱照片''">性爱照片</a></div>'else:'<div class="buttonGr"><a href="exec:">？？照片</a></div>'
+		if  $SW.bad>=100-$SW.love :'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''生物办公室'',''委托''">委托</a></div>'else:'<div class="buttonGr"><a href="exec:">？？</a></div>'
+		if  $SW.love>=100 and hour>=15 :'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''生物_事件'',''SW_Fuck_回家''">一同回家</a></div>'else:'<div class="buttonGr"><a href="exec:">一同？？</a></div>'
+		if  $SW.bad>=250-$SW.love and hour>=16:'<div class="buttonS5"><a href="exec:minutes+=5 & gt ''生物_事件'',''SW_Fuck_加班''">留校加班</a></div>'else:'<div class="buttonGr"><a href="exec:">留校？？</a></div>'
+		if  $SW_Event_XZ!2 and $SW.LOVE>=200 and $SW.BAD>=200:'<div class="buttonB"><a href="exec:minutes+=5 & gt ''生物办公室'',''课改提议''">课改提议</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：有什么事吗？(呵呵，你这小鬼是想老娘了吧~年轻人哪儿顶得住呀！)</p>'
+	'</div>'
+End
+
+if $args[0]="对话":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室00<<$swlove>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &swdh=1& gt ''生物办公室'',''对话''">你今天真好看！</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &swdh=2& gt ''生物办公室'',''对话''">您对<<$XZ.name>>满意吗？</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 &swdh=3&gt ''生物办公室'',''对话''">喜欢什么类型的男人</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：想和我说什么？</p>'
+	 if swdh=1:
+		'<p>我：你今天真好看！</p>'
+		'<p><<$SW.name>>：还是你嘴甜！你的生物成绩，姐姐可以帮你搞定喔~</p>'
+		'<p>我：那就拜托姐姐了！</p>'
+		'<p><<$SW.name>>：别做梦了！一分耕耘一分收获！（要看你怎么耕耘老娘了）</p>'
+	 end
+	 if swdh=2:
+		'<p>我：您对<<$XZ.name>>满意吗</p>'
+		'<p><<$SW.name>>：满意啊，有什么不满意的。唉..</p>'
+		'<p>我：怎么了？</p>'
+		'<p><<$SW.name>>：没什么，校长挺好的。只是把男学生都搞走了，谁来伺候老娘呢。</p>'
+		'<p>我：看来您不是很满意....</p>'
+		'<p><<$SW.name>>：最不满意的应该是<<$FXZ.name>>吧。本来理应该轮到她坐校长的位子了。我听说她已经拉拢了<<$XY.name>>给她拉票。那种物质的女人一看到包包就没底线了。</p>'
+		$XZ_Event_3ts=1
+	 end
+	 if swdh=3:
+		'<p>我：老师喜欢什么类型的男人？</p>'
+		'<p><<$SW.name>>：男人？年纪小，嘴巴甜，鸡巴大，技术好这几类的都喜欢。</p>'
+		'<p>我：这么直接吗？！</p>'
+		'<p><<$SW.name>>：老师我呢，一看到帅哥就走不动路了喔。</p>'
+	 end
+	'</div>'
+End
+
+if $args[0]="性爱照片":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\迷11.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''生物办公室'',''性爱照片2''">要挟她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·你把相机里的影像播放给她看了一眼。</p>'
+		'<p><<$SW.name>>：你？！？！？你从哪里搞到的？</p>'
+		'<p>我：嘘——只要你听我的话，我就告诉你。</p>'
+	'</div>'
+End
+
+if $args[0]="性爱照片2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\200~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:minutes+=5 & swyx=1 & gt ''生物办公室'',''性爱照片2''">金钱要挟</a></div>'
+		'<div class="buttonB"><a href="exec:minutes+=5 & swyx=2 & gt ''生物办公室'',''性爱照片2''">情报要挟</a></div>'
+		'<div class="buttonP"><a href="exec:minutes+=5 & swyx=3 & gt ''生物办公室'',''性爱照片2''">性要挟</a></div>'
+		if swyx=3 or $SW_Event_迷=2:'<div class="buttonS"><a href="exec:minutes+=5 & swyx=0 & gt ''生物_事件'',''SW_Fuck_调教''">开始调教</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：说吧，你想怎么样？*不知为何，她的表情有些愉悦。</p>'
+	 if swyx=1:
+		'<p>我：我最近手头有点紧！</p>'
+		'<p><<$SW.name>>：要钱？只是要钱？那真不好意思，老娘我一分钱都没呢。</p>'
+		'<p>我：.........</p>'
+	 end
+	 if swyx=2:
+		'<p>我：告诉我点有价值的情报！</p>'
+		'<p><<$SW.name>>：好吧，我的身高是154 cm  三围:B88 - W60 - H98  罩杯:F cup  经验人数500+ 兴趣爱好是约炮和钓凯子 </p>'
+		'<p>我：..........学校组织的情报呢...</p>'
+		'<p><<$SW.name>>：啊？我还以为你是对我感兴趣呢。学校目前分成三派，以<<$XZ.name>>为首领导校内纠察队的开放理念派；以<<$FXZ.name>>为首纠集了一众党羽的守旧派；以学生会和多数学生为主体的无所谓派。</p>'
+		'<p>我：那你是哪一边的？</p>'
+		'<p><<$SW.name>>：谁能通过《特色生物课：课堂性爱体验》老娘我就支持谁！ </p>'
+	 end
+	 if swyx=3:
+		'<p>我：老师，我最近下面涨得厉害呢....如果你不想照片被公开，你就....</p>'
+		'<p><<$SW.name>>：没问题！呃..我是说如果...我愿意这样....你会删除吗？</p>'
+		'<p>我：.........哪样？</p>'
+		'<p><<$SW.name>>：做你的性奴，母狗，你做我的主人，尽情开发我，调教我！老师什么都听你的！我们什么时候开始？</p>'
+		'<p>我：.........（怎么感觉有一点不妙？）</p>'
+		if $SW_Event_迷=1: $SW_Event_迷=2 & $SW.bad+=25
+	 end
+	'</div>'
+End
+
+if $args[0]="委托":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''生物_事件'',''SW_Fuck_酒店''">一同出去</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：<<$主角姓>>同学，老师想拜托你一件事，我们去校外说吧。</p>'
+	'</div>'
+End
+
+if $args[0]="继续舔":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室00<<$swlove2>>~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $swlove2!6:'<div class="button"><a href="exec:minutes+=15 & $swlove2+=1 & gt ''生物办公室'',''继续舔''">继续</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 &  gt ''生物办公室''">足够了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		 $SW.love+=3+my.魅力
+		 $SW.bad+=3
+		'<p><<$SW.name>>：<<$主角姓>>同学，老师可是永远都不会满足的喔。</p>'
+	'</div>'
+End
+
+if $args[0]="男厕":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\厕所 (<<$swlove>>)~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $SW.bad>=50:'<div class="buttonS"><a href="exec:minutes+=5 & a=3 & gt ''生物_事件'',''SW_Fuck_教室外''">敲门！</a></div>'else:'<div class="buttonGr"><a href="exec:">敲门</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>正在里面自慰，真是欲求不满！</p>'
+	'</div>'
+End
+
+if $args[0]="课改提议":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">包在我身上！</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SW.name>>：<<$主角姓>>同学，老师想拜托你一件事，这次是一件正经事。</p>'
+		'<p><<$SW.name>>：你知道的，老师一直想通过《特色生物课：课堂性爱体验》的课改提议，我已经规划好模拟课的教学流程了，你能给<<$XZ.name>>带个口信让她放学了去性保健室听听看吗？</p>'
+		'<p>我：这就是你说的“正经事”…?</p>'
+		'<p><<$SW.name>>：<<$主角姓>>同学，事成之后老师让你做代理助教，负责为女同学们完成课堂性爱体验。</p>'
+		$SW_Event_XZ=1
+	'</div>'
+End
+
+
+
+
+
+
+
+
+--- 生物办公室 ---------------------------------
+

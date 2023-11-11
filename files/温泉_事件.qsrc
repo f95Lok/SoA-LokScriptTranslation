@@ -1,0 +1,1917 @@
+# 温泉_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+温泉舒适度-=1
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+随机数=rand(0,100)
+
+
+if $args[0]="房立绘":
+	'<div class ="show_menu"><img src="images\NPC\WQ\pics\主屋_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if  $times_of_day='night':
+			if 温泉舒适度>=60:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''温泉_事件'',''打开一条缝''">打开一条缝</a></div>'else:'<div class="buttonGr"><a href="exec:">舒适度不足</a></div>'
+			if 随机数>=60:'<div class="buttonS2"><a href="exec:minutes+=60 &  gt ''温泉_事件'',''偷窥''">娇喘声？</a></div>'
+			if 随机数<60 and $WQ.bad>200 and $WQ.照片销毁>=1:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''温泉_事件'',''WQ_Fuck_强制''">强行闯入</a></div>'
+		end
+		
+		if  $times_of_day='':
+			if $WQ.照片=1 and 		 $WQ.照片销毁!1:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''温泉_事件'',''敲门''">敲门</a></div>'
+			if  $WQ.照片销毁=1:'<div class="buttonS2"><a href="exec:minutes+=60 & gt ''温泉_事件'',''敲门2''">敲门</a></div>'
+			if 随机数>=70 and $WQ事件链>=6:'<div class="buttonS"><a href="exec:minutes+=60 & gt ''温泉_事件'',''WQ_Fuck_QJJ''">团体游客</a></div>'
+			
+		end
+		'<div class="buttonGn"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">回房间休息</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·门扉紧闭</p>'
+		'<p>我: …………</p>'
+		if 随机数>=70 and $WQ事件链>=6:'<p>？？？: 嗯<<$娇喘声>></p>'
+	'</div>'
+
+end
+
+
+if $args[0]="偷窥":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\tk (<<rand(1,3)>>).webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+					if  $WQ.照片销毁=1 and $WQ.BAD>=my.魅力*15:'<div class="buttonS"><a href="exec: gt ''温泉_事件'',''WQ_Fuck_room4''">进去满足她</a></div>'else:'<div class="buttonGr"><a href="exec: ">进去？？？</a></div>'
+					
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 想要<<$娇喘声>></p>'
+             '<p>我：……（我还是不要打扰她了）</p>'
+             
+         '</div>'
+
+
+End
+
+if $args[0]="敲门":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\q1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if a=0:'<div class="button"><a href="exec:a+=1 & gt ''温泉_事件'',''敲门''">拿出照片</a></div>'
+                    if a=1:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''温泉_事件'',''WQ_Fuck_room3''">一把拽住她</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 有什么事吗？</p>'
+             if a=1:'<p>我：【本温泉一律禁止任何客人携带秘拍设备，保证每一位客人的隐私安全，是我们唯一的宗旨】的老板娘做这种事好像不太好吧？</p>'
+             if a=1:'<p><<$WQ.name>>: ……</p>'
+             if a=1:'<p>我：如果传出去的话…生意可就彻底黄了喔？</p>'
+             if a=1:'<p><<$WQ.name>>: 那你想怎么办？</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="敲门2":
+		a=0 & q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\q1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''温泉_事件'',''WQ_Fuck_room3''">在这里操她</a></div>'
+                    if 每日_TZ_WQ=0:'<div class="buttonG3"><a href="exec:每日_TZ_WQ=1 & gt ''温泉_事件'',''谈谈投资''">经营温泉</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 有什么事吗？</p>'
+         '</div>'
+
+
+End
+
+
+if $args[0]="谈谈投资":
+
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if $WQ.股份=0:'<div class="buttonG3"><a href="exec:gt ''温泉_事件'',''谈谈投资2''">购买股份</a></div>'
+                    if $WQ.股份>=1 and $WQ.人手>=0:'<div class="buttonG2"><a href="exec:gt ''温泉_事件'',''谈谈投资5''">招募人手</a></div>'
+                    if 温泉油压馆=1 and $WQ事件链<=1:'<div class="buttonG1"><a href="exec:gt ''温泉_事件'',''谈谈投资4''">经营油压馆</a></div>'
+					if $WQ事件链>=2:'<div class="buttonS1"><a href="exec: gt ''温泉_事件'',''WQ_Fuck_WSPA0''">实地考察</a></div>'
+					if $WQ事件链>=3:'<div class="buttonS2"><a href="exec: gt ''温泉_事件'',''WQ_Fuck_WSPA1''">油压指导</a></div>'
+					if $WQ事件链>=4:'<div class="buttonS3"><a href="exec: gt ''温泉_事件'',''WQ_Fuck_WSPA2''">模拟经营</a></div>'
+					if $WQ事件链>=5:'<div class="buttonS4"><a href="exec: gt ''温泉_事件'',''WQ_Fuck_WSPA3''">借口3P</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 现在温泉的收益确实不理想，你有什么好办法吗？</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="谈谈投资2":
+		WQ.money1=money*3/2+200000
+		WQ.money2=WQ.money1/10000
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+						'<div class="buttonGr"><a href="exec:">个人资金购买</a></div>'
+						if Cmoney>=WQ.money2:'<div class="buttonG3"><a href="exec:Cmoney-=WQ.money2 & $WQ.股份=1 & gt ''温泉_事件'',''谈谈投资3''">公司资金购买</a></div>'else:'<div class="buttonGr"><a href="exec:">公司资金购买</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p>我：我倒是觉得这里是个很好的投资项目，未来机场建设好了之后，旅游业一定能拉动经济消费的。</p>'
+				'<p><<$WQ.name>>:  那也是未来的事了…</p>'
+				'<p>我：那我购买一些股份吧，你手里有多少股份？</p>'
+				'<p><<$WQ.name>>:  我老公占51%，我占49%…我可以出售19%的股份…</p>'
+				'<p>我：你开个价吧！</p>'
+				'<p><<$WQ.name>>:  <<WQ.money1>>￥…可以吗？</p>'
+				'<p>我：呃……</p>'
+				if  $WQ.人手=0: $WQ.人手=1
+         '</div>'
+
+
+End
+
+if $args[0]="谈谈投资3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p><<$WQ.name>>:  太感谢你了！</p>'
+				'<p>我：那作为股东，我可以提议对这里的设施进行更新吗？</p>'
+				'<p><<$WQ.name>>:  当然！只要你自己出钱的话…</p>'
+				'<p>我：好吧…</p>'
+				$WQ.股东=1
+         '</div>'
+
+
+End
+
+if $args[0]="谈谈投资4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">交给我吧</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p><<$WQ.name>>:  你弄了个油压馆？</p>'
+				'<p>我：是啊，你知道来这里的客人都在房间里做什么吧？</p>'
+				'<p><<$WQ.name>>:  嗯……</p>'
+				'<p>我：如果…我们能做些广告，就能吸引那些单身的客人前来消费…</p>'
+				'<p><<$WQ.name>>:  打广告的话…我们得认识一些媒体人吧？</p>'
+				'<p>我：电视台的台长够格吗？</p>'
+				if $WQ事件链=0:$WQ事件链=1
+         '</div>'
+
+
+End
+
+if $args[0]="谈谈投资5":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\TZ1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">我去找人</a></div>'
+                    if WQ.A202=1: '<div class="button"><a href="exec:gt ''温泉_事件'',''招募202''">招募202的客人</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p>我：我发现现在的服务质量下降了，经常有客人抱怨热水温度不够，没人递毛巾，没有服务员引导…</p>'
+				'<p><<$WQ.name>>:  嗯…现在人手不足…</p>'
+				'<p>我：除了你以外这个温泉还有别的服务人员吗？</p>'
+				'<p><<$WQ.name>>:  …………</p>'
+         '</div>'
+
+
+End
+
+if $args[0]="打开一条缝":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\lg1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if a<4:'<div class="button"><a href="exec:a+=1 & gt ''温泉_事件'',''打开一条缝''">继续偷窥</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$WQ.name>>: 老公，工作辛苦了❤</p>'
+             if a=1:'<p>？？？: 我很困了…明天还要工作…zzZ</p>'
+             if a=2:'<p><<$WQ.name>>: <<$娇喘声>></p>'
+             if a=3:'<p>？？？: 别搞了！我要睡觉了！</p>'
+             if a=4:'<p>？？？: 满意了吧，我先休息了！</p>'
+             if a=4:'<p><<$WQ.name>>: 老公……我们很久没做了…</p>'
+             if a=4:'<p>？？？: 等我有时间了吧，最近没什么精神…</p>'
+             if a=4:'<p>我：……</p>'& $WQ.LG=1
+             
+         '</div>'
+
+
+End
+
+if $args[0]="招募202":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\DSJ-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">OK</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+				'<p>我：这位是…？</p>'
+				'<p>她:  这位是我的表妹，她听说这里在招人也过来了…</p>'
+				'<p>我：她能吃苦耐劳吗？这里的客人可不好对付？</p>'
+				'<p>她:   我相信在您的指导下她能堪重任。</p>'
+				$WQ.人手202=1
+         '</div>'
+
+
+End
+
+
+
+
+if $args[0]="WQ_Fuck_kitchen1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\餐1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!0 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=0 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">玩弄她</a></div>'
+            end
+            if a!1 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">跪下舔我</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">享受口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">深喉</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">按头刷牙</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">自慰给我看</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">用手指插她</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_kitchen1''">？？？？</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+					'<div class="buttonS5"><a href="exec:a=0  & q=0 & gt ''温泉_事件'',''WQ_Fuck_room1''">跟我来！</a></div>'
+                    '<div class="button"><a href="exec:gt ''郊外''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 住手…</p>'
+           if a>=1:'<p>我:你明明很享受这个过程…</p>'
+           if a>=2:'<p><<$WQ.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我:再深点…宝贝…</p>'
+           if a>=5:'<p><<$WQ.name>>: 忍不住了…快点肏我…</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p>？？？：亲爱的，你在厨房吗？听说来了不少客人，我提前回来帮忙了！</p>'
+             '<p>我：你老公回来了？？</p>'
+             '<p><<$WQ.name>>: 快，快，你快走！</p>'
+             '<p>我：那我们下次再做？</p>'
+             '<p><<$WQ.name>>: ……</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_局子楼梯":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\SJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if a<=4:'<div class="button"><a href="exec:a+=1 & gt ''温泉_事件'',''WQ_局子楼梯''">噤声</a></div>'
+		if a=5:'<div class="button"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_局子楼梯''">提供温泉工作</a></div>'
+		if a=6:'<div class="button"><a href="exec:gt ''警察局''">不见不散</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if 5>= a and a>=0:
+		'<p>女生: 今天不行…我来大姨妈了…</p>'
+		if a>=1:'<p>前任局长(中田一平): 那就用嘴，不然我明天就让人教训你弟弟，谁叫了他犯了事呢？</p>'
+		if a>=2:'<p>女生: <<$娇喘声>></p>'
+		if a>=3:'<p>前任局长(中田一平): 你最好快点，我还有会要开。</p>'
+		if a>=4:'<p>女生: <<$娇喘声>></p>'
+		if a>=5:'<p>前任局长(中田一平): 啊啊啊啊！果然比那个黄脸婆舒服多了！以后缺钱再来找我！</p>'
+		end
+		if a>=6:'<p>我: 温泉馆可能有适合你的工作！</p>'
+		if a>=6:'<p>女生: 我会去看看的</p>'& $WQ_HP=1
+	'</div>'
+
+end
+
+if $args[0]="打扫室内":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\gsj1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if a!10:'<div class="button"><a href="exec:a+=1 & gt ''温泉_事件'',''打扫室内''">看下去</a></div>'
+		'<div class="button"><a href="exec:a=0 & q=0 & gt ''温泉_事件'',''打扫室内2''">制止并批评她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>她: 客人…请住手<<$娇喘声>></p>'
+		'<p>客人: *嬉笑声</p>'
+	'</div>'
+
+end
+
+if $args[0]="打扫室内2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\FA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''温泉_事件'',''打扫室内2''">滴蜡</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''温泉_事件'',''打扫室内2''">强制口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=6:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''温泉_事件'',''打扫室内2''">被操爽吗</a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''温泉_事件'',''打扫室内2''">操够了没</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''温泉_事件'',''打扫室内2''">射精</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0 :
+         '<div class="dialog_menu">'
+             '<p>我: 你在干什么？你是客人可以随便插的东西吗？你是来做服务员的还是肉便器的？</p>'
+             if a=1:'<p>她: 老板…对不起<<$娇喘声>></p>'
+             if a=2:'<p>她: 我错了……呜呜呜❤</p>'
+             if a=3:
+                '<p>我: 被人轮流操是不是很爽啊？</p>'
+                '<p>她: 是<<$娇喘声>>❤</p>'
+             end
+             if a=4:
+                '<p>我: 还要不要被别人操了？</p>'
+                '<p>她: 够了…够了…里面好痛<<$娇喘声>></p>'
+             end
+         '</div>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>我: 下不为例！</p>'
+             '<p>她: 嗯…</p>'
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="室内声音3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\SJSJ1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="button"><a href="exec:a=1 & gt ''温泉_事件'',''室内声音3''">拍拍她</a></div>'
+            end
+            if a=1:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''温泉_事件'',''室内声音3''">去淋浴区</a></div>'
+            end
+            if a=2 or a=4:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''温泉_事件'',''室内声音3''">摸她</a></div>'
+            end
+            if a=2 or a=3:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''温泉_事件'',''室内声音3''">摸她朋友</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''温泉_事件'',''室内声音3''">为我工作</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''温泉走廊''">当然</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0 :
+         '<div class="dialog_menu">'
+             
+             '<p><<$LJ.name>>: 泡个澡真舒服，一会儿我们再翻墙出去，神不知鬼不觉。</p>'
+             if a>=1:'<p>我: 你怎么在这？你付门票了吗？</p>'
+             if a>=2:'<p>我: 怎么不回我的话？装作不认识我是吗？</p>'
+             if a=3:
+                '<p><<$LJ.name>>: 你谁啊？</p>'
+                '<p>我: 不想挨操了？</p>'
+                '<p><<$LJ.name>>: 嘿嘿❤开个玩笑啦！</p>'
+             end
+             if a=4:
+                '<p>我: 你的手感更好❤</p>'
+                '<p>她: 嗯…那肯定❤</p>'
+             end
+         '</div>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>我: 不想我把你列为黑名单的话，就留在这里工作吧。</p>'
+             '<p><<$LJ.name>>: 噢？我可以吗？</p>'
+             '<p>我: 工作内容很简单的。</p>'
+             '<p><<$LJ.name>>: 可以赚外快吗❤</p>'
+            $WQ_LJ=1
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="WQ_Fuck_room1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\房1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<6:
+        '<div class="button_menu">'
+            if a!0 and 0<=q and q<=4:
+            '<div class="buttonS1"><a href="exec:a=0 & gt ''温泉_事件'',''WQ_Fuck_room1''">继续口交</a></div>'
+            end
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_room1''">用翘臀</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_room1''">臀浪</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_room1''">正面骑乘</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_room1''">后入冲刺</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_room1''">射精</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_room1''">舔干净</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">白嫖住宿</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 5>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 快点…在这里就没人会打扰我们了…</p>'
+           if a>=1:'<p>我:你的屁股真棒…</p>'
+           if a>=2:'<p><<$WQ.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我:太舒服了…宝贝…</p>'
+           if a>=4:'<p><<$WQ.name>>: <<$话>>…</p>'
+         '</div>'
+    end
+
+    if a=6:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p>我：我表现的怎么样？</p>'
+             '<p><<$WQ.name>>: 很满意…</p>'
+             '<p>我：那能让我白嫖一夜吗？</p>'
+             '<p><<$WQ.name>>: 呵，不是已经让你白嫖我了吗？</p>'
+             '<p>？？？：亲爱的？你去哪里了？</p>'
+             '<p><<$WQ.name>>: 快，快走！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_强制":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\qz1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_强制''">命令自慰</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_强制''">为我口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_强制''">插入跳蛋</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_强制''">打开开关！</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_强制''">坐上来</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_强制''">猛干</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_强制''">直捣花心</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''温泉_事件'',''WQ_Fuck_强制''">射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''温泉_事件'',''WQ_Fuck_强制''">舔干净</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">回房间</a></div>'
+                    !'<div class="button"><a href="exec:gt ''温泉'',''套间''">在这过夜</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$WQ.name>>: 喂——你进来干嘛？没看见我在换衣服吗？</p>'
+           if a>=1:'<p>我: 把你的骚逼揉湿，快！这是命令！</p>'
+           if a>=2:'<p><<$WQ.name>>: 你就知道欺负我…</p>'
+           if a>=4:'<p><<$WQ.name>>: 呀<<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p>我：怎么？不喜欢吗？</p>'
+             '<p><<$WQ.name>>: 喜欢还不行吗？！</p>'
+             if $times_of_day!'':
+             '<p>我：你老公今晚回来吗？</p>'
+             '<p><<$WQ.name>>: 你想干嘛？！</p>'
+             '<p>我：和你睡觉！</p>'
+             '<p><<$WQ.name>>: 别做梦了，太危险了！</p>'
+             end
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\WSPA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<13:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">按摩腿部</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">指压胸口</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">对话</a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">私人服务</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">胸推</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">打奶炮</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">舌吻</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">转过去</a></div>'
+            end
+            if a!9 and 8<=q and q<=11:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">坐上来</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">转过去</a></div>'
+            end
+            if a=10 and 10<=q:
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">大力抽插</a></div>'
+            end
+            if a=11:
+            '<div class="buttonS5"><a href="exec:a=12 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">内射她</a></div>'
+            end
+            if a=12:
+            '<div class="buttonS2"><a href="exec:a=13 & gt ''温泉_事件'',''WQ_Fuck_WSPA''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">回房间</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 12>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 按你的要求，穿的是透明旗袍。</p>'
+           if a=1:'<p><<$WQ.name>>: 力道还合适吗？</p>'
+           if a=2:'<p><<$WQ.name>>: 痛的话和我说。</p>'
+           if a=3:'<p>我: 我没有特别点的服务吗？</p>'
+           if a>=4:'<p><<$WQ.name>>: 我看你硬得难受，就给你一个私人服务好了~</p>'
+           if a>=5:'<p><<$WQ.name>>: 喜欢吗<<$娇喘声>></p>'
+           if a>=6:'<p>我: 太舒服了！</p>'
+           if a>=8:'<p><<$WQ.name>>: 那你可不能轻易射了<<$话>></p>'
+         '</div>'
+    end
+
+    if a=13:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 怎么样？私人的专属服务还满意吗？</p>'
+             '<p>我：太棒了！</p>'
+             '<p><<$WQ.name>>: 内射我了呢……</p>'
+             '<p>我：不是你说的吗？怀孕了就和老公离婚。</p>'
+             '<p><<$WQ.name>>: 你会娶我吗？</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_cook2":
+	 if WQ_cook>=3:WQ_cook=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\cook2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    
+        '<div class="button_menu">'
+            if WQ_cook>= a :'<div class="buttonS1"><a href="exec:a+=1 & gt ''温泉_事件'',''WQ_Fuck_cook2''">继续说</a></div>'
+            if WQ_cook < a:'<div class="buttonGr"><a href="exec:">下次再说</a></div>'
+
+         '<div class="button"><a href="exec:q=0 & gt ''温泉_事件'',''WQ_Fuck_cook3''">收取学费</a></div>'
+        '</div>'
+
+
+
+
+
+
+    if 4>=a and a>=0:
+		
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$WQ.name>>: 我会用心听的！</p>'
+           if a>=0:'<p>我:无论炒什么绿叶菜，要用大火爆炒，这样青菜才能翠绿不变色，减少水分流失。</p>'
+           if a>=1:'<p>我:炒素菜一般用动物油比较好，比如常见的猪油，这样炒出来的味道更香。炒肉类菜肴用植物油更好，这样炒出来的菜更美味。</p>'
+           if a>=2:'<p>我:需要爆炒的菜必须用猛烈的火力，快速烹调，当食物受极高温度烹调（超过200℃），便会发生焦化反应及美拉德反应。</p>'
+           if a>=3:'<p>我:在炖汤时，建议等汤炖熟后再放盐，这样做能最大限度保留肉的鲜味。</p>'
+           if a>=4:'<p>我:想要成为一名厨艺精湛的做菜好手，仅仅凭以上几个入门技巧那是远远不够的。就得多做、多看、多积累、多学、多领会，有朝一日，就会功到自然成，一切都会变得不再难！</p>'
+           '<p><<$WQ.name>>: 嗯嗯！*若有所思…</p>'
+         '</div>'
+    end
+
+
+
+ q=0
+
+End
+
+
+if $args[0]="WQ_Fuck_cook3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\cook3-<<q>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    
+        '<div class="button_menu">'
+            if q< a:'<div class="buttonS1"><a href="exec:q+=1 & gt ''温泉_事件'',''WQ_Fuck_cook3''">继续说</a></div>'
+
+            if q<= 3:'<div class="button"><a href="exec:WQ_cook+=1 & gt''温泉''">离开</a></div>'
+
+            if q>=4:'<div class="buttonS5"><a href="exec:a=0  & q=0 & gt ''温泉_事件'',''WQ_Fuck_room1''">换个地方</a></div>'
+        '</div>'
+
+
+
+
+         '<div class="dialog_menu">'
+           if q>=0:'<p><<$WQ.name>>: <<$主角姓>>老师，学费什么就免了吧❤</p>'
+           if q>=0:'<p>我:…………</p>'
+           if q>=1:'<p><<$WQ.name>>: 喜欢吗❤</p>'
+           if q>=4:'<p><<$WQ.name>>: 不如我们换个地方？</p>'
+         '</div>'
+
+End
+
+
+if $args[0]="WQ_Fuck_room3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\zh1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_room3''">接吻</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_room3''">揉奶</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_room3''">跪下口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_room3''">深喉</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_room3''">按头抽插</a></div>'
+            end
+            if a!6 and 5<=q and q<=8:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_room3''">顺势操她</a></div>'
+            end
+            if a!7 and 6=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_room3''">正面骑乘</a></div>'
+            end
+            if a!8 and 7<=q and q<=10:
+            '<div class="buttonS3"><a href="exec:a=8 & gt ''温泉_事件'',''WQ_Fuck_room3''">后入冲刺</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS5"><a href="exec:a=9 & gt ''温泉_事件'',''WQ_Fuck_room3''">射精</a></div>'
+            end
+            if a=9:
+            '<div class="button"><a href="exec:a=10 & gt ''温泉_事件'',''WQ_Fuck_room3''">对话</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">同意</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 在这里吗?</p>'
+           if a>=1:'<p>我:我知道你早就等不及了…</p>'
+           if a>=2:'<p><<$WQ.name>>:<<$娇喘声>></p>'
+           if a>=3:'<p>我:你真的很会舔…</p>'
+           if a>=6:'<p><<$WQ.name>>: 好大<<$话>></p>'
+           if a=9:'<p>我:射了！！！</p>'
+         '</div>'
+    end
+
+    if a=10:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+		 $WQ.照片销毁=1
+         '<div class="dialog_menu">'
+             '<p>我：你知道的，我其实不想威胁别人。</p>'
+             '<p><<$WQ.name>>: 只要不被我老公发现，你想怎么玩我都可以…</p>'
+             '<p>我：喔？</p>'
+             '<p><<$WQ.name>>: 作为条件，你要把照片销毁了…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_room4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\JC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_room4''">对话</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_room4''">叮铃铃</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_room4''">接电话</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_room4''">挑逗</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_room4''">深喉口交</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_room4''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_room4''">对话</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+					'<div class="buttonS5"><a href="exec:a=0  & q=0 & gt ''温泉_事件'',''WQ_Fuck_room1''">当然</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">享受你的面膜吧</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p>我:你老公今天不在吗？</p>'
+           if a>=1:'<p><<$WQ.name>>: 别提他了，我爱死你这根肉棒了。</p>'
+           if a=2:'<p>·【电话铃】</p>'
+           if a=3:'<p><<$WQ.name>>: 喂？老公啊？什么？有客人喝醉了撒酒疯要晚点回来？太好了！</p>'
+           if a=4:'<p><<$WQ.name>>: 啊，没什么，我这里什么事都没有呢，好了挂了！</p>'
+           if a>=5:'<p>我:怎么挂这么快？</p>'
+           if a>=6:'<p><<$WQ.name>>: 快射给我！射在我的脸上！</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p>我：不擦掉吗？</p>'
+             '<p><<$WQ.name>>: 我喜欢精子面膜…这在帝国健康可是要花超过5000￥才能摇号体验的项目！</p>'
+             '<p>我：喔？真是恶趣味…</p>'
+             '<p><<$WQ.name>>: 想要我洗把脸再来第二轮吗？</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_早1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\早1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_早1''">侍奉</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_早1''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_早1''">乳交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_早1''">晨炮</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_早1''">加速抽插</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_早1''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_早1''">舔干净</a></div>'
+            end
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a>=0:'<p><<$WQ.name>>: 嘘——</p>'
+           if a>=1:'<p>我: 嗯？*迷迷糊糊</p>'
+           if a>=2:'<p><<$WQ.name>>: 醒了？睡得还舒服吗？</p>'
+           if a>=4:'<p><<$WQ.name>>: 慢点<<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p>我：怎么？一大早找我有事？</p>'
+             '<p><<$WQ.name>>: 没事不能找你吗？我老公一出门我就来找你了！</p>'
+             '<p>我：什么时候和你老公离婚？</p>'
+             '<p><<$WQ.name>>: 等你把我操怀孕以后！</p>'
+             '<p>我：*笑而不语</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<12:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''温泉_事件'',''WQ_Fuck_WSPA0''">继续指导</a></div>'
+
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">回房间</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 11>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$TZ.name>>: 这让我想起来以前做兼职打工谋生的时候……</p>'
+           if a=1:'<p>我: 你还做过这个？</p>'
+           if a=2:'<p><<$TZ.name>>: 不然我来干什么？</p>'
+           if a=3:'<p>我: 你确定是这样的吗？</p>'
+           if a>=4:'<p><<$TZ.name>>: 喜欢吗<<$娇喘声>></p>'
+           if a>=5:'<p><<$TZ.name>>: 这边也要❤</p>'
+           if a=6:'<p><<$TZ.name>>: 帮我把衣服脱了❤</p>'
+           if a>=7:'<p><<$TZ.name>>: 这才是真正的油压按摩❤</p>'
+           if a=9:'<p><<$TZ.name>>: 要射的时候告诉我❤</p>'
+         '</div>'
+    end
+
+    if a=12:
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 喂，我说？这样的服务能行吗？</p>'
+             '<p><<$TZ.name>>: 现在收视率居高不下，播什么广告都是我说了算的！</p>'
+             '<p>我：*耸耸肩</p>'
+             '<p><<$WQ.name>>: 好吧？那需要多少广告费？</p>'
+             '<p><<$TZ.name>>: 免费！但作为条件，你也要学会这项技能。</p>'
+             '<p><<$WQ.name>>: 我也要？</p>'
+            if $WQ事件链=2:$WQ事件链=3
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<11:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">涂油</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">互相涂</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">双人波推</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">舌吻</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">吻<<$TZ.name>></a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">口<<$TZ.name>></a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">吻<<$WQ.name>></a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">口<<$WQ.name>></a></div>'
+            end
+            if a!9 and 8<=q and q<=11:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">双手撸管</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS5"><a href="exec:a=10 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">射精</a></div>'
+            end
+            if a=10 :
+            '<div class="buttonS2"><a href="exec:a=11 & gt ''温泉_事件'',''WQ_Fuck_WSPA1''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">回房间</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 10>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$TZ.name>>: 好了，我们开始上课了，第一步是给客人身上涂油。</p>'
+           if a=1:'<p><<$WQ.name>>: 我身上也要倒吗？</p>'
+           if a=2:'<p><<$TZ.name>>: 当然了，我分一点到我乳房上。</p>'
+           if a=3:'<p><<$TZ.name>>: 跟上我的动作，好好学。</p>'
+           if a>=4:'<p><<$TZ.name>>: 看仔细了~</p>'
+           if a>=5:'<p><<$WQ.name>>: <<$娇喘声>></p>'
+           if a>=6:'<p>我: 太舒服了！</p>'
+           if a>=7:'<p><<$TZ.name>>: <<$娇喘声2>></p>'
+         '</div>'
+    end
+
+    if a=11:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+         if $WQ事件链=3:$WQ事件链=4
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: 怎么样？学会了吗？</p>'
+             '<p><<$WQ.name>>: 可能…？</p>'
+             '<p><<$TZ.name>>: 那下次来我会来测试你喔…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导2-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">按摩</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''"><<$TZ.name>>演示</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''"><<$WQ.name>>演示</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">双人口交</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">加速</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">口内射精</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">再来一发</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">舔干净</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''温泉_事件'',''WQ_Fuck_WSPA2''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonGn"><a href="exec:gt ''温泉'',''套间''">可以</a></div>'
+                    !'<div class="buttonR"><a href="exec:gt ''温泉'',''套间''">不行</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 客人您好，这是我们新推出的项目，请您体验一下。</p>'
+           if a=1:'<p><<$WQ.name>>: 先按这里？再按这里？</p>'
+           if a=2:'<p><<$TZ.name>>: 我就不客气了。</p>'
+           if a=3:'<p><<$WQ.name>>: 等一下，我也想做……</p>'
+           if a>=4:'<p><<$TZ.name>>: <<$娇喘声2>></p>'
+           if a>=5:'<p><<$WQ.name>>: <<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=9:
+		if $WQ事件链=4:$WQ事件链=5
+         '<div class="dialog_menu">'
+             '<p><<$TZ.name>>: 怎么样？她能开业了吗？</p>'
+             '<p><<$WQ.name>>: <<$主角姓名>>你觉得怎么样…？</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_WSPA3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\指导3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<10:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">前后夹击</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">二人侍奉</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''"><<$WQ.name>>口交</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">骑乘位</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">面对我</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">后入她</a></div>'
+            end
+            if a!7 and 6<=q and q<=9:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">加速冲刺</a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">射精</a></div>'
+            end
+            if a=8:
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">舔干净</a></div>'
+            end
+            if a=9:
+            '<div class="buttonS2"><a href="exec:a=10 & gt ''温泉_事件'',''WQ_Fuck_WSPA3''">对话</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonGn"><a href="exec:gt ''温泉'',''套间''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 9>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 你来干什么？</p>'
+           if a=1:'<p><<$TZ.name>>: 我不能来检查一下服务质量吗？</p>'
+           if a=2:'<p><<$WQ.name>>: 你就是这样检查的？</p>'
+           if a=3:'<p><<$TZ.name>>: 吃醋了吗？那他的鸡巴让给你……</p>'
+           if a>=4:'<p><<$WQ.name>>: 好啊，那今天你只能看着我们做…</p>'
+           if a>=5:'<p><<$WQ.name>>: <<$话>></p>'
+           if a=9:'<p><<$TZ.name>>: 平时没少和你做吧？居然射了这么多…</p>'
+         '</div>'
+    end
+
+    if a=10:
+				if $WQ事件链=5:$WQ事件链=6
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 怎么样？服务质量到位了吗？</p>'
+             '<p><<$TZ.name>>: 完全没问题！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_wll":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\bf1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_wll''">舔我</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_wll''">口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_wll''">骑上来</a></div>'
+            end
+            if a!4 and 3<=q and q<=6:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_wll''">后入她</a></div>'
+            end
+            if a!5 and 4<=q and q<=7:
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_wll''">大力抽插</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_wll''">射精</a></div>'
+            end
+            if a=6:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_wll''">舔干净</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="buttonGn"><a href="exec:gt ''大别墅''">够了</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p>我: 你怎么来了？</p>'
+           if a>=1:'<p><<$WQ.name>>: 我不能来看看我的股东吗？</p>'
+           if a>=2:'<p><<$WQ.name>>: <<$娇喘声>></p>'
+           if a>=3:'<p>我: 你想我了？</p>'
+           if a>=4:'<p><<$WQ.name>>: 没有<<$话>></p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q*2
+         '<div class="dialog_menu">'
+             '<p>我: 真的没有？</p>'
+             '<p><<$WQ.name>>: 没有！*不想理你</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="WQ_Fuck_QJJ":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\wllj1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<9:
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:a+=1 & gt ''温泉_事件'',''WQ_Fuck_QJJ''">看下去</a></div>'
+            '<div class="button"><a href="exec:gt ''温泉'',''套间''">回房间</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉'',''套间''">回房间</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 8>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>:  等下，人有点太多了！</p>'
+           if a=0:'<p>？？？: 老板娘，广告打的不错嘛…我们组团来的！</p>'
+           if a=1:'<p><<$WQ.name>>: 慢点好嘛？一个一个来…</p>'
+           if a=2:'<p>？？？: 钱不会少你的！快点！</p>'
+           if a>=3:'<p><<$WQ.name>>: 慢点啊<<$娇喘声>></p>'
+           if a>=4:'<p>？？？: 这边也要❤</p>'
+           if a>=5:'<p><<$WQ.name>>: 等等<<$话>></p>'
+         '</div>'
+    end
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 这是什么？</p>'
+             '<p>？？？: 百人斩锦旗！</p>'
+             '<p><<$WQ.name>>: 别闹了，快付钱吧。过会我老公就要回来了…</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="102房":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JK\vids\旅馆1-9~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p><<$JK.name>>: 给老娘狠狠地操啊！！！</p>'
+             '<p>？？？: 老板…我快累死了…</p>'
+         '</div>'
+		end
+		
+		
+	if $times_of_day!'':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\gb1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+            '<div class="button_menu">'
+                    if a!9:'<div class="buttonS"><a href="exec:a+=1 & gt ''温泉_事件'',''102房''">继续偷窥</a></div>'
+                     '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>客人（102）: 你可真骚啊？</p>'
+             '<p><<$WQ.name>>: 老板难道不喜欢吗？</p>'
+             if a>=1:'<p>客人（102）: 哈哈哈！当然了！</p>'
+             if a>=2:'<p><<$WQ.name>>:<<$娇喘声>></p>'
+             if a>=3:'<p>客人（102）: 再快点！骚货！</p>'
+             if a>=4:'<p><<$WQ.name>>: <<$话>></p>'
+             if a>=9:'<p>客人（102）: 这个月温泉的水电钱！我就帮你免了！</p>'
+             if a>=9:'<p><<$WQ.name>>: 老板你真好！</p>'
+         '</div>'
+		end
+
+End
+
+if $args[0]="103房":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\MS\vids\访客2-<<rand(0,13)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZL\vids\电话<<rand(0,1)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		end
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: 老板们…饶了我吧…</p>'
+             '<p>*哄堂大笑</p>'
+         '</div>'
+
+End
+
+if $args[0]="104房":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\underground\电车B4-<<rand(0,10)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\under\地下<<rand(1,5)>>-<<rand(3,7)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		end
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: <<$娇喘声>></p>'
+         '</div>'
+
+End
+
+if $args[0]="201房":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\RD-<<rand(0,7)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: <<$娇喘声>></p>'
+         '</div>'
+
+		else:
+		
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SY\vids\WQ1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		
+            '<div class="button_menu">'
+					if $SY.bad>=100:'<div class="buttonS"><a href="exec: gt ''上原_事件'',''SY_Fuck_WQ''">对话</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>？？？: <<$娇喘声>></p>'
+         '</div>'
+		end
+
+
+End
+
+if $args[0]="202房":
+		$WQ202R=rand(0,2)
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\A202-<<$WQ202R>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+					if $WQ202R=2:'<div class="button"><a href="exec:gt ''温泉_事件'',''WQ_Fuck_202''">玩弄她</a></div>'else:'<div class="buttonGr"><a href="exec:">不是时候</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>她: 有人在看我们…</p>'
+             '<p>男人: 你这个骚货也怕被别人看啊？</p>'
+             if $WQ202R=2:
+             '<p>她: 嗯<<$娇喘声>></p>'
+             '<p>男人: 我出去抽根烟再回来干你！</p>'
+             end
+         '</div>'
+
+End
+
+if $args[0]="203房":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\混浴1-<<rand(6,9)>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+         '<div class="dialog_menu">'
+             '<p>女人：哥哥，你要操操我嘛❤</p>'
+         '</div>'
+         
+         else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XYBZC3-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		
+            '<div class="button_menu">'
+                    if $XY.bad>=300:'<div class="buttonS"><a href="exec: gt ''温泉_事件'',''WQ_Fuck_XY''">偷听</a></div>'else:'<div class="buttonGr"><a href="exec:">偷听</a></div>'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+         '<div class="dialog_menu">'
+             '<p><<$XY.name>>：只要你好好学，老师会给你奖励❤</p>'
+             '<p>？？？：呃…老师…</p>'
+         '</div>'
+         
+         end
+
+End
+
+if $args[0]="204房":
+		if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\QGD1-<<RAND(0,3)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\QGD1-<<RAND(4,6)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+		end
+		
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+
+
+         '<div class="dialog_menu">'
+             '<p>男人: 下次出新款了继续找你！</p>'
+             '<p>？？？: 好<<$娇喘声>></p>'
+         '</div>'
+
+End
+
+if $args[0]="WQ_Fuck_202":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\SJ202-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_202''">调教她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_202''">强制口交</a></div>'
+            end
+            if a!3 and 2<=q and q<=6:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_202''">射精</a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_202''">舔干净</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_202''">插回去</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 4>=a and a>=0 :
+         '<div class="dialog_menu">'
+             '<p>她: <<$娇喘声>></p>'
+             if a=1:'<p>我:你果然是个骚货…</p>'
+             if a=2:'<p>她: 才不是呢❤</p>'
+         '</div>'
+    end
+
+
+    if a=5:
+         '<div class="dialog_menu">'
+             '<p>我: 可别被你老公发现了…</p>'
+             '<p>她: 他才不是我老公！</p>'
+             WQ.A202=1
+         '</div>'
+    end
+  q+=1
+End
+
+
+if $args[0]="WQ_Fuck_XY":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XYBZC3-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="button"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_XY''">进去插她</a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_XY''">插到底</a></div>'
+            end
+            if a!3 and 2<=q and q<=6:
+            '<div class="buttonS1"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_XY''">玩点刺激的</a></div>'
+            end
+            if a!4 and 3<=q and q<=8:
+            '<div class="buttonS2"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_XY''">抬大腿操</a></div>'
+            end
+            if a=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_XY''">内射</a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_XY''">前台邀请</a></div>'
+            end
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+    end
+
+
+
+    if 5>=a and a>=0 :
+         '<div class="dialog_menu">'
+             if a=0:'<p><<$XY.name>>：你爸爸可是付了不少私教钱的，你要给我好好学❤</p>'
+             if a=0:'<p>？？？：老师…你一直这个样子……等下！我要去厕所！</p>'
+             if a>=1:'<p>我:你果然是个骚货…和学生搞什么小动作呢？</p>'
+             if a>=2:'<p><<$XY.name>>： 我没有<<$娇喘声>></p>'
+             if a=3:'<p>学生： 老师？你怎么了？</p>'
+             if a=3:'<p><<$XY.name>>： 你先去自习一会！一会抽你背单词！</p>'
+             if a>=4:'<p>我:要喷之前告诉我。</p>'
+             if a>=4:'<p><<$XY.name>>： 不要<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+    if a=6:
+         '<div class="dialog_menu">'
+             '<p><<$XY.name>>： 快点出去吧！我的课时费很贵的。</p>'
+             '<p>我: 你有没有兴趣来这里兼职做前台？反正我看多半的时间你也是在让他自习…</p>'
+             '<p><<$XY.name>>： 你给我钱？</p>'
+             '<p>我: 这家温泉我有股份…</p>'
+             '<p><<$XY.name>>： 好的！*眼睛发光</p>'
+            $XY.温泉前台=1
+         '</div>'
+    end
+  q+=1
+End
+
+if $args[0]="WQ_Fuck_家访":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\家访1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<7:
+        '<div class="button_menu">'
+            if q=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''WQ_Fuck_家访''">摸她</a></div>'
+            end
+            if q=1:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''WQ_Fuck_家访''">顺势插入</a></div>'
+            end
+            if q=2:
+            '<div class="buttonS3"><a href="exec:a=3 & gt ''温泉_事件'',''WQ_Fuck_家访''">捏奶头</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''WQ_Fuck_家访''">暴力后入</a></div>'
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''温泉_事件'',''WQ_Fuck_家访''">快速冲刺</a></div>'
+            end
+            if q=3:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''温泉_事件'',''WQ_Fuck_家访''">射精</a></div>'
+            end
+            if q=4:
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''温泉_事件'',''WQ_Fuck_家访''">舔干净</a></div>'
+            end
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                    '<div class="button"><a href="exec:gt ''大别墅''">送她离开</a></div>'
+            '</div>'
+    end
+
+
+
+
+    if 6>=a and a>=0:
+         '<div class="dialog_menu">'
+           if a=0:'<p><<$WQ.name>>: 喂——老公，喔，我去城里看一个朋友，他住院了啦❤</p>'
+           if a=1:'<p><<$WQ.name>>: 你不用来接我！我可以自己回去。我现在❤嗯——在❤在上楼梯，马上就要❤嗯❤就要到了❤</p>'
+           if a=2:'<p><<$WQ.name>>: 啊…客人多的话你再给我打电话！我很忙！现在！先挂了！</p>'
+           if a>=3:'<p><<$WQ.name>>: 你就知道欺负我…</p>'
+           if a=5:'<p><<$WQ.name>>: 呀<<$话>></p>'
+           if a=6:'<p>我: 呼——没戴套不会怀孕吧？</p>'
+         '</div>'
+    end
+
+    if a=7:
+         $WQ.love+=q+my.魅力
+         $WQ.bad+=q+my.魅力
+
+         '<div class="dialog_menu">'
+             '<p><<$WQ.name>>: 我要回去了！</p>'
+             '<p>我：怎么？不喜欢吗？做好清理工作再走吧❤</p>'
+             '<p><<$WQ.name>>: 唔唔？！</p>'
+         '</div>'
+    end
+
+ q+=1
+
+End
+
+if $args[0]="温泉_Fuck_WQ项圈":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\WQ\vids\XWBZC1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+    
+    if a!13:
+        '<div class="button_menu">'
+            if a!1 and 0<=q and q<=3:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">揉奶头 </a></div>'
+            end
+            if a!2 and 1<=q and q<=4:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">口交 </a></div>'
+            end
+            if a!3 and 2<=q and q<=5:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">颜射 </a></div>'
+            end
+            if a=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">对话 </a></div>'
+            end
+            if a=4:
+            '<div class="buttonR3"><a href="exec:a=5 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">假装离开 </a></div>'
+            end
+            if a=5:
+            '<div class="buttonS4"><a href="exec:a=6 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">清场 </a></div>'
+            end
+            
+            if a>=6:
+            
+				if a!7 and 6<=q and q<=12:
+				'<div class="buttonR4"><a href="exec:a=7 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">插她 </a></div>'
+				end
+				if a!8 and 7<=q and q<=13:
+				'<div class="buttonS4"><a href="exec:a=8 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">后入冲刺 </a></div>'
+				end
+				if a!9 and 8<=q and q<=14:
+				'<div class="buttonS5"><a href="exec:a=9 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">加速 </a></div>'
+				end
+				if a!10 and 10<=q :
+				'<div class="buttonS4"><a href="exec:a=10 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">换姿势 </a></div>'
+				end
+				if a=10:
+				'<div class="buttonR4"><a href="exec:a=11 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">射精 </a></div>'
+				end
+				if a=11:
+				'<div class="buttonS4"><a href="exec:a=12 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">清理干净 </a></div>'
+				end
+				if a=12:
+				'<div class="buttonGn"><a href="exec:a=13 & gt ''温泉_事件'',''温泉_Fuck_WQ项圈''">重回岗位 </a></div>'
+				end
+			end
+
+
+
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonGn"><a href="exec:gt ''温泉走廊''">离开</a></div>'
+            '</div>'
+    end
+
+
+    if 4>=a and a>=0:
+         '<div class="dialog_menu">'
+             '<p>我: 我知道你想要这个，接下里你该叫我什么？</p>'
+             '<p><<$XY.name>>: 主人，请肆意发泄吧❤</p>'
+             if a>=1:'<p><<$XY.name>>: <<$娇喘声2>></p>'
+             if a>=2:'<p>我: 你就是条骚母狗对吗？</p>'
+             if a>=3:'<p><<$XY.name>>: 没错<<$话>></p>'
+             if a>=4:'<p>我: 今天有点累了…</p>'
+         '</div>'
+    end
+
+    if 12>=a and a>=5:
+         '<div class="dialog_menu">'
+             '<p><<$XY.name>>: 主人，快点操小母狗吧❤求你了，往这里狠狠抽插吧！</p>'
+             if a>=6:'<p>我: 各位不好意思，这里需要彻底地打扫一下！</p>'
+             if a>=7:'<p><<$XY.name>>: 嗯<<$话>></p>'
+             if a=12:'<p><<$XY.name>>: 我的工资什么时候给我结一下？</p>'
+         '</div>'
+    end
+
+    if a=13:
+		 $XY.love+=q+my.魅力
+		 $XY.bad+=q+my.魅力
+         '<div class="dialog_menu">'
+			 '<p><<$XY.name>>: 我的工资什么时候给我结一下？</p>'
+             '<p>我: 今天的报酬应该已经射给你了❤</p>'
+             '<p><<$XY.name>>: 可恶❤</p>'
+         '</div>'
+    end
+
+  q+=1
+End
+--- 温泉_事件 ---------------------------------
+

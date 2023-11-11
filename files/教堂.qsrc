@@ -1,0 +1,410 @@
+# 教堂
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+a=0
+q=0
+if $LEI录像事件链=8:gt '修女_事件','LEI_Fuck_jy'
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+if $ARGS[0]="":
+	if $XN.审判=2 and $我主教=0:gt'修女_事件','我主教'
+
+	'<div class ="show_menu"><img src="images\place\教堂_<<$times_of_day>>.jpg" width="854"></div>'
+		
+	if $times_of_day="night":
+	'<div class="button_menu">'
+		if $XN.审判=0:'<div class="buttonPu1"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_主教迷''">主教房间</a></div>'
+		if $XN.审判=1:'<div class="buttonPu2"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_主教见习修''">主教房间</a></div>'
+		if $XN.审判<2:'<div class="buttonG1"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_圣餐''">窥伺圣餐</a></div>'
+		if $我主教=1:'<div class="buttonG2"><a href="exec:minutes+=15 & gt ''教堂'',''主教位''">坐上主教位</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·夜幕降临，众教徒纷纷起身，把一只手放在胸前，做出宽恕的手势，另一只手在法衣下做着奇怪的动作。</p>'
+		if $XN.审判<2:'<p>主教：对不起，圣餐开始了。</p>'
+		if $XN.审判=1:'<p>·<<$XN.name>>在无人的<a href="exec:gt ''教堂'',''地对话''">惩戒厅内</a></p>'
+		'<p>——————————</p>'
+			if hour=0:'<p>·不小心踩到了神秘的碎片<a href="exec:$神秘字符串=''·—·'' & gt ''神秘''">-伸手触碰</a></p>'
+	'</div>'
+ !###################↓↓↓↓↓↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓↓白天↓↓↓↓↓
+	else:
+	'<div class="button_menu">'
+		if $XN.available=1 and 主教选择=0:'<div class="button"><a href="exec:minutes+=15 &  gt ''教堂'',''主教选择''">对话主教</a></div>'
+		if 主教选择=1 and $XN.审判<2:'<div class="buttonGn4"><a href="exec:gt ''教堂'',''主教忏悔''">“忏悔”&“奉献”</a></div>'
+		if 主教选择=2 and $XN.审判<2:'<div class="buttonR3"><a href="exec:gt ''教堂'',''主教亵渎''"> 对话主教</a></div>'
+		if $XN.审判=1:'<div class="buttonG1"><a href="exec:gt ''教堂'',''见习修女''"> 见习修女</a></div>'
+		if $XN.审判=1:'<div class="buttonG2"><a href="exec:gt ''修女_事件'',''XN_Fuck_女教徒''"> ❐女教徒“奉献中”</a></div>'
+		if $我主教=1:'<div class="buttonG4"><a href="exec:minutes+=15 & gt ''教堂'',''主教位''">坐上主教位</a></div>'
+		if $LEI.最后=1:'<div class="buttonG5"><a href="exec:minutes+=15 & gt ''教堂'',''教堂婚礼''">业务:教堂婚礼</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·众教徒跪拜在两侧，教堂正中央供奉着希莫洛斯的神像，它代表着“无法抑制的欲望”。</p>'
+		if $XN.审判=1:'<p>·<<$XN.name>>被置于教堂内的惩戒厅内<a href="exec:a=4 & gt ''修女_事件'',''XN_Fuck_审判''">接受净化</a></p>'
+		if $LEI.最后=1:'<p><font color="#FF1493">·<<$LEI.name>>正在引导朝拜的信徒</font><a href="exec:gt ''教堂'',''蕾最后''">-查看</a></p>'
+		'<p>——————————</p>'
+		'<p>·而我所信仰的，究竟是什么？</p>'
+	'</div>'
+	end
+End
+
+if $args[0]="主教选择":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\主教.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonGn2"><a href="exec:主教选择=1 & gt ''教堂'',''主教忏悔''">忏悔:选择“奉献”</a></div>'
+            '<div class="buttonR4"><a href="exec:主教选择=2 & gt ''教堂'',''主教亵渎''">亵渎:向他吐痰</a></div>'
+            '<div class="button"><a href="exec: gt ''教堂''">再想想</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+              '<p>主教: 忏悔者，每个人出生都带着罪孽和救赎。现在，是你为了救赎所“奉献”的时刻了…</p>' 
+			  '<p>我：啥意思？</p>'
+              '<p>主教: 为了赎清自身的罪孽，你必须甘愿让自己承受内心的折磨。 </p>' 
+			  '<p>我：………</p>'
+			  '<p>·————————</p>' 
+			  '<p>·此处是个分支选择，选择亵渎可以跳过奉献家人的NTR剧情。当然你可以在这里选择备份存档，以体验不同分支剧情。</p>'
+         '</div>'
+
+End
+
+if $args[0]="主教忏悔":
+	 if $XN.标记=1:$XN.标记=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\主教忏悔.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            if JM.忏悔=1:'<div class="buttonG1"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''修女_事件'',''XN_Fuck_忏悔''">奉献<<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">需邀请<<$JM.name>></a></div>'
+            if JJ.忏悔=1:'<div class="buttonG2"><a href="exec:$m=''JJ'' & $ma=$JJ.name & gt ''修女_事件'',''XN_Fuck_忏悔''">奉献<<$JJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">需邀请<<$JJ.name>></a></div>'
+            if MM.忏悔=1:'<div class="buttonG3"><a href="exec:$m=''MM'' & $ma=$MM.name & gt ''修女_事件'',''XN_Fuck_忏悔''">奉献<<$MM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">需邀请<<$MM.name>></a></div>'
+            if JM.忏悔+JJ.忏悔+MM.忏悔=3:'<div class="buttonG5"><a href="exec:gt ''修女_事件'',''XN_Fuck_审判''">♗沦为信徒</a></div>'
+            '<div class="button"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p>主教: 你做出了明智的选择，我的孩子。据我所知，你和你的家人的有不伦关系，这是渎神之举！</p>' 
+			  '<p>我：那我该做什么？</p>'
+              '<p>主教: 带来你的家眷，我将亲自净化她们。 </p>' 
+			  '<p>我：这样就能赎清自身的罪孽？</p>'
+			  '<p>主教: 没错，甘愿让自己承受内心的折磨，救赎就在其中…“奉献”能将所有渴望被救赎的信徒们的内心相连…</p>'
+         '</div>'
+End
+
+if $args[0]="主教亵渎":
+		if $XN.标记=1:$XN.标记=10
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\主教.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p>我：我呸——！</p>'
+              '<p>主教: 无礼之人！你的灵魂将会受到堕落和永恒的谴责！ </p>' 
+			  '<p>我：我们走着瞧！</p>'
+         '</div>'
+End
+
+if $args[0]="见习修女":
+		$LEI.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\见习修女.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p>蕾(见习修女)：教徒们，请排好队…不要喧哗…</p>'
+              '<p>教徒甲: 切，奶子真小…</p>' 
+              '<p>教徒乙: 多管闲事…</p>' 
+         '</div>'
+End
+
+if $args[0]="地对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\地对话.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="button"><a href="exec: gt ''教堂''">明白了</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：你…还好吗？</p>'
+              '<p><<$XN.name>>缓缓睁开眼睛 </p>' 
+              '<p><<$XN.name>>：<font color="#e6a422">我…我看见了些许的光明……您…一定是救世主大人降临…请您帮帮我…</font></p>'
+			  '<p>我：我不是救世主，你跟着主教这么多年了，你一定很清楚他的日常安排吧？告诉我，我就能帮你。</p>'
+              '<p><<$XN.name>>：<font color="#FF3939">主教大人…白天通常会接受教徒的奉献；每周五净化风俗娘的不洁灵魂；每周六晚上18:00会去餐厅会客；每周日下午13:00去温泉里根除邪祟 </font></p>' 
+         '</div>'
+		$XN.询问过=1
+End
+
+if $args[0]="主教位":
+	$LEI.available=1
+	'<div class ="show_menu"><img src="images\NPC\XN\pics\主教位.jpg" width="854"></div>'
+        '<div class="button_menu">'
+            '<div class="buttonPu3"><a href="exec: gt ''教堂'',''忏悔室''">『忏悔室』</a></div>'
+            '<div class="buttonG"><a href="exec: gt ''教堂'',''修女立绘''">召见<<$XN.name>></a></div>'
+            '<div class="buttonG1"><a href="exec: gt ''教堂'',''蕾立绘''">召见<<$LEI.name>></a></div>'
+            '<div class="button"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：没想到居然被强迫担任了主教…</p>'
+				'<p>——————————</p>'
+				'<p>·而我所信仰的，究竟是什么？</p>'
+         '</div>'
+End
+
+if $args[0]="修女立绘":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\对话0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonGn1"><a href="exec: gt ''教堂'',''修女外出''">带她出去</a></div>'
+            '<div class="buttonPu1"><a href="exec: gt ''修女_事件'',''XN_Fuck_男生''">她的祈祷室</a></div>'
+            if $修女罪恶感>0:'<div class="buttonR"><a href="exec: gt ''修女_事件'',''XN_Fuck_忏悔调教''">忏悔罪恶</a></div>'
+            if $XN.母狗=1:'<div class="buttonS"><a href="exec: gt ''修女_事件'',''XN_Fuck_母狗套''">调教母狗</a></div>'
+            if $XN.堕入=1:'<div class="buttonPu5"><a href="exec: gt ''修女_事件'',''XN_Fuck_KFC''">结局:堕落修女</a></div>'else:'<div class="buttonGr"><a href="exec: ">结局:???</a></div>'
+            '<div class="button"><a href="exec: gt ''教堂''">明白了</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：你…不是看得见了吗？怎么还戴着眼罩？</p>'
+              '<p><<$XN.name>>：我已经习惯了在教堂里戴着眼罩了，如果您介意的话我可以摘下…</p>' 
+			  '<p>我：不用了，依你的习惯吧，有什么打算吗？</p>'
+			  if $修女罪恶感>0:
+              '<p><B><span class =''red''><<$XN.name>>：<<$主角姓名>>大人，我需要忏悔我的罪恶…请您惩罚我！</p>' 
+			  else:
+              '<p><<$XN.name>>：我…在复明以后…想多去外面走走，您可以带我去吗？</p>' 
+              end
+              '<p>·她的罪恶感：✟<<$修女罪恶感>>✟</p>' 
+         '</div>'
+End
+
+if $args[0]="修女外出":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\out.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonG3"><a href="exec: gt ''修女_事件'',''XN_Fuck_温泉中''">带她去温泉</a></div>'
+            if $XN.服务生=0:'<div class="buttonPu3"><a href="exec: gt ''修女_事件'',''XN_Fuck_夜色1''">带她夜色俱乐部</a></div>'
+            '<div class="buttonR"><a href="exec: gt ''修女_事件'',''XN_Fuck_黑人''">她非要去</a></div>'
+
+            '<div class="button"><a href="exec: gt ''教堂''">明白了</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：你想去哪？</p>'
+              '<p><<$XN.name>>：我想试试所有我没有尝试过的事…等等，我接个电话。</p>' 
+			  '<p>陌生男人：Hello❤修女？我需要一次性祷告❤可以来我家吗？</p>'
+              '<p><<$XN.name>>：呃…*她看向你</p>' 
+			  '<p>我：不许去。</p>'
+              '<p><<$XN.name>>：好吧*她并不是很高兴。</p>' 
+         '</div>'
+End
+
+if $args[0]="蕾立绘":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\nxn1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+			if $LEI录像事件链=3:'<div class="buttonS"><a href="exec: gt ''修女_事件'',''LEI_Fuck_录像1偷拍''">谈谈录像带①</a></div>'
+			if $LEI录像事件链=6:
+				if MGF>0:'<div class="buttonS"><a href="exec:MGF-=1 & gt ''修女_事件'',''LEI_Fuck_MGF''">谈谈录像带②</a></div>'else:'<div class="buttonGr"><a href="exec: ">需要麦高芬</a></div>'
+			end
+			if $LEI录像事件链>=9:
+				if MGF>0:'<div class="buttonS"><a href="exec:MGF-=1 & gt ''修女_事件'',''LEI_Fuck_MGF''">使用麦高芬</a></div>'else:'<div class="buttonGr"><a href="exec: ">需要麦高芬</a></div>'
+				'<div class="buttonG"><a href="exec:gt ''修女_事件'',''LEI_Fuck_LEI''">庆祝解脱</a></div>'
+			end
+            '<div class="button"><a href="exec: gt ''教堂''">明白了</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+              '<p><<$LEI.name>>：<<$主角姓名>>大人…您召见我有什么事吗？</p>' 
+			  '<p>我：呃，教堂门口的那个男人是你男朋友吧？他想让你回去。</p>'
+              '<p><<$LEI.name>>：求你了，我…我已经选择了投身教会…在他身边…只有无尽地暴力催债和被虐待…只有在这里我的心才能平静……也恳请您不要驱逐我…拜托了…</p>' 
+			  if $LEI录像事件链>=9:'<p>我：放心吧，他已经被永久驱逐了。</p>'
+              if $LEI录像事件链<=1:'<p><<$LEI.name>>：这是他送给我的【求婚戒指】，你替我还给他吧…<a href="exec:$LEI录像事件链=1 & gt ''教堂''">-收下戒指</a></p>'
+         '</div>'
+End
+
+if $args[0]="忏悔室":
+	 教堂等级=(教堂威望/10)+1
+	 $忏悔人数=rand(1,教堂等级)
+	 if  $忏悔人数>=6:$忏悔人数=rand(1,6)
+		'<div class ="show_menu"><img src="images\NPC\XN\pics\忏悔室.jpg" width="854"></div>'
+		
+        '<div class="button_menu">'
+            '<div class="button"><a href="exec: gt ''教堂'',''聆听忏悔''">聆听忏悔</a></div>'
+            '<div class="button"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>在这忏悔室内，信徒可以与我或是修女进行一对一的交谈，主动坦白自己的罪行、内疚和悔过之心。而我可以决定使之悔改的方式。</p>'
+			  '<p>✟我的威望：<<教堂威望>>✟———威望越高来忏悔的人罪孽越深重</p>'
+         '</div>'
+End
+
+if $args[0]="聆听忏悔":
+		'<div class ="show_menu2"><img src="images\入境\character\入境人员<<rand(1,140)>>.jpg" height="492"></div>'
+		
+        '<div class="button_menu">'
+            if $XN.助教=1:'<div class="buttonS"><a href="exec:聆听数字=20 & gt ''教堂'',''聆听忏悔2''">胯下思考</a></div>'
+            if $LEI.助教=1: '<div class="buttonP"><a href="exec:聆听数字=10 & gt ''教堂'',''聆听忏悔2''">胯下回应</a></div>'
+            '<div class="buttonB2"><a href="exec:gt ''教堂'',''忏悔裁决''">独立思考</a></div>'
+            '<div class="button"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>✟我的威望：<<教堂威望>>✟———威望越高来忏悔的人罪孽越深重</p>'
+			  '<p>我：欢迎你来到这个圣洁的地方，以寻求悔过和宽恕。请告诉我，你为什么来到忏悔室？</p>'
+			  '<p>女人：<<$主教称呼>>，我和我的<<$主教忏悔1>>…发生了<<$主教忏悔2>>，我现在<<$主教忏悔3>>…除此之外，我还和其他<<$忏悔人数>>人有不正当的性关系…请您宽恕、指导、或是惩罚我！</p>'
+         '</div>'
+End
+
+if $args[0]="聆听忏悔2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\聆听<<聆听数字>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            if 聆听数字=20 or 聆听数字=10:'<div class="button"><a href="exec:聆听数字+=1 & gt ''教堂'',''聆听忏悔2''">她的回答</a></div>'
+            if 聆听数字=21 or 聆听数字=11:'<div class="button"><a href="exec: gt ''教堂'',''忏悔裁决''">明白了</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：你怎么看这件事？该惩罚她还是宽恕她？</p>'
+               if 聆听数字=21:'<p><<$XN.name>>：将她交给教徒们惩罚，由我来宽恕那些男人❤</p>' 
+               if 聆听数字=11:'<p><<$LEI.name>>：超过5名男人的话可以交给我❤我会宽恕那些男人❤</p>' 
+         '</div>'
+End
+
+if $args[0]="忏悔裁决":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\聆听1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''教堂'',''忏悔女''">罪孽源自你！</a></div>'
+            if $XN.助教=1:'<div class="buttonS"><a href="exec: 教堂威望+=教堂等级+5 & gt ''教堂'',''忏悔男''">罪孽源自男人！</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：再说一遍！你和多少人有不正当的关系？！</p>'
+			  '<p>女人：<<$主教称呼>>，我和<<$忏悔人数>>人有不正当的性关系…请您宽恕、指导、或是惩罚我！</p>'
+         '</div>'
+End
+
+if $args[0]="忏悔男":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\对话0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+			if $忏悔人数=1:'<div class="buttonS1"><a href="exec: gt ''修女_事件'',''XN_Fuck_忏悔男''">人数1人</a></div>'else:'<div class="buttonGr"><a href="exec: ">人数1人</a></div>'
+			if $忏悔人数=2:'<div class="buttonS2"><a href="exec: gt ''修女_事件'',''XN_Fuck_忏悔男''">人数2人</a></div>'else:'<div class="buttonGr"><a href="exec: ">人数2人</a></div>'
+			if $忏悔人数=3:'<div class="buttonS3"><a href="exec: gt ''修女_事件'',''XN_Fuck_忏悔男''">人数3人</a></div>'else:'<div class="buttonGr"><a href="exec: ">人数3人</a></div>'
+			if $忏悔人数=4:'<div class="buttonS4"><a href="exec: gt ''修女_事件'',''XN_Fuck_忏悔男''">人数4人</a></div>'else:'<div class="buttonGr"><a href="exec: ">人数4人</a></div>'
+			
+			if $LEI.助教=1:
+				if $忏悔人数>4:'<div class="buttonS5"><a href="exec: gt ''修女_事件'',''XN_Fuck_忏悔男2''">人数5+人</a></div>'else:'<div class="buttonGr"><a href="exec: ">人数5+人</a></div>'
+			else:
+				if $忏悔人数>4:'<div class="buttonR"><a href="exec: gt ''教堂''">人手不足</a></div>'else:'<div class="buttonGr"><a href="exec: ">人数5+人</a></div>'
+			end
+			
+			
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：把这<<$忏悔人数>>个男人带来，<<$XN.name>>会亲自宽恕他们的罪行！</p>'
+			  '<p><<$XN.name>>：是的，请放心地交给我❤</p>'
+			  '<p>女人：<<$主教称呼>>，谢谢您！我将成为您忠诚的信徒！</p>'
+			  '<p>·我的威望增加了</p>'
+         '</div>'
+End
+
+if $args[0]="忏悔女":
+		'<div class ="show_menu"><img src="images\NPC\XN\pics\忏悔室.jpg" width="854"></div>'
+		
+        '<div class="button_menu">'
+			'<div class="buttonR"><a href="exec:忏悔编号=2 & $忏悔罪名=''傲慢'' & gt ''修女_事件'',''XN_Fuck_忏悔女''">傲慢之罪</a></div>'
+			if 教堂等级>=2:'<div class="buttonR"><a href="exec:忏悔编号=1 & $忏悔罪名=''懒惰'' & gt ''修女_事件'',''XN_Fuck_忏悔女''">懒惰之罪</a></div>'else:'<div class="buttonGr"><a href="exec:">威望不足</a></div>'
+			if 教堂等级>=3:'<div class="buttonR"><a href="exec:忏悔编号=3 & $忏悔罪名=''嫉妒'' & gt ''修女_事件'',''XN_Fuck_忏悔女''">嫉妒之罪</a></div>'else:'<div class="buttonGr"><a href="exec:">威望不足</a></div>'
+			if 教堂等级>=4:'<div class="buttonR"><a href="exec:忏悔编号=4 & $忏悔罪名=''贪婪'' & gt ''修女_事件'',''XN_Fuck_忏悔女''">贪婪之罪</a></div>'else:'<div class="buttonGr"><a href="exec:">威望不足</a></div>'
+			if 教堂等级>=5:'<div class="buttonR"><a href="exec:忏悔编号=5 & $忏悔罪名=''暴怒'' & gt ''修女_事件'',''XN_Fuck_忏悔女''">暴怒之罪</a></div>'else:'<div class="buttonGr"><a href="exec:">威望不足</a></div>'
+			if 教堂等级>=6:'<div class="buttonR"><a href="exec:忏悔编号=6 & $忏悔罪名=''色欲'' & gt ''修女_事件'',''XN_Fuck_忏悔女''">色欲之罪</a></div>'else:'<div class="buttonGr"><a href="exec:">威望不足</a></div>'
+			if 教堂等级>=7:'<div class="buttonR"><a href="exec:gt ''修女_事件'',''XN_Fuck_暴食''">暴食之罪</a></div>'else:'<div class="buttonGr"><a href="exec:">威望不足</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>我：罪孽源自于你！你必须亲自赎清你的罪行！</p>'
+			  '<p>女人：不！主教大人！我究竟犯了什么罪？！</p>'
+         '</div>'
+End
+
+if $args[0]="蕾最后":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\LEI\vids\final.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="buttonR"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p><<$LEI.name>>：感谢您的顶礼膜拜…需要缴纳教费请往这边…</p>'
+			  '<p>众教徒：她的变化可真大呀…</p>'
+			  '<p>·——————————</p>'
+			  '<p>·此处为该角色故事终点·</p>'
+         '</div>'
+End
+
+if $args[0]="教堂婚礼":
+        '<div class ="show_menu2"><img src="images\NPC\XN\pics\wed (<<rand(1,7)>>).jpg" height="492"></div>'
+       
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec: gt ''修女_事件'',''XN_Fuck_WED''">带她去你房间</a></div>'
+            '<div class="buttonGn3"><a href="exec: gt ''教堂''">离开</a></div>'
+            if $银行事件链B>=8:'<div class="buttonG4"><a href="exec: gt ''银行_事件'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
+            if $WH.婚纱=1:'<div class="buttonG4"><a href="exec:gt ''网红_事件'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			  '<p>新娘：可恶…怎么会有人在婚礼彩排的时候都迟到啊！</p>'
+			  '<p>我：那可是对神圣婚姻的蔑视和亵渎…</p>'
+			  '<p>新娘：神父大人！您说的可真对！我该怎么样惩罚他才能让他知错？</p>'
+			  '<p>我：惩罚一个人最深的方式是…根本不爱他。</p>'
+			  '<p>新娘：我明白了，神父大人…不如乘着他还没来…你先好好“惩罚”一下我？别看我这样，我可是个婊子呢❤</p>'
+         '</div>'
+End
+
+
+
+
+
+
+--- 教堂 ---------------------------------
+
