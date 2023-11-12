@@ -630,7 +630,7 @@ def find_key_by_value(value, data_type):
         return value
 
 
-def untranslate_filenames():
+def correct_translations():
     regex_find_embedded_filenames = r"(?<=images)[/\\].*<<[^>]+>>"
     regex_find_variable_assignment_beg = r"(?:^|(?<=\s|:|&))"
     regex_find_variable_assignment_end = r"\s*[!=+\-*/<>]{1,2}\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2})"
@@ -638,10 +638,12 @@ def untranslate_filenames():
     regex_find_event_call_beg = r"(?:gt|gs)\s*(?:'{1,2}|\"{1,2})"
     regex_find_event_call_mid = r"(?:'{1,2}|\"{1,2}),\s*(?:'{1,2}|\"{1,2})"
     regex_find_event_call_end = r"(?:'{1,2}|\"{1,2})(?:,\s*(?:'{1,2}|\"{1,2})[^'\"]+(?:'{1,2}|\"{1,2}))"
+    regex_find_location_references = r"(?:gs|gt)\s*(?:'|\"){1,2}<<[^<>]+>>(?:'|\"){1,2}"
 
     files = {}
     filename_variables = []
     filename_arguments = []
+    location_references = []
 
     for file in os.listdir("translated/"):
         file_reference = io.open("translated/" + file, 'r', encoding="utf-8")
@@ -653,23 +655,30 @@ def untranslate_filenames():
         while i < len(files[file]):
             line = files[file][i]
             matches = re.findall(regex_find_embedded_filenames, line)
+            variables = []
             for match in matches:
-                variables = re.findall(regex_embedded_variable, match)
-                while len(variables) > 0:
-                    if "<<RAND" in variables[0] or "<<rand" in variables[0]:
-                        variables.pop(0)
+                variables.extend(re.findall(regex_embedded_variable, match))
+
+            while len(variables) > 0:
+                if "<<RAND" in variables[0] or "<<rand" in variables[0]:
+                    variables.pop(0)
+                else:
+                    variables[0] = variables[0][2:-2].strip()
+                    if ".name" in variables[0]:
+                        filename_reference = re.search(r"images[/\\].*<<[^>]+>>", line).group(0)
+                        new_line = files[file].pop(i).replace(filename_reference, filename_reference.replace(variables[0], variables[0].replace(".name", ".filename")))
+                        files[file].insert(i, new_line)
+                    if "args" in variables[0] or "ARGS" in variables[0]:
+                        filename_arguments.append((file, i, variables.pop(0)))
+                    elif variables[0] not in filename_variables:
+                        filename_variables.append(variables.pop(0))
                     else:
-                        variables[0] = variables[0][2:-2].strip()
-                        if ".name" in variables[0]:
-                            filename_reference = re.search(r"images[/\\].*<<[^>]+>>", line).group(0)
-                            new_line = files[file].pop(i).replace(filename_reference, filename_reference.replace(variables[0], variables[0].replace(".name", ".filename")))
-                            files[file].insert(i, new_line)
-                        if "args" in variables[0] or "ARGS" in variables[0]:
-                            filename_arguments.append((file, i, variables.pop(0)))
-                        elif variables[0] not in filename_variables:
-                            filename_variables.append(variables.pop(0))
-                        else:
-                            variables.pop(0)
+                        variables.pop(0)
+
+            matches = re.findall(regex_find_location_references, line)
+            for match in matches:
+                location_references.append(re.findall(regex_embedded_variable, match)[0][2:-2].strip())
+
             i += 1
 
     for k, variable in zip(range(len(filename_variables)), filename_variables):
@@ -757,6 +766,20 @@ def untranslate_filenames():
         new_line = files[location].pop(index).replace(argument, "$filename_reference")
         files[location].insert(index, new_line)
 
+    for k, variable in zip(range(len(location_references)), location_references):
+        print("[" + str(k + 1) + "/" + str(len(location_references)) + "] Fixing location references: " + variable)
+        for file in files:
+            i = 0
+            while i < len(files[file]):
+                line = files[file][i]
+                matches = re.findall(regex_find_variable_assignment_beg + variable.replace("$", "\\$").replace(".", "\.") + regex_find_variable_assignment_end, line)
+                for match in matches:
+                    string = extract_from_string(match)[0]
+                    original = find_key_by_value(string, _text_)
+                    new_line = files[file].pop(i).replace(match, match.replace(string, xml[_locations_][original]))
+                    files[file].insert(i, new_line)
+                i += 1
+
     for file in files:
         file_reference = io.open("translated/"+file, 'w', encoding="utf-8")
         for line in files[file]:
@@ -799,4 +822,4 @@ for qsrc in os.listdir("files/"):
         else:
             exit(-69)
 
-untranslate_filenames()
+correct_translations()
