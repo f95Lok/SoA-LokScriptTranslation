@@ -618,6 +618,18 @@ def get_data(filepath):
     file.close()
 
 
+def find_key_by_value(value, data_type):
+    if value in xml[data_type].values():
+        original = ""
+        for ch, en in xml[data_type].items():
+            if value == en:
+                original = ch
+                break
+        return original
+    else:
+        return value
+
+
 def untranslate_filenames():
     regex_find_embedded_filenames = r"(?<=images)[/\\].*<<[^>]+>>"
     regex_find_variable_assignment_beg = r"(?:^|(?<=\s|:|&))"
@@ -669,23 +681,22 @@ def untranslate_filenames():
                 matches = re.findall(regex_find_variable_assignment_beg + variable.replace("$", "\\$").replace(".", "\.") + regex_find_variable_assignment_end, line)
                 for match in matches:
                     string = extract_from_string(match)[0]
-                    if string in xml[_text_].values():
-                        for ch, en in xml[_text_].items():
-                            if en == string:
-                                original = ch
-                                if ".name" in variable:
-                                    new_line = line.replace(match, match.replace(".name", ".filename").replace(string, original))
-                                    files[file].insert(i+1, new_line)
-                                    i += 1
-                                else:
-                                    new_line = files[file].pop(i).replace(match, match.replace(string, original))
-                                    files[file].insert(i, new_line)
+                    original = find_key_by_value(string, _text_)
 
-                                break
+                    if original != "":
+                        if ".name" in variable:
+                            new_line = line.replace(match, match.replace(".name", ".filename").replace(string, original))
+                            files[file].insert(i + 1, new_line)
+                            i += 1
+                        else:
+                            new_line = files[file].pop(i).replace(match, match.replace(string, original))
+                            files[file].insert(i, new_line)
+
                     elif ".name" in variable:
                         new_line = line.replace(match, match.replace(".name", ".filename"))
                         files[file].insert(i + 1, new_line)
                         i += 1
+
                 i += 1
 
     for k, occurrence in zip(range(len(filename_arguments)), filename_arguments):
@@ -695,6 +706,19 @@ def untranslate_filenames():
         event_line = files[location][event_index]
         event_line_match = re.search(regex_find_event_start, event_line)
         while event_line_match is None and event_index >= 0:
+            if "if" in event_line:
+                event_line = event_line[event_line.find(":")+1:]
+
+            reassignment = re.search(regex_find_variable_assignment_beg + argument.lower().replace("$", "\\$").replace("[", "\\[") + regex_find_variable_assignment_end, event_line.lower())
+            if reassignment is not None:
+                match = reassignment.group(0)
+                string = extract_from_string(match)[0]
+                original = find_key_by_value(string, _arguments_)
+                old_line = files[location].pop(event_index)
+
+                new_line = "\t"*old_line.count("\t") + '$file_reference="' + original + '" & ' + old_line[old_line.rfind("\t")+1:]
+                files[location].insert(event_index, new_line)
+
             event_index -= 1
             event_line = files[location][event_index]
             event_line_match = re.search(regex_find_event_start, event_line)
@@ -715,11 +739,7 @@ def untranslate_filenames():
                 if match is not None and "$filename_reference=" not in line:
                     match = match.group(0)
                     event_arguments = extract_from_string(match)
-                    filename_reference = event_arguments[-1]
-                    if filename_reference in xml[_arguments_].values():
-                        for ch, en in xml[_arguments_].items():
-                            if en == filename_reference:
-                                filename_reference = ch
+                    filename_reference = find_key_by_value(event_arguments[-1], _arguments_)
 
                     if ".name" in filename_reference:
                         filename_reference = filename_reference.replace(".name", ".filename")
@@ -727,7 +747,7 @@ def untranslate_filenames():
                     if "exec:" in line:
                         filename_reference = "$filename_reference=''" + filename_reference + "'' & " + match
                     else:
-                        filename_reference = '$filename_reference="' + filename_reference + '" & ' + match
+                        filename_reference = "\t"*match.count("\t") + '$filename_reference="' + filename_reference + '" & ' + match[match.rfind("\t")+1:]
 
                     new_line = files[file].pop(i).replace(match, filename_reference)
                     files[file].insert(i, new_line)
