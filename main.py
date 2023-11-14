@@ -51,7 +51,7 @@ _update_xml_ = True
 _in_partial_hyperlink_ = False
 _current_location_ = ""
 
-regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+</div>|<div.+$|<a.+</a>|(?:<p>|<p).+</p>|<p>.+?(?:$|(?=else:))|<font.+</font>|<font[^']+(?=')|<span.[^']+(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+?(?:$|(?=else:))|#\s.+$|\-{3}\s[^-]+\s\-+"
+regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+?</div>|<div.+?$|<a.+?</a>|(?:<p>|<p).+?</p>|<p>.+?(?:$|(?=else:))|<font.+?/font>|<font[^']+?(?=')|<span.[^']+?(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+?(?:$|(?=else:))|#\s.+$|\-{3}\s[^-]+\s\-+"
 
 regex_extract_from_string = r"(?<='')[^']+(?='')|(?<=\"\")[^\"]+(?=\"\")|(?<=')[^']+(?=')|(?<=\")[^\"]+(?=\")"
 regex_extract_from_string_partial_no_end = r"(?:^\s*|=\s*)\"[^\"]+$|(?:^\s*|=\s*)'[^']+$"
@@ -573,6 +573,19 @@ def analyze_expression(match):
         handle_expression(match)
 
 
+def replace_in_match(new_line, match=None):
+    for _translation_ in _translations_:
+        if match is not None:
+            new_match = match.replace(_translation_[0], _translation_[1], 1)
+            new_line = new_line.replace(match, new_match)
+            match = new_match
+        else:
+            new_line = new_line.replace(_translation_[0], _translation_[1], 1)
+
+    _translations_.clear()
+    return new_line
+
+
 def get_data(filepath):
     global _current_line_
     global _current_location_
@@ -583,53 +596,53 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 107:
+        if i == 12:
             print("debug")
 
-        if re.sub(regex_everything_mostly, "", line).strip() == "":
+        if re.sub(regex_everything_mostly, "", line).strip() == "" or line.strip()[0] == "!":
             new_file.append(line)
             continue
-
-        if line.strip()[0] == "!":
-            new_file.append(line)
-            continue
-
-        if any(ignore in line for ignore in ignore_terms):
-            handle_embedded_variables(line)
-
-        elif _in_partial_hyperlink_:
-            handle_hyperlink(line.strip())
 
         else:
-            matches = re.findall(regex_main, line)
-            if len(matches) > 0:
-                for match in matches:
-                    if re.search("if\s[^:]+:", match) is not None:
-                        handle_if_arguments(match)
+            new_line = line
 
-                    elif re.search(r"^\s*[^=<]+=", match) is not None:
-                        analyze_expression(match)
+            if any(ignore in line for ignore in ignore_terms):
+                handle_embedded_variables(line)
+                new_line = replace_in_match(new_line)
 
-                    elif any(tag in match for tag in html_tags):
-                        handle_html(match)
+            elif _in_partial_hyperlink_:
+                handle_hyperlink(line.strip())
+                new_line = replace_in_match(new_line)
 
-                    elif any(function in match for function in match_function):
-                        handle_function(match)
-
-                    elif re.search("^#", match) is not None or re.search(r"^---\s.+\s-+", match) is not None:
-                        handle_location(match)
-
-                    else:
-                        analyze_expression(match)
             else:
-                handle_texts(extract_from_string(line.strip()))
+                matches = re.findall(regex_main, line)
+                if len(matches) > 0:
+                    for match in matches:
+                        if re.search("if\s[^:]+:", match) is not None:
+                            handle_if_arguments(match)
 
-        new_line = line
-        for _translation_ in _translations_:
-            new_line = new_line.replace(_translation_[0], _translation_[1], 1)
-        new_file.append(new_line)
+                        elif re.search(r"^\s*[^=<]+=", match) is not None:
+                            analyze_expression(match)
 
-        _translations_.clear()
+                        elif any(tag in match for tag in html_tags):
+                            handle_html(match)
+
+                        elif any(function in match for function in match_function):
+                            handle_function(match)
+
+                        elif re.search("^#", match) is not None or re.search(r"^---\s.+\s-+", match) is not None:
+                            handle_location(match)
+
+                        else:
+                            analyze_expression(match)
+
+                        new_line = replace_in_match(new_line, match)
+
+                else:
+                    handle_texts(extract_from_string(line.strip()))
+                    new_line = replace_in_match(new_line)
+
+            new_file.append(new_line)
 
     file.close()
     if filepath[:-5] in xml[_locations_]:
