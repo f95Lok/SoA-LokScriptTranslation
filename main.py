@@ -596,7 +596,7 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 12:
+        if i == 152:
             print("debug")
 
         if re.sub(regex_everything_mostly, "", line).strip() == "" or line.strip()[0] == "!":
@@ -639,7 +639,11 @@ def get_data(filepath):
                         new_line = replace_in_match(new_line, match)
 
                 else:
-                    handle_texts(extract_from_string(line.strip()))
+                    matches = extract_from_string(line.strip())
+                    if len(matches) > 0:
+                        handle_texts(matches)
+                    else:
+                        handle_text(line)
                     new_line = replace_in_match(new_line)
 
             new_file.append(new_line)
