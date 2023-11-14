@@ -82,14 +82,6 @@ html_tags = ["<div", "<a", "<p", "<font"]
 _current_line_ = ""
 
 
-def add_console():
-    console_function = "# cheats\n$command = $TRIM($LCASE($input('CONSOLE, FOR DEBUG, USE AT YOUR OWN PERIL')))\nif mid($command,1,1) = '@':\n\tdynamic $mid($command,2)\nelseif instr($command, ' ') > 0:\n\tmsg 'invalid input (contains whitespace): use @ prefix for commands'\nelse\n\tdynamic 'msg ' + $command\nend\n--- cheats ---------------------------------\n"
-    io.open("translated/cheats.qsrc", 'w', encoding="utf-8").write(console_function)
-    menu_time = io.open("translated/menu_time.qsrc", 'r', encoding="utf-8").read()
-    menu_time = menu_time.replace("'<p> <<$weather>> <<year>> <<$month_name[month]>> <<day>> <<$week_day[week_day]>>'", "'<p> <<$weather>> <<year>> <<$month_name[month]>> <<day>> <<$week_day[week_day]>> | <a href=\"exec: gs ''cheats''\">Console</a>'")
-    io.open("translated/menu_time.qsrc", 'w', encoding="utf-8").write(menu_time)
-
-
 def old_xml_to_dict(file):
     entries = {}
     for line in file.readlines():
@@ -923,4 +915,3 @@ for qsrc in os.listdir("files/"):
 
 handle_uncertainties()
 correct_translations()
-add_console()
