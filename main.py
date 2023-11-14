@@ -38,6 +38,7 @@ _locations_ = "locations"
 _arguments_ = "arguments"
 _text_ = "text"
 
+_uncertainties_ = {}
 _translations_ = []
 
 _use_auto_translate_ = True
@@ -50,7 +51,7 @@ _update_xml_ = True
 _in_partial_hyperlink_ = False
 _current_location_ = ""
 
-regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+$|if [^:]+:|<div.+</div>|<div.+$|<a.+</a>|(?:<p>|<p).+</p>|<p>.+$|<font.+</font>|<font[^']+(?=')|<span.[^']+(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+$|#\s.+$|\-{3}\s[^-]+\s\-+"
+regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+?</div>|<div.+?$|<a.+?</a>|(?:<p>|<p).+?</p>|<p>.+?(?:$|(?=else:))|<font.+?/font>|<font[^']+?(?=')|<span.[^']+?(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+?(?:$|(?=else:))|#\s.+$|\-{3}\s[^-]+\s\-+"
 
 regex_extract_from_string = r"(?<='')[^']+(?='')|(?<=\"\")[^\"]+(?=\"\")|(?<=')[^']+(?=')|(?<=\")[^\"]+(?=\")"
 regex_extract_from_string_partial_no_end = r"(?:^\s*|=\s*)\"[^\"]+$|(?:^\s*|=\s*)'[^']+$"
@@ -73,12 +74,22 @@ regex_detect_partial_hyperlink = r"href='[^']+$|href=\"[^\"]+$"
 regex_embedded_variable = r"<{2}[^<>]+>{2}"
 regex_operators = r"[+\-*/&]"
 
-ch_punctuation_marks = ["，", ",", "。", "·", ".", "...", "？", "?", "！", "!", "：", ":", "—", "【", "】"]
+ch_punctuation_marks = ["，", ",", "。", "·", ".", "...", "？", "?", "！", "!", "：", ":", "—", "【", "】", "<", ">"]
 match_function = ["gs", "gt", "dynamic", "killvar", "KILLVAR"]
 ignore_terms = ["img src", "source src"]
 html_tags = ["<div", "<a", "<p", "<font"]
 
 _current_line_ = ""
+
+
+def add_console():
+    console_function = "if $args[0]=\"console\":\n\t$command = $TRIM($LCASE($input('CONSOLE, FOR DEBUG, USE AT YOUR OWN PERIL')))\n\tif mid($command,1,1) = '@':\n\t\tdynamic $mid($command,2)\n\telseif instr($command, ' ') > 0:\n\t\tmsg 'invalid input (contains whitespace): use @ prefix for commands'\n\telse\n\t\tdynamic 'msg ' + $command\n\tend\nend\n\n--- home_computer ---------------------------------"
+    home_computer = io.open("translated/home_computer.qsrc", 'r', encoding="utf-8").read()
+    home_computer = home_computer.replace("--- home_computer ---------------------------------", console_function)
+    io.open("translated/home_computer.qsrc", 'w', encoding="utf-8").write(home_computer)
+    menu_time = io.open("translated/menu_time.qsrc", 'r', encoding="utf-8").read()
+    menu_time = menu_time.replace("'<p> <<$weather>> <<year>> <<$month_name[month]>> <<day>> <<$week_day[week_day]>>'", "'<p> <<$weather>> <<year>> <<$month_name[month]>> <<day>> <<$week_day[week_day]>> | <a href=\"exec: gs ''home_computer'', ''console''\">Console</a>'")
+    io.open("translated/menu_time.qsrc", 'w', encoding="utf-8").write(menu_time)
 
 
 def old_xml_to_dict(file):
@@ -147,17 +158,31 @@ def update_xml(original, translation, data_type):
         xml_file.write(line)
 
 
-def translate(text, data_type):
+def format_data(translation):
+    translation = translation.replace(" ", "_").lower()
+    while translation.find("__") != -1:
+        translation = translation.replace("__", "_")
+
+    return translation
+
+
+def translate(text, data_type, uncertain=False):
     global _alt_tabbed_
     global _current_location_
     print_progress = True
     if text in xml[data_type]:
-        _translations_.append((text, xml[data_type][text]))
+        translation = xml[data_type][text]
+        _translations_.append((text, translation))
         if _print_output_:
-            print(_current_line_ + " Translated: " + text + " [" + data_type + "] to: " + xml[data_type][text])
+            print(_current_line_ + " Translated: " + text + " [" + data_type + "] to: " + translation)
 
         if _current_location_ == "" and data_type == _locations_:
-            _current_location_ = xml[data_type][text]
+            _current_location_ = translation
+
+        if uncertain:
+            if translation not in _uncertainties_:
+                _uncertainties_[translation] = []
+            _uncertainties_[translation].append((_current_location_, _current_line_))
     else:
         if text in old_xml and _use_old_dict_:
             translation = old_xml[text]
@@ -195,12 +220,15 @@ def translate(text, data_type):
 
             translation = clip.paste()
 
-        if data_type != _text_:
-            translation = translation.replace(" ", "_").lower()
-            while translation.find("__") != -1:
-                translation = translation.replace("__", "_")
-
         translation = translation.replace("'", "`").replace('"', "`")
+
+        if data_type != _text_:
+            translation = format_data(translation)
+
+        if uncertain:
+            if translation not in _uncertainties_:
+                _uncertainties_[translation] = []
+            _uncertainties_[translation].append((_current_location_, _current_line_))
 
         if _update_xml_:
             update_xml(text, translation, data_type)
@@ -213,14 +241,14 @@ def translate(text, data_type):
             print(_current_line_ + " Translated: " + text + " [" + data_type + "] to: " + translation)
 
 
-def update_dict(new_data, data_type):
+def update_dict(new_data, data_type, uncertain=False):
     if type(new_data) != list:
         new_data = [new_data]
 
     for d in new_data:
         if re.sub(regex_everything_mostly, "", d).strip() != "":
             entry = d.strip()
-            translate(entry, data_type)
+            translate(entry, data_type, uncertain)
 
 
 def extract_from_string(text):
@@ -260,24 +288,26 @@ def handle_embedded_variables(text):
         handle_embedded_variable(embedded_variable)
 
 
-def handle_text(text, force_type=_text_):
+def handle_text(text, force_type=_text_, uncertain=False):
     embedded_variables = re.findall(regex_embedded_variable, text)
     texts = re.split(regex_embedded_variable, text)
 
     while len(embedded_variables) > 0 or len(texts) > 0:
         if len(embedded_variables) == 0:
-            update_dict(texts.pop(0).replace("</p>", ""), force_type)
+            update_dict(texts.pop(0).replace("</p>", ""), force_type, uncertain)
         elif len(texts) == 0:
             handle_embedded_variable(embedded_variables.pop(0))
         elif text.find(texts[0]) < text.find(embedded_variables[0]):
-            update_dict(texts.pop(0).replace("</p>", ""), force_type)
+            update_dict(texts.pop(0).replace("</p>", ""), force_type, uncertain)
         else:
             handle_embedded_variable(embedded_variables.pop(0))
 
 
-def handle_texts(texts, force_type=_text_):
+def handle_texts(texts, force_type=_text_, uncertain=False):
+    if uncertain is True:
+        print("debug")
     for text in texts:
-        handle_text(text, force_type=force_type)
+        handle_text(text, force_type=force_type, uncertain=uncertain)
 
 
 def handle_expression(expressions, callback=None):
@@ -337,7 +367,7 @@ def handle_function(function):
                     handle_texts(extract_from_string(function[i]), force_type=_locations_)
                 else:
                     if any(ch_punctuation in function[i] for ch_punctuation in ch_punctuation_marks) or i > 1 and "_" not in function[i] and len(re.sub(r"[\"'<>]", "", function[i])) >= 10:
-                        handle_texts(extract_from_string(function[i]))
+                        handle_texts(extract_from_string(function[i]), uncertain=True)
                     else:
                         handle_texts(extract_from_string(function[i]), force_type=_arguments_)
 
@@ -536,17 +566,34 @@ def analyze_expression(match):
         expressions = re.split(r"&|else:", match)
         for expression in expressions:
             expression = expression.strip()
-            if any(function in expression for function in match_function):
-                handle_function(expression)
-            elif len(extract_from_string(expression)) == 1 and expression[0] == expression[-1]:
+            if len(extract_from_string(expression)) == 1 and expression[0] == expression[-1]:
                 if any(tag in expression for tag in html_tags):
                     handle_html(extract_from_string(expression)[0])
                 else:
                     handle_texts(extract_from_string(expression))
+            elif re.search(r"^\s*[^=<]+=", expression) is not None:
+                analyze_expression(expression)
+            elif any(tag in expression for tag in html_tags):
+                handle_html(expression)
+            elif any(function in expression for function in match_function):
+                handle_function(expression)
             else:
                 handle_expression(expression)
     else:
         handle_expression(match)
+
+
+def replace_in_match(new_line, match=None):
+    for _translation_ in _translations_:
+        if match is not None:
+            new_match = match.replace(_translation_[0], _translation_[1], 1)
+            new_line = new_line.replace(match, new_match)
+            match = new_match
+        else:
+            new_line = new_line.replace(_translation_[0], _translation_[1], 1)
+
+    _translations_.clear()
+    return new_line
 
 
 def get_data(filepath):
@@ -559,53 +606,53 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 95:
+        if i == 12:
             print("debug")
 
-        if re.sub(regex_everything_mostly, "", line).strip() == "":
+        if re.sub(regex_everything_mostly, "", line).strip() == "" or line.strip()[0] == "!":
             new_file.append(line)
             continue
-
-        if line.strip()[0] == "!":
-            new_file.append(line)
-            continue
-
-        if any(ignore in line for ignore in ignore_terms):
-            handle_embedded_variables(line)
-
-        elif _in_partial_hyperlink_:
-            handle_hyperlink(line.strip())
 
         else:
-            matches = re.findall(regex_main, line)
-            if len(matches) > 0:
-                for match in matches:
-                    if re.search("if\s[^:]+:", match) is not None:
-                        handle_if_arguments(match)
+            new_line = line
 
-                    elif re.search(r"^\s*[^=<]+=", match) is not None:
-                        analyze_expression(match)
+            if any(ignore in line for ignore in ignore_terms):
+                handle_embedded_variables(line)
+                new_line = replace_in_match(new_line)
 
-                    elif any(tag in match for tag in html_tags):
-                        handle_html(match)
+            elif _in_partial_hyperlink_:
+                handle_hyperlink(line.strip())
+                new_line = replace_in_match(new_line)
 
-                    elif any(function in match for function in match_function):
-                        handle_function(match)
-
-                    elif re.search("^#", match) is not None or re.search(r"^---\s.+\s-+", match) is not None:
-                        handle_location(match)
-
-                    else:
-                        analyze_expression(match)
             else:
-                handle_texts(extract_from_string(line.strip()))
+                matches = re.findall(regex_main, line)
+                if len(matches) > 0:
+                    for match in matches:
+                        if re.search("if\s[^:]+:", match) is not None:
+                            handle_if_arguments(match)
 
-        new_line = line
-        for _translation_ in _translations_:
-            new_line = new_line.replace(_translation_[0], _translation_[1], 1)
-        new_file.append(new_line)
+                        elif re.search(r"^\s*[^=<]+=", match) is not None:
+                            analyze_expression(match)
 
-        _translations_.clear()
+                        elif any(tag in match for tag in html_tags):
+                            handle_html(match)
+
+                        elif any(function in match for function in match_function):
+                            handle_function(match)
+
+                        elif re.search("^#", match) is not None or re.search(r"^---\s.+\s-+", match) is not None:
+                            handle_location(match)
+
+                        else:
+                            analyze_expression(match)
+
+                        new_line = replace_in_match(new_line, match)
+
+                else:
+                    handle_texts(extract_from_string(line.strip()))
+                    new_line = replace_in_match(new_line)
+
+            new_file.append(new_line)
 
     file.close()
     if filepath[:-5] in xml[_locations_]:
@@ -618,19 +665,73 @@ def get_data(filepath):
     file.close()
 
 
-def find_key_by_value(value, data_type):
-    if value in xml[data_type].values():
-        original = ""
-        for ch, en in xml[data_type].items():
-            if value == en:
-                original = ch
-                break
-        return original
-    else:
-        return value
+def handle_uncertainties():
+    regex_find_event_call = r"(?:gt|gs)\s*(?:,?\s*(?:'{1,2}|\"{1,2})[^'\"]+(?:'{1,2}|\"{1,2}))*,\s*(?:'{1,2}|\"{1,2})"
+
+    files = {}
+
+    for file in os.listdir("translated/"):
+        file_reference = io.open("translated/" + file, 'r', encoding="utf-8")
+        files[file] = file_reference.readlines()
+        file_reference.close()
+
+    for k, (text, info) in zip(range(len(_uncertainties_)), _uncertainties_.items()):
+        print("[" + str(k + 1) + "/" + str(len(_uncertainties_)) + "] Fixing uncertainty: " + str(info) + " " + text)
+        alternate_translation = format_data(text)
+        for file in files:
+            switch_type = False
+            for line in files[file]:
+                argument_check = re.search(r"if\s[^:]+:", line)
+                if argument_check is not None:
+                    argument_check = argument_check.group(0)
+                    add_underscore = False
+                    if alternate_translation in argument_check:
+                        switch_type = True
+                        if re.search(re.escape(alternate_translation) + r"_*-*\d+", argument_check):
+                            add_underscore = True
+
+                    if switch_type:
+                        if add_underscore:
+                            alternate_translation += "_"
+
+                        for location, line_info in info:
+                            function_line = int(line_info[line_info.find("(") + 1:line_info.find("/")]) - 1
+
+                            change_file = io.open("translated/"+location+".qsrc", 'r', encoding="utf-8").readlines()
+                            change_file_reference = io.open("translated/"+location+".qsrc", 'w', encoding="utf-8")
+
+                            for i, change_line in zip(range(len(change_file)), change_file):
+                                if i != function_line:
+                                    change_file_reference.write(change_line)
+
+                                else:
+                                    function = re.search(regex_find_event_call + re.escape(text), change_line).group(0)
+                                    new_line = change_file.pop(i).replace(function, function.replace(text, alternate_translation))
+                                    change_file.insert(i, new_line)
+                                    change_file_reference.write(new_line)
+
+                            change_file_reference.close()
+
+                        break
+
+                if switch_type:
+                    break
 
 
-def untranslate_filenames():
+def find_key_by_value(value, data_types):
+    if type(data_types) != list:
+        data_types = [data_types]
+
+    for data_type in data_types:
+        if value in xml[data_type].values():
+            for ch, en in xml[data_type].items():
+                if value == en:
+                    return ch
+
+    return value
+
+
+def correct_translations():
     regex_find_embedded_filenames = r"(?<=images)[/\\].*<<[^>]+>>"
     regex_find_variable_assignment_beg = r"(?:^|(?<=\s|:|&))"
     regex_find_variable_assignment_end = r"\s*[!=+\-*/<>]{1,2}\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2})"
@@ -638,10 +739,12 @@ def untranslate_filenames():
     regex_find_event_call_beg = r"(?:gt|gs)\s*(?:'{1,2}|\"{1,2})"
     regex_find_event_call_mid = r"(?:'{1,2}|\"{1,2}),\s*(?:'{1,2}|\"{1,2})"
     regex_find_event_call_end = r"(?:'{1,2}|\"{1,2})(?:,\s*(?:'{1,2}|\"{1,2})[^'\"]+(?:'{1,2}|\"{1,2}))"
+    regex_find_location_references = r"(?:gs|gt)\s*(?:'|\"){1,2}<<[^<>]+>>(?:'|\"){1,2}"
 
     files = {}
     filename_variables = []
     filename_arguments = []
+    location_references = []
 
     for file in os.listdir("translated/"):
         file_reference = io.open("translated/" + file, 'r', encoding="utf-8")
@@ -653,23 +756,30 @@ def untranslate_filenames():
         while i < len(files[file]):
             line = files[file][i]
             matches = re.findall(regex_find_embedded_filenames, line)
+            variables = []
             for match in matches:
-                variables = re.findall(regex_embedded_variable, match)
-                while len(variables) > 0:
-                    if "<<RAND" in variables[0] or "<<rand" in variables[0]:
-                        variables.pop(0)
+                variables.extend(re.findall(regex_embedded_variable, match))
+
+            while len(variables) > 0:
+                if "<<RAND" in variables[0] or "<<rand" in variables[0]:
+                    variables.pop(0)
+                else:
+                    variables[0] = variables[0][2:-2].strip()
+                    if ".name" in variables[0]:
+                        filename_reference = re.search(r"images[/\\].*<<[^>]+>>", line).group(0)
+                        new_line = files[file].pop(i).replace(filename_reference, filename_reference.replace(variables[0], variables[0].replace(".name", ".filename")))
+                        files[file].insert(i, new_line)
+                    if "args" in variables[0] or "ARGS" in variables[0]:
+                        filename_arguments.append((file, i, variables.pop(0)))
+                    elif variables[0] not in filename_variables:
+                        filename_variables.append(variables.pop(0))
                     else:
-                        variables[0] = variables[0][2:-2].strip()
-                        if ".name" in variables[0]:
-                            filename_reference = re.search(r"images[/\\].*<<[^>]+>>", line).group(0)
-                            new_line = files[file].pop(i).replace(filename_reference, filename_reference.replace(variables[0], variables[0].replace(".name", ".filename")))
-                            files[file].insert(i, new_line)
-                        if "args" in variables[0] or "ARGS" in variables[0]:
-                            filename_arguments.append((file, i, variables.pop(0)))
-                        elif variables[0] not in filename_variables:
-                            filename_variables.append(variables.pop(0))
-                        else:
-                            variables.pop(0)
+                        variables.pop(0)
+
+            matches = re.findall(regex_find_location_references, line)
+            for match in matches:
+                location_references.append(re.findall(regex_embedded_variable, match)[0][2:-2].strip())
+
             i += 1
 
     for k, variable in zip(range(len(filename_variables)), filename_variables):
@@ -739,7 +849,7 @@ def untranslate_filenames():
                 if match is not None and "$filename_reference=" not in line:
                     match = match.group(0)
                     event_arguments = extract_from_string(match)
-                    filename_reference = find_key_by_value(event_arguments[-1], _arguments_)
+                    filename_reference = find_key_by_value(event_arguments[-1], [_arguments_, _text_])
 
                     if ".name" in filename_reference:
                         filename_reference = filename_reference.replace(".name", ".filename")
@@ -756,6 +866,20 @@ def untranslate_filenames():
 
         new_line = files[location].pop(index).replace(argument, "$filename_reference")
         files[location].insert(index, new_line)
+
+    for k, variable in zip(range(len(location_references)), location_references):
+        print("[" + str(k + 1) + "/" + str(len(location_references)) + "] Fixing location references: " + variable)
+        for file in files:
+            i = 0
+            while i < len(files[file]):
+                line = files[file][i]
+                matches = re.findall(regex_find_variable_assignment_beg + variable.replace("$", "\\$").replace(".", "\.") + regex_find_variable_assignment_end, line)
+                for match in matches:
+                    string = extract_from_string(match)[0]
+                    original = find_key_by_value(string, _text_)
+                    new_line = files[file].pop(i).replace(match, match.replace(string, xml[_locations_][original]))
+                    files[file].insert(i, new_line)
+                i += 1
 
     for file in files:
         file_reference = io.open("translated/"+file, 'w', encoding="utf-8")
@@ -799,4 +923,6 @@ for qsrc in os.listdir("files/"):
         else:
             exit(-69)
 
-untranslate_filenames()
+handle_uncertainties()
+correct_translations()
+add_console()
