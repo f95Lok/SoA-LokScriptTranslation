@@ -1,52 +1,59 @@
 # menu_time
 '<div class="time_menu">'
-	 gs'menu_time_calc'
+ 	gs'menu_time_calc'
 	 
 	 
-	 if daily_weather=0:
-	  $weather[0]='Sunny'
-	  $weather[1]='Sunny'
-	  $weather[2]='Sunny'
-	  $weather[3]='Sunny'
-	  $weather[4]='Sunny'
-	  $weather[5]='☁ cloud'
-	  $weather[6]='☁ yin'
-	  $weather[7]='☁ yin'
-	  $weather[8]='☂ rain'
-	  $weather[9]='☂ rain'
-	  $weather=$weather[rand(0,9)]
-	  daily_weather=1
-	 end
-	 
-
-	 
-	 
-	 
-		'<p> <<$weather>> <<year>> <<$month_name[month]>> <<day>> <<$week_day[week_day]>>'
-		if  customs_clearance_reward_collection>0:
-		'✌'
-		else:
-		''
-		end
-		if  devils_pupil>0:
-		'♕'
-		else:
-		''
-		end
-		'</p>'
-		'<p> </p>'
-
-
-
-
-	if hour < 10 and minutes<10: '<p class ="timer">0<<hour>>:0<<minutes>></p>'
-	if hour >= 10 and minutes<10: '<p class ="timer"><<hour>>:0<<minutes>></p>'
-	if hour < 10 and minutes=>10: '<p class ="timer">0<<hour>>:<<minutes>></p>'
-	if hour => 10 and minutes=>10: '<p class ="timer"><<hour>>:<<minutes>></p>'
+	if daily_weather=0:
+	 	$weather[0]='☀ Sunny'
+	  	$weather[1]='☀ Sunny'
+	  	$weather[2]='☀ Sunny'
+	  	$weather[3]='☀ Sunny'
+	  	$weather[4]='☀ Sunny'
+	  	$weather[5]='☁ Cloudy'
+	  	$weather[6]='☁ Cloudy'
+	  	$weather[7]='☁ Cloudy'
+	  	$weather[8]='☂ Rainy'
+	  	$weather[9]='☂ Rainy'
+	  	$weather=$weather[rand(0,9)]
+	  	daily_weather=1
+	end
 	
+	'<p> <<$weather>> '
+		if active_cheats:
+		 	if day >= 2: '<a href="exec: day-=1 & week_day-=1&gt $loc,$metka"><span class =''red''>--</span></a>'
+			if week_day > 7: week_day = 1
+			if week_day < 1: week_day = 7
+		end
+		' <<$week_day[week_day]>> <<day>> '
+		if active_cheats: '<a href="exec: day+=1 & week_day+=1&gt $loc,$metka"><span class =''green''>++</span></a>'
+		' <<$month_name[month]>> <<year>>   '
+		if customs_clearance_reward_collection>0:
+			'✌'
+		else
+			''
+		end
+		if devils_pupil>0:
+			'♕'
+		else
+			''
+		end
+		if active_cheats: ' | <a href="exec: gs ''home_computer'', ''console''">Console</a>'
+		'</p>'
+	'<p> </p>'
+
+	'<p class ="timer">'
+		if active_cheats:
+			'<a href="exec: hour-=1 &minutes=0& gt $loc,$metka"><span class =''red''>--</span></a>'
+			'<a href="exec: hour+=1 &minutes=0& gt $loc,$metka"><span class =''green''>++</span></a>'
+		end
+		if hour < 10 and minutes<10: '0<<hour>>:0<<minutes>>'
+		if hour >= 10 and minutes<10: '<<hour>>:0<<minutes>>'
+		if hour < 10 and minutes=>10: '0<<hour>>:<<minutes>>'
+		if hour => 10 and minutes=>10: '<<hour>>:<<minutes>>'
+		if active_cheats: '    <a href="exec: Dailyneighborbed=0 & gt $loc,$metka"><span class =''red''>RD</span></a>'
+	'</p>'
 
 '</div>'
-
 
 gs "general_thesaurus"
 gs"multi_ability_judgment"

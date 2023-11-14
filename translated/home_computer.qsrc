@@ -29,7 +29,7 @@ gs'menu_gif'
 			<a class="photo" data-title="Weibo" href="exec:minutes+=15 & gt ''home_computer'',''weibo''"><img class="img_stretch" src="images\items\wb0.png"></a>
 		</div>'
 		'<div class="action2">'
-			!'<a class="photo" data-title="黑客" href="execminutes+=15 & gt ''家_电脑'',''真测试''"><img class="img_stretch" src="images\items\测试按钮.jpg"></a>'
+			'<a class="photo" data-title="黑客" href="execminutes+=15 & gt ''home_computer'',''cheats''"><img class="img_stretch" src="images\items\测试按钮.jpg"></a>'
 		'</div>'
 	'</div>'
 '</div>'
@@ -235,51 +235,37 @@ if $args[0] = 'private_message':
 End
 
 
-if $args[0] = 'test':
+if $args[0] = 'cheats':
 	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
 	'<div class="show_menu">'
 		'<img src="images\place\测试.jpg" width="854">'
 	'</div>'
 	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
-	'<div class="button_menu">
-		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer'',''true_test''">Insist on entering</a></div>
-		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">leave</a></div>
-	</div>'
+	!'<div class="button"><a href="exec: gt ''home_computer'',''''"></a></div>'
+	'<div class="button_menu">'
+	if active_cheats = 0:
+		'<div class="button"><a href="exec: active_cheats=1 & gt ''home_computer'',''cheats''">Enable Cheats</a></div>'
+	else:
+		'<div class="button"><a href="exec: active_cheats=0 & gt ''home_computer'',''cheats''">Disable Cheats</a></div>'
+	end
+	'<div class="button"><a href="exec: gt ''home_computer''">leave</a></div>'
+	'</div>'
 	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
 	'<div class="dialog_menu">'
-		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
-		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
-		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+		'<p>Use these at your own peril. Most of them shouldn`t break the game... hopefully</p>'
 	'</div>'
-End
+end
 
-if $args[0] = 'true_test':
-	a=0
-	q=0
-	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
-	'<div class="show_menu">'
-		'<img src="images\place\测试.jpg" width="854">'
-	'</div>'
-	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
-	'<div class="button_menu">
-		<div class="buttonG3"><a href="exec: $gun_hunting_incident_chain=2 & gt ''police_station''">Police Officer 22</a></div>
-
-</div>
-
-
-
-
-
-	</div>'
-	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
-	'<div class="dialog_menu">
-		<p><<$draft_event_chain>>SS<<electricguitar>></p>
-	</div>'
-	
-End
-
-
-
+if $args[0]="console":
+	$command = $trim($lcase($input('CONSOLE, FOR DEBUG, USE AT YOUR OWN PERIL')))
+	if mid($command,1,1) = '@':
+		dynamic $mid($command,2)
+	elseif instr($command, ' ') > 0:
+		msg 'invalid input (contains whitespace): use @ prefix for commands'
+	else
+		dynamic 'msg ' + $command
+	end
+end
 
 --- home_computer ---------------------------------
 
