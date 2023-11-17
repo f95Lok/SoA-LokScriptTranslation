@@ -596,8 +596,8 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 152:
-            print("debug")
+        # if i == 152:
+        #     print("debug")
 
         if re.sub(regex_everything_mostly, "", line).strip() == "" or line.strip()[0] == "!":
             new_file.append(line)
