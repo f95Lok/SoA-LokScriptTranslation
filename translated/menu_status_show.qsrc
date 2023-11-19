@@ -4,10 +4,15 @@
 
 '<div class="status_menu">'
 
-	
+if active_cheats: 
+	if my.energy < 100:'<p>♨ Energy: <span class =''red''><a href="exec: my.energy = 1000& $succubus_energy=3& gt $loc,$metka"><<my.energy>></a>/<<$display_fine_max>></span>'
+	if my.energy >= 100 and my.energy < 300:'<p>♨ Energy:<span class =''blue''><a href="exec: my.energy = 1000& $succubus_energy=3& gt $loc,$metka"><<my.energy>></a>/<<$display_fine_max>></span>'
+	if my.energy >= 300:'<p>♨ Energy: <span class =''green''><a href="exec: my.energy = 100& $succubus_energy=3& gt $loc,$metka"><<my.energy>></a>/<<$display_fine_max>></span>'	
+else
 if my.energy < 100:'<p>♨ Energy: <span class =''red''><<my.energy>>/<<$display_fine_max>></span>'
 if my.energy >= 100 and my.energy < 300:'<p>♨ Energy:<span class =''blue''><<my.energy>>/<<$display_fine_max>></span>'	
 if my.energy >= 300:'<p>♨ Energy: <span class =''green''><<my.energy>>/<<$display_fine_max>></span>'
+end
 
 if $succubus_contract=1:	
     if $succubus_energy=0:'     <font color="#FF00FF">♈</font><font color="#FFCCCC">❤❤❤</font>'
@@ -15,8 +20,24 @@ if $succubus_contract=1:
     if $succubus_energy=2:'     <font color="#FF00FF">♈❤❤</font><font color="#FFCCCC">❤</font>'
     if $succubus_energy=3:'     <font color="#FF00FF">♈❤❤❤</font><font color="#FFCCCC"></font>'
 end
-	'<p>$Cash:<span class =''green''><<money>></span>          ₵Compnay cash:<span class =''red''><<Cmoney>>K</span> Version:<span class =''red''>V48.8</span></p>'
-
+if active_cheats: 
+	' CurLoc: <<$loc>>'
+end
+if active_cheats: 
+	if money>0:
+		'<p>$Cash:<span class ="green"><a href="exec: money += 1000000& gt $loc,$metka"><<money>></a></span> '
+	else:
+		'<p>$Cash:<span class ="red"><a href="exec: money += 1000000& gt $loc,$metka"><<money>></a></span> '
+	end
+		
+	if Cmoney>0:
+		' Company Cash:<span class ="green"><a href="exec: Cmoney += 1000000& gt $loc,$metka"><<Cmoney>></a></span></p>'
+	else:
+		' Company Cash:<span class ="red"><a href="exec: Cmoney += 1000000& gt $loc,$metka"><<Cmoney>></a></span></p>'
+	end
+else
+	'<p>$Cash:<span class =''green''><<money>></span>          ₵Company cash:<span class =''red''><<Cmoney>>K</span> Version:<span class =''red''>V48.8</span></p>'
+end
 '</div>'
 
 
