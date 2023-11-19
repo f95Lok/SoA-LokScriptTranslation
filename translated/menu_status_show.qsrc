@@ -5,9 +5,15 @@
 '<div class="status_menu">'
 
 if active_cheats: 
-	if my.energy < 100:'<p>♨ Energy: <span class =''red''><a href="exec: my.energy = 1000& $succubus_energy=3& gt $loc,$metka"><<my.energy>></a>/<<$display_fine_max>></span>'
-	if my.energy >= 100 and my.energy < 300:'<p>♨ Energy:<span class =''blue''><a href="exec: my.energy = 1000& $succubus_energy=3& gt $loc,$metka"><<my.energy>></a>/<<$display_fine_max>></span>'
-	if my.energy >= 300:'<p>♨ Energy: <span class =''green''><a href="exec: my.energy = 100& $succubus_energy=3& gt $loc,$metka"><<my.energy>></a>/<<$display_fine_max>></span>'	
+	$energy_cheat_button = "exec: "
+	if mymax[energy] < 10000: $energy_cheat_button += "mymax[energy] += 10000 & "
+	if my.energy ! mymax[energy]: $energy_cheat_button += "my.energy = mymax[energy] & "
+	if $succubus_contract = 1 and $succubus_contract < 3: $energy_cheat_button += "$succubus_energy=3 & "
+	$energy_cheat_button += "gt $loc,$metka"
+
+	if my.energy < 100:'<p>♨ Energy: <span class =''red''><a href="<<$energy_cheat_button>>"><<my.energy>></a>/<<$display_fine_max>></span>'
+	if my.energy >= 100 and my.energy < 300:'<p>♨ Energy: <span class =''blue''><a href="<<$energy_cheat_button>>"><<my.energy>></a>/<<$display_fine_max>></span>'
+	if my.energy >= 300:'<p>♨ Energy: <span class =''green''><a href="<<$energy_cheat_button>>"><<my.energy>></a>/<<$display_fine_max>></span>'	
 else
 if my.energy < 100:'<p>♨ Energy: <span class =''red''><<my.energy>>/<<$display_fine_max>></span>'
 if my.energy >= 100 and my.energy < 300:'<p>♨ Energy:<span class =''blue''><<my.energy>>/<<$display_fine_max>></span>'	
@@ -21,9 +27,7 @@ if $succubus_contract=1:
     if $succubus_energy=3:'     <font color="#FF00FF">♈❤❤❤</font><font color="#FFCCCC"></font>'
 end
 if active_cheats: 
-	' CurLoc: <<$loc>>'
-end
-if active_cheats: 
+	' | <a href="exec: gs ''home_computer'', ''console''">Console</a></p>'
 	if money>0:
 		'<p>$Cash:<span class ="green"><a href="exec: money += 1000000& gt $loc,$metka"><<money>></a></span> '
 	else:
@@ -31,9 +35,9 @@ if active_cheats:
 	end
 		
 	if Cmoney>0:
-		' Company Cash:<span class ="green"><a href="exec: Cmoney += 1000000& gt $loc,$metka"><<Cmoney>></a></span></p>'
+		' ₵Company Cash:<span class ="green"><a href="exec: Cmoney += 1000000& gt $loc,$metka"><<Cmoney>></a>K</span></p>'
 	else:
-		' Company Cash:<span class ="red"><a href="exec: Cmoney += 1000000& gt $loc,$metka"><<Cmoney>></a></span></p>'
+		' ₵Company Cash:<span class ="red"><a href="exec: Cmoney += 1000000& gt $loc,$metka"><<Cmoney>></a>K</span></p>'
 	end
 else
 	'<p>$Cash:<span class =''green''><<money>></span>          ₵Company cash:<span class =''red''><<Cmoney>>K</span> Version:<span class =''red''>V48.8</span></p>'
