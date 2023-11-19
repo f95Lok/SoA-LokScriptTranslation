@@ -13,24 +13,33 @@ gs'menu_time_calc'
 	'<div class="charac_gg_foto"><img src="images\intro\pick<<intro_pick>>.jpg" width="300" height="430"></div>'
 	'<p><span class="bold">name：<<$protagonists_name>></p>'
 	'<p><span class="bold">Birthday: January 1, 2000</p>'
-	'<p><span class="bold">charm：<<$show_charm>></p>'
-	'<p><span class="bold">Intelligence: Lv<<my.intelligence>>_✭<<$intelligence[my.intelligence]>> ▶▶▶ ( <<exp_intelligence>>△ / <<needexp_intelligence>> ) </p>'
-	'<p><span class="bold">ethics：<<my.ethics>></p>'
-
-	'<p><span class="bold">Body: Lv<<my.physical_strength>>_✭<<$figure[my.physical_strength]>> ▶▶▶ ( <<exp_figure>>△ / <<needexp_figure>> ) </p>'
-
-	'<p><span class="bold">skill：<<$cooking[my.cooking]>> </p>'
-
-
+if active_cheats:
+	'<p><span class="bold">charm：<<$show_charm>><a href="exec: my.charm-=1 & gt ''menu_charac_gg''"><span class =''red''>--</span></a><a href="exec: my.charm+=1 & gt ''menu_charac_gg''"><span class =''green''>++</span></a></p>'
+	'<p><span class="bold">Intelligence: Lv<<my.intelligence>>_✭<<$intelligence[my.intelligence]>> ▶▶▶ ( <<exp_intelligence>>△ / <<needexp_intelligence>> ) <a href="exec: exp_intelligence+=10 & gt ''menu_charac_gg''"><span class =''green''>EXP+10 </span></a><a href="exec: my.intelligence+=1 & gt ''menu_charac_gg''"><span class =''green''>    LVL+1</span></a></p>'
+	
+	'<p><span class="bold">ethics：<<my.ethics>><a href="exec: my.ethics-=10 & gt ''menu_charac_gg''"><span class =''red''>---</span></a><a href="exec: my.ethics+=10 & gt ''menu_charac_gg''"><span class =''green''>+++</span></a></p>'
+	'<p><span class="bold">Body: Lv<<my.physical_strength>>_✭<<$figure[my.physical_strength]>> ▶▶▶ ( <<exp_figure>>△ / <<needexp_figure>> )<a href="exec: exp_figure+=10 & gt ''menu_charac_gg''"><span class =''red''>EXP+  </span></a><a href="exec: my.physical_strength+=1 & gt ''menu_charac_gg''"><span class =''green''> LVL+</span></a></p>'
+	
+	'<p><span class="bold">skill：<<$cooking[my.cooking]>><a href="exec: my.cooking-=1 & gt ''menu_charac_gg''"><span class =''red''>---</span></a><a href="exec: my.cooking+=1 & gt ''menu_charac_gg''"><span class =''green''>+++</span></a> </p>'
 
 	'<p><span class="bold">Part-time job：<<$fitness_coach>><<$immigration_auditor>></p>'
 
 	'<p><span class="bold">achievement：<<$return_from_a_different_world>><<$the_person_who_rewrites_the_future>><<$wallet_bulger>><<$empire_001>><<$head_of_the_family>><<$campus_talker>><<$king_of_tv_stations>><<$screen_master>><<$model_prisoner>><<$charismatic_anomaly>><<$abnormal_energy>></p>'
+	if empire_level>=1:'<p><span class="bold">Imperial position: M<<empire_level>>Level ▶▶▶ Promotion conditions：<<xp>>/<<exp>> experience </p> <a href="exec: xp+=10 & gt ''menu_charac_gg''"><span class =''red''>EXP+  </span></a><a href="exec: empire_level+=1 & gt ''menu_charac_gg''"><span class =''green''> LVL+</span></a>' 
+else
+	'<p><span class="bold">charm：<<$show_charm>></p>'
+	'<p><span class="bold">Intelligence: Lv<<my.intelligence>>_✭<<$intelligence[my.intelligence]>> ▶▶▶ ( <<exp_intelligence>>△ / <<needexp_intelligence>> ) </p>'
+	
+	'<p><span class="bold">ethics：<<my.ethics>></p>'
+	'<p><span class="bold">Body: Lv<<my.physical_strength>>_✭<<$figure[my.physical_strength]>> ▶▶▶ ( <<exp_figure>>△ / <<needexp_figure>> ) </p>'
+	
+	'<p><span class="bold">skill：<<$cooking[my.cooking]>> </p>'
+	
+	'<p><span class="bold">Part-time job：<<$fitness_coach>><<$immigration_auditor>></p>'
 
+	'<p><span class="bold">achievement：<<$return_from_a_different_world>><<$the_person_who_rewrites_the_future>><<$wallet_bulger>><<$empire_001>><<$head_of_the_family>><<$campus_talker>><<$king_of_tv_stations>><<$screen_master>><<$model_prisoner>><<$charismatic_anomaly>><<$abnormal_energy>></p>'
 	if empire_level>=1:'<p><span class="bold">Imperial position: M<<empire_level>>Level ▶▶▶ Promotion conditions：<<xp>>/<<exp>> experience</p>'
-
-
-
+end
 
 	'<div class ="charac_quest_txt1">'
 		'<p>Hello, my name is 【<<$protagonists_name>>]!'
