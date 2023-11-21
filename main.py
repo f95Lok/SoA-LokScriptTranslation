@@ -729,7 +729,7 @@ def correct_translations():
     regex_find_embedded_filenames = r"(?<=images)[/\\].*<<[^>]+>>"
     regex_find_variable_assignment_beg = r"(?:^|(?<=\s|:|&))"
     regex_find_variable_assignment_end = r"\s*[!=+\-*/<>]{1,2}\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2})"
-    regex_find_event_start = r"if\s\$*(?:args|ARGS)\[0]\s*=\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2}):"
+    regex_find_event_start = r"if\s\$*(?:args|ARGS)\[0]\s*=\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2}):$"
     regex_find_event_call_beg = r"(?:gt|gs)\s*(?:'{1,2}|\"{1,2})"
     regex_find_event_call_mid = r"(?:'{1,2}|\"{1,2}),\s*(?:'{1,2}|\"{1,2})"
     regex_find_event_call_end = r"(?:'{1,2}|\"{1,2})(?:,\s*(?:'{1,2}|\"{1,2})[^'\"]+(?:'{1,2}|\"{1,2}))"
@@ -805,8 +805,10 @@ def correct_translations():
 
     for k, occurrence in zip(range(len(filename_arguments)), filename_arguments):
         print("[" + str(k+1) + "/" + str(len(filename_arguments)) + "] Creating filename reference variable for: " + str(occurrence))
+        if k+1 == 46:
+            print("debug")
         location, index, argument = occurrence
-        event_index = index-1
+        event_index = index
         event_line = files[location][event_index]
         event_line_match = re.search(regex_find_event_start, event_line)
         while event_line_match is None and event_index >= 0:
