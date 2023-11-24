@@ -25,7 +25,7 @@ if $ARGS[0]="":
 	end
 
 	'<div class="button_menu">'
-		'<div class="buttonPu5"><a href="exec:gt ''police_station'',''director`s_office''">Director General`s Office.</a></div>'
+		'<div class="buttonPu5"><a href="exec:gt ''police_station'',''director`s_office_2''">Director General`s Office.</a></div>'
 		if $inspector_event_chain>=2:'<div class="buttonPu4"><a href="exec:gt ''police_station'',''inspector_liyi''">☎Inspector`s Office☎</a></div>'
 		if $JY.available=1 and ($JZ_Event_gun<50 or $JZ_Event_gun>=100):'<div class="buttonPu3"><a href="exec:$jy_num=0 & $police_station_dialogue=0 & gt ''police_station'',''police_officer_standing_painting''"><<$JY.name>></a></div>'
 		if $dd_collar=1:'<div class="buttonPu2"><a href="exec:gt ''executive_officer_event'',''executive_office_fuck_dd_behind_the_collar''"><<$DD.name>></a></div>'
@@ -39,7 +39,7 @@ if $ARGS[0]="":
 	'</div>'
 end
 
-if $ARGS[0]="director`s_office":
+if $ARGS[0]="director`s_office_2":
 	$JZ.available=1
 	if $weather='☂ Rainy' and $times_of_day='night' : gt'director2_event','rainy_day'
 	'<div class="show_menu">'
@@ -61,10 +61,10 @@ if $ARGS[0]="director`s_office":
 end
 
 if $ARGS[0]="director_liyi":
-	$director_liyi=rand(0,2)
+	$director_liyi_2=rand(0,2)
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
-	 	 <source src="images\NPC\JZ\vids\立绘<<$director_liyi>>.webm" type=''video/webm;''></video></div>'
+	 	 <source src="images\NPC\JZ\vids\立绘<<$director_liyi_2>>.webm" type=''video/webm;''></video></div>'
 	'</div>'
 	'<div class="button_menu">'
 		if $have_seen_the_floor_plan=3:'<div class="buttonPu3"><a href="exec:gt ''widow_incident'',''alarm''">Illegal imprisonment of the underworld</a></div>'
@@ -137,7 +137,7 @@ if $ARGS[0]="disappearance":
 		'<div class="button"><a href="exec:$police_station_dialogue=1 & $OX.available=1 & gt ''police_station'',''disappearance''">Guarantee the completion of the task</a></div>'
 		if $JZ_Event_rape>=10:'<div class="button"><a href="exec:$police_station_dialogue=2 & gt ''police_station'',''disappearance''">License plate number: IPZ-905</a></div>'else:'<div class="buttonGr"><a href="exec:">No clue found</a></div>'
 		if $JZ_Event_rape>=100:'<div class="button"><a href="exec:$police_station_dialogue=3 & gt ''police_station'',''disappearance''">People have been rescued</a></div>'else:'<div class="buttonGr"><a href="exec:">No clue found</a></div>'
-		if $police_station_dialogue=3:'<div class="buttonG"><a href="exec:$JZ_Event_rape+=50 & $JZ.love+=25 & gt ''police_station'',''director`s_office''">Confirm the closure of the case</a></div>'
+		if $police_station_dialogue=3:'<div class="buttonG"><a href="exec:$JZ_Event_rape+=50 & $JZ.love+=25 & gt ''police_station'',''director`s_office_2''">Confirm the closure of the case</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">return</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -173,7 +173,7 @@ if $ARGS[0]="murder_license":
 		if $JZ_Event_gun=90:'<div class="buttonR3"><a href="exec:$police_station_dialogue=3 & gt ''police_station'',''murder_license''">Need reinforcements</a></div>'
 		if $police_station_dialogue=3:'<div class="buttonR5"><a href="exec:gt ''police_incident'',''jy_event_rescue''">One step ahead</a></div>'
 		if $JZ_Event_gun=100:'<div class="button"><a href="exec:$police_station_dialogue=4 & gt ''police_station'',''murder_license''">Summary of closing cases</a></div>'
-		if $police_station_dialogue=4:'<div class="buttonR5"><a href="exec:$JZ_Event_gun+=50 & $JZ.love+=25 & gt ''police_station'',''director`s_office''">Confirm the closure of the case</a></div>'
+		if $police_station_dialogue=4:'<div class="buttonR5"><a href="exec:$JZ_Event_gun+=50 & $JZ.love+=25 & gt ''police_station'',''director`s_office_2''">Confirm the closure of the case</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">return</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'

@@ -100,7 +100,7 @@ if $args[0]="living_room":
 		!'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家'',''卧室''">卧室</a></div>'
 		if $have_seen_the_floor_plan=3:'<div class="buttonGr"><a href="exec:">Horse winter mold is in it</a></div>'
 		if $have_seen_the_floor_plan>3:'<div class="button"><a href="exec:gt ''widows_house'',''bedroom''">bedroom</a></div>'
-		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''study_room''">Study room</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''study_room_2''">Study room</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
 	'</div>'
 
@@ -119,7 +119,7 @@ if $args[0]="living_room_2":
 	'<div class="button_menu">'
 		if $times_of_day='':'<div class="buttonS1"><a href="exec:revenge_dialogue=0 & gt ''widows_house'',''living_room_2_dialogue''">Close to the conversation</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''bedroom''">bedroom</a></div>'
-		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''study_room''">Study room</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house'',''study_room_2''">Study room</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">leave</a></div>'
 	'</div>'
 
@@ -196,7 +196,7 @@ if $args[0]="living_room_2_dialogue_2":
 end
 
 
-if $args[0]="study_room":
+if $args[0]="study_room_2":
 	$compass[0]="East"
 	$compass[1]="West"
 	$compass[2]="South"
@@ -214,21 +214,21 @@ if $args[0]="study_room":
 	'<div class="dialog_menu">'
 		'<p>·Study room, this room gives people a crowded feeling.</p>'
 		'<p>·————————————</p>'
-		'<p>·Broken watch pointing<<bad_watch_time>>Point ✮ <a href="exec:bad_watch_time+=1 & gt ''widows_house'',''study_room''">Dial one hour faster</a> ✮ <a href="exec:bad_watch_time-=1 & gt ''widows_house'',''study_room''">Dial slowly for one hour</a>            </p>'
-		'<p>·The orientation of the compass<<$compass>> ✮ <a href="exec:gt ''widows_house'',''study_room''">Shake</a>            </p>'
+		'<p>·Broken watch pointing<<bad_watch_time>>Point ✮ <a href="exec:bad_watch_time+=1 & gt ''widows_house'',''study_room_2''">Dial one hour faster</a> ✮ <a href="exec:bad_watch_time-=1 & gt ''widows_house'',''study_room_2''">Dial slowly for one hour</a>            </p>'
+		'<p>·The orientation of the compass<<$compass>> ✮ <a href="exec:gt ''widows_house'',''study_room_2''">Shake</a>            </p>'
 		if kerosene_lamp_goes_out=0:
-			'<p>·The ancient kerosene lamp is lit. <a href="exec:kerosene_lamp_goes_out=1 & gt ''widows_house'',''study_room''">Extinguish</a>            </p>'
-			'<p>·Cross reflection length<<the_length_of_the_shadow>>Beige <a href="exec:the_length_of_the_shadow+=1 & gt ''widows_house'',''study_room''">Move forward</a> ✮ <a href="exec:the_length_of_the_shadow-=1 & gt ''widows_house'',''study_room''">Move back</a>            </p>'
+			'<p>·The ancient kerosene lamp is lit. <a href="exec:kerosene_lamp_goes_out=1 & gt ''widows_house'',''study_room_2''">Extinguish</a>            </p>'
+			'<p>·Cross reflection length<<the_length_of_the_shadow>>Beige <a href="exec:the_length_of_the_shadow+=1 & gt ''widows_house'',''study_room_2''">Move forward</a> ✮ <a href="exec:the_length_of_the_shadow-=1 & gt ''widows_house'',''study_room_2''">Move back</a>            </p>'
 		end
 		if kerosene_lamp_goes_out=1:
-			'<p>·The ancient kerosene lamp is out✮ <a href="exec:kerosene_lamp_goes_out=0 & gt ''widows_house'',''study_room''">Light up</a>            </p>'
+			'<p>·The ancient kerosene lamp is out✮ <a href="exec:kerosene_lamp_goes_out=0 & gt ''widows_house'',''study_room_2''">Light up</a>            </p>'
 		end
 	'</div>'
 end
 
 if $args[0]="nothing_happened":
  if  bad_watch_time=3 and $compass_a="North" and the_length_of_the_shadow=3:gt'widows_house','hidden_room'
- msg'什么都没发生'  & gt 'widows_house','study_room'
+ msg'什么都没发生'  & gt 'widows_house','study_room_2'
 end
 
 if $args[0]="hidden_room":
