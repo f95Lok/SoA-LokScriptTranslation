@@ -12,9 +12,9 @@ minutes+=15
 	gs'menu_status_show'
 	gs'menu_option_hidden'
 	gs "bug_prolapse"
-		if $camera_ly=0 and camera>0 and $args[0]="kitchen":
+		if $camera_ly=0 and hidden_camera>0 and $args[0]="kitchen":
 		'<div class="action">
-			<a class="photo" data-title="Install the camera" href="exec:$camera_ly=1 & camera-=1 & gt ''anchor_event'',''kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
+			<a class="photo" data-title="Install the camera" href="exec:$camera_ly=1 & hidden_camera-=1 & gt ''anchor_event'',''kitchen''"><img class="img_stretch" src="images\place\需要摄像头.jpg"></a>
 		</div>'
 		end
 '</div>'
@@ -181,7 +181,7 @@ if $args[0]="ly_event_entry":
 
 	if 9>=a and a>=8:
 		 '<div class="dialog_menu">'
-			 '<p>woman:<<$panting>></p>'
+			 '<p>woman:<<$panting_2>></p>'
 		 '</div>'
 	end
 	if a=10:
@@ -233,7 +233,7 @@ end
 if $ARGS[0]="during_the_day":
 	$random_number=rand(0,100)
 	if $ly.finished_monitoring=1:
-		if $ly.customs=1 and $random_number<=30:gt 'anchor_event','go_out'
+		if $ly.customs=1 and $random_number<=30:gt 'anchor_event','go_out_2'
 		if $ly.monitoring_two_finished_reading=0 and $random_number<=50:gt 'anchor_event','lock_2'
 		if $ly.monitoring_two_finished_reading=1 and week_day =7 :gt 'anchor_event','ly_event_group_p2'
 		gt 'anchor_event','ly_event_transaction_2'
@@ -334,7 +334,7 @@ if $args[0]="ly_event_transaction":
 
 	if 3>=a and a>=1:
 		 '<div class="dialog_menu">'
-			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
 		 '</div>'
 	end
 	if 7>=a and a>=4:
@@ -417,7 +417,7 @@ if $args[0]="ly_event_transaction_2":
 
 	if 4>=a and a>=2:
 		 '<div class="dialog_menu">'
-			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
 		 '</div>'
 	end
 
@@ -444,7 +444,7 @@ if $args[0]="kitchen":
 	'<div class ="show_menu"><img src="images\NPC\LY\pics\厨房.jpg" width="854"></div>'
 		'<div class="button_menu">'
 			if gas_valve>0:'<div class="button"><a href="exec:$ly_event_gas_valve=1 & gas_valve-=1 &gt ''anchor_event'',''kitchen''">Repair gas valve</a></div>'else:'<div class="buttonGr"><a href="exec:">Need a gas valve</a></div>'
-			if camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
+			if hidden_camera=0:'<div class="buttonGr"><a href="exec:">Need a camera</a></div>'
 			'<div class="button"><a href="exec:gt ''deep_alley''">leave</a></div>'
 		'</div>'
 		 '<div class="dialog_menu">'
@@ -535,7 +535,7 @@ if $args[0]="kitchen_monitoring":
   q+=1
 End
 
-if $ARGS[0]="go_out":
+if $ARGS[0]="go_out_2":
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
 		 <source src="images\NPC\LY\vids\出门~1.webm" type=''video/webm;''></video></div>'
@@ -664,7 +664,7 @@ if $args[0]="ly_event_custom":
 
 	if 4>=a and a>=1:
 		 '<div class="dialog_menu">'
-			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
 		 '</div>'
 	end
 
@@ -743,7 +743,7 @@ if $args[0]="ly_event_custom_2":
 
 	if 2>=a and a>=1:
 		 '<div class="dialog_menu">'
-			 '<p><<$LY.name>>: <<$panting>>Boss, your dick is getting salty.</p>'
+			 '<p><<$LY.name>>: <<$panting_2>>Boss, your dick is getting salty.</p>'
 		 '</div>'
 	end
 
@@ -893,7 +893,7 @@ if $args[0]="ly_event_group_p2":
 		 '<div class="dialog_menu">'
 			 '<p>·You observe the house through the window glass</p>'
 			 '<p>Team leader: Do you mind if I show you a demonstration?Let me fuck her to show you. Women want men to be rougher in their bones. If you can`t bear to treat her too rough, you don`t have to come to work tomorrow!</p>'
-			 '<p><<$LY.name>>: <<$panting>>Don`t...it will make me leak out all at once...ah... don`t…</p>'
+			 '<p><<$LY.name>>: <<$panting_2>>Don`t...it will make me leak out all at once...ah... don`t…</p>'
 		 '</div>'
 	end
 
@@ -901,14 +901,14 @@ if $args[0]="ly_event_group_p2":
 	if a=1:
 		 '<div class="dialog_menu">'
 			 '<p>Deputy team leader: When a woman says no, she is actually asking a man to give her more. Remember this feeling for me. If you can recognize me from the crowd in a while, you will do a great job.</p>'
-			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
 		 '</div>'
 	end
 
 	if a=2:
 		 '<div class="dialog_menu">'
 			 '<p>Team member: Don`t look like you`ve been played badly, miss, the show hasn`t officially started yet.</p>'
-			 '<p><<$LY.name>>: <<$panting>>Woo...too much...don`t shoot in again...ah ah...too comfortable……</p>'
+			 '<p><<$LY.name>>: <<$panting_2>>Woo...too much...don`t shoot in again...ah ah...too comfortable……</p>'
 		 '</div>'
 	end
 
@@ -959,7 +959,7 @@ if $args[0]="ly_fuck_warehouse":
 	if a=0:
 		 '<div class="dialog_menu">'
 			 '<p>Me: Then prostitute here!</p>'
-			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
 		 '</div>'
 	end
 
@@ -1020,7 +1020,7 @@ if $args[0]="ly_fuck_director`s_room":
 	if 1>=a and a>=0:
 		 '<div class="dialog_menu">'
 			 '<p>Me: The stage has grown out, isn`t it exciting to have sex here?！</p>'
-			 '<p><<$LY.name>>: <<$panting>>Let`s make it quick…</p>'
+			 '<p><<$LY.name>>: <<$panting_2>>Let`s make it quick…</p>'
 		 '</div>'
 	end
 
@@ -1037,7 +1037,7 @@ if $args[0]="ly_fuck_director`s_room":
 		 $LY.love+=q
 		 $LY.bad+=q
 		 '<div class="dialog_menu">'
-			 '<p><<$LY.name>>: <<$panting>></p>'
+			 '<p><<$LY.name>>: <<$panting_2>></p>'
 			 '<p>Me: Wipe clean the lewd water and semen you spewed out, and I will go outside to help you watch the wind.</p>'
 		 '</div>'
 	end
@@ -1110,7 +1110,7 @@ if $args[0]="ly_event_maid":
 
     if 9>=a and a>=2:
          '<div class="dialog_menu">'
-             '<p><<$LY.name>>: <<$panting>></p>'
+             '<p><<$LY.name>>: <<$panting_2>></p>'
              if a>=3:'<p>Me: Very capable…</p>'
              if a>=7:'<p><<$LY.name>>: <<$words>></p>'
          '</div>'
@@ -1181,7 +1181,7 @@ if $args[0]="ly_event_housing_commission":
     if 6>=a and a>=1:
          '<div class="dialog_menu">'
              '<p>Me: Don`t worry about private matters, let`s do private matters first…</p>'
-             '<p><<$LY.name>>:Hmm<<$panting>></p>'
+             '<p><<$LY.name>>:Hmm<<$panting_2>></p>'
              if a>=3:'<p>Me: You know what to do!</p>'
              if a>=3:'<p><<$LY.name>>: <<$words>></p>'
          '</div>'
@@ -1230,7 +1230,7 @@ if $args[0]="ly_event_invitation":
              '<p>Me: Let`s talk about it specifically, why did you suddenly want to enter Empire Entertainment?</p>'
              '<p><<$LY.name>>:You know, I was originally an anchor, and now I am also in charge of the reality show sector... Just consider entering an entertainment company and developing towards a regular artist!</p>'
              if a>=1:'<p>Me: Let`s talk about it specifically, why did you suddenly want to enter Empire Entertainment?</p>'
-             if a>=1:'<p><<$LY.name>>:I understand<<$panting>></p>'
+             if a>=1:'<p><<$LY.name>>:I understand<<$panting_2>></p>'
          '</div>'
     end
 
@@ -1318,7 +1318,7 @@ if $args[0]="ly_event_n_interview":
     if 7>=a and a>=3:
          '<div class="dialog_menu">'
              '<p>Me: According to the conditions, now I want you to let me shoot out here!</p>'
-             '<p><<$LY.name>>:Good master<<$panting>></p>'
+             '<p><<$LY.name>>:Good master<<$panting_2>></p>'
              if a>=5:'<p>Me: Why didn`t you find that your oral work is so good before?</p>'
              if a>=5:'<p><<$LY.name>>:It`s the master`s constant training.<<$words>></p>'
          '</div>'
@@ -1421,8 +1421,8 @@ if $args[0]="ly_event_sister_engage":
              if a>=1:'<p><<$MM.name>>:What?！Why is it a big box of sex toys?！It`s too much!</p>'
              if a>=1:'<p><<$LY.name>>:You, do you want to try it?</p>'
              if a>=1:'<p><<$MM.name>>:Oh?</p>'
-             if a>=2:'<p><<$MM.name>>: <<$panting>></p>'
-             if a>=3:'<p><<$LY.name>>: <<$panting_2>></p>'
+             if a>=2:'<p><<$MM.name>>: <<$panting_2>></p>'
+             if a>=3:'<p><<$LY.name>>: <<$panting_3>></p>'
          '</div>'
     end
 

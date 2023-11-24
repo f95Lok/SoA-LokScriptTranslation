@@ -214,6 +214,11 @@ def translate(text, data_type, uncertain=False):
 
         if data_type != _text_:
             translation = format_data(translation)
+            unique_translation = translation
+            while unique_translation in xml[data_type].values():
+                count = list(xml[data_type].values()).count(unique_translation)
+                unique_translation = translation + "_" + str(count)
+            translation = unique_translation
 
         if uncertain:
             if translation not in _uncertainties_:
@@ -294,8 +299,6 @@ def handle_text(text, force_type=_text_, uncertain=False):
 
 
 def handle_texts(texts, force_type=_text_, uncertain=False):
-    if uncertain is True:
-        print("debug")
     for text in texts:
         handle_text(text, force_type=force_type, uncertain=uncertain)
 
@@ -672,6 +675,11 @@ def handle_uncertainties():
     for k, (text, info) in zip(range(len(_uncertainties_)), _uncertainties_.items()):
         print("[" + str(k + 1) + "/" + str(len(_uncertainties_)) + "] Fixing uncertainty: " + str(info) + " " + text)
         alternate_translation = format_data(text)
+        unique_translation = alternate_translation
+        while unique_translation in xml[_arguments_].values():
+            count = list(xml[_arguments_].values()).count(unique_translation)
+            unique_translation = alternate_translation + "_" + str(count)
+        alternate_translation = unique_translation
         for file in files:
             switch_type = False
             for line in files[file]:
@@ -805,8 +813,6 @@ def correct_translations():
 
     for k, occurrence in zip(range(len(filename_arguments)), filename_arguments):
         print("[" + str(k+1) + "/" + str(len(filename_arguments)) + "] Creating filename reference variable for: " + str(occurrence))
-        if k+1 == 46:
-            print("debug")
         location, index, argument = occurrence
         event_index = index
         event_line = files[location][event_index]
