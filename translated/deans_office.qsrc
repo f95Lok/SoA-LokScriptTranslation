@@ -80,17 +80,17 @@ if $args[0]="sign_a_contract":
              if medicine!1:
                  q = RAND(50,200)
                  if 50<=q and q<100:
-                     $Q="一级"
+                     $Q="Level 1" & $Q_filename_reference="一级"
                      A=1
                      D= RAND(3,5)
                      end
                  if 100<=q and q<150:
-                     $Q="二级"
+                     $Q="Level 2" & $Q_filename_reference="二级"
                      A=2
                      D= RAND(4,7)
                      end
                  if 150<=q:
-                     $Q="三级"
+                     $Q="Level 3" & $Q_filename_reference="三级"
                      A=4
                      D= RAND(7,10)
                      end
@@ -113,7 +113,7 @@ End
  
 if $args[0]="just_this":
 	medicine=1
-	'<div class ="show_menu"><img src="images\place\医院场景\注射前<< $Q>>.jpg" width="854"></div>'
+	'<div class ="show_menu"><img src="images\place\医院场景\注射前<< $Q_filename_reference>>.jpg" width="854"></div>'
 		'<div class="button_menu">'
 			'<div class="button"><a href="exec:minutes+=5 &  gt ''deans_office'',''peek''">Peek</a></div>'
 		'</div>'
@@ -123,7 +123,7 @@ if $args[0]="just_this":
 End
  
 if $args[0]="peek":
-	'<div class ="show_menu"><img src="images\place\医院场景\注射偷窥<< $Q>>.jpg" width="854"></div>'
+	'<div class ="show_menu"><img src="images\place\医院场景\注射偷窥<< $Q_filename_reference>>.jpg" width="854"></div>'
 		'<div class="button_menu">'
 			'<div class="button"><a href="exec:minutes+=5 &  gt ''deans_office'',''injection''">injection</a></div>'
 		'</div>'

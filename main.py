@@ -735,7 +735,7 @@ def find_key_by_value(value, data_types):
 
 def correct_translations():
     regex_find_embedded_filenames = r"(?<=images)[/\\].*<<[^>]+>>"
-    regex_find_variable_assignment_beg = r"(?:^|(?<=\s|:|&))"
+    regex_find_variable_assignment_beg = r"(?:^|(?<=\s|:|&))\s*"
     regex_find_variable_assignment_end = r"\s*[!=+\-*/<>]{1,2}\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2})"
     regex_find_event_start = r"if\s\$*(?:args|ARGS)\[0]\s*=\s*(?:'{1,2}[^']+'{1,2}|\"{1,2}[^\"]+\"{1,2}):$"
     regex_find_event_call_beg = r"(?:gt|gs)\s*(?:'{1,2}|\"{1,2})"
@@ -744,7 +744,7 @@ def correct_translations():
     regex_find_location_references = r"(?:gs|gt)\s*(?:'|\"){1,2}<<[^<>]+>>(?:'|\"){1,2}"
 
     files = {}
-    filename_variables = []
+    filename_variables = {}
     filename_arguments = []
     location_references = []
 
@@ -774,9 +774,9 @@ def correct_translations():
                     if "args" in variables[0] or "ARGS" in variables[0]:
                         filename_arguments.append((file, i, variables.pop(0)))
                     elif variables[0] not in filename_variables:
-                        filename_variables.append(variables.pop(0))
+                        filename_variables[variables.pop(0)] = [(file, i)]
                     else:
-                        variables.pop(0)
+                        filename_variables[variables.pop(0)].append((file, i))
 
             matches = re.findall(regex_find_location_references, line)
             for match in matches:
@@ -786,12 +786,35 @@ def correct_translations():
 
     for k, variable in zip(range(len(filename_variables)), filename_variables):
         print("["+str(k+1)+"/"+str(len(filename_variables))+"] Reverting filename translation: " + variable)
+
+        var = variable.replace("$", "\$").replace(".", "\.")
+        reference_and_text = False
+        checked_variables = []
         for file in files:
             i = 0
             while i < len(files[file]):
                 line = files[file][i]
-                matches = re.findall(regex_find_variable_assignment_beg + variable.replace("$", "\\$").replace(".", "\.") + regex_find_variable_assignment_end, line)
-                for match in matches:
+                matches = re.findall(regex_find_variable_assignment_beg + var + regex_find_variable_assignment_end, line)
+                itrs = re.finditer(regex_find_variable_assignment_beg + var + regex_find_variable_assignment_end, line)
+                iters = []
+                if len(matches) > 0:
+                    matches.reverse()
+                    for itr in itrs:
+                        iters.insert(0, itr)
+
+                    if ".name" not in variable and variable not in checked_variables:
+                        checked_variables.append(variable)
+                        for f in files:
+                            reference_and_text = False
+                            for line in files[f]:
+                                match = re.search(r"=\s*(?:\"{1,2}[^\"]*<<" + var + ">>|'{1,2}[^']*<<" + var + ">>)|>[^<]*<<" + var + ">>", line)
+                                if match is not None and "images" not in match.group(0):
+                                    reference_and_text = True
+                                    break
+                            if reference_and_text:
+                                break
+
+                for match, index in zip(matches, iters):
                     string = extract_from_string(match)[0]
                     original = find_key_by_value(string, _text_)
 
@@ -801,7 +824,18 @@ def correct_translations():
                             files[file].insert(i + 1, new_line)
                             i += 1
                         else:
-                            new_line = files[file].pop(i).replace(match, match.replace(string, original))
+                            if reference_and_text:
+                                if index.start() == 0 or not any(conditional in files[file][i][index.start()-min(index.start(), 6):index.start()] for conditional in ["if", "or", "and"]):
+                                    if "exec:" in files[file][i]:
+                                        new_line = files[file].pop(i)
+                                        new_line = new_line[:index.start()] + " " + variable + "_filename_reference=''" + original + "'' & " + new_line[index.start():]
+                                    else:
+                                        new_line = files[file].pop(i)
+                                        new_line = new_line[:index.end()] + " & " + variable + '_filename_reference="' + original + '"' + new_line[index.end():]
+                                else:
+                                    new_line = files[file].pop(i)
+                            else:
+                                new_line = files[file].pop(i).replace(match, match.replace(string, original))
                             files[file].insert(i, new_line)
 
                     elif ".name" in variable:
@@ -810,6 +844,13 @@ def correct_translations():
                         i += 1
 
                 i += 1
+
+        if reference_and_text:
+            print("\t Creating filename reference variable for values of: " + str(variable))
+            for references in filename_variables[variable]:
+                match = re.search(r"(?<=images)[/\\].*?<<\s*" + var + "\s*>>", files[references[0]][references[1]]).group(0)
+                new_line = files[references[0]].pop(references[1]).replace(match, (variable + "_filename_reference").join(match.rsplit(variable, 1)))
+                files[references[0]].insert(references[1], new_line)
 
     for k, occurrence in zip(range(len(filename_arguments)), filename_arguments):
         print("[" + str(k+1) + "/" + str(len(filename_arguments)) + "] Creating filename reference variable for: " + str(occurrence))
@@ -899,6 +940,7 @@ done_file = io.open("done.txt", 'a', encoding="utf-8")
 
 auto = "no"
 
+t0 = time.process_time()
 for qsrc in os.listdir("files/"):
     if qsrc not in done:
         if auto == "manual":
@@ -927,3 +969,4 @@ for qsrc in os.listdir("files/"):
 
 handle_uncertainties()
 correct_translations()
+print(time.process_time() - t0)

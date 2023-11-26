@@ -85,7 +85,7 @@ if $ARGS[0]="director_liyi":
 		end
 		if $JZ.love>=100:'<div class="buttonS"><a href="exec:gt ''director2_event'',''jz_fuck_temptation_2''">Touch her leg</a></div>'else:'<div class="buttonGr"><a href="exec:">Touch her leg</a></div>'
 		if $JZ.bad>=155:'<div class="buttonS"><a href="exec:gt ''director2_event'',''JZ_Fuck_D1''">Reach into your underwear</a></div>'else:'<div class="buttonGr"><a href="exec:">Reach into your underwear</a></div>'
-		if $JZ.bad>=200 and JZcos!1:'<div class="buttonS"><a href="exec:JZcos=1 & $m=''JZ'' & $ma=$JZ.name & gt ''group_performation_event'',''group_performation_fuck_coser_exclusive''">Invite COS</a></div>'
+		if $JZ.bad>=200 and JZcos!1:'<div class="buttonS"><a href="exec:JZcos=1 & $m_filename_reference=''JZ'' &  $m=''JZ'' & $ma=$JZ.name & gt ''group_performation_event'',''group_performation_fuck_coser_exclusive''">Invite COS</a></div>'
 		if $boss_event_chain=6 and $the_boss_suspended_the_investigation=0 :
 			if $JZ.love>=250:'<div class="buttonR3"><a href="exec:gt ''director2_event'',''jz_fuck_suspend_investigation''">Suspension of investigation</a></div>'else:'<div class="buttonGr"><a href="exec:">Suspension of investigation-insufficient favorability</a></div>'
 		end
@@ -419,13 +419,13 @@ end
 
 if $ARGS[0]="late_night_disappearance":
 	looking_for_someone_num=rand(1,7)
-         if looking_for_someone_num=1:$m_sz='走失少女'&$reporter='father'
-         if looking_for_someone_num=2:$m_sz='垫底辣妹'&$reporter='mother'
-         if looking_for_someone_num=3:$m_sz='巨乳OL'&$reporter='Fiance'
-         if looking_for_someone_num=4:$m_sz='贫乳妹'&$reporter='husband'
-         if looking_for_someone_num=5:$m_sz='潮流辣妹'&$reporter='stepfather'
-         if looking_for_someone_num=6:$m_sz='清纯学妹'&$reporter='boyfriend'
-         if looking_for_someone_num=7:$m_sz='富家女'&$reporter='uncle'
+         if looking_for_someone_num=1:$m_sz='Lost girl' & $m_sz_filename_reference="走失少女"&$reporter='father'
+         if looking_for_someone_num=2:$m_sz='Bottom hot girl' & $m_sz_filename_reference="垫底辣妹"&$reporter='mother'
+         if looking_for_someone_num=3:$m_sz='Busty OL' & $m_sz_filename_reference="巨乳OL"&$reporter='Fiance'
+         if looking_for_someone_num=4:$m_sz='Poor girl' & $m_sz_filename_reference="贫乳妹"&$reporter='husband'
+         if looking_for_someone_num=5:$m_sz='Trendy hot girl' & $m_sz_filename_reference="潮流辣妹"&$reporter='stepfather'
+         if looking_for_someone_num=6:$m_sz='Pure school girl' & $m_sz_filename_reference="清纯学妹"&$reporter='boyfriend'
+         if looking_for_someone_num=7:$m_sz='Rich girl' & $m_sz_filename_reference="富家女"&$reporter='uncle'
 	missing_time_num=rand(12,24)
 	missing_mission_time_num=rand(17,24)
 	if missing_mission_time_num=24:missing_mission_time_num=rand(0,2)
@@ -511,18 +511,18 @@ if $ARGS[0]="tj_vertical_painting":
 	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1A.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonR4"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_p1_pan''">Single punishment<<TJP1>>%</a></div>'
-		if TJP1>=100:'<div class="buttonR3"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_gz-1''">Work assessment<<TJGZ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="buttonR4"><a href="exec: $m_filename_reference=''TJ'' & $m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_p1_pan''">Single punishment<<TJP1>>%</a></div>'
+		if TJP1>=100:'<div class="buttonR3"><a href="exec: $m_filename_reference=''TJ'' & $m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_gz-1''">Work assessment<<TJGZ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if TJGZ1>=100:
 		 if MGF>0:
-			'<div class="buttonR2"><a href="exec:MGF-=1 & $m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_y_pan''">Threshold training<<TJY1>>%</a></div>'
+			'<div class="buttonR2"><a href="exec:MGF-=1 & $m_filename_reference=''TJ'' &  $m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_y_pan''">Threshold training<<TJY1>>%</a></div>'
 		 else:
 		 '<div class="buttonGr"><a href="exec:">Lack of McGovern</a></div>'
 		 end
 		end
-		if TJY1>=100:'<div class="buttonR1"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<TJQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		if tj_task=2:'<div class="buttonR"><a href="exec:$m=''TJ'' & $ma=$TJ.name & tj_vertical_drawing_number=1 & gt ''police_station'',''tj_please_consult_your_superiors''">Please consult your superiors</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		if TJLJ2>=100:'<div class="buttonR5"><a href="exec:$m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_mandatory''">Mandatory punishment</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if TJY1>=100:'<div class="buttonR1"><a href="exec: $m_filename_reference=''TJ'' & $m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<TJQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if tj_task=2:'<div class="buttonR"><a href="exec: $m_filename_reference=''TJ'' & $m=''TJ'' & $ma=$TJ.name & tj_vertical_drawing_number=1 & gt ''police_station'',''tj_please_consult_your_superiors''">Please consult your superiors</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if TJLJ2>=100:'<div class="buttonR5"><a href="exec: $m_filename_reference=''TJ'' & $m=''TJ'' & $ma=$TJ.name & gt ''executive_officer_event'',''executive_office_fuck_mandatory''">Mandatory punishment</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if TJLJ3>=100:'<div class="buttonGn"><a href="exec:">Punishment & assessment completed</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">return</a></div>'
 	'</div>'
@@ -559,19 +559,19 @@ if $ARGS[0]="zxg_vertical_painting":
 	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1B.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonR5"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_office_fuck_p1_pan''">Single punishment<<ZXGP1>>%</a></div>'
-		if ZXGP1>=100:'<div class="buttonR4"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_officer_fuck_job_1''">Work assessment<<ZXGG1>>%</a></div>'
-		if ZXGG1>=100:'<div class="buttonR3"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_office_fuck_job_2''">Field assessment<<ZXGG2>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="buttonR5"><a href="exec: $m_filename_reference=''ZXG'' & $m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_office_fuck_p1_pan''">Single punishment<<ZXGP1>>%</a></div>'
+		if ZXGP1>=100:'<div class="buttonR4"><a href="exec: $m_filename_reference=''ZXG'' & $m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_officer_fuck_job_1''">Work assessment<<ZXGG1>>%</a></div>'
+		if ZXGG1>=100:'<div class="buttonR3"><a href="exec: $m_filename_reference=''ZXG'' & $m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_office_fuck_job_2''">Field assessment<<ZXGG2>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if ZXGG2>=100:
 		 if MGF>0:
-			'<div class="buttonR2"><a href="exec:MGF-=1 & $m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_office_fuck_y_pan''">Threshold training<<ZXGY1>>%</a></div>'
+			'<div class="buttonR2"><a href="exec:MGF-=1 & $m_filename_reference=''ZXG'' &  $m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_office_fuck_y_pan''">Threshold training<<ZXGY1>>%</a></div>'
 		 else:
 		 '<div class="buttonGr"><a href="exec:">Lack of McGovern</a></div>'
 		 end
 		end
 
 
-		if ZXGY1>=100:'<div class="buttonR1"><a href="exec:$m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<ZXGQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if ZXGY1>=100:'<div class="buttonR1"><a href="exec: $m_filename_reference=''ZXG'' & $m=''ZXG'' & $ma=$ZXG.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<ZXGQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if ZXGQ1>=100:'<div class="buttonGn"><a href="exec:">Punishment & assessment completed</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">return</a></div>'
 	'</div>'
@@ -584,19 +584,19 @@ if $ARGS[0]="dd_vertical_painting":
 	'<div class ="show_menu"><img src="images\NPC\ZXG\pics\处分1C.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonR5"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_office_fuck_p1_pan''">Single punishment<<DDP1>>%</a></div>'
-		if DDP1>=100:'<div class="buttonR3"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_office_fuck_gz-1''">Work assessment<<DDGZ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		if DDP1>=100:'<div class="buttonPu1"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''police_station'',''dd_supervision_work''">Supervision work</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		'<div class="buttonR5"><a href="exec: $m_filename_reference=''DD'' & $m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_office_fuck_p1_pan''">Single punishment<<DDP1>>%</a></div>'
+		if DDP1>=100:'<div class="buttonR3"><a href="exec: $m_filename_reference=''DD'' & $m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_office_fuck_gz-1''">Work assessment<<DDGZ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if DDP1>=100:'<div class="buttonPu1"><a href="exec: $m_filename_reference=''DD'' & $m=''DD'' & $ma=$DD.name & gt ''police_station'',''dd_supervision_work''">Supervision work</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 
 		if DDGZ1>=100:
 		 if MGF>0:
-			'<div class="buttonR2"><a href="exec:MGF-=1 & $m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_office_fuck_y_pan''">Threshold training<<DDY1>>%</a></div>'
+			'<div class="buttonR2"><a href="exec:MGF-=1 & $m_filename_reference=''DD'' &  $m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_office_fuck_y_pan''">Threshold training<<DDY1>>%</a></div>'
 		 else:
 		 '<div class="buttonGr"><a href="exec:">Lack of McGovern</a></div>'
 		 end
 		end
 		
-		if DDY1>=100:'<div class="buttonR5"><a href="exec:$m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<DDQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		if DDY1>=100:'<div class="buttonR5"><a href="exec: $m_filename_reference=''DD'' & $m=''DD'' & $ma=$DD.name & gt ''executive_officer_event'',''executive_officer_fuck_q_pan''">Wheel battle assessment<<DDQ1>>%</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		if DDQ1>=100 and $dd_collar=1:'<div class="buttonGn"><a href="exec:">Punishment & assessment completed</a></div>'else:'<div class="buttonGr"><a href="exec:">The event is not completed</a></div>'
 		
 		'<div class="button"><a href="exec:gt ''police_station''">return</a></div>'

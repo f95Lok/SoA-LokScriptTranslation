@@ -19,7 +19,7 @@ my.energy-=1
 
 
 if D<=0:
-	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q_filename_reference>>_<<$times_of_day>>.jpg" width="854"></div>'
 		'<div class="button_menu">'
 			'<div class="button"><a href="exec:minutes+=5  &money+=MED & medicine=0 & exp_figure-=RAND(3,10) & gt ''hospital''">Discharged from the hospital</a></div>'
 		'</div>'
@@ -29,13 +29,13 @@ if D<=0:
 End
 
 if $args[0]="":
-	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q>>_<<$times_of_day>>.jpg" width="854"></div>'
+	 '<div class ="show_menu"><img src="images\place\医院场景\病房<<$Q_filename_reference>>_<<$times_of_day>>.jpg" width="854"></div>'
 	 
 		'<div class="button_menu">'
 			'<div class="button"><a href="exec:minutes+=5 & $note=1 & gt ''daily_drug_test''">Instructions for admission to hospital</a></div>'
-			if $Q="一级" and  15>=hour  and  hour>=12 :'<div class="buttonQ"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_first-class_nurse''">Call the nurse</a></div>'
-			if $Q="二级" and $HS_Event_trouble=10 and $HS.love>=5:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''nurse_event'',''hs_fuck_room_blowjob''">call<<$HS.name>></a></div>'
-			if $Q="三级":
+			if $Q="Level 1" and  15>=hour  and  hour>=12 :'<div class="buttonQ"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_first-class_nurse''">Call the nurse</a></div>'
+			if $Q="Level 2" and $HS_Event_trouble=10 and $HS.love>=5:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''nurse_event'',''hs_fuck_room_blowjob''">call<<$HS.name>></a></div>'
+			if $Q="Level 3":
 				if  6>hour  and  hour>=0 :'<div class="buttonR"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_a''">Call the nurse</a></div>'
 				if  12>hour  and  hour>=6 :'<div class="buttonGn"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_b''">Call the nurse</a></div>'
 				if  18>hour  and  hour>=12 :'<div class="buttonB"><a href="exec:minutes+=5 & gt ''group_performation_event'',''hospital_fuck_level_3_nurse_c''">Call the nurse</a></div>'
@@ -51,9 +51,9 @@ if $args[0]="":
 		'</div>'
 		'<div class="dialog_menu">'
 			'<p>·Electronic bracelet: ♦Drug grade：<<$Q>>♦Remaining trial period：<<D>>day.*Please strictly abide by the rules of the hospitalization instructions. If you do not sign in to take the medicine, it will be deemed an invalid trial.</p>'
-			if $Q="一级" and $note=1:'<p>·If there is no treatment item from 8:00 to 21:00 every day, you can walk around the hospital area at will, but please do not leave the jurisdiction of the hospital.</p>'
-			if $Q="二级" and $note=1:'<p>·1. It is strictly forbidden for experimenters to leave the jurisdiction of the hospital without permission.2. The dean promised that the hospital will be able to treat every patient`s disease well.3. All large-scale and important operations in the hospital were performed by the dean himself, and none of them failed.</p>'
-			if $Q="三级" and $note=1:'<p><font color="#FF0000">·■■8:■0-2■:00■■ cure■■■，■■■■■■ Gone, but■■■■■■■■■■ range.</font></p>'
+			if $Q="Level 1" and $note=1:'<p>·If there is no treatment item from 8:00 to 21:00 every day, you can walk around the hospital area at will, but please do not leave the jurisdiction of the hospital.</p>'
+			if $Q="Level 2" and $note=1:'<p>·1. It is strictly forbidden for experimenters to leave the jurisdiction of the hospital without permission.2. The dean promised that the hospital will be able to treat every patient`s disease well.3. All large-scale and important operations in the hospital were performed by the dean himself, and none of them failed.</p>'
+			if $Q="Level 3" and $note=1:'<p><font color="#FF0000">·■■8:■0-2■:00■■ cure■■■，■■■■■■ Gone, but■■■■■■■■■■ range.</font></p>'
 			if my.energy<=0:'<p><font color="#FF0000">I was exhausted and was forcibly summoned back.But when it`s not time to sleep, the electronic bracelet will always emit an electric current to wake me up.</font></p>'
 		'</div>'
 End
@@ -76,8 +76,8 @@ if $args[0]="turn_left":
 	 '<div class ="show_menu"><img src="images\place\医院场景\病房左转.jpg" width="854"></div>'
 	 
 		'<div class="button_menu">'
-			if uniform>0 and $Q!"三级":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''j3_area''">Put on a doctor`s uniform</a></div>'
-			if uniform>0 and $Q="三级":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''j3_region_li''">Put on a doctor`s uniform</a></div>'
+			if uniform>0 and $Q!"Level 3":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''j3_area''">Put on a doctor`s uniform</a></div>'
+			if uniform>0 and $Q="Level 3":'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''j3_region_li''">Put on a doctor`s uniform</a></div>'
 			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''walk_around''">返回Back↓</a></div>'
 		'</div>'
 		'<div class="dialog_menu">'
@@ -104,7 +104,7 @@ if $args[0]="nurse_station":
 			else:
 			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''there_are_people_in_the_locker_room''">Locker room</a></div>'
 			end
-			if $Q="二级":
+			if $Q="Level 2":
 			'<div class="button"><a href="exec:minutes+=15 & gt ''independent_front_desk''">←Front desk</a></div>'
 			else:
 			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''front_desk''">←Front desk</a></div>'
@@ -136,7 +136,7 @@ if $args[0]="locker_room":
 End
 
 if $args[0]="there_are_people_in_the_locker_room":
-	 '<div class ="show_menu"><img src="images\place\医院场景\护士间<<$Q>>.jpg" width="854"></div>'
+	 '<div class ="show_menu"><img src="images\place\医院场景\护士间<<$Q_filename_reference>>.jpg" width="854"></div>'
 	 
 		'<div class="button_menu">'
 			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
@@ -257,13 +257,13 @@ if $args[0]="archive_li":
 End
 
 if $args[0]="front_desk":
-	 '<div class ="show_menu"><img src="images\place\医院场景\前台<<$Q>>.jpg" width="854"></div>'
+	 '<div class ="show_menu"><img src="images\place\医院场景\前台<<$Q_filename_reference>>.jpg" width="854"></div>'
 	 
 		'<div class="button_menu">'
 			'<div class="buttonB"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''relatives_and_friends_visit''">↑Relatives and friends visit</a></div>'
-			if $Q="一级":'<div class="buttonQ"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_1''">←<<$Q>>Physical examination</a></div>'
-			if $Q="二级":'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_2''">←<<$Q>>Physical examination</a></div>'
-			if $Q="三级":'<div class="buttonR"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_3''">←<<$Q>>Physical examination</a></div>'
+			if $Q="Level 1":'<div class="buttonQ"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_1''">←<<$Q>>Physical examination</a></div>'
+			if $Q="Level 2":'<div class="buttonGn"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_2''">←<<$Q>>Physical examination</a></div>'
+			if $Q="Level 3":'<div class="buttonR"><a href="exec:minutes+=15 & gt ''group_performation_event'',''hospital_fuck_doctor_examination_level_3''">←<<$Q>>Physical examination</a></div>'
 			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
 		'</div>'
 		'<div class="dialog_menu">'
@@ -353,10 +353,10 @@ if $args[0]="relatives_and_friends_visit_2":
 			if $HZ.bad>=250-$HZ.love:'<div class="buttonB"><a href="exec:gt ''president_event'',''hz_fuck_hospital_visit''">Neatly written hot girl</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？The hot girl</a></div>'
 			if $EDM.love>=100:'<div class="buttonB"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_hospital_visit''">Hot girl with scribbled handwriting</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？The hot girl</a></div>'
 			if $SF.bad>=270-$SF.love:'<div class="buttonB"><a href="exec:gt ''young_woman_event'',''sf_fuck_ward_conception''"><<$SF.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A young woman</a></div>'
-			if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec:$m=''TZ'' & $ma=$TZ.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain director</a></div>'
-            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain announcer</a></div>'
-            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain stepmother</a></div>'
-            if $ZX.bad>=500-$ZX.love:'<div class="buttonB"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain doctor</a></div>'
+			if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''TZ'' & $m=''TZ'' & $ma=$TZ.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain director</a></div>'
+            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''QT'' & $m=''QT'' & $ma=$QT.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain announcer</a></div>'
+            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''JM'' & $m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain stepmother</a></div>'
+            if $ZX.bad>=500-$ZX.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''ZX'' & $m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain doctor</a></div>'
 
 			'<div class="button"><a href="exec:minutes+=15 & gt ''daily_drug_test'',''nurse_station''">返回Back↓</a></div>'
 		'</div>'
