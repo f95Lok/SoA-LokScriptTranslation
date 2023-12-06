@@ -51,7 +51,7 @@ _update_xml_ = True
 _in_partial_hyperlink_ = False
 _current_location_ = ""
 
-regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+?</div>|<div.+?$|<a.+?</a>|(?:<p>|<p).+?</p>|<p>.+?(?:$|(?=else:))|<font.+?/font>|<font[^']+?(?=')|<span.[^']+?(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+?(?:$|(?=else:))|#\s.+$|\-{3}\s[^-]+\s\-+"
+regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+?</div>|<div.+?$|<a.+?</a>|(?:<p>|<p).+?</p>|<p>.+?(?:$|(?=else:))|<img.+?$|<source.+?$|<font.+?/font>|<font[^']+?(?=')|<span.[^']+?(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+?(?:$|(?=else:))|#\s.+$|\-{3}\s[^-]+\s\-+"
 
 regex_extract_from_string = r"(?<='')[^']+(?='')|(?<=\"\")[^\"]+(?=\"\")|(?<=')[^']+(?=')|(?<=\")[^\"]+(?=\")"
 regex_extract_from_string_partial_no_end = r"(?:^\s*|=\s*)\"[^\"]+$|(?:^\s*|=\s*)'[^']+$"
@@ -76,8 +76,8 @@ regex_operators = r"[+\-*/&]"
 
 ch_punctuation_marks = ["，", ",", "。", "·", ".", "...", "？", "?", "！", "!", "：", ":", "—", "【", "】", "<", ">"]
 match_function = ["gs", "gt", "dynamic", "killvar", "KILLVAR"]
-ignore_terms = ["img src", "source src"]
-html_tags = ["<div", "<a", "<p", "<font"]
+ignore_terms = ["img", "source", ".webm", ".png", ".jpg", ".gif"]
+html_tags = ["<div", "<a", "<p", "<font", "<source", "<img"]
 
 _current_line_ = ""
 
@@ -541,7 +541,7 @@ def handle_html(html):
         html = reconstruct_html(html)
 
     for tag in html:
-        if "img " in tag or "source " in tag:
+        if any(ignore in tag for ignore in ignore_terms):
             handle_embedded_variables(tag)
 
         elif "<div " in tag or re.match("^div ", tag) or "<span " in tag or re.match("^span ", tag):
@@ -599,7 +599,7 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        # if i == 152:
+        # if i == 934 or i == 26:
         #     print("debug")
 
         if re.sub(regex_everything_mostly, "", line).strip() == "" or line.strip()[0] == "!":
@@ -609,11 +609,7 @@ def get_data(filepath):
         else:
             new_line = line
 
-            if any(ignore in line for ignore in ignore_terms):
-                handle_embedded_variables(line)
-                new_line = replace_in_match(new_line)
-
-            elif _in_partial_hyperlink_:
+            if _in_partial_hyperlink_:
                 handle_hyperlink(line.strip())
                 new_line = replace_in_match(new_line)
 
@@ -624,7 +620,7 @@ def get_data(filepath):
                         if re.search("if\s[^:]+:", match) is not None:
                             handle_if_arguments(match)
 
-                        elif re.search(r"^\s*[^=<]+=", match) is not None:
+                        elif re.search(r"^\s*[^=< ]+\s*=", match) is not None:
                             analyze_expression(match)
 
                         elif any(tag in match for tag in html_tags):
@@ -635,6 +631,9 @@ def get_data(filepath):
 
                         elif re.search("^#", match) is not None or re.search(r"^---\s.+\s-+", match) is not None:
                             handle_location(match)
+
+                        elif any(ignore in match for ignore in ignore_terms):
+                            handle_embedded_variables(match)
 
                         else:
                             analyze_expression(match)
