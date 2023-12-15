@@ -27,7 +27,7 @@ if $ARGS[0]="":
 		'<div class="buttonG2"><a href="exec:gt ''bank'',''financial_products''">Financial products</a></div>'
 		'<div class="buttonG1"><a href="exec:gt ''bank'',''stock_trading''">Stock trading</a></div>'
 		if $squad_leader_event_chain_b=4 and week_day=7 and hour=12:'<div class="buttonR"><a href="exec:gt ''student_group_event'',''squad_leader_b7''">ATM machine that doesn`t spit out money</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -39,7 +39,7 @@ if $ARGS[0]="vice_president`s_office":
 	'<div class ="show_menu"><img src="images\NPC\YH\pics\副行长室.jpg" height="492"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -71,29 +71,29 @@ if $ARGS[0]="stock_trading":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:gt ''bank'',''stock_trading''">Stock trading</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
 		'<p>【Mugou Pharmaceutical】 Current Price：<<stock_pharmaceutical_n>> Bid price：<<stock_pharmaceutical_b>> Number of shares held：<<stock_pharmaceutical_c>>' 
-		if stock_pharmaceutical_c>0:'·<a href="exec:money+=stock_pharmaceutical_n*stock_pharmaceutical_c & stock_pharmaceutical_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=stock_pharmaceutical_n: '·<a href="exec:stock_pharmaceutical_c=money/stock_pharmaceutical_n & money-=stock_pharmaceutical_c*stock_pharmaceutical_n & stock_pharmaceutical_b=stock_pharmaceutical_n  & gt ''bank'',''stock_trading''">Full warehouse￥</a>·'
+		if stock_pharmaceutical_c>0:'· <a href="exec:money+=stock_pharmaceutical_n*stock_pharmaceutical_c & stock_pharmaceutical_c=0 & gt ''bank'',''stock_trading''">All for sale</a>· '
+		if money>=stock_pharmaceutical_n: '· <a href="exec:stock_pharmaceutical_c=money/stock_pharmaceutical_n & money-=stock_pharmaceutical_c*stock_pharmaceutical_n & stock_pharmaceutical_b=stock_pharmaceutical_n  & gt ''bank'',''stock_trading''">Full warehouse￥</a>· '
 		'</p>'
 		'<p>【Empire Entertainment】 Current Price：<<stock_entertainment_n>> Bid price：<<stock_entertainment_b>> Number of shares held：<<stock_entertainment_c>>' 
-		if stock_entertainment_c>0:'·<a href="exec:money+=stock_entertainment_n*stock_entertainment_c & stock_entertainment_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=stock_entertainment_n*100 and stock_entertainment_c=0: '·<a href="exec:stock_entertainment_c=100 & money-=stock_entertainment_n*100 & stock_entertainment_b=stock_entertainment_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		if stock_entertainment_c>0:'· <a href="exec:money+=stock_entertainment_n*stock_entertainment_c & stock_entertainment_c=0 & gt ''bank'',''stock_trading''">All for sale</a>· '
+		if money>=stock_entertainment_n*100 and stock_entertainment_c=0: '· <a href="exec:stock_entertainment_c=100 & money-=stock_entertainment_n*100 & stock_entertainment_b=stock_entertainment_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>· '
 		'</p>'
 		'<p>【Imperial Health】 Current Price：<<stock_health_n>> Bid price：<<stock_health_b>> Number of shares held：<<stock_health_c>>' 
-		if stock_health_c>0:'·<a href="exec:money+=stock_health_n*stock_health_c & stock_health_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=stock_health_n*100 and stock_health_c=0: '·<a href="exec:stock_health_c=100 & money-=stock_health_n*100 & stock_health_b=stock_health_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		if stock_health_c>0:'· <a href="exec:money+=stock_health_n*stock_health_c & stock_health_c=0 & gt ''bank'',''stock_trading''">All for sale</a>· '
+		if money>=stock_health_n*100 and stock_health_c=0: '· <a href="exec:stock_health_c=100 & money-=stock_health_n*100 & stock_health_b=stock_health_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>· '
 		'</p>'
 		'<p>【Imperial Energy】 Current Price：<<stock_energy_n>> Bid price：<<stock_energy_b>> Number of shares held：<<stock_energy_c>>' 
-		if stock_energy_c>0:'·<a href="exec:money+=stock_energy_n*stock_energy_c & stock_energy_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-		if money>=stock_energy_n*100 and stock_energy_c=0: '·<a href="exec:stock_energy_c=100 & money-=stock_energy_n*100 & stock_energy_b=stock_energy_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+		if stock_energy_c>0:'· <a href="exec:money+=stock_energy_n*stock_energy_c & stock_energy_c=0 & gt ''bank'',''stock_trading''">All for sale</a>· '
+		if money>=stock_energy_n*100 and stock_energy_c=0: '· <a href="exec:stock_energy_c=100 & money-=stock_energy_n*100 & stock_energy_b=stock_energy_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>· '
 		'</p>'
         '<p>【Contemplation Wine Company】 Current Price：<<stock_wine_company_n>> Bid price：<<stock_wine_company_b>> Number of shares held：<<stock_wine_company_c>>' 
-        if stock_wine_company_c>0:'·<a href="exec:money+=stock_wine_company_n*stock_wine_company_c & stock_wine_company_c=0 & gt ''bank'',''stock_trading''">All for sale</a>·'
-        if money>=stock_wine_company_n*100 and stock_wine_company_c=0: '·<a href="exec:stock_wine_company_c=100 & money-=stock_wine_company_n*100 & stock_wine_company_b=stock_wine_company_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>·'
+        if stock_wine_company_c>0:'· <a href="exec:money+=stock_wine_company_n*stock_wine_company_c & stock_wine_company_c=0 & gt ''bank'',''stock_trading''">All for sale</a>· '
+        if money>=stock_wine_company_n*100 and stock_wine_company_c=0: '· <a href="exec:stock_wine_company_c=100 & money-=stock_wine_company_n*100 & stock_wine_company_b=stock_wine_company_n  & gt ''bank'',''stock_trading''">Limited purchase of 100 shares￥</a>· '
         '</p>'
 	'</div>'
 end
@@ -105,7 +105,7 @@ if $ARGS[0]="financial_products":
 	'<div class="button_menu">'
 		'<div class="buttonG3"><a href="exec:gt ''bank_event'',''YH_Fuck_Bank''">Listen to her introduction</a></div>'
 		if $yh.fund>=1:'<div class="buttonR"><a href="exec:gt ''bank'',''fund_loss''">The fund lost money</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -122,7 +122,7 @@ if $ARGS[0]="fund_loss":
 		'<div class="buttonG3"><a href="exec:gt ''bank_event'',''YH_Fuck_Bank''">Shall I buy another order?</a></div>'
 		if $bank_event_chain_a!4 or $bank_event_chain_b>=1:'<div class="buttonP"><a href="exec:gt ''bank'',''manager_liyi''">Call your manager!</a></div>'
 		if $bank_event_chain_a=4:'<div class="buttonR"><a href="exec:gt ''bank_event'',''YH_Fuck_be''">Call your manager!</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -146,7 +146,7 @@ if $ARGS[0]="manager_liyi":
 		if $bank_event_chain_b=3:'<div class="button"><a href="exec:gt ''bank'',''men`s_room_monitor''">Go to the men`s room to monitor</a></div>'
 		if $bank_event_chain_b=6:'<div class="buttonR"><a href="exec:gt ''bank_event'',''board_of_directors_of_the_head_office''">Board of Directors of the head office</a></div>'
 		if $bank_event_chain_b>=7:'<div class="buttonS"><a href="exec:gt ''bank_event'',''YH_Fuck_B7''">Go to my office</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -164,7 +164,7 @@ if $ARGS[0]="dialogue_with_the_credit_manager":
         '</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -206,7 +206,7 @@ if $ARGS[0]="men`s_room_monitor":
 
 	'<div class="button_menu">'
 		if week_day=3:'<div class="buttonPu2"><a href="exec:gt ''bank'',''men`s_toilet_monitor_2''">He`s here</a></div>'else:'<div class="buttonS"><a href="exec:gt ''bank_event'',''YH_Fuck_B4''">Push her out</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
@@ -226,7 +226,7 @@ if $ARGS[0]="men`s_toilet_monitor_2":
 
 	'<div class="button_menu">'
 		'<div class="buttonS"><a href="exec:gt ''bank_event'',''YH_Fuck_B4''">Celebrate</a></div>'
-		'<div class="button"><a href="exec:gt ''city_hall''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'

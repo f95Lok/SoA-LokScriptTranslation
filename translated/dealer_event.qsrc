@@ -27,12 +27,12 @@ if $args[0]="self-recommendation":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>Me: I guess you need an excellent sale.</p>'
-		'<p><<$CH.name>>:sales?In fact, we are not short of people for sales positions.</p>'
-		'<p>Me: Is that right?I mean the promotion of new products.</p>'
-		'<p><<$CH.name>>:I think, do you mean product marketing?This position requires the use of certain social resources to build a brand image: brand promotion, event influence, and event marketing.</p>'
-		'<p>Me: This is my strength.</p>'
-		'<p><<$CH.name>>: Really?*Believe and doubt</p>'
+		'<p>Me: I guess you need an excellent salesman.</p>'
+		'<p><<$CH.name>>: Salesman? Actually, we are not short of people for salesmen.</p>'
+		'<p>Me: Is that right? I`m referring to the job of marketing the new products.</p>'
+		'<p><<$CH.name>>: Le me think... Do you mean product advertising? This position requires the use of certain social talents in order to build a brand image: brand promotion, special events, and mass marketing.</p>'
+		'<p>Me: This is where my strength lies.</p>'
+		'<p><<$CH.name>>: Oh really? *Rather doubtful* </p>'
 	'</div>'
 End
 
@@ -52,7 +52,7 @@ if $args[0]="temporary_studio":
 			if $ch.can_be_hired=1:'<div class="buttonG"><a href="exec:a=0 & q=0 & gt ''dealer_event'',''interview_car_model''">Interview car model</a></div>'else:'<div class="buttonGr"><a href="exec:">Interview car model</a></div>'
 			
 		end
-		 '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+		 '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -84,7 +84,7 @@ if $args[0]="dealer_fuck_training_0":
 			if $ch.car_model>=100 and $ch.on_base=1:'<div class="buttonS2"><a href="exec:a=0 & q=0 & gt ''dealer_event'',''dealer_fuck_photography_1''">Advertising shooting</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient preparation</a></div>'
 			if $ch.advertising>=10 and $ch.booth=0:'<div class="buttonS4"><a href="exec:$ch.booth=1 & gt ''4s_shop''">Launch of motorcycle booth</a></div>'
 		end
-		 '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+		 '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -150,9 +150,9 @@ if $args[0]="marketing":
 
 	'<div class="dialog_menu">'
 		if a=0:
-		'<p>Male employee A: It`s really funny. Forget about new energy vehicles. Now we are going to launch new energy motorcycles.</p>'
+		'<p>Male employee A: It`s a total joke. Forget about alternative energy vehicles. Now we are going to launch alternative energy motorcycles.</p>'
 		'<p><<$CH.name>>:………</p>'
-		'<p>Male employee B: Haha, new energy motorcycles are just toys for the rich.</p>'
+		'<p>Male employee B: Haha, alternative energy motorcycles are just toys for the rich.</p>'
 		'<p><<$CH.name>>:………</p>'
 		'<p>Me: Ahem…</p>'
 		'<p>Male employee A:!！！</p>'
@@ -163,16 +163,16 @@ if $args[0]="marketing":
 			ch.desire_to_buy_2=rand(15,55)
 			ch.desire_to_buy_1+=1
 		end
-		'<p><<$CH.name>>:I`m working very hard. Let me see the consumer`s desire to buy and make a visual table for me.</p>'
+		'<p><<$CH.name>>: Are you working hard? Let me see the consumer`s purchasing desires and make a graph for me.</p>'
 		'<p>Me: Uh…</p>'
-		'<p><<$CH.name>>:Is it difficult?Do it to me now.</p>'
+		'<p><<$CH.name>>:Is it hard? Make it for me right now.</p>'
 		'<p>Me: OK…</p>'
-		'<p><<$CH.name>>:Potential consumers` desire to buy：<<ch.desire_to_buy_1>>.<<ch.desire_to_buy_2>>%……</p>'
+		'<p><<$CH.name>>: Potential consumers` desire to buy：<<ch.desire_to_buy_1>>.<<ch.desire_to_buy_2>>%……</p>'
 		if ch.desire_to_buy_1>=15:
-		'<p>Me: It`s not a way to keep throwing money in.…</p>'
-		'<p><<$CH.name>>:Do you have time recently at night?Accompany me to meet a few important customers…</p>'
+		'<p>Me: Continuing to throw money into it isn`t a solution.…</p>'
+		'<p><<$CH.name>>: Recently, do you have time at night? Accompany me to meet a few important customers…</p>'
 		'<p>Me: When?</p>'
-		'<p><<$CH.name>>: At 18:00 on Friday night, the red restaurant.</p>'
+		'<p><<$CH.name>>: At 18:00 on Friday night, at the red restaurant.</p>'
 		if $ch_event_chain=3:$ch_event_chain=4
 		end
 		end
@@ -189,16 +189,16 @@ if $args[0]="accompany_dinner":
 
 	'<div class="button_menu">'
 		if $ch.rice>=0:'<div class="buttonG1"><a href="exec:gt ''dealer_event'',''raise_your_head_1''">Meet investors</a></div>'
-		if $ch.rice>=1:'<div class="buttonS1"><a href="exec:gt ''dealer_event'',''raise_your_head_2''">appointment<<$TS.name>></a></div>'
-		if $ch.rice>=2:'<div class="buttonPu1"><a href="exec:gt ''dealer_event'',''raise_your_head_3''">appointment<<$NY.name>></a></div>'
+		if $ch.rice>=1:'<div class="buttonS1"><a href="exec:gt ''dealer_event'',''raise_your_head_2''">Date<<$TS.name>></a></div>'
+		if $ch.rice>=2:'<div class="buttonPu1"><a href="exec:gt ''dealer_event'',''raise_your_head_3''">Date<<$NY.name>></a></div>'
 		if $ch.rice>=3:'<div class="buttonS"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_4''">She takes your hand</a></div>'
-		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''residential_area''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p><<$CH.name>>: <<$protagonists_name>>, Recite the product introduction again.</p>'
-		'<p>Me: A new energy motorcycle is a kind of motorcycle that uses electrical energy, solar energy, hydrogen energy, etc. to replace traditional fuels. It has multiple advantages and broad prospects.First of all, because they do not produce harmful gases and pollutants, and meet the requirements of modern society for environmental protection, they have become an important direction for the development of motorcycles in the future.Secondly, with the continuous progress of battery technology and the improvement of battery life, the performance and reliability of new energy motorcycles are also constantly improving, and they have been able to meet the needs of daily use.In addition, new energy motorcycles also have the advantages of low noise and low maintenance costs, which can bring users a better experience and economic benefits.Although the price of new energy motorcycles is relatively high compared to traditional motorcycles, with the continuous maturity of technology and the gradual expansion of production scale, the price will gradually decrease.Therefore, it is foreseeable that the future prospects of new energy motorcycles are very broad and will become an important direction in the field of transportation in the future.</p>'
-		'<p><<$CH.name>>:Very good, look at my eyes and act next!</p>'
+		'<p><<$CH.name>>: <<$protagonists_name>>, introduce the product again.</p>'
+		'<p>Me: The alternative energy motorcycle is a kind of motorcycle that uses electrical energy, solar energy, hydrogen energy, etc. to replace traditional fuels. It has multiple advantages and a lot of room for growth. First of all, because they do not produce harmful gases and pollutants, they meet the expectations of modern society for environmental protection, and thus they have become the important direction for the future development of motorcycles. Secondly, with the continuous progress of battery technology and the improvement of battery life, the performance and reliability of alternative energy motorcycles are also constantly improving, and they have been able to meet the needs of daily use. Additionally, new energy motorcycles also produce little noise and have low maintenance costs, which can bring users a better experience and economic benefits. Although the price of alternative energy motorcycles is relatively high compared to traditional motorcycles, as the technology continues to mature and as the scale of production increases, the price will gradually fall. Therefore, it is foreseeable that the future of alternative energy motorcycles are very grand and will become an important direction in the field of transportation in the future.</p>'
+		'<p><<$CH.name>>:Very good. Next, watch me and follow along!</p>'
 	'</div>'
 End
 
@@ -214,26 +214,26 @@ if $args[0]="raise_your_head_1":
 	'<div class="button_menu">'
 		if $ch.rice>=0:'<div class="buttonG1"><a href="exec:gt ''dealer_event'',''dealer_fuck_meal_1''">Negotiate alone</a></div>'
 		if $ch.mouth=1:'<div class="buttonS4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Have dinner together</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''residential_area''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		if $ch.rice=0:
-		'<p>Huang Yuzu (Rich woman): Strange, I obviously know all the words on these contracts, but why can`t I understand them even when they are connected.</p>'
-		'<p><<$CH.name>>:Recently, our marketing plan has been subject to some restrictions. We need a sum of funds to continue the promotion. Are you interested in becoming our investor?</p>'
-		'<p>Investment consultant: How much investment do you need?What is the expected rate of return?</p>'
-		'<p><<$CH.name>>: At present, we need at least ￥5,000,000 to support our marketing activities, including advertising, promotion, marketing and other expenses.</p>'
-		'<p>Investment consultant: ￥5,000,000?？？Are you kidding me?Miss, let`s go, this will not be a reasonable investment.</p>'
-		'<p>Huang Yuzu (Rich Woman): Okay, then let`s go directly to the hotel❤</p>'
+		'<p>Huang Yuzu (Rich woman): Strange, I obviously know all the words on these contracts, but why can`t I understand them when they are linked together?</p>'
+		'<p><<$CH.name>>: Recently, our marketing plan has been running into some restrictions. We need a sum of funds to continue our marketing. Are you interested in becoming our investor?</p>'
+		'<p>Investment advisor: How much investment do you need? What is the expected rate of return?</p>'
+		'<p><<$CH.name>>: Right now, we need at least ￥5,000,000 to support our marketing activities, including advertising, promotion, marketing and other expenses.</p>'
+		'<p>Investment advisor: ￥5,000,000?？？ Are you kidding me? Miss, let`s go, this won`t be a rational investment.</p>'
+		'<p>Huang Yuzu (Rich Woman): Okay, then let`s go straight to the hotel❤</p>'
 		'<p>Me: Uh……</p>'
 		else:
-		'<p>Investment consultant: Miss, do you really plan to invest?Do you need to be cautious about investment?！</p>'
-		'<p>Huang Yuzu (Rich Woman): It`s okay, it`s a trifle❤</p>'
-		'<p><<$CH.name>>:Many thanksI`ll invite you to dinner next time!</p>'
+		'<p>Investment advisor: Miss, do you really plan to invest? You need to be cautious when investing！</p>'
+		'<p>Huang Yuzu (Rich Woman): It`s okay, it`s just a small sum❤</p>'
+		'<p><<$CH.name>>: Many thanks! Next time, I`ll invite you out to eat!</p>'
 		'<p>Huang Yuzu (Rich Woman): Thank me, forget it, thank you<<$protagonists_name>>Oh❤</p>'
 		'<p><<$CH.name>>:Oh?！It seems that you are quite capable.</p>'
 		'<p>Investment consultant: Miss, just sign here.</p>'
-		'<p>Huang Yuzu (Rich Woman): Okay, then let`s go directly to the hotel❤</p>'
+		'<p>Huang Yuzu (Rich Woman): Okay, then let`s go straight to the hotel❤</p>'
 		end
 	'</div>'
 End
@@ -248,10 +248,10 @@ if $args[0]="raise_your_head_2":
 
 	'<div class="button_menu">'
 		if $ch.rice>=1:
-		if $TS.love>=my.charm*15:'<div class="buttonS3"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_2''">Negotiate privately</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of favorability<<my.charm*15>></a></div>'
+		if $TS.love>=my.charm*15:'<div class="buttonS3"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_meal_2''">Negotiate privately</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection<<my.charm*15>></a></div>'
 		end
 		if $ch.mouth=1:'<div class="buttonS4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Have dinner together</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
-		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''residential_area''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -287,7 +287,7 @@ if $args[0]="raise_your_head_3":
 		end
 		if $ch.mouth=1:'<div class="buttonS4"><a href="exec:gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Have dinner together</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		
-		'<div class="button"><a href="exec:gt ''residential_area''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''residential_area''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -338,7 +338,7 @@ if $args[0]="dealer_fuck_meal_1":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Reach cooperation</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Reach an agreement</a></div>'
             '</div>'
     end
 
@@ -350,15 +350,15 @@ if $args[0]="dealer_fuck_meal_1":
     if 4>=a and a>=0:
          '<div class="dialog_menu">'
              if a=0:
-                '<p>Me: For you, that money shouldn`t be a problem, right?As long as it makes you happy. </p>'
-                '<p>Huang Yuzu (Rich woman): It`s really not much, it`s a trifle, Hehe.</p>'
-                '<p>Me: Squat down, I have something to make you happy, I know you like this. </p>'
-                '<p>Huang Yuzu (Rich Woman): Huh?How do you know?Hehe.</p>'
+                '<p>Me: For you, that money shouldn`t be a problem, right? So long as it makes you happy. </p>'
+                '<p>Huang Yuzu (Rich woman): Indeed, it`s really not much, it`s a small sum. Hehe.</p>'
+                '<p>Me: Kneel down then. I have something that will make you happy. I know you like this. </p>'
+                '<p>Huang Yuzu (Rich Woman): Haa? How did you know? Hehe.</p>'
              end
-             if a=1:'<p>Huang Yuzu (Rich Woman): Hehe... then you better really make me happy❤</p>'
+             if a=1:'<p>Huang Yuzu (Rich Woman): Hehe... then you`d best be able to really make me happy❤</p>'
              if a=2:'<p>Me: No problem, slut. </p>'
              if a=3:'<p>Huang Yuzu (Rich Woman)：<<$panting_2>></p>'
-             if a=4:'<p>Me: Catch me with your mouth! </p>'
+             if a=4:'<p>Me: Take it all with your mouth! </p>'
          '</div>'
     end
 
@@ -366,13 +366,13 @@ if $args[0]="dealer_fuck_meal_1":
 		if $ch.rice=0:
          '<div class="dialog_menu">'
                 '<p>Me: Investment……</p>'      
-                '<p>Huang Yuzu (Rich Woman): You let me think about it again ❤ </p>'
+                '<p>Huang Yuzu (Rich Woman): Let me think about it some more ❤ </p>'
                 '<p>Me: Are you not satisfied?</p>'      
-                '<p>Huang Yuzu (Rich Woman): No, I feel dizzy now❤ </p>'
-                '<p>Me: One more time?</p>'      
+                '<p>Huang Yuzu (Rich Woman): No, that`s not it. I feel a bit dizzy now❤ </p>'
+                '<p>Me: Shall we do it again?</p>'      
                 '<p>Huang Yuzu (Rich Woman): Okay❤ </p>'
-                '<p>Me: Nice try, if you don`t agree to the capital injection, don`t think about it.</p>'      
-                '<p>Huang Yuzu (Rich Woman): Okay, it`s a trifle❤ </p>'
+                '<p>Me: Nice try, but if you don`t agree to spend the capital, don`t even think about it.</p>'      
+                '<p>Huang Yuzu (Rich Woman): Okay, it`s just a small sum❤ </p>'
          '</div>'
          else:
          '<div class="dialog_menu">'
@@ -486,7 +486,7 @@ if $args[0]="car_dealer_fuck_meal_3":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -533,7 +533,7 @@ if $args[0]="car_dealer_fuck_meal_4":
         '<div class="button_menu">'
 
             if a=0:
-            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''car_dealer_fuck_meal_4''">Small reward</a></div>'
+            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''car_dealer_fuck_meal_4''">Get a small reward</a></div>'
             end
             if a!2 and 1<=q and q<=4:
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_meal_4''">Mouth me</a></div>'
@@ -545,7 +545,7 @@ if $args[0]="car_dealer_fuck_meal_4":
             '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_meal_4''">Ejaculation</a></div>'
             end
             if a=4:
-            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_meal_4''">dialogue</a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_meal_4''">Talk</a></div>'
             end
 
 
@@ -602,13 +602,13 @@ if $args[0]="dealer_fuck_thank_you_0":
     if a<10:
         '<div class="button_menu">'
             if a=0 and $ch.rice>=1:
-            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">Small reward</a></div>'
+            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">Get a small reward</a></div>'
             end
             if a!2 and 1<=q and q<=4 and $ch.rice>=2:
-            '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">kiss</a></div>'
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">Kiss</a></div>'
             end
             if a!3 and 2<=q and q<=5 and $ch.rice>=3:
-            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">more</a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">More</a></div>'
             end
             if a>=3 and $ch.rice>=3 and $ch.on_base=1:
             if a!4 and 3<=q and q<=6:
@@ -627,7 +627,7 @@ if $args[0]="dealer_fuck_thank_you_0":
             '<div class="buttonS2"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">Face to face</a></div>'
             end
             if a!9 and 8<=q and q<=12:
-            '<div class="buttonS3"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">accelerate</a></div>'
+            '<div class="buttonS3"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">Speed up</a></div>'
             end
             if a=9:
             '<div class="buttonS4"><a href="exec:a=10 & gt ''dealer_event'',''dealer_fuck_thank_you_0''">Ejaculation</a></div>'
@@ -652,10 +652,10 @@ if $args[0]="dealer_fuck_thank_you_0":
         $CH.bad+=1
          '<div class="dialog_menu">'
              if a=0:'<p><<$CH.name>>: How did you convince each other in the restaurant?Can you teach me your unique negotiation skills?</p>'
-             if a=1:'<p><<$CH.name>>: Come on ❤ What did you say to the investors?How did you fix her?</p>' 
-             if a=2:'<p><<$CH.name>>: You and<<$TS.name>>Do you know each other?Why do I feel that her eyes are ambiguous when she looks at you?</p>' 
-             if a=3:'<p><<$CH.name>>：<<$NY.name>>The change in attitude is because of you, right?You don`t have anything to do with her, do you?</p>' 
-             if a=4:'<p>Me: I will tell you when you are happy to serve me! </p>'
+             if a=1:'<p><<$CH.name>>: Come on ❤ What did you say to the investor? How did you get her on board?</p>' 
+             if a=2:'<p><<$CH.name>>: You and <<$TS.name>>, do you know each other? Why do I feel that her gaze was very amorous when she was looking at you?</p>' 
+             if a=3:'<p><<$CH.name>>：<<$NY.name>>`s change in attitude is because of you, right? You don`t happen to have any blackmail against her, do you?</p>' 
+             if a=4:'<p>Me: I will tell you if you serve me well! </p>'
              if a>4:'<p><<$CH.name>>：<<$panting_2>></p>' 
              if a>6:'<p><<$CH.name>>：<<$words>></p>' 
          '</div>'
@@ -664,9 +664,9 @@ if $args[0]="dealer_fuck_thank_you_0":
     if a=10:
 
          '<div class="dialog_menu">'
-                '<p><<$CH.name>>: Do you know what this will lead to ❤ </p>'
-                '<p>Me: What caused it?</p>'      
-                '<p><<$CH.name>>: My brother knows you are dead❤ </p>'
+                '<p><<$CH.name>>: Do you know what this will lead to? ❤ </p>'
+                '<p>Me: What will it lead to?</p>'      
+                '<p><<$CH.name>>: You`re dead if my big brother finds out❤ </p>'
          '</div>'
 
         $CH.love+=q+my.charm
@@ -694,7 +694,7 @@ if $args[0]="car_dealer_fuck_office_1":
             if CHMMS>0:'<div class="buttonPu1"><a href="exec:a=0 & q=0 & gt ''succubus_event'',''succubus_fuck_car_dealer''"><<$MMS.name>>？</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
             end
             if a!2 and 1<=q and q<=3 and $ch.rice>=1:
-            '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Small reward</a></div>'
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Get a small reward</a></div>'
             end
             if a=2: 
             '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Touch stockings</a></div>'
@@ -703,10 +703,10 @@ if $args[0]="car_dealer_fuck_office_1":
             '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Touch the thigh</a></div>'
             end
             if a=4:
-            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Kneading milk</a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Kneading breasts</a></div>'
             end
             if a!6 and 5<=q and q<=7 and $ch.rice>=3:
-            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_office_1''">kiss</a></div>'
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Kiss</a></div>'
             end
             if a!7 and 6<=q and q<=8 and $ch.mouth=1:
             '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Oral sex</a></div>'
@@ -734,10 +734,10 @@ if $args[0]="car_dealer_fuck_office_1":
             '<div class="buttonS2"><a href="exec:a=12 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Look at me</a></div>'
             end
             if a=12:
-            '<div class="buttonS3"><a href="exec:a=13 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Internal injection</a></div>'
+            '<div class="buttonS3"><a href="exec:a=13 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Creampie</a></div>'
             end
             if a=13:
-            '<div class="buttonS4"><a href="exec:a=14 & gt ''dealer_event'',''car_dealer_fuck_office_1''">dialogue</a></div>'
+            '<div class="buttonS4"><a href="exec:a=14 & gt ''dealer_event'',''car_dealer_fuck_office_1''">Talk</a></div>'
             end
             end
             '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">That`s it</a></div>'
@@ -757,23 +757,23 @@ if $args[0]="car_dealer_fuck_office_1":
     if 13>=a and a>=0:
          '<div class="dialog_menu">'
              if a=0:
-                '<p>Staff A: How about we go for a drink after get off work?</p>'
-                '<p>Staff B：<<$protagonists_name>>？Are you together too?</p>'
+                '<p>Staff A: How about we go for a drink after we get off work?</p>'
+                '<p>Staff B：<<$protagonists_name>>？Are you coming, too?</p>'
                 '<p>Me: Uh……</p>'
-                '<p>Clerk A: My wife and I recently divorced, alas.If I divorce, I may be expelled from this city…</p>'
-                '<p>Clerk B: Where will you live in the future?</p>'
-                '<p>Staff A: Let`s talk while drinking…</p>'
+                '<p>Clerk A: Recently my wife wants to get a divorce. Alas, if I get divorced, I might get expelled from this city…</p>'
+                '<p>Clerk B: Then where will you live in the future?</p>'
+                '<p>Staff A: Let`s talk about it while we drink…</p>'
              end
              if a=1:
                 ch.desire_to_buy_1+=1
-                '<p><<$CH.name>>:I`m working very hard. Let me see the consumer`s desire to buy and make a visual table for me.</p>'
+                '<p><<$CH.name>>: Are you working hard? Let me see the consumer`s purchasing desires and make a graph for me.</p>'
                 '<p>Me: OK…</p>'
-                '<p><<$CH.name>>:Potential consumers` desire to buy：<<ch.desire_to_buy_1>>.<<ch.desire_to_buy_2>>%……</p>'
+                '<p><<$CH.name>>: Potential consumers` desire to buy：<<ch.desire_to_buy_1>>.<<ch.desire_to_buy_2>>%……</p>'
                 '<p>Me: The desire to buy has risen a lot compared to before…</p>'
                 '<p><<$CH.name>>:Thanks to you, isn`t it?</p>'
              end
-             if a=2:'<p><<$CH.name>>: What do you think of that investor?My brother told me a lot of rumors about her.</p>' 
-             if a=3:'<p>Me: That rich woman looks like an upstart.</p>' 
+             if a=2:'<p><<$CH.name>>: What did you think about that investor? My brother told me a lot of rumors about her.</p>' 
+             if a=3:'<p>Me: That rich woman looks like a noveau riche.</p>' 
              if a=4:'<p><<$CH.name>>: Then you and<<$TS.name>>What is the relationship?</p>' 
              if a=5:'<p>Me: We are...a cooperative relationship.</p>' 
              if a=6:'<p><<$CH.name>>: What kind of cooperative relationship?and<<$NY.name>>Is this the same relationship?</p>' 
@@ -821,7 +821,7 @@ if $args[0]="dealer_fuck_oil1":
             '<div class="buttonP"><a href="exec:a=0 & gt ''dealer_event'',''dealer_fuck_oil1''">Oiled</a></div>'
             end
             if a!1 and 0<=q and q<=3 :
-            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''dealer_fuck_oil1''">massage</a></div>'
+            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''dealer_fuck_oil1''">Massage</a></div>'
             end
             if a!2 and 2<=q and q<=5 :
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''dealer_fuck_oil1''">Finger and abdomen massage</a></div>'
@@ -839,7 +839,7 @@ if $args[0]="dealer_fuck_oil1":
             '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_oil1''">Ejaculation</a></div>'
             end
             if a=6:
-            '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_oil1''">dialogue</a></div>'
+            '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_oil1''">Talk</a></div>'
             end
 
         '</div>'
@@ -889,13 +889,13 @@ if $args[0]="car_dealer_fuck_night_return_1":
     if a<9:
         '<div class="button_menu">'
             if a!1 and 0<=q and q<=3 :
-            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">dialogue</a></div>'
+            '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Talk</a></div>'
             end
             if a!2 and 1<=q and q<=5 :
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Ask for a kiss</a></div>'
             end
             if a!3 and 1<=q and q<=6 :
-            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Kneading milk</a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Kneading breasts</a></div>'
             end
             if a!4 and 4<=q and q<=7 :
             '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Make love</a></div>'
@@ -903,7 +903,7 @@ if $args[0]="car_dealer_fuck_night_return_1":
             if $ch.on_base=0 and a=4:'<div class="button"><a href="exec:gt ''residential_area''">refuse</a></div>'
             if $ch.on_base=1:
             if a!5 and 5<=q and q<=8 :
-            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Tear her down</a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Push her down</a></div>'
             end
             if a!6 and 6<=q and q<=9 :
             '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Sit up</a></div>'
@@ -912,17 +912,17 @@ if $args[0]="car_dealer_fuck_night_return_1":
             '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Face to face</a></div>'
             end
             if a=7 :
-            '<div class="buttonS5"><a href="exec:a=8 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Internal injection</a></div>'
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Creampie</a></div>'
             end
             if a=8:
-            '<div class="buttonS1"><a href="exec:a=9 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">dialogue</a></div>'
+            '<div class="buttonS1"><a href="exec:a=9 & gt ''dealer_event'',''car_dealer_fuck_night_return_1''">Talk</a></div>'
             end
             end
         '</div>'
         else:
             '<div class="button_menu">'
                 if $CH.bad>=my.charm*10+300:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Go take a shower</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity><<my.charm*10+100>></a></div>'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -979,7 +979,7 @@ if $args[0]="dealer_fuck_studio_2":
             '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_studio_2''">Vigorously pump</a></div>'
             end
             if a!4 and 3<=q and q<=6 :
-            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''dealer_fuck_studio_2''">Riding position</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''dealer_fuck_studio_2''">Cowgirl</a></div>'
             end
             if a=4 :
             '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''dealer_fuck_studio_2''">Ejaculation</a></div>'
@@ -1037,7 +1037,7 @@ if $args[0]="dealer_fuck_training_1":
             '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''dealer_fuck_training_1''">Plug in and walk</a></div>'
             end
             if a!2 and 1<=q and q<=4 :
-            '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''dealer_fuck_training_1''">accelerate</a></div>'
+            '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''dealer_fuck_training_1''">Speed up</a></div>'
             end
             if a!3 and 2<=q and q<=5 :
             '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_training_1''">Stop pumping</a></div>'
@@ -1055,12 +1055,12 @@ if $args[0]="dealer_fuck_training_1":
             '<div class="buttonS4"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_training_1''">Ejaculation</a></div>'
             end
             if a=7 :
-            '<div class="buttonS5"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_training_1''">dialogue</a></div>'
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_training_1''">Talk</a></div>'
             end
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -1116,7 +1116,7 @@ if $args[0]="dealer_fuck_photography_1":
             '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''dealer_fuck_photography_1''">Pick it up and fuck</a></div>'
             end
             if a!6 and 6<=q and q<=9 :
-            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_photography_1''">Back position</a></div>'
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_photography_1''">Doggystyle</a></div>'
             end
             if a!7 and 7<=q and q<=10 :
             '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_photography_1''">Vigorously pump</a></div>'
@@ -1125,12 +1125,12 @@ if $args[0]="dealer_fuck_photography_1":
             '<div class="buttonS5"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_photography_1''">Bukkake</a></div>'
             end
             if a=8:
-            '<div class="buttonS1"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_photography_1''">dialogue</a></div>'
+            '<div class="buttonS1"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_photography_1''">Talk</a></div>'
             end
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -1184,10 +1184,10 @@ if $args[0]="dealer_fuck_overnight_1":
             '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_overnight_1''">sex</a></div>'
             end
             if a!4 and 4<=q and q<=6 :
-            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Female upper</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Cowgirl</a></div>'
             end
             if a!5 and 5<=q and q<=7 :
-            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Back position</a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Doggystyle</a></div>'
             end
             if a=5:
             '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Ejaculation</a></div>'
@@ -1199,7 +1199,7 @@ if $args[0]="dealer_fuck_overnight_1":
             '<div class="buttonB1"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Wake up the next day</a></div>'
             end
             if a=8:
-            '<div class="buttonB2"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_overnight_1''">dialogue</a></div>'
+            '<div class="buttonB2"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Talk</a></div>'
             end
             if a=9 :
             '<div class="buttonS5"><a href="exec:a=10 & gt ''dealer_event'',''dealer_fuck_overnight_1''">Ejaculation</a></div>'
@@ -1269,19 +1269,19 @@ if $args[0]="car_dealer_fuck_hotel_1":
             '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Plug in from behind</a></div>'
             end
             if a!4 and 3<=q and q<=6 :
-            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Female upper</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Cowgirl</a></div>'
             end
             if a!5 and 4<=q and q<=7 :
-            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Slow thrusting</a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Thrust slowly</a></div>'
             end
             if a!6 and 5<=q and q<=8 :
             '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Be intense</a></div>'
             end
             if a=6:
-            '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Internal injection</a></div>'
+            '<div class="buttonS1"><a href="exec:a=7 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Creampie</a></div>'
             end
             if a=7 :
-            '<div class="buttonS2"><a href="exec:a=8 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">dialogue</a></div>'
+            '<div class="buttonS2"><a href="exec:a=8 & gt ''dealer_event'',''car_dealer_fuck_hotel_1''">Talk</a></div>'
             end
         '</div>'
         else:
@@ -1349,12 +1349,12 @@ if $args[0]="dealer_fuck_colleague_1":
             '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''dealer_fuck_colleague_1''">Ejaculation</a></div>'
             end
             if a=5 :
-            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_colleague_1''">dialogue</a></div>'
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_colleague_1''">Talk</a></div>'
             end
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -1476,7 +1476,7 @@ if $args[0]="dealer_fuck_interview_car_b1":
             '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">insert</a></div>'
             end
             if a!6 and 5<=q and q<=8 :
-            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">Female upper</a></div>'
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">Cowgirl</a></div>'
             end
             if a!7 and 6<=q and q<=9 :
             '<div class="buttonS2"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">Accelerate thrusting</a></div>'
@@ -1485,7 +1485,7 @@ if $args[0]="dealer_fuck_interview_car_b1":
             '<div class="buttonS3"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">Ejaculation</a></div>'
             end
             if a=8 :
-            '<div class="buttonS4"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">dialogue</a></div>'
+            '<div class="buttonS4"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_interview_car_b1''">Talk</a></div>'
             end
 
 
@@ -1553,14 +1553,14 @@ if $args[0]="dealer_fuck_near_car_b1":
             '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''dealer_fuck_near_car_b1''">Bukkake</a></div>'
             end
             if a!7 and 6<=q and q<=9 :
-            '<div class="buttonS2"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_near_car_b1''">dialogue</a></div>'
+            '<div class="buttonS2"><a href="exec:a=7 & gt ''dealer_event'',''dealer_fuck_near_car_b1''">Talk</a></div>'
             end
 
 
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -1609,7 +1609,7 @@ if $args[0]="dealer_fuck_car_am1":
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''dealer_fuck_car_am1''">Serve me</a></div>'
             end
             if a!3 and 2<=q and q<=5 :
-            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_car_am1''">Oral work</a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''dealer_fuck_car_am1''">Oral Sex</a></div>'
             end
             if a!4 and 3<=q and q<=6 :
             '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''dealer_fuck_car_am1''">Deep throat</a></div>'
@@ -1627,13 +1627,13 @@ if $args[0]="dealer_fuck_car_am1":
             '<div class="buttonS5"><a href="exec:a=8 & gt ''dealer_event'',''dealer_fuck_car_am1''">Bukkake</a></div>'
             end
             if a=8 :
-            '<div class="buttonS2"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_car_am1''">dialogue</a></div>'
+            '<div class="buttonS2"><a href="exec:a=9 & gt ''dealer_event'',''dealer_fuck_car_am1''">Talk</a></div>'
             end
 
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''residential_area''">Leave</a></div>'
             '</div>'
     end
 
@@ -1682,23 +1682,23 @@ if $args[0]="car_dealer_fuck_shopcar_a1":
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Serve me</a></div>'
             end
             if a!3 and 2<=q and q<=5 :
-            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Oral work</a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Oral Sex</a></div>'
             end
             if a!4 and 3<=q and q<=6 :
-            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">accelerate</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Speed up</a></div>'
             end
             if a!5 and 4<=q and q<=7 :
-            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Mouth explosion</a></div>'
+            '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Cum in her mouth</a></div>'
             end
             if a=5 :
-            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">dialogue</a></div>'
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Talk</a></div>'
             end
 
 
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''shopping_mall''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''shopping_mall''">Leave</a></div>'
             '</div>'
     end
 
@@ -1746,23 +1746,23 @@ if $args[0]="car_dealer_fuck_shopcar_b1":
             '<div class="buttonS1"><a href="exec:a=2 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Lick me</a></div>'
             end
             if a!3 and 2<=q and q<=5 :
-            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Oral work</a></div>'
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Oral Sex</a></div>'
             end
             if a!4 and 3<=q and q<=6 :
-            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">accelerate</a></div>'
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Speed up</a></div>'
             end
             if a!5 and 4<=q and q<=7 :
             '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Bukkake</a></div>'
             end
             if a=5 :
-            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">dialogue</a></div>'
+            '<div class="buttonS5"><a href="exec:a=6 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Talk</a></div>'
             end
 
 
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''shopping_mall''">leave</a></div>'
+                '<div class="buttonGn"><a href="exec:minutes+=30 & gt ''shopping_mall''">Leave</a></div>'
             '</div>'
     end
 
@@ -1820,7 +1820,7 @@ if $args[0]="car_dealer_fuck_home_visit_1":
             '<div class="buttonS3"><a href="exec:a+=1 & gt ''dealer_event'',''car_dealer_fuck_home_visit_1''">Lick clean</a></div>'
             end
             if q=4:
-            '<div class="buttonS1"><a href="exec:a=15 & gt ''dealer_event'',''car_dealer_fuck_home_visit_1''">dialogue</a></div>'
+            '<div class="buttonS1"><a href="exec:a=15 & gt ''dealer_event'',''car_dealer_fuck_home_visit_1''">Talk</a></div>'
             end
 
         '</div>'
