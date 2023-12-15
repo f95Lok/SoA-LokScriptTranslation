@@ -51,7 +51,7 @@ _update_xml_ = True
 _in_partial_hyperlink_ = False
 _current_location_ = ""
 
-regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+?</div>|<div.+?$|<a.+?</a>|(?:<p>|<p).+?</p>|<p>.+?(?:$|(?=else:))|<img.+?$|<source.+?$|<font.+?/font>|<font[^']+?(?=')|<span.[^']+?(?=')|(?:gs|gt|dynamic|KILLVAR|killvar).+?(?:$|(?=else:))|#\s.+$|\-{3}\s[^-]+\s\-+"
+regex_main = r"\s*\S+\s*(?:=|\+=|-=|\*=|/=)\s*.+?(?:$|(?=else:))|if [^:]+:|<div.+?</div>|<div.+?$|<a.+?</a>|(?:<p>|<p).+?</p>|<p>.+?(?:$|(?=else:))|<img.+?$|<source.+?$|<font.+?/font>|<font[^']+?(?=')|<span.[^']+?(?=')|(?:gs|gt|msg|dynamic|KILLVAR|killvar).+?(?:$|(?=else:|&))|#\s.+$|\-{3}\s[^-]+\s\-+"
 
 regex_extract_from_string = r"(?<='')[^']+(?='')|(?<=\"\")[^\"]+(?=\"\")|(?<=')[^']+(?=')|(?<=\")[^\"]+(?=\")"
 regex_extract_from_string_partial_no_end = r"(?:^\s*|=\s*)\"[^\"]+$|(?:^\s*|=\s*)'[^']+$"
@@ -75,7 +75,7 @@ regex_embedded_variable = r"<{2}[^<>]+>{2}"
 regex_operators = r"[+\-*/&]"
 
 ch_punctuation_marks = ["，", ",", "。", "·", ".", "...", "？", "?", "！", "!", "：", ":", "—", "【", "】", "<", ">"]
-match_function = ["gs", "gt", "dynamic", "killvar", "KILLVAR"]
+match_function = ["gs", "gt", "msg", "dynamic", "killvar", "KILLVAR"]
 ignore_terms = ["img", "source", ".webm", ".png", ".jpg", ".gif"]
 html_tags = ["<div", "<a", "<p", "<font", "<source", "<img"]
 
@@ -388,6 +388,10 @@ def handle_function(function):
             else:
                 update_dict(arg, _variables_)
 
+    elif "msg" in function:
+        function = extract_from_string(function.strip()[3:])
+        handle_texts(function)
+
 
 def handle_if_arguments(if_matches):
     if_matches = re.split(regex_split_if_arguments, if_matches)
@@ -541,17 +545,21 @@ def handle_html(html):
         html = reconstruct_html(html)
 
     for tag in html:
-        if any(ignore in tag for ignore in ignore_terms):
-            handle_embedded_variables(tag)
+        if tag == '':
+            continue
 
-        elif "<div " in tag or re.match("^div ", tag) or "<span " in tag or re.match("^span ", tag):
-            handle_div(tag)
+        elif needs_translation(tag):
+            if any(ignore in tag for ignore in ignore_terms):
+                handle_embedded_variables(tag)
 
-        elif "<a " in tag or re.match("^a ", tag):
-            handle_hyperlink(tag)
+            elif "<div " in tag or re.match("^div ", tag) or "<span " in tag or re.match("^span ", tag):
+                handle_div(tag)
 
-        else:
-            handle_text(tag)
+            elif "<a " in tag or re.match("^a ", tag):
+                handle_hyperlink(tag)
+
+            else:
+                handle_text(tag)
 
 
 def analyze_expression(match):
@@ -565,7 +573,7 @@ def analyze_expression(match):
                 else:
                     handle_texts(extract_from_string(expression))
             elif re.search(r"^\s*[^=<]+=", expression) is not None:
-                analyze_expression(expression)
+                handle_expression(expression)
             elif any(tag in expression for tag in html_tags):
                 handle_html(expression)
             elif any(function in expression for function in match_function):
@@ -589,6 +597,10 @@ def replace_in_match(new_line, match=None):
     return new_line
 
 
+def needs_translation(line):
+    return re.sub(regex_everything_mostly, "", line).strip() != "" and line.strip()[0] != "!"
+
+
 def get_data(filepath):
     global _current_line_
     global _current_location_
@@ -599,10 +611,10 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        # if i == 934 or i == 26:
-        #     print("debug")
+        if i == 107:
+            print("debug")
 
-        if re.sub(regex_everything_mostly, "", line).strip() == "" or line.strip()[0] == "!":
+        if not needs_translation(line):
             new_file.append(line)
             continue
 
@@ -616,7 +628,21 @@ def get_data(filepath):
             else:
                 matches = re.findall(regex_main, line)
                 if len(matches) > 0:
+                    last_index = -1
                     for match in matches:
+                        current_index = line.find(match)
+                        if last_index != -1 and current_index - last_index > 1:
+                            stray_text = line[last_index:current_index].strip()
+                            if needs_translation(stray_text):
+                                if stray_text[0] == "'" and stray_text[-1] != "'" or stray_text[0] == '"' and stray_text[-1] != '"':
+                                    stray_text = stray_text[1:]
+                                elif stray_text[0] != "'" and stray_text[-1] == "'" or stray_text[0] != '"' and stray_text[-1] == '"':
+                                    stray_text = stray_text[:-1]
+                                handle_text(stray_text)
+                                new_line = replace_in_match(new_line, stray_text)
+
+                        last_index = current_index + len(match)
+
                         if re.search("if\s[^:]+:", match) is not None:
                             handle_if_arguments(match)
 

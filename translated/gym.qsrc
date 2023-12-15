@@ -32,7 +32,7 @@ if $ARGS[0]="":
 
 '<div class="button_menu">'
 	if $fitness_coach_qualification=0:
-		'<div class="button"><a href="exec:gt''gym'',''instructions_for_applying_for_a_coach''">Apply for a coach</a></div>'
+		'<div class="button"><a href="exec:gt''gym'',''instructions_for_applying_for_a_coach''">Apply for coaching position</a></div>'
 	end
 	if $fitness_coach_qualification=1:
 		'<div class="button"><a href="exec:minutes+=55 & my.energy-=55 & gt ''gym'',''boutique_private_education''">Private class-1 hour</a></div>'
@@ -44,7 +44,7 @@ if $ARGS[0]="":
 '</div>'
 
 '<div class="dialog_menu">'
-	'<p>An adrenaline-pumping gym.</p>'
+	'<p>A gym that gets the adrenaline flowing.</p>'
 	if bigvillaforthefirsttime>=1 and gym_hammer=0:'<p>·There is a [sledgehammer] in the dumbbell area of the gym<a href="exec:sledgehammer+=1 & gym_hammer=1 &  gt ''gym''">-Take it away</a></p>'
 '</div>'
 end
@@ -59,14 +59,14 @@ if $ARGS[0]="instructions_for_applying_for_a_coach":
 		if my.physical_strength >=5:
 			'<div class="button"><a href="exec:$fitness_coach_qualification=1 & $fitness_coach=''【☺Fitness Coach】''  & gt ''gym''">No problem</a></div>'
 		end
-		'<div class="button"><a href="exec:gt ''gym''">Practice again</a></div>'
+		'<div class="button"><a href="exec:gt ''gym''">Exercise more</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>-[Female coach]: Characteristic group exercises are characteristic group courses that combine strength training and aerobic exercise. They belong to advanced sexual puppet service projects!</p>'
-		'<p>-[Female coach]: Every personal trainer has a health certificate and a 30-day abstinence assessment.It is more secure than the low-level services that erode in the backstreets!At present, the quota is tight, so I want to buy as soon as possible!</p>'
-		'<p>-[Me]: Uh, I want to apply for a featured team exercise coach!</p>'
-		'<p>-[Female coach]: You?Team exercise coach requirements: body shape reaches level 5, penis length is up to standard, hard-working, can meet the needs of members, class salary: 300/session.These include nutrition fees and food tax subsidies.</p>'
+		'<p>-[Female coach]: The special group exercises are courses that combine strength training and aerobic exercises. They are considered high-grade benefits for idols!</p>'
+		'<p>-[Female coach]: Every personal trainer needs to provide a health certificate to prove a 30-day abstinence assessment. This provides more security than the low-level services provided in the alleys! At present, seats are limited, so hurry if you want in!</p>'
+		'<p>-[Me]: Uh, I want to apply for the position of a special group exercise coach!</p>'
+		'<p>-[Female coach]: You? The requirements to be a team exercise coach are: your body grade needs to reach level 5, your penis length needs to meet standards, you need to be hard-working, can fulfill the needs of the members, but the class salary is: 300/session. These include nutrition fees and semen ejaculation subsidies.</p>'
 	'</div>'
 end
 
@@ -78,7 +78,7 @@ if $ARGS[0]="exercise_alone":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:gt ''gym''">Swallow saliva</a></div>'
+		'<div class="button"><a href="exec:gt ''gym''">*Gulp*</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -87,13 +87,13 @@ if $ARGS[0]="exercise_alone":
 			mymax[energy] +=RAND(0,my.physical_strength)
 		 end
 		if $num=3:
-		'<p>-[Female coach]: 1,2,1,2!Keep the buttocks muscles pumping!Featured group exercises are expensive to insist on!</p>'
+		'<p>-[Female coach]: One-Two, One-Two! Keep your glutes tight! The special group exercises are expensive precisely due to your perseverance!</p>'
 		end
-		'<p>-Train hard while resisting temptation....</p>'
+		'<p>-You`re trying hard to resist the temptation on one hand, on the other hand, you`re training hard....</p>'
 		'<p></p>'
-		'<p>-Subject to intelligence【<<my.intelligence>>]▲The influence of ▲, the ability to control the muscles has increased▲</p>'
+		'<p>-Aided by your level of intelligence【<<my.intelligence>>】,▲your control over your muscles has increased▲</p>'
 		'<p></p>'
-		'<p>-Affected by proficiency, cardiopulmonary function has been improved▲, and the upper limit of energy has been increased to 【<<mymax[energy]>>】▲</p>'
+		'<p>-Affected by your persistence, stamina has been improved▲, and the upper limit of energy has been increased to 【<<mymax[energy]>>】▲</p>'
 		'<p>-▲▲▲▲▲▲▲▲▲▲▲</p>'
 		
 	'</div>'
@@ -116,14 +116,14 @@ if $ARGS[0]="group_exercises":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:gt ''gym''">Teach hard</a></div>'
+		'<div class="button"><a href="exec:gt ''gym''">Work hard at teaching them</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>[Female coach]: Persevere!persist!Keep up with the beat of our male coach!1！2！1！2！</p>'
-		'<p>❤In this groan from the other side, the students are very satisfied❤</p>'
-		'<p>❤I received the class fee of 300..</p>'
-		'<p>❤Based on charm, I received a tip from a female student<<$loveMoney>>..</p>'
+		'<p>[Female coach]: Keep going! Keep going! Keep up with the rhythm of our male coach! One！ Two！ One！ Two！</p>'
+		'<p>❤Among all the moans and groans, the students are very satisfied❤</p>'
+		'<p>❤I received a class fee of 300..</p>'
+		'<p>❤Due to my charm, I received a tip from the female students<<$loveMoney>>..</p>'
 
 	'</div>'
 end
@@ -135,7 +135,7 @@ if $ARGS[0]="boutique_private_education":
 
 	'<div class="button_menu">'
 		'<div class="buttonS1"><a href="exec:gt ''gym'',''1_to_1_private_education''">1 to 1 private education</a></div>'
-		'<div class="button"><a href="exec:gt ''gym''">leave</a></div>'
+		'<div class="button"><a href="exec:gt ''gym''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'

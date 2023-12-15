@@ -19,13 +19,13 @@ if $args[0]="":
 
 
 	'<div class="button_menu">'
-	'<div class="button"><a href="exec:minutes+=30 & gt ''home_sister2s_room''">Kill time</a></div>'
-	if $yuya_mission=3:'<div class="button"><a href="exec:gt ''yuya_event'',''ssyy_fuck_inverse_1''">appointment<<$SSYY.name>></a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''home_sister2s_room''">Pass time</a></div>'
+	if $yuya_mission=3:'<div class="button"><a href="exec:gt ''yuya_event'',''ssyy_fuck_inverse_1''">Date<<$SSYY.name>></a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-	'<p>There is no one....</p>'
+	'<p>There`s no one here....</p>'
 	'</div>'
 End
 
@@ -36,7 +36,7 @@ if $args[0]="room_conversation":
 		'</div>'
 
 	'<div class="button_menu">'
-	 '<div class="button"><a href="exec:$chat=''MM''& $where_to_go_out = ''home'' & addlove=0 &addbad=0 & gt ''universal_chat''">interaction</a></div>'
+	 '<div class="button"><a href="exec:$chat=''MM''& $where_to_go_out = ''home'' & addlove=0 &addbad=0 & gt ''universal_chat''">Interact</a></div>'
 	'<div class="button"><a href="exec:minutes+=30 & gt ''home_sister2s_room'',''tutoring_homework''">Tutoring homework</a></div>'
 	'<div class="button"><a href="exec:minutes+=30 & gt ''home_sister2s_room'',''become_an_idol''">Wish: To become an idol</a></div>'
 	if hour >=22 and hour<23 and $MM.love>=150 and $MM.bad>=150 and  $jj.love>=150 and $jj.bad>=150:
@@ -52,8 +52,8 @@ if $args[0]="room_conversation":
 
 
 	'<div class="dialog_menu">'
-	'<p>Me: What time is it, why don`t you sleep yet?...？</p>'
-	'<p><<$mm.name>>: Are you an old man?Go to bed so early.Do you understand the work and rest of young people?</p>'
+	'<p>Me: Look at the time already, how come you haven`t gone to bed yet?...？</p>'
+	'<p><<$mm.name>>: Are you an old man? Sleeping so early. Do you understand the daily routine of a young person?</p>'
 	'</div>'
 End
 
@@ -67,7 +67,7 @@ if $args[0]="sleep":
 	if my.ethics<-10 and $mm.love>=-$mm.bad+220:
 	'<div class="button"><a href="exec:minutes+=30 & a=5 &gt ''sister2_event'',''mm_fuck_night_attack''">Break in</a></div>'
 	end 
-	'<div class="button"><a href="exec:minutes+=5 & gt ''home''">leave</a></div>'
+	'<div class="button"><a href="exec:minutes+=5 & gt ''home''">Leave</a></div>'
 	'</div>'
 
 
@@ -83,14 +83,14 @@ if $args[0]="tutoring_homework":
 		'</div>'
 
 	'<div class="button_menu">'
-	'<div class="button"><a href="exec:minutes+=30 & gt ''home''">leave</a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''home''">Leave</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
 	'<p><<$mm.name>>: This question..Oh...Neither can you?....</p>'
 	'<p><<$mm.name>>: There is also this question...emmmmmm, where are your eyes looking?！...</p>'
-	'<p>Tutored homework for a while....Although it didn`t teach anything, the favorability has risen!</p>'
+	'<p>Tutored homework for a while....Although it didn`t teach anything, her affection has risen!</p>'
 	'</div>'
 	$MM.love+=RAND(1,my.charm)
 End
@@ -105,7 +105,7 @@ if $args[0]="become_an_idol":
 	if $MM_Event_idol>=2:
 	'<div class="button"><a href="exec:minutes+=5 & gt ''home_sister2s_room'',''good_news''">Good news</a></div>'
 	end
-	'<div class="button"><a href="exec:minutes+=30 & gt ''home''">leave</a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''home''">Leave</a></div>'
 	'</div>'
 
 
@@ -129,7 +129,7 @@ if $args[0]="good_news":
 		'</div>'
 
 	'<div class="button_menu">'
-	'<div class="button"><a href="exec:minutes+=30 & gt ''home''">leave</a></div>'
+	'<div class="button"><a href="exec:minutes+=30 & gt ''home''">Leave</a></div>'
 	'</div>'
 
 
