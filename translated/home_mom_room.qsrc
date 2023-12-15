@@ -16,7 +16,7 @@ gs'menu_gif'
 if $args[0]="":
 	 '<div class ="show_menu"><img src="images\place\继母房间.jpg" width="854"></div>'
 	 '<div class="button_menu">'
-		 '<div class="button"><a href="exec:minutes+=30 & gt ''home_mom_room''">Kill time</a></div>'
+		 '<div class="button"><a href="exec:minutes+=30 & gt ''home_mom_room''">Pass time</a></div>'
 	 '</div>'
      '<div class="dialog_menu">'
 	     '<p>......</p>'
@@ -30,9 +30,9 @@ if $args[0]="close_the_door":
 		  '<div class="button"><a href="exec:minutes+=5 & gt ''stepmom_event'',''eavesdropping''">Eavesdropping</a></div>'
 		  end
 		  	if $JM_Event_grandpa >=7 :
-		  '<div class="button"><a href="exec:minutes+=5 & gt ''home_mom_room'',''peek''">Peek</a></div>'
+		  '<div class="button"><a href="exec:minutes+=5 & gt ''home_mom_room'',''peek''">Sneak a peek</a></div>'
 		  end
-		 '<div class="button"><a href="exec:minutes+=5 & gt ''home''">leave</a></div>'
+		 '<div class="button"><a href="exec:minutes+=5 & gt ''home''">Leave</a></div>'
 	 '</div>'
      '<div class="dialog_menu">'
 	     '<p>The door is closed</p>'
@@ -49,7 +49,7 @@ if $ARGS[0]="peek":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonS1"><a href="exec: $jm.bad+=1 &  gt ''home_mom_room'',''room_conversation''">Knock on the door and go in</a></div>'
+		'<div class="buttonS1"><a href="exec: $jm.bad+=1 &  gt ''home_mom_room'',''room_conversation''">Knock on the door and enter</a></div>'
 		if maotai>0:
 		'<div class="buttonS2"><a href="exec: maotai-=1& gt ''home_mom_room'',''bring_a_bottle_of_wine_in''">Bring a bottle of wine in</a></div>'
 		else:
@@ -61,12 +61,12 @@ if $ARGS[0]="peek":
 		'<div class="buttonGr"><a href="exec:">Need essential oils</a></div>'
 		end
 		if MGF>0:
-		'<div class="buttonS4"><a href="exec: MGF-=1 & $filename_reference=''麦高芬0'' & gt ''stepmom_event'',''jm_fuck_mcgovern'',''mcgovern_0''">Bring a bottle of McGovern in</a></div>'
+		'<div class="buttonS4"><a href="exec: MGF-=1 & $filename_reference=''麦高芬0'' & gt ''stepmom_event'',''jm_fuck_mcgovern'',''mcgovern_0''">Bring a bottle of McGuffin in</a></div>'
 		else:
-		'<div class="buttonGr"><a href="exec:">Need McGovern</a></div>'
+		'<div class="buttonGr"><a href="exec:">Need McGuffin</a></div>'
 		end
 		if jm.confession=0 and bishopschoice=1:'<div class="buttonG1"><a href="exec:jm.confession=1 & $m_filename_reference=''JM'' &  $m=''JM'' & $ma=$JM.name & gt ''nun_event'',''xn_fuck_confession''">Invitation to church for baptism</a></div>'
-		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''home''">leave</a></div>'
+		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''home''">Leave</a></div>'
 	'</div>'
 
 
@@ -85,12 +85,12 @@ if $ARGS[0]="room_conversation":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec: $jm.bad+=1 &  $filename_reference=''床上0开幕'' & gt ''stepmom_event'',''stepmom_room_hug'',''bed_0_opening''">Hug her</a></div>'
-		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''home''">leave</a></div>'
+		'<div class="button"><a href="exec: $jm.bad+=1 &  gt ''home''">Leave</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p>-<<$JM.name>>: Ahem....Can I help you?</p>'
+		'<p>-<<$JM.name>>: *Cough* *Cough*...What's the matter?</p>'
 	'</div>'
 
 end
@@ -104,7 +104,7 @@ if $ARGS[0]="bring_a_bottle_of_wine_in":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec: $filename_reference=''酒后1挑逗'' & gt ''stepmom_event'',''jm_fuck_after_drinking'',''1_hour_after_drinking''">Let the event develop</a></div>'
-		'<div class="button"><a href="exec: $jm.bad+=5 &  gt ''home''">leave</a></div>'
+		'<div class="button"><a href="exec: $jm.bad+=5 &  gt ''home''">Leave</a></div>'
 	'</div>'
 
 

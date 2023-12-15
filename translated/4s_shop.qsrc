@@ -20,15 +20,15 @@ if $ARGS[0] ="":
 
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''dialogue''">dialogue</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''dialogue''">Talk</a></div>'
 		if porsche=1:'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''vip_lounge''">VIP lounge</a></div>'
-		if $ch.booth=1:'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''motorcycle_booth''">Motorcycle booth</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+		if $ch.booth=1:'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''motorcycle_booth''">Motorcycle exhibition booth</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Leave</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p>·As soon as I entered the showroom, several salesmen began to look at you from top to bottom.</p>'
+		'<p>·As soon as you entered the showroom, several salespeople began to look you over.</p>'
 	'</div>'
 
 end
@@ -40,31 +40,31 @@ if $ARGS[0] ="dialogue":
 
 
 	'<div class="button_menu">'
-		if $sell_event_booking_a_car=0:'<div class="buttonG"><a href="exec:minutes+=5 & gt ''4s_shop'',''talk_in_the_car''"><<Year>>Section 718</a></div>'
-		if $sell_event_booking_a_car=2:'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''continue_to_choose''">Continue to choose</a></div>'
+		if $sell_event_booking_a_car=0:'<div class="buttonG"><a href="exec:minutes+=5 & gt ''4s_shop'',''talk_in_the_car''"><<Year>> Series 718</a></div>'
+		if $sell_event_booking_a_car=2:'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''continue_to_choose''">Continue customizing the car</a></div>'
 		if $sell_event_booking_a_car=3:'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''pay_the_balance''">Pay the balance</a></div>'
 		if $sell_event_booking_a_car=4:'<div class="button"><a href="exec:minutes+=5 & gt ''sales_event'',''sales_carting''">Pick up the car</a></div>'
-		if $sell_event_booking_a_car=5:'<div class="button"><a href="exec:minutes+=5 & gt ''sales_event'',''sales_fuck_car_interior''">Introducing the vehicle</a></div>'
+		if $sell_event_booking_a_car=5:'<div class="button"><a href="exec:minutes+=5 & gt ''sales_event'',''sales_fuck_car_interior''">Show off the car</a></div>'
 		
-		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">It`s okay</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">I'm fine</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
 		if $sell_event_booking_a_car=0:
 		'<p><<$XS.NAME>>:Hello sir ❤ Let me introduce you to several models below.</p>'
-		'<p><<$XS.NAME>>: 718 Cayman is a popular medium-sized sports car with a high-performance engine and a complex body structure, which can provide excellent power performance and high turning sensitivity.The 718 has a variety of engine options, including a 2.0-liter four-cylinder turbocharged engine and a 4.0-liter six-cylinder turbocharged engine.Their maximum power is 300 horsepower and 414 horsepower, respectively…</p>'
+		'<p><<$XS.NAME>>: 718 Cayman is a popular medium-sized sports car with a high-performance engine and a composite body; it can provide excellent power performance and excellent handling. The 718 has a variety of engine options, including a 2.0-liter four-cylinder turbocharged engine and a 4.0-liter six-cylinder turbocharged engine. Their maximum specs are 300 horsepower and 414 horsepower, respectively…</p>'
 		end
 		if 3>=$sell_event_booking_a_car and $sell_event_booking_a_car>=1:
 		'<p>Me: Can I pick up the car?</p>'
-		'<p><<$XS.NAME>>:Sir...don`t worry, the procedures are under review...when the boss comes back...I will call you to let you know.</p>'
-		if  $sales_call_1=1 and $sell_event_booking_a_car=1:'<p><<$XS.name>>*Suddenly whispered:?I said on the phone... let you meet at the Red Restaurant after 21 o`clock on Saturday…</p>'
+		'<p><<$XS.NAME>>:Sir... please don't worry, the papers are being reviewed... After the boss returns...I will call you to let you know.</p>'
+		if  $sales_call_1=1 and $sell_event_booking_a_car=1:'<p><<$XS.name>>*She suddenly whispered:I already said it on the phone... meet me at the Red Restaurant after 21 o`clock on Saturday…</p>'
 		
 		
 		end
 		if $sell_event_booking_a_car=4:
 		'<p>Me: Can I pick up the car?</p>'
-		'<p><<$XS.NAME>>: We are ready for you!Please follow me to the VIP room.</p>'
+		'<p><<$XS.NAME>>: We've already prepared everything for you! Please follow me to the VIP room.</p>'
 		end
 	'</div>'
 end
@@ -79,17 +79,17 @@ if $ARGS[0] ="talk_in_the_car":
 		'</div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonG"><a href="exec:minutes+=5 & gt ''4s_shop'',''full_purchase''">Consider buying in full</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Too expensive</a></div>'
+		'<div class="buttonG"><a href="exec:minutes+=5 & gt ''4s_shop'',''full_purchase''">Consider paying in full</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">It's too expensive</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p><<$XS.NAME>>: Sir, your vision is so good❤The interior of 718 uses high-quality materials, including leather, aluminum and high-grade soft fabrics.The seats in the car are equipped with electric adjustment and heating functions, which can help you stay comfortable in different climatic conditions.…</p>'
-		'<p>Me: Can I test drive?</p>'
-		'<p><<$XS.NAME>>:Under normal circumstances, you need to sign a test drive agreement first, and then conduct a test drive under the guidance of the dealer, but if you have the intention to purchase... I can make an exception for you to skip the process and test drive directly❤</p>'
-		'<p>Me: You don`t say that to every guest, do you?</p>'
-		'<p><<$XS.NAME>>:How could it be ❤Do you have any intention to buy ❤Currently<<Year>>The guide price of the model 718 is ￥718,000❤Now we have a discount, you can enjoy a 40% discount when you book a car today❤</p>'
+		'<p><<$XS.NAME>>: Sir, you've got great taste❤The interior of 718 uses high-quality materials, including real leather, aluminum, and high-grade soft fabrics. The seats in the car are equipped with automatic position adjustments and heating features, which can help you stay comfortable in different weather…</p>'
+		'<p>Me: Can I take it for a test drive?</p>'
+		'<p><<$XS.NAME>>:Under normal circumstances, you need to sign a test drive agreement first, and then conduct your test drive under the guidance of the dealer, but if you have are interesting in making a purchase... I can make an exception for you and we can skip the process and go straight for a test drive❤</p>'
+		'<p>Me: You wouldn't happen to say that to every customer, would you?</p>'
+		'<p><<$XS.NAME>>:How could that be? ❤Do you have any intention to buy? ❤Currently<<Year>>The MSRP of the 718 is ￥718,000❤ But right now, we have a promotion, so if you make an order today, you can enjoy a 40% discount❤</p>'
 	'</div>'
 end
  
@@ -101,17 +101,17 @@ if $ARGS[0] ="full_purchase":
 		'</div>'
 
 	'<div class="button_menu">'
-		if money>=70000:'<div class="buttonG"><a href="exec:minutes+=5 & money-=70000 & gt ''4s_shop'',''payment_of_deposit''">Payment of deposit</a></div>'else:'<div class="buttonGr"><a href="exec:">Payment of deposit</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Let`s talk about it</a></div>'
+		if money>=70000:'<div class="buttonG"><a href="exec:minutes+=5 & money-=70000 & gt ''4s_shop'',''payment_of_deposit''">Pay the deposit</a></div>'else:'<div class="buttonGr"><a href="exec:">Pay the deposit</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Another time</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p><<$XS.NAME>>:Uh...full payment?Sir❤I didn`t expect you to be young❤...successful in your career❤</p>'
+		'<p><<$XS.NAME>>:Uh... payment in full? Sir❤I didn`t expect you to be so young❤...and already be so successful in your career❤</p>'
 		'<p>Me: Then let`s sign the contract.</p>'
-		'<p><<$XS.NAME>>:Sir ❤ Our boss is not here today, so why don`t you pay the deposit first... when the boss comes back...I will call you.</p>'
+		'<p><<$XS.NAME>>:Sir ❤ Our boss is not here today, so why don`t you pay the deposit first... when the boss comes back... I will call you.</p>'
 		'<p>Me: How much is the deposit?</p>'
-		'<p><<$XS.NAME>>:The deposit is ￥70,000❤If you pay today, you will also get a car refrigerator❤</p>'
+		'<p><<$XS.NAME>>:The deposit is ￥70,000❤ If you pay today, you will also get a free car fridge❤</p>'
 	'</div>'
 end
 
@@ -122,12 +122,12 @@ if $ARGS[0] ="payment_of_deposit":
 		'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Leave</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p><<$XS.NAME>>:Ok!<<$protagonists_surname>>Sir, please fill in your complete personal information. Once the boss comes back...I will call you.</p>'
+		'<p><<$XS.NAME>>:Ok!<<$protagonists_surname>>Sir, please fill in your personal information. Once the boss comes back...I will call you.</p>'
 		'<p>Me: OK.</p>'
 		$sell_event_booking_a_car=1
 	'</div>'
@@ -140,14 +140,14 @@ if $ARGS[0] ="continue_to_choose":
 		'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''sales_event'',''temptation''">Go home with her to get it</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''sales_event'',''temptation''">Go home with her to pick it up</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p><<$XS.NAME>>:<<$protagonists_surname>>Sir!I`m really sorry... I forgot the previous selection list at home!</p>'
-		'<p>Me: I don`t blame you, after all, you drank too much.</p>'
-		'<p><<$XS.NAME>>:<<$protagonists_surname>>Sir!If you don`t delay, please go home with me to get it.</p>'
+		'<p><<$XS.NAME>>:<<$protagonists_surname>>I`m really sorry... I forgot the previous selection list at home!</p>'
+		'<p>Me: I don`t blame you, after all, you drank a little too much.</p>'
+		'<p><<$XS.NAME>>:<<$protagonists_surname>>Sir! If you it's not a bother, why not come home with me to pick it up?</p>'
 	'</div>'
 end
  
@@ -165,9 +165,9 @@ if $ARGS[0] ="pay_the_balance":
 
 
 	'<div class="dialog_menu">'
-		'<p>Store manager:<<$protagonists_surname>>Sir!Just got off the plane!Poor hospitality!Poor hospitality!</p>'
-		'<p><<$XS.NAME>>:<<$protagonists_surname>>Sir!The final payment is...￥415,000!It includes VIP value-added services of 5000￥</p>'
-		'<p>Store manager:<<$XS.NAME>>！Well done!Your business is getting more and more proficient...*yawn</p>'
+		'<p>Store manager:<<$protagonists_surname>> mister! Just got off the plane! Sorry for the poor customer service! Sorry for the poor customer service!</p>'
+		'<p><<$XS.NAME>>:<<$protagonists_surname>>Sir! The final balance is...￥415,000! It includes the VIP value-added package for 5000￥</p>'
+		'<p>Store manager:<<$XS.NAME>>！ Well done! Your business skill is getting better and better...*yawn</p>'
 	'</div>'
 end
  
@@ -182,26 +182,26 @@ if $ARGS[0] ="vip_lounge":
 		
 		
 		'<div class="button_menu">'
-			if $car_audio=0 and money>=50000:'<div class="buttonG"><a href="exec:$car_audio=1 & money-=50000 & gt ''driving''">Upgrade the sound system ￥50,000</a></div>'
+			if $car_audio=0 and money>=50000:'<div class="buttonG"><a href="exec:$car_audio=1 & money-=50000 & gt ''driving''">Upgrade the sound system for ￥50,000</a></div>'
 			if $CH.available=0:'<div class="button"><a href="exec:$CH.available=1 & gt ''4s_shop'',''vip_lounge''">Say hello</a></div>'
-			if ($CH.available=1 and  $ch_event_chain<=2) or $ch.rice>=1:'<div class="buttonP"><a href="exec: gt ''4s_shop'',''dealer_dialogue''">dialogue</a></div>'
+			if ($CH.available=1 and  $ch_event_chain<=2) or $ch.rice>=1:'<div class="buttonP"><a href="exec: gt ''4s_shop'',''dealer_dialogue''">Talk</a></div>'
 			if $ch_event_chain>=3 and $ch.rice=0:'<div class="buttonG1"><a href="exec: gt ''dealer_event'',''marketing''">Marketing</a></div>'
 			
 			if $ch_event_chain>=3 and $ch.rice>=1:'<div class="buttonS2"><a href="exec: gt ''dealer_event'',''car_dealer_fuck_office_1''">Marketing</a></div>'
 			if $ch.phone=1:'<div class="buttonS2"><a href="exec: gt ''dealer_event'',''dealer_fuck_oil1''">Essential oil massage</a></div>'
 
 
-			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">leave</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">Leave</a></div>'
 		'</div>'
 
 
 		'<div class="dialog_menu">'
 			if $CH.available=0:
-			'<p><<$CH.NAME>>:I am the acting person in charge of this car dealership, and this is my temporary office.</p>'
+			'<p><<$CH.NAME>>: I am the acting manager in charge of this car dealership, and this is my temporary office.</p>'
 			else:
 			'<p>Me: Hi~</p>'
-			'<p><<$CH.name>>: <<$protagonists_surname>>Sir!You are a distinguished Porsche owner, what can I do for you?</p>'
-			if $ch_event_chain>=3:'<p>Me: Don`t say that, I still have an identity as your subordinate.</p>'
+			'<p><<$CH.name>>: <<$protagonists_surname>> Sir! You are a valued Porsche owner. Is there anything I can do for you?</p>'
+			if $ch_event_chain>=3:'<p>Me: Don`t say that. I'm also your subordinate.</p>'
 			end
 		'</div>'
 end
@@ -215,10 +215,10 @@ if $ARGS[0] ="dealer_dialogue":
 		
 		
 		'<div class="button_menu">'
-			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">It`s okay</a></div>'
-			if $car_audio=0 and money>=50000:'<div class="buttonG"><a href="exec:$car_audio=1 & money-=50000 & gt ''driving''">Upgrade the sound system ￥50,000</a></div>'
-			if $ch_event_chain=2:'<div class="button"><a href="exec:gt ''dealer_event'',''self-recommendation''">Self-recommendation</a></div>'
-			if $ch.rice>=1:'<div class="button"><a href="exec:gt ''dealer_event'',''dealer_fuck_thank_you_0''">Negotiation skills</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">I'm fine</a></div>'
+			if $car_audio=0 and money>=50000:'<div class="buttonG"><a href="exec:$car_audio=1 & money-=50000 & gt ''driving''">Upgrade the sound system for ￥50,000</a></div>'
+			if $ch_event_chain=2:'<div class="button"><a href="exec:gt ''dealer_event'',''self-recommendation''">Recommend yourself</a></div>'
+			if $ch.rice>=1:'<div class="button"><a href="exec:gt ''dealer_event'',''dealer_fuck_thank_you_0''">Teach negotiation skills</a></div>'
 			if $ch.advertising>=10:'<div class="buttonS"><a href="exec:$ch.booth=1 & gt ''4s_shop''">Launch of motorcycle booth</a></div>'
 		'</div>'
 
@@ -237,18 +237,18 @@ if $ARGS[0] ="event_one":
 		
 		
 		'<div class="button_menu">'
-			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">No more eavesdropping</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">Stop eavesdropping</a></div>'
 		'</div>'
 
 
 		'<div class="dialog_menu">'
 			'<p><<$CH.name>>:What does dad mean?</p>'
-			'<p>Secretary: What the boss means is that if [New Energy Motorcycle] cannot be successfully promoted, then your brother will take over the entire car dealer business.</p>'
-			'<p><<$CH.name>>:Would you please give me a little more time?</p>'
-			'<p>Secretary: Miss, I am also very embarrassed by you like this.</p>'
-			'<p><<$CH.name>>:Please!</p>'
-			'<p>Secretary: Then I will give you a few more weeks of grace. Now you can only hope for the sales of [New Energy motorcycles].</p>'
-			'<p><<$CH.name>>:I will work hard!</p>'
+			'<p>Secretary: What the boss means is that if the [New Energy Motorcycle] cannot be successfully marketed, then your brother will take over the entire car dealership.</p>'
+			'<p><<$CH.name>>: Could you please give me a little more time?</p>'
+			'<p>Secretary: Miss, you're also making things difficult for me like this.</p>'
+			'<p><<$CH.name>>: Please!</p>'
+			'<p>Secretary: Then I will give you a few more weeks of grace. Now you can only place your hopes on the successful sales of the [New Energy motorcycles].</p>'
+			'<p><<$CH.name>>: I will work hard!</p>'
 			if  $ch_event_chain=1:$ch_event_chain=2
 		'</div>'
 end
@@ -267,7 +267,7 @@ if $ARGS[0] ="motorcycle_booth":
 		
 		'<div class="button_menu">'
 			'<div class="buttonB3"><a href="exec:minutes+=5 & gt ''dealer_event'',''car_dealer_fuck_shopcar_a1''">Go to the safe passage</a></div>'
-			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">leave</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">Leave</a></div>'
 		'</div>'
 
 		'<div class="dialog_menu">'
@@ -281,7 +281,7 @@ if $ARGS[0] ="motorcycle_booth":
 		
 		'<div class="button_menu">'
 			'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''dealer_event'',''car_dealer_fuck_shopcar_b1''">Simulate signing</a></div>'
-			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">leave</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">Leave</a></div>'
 		'</div>'
 
 		'<div class="dialog_menu">'
@@ -296,7 +296,7 @@ if $ARGS[0] ="motorcycle_booth":
 		
 		'<div class="button_menu">'
 			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop'',''the_person_behind''">The person behind</a></div>'
-			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">leave</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''4s_shop''">Leave</a></div>'
 		'</div>'
 
 

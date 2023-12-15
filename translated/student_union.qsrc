@@ -20,12 +20,12 @@ if $args[0]="":
 		if $HZ_Event_coser=1 and $HZ.available=1 and week_day >5:'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''student_council_president''">Come to take pictures</a></div>'
 		if $HZ_Event_coser>=8 :'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''dialogue_with_student_president''">Go straight in</a></div>'
 		if $HZ_Event_coser=4:'<div class="button"><a href="exec:minutes+=5 & gt ''president_event'',''take_a_picture_again''">Take a picture again</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>Cadres of the student union: If you don`t have the qualifications of the student union, don`t look around.</p>'
-		if $XZ_Event_ZL=1:'<p>Student Union cadre: Ahem, if you want<a href="exec:gt ''aid_event''">Have some fun</a>Just follow me.</p>'
+		'<p>Student Council Enforcer: If you don`t have student council privileges, don`t stick around.</p>'
+		if $XZ_Event_ZL=1:'<p>Student Council Enforcer: Ahem, if you want<a href="exec:gt ''aid_event''">Have some fun</a>Just follow me.</p>'
 	'</div>'
 End
 
@@ -37,13 +37,13 @@ if $args[0]="looking_for_a_peek":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>Student Union cadre: Hello!You can`t go in!</p>'
+		'<p>Student Council Enforcer: Hello!You can`t go in!</p>'
 		'<p><<$HZ.name>>:Pop--pop--what is my order?！Pa-pa-are you a man?Waste grasshopper!…...huh?</p>'
-		'<p>Student Union cadre: Sorry!<<$HZ.name>>My lord!I`ll take him out right away!</p>'
+		'<p>Student Council Enforcer: Sorry!<<$HZ.name>>My lord!I`ll take him out right away!</p>'
 	'</div>'
 End
 
@@ -55,12 +55,12 @@ if $args[0]="student_council_president":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=5 &a=1& gt ''president_event'',''pick_her_up_and_take_pictures''">Pick her up and take pictures</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p><<$HZ.name>>:Pa--pa--stinky idiot, I`m so happy to be kicked out of office.Sure enough, it`s a waste!You fat pig, see if I don`t kick your cock!</p>'
-		'<p>Male student: Ah!Ah!Pain pain!Pain----!It`s so cool, the president will continue to kick me hard!Alas!If the president is not sick...That`s it...</p>'
+		'<p>Male student: Ah!Ah!Pain pain!Pain----!It feels so good, the president will continue to kick me hard!Alas!If the president is not sick...That`s it...</p>'
 	'</div>'
 End
 
@@ -75,7 +75,7 @@ if $args[0]="dialogue_with_student_president":
 		'<div class="button"><a href="exec:minutes+=5 &a=0& gt ''student_union'',''ask''">ask</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 &ac=0& ask=0 &gt ''student_union'',''let_them_out''">Let them out</a></div>'
 		if $fighting_front=1:'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''student_union'',''fighting_game''">Fighting game</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -91,10 +91,10 @@ if $args[0]="ask":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & ask=1 & gt ''student_union'',''ask''">Rabbit graffiti in the student union</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & ask=1 & gt ''student_union'',''ask''">Rabbit graffiti in the student council</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & ask=2 & gt ''student_union'',''ask''">About violent tendencies</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & ask=3 & gt ''student_union'',''ask''">The super right of the student union</a></div>'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''dialogue_with_student_president''">return</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & ask=3 & gt ''student_union'',''ask''">The super right of the student council</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''student_union'',''dialogue_with_student_president''">Return</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -137,7 +137,7 @@ if $args[0]="let_them_out":
 		if HZcos=0:'<div class="buttonS"><a href="exec:minutes+=5  & HZcos=1 & ac=1 & ask=4 & gt ''student_union'',''let_them_out''">cos appointment</a></div>'
 
 		
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -176,7 +176,7 @@ if $args[0]="fighting_game":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">leave</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'

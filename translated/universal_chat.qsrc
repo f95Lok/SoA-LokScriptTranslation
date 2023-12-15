@@ -21,13 +21,13 @@ $content_a[12]="dream" &$content_a[13]="ideal"& $content_a[14]="Epidemic"& $cont
 
 if sumofattitudes<25:
 	$attitude=1
-	$name_a_2="I am very busy now, to make a long story short."
+	$name_a_2="I am very busy right now, so if you've got something to say, make it short."
 	elseif sumofattitudes<50:
 	$attitude=2
-	$name_a_2="<<$protagonists_name>>, What`s the matter with me?"
+	$name_a_2="<<$protagonists_name>>, What did you need me for?"
 	elseif sumofattitudes<100:
 	$attitude=3
-	$name_a_2="❤Little cutie, did you come to me on purpose?"
+	$name_a_2="❤Little cutie, did purposefully come to find me?"
 	elseif sumofattitudes<200:
 	$attitude=4
 	$name_a_2="Baby ❤ Miss me?"
@@ -61,12 +61,12 @@ end
 
 '<div class="button_menu">'
 	if $ARGS[0]!"chatting":
-	'<div class="button"><a href="exec:addlove = RAND(1,my.charm) & minutes+=30 & gt ''universal_chat'',''chatting''">chat</a></div>'
+	'<div class="button"><a href="exec:addlove = RAND(1,my.charm) & minutes+=30 & gt ''universal_chat'',''chatting''">Chat</a></div>'
 	if $chat="RION":
 		if RIONcos=0 and tuc_level3=1:'<div class="buttonPu1"><a href="exec: RIONcos=1 & gt ''company''">Invite cos to shoot</a></div>'
 	end
 	end
-	'<div class="button"><a href="exec:gt ''<<$where_to_go_out>>''">return</a></div>'
+	'<div class="button"><a href="exec:gt ''<<$where_to_go_out>>''">Return</a></div>'
 '</div>'
 
 if $ARGS[0]!"chatting":
@@ -77,10 +77,10 @@ end
 
 if $ARGS[0]="chatting":
 '<div class="dialog_menu">'
-	'<p> Spent a little time and chatted a little about<<$content_a[RAND(0,17)]>>The topic.</p>'
-	'<p> Influenced by one`s own charm.<<my.charm>>▲, favorability has risen<<addlove>>↑</p>'
+	'<p> Spent a little time and chatted a little about <<$content_a[RAND(0,17)]>>.</p>'
+	'<p> Aided by my charm, <<my.charm>>▲, affection has risen<<addlove>>↑</p>'
 	'<br>'
-	'<p>*The favorability bonus is floating when chatting, and one`s own charm is the theoretical maximum.'
+	'<p>*The affection bonus is random when chatting, and is capped by my charm.'
 '</div>'
 end
 --- universal_chat ---------------------------------
