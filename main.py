@@ -584,18 +584,47 @@ def analyze_expression(match):
         handle_expression(match)
 
 
-def replace_in_match(new_line, match=None):
+def replace_in_match(line, start_index=None, last_index=None, match=None):
     for _translation_ in _translations_:
         if match is not None:
             new_match = match.replace(_translation_[0], _translation_[1], 1)
-            new_line = new_line.replace(match, new_match)
+            if start_index is not None:
+                line = line[:start_index] + line[start_index:].replace(match, new_match)
+            else:
+                line = line.replace(match, new_match)
             match = new_match
         else:
-            new_line = new_line.replace(_translation_[0], _translation_[1], 1)
+            line = line.replace(_translation_[0], _translation_[1], 1)
 
-    _translations_.clear()
-    return new_line
+    if last_index is not None:
+        last_index = line.find(match) + len(match)
+        _translations_.clear()
+        return line, last_index
+    else:
+        _translations_.clear()
+        return line
 
+
+def handle_stray_text(line, last_index, current_index):
+    stray_text = line[last_index:current_index].strip()
+    if "else:" in stray_text:
+        stray_text = re.split("else:", stray_text)
+    else:
+        stray_text = [stray_text]
+
+    for text in stray_text:
+        text = text.replace("</p>", "")
+        if needs_translation(text):
+            if text[0] == text[-1] == "'" or text[0] == text[-1] == '"':
+                text = text[1:-1]
+            elif text[0] == "'" and text[-1] != "'" or text[0] == '"' and text[-1] != '"':
+                text = text[1:]
+            elif text[0] != "'" and text[-1] == "'" or text[0] != '"' and text[-1] == '"':
+                text = text[:-1]
+            handle_text(text)
+            line, last_index = replace_in_match(line, start_index=last_index, last_index=last_index, match=text)
+
+    return line, last_index
 
 def needs_translation(line):
     return re.sub(regex_everything_mostly, "", line).strip() != "" and line.strip()[0] != "!"
@@ -611,7 +640,7 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 107:
+        if i == 78:
             print("debug")
 
         if not needs_translation(line):
@@ -630,18 +659,9 @@ def get_data(filepath):
                 if len(matches) > 0:
                     last_index = -1
                     for match in matches:
-                        current_index = line.find(match)
+                        current_index = new_line.find(match)
                         if last_index != -1 and current_index - last_index > 1:
-                            stray_text = line[last_index:current_index].strip()
-                            if needs_translation(stray_text):
-                                if stray_text[0] == "'" and stray_text[-1] != "'" or stray_text[0] == '"' and stray_text[-1] != '"':
-                                    stray_text = stray_text[1:]
-                                elif stray_text[0] != "'" and stray_text[-1] == "'" or stray_text[0] != '"' and stray_text[-1] == '"':
-                                    stray_text = stray_text[:-1]
-                                handle_text(stray_text)
-                                new_line = replace_in_match(new_line, stray_text)
-
-                        last_index = current_index + len(match)
+                            new_line, last_index = handle_stray_text(new_line, last_index, current_index)
 
                         if re.search("if\s[^:]+:", match) is not None:
                             handle_if_arguments(match)
@@ -664,7 +684,10 @@ def get_data(filepath):
                         else:
                             analyze_expression(match)
 
-                        new_line = replace_in_match(new_line, match)
+                        new_line, last_index = replace_in_match(new_line, last_index=last_index, match=match)
+
+                    if last_index != len(new_line)-1:
+                        new_line, last_index = handle_stray_text(new_line, last_index, len(new_line)-1)
 
                 else:
                     matches = extract_from_string(line.strip())
