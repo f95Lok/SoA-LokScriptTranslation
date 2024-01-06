@@ -3417,7 +3417,7 @@ if $args[0]="lesbian_mpj_sb":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''ntb'' & gt ''cross_section_event'',''universal_cross_section''">Show up and fuck her</a></div>'
+                '<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''ntb'' & gt ''cross_section_event'',''universal_cross_section''">Show up and fuck her</a></div>'
                 '<div class="buttonP"><a href="exec:gt ''student_group_event'',''mpj_markets''">Invite them to eat ice cream</a></div>'
             '</div>'
     end
@@ -3461,7 +3461,7 @@ if $args[0]="mpj_markets":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''MPJ'' &  $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''CQ'' & gt ''cross_section_event'',''universal_cross_section''">Cooperate with her in estrus</a></div>'
+                '<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''MPJ'' &  $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''CQ'' & gt ''cross_section_event'',''universal_cross_section''">Cooperate with her in estrus</a></div>'
                 '<div class="buttonGn3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''mpj_jia''">Send her home to sober up</a></div>'
             '</div>'
     end
@@ -3505,13 +3505,13 @@ if $args[0]="mpj_jia":
     if a<3:
         '<div class="button_menu">'
 		 if a=0:
-            if mpj_event_chain<=1:'<div class="buttonR"><a href="exec:a=1 & gt ''student_group_event'',''mpj_jia''">A hurried knock on the door</a></div>'
-            if mpj_event_chain>=2:'<div class="buttonS"><a href="exec:a=2 & gt ''student_group_event'',''mpj_jia''">Go into the room to talk about personal matters</a></div>'
-            if mpj_event_chain>=5:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''mpj_jia_brother''">Leave siblings alone</a></div>'
+            if $mpj_event_chain<=1:'<div class="buttonR"><a href="exec:a=1 & gt ''student_group_event'',''mpj_jia''">A hurried knock on the door</a></div>'
+            if $mpj_event_chain>=2:'<div class="buttonS"><a href="exec:a=2 & gt ''student_group_event'',''mpj_jia''">Go into the room to talk about personal matters</a></div>'
+            if $mpj_event_chain>=5:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''mpj_jia_brother''">Leave siblings alone</a></div>'
             '<div class="buttonGn2"><a href="exec:a=0 & q=0 & $m_filename_reference=''MPJ'' &  $m=''MPJ'' & $ma=$MPJ.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Tutoring learning</a></div>'
            end
-            if a=2:'<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=0 & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''JIAJ'' & gt ''cross_section_event'',''universal_cross_section''">You know</a></div>'
-            if a=2 and mpj_event_chain>=4:'<div class="buttonR"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''GLN'' & gt ''cross_section_event'',''universal_cross_section''">Put on a dog chain</a></div>'
+            if a=2:'<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=0 & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''JIAJ'' & gt ''cross_section_event'',''universal_cross_section''">You know</a></div>'
+            if a=2 and $mpj_event_chain>=4:'<div class="buttonR"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''GLN'' & gt ''cross_section_event'',''universal_cross_section''">Put on a dog chain</a></div>'
             if a!2:'<div class="button"><a href="exec:gt ''residential_area''">Leave</a></div>'
         '</div>'
     end
@@ -3528,7 +3528,7 @@ if $args[0]="mpj_jia":
 
 
     if a=1:
-         if mpj_event_chain=0:mpj_event_chain=1
+         if $mpj_event_chain=0:$mpj_event_chain=1
          '<div class="dialog_menu">'
               '<p>Her brother: Sister, I`m in trouble!</p>'
               '<p><<$MPJ.name>>: What`s wrong with you?Crazy little brother still refuses to let you go?</p>'
@@ -3540,11 +3540,11 @@ if $args[0]="mpj_jia":
     end
 
     if a=2:
-		if mpj_event_chain=2:mpj_event_chain=3
+		if $mpj_event_chain=2:$mpj_event_chain=3
 		$MPJ.bad+=q+my.charm
          '<div class="dialog_menu">'
-		 if mpj_event_chain>=4:
-		   if mpj_event_chain=4:mpj_event_chain=5
+		 if $mpj_event_chain>=4:
+		   if $mpj_event_chain=4:$mpj_event_chain=5
 		   $MPJ.love+=10
 		   '<p><<$MPJ.name>>: Thank you so much for my brother…</p>'
              '<p>Me: Shhh, keep your voice down, your brother is still next door, right?</p>'
@@ -3566,10 +3566,10 @@ if $args[0]="mpj_club":
         '</div>'
 
         '<div class="button_menu">'
-            '<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=0 & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''CBG'' & gt ''cross_section_event'',''universal_cross_section''">Have to fuck</a></div>'
+            '<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=0 & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''CBG'' & gt ''cross_section_event'',''universal_cross_section''">Have to fuck</a></div>'
         '</div>'
 
-         if mpj_event_chain=3:mpj_event_chain=4
+         if $mpj_event_chain=3:$mpj_event_chain=4
          $MPJ.love+=20
          '<div class="dialog_menu">'
              '<p><<$MPJ.name>>: Please, please let go of my brother, I am willing to do anything.</p>'
@@ -3620,7 +3620,7 @@ if $args[0]="mpj_jia_brother":
     end
 
     if 3>=a and a>=1:
-		if mpj_event_chain=5:mpj_event_chain=6
+		if $mpj_event_chain=5:$mpj_event_chain=6
          '<div class="dialog_menu">'
               '<p><<$MPJ.name>>: Then if your sister satisfies your libido, can you give your sister some peace?</p>'
               '<p>Her brother: Sister, no problem ❤ I listen to you everything.</p>'
@@ -3713,7 +3713,7 @@ if $args[0]="av_interview":
          '</div>'
     end
     if a=16:
-         if hme_event_chain=0:hme_event_chain=1
+         if $hme_event_chain=0:$hme_event_chain=1
          '<div class="dialog_menu">'
               '<p>Actress: Are you new to the industry?</p>'
               '<p><<$HME.name>>In silence...didn`t speak for a while…</p>'
@@ -3733,8 +3733,8 @@ if $args[0]="av_interview_2":
             if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''student_group_event'',''av_interview_2''">Oral sex interview</a></div>'
             if a=1:'<div class="buttonR3"><a href="exec:a=2 & gt ''student_group_event'',''av_interview_2''">A little deeper</a></div>'
             if a=2:
-                if hme_event_chain>=3:'<div class="buttonGn3"><a href="exec:a=4 & gt ''student_group_event'',''av_interview_2''">Hold back!</a></div>'
-                if hme_event_chain<3:'<div class="buttonR"><a href="exec:a=3 & gt ''student_group_event'',''av_interview_2''">Can`t stand it anymore</a></div>'
+                if $hme_event_chain>=3:'<div class="buttonGn3"><a href="exec:a=4 & gt ''student_group_event'',''av_interview_2''">Hold back!</a></div>'
+                if $hme_event_chain<3:'<div class="buttonR"><a href="exec:a=3 & gt ''student_group_event'',''av_interview_2''">Can`t stand it anymore</a></div>'
             end
             if a=4:'<div class="buttonGn4"><a href="exec:a+=1 & gt ''student_group_event'',''av_interview_2''">Hold on!</a></div>'
             if a=5:'<div class="buttonGn5"><a href="exec:a+=1 & gt ''student_group_event'',''av_interview_2''">Oral ejaculation</a></div>'
@@ -3769,7 +3769,7 @@ if $args[0]="av_interview_2":
     end
 
     if a=3:
-         if hme_event_chain=1:hme_event_chain=2
+         if $hme_event_chain=1:$hme_event_chain=2
          $HME.bad+=q+my.charm
          '<div class="dialog_menu">'
               '<p>AV director: What?This won`t work?It`s really disappointing, go home and practice with your sex friends before you come.Really, why does everyone want to be an actress?…</p>'
@@ -3799,7 +3799,7 @@ if $args[0]="av_interview_2":
     end
 
     if a=14:
-         if hme_event_chain=3:hme_event_chain=4
+         if $hme_event_chain=3:$hme_event_chain=4
          $HME.bad+=q+my.charm
          '<div class="dialog_menu">'
               '<p><<$HME.name>>: Director, how is my performance?Can you become an AV actress?</p>'
@@ -3846,7 +3846,7 @@ if $args[0]="oral_sex_exercise_3":
     end
 
     if a=7:
-         if hme_event_chain=2:hme_event_chain=3
+         if $hme_event_chain=2:$hme_event_chain=3
          $HME.bad+=q+my.charm
          $HME.love+=6
          '<div class="dialog_menu">'
@@ -3939,7 +3939,7 @@ if $args[0]="hme_puff":
 
 
     if 10>=a and a>=0:
-		if hme_event_chain=4:hme_event_chain=5
+		if $hme_event_chain=4:$hme_event_chain=5
 		$HME.BAD+=1
          '<div class="dialog_menu">'
               '<p><<$HME.name>>: Why are you so slow❤I can`t wait❤</p>'
@@ -3973,7 +3973,7 @@ if $args[0]="HME_AV":
 
 
     if 10>=a and a>=0:
-		if hme_event_chain=5:hme_event_chain=6
+		if $hme_event_chain=5:$hme_event_chain=6
          '<div class="dialog_menu">'
               '<p><<$HME.name>>: I`ve been waiting for this day for a long time ❤ Please feel free to fuck my little black force, don`t treat me like a human❤</p>'
               if a>=3:'<p><<$HME.name>>:Don`t stop<<$words>></p>' 
@@ -4006,13 +4006,13 @@ if $args[0]="fzl_treat":
             if a=0:'<div class="buttonG2"><a href="exec:a=1 & gt ''student_group_event'',''fzl_treat''">Drink mango milkshake</a></div>'
             if a=1:
 			'<div class="buttonG3"><a href="exec:a=2 & gt ''student_group_event'',''fzl_treat''">Eat super hot dog</a></div>'
-			if fzl_event_chain=1:'<div class="buttonR3"><a href="exec:a=0 & gt ''student_group_event'',''fzl_man''">The man who came to theory</a></div>'
+			if $fzl_event_chain=1:'<div class="buttonR3"><a href="exec:a=0 & gt ''student_group_event'',''fzl_man''">The man who came to theory</a></div>'
             end
             if a=2:
 			'<div class="buttonG4"><a href="exec:a=3 & gt ''student_group_event'',''fzl_treat''">Say a non-mainstream joke</a></div>'
-			if fzl_event_chain>=2:'<div class="buttonP"><a href="exec:a=0 & gt ''student_group_event'',''fzl_work''">Send her to an internship</a></div>'
+			if $fzl_event_chain>=2:'<div class="buttonP"><a href="exec:a=0 & gt ''student_group_event'',''fzl_work''">Send her to an internship</a></div>'
             end
-            if a=3:'<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $FZL.BAD+=my.charm & $ma=$FZL.name & love_num=$FZL.love & m_address=''HTL'' & gt ''cross_section_event'',''universal_cross_section''">Play Boer</a></div>'
+            if a=3:'<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $FZL.BAD+=my.charm & $ma=$FZL.name & love_num=$FZL.love & $m_address=''HTL'' & gt ''cross_section_event'',''universal_cross_section''">Play Boer</a></div>'
             '<div class="buttonGn"><a href="exec: gt ''university''">respectively</a></div>'
         '</div>'
          '<div class="dialog_menu">'
@@ -4038,7 +4038,7 @@ if $args[0]="fzl_treat":
               '<p><<$FZL.name>>: The last penguin is called Bo`er, right... I`ve heard this old-fashioned joke.…</p>'
               '<p>Me: That`s not right.</p>'
               '<p><<$FZL.name>>: What is that wave?…</p>'
-              if fzl_event_chain=0:fzl_event_chain=1
+              if $fzl_event_chain=0:$fzl_event_chain=1
               end
          '</div>'
 End
@@ -4049,7 +4049,7 @@ if $args[0]="fzl_work":
              <source src="images\NPC\FZL\vids\GZS.webm" type=''video/webm;''></video></div>'
         '</div>'
         '<div class="button_menu">'
-		 '<div class="buttonG"><a href="exec:a=0 & q=0 & money-=8000 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $FZL.bad+=25 & $ma=$FZL.name & love_num=$FZL.love & m_address=''GZS'' & gt ''cross_section_event'',''universal_cross_section''">Buy a hairdressing card￥<<8000>></a></div>'
+		 '<div class="buttonG"><a href="exec:a=0 & q=0 & money-=8000 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $FZL.bad+=25 & $ma=$FZL.name & love_num=$FZL.love & $m_address=''GZS'' & gt ''cross_section_event'',''universal_cross_section''">Buy a hairdressing card￥<<8000>></a></div>'
 		 '<div class="button"><a href="exec:a=3 & gt ''residential_area''">No need</a></div>'
         '</div>'
          '<div class="dialog_menu">'
@@ -4086,7 +4086,7 @@ if $args[0]="fzl_man":
               '<p>Man: Bitch, I will never let you go!</p>'
               '<p>Me: Uh... what did she do to you?</p>'
               '<p>Man: It`s none of your business!If you are willing to help me... just call me... I`m going to call my brother and take her round together.…</p>'
-              if fzl_event_chain=1:fzl_event_chain=2
+              if $fzl_event_chain=1:$fzl_event_chain=2
               end
          '</div>'
 End
@@ -4103,8 +4103,8 @@ if $args[0]="fzl_drunk":
             if a=3:'<div class="buttonS5"><a href="exec:a=4 & gt ''student_group_event'',''fzl_drunk''">Accelerate thrusting</a></div>'
             if a=4:'<div class="buttonR3"><a href="exec:a=5 & gt ''student_group_event'',''fzl_drunk''">Bukkake her</a></div>'
             if a=5:'<div class="button"><a href="exec:a=3 & gt ''university''">Leave her alone</a></div>'
-            if fzl_event_chain>=2:'<div class="buttonGn3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''fzl_take_her_home''">Take her home</a></div>'
-            if fzl_event_chain>=2:'<div class="buttonPu5"><a href="exec:a=-1 & q=0 & gt ''student_group_event'',''fzl_phone''">Make a call</a></div>'
+            if $fzl_event_chain>=2:'<div class="buttonGn3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''fzl_take_her_home''">Take her home</a></div>'
+            if $fzl_event_chain>=2:'<div class="buttonPu5"><a href="exec:a=-1 & q=0 & gt ''student_group_event'',''fzl_phone''">Make a call</a></div>'
         '</div>'
          '<div class="dialog_menu">'
 		    if a>=0:
@@ -4332,9 +4332,9 @@ if $args[0]="secretary`s_house":
 			'<div class="buttonP"><a href="exec:gt ''residential_area''">Obedient: Let her sleep…</a></div>'
 			'<div class="buttonR"><a href="exec:a=0 & q=0 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & $SJ.love-=2 & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Annoy: wake up to learn</a></div>'
             end
-            if a=5:'<div class="buttonS5"><a href="exec:a=0 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & m_address=''XX'' & gt ''cross_section_event'',''universal_cross_section''">You `humans”?</a></div>'
+            if a=5:'<div class="buttonS5"><a href="exec:a=0 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''XX'' & gt ''cross_section_event'',''universal_cross_section''">You `humans”?</a></div>'
             if a=0:
-			if sj_event_chain>=2:'<div class="buttonR"><a href="exec:a=-1 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & m_address=''MMO'' & gt ''cross_section_event'',''universal_cross_section''">The body appears</a></div>'
+			if $sj_event_chain>=2:'<div class="buttonR"><a href="exec:a=-1 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''MMO'' & gt ''cross_section_event'',''universal_cross_section''">The body appears</a></div>'
 		  end
         '</div>'
 
@@ -4366,7 +4366,7 @@ if $args[0]="secretary`s_house":
     end
     if a=5:
          '<div class="dialog_menu">'
-			if sj_event_chain=0:sj_event_chain=1
+			if $sj_event_chain=0:$sj_event_chain=1
               '<p>Me: In return, I`ll give you something to eat.…</p>'
               '<p><<$SJ.name>>: You humans like to play with text stems, don`t you?</p>'
          '</div>'
@@ -4374,7 +4374,7 @@ if $args[0]="secretary`s_house":
 End
 
 if $args[0]="sj_hypnosis":
-	 if sj_event_chain=1:sj_event_chain=2
+	 if $sj_event_chain=1:$sj_event_chain=2
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
              <source src="images\NPC\SJ\vids\CMT1-<<a>>.webm" type=''video/webm;''></video></div>'
@@ -4455,7 +4455,7 @@ if $args[0]="sj_crotch":
         else:
             '<div class="button_menu">'
                 '<div class="button"><a href="exec:gt ''second_shift_in_three_years''">Continue class</a></div>'
-                if sj_event_chain>=2:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''sj_crotch_ability''">Use the ability to me</a></div>'
+                if $sj_event_chain>=2:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''sj_crotch_ability''">Use the ability to me</a></div>'
             '</div>'
     end
 
@@ -4578,7 +4578,7 @@ if $args[0]="sj_thinking":
         '</div>'
         else:
             '<div class="button_menu">'
-                '<div class="buttonS"><a href="exec:a=-1 & q=0 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & m_address=''FS'' & gt ''cross_section_event'',''universal_cross_section''">Go play with her</a></div>'
+                '<div class="buttonS"><a href="exec:a=-1 & q=0 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''FS'' & gt ''cross_section_event'',''universal_cross_section''">Go play with her</a></div>'
             '</div>'
     end
 
@@ -4618,12 +4618,12 @@ if $args[0]="ylw_night_step":
          if a=4:'<div class="button"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_night_step''">Throw down<<$YLW.name>></a></div>'
          if a=5:
 			'<div class="buttonR"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_night_step''">Yell at me</a></div>' 
-			if ylw_event_chain>=7:'<div class="buttonS"><a href="exec:ylw_event_chain=8 & a=0 & $FaceName_B=$SB.name & love_B=$SB.love & $FaceName_A=$YLW.name & love_A=$YLW.love &  m_address=''AW'' & gt ''cross-section_student_group_single'',''student_group_single''">Join them</a></div>' else:'<div class="buttonGr"><a href="exec:">？？？</a></div>' 
+			if $ylw_event_chain>=7:'<div class="buttonS"><a href="exec:$ylw_event_chain=8 & a=0 & $FaceName_B=$SB.name & love_B=$SB.love & $FaceName_A=$YLW.name & love_A=$YLW.love &  $m_address=''AW'' & gt ''cross-section_student_group_single'',''student_group_single''">Join them</a></div>' else:'<div class="buttonGr"><a href="exec:">？？？</a></div>' 
 		end
          if a=6:'<div class="buttonB4"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_night_step''">Five minutes later</a></div>' 
          if a=7:
 			'<div class="button"><a href="exec:a=0 & gt ''student_group_event'',''ylw_go_home''">Take her home</a></div>' 
-			if ylw_event_chain>=6:'<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''YLW'' &  $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & a=0 & m_address=''htg'' & gt ''cross_section_event'',''universal_cross_section''">Sneak a shot</a></div>' else:'<div class="buttonGr"><a href="exec:">？？？</a></div>' 
+			if $ylw_event_chain>=6:'<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''YLW'' &  $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & a=0 & $m_address=''htg'' & gt ''cross_section_event'',''universal_cross_section''">Sneak a shot</a></div>' else:'<div class="buttonGr"><a href="exec:">？？？</a></div>' 
 	    end
         '</div>'
 
@@ -4664,8 +4664,8 @@ if $args[0]="ylw_night_step":
             '<p><<$SB.name>>:Call-call zzZ</p>'
             '<p>Me: You coaxed her to have a hand…</p>'
             '<p><<$YLW.name>>: Can you take me home?</p>'
-             if ylw_event_chain>=6:'<p><<$YLW.name>>: Or...sneak a shot?</p>'
-             if ylw_event_chain=6:ylw_event_chain=7
+             if $ylw_event_chain>=6:'<p><<$YLW.name>>: Or...sneak a shot?</p>'
+             if $ylw_event_chain=6:$ylw_event_chain=7
             end
          '</div>'
         q+=1
@@ -4684,8 +4684,8 @@ if $args[0]="ylw_go_home":
          if a=2:'<div class="button"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_go_home''">Pull frame</a></div>' 
          if a=3:'<div class="button"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_go_home''">Mother`s advice</a></div>' 
          if a=4:
-		if ylw_event_chain<2:'<div class="button"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_go_home''">。。。</a></div>'
-		if ylw_event_chain>=2:'<div class="buttonB3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''ylw_home_supplement''">Start counseling</a></div>'
+		if $ylw_event_chain<2:'<div class="button"><a href="exec:a+=1 & gt ''student_group_event'',''ylw_go_home''">。。。</a></div>'
+		if $ylw_event_chain>=2:'<div class="buttonB3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''ylw_home_supplement''">Start counseling</a></div>'
 		end
          if a=5:'<div class="button"><a href="exec:gt ''residential_area''">See you tomorrow</a></div>'
         '</div>'
@@ -4717,7 +4717,7 @@ if $args[0]="ylw_go_home":
             '<p><<$YLW.name>>:…………</p>'
             end
             if a=5:
-             if ylw_event_chain=1:ylw_event_chain=2
+             if $ylw_event_chain=1:$ylw_event_chain=2
             '<p>Her old mother:<<$protagonists_name>>, Can I ask you one thing?The child`s father doesn`t agree with her to come back so late. If it`s tutoring...can you...just tutoring at home?</p>'
             '<p>Me: Governess?</p>'
             '<p>Her old mother: That`s what I mean.</p>'
@@ -4788,11 +4788,11 @@ if $args[0]="ylw_jia_supplement_2":
         '</div>'
         
         '<div class="button_menu">'
-		'<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''YLW'' &  $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & m_address=''XB'' & gt ''cross_section_event'',''universal_cross_section''">Got it</a></div>'
+		'<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''YLW'' &  $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & $m_address=''XB'' & gt ''cross_section_event'',''universal_cross_section''">Got it</a></div>'
         '</div>'
         
          '<div class="dialog_menu">'
-		  if ylw_event_chain=2:ylw_event_chain=3
+		  if $ylw_event_chain=2:$ylw_event_chain=3
 		  '<p>Me: What is the little head thinking?</p>'
             '<p><<$YLW.name>>: I was thinking... when I find someone to replace the class at school tomorrow... I want to play something more exciting with you.…</p>'
          '</div>'
@@ -4812,10 +4812,10 @@ if $args[0]="ylw_classroom":
             if a=4:'<div class="buttonS"><a href="exec:a=5 & gt ''student_group_event'',''ylw_classroom''">Fuck her directly here</a></div>'
             if a=5:
 			'<div class="buttonGn3"><a href="exec:a=6 & gt ''student_group_event'',''ylw_classroom''">Hide in the toilet</a></div>'
-			if ylw_event_chain>=4:'<div class="buttonG3"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & a=0 & m_address=''TS'' & gt ''cross_section_event'',''universal_cross_section''">Hide in the library</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
-			if ylw_event_chain>=5:'<div class="buttonS"><a href="exec:a=0 & gt ''student_group_event'',''ylw_lounge''">Hide in the daughter`s lounge</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+			if $ylw_event_chain>=4:'<div class="buttonG3"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & a=0 & $m_address=''TS'' & gt ''cross_section_event'',''universal_cross_section''">Hide in the library</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
+			if $ylw_event_chain>=5:'<div class="buttonS"><a href="exec:a=0 & gt ''student_group_event'',''ylw_lounge''">Hide in the daughter`s lounge</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient depravity</a></div>'
 		  end
-            if a=6:'<div class="buttonS"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & a=0 & m_address=''CSA'' & gt ''cross_section_event'',''universal_cross_section''">Engage in the toilet</a></div>'
+            if a=6:'<div class="buttonS"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & love_num=$YLW.love & a=0 & $m_address=''CSA'' & gt ''cross_section_event'',''universal_cross_section''">Engage in the toilet</a></div>'
         '</div>'
          '<div class="dialog_menu">'
             if a=0:
@@ -4839,14 +4839,14 @@ if $args[0]="ylw_classroom":
               '<p><<$YLW.name>>: Just fuck me here ❤Everyone is in class now... but it`s also very exciting!</p>'
 		  end
 		    if a=5:
-				if ylw_event_chain=4:ylw_event_chain=5
+				if $ylw_event_chain=4:$ylw_event_chain=5
 				'<p>Me: No, someone is coming?</p>'
 		    end
             if a=6:
                 $YLW.BAD+=my.charm
                 $YLW.love+=my.charm
               '<p><<$YLW.name>>: This way this way…</p>'
-                if ylw_event_chain=3:ylw_event_chain=4
+                if $ylw_event_chain=3:$ylw_event_chain=4
               end
          '</div>'
 End
@@ -4863,11 +4863,11 @@ if $args[0]="ylw_lounge":
             if a=3:'<div class="buttonGn4"><a href="exec:a=4 & gt ''university''">Fled in a hurry</a></div>'
             if a=3:'<div class="buttonS"><a href="exec:a=4 & gt ''student_group_event'',''ylw_lounge''">Positive response</a></div>'
             if a=4:'<div class="buttonR"><a href="exec:a=5 & gt ''student_group_event'',''ylw_lounge''">Gritted teeth</a></div>'
-            if a=5:'<div class="buttonS"><a href="exec:a=0 & q=0 & $FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  m_address=''DCSE'' & gt ''cross-section_student_group_single'',''student_group_single''">Second battle!</a></div>'
+            if a=5:'<div class="buttonS"><a href="exec:a=0 & q=0 & $FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''DCSE'' & gt ''cross-section_student_group_single'',''student_group_single''">Second battle!</a></div>'
         '</div>'
          '<div class="dialog_menu">'
             if a=0:
-			if ylw_event_chain=5:ylw_event_chain=6
+			if $ylw_event_chain=5:$ylw_event_chain=6
               '<p><<$YLW.name>>:Shhh, follow me!</p>'
             end
               if a=1:
@@ -4974,7 +4974,7 @@ if $args[0]="qh_eat":
 
 
     if a=1:
-         if qh_event_chain=1:qh_event_chain=2
+         if $qh_event_chain=1:$qh_event_chain=2
          '<div class="dialog_menu">'
               '<p>Me: What`s next?Do you want to go to the park or school?</p>'
               '<p><<$QH.name>>: School... the park is so cold.</p>'
@@ -5267,7 +5267,7 @@ if $args[0]="qh_swimming":
     end
     if a=9:
          QH_num+=10000
-         if qh_event_chain=3:qh_event_chain=4
+         if $qh_event_chain=3:$qh_event_chain=4
          '<div class="dialog_menu">'
               '<p><<$QH.name>>: Why... don`t you talk.Don`t you want to say it anymore?</p>'
               '<p>Me: No…</p>'

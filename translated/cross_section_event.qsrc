@@ -15,38 +15,38 @@ end
 
 
 if intercept_num=0:
-	intercept_name1='Slow and calm'
-	intercept_name2='Flowing clouds and flowing water'
-	intercept_name3='Driving fast'
-	intercept_name4='Swift as the wind'
+	$intercept_name1='Slow and calm'
+	$intercept_name2='Flowing clouds and flowing water'
+	$intercept_name3='Driving fast'
+	$intercept_name4='Swift as the wind'
 end
 
 if intercept_num=1:
-	intercept_name1='Slow insertion'
-	intercept_name2='Change posture'
-	intercept_name3='Intense thrusting'
-	intercept_name4='Accelerate the explosion'
+	$intercept_name1='Slow insertion'
+	$intercept_name2='Change posture'
+	$intercept_name3='Intense thrusting'
+	$intercept_name4='Accelerate the explosion'
 end
 
 if intercept_num=2:
-	intercept_name1='Top in'
-	intercept_name2='Hurry up'
-	intercept_name3='Hurry up'
-	intercept_name4='Please'
+	$intercept_name1='Top in'
+	$intercept_name2='Hurry up'
+	$intercept_name3='Hurry up'
+	$intercept_name4='Please'
 end
 
 if intercept_num=3:
-	intercept_name1='Insert slowly'
-	intercept_name2='Slowly pump'
-	intercept_name3='Accelerate thrusting'
-	intercept_name4='Top to the depths'
+	$intercept_name1='Insert slowly'
+	$intercept_name2='Slowly pump'
+	$intercept_name3='Accelerate thrusting'
+	$intercept_name4='Top to the depths'
 end
 
 if intercept_num=4:
-	intercept_name1='Insert slowly'
-	intercept_name2='Change posture'
-	intercept_name3='Adjust the angle'
-	intercept_name4='Orgasm'
+	$intercept_name1='Insert slowly'
+	$intercept_name2='Change posture'
+	$intercept_name3='Adjust the angle'
+	$intercept_name4='Orgasm'
 end
 
 if q<=16:
@@ -135,7 +135,7 @@ End
 if $args[0]="universal_cross_section":
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
-             <source src="images\NPC\<<$m_filename_reference>>\vids\<<m_address>>1-<<a>>.webm" type=''video/webm;''></video></div>'
+             <source src="images\NPC\<<$m_filename_reference>>\vids\<<$m_address>>1-<<a>>.webm" type=''video/webm;''></video></div>'
         '</div>'
 
     if a!10:
@@ -146,10 +146,10 @@ if $args[0]="universal_cross_section":
             if a=2:'<div class="buttonS2"><a href="exec:a=3 & gt ''cross_section_event'',''universal_cross_section''">Continue to mouth</a></div>'
             if a=3:'<div class="buttonS3"><a href="exec:a=4 & gt ''cross_section_event'',''universal_cross_section''">Pussy wide open</a></div>'
             if a=4 or a=9:
-            '<div class="buttonS2"><a href="exec:a=5 & gt ''cross_section_event'',''universal_cross_section''"><<intercept_name1>></a></div>'
-            '<div class="buttonS3"><a href="exec:a=6 & gt ''cross_section_event'',''universal_cross_section''"><<intercept_name2>></a></div>'
-            '<div class="buttonS4"><a href="exec:a=7 & gt ''cross_section_event'',''universal_cross_section''"><<intercept_name3>></a></div>'
-            '<div class="buttonS5"><a href="exec:a=8 & gt ''cross_section_event'',''universal_cross_section''"><<intercept_name4>></a></div>'
+            '<div class="buttonS2"><a href="exec:a=5 & gt ''cross_section_event'',''universal_cross_section''"><<$intercept_name1>></a></div>'
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''cross_section_event'',''universal_cross_section''"><<$intercept_name2>></a></div>'
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''cross_section_event'',''universal_cross_section''"><<$intercept_name3>></a></div>'
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''cross_section_event'',''universal_cross_section''"><<$intercept_name4>></a></div>'
             end
             if 5<=a and a<=8:'<div class="buttonR4"><a href="exec: CUM_num+=a*3 & a=9 & gt ''cross_section_event'',''universal_cross_section''">Injection of semen</a></div>'
             if a=9:'<div class="buttonGn4"><a href="exec:a=10 & gt ''cross_section_event'',''universal_cross_section''">Pull it out</a></div>'
@@ -157,7 +157,7 @@ if $args[0]="universal_cross_section":
         else:
             '<div class="button_menu">'
 			 if $m='SB' :
-				if m_address!'AQA' and m_address!'MBB':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''matsumoto_event'',''sb_morning''">Spend the night with her</a></div>'
+				if $m_address!'AQA' and $m_address!'MBB':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''matsumoto_event'',''sb_morning''">Spend the night with her</a></div>'
 			 end
                 '<div class="buttonG5"><a href="exec:gt ''cross_section_event'',''pregnancy_test''">Pregnancy test</a></div>'
             '</div>'
@@ -192,7 +192,7 @@ if $args[0]="universal_cross_section":
          '<div class="dialog_menu">'
               '<p><<$ma>>: Na...it`s all flowing out…</p>'
               
-              if m_address='FS':
+              if $m_address='FS':
 				$SJ.tel=1
 				$SJ.BAD+=q+my.charm
 				$SJ.love+=q+my.charm
@@ -203,7 +203,7 @@ if $args[0]="universal_cross_section":
 				'<p>·This is the end of the character`s story line.But the ultimate goal is for all members of the class roster to pass the exam, including exemption from the exam during pregnancy or passing the exam.</p>'
               end
               
-              if m_address='GLN':
+              if $m_address='GLN':
 				$MPJ.bad+=q+my.charm
 				$MPJ.love+=q+my.charm
               end
@@ -212,7 +212,7 @@ if $args[0]="universal_cross_section":
 				'<p><<$ma>>: You are not allowed to leave me without my permission❤</p>'
               end
               
-              if m_address='SSA':
+              if $m_address='SSA':
 				$SB.bad+=q+my.charm
 				$SB.love+=q+my.charm  
 				$SB.tel=1

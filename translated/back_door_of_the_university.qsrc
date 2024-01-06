@@ -112,7 +112,7 @@ if $args[0]="daughter_lounge":
 end
 
 if $args[0]="matsumoto_tachie":
-	if matsumoto_contradiction=0:
+	if $matsumoto_contradiction=0:
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
              <source src="images\NPC\SB\vids\MN0.webm" type=''video/webm;''></video></div>'
@@ -121,7 +121,7 @@ if $args[0]="matsumoto_tachie":
 	'<div class="button_menu">'
 		'<div class="buttonS"><a href="exec:gt ''single_student'',''SB''">Yes it is</a></div>'
 		if $matsumoto_event_chain>=7:'<div class="buttonP"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & $SB.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
-		if $SB.love>=150 and 12<=hour and hour<=17:'<div class="buttonGn3"><a href="exec:a=-1 & $m_filename_reference=''SB'' &  $m=''SB'' & $ma=$SB.name & love_num=$SB.love & m_address=''MBC'' & gt ''cross_section_event'',''universal_cross_section''">Go out for a walk</a></div>'
+		if $SB.love>=150 and 12<=hour and hour<=17:'<div class="buttonGn3"><a href="exec:a=-1 & $m_filename_reference=''SB'' &  $m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m_address=''MBC'' & gt ''cross_section_event'',''universal_cross_section''">Go out for a walk</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
 	'</div>'
 
@@ -154,8 +154,8 @@ if $args[0]="sofa_frolic":
         '</div>'
 
 	'<div class="button_menu">'
-		if ylw_event_chain>=6:'<div class="buttonS3"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  m_address=''YQB'' & gt ''cross-section_student_group_single'',''student_group_single''">Step in Shuangfei</a></div>'else:'<div class="buttonGr"><a href="exec:">Step in?？？</a></div>' 
-		if ylw_event_chain>=8:'<div class="buttonS5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  m_address=''YQC'' & gt ''cross-section_student_group_single'',''student_group_single''">The best threesome</a></div>'else:'<div class="buttonGr"><a href="exec:">The best?？？</a></div>' 
+		if $ylw_event_chain>=6:'<div class="buttonS3"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''YQB'' & gt ''cross-section_student_group_single'',''student_group_single''">Step in Shuangfei</a></div>'else:'<div class="buttonGr"><a href="exec:">Step in?？？</a></div>' 
+		if $ylw_event_chain>=8:'<div class="buttonS5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''YQC'' & gt ''cross-section_student_group_single'',''student_group_single''">The best threesome</a></div>'else:'<div class="buttonGr"><a href="exec:">The best?？？</a></div>' 
 		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
 	'</div>'
 
@@ -167,7 +167,7 @@ if $args[0]="sofa_frolic":
 		'<p><<$SB.name>>: Accompany the Lun family to watch it~ the Lun family dare not watch it alone!</p>'
 		'<p><<$YLW.name>>: Okay, then you will take me there after school❤</p>'
 		'<p><<$SB.name>>: Good drop!</p>'
-		if ylw_event_chain=0:ylw_event_chain=1
+		if $ylw_event_chain=0:$ylw_event_chain=1
 	'</div>'
 end
 
@@ -210,8 +210,8 @@ if $args[0]="bar_table":
 
 	'<div class="button_menu">'
 		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''on_the_bar''">On the bar</a></div>'
-		'<div class="buttonS3"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''bbar'' & gt ''cross_section_event'',''universal_cross_section''">Onlookers<<$MPJ.name>>Have fun</a></div>'
-		if $HME.love>=25:'<div class="buttonG4"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love & $FaceName_D=$SB.name & love_D=$SB.love & m_address=''CCSD'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Push to them</a></div>'
+		'<div class="buttonS3"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''bbar'' & gt ''cross_section_event'',''universal_cross_section''">Onlookers<<$MPJ.name>>Have fun</a></div>'
+		if $HME.love>=25:'<div class="buttonG4"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''CCSD'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Push to them</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
 	'</div>'
 
@@ -250,14 +250,14 @@ if $args[0]="large_sofa":
         '</div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$YLW.name & love_C=$YLW.love & $FaceName_D=$SB.name & love_D=$SB.love & m_address=''JSFS'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">❤Get close to them❤</a></div>'
+		'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$YLW.name & love_C=$YLW.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''JSFS'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">❤Get close to them❤</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
 		'<p><<$SB.name>>: Go help us pour the wine!</p>'
 		'<p><<$MPJ.name>>: Miss, okay!</p>'
-		'<p>· <<$FZL.name>>Lying alone on the other side<a href="exec:a=-1 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $ma=$FZL.name & love_num=$FZL.love & m_address=''XX'' & gt ''cross_section_event'',''universal_cross_section''">-Close</a></p>'
+		'<p>· <<$FZL.name>>Lying alone on the other side<a href="exec:a=-1 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $ma=$FZL.name & love_num=$FZL.love & $m_address=''XX'' & gt ''cross_section_event'',''universal_cross_section''">-Close</a></p>'
 	'</div>'
 end
 
@@ -270,8 +270,8 @@ if $args[0]="secretary_liyi_1":
 
 	'<div class="button_menu">'
 		'<div class="buttonB3"><a href="exec:gt ''single_student'',''SJ''">★In-depth communication★</a></div>'
-		'<div class="buttonS"><a href="exec: $m_filename_reference=''SJ'' & $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & m_address=''SOFA'' & gt ''cross_section_event'',''universal_cross_section''">Fuck her directly</a></div>'
-		if sj_event_chain>=2:'<div class="buttonR"><a href="exec:a=-1 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & m_address=''XS'' & gt ''cross_section_event'',''universal_cross_section''">The body appears</a></div>'
+		'<div class="buttonS"><a href="exec: $m_filename_reference=''SJ'' & $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''SOFA'' & gt ''cross_section_event'',''universal_cross_section''">Fuck her directly</a></div>'
+		if $sj_event_chain>=2:'<div class="buttonR"><a href="exec:a=-1 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''XS'' & gt ''cross_section_event'',''universal_cross_section''">The body appears</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -302,7 +302,7 @@ if $args[0]="black_fungus_vertical_painting":
 
 	'<div class="button_menu">'
 		'<div class="buttonB3"><a href="exec:gt ''single_student'',''HME''">★In-depth communication★</a></div>'
-		'<div class="buttonS"><a href="exec:$HME.love+=5 & $m_filename_reference=''HME'' &  $m=''HME'' & $ma=$HME.name & love_num=$HME.love & m_address=''zj'' & gt ''cross_section_event'',''universal_cross_section''">Show up and fuck her</a></div>'
+		'<div class="buttonS"><a href="exec:$HME.love+=5 & $m_filename_reference=''HME'' &  $m=''HME'' & $ma=$HME.name & love_num=$HME.love & $m_address=''zj'' & gt ''cross_section_event'',''universal_cross_section''">Show up and fuck her</a></div>'
 		'<div class="buttonR"><a href="exec:gt ''student_group_event'',''hme_puff''">Call more people</a></div>'
 	'</div>'
 
@@ -351,7 +351,7 @@ if $args[0]="garage":
 	if hour=16 or hour=17:'<div class ="show_menu"><img src="images\place\车库1.jpg" width="854"></div>'else:'<div class ="show_menu"><img src="images\place\车库0.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $matsumoto_event_chain>=7 and matsumoto_contradiction=0:
+		if $matsumoto_event_chain>=7 and $matsumoto_contradiction=0:
 			if hour!16 and hour!17:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''matsumoto_event'',''get_in_the_car''">etc.<<$SB.name>></a></div>'
 		end
 		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
@@ -361,7 +361,7 @@ if $args[0]="garage":
 		'<p>Me: This kind of car is actually parked here…</p>'
 		if hour=16 or hour=17:
 			'<p><<$SB.name>>: Are you fascinated by staring at Miss Ben`s car?</p>'
-			if ylw_event_chain>=1:
+			if $ylw_event_chain>=1:
 				'<p><<$YLW.name>>: Let`s go, have you decided which horror movie to watch?</p>'
 				'<p><<$SB.name>>: Which one I didn`t finish watching last time!</p>'
 				'<p>Me: Can I go to see it together?</p>'
@@ -375,14 +375,14 @@ end
 
 
 if $args[0]="exclusive_room":
-	if qh_event_chain>=4:gt'back_door_of_the_university','exclusive_room_2'
-	if QH_num>=3 and qh_event_chain<=1:gt'back_door_of_the_university','seven_seas_vertical_painting_2'
-	if qh_event_chain=2:gt'back_door_of_the_university','seven_seas_vertical_painting_3'
+	if $qh_event_chain>=4:gt'back_door_of_the_university','exclusive_room_2'
+	if QH_num>=3 and $qh_event_chain<=1:gt'back_door_of_the_university','seven_seas_vertical_painting_2'
+	if $qh_event_chain=2:gt'back_door_of_the_university','seven_seas_vertical_painting_3'
 	'<div class ="show_menu"><img src="images\place\独家房间.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if qh_event_chain<=2:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''back_door_of_the_university'',''seven_seas_vertical_painting''">←<<$QH.name>></a></div>'
-		if qh_event_chain>=3:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''back_door_of_the_university'',''seven_seas_vertical_painting_4''">←<<$QH.name>></a></div>'
+		if $qh_event_chain<=2:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''back_door_of_the_university'',''seven_seas_vertical_painting''">←<<$QH.name>></a></div>'
+		if $qh_event_chain>=3:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''back_door_of_the_university'',''seven_seas_vertical_painting_4''">←<<$QH.name>></a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
 	'</div>'
 
@@ -414,7 +414,7 @@ if $args[0]="seven_seas_vertical_painting":
 end
 
 if $args[0]="seven_seas_vertical_painting_2":
-	 if qh_event_chain=0:qh_event_chain=1
+	 if $qh_event_chain=0:$qh_event_chain=1
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
              <source src="images\NPC\Paradise\vids\A1.webm" type=''video/webm;''></video></div>'
@@ -434,7 +434,7 @@ if $args[0]="seven_seas_vertical_painting_2":
 end
 
 if $args[0]="seven_seas_vertical_painting_3":
-	 if qh_event_chain=2:qh_event_chain=3
+	 if $qh_event_chain=2:$qh_event_chain=3
         '<div class="show_menu">'
              '<video preload="metadata" autoplay loop height="480">
              <source src="images\NPC\Paradise\vids\NA.webm" type=''video/webm;''></video></div>'

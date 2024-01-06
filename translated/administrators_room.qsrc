@@ -103,13 +103,13 @@ if $args[0]="computer":
 end
 
 if $args[0] ='computer_2':
-	administrator_password = $TRIM($LCASE($input('Access password: What is the meaning of everything I do?')))
-	the_administrator_has_the_correct_password=''
-	if administrator_password!the_administrator_has_the_correct_password:msg'Wrong password'  & gt 'administrators_room','computer'
+	$administrator_password = $TRIM($LCASE($input('Access password: What is the meaning of everything I do?')))
+	$the_administrator_has_the_correct_password=''
+	if $administrator_password!$the_administrator_has_the_correct_password:msg'Wrong password'  & gt 'administrators_room','computer'
 	'<div class ="show_menu"><img src="images\place\管理室花屏.jpg" width="854"></div>'
 	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
 	'<div class="button_menu">'
-		if administrator_password=the_administrator_has_the_correct_password:'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">Leave</a></div>'
+		if $administrator_password=$the_administrator_has_the_correct_password:'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">Leave</a></div>'
 	'</div>'
 	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
 	'<div class="dialog_menu">'

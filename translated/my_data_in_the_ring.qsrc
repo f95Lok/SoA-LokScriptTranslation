@@ -3,26 +3,26 @@
 
 
 
-ring_dodge_rate=(100*ring_dodge+1)/(ring_dodge+70)
-ring_return_rate+=ring_back_to_the_shield
+ring_dodge_rate=(100*$ring_dodge+1)/($ring_dodge+70)
+ring_return_rate+=$ring_back_to_the_shield
 
-ring_luck_rate=ring_luck+1
+ring_luck_rate=$ring_luck+1
 
-dice_critical_strike_rate=dice_crit+1
-dice_critical_strike_multiple=100+dice_critical_strike_multiple_1
-
-
-if ring_return_rate>=100:ring_return_rate=0 & my_shield_in_the_ring+=1
+dice_critical_strike_rate=$dice_crit+1
+dice_critical_strike_multiple=100+$dice_critical_strike_multiple_1
 
 
+if ring_return_rate>=100:ring_return_rate=0 & $my_shield_in_the_ring+=1
 
 
-'<p>·Cheers in the ring:㊔x<<cheers_in_the_ring>>  ·Loot value=<<ring_luck_rate>></p>'
-'<p>·Cheers in the ring==<<cheers_in_the_ring.>>%</p>'
+
+
+'<p>·Cheers in the ring:㊔x<<$cheers_in_the_ring>>  ·Loot value=<<ring_luck_rate>></p>'
+'<p>·Cheers in the ring==<<$cheers_in_the_ring.>>%</p>'
 '<p>·Probability of dodge by hit=<<ring_dodge_rate>>%</p>'
 '<p>·Shield regeneration completed=<<ring_return_rate>>%</p>'
 '<p>·Dice critical strike rate=<<dice_critical_strike_rate>>% ·Dice Critical Strike multiple =<<dice_critical_strike_multiple>>%</p>'
-if dice_corrosion_rate>0:'<p>·Dice corrosion rate=<<dice_corrosion_rate>>%</p>'
+if $dice_corrosion_rate>0:'<p>·Dice corrosion rate=<<$dice_corrosion_rate>>%</p>'
 
 
 

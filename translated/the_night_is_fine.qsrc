@@ -109,7 +109,7 @@ if $ARGS[0]="ring_area":
 		'<div class="buttonGn3"><a href="exec:ring_num=0 & endless_ring_mode=0 & gt ''the_beginning_of_the_ring''">Regular ring challenge</a></div>'
 		if but_the_arena_is_endless=1:'<div class="buttonR3"><a href="exec:ring_num=0 & endless_ring_mode=1 & gt ''the_beginning_of_the_ring''">Endless mode challenge</a></div>'
 		'<div class="buttonP"><a href="exec:gt ''trophy_shop''">Trophy skills</a></div>'
-		if cheers_in_the_ring>0:'<div class="buttonR5"><a href="exec:gt ''trophy_referee''">Bribe the referee</a></div>'
+		if $cheers_in_the_ring>0:'<div class="buttonR5"><a href="exec:gt ''trophy_referee''">Bribe the referee</a></div>'
 		
 	'</div>'
 
@@ -259,7 +259,7 @@ if $ARGS[0]="younger_brother_debt_collection":
 		if debt_collection_num>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''boss_event'',''boss_fuck_award_1''">Take credit to my sister</a></div>'else:'<div class="buttonGr"><a href="exec:">Complete at least 5</a></div>'
 		if $boss_event_chain=3 or $boss_event_chain=4:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''violent_plan''">Violent plan</a></div>'
 		if $boss_on_the_top=999:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''younger_brother_debt_collection_2''">What happened that day</a></div>'
-		if 1<=mpj_event_chain and mpj_event_chain<=3:'<div class="buttonR3"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''little_brother_dialogue_mpj''">About the car being smashed</a></div>'
+		if 1<=$mpj_event_chain and $mpj_event_chain<=3:'<div class="buttonR3"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''little_brother_dialogue_mpj''">About the car being smashed</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Leave</a></div>'
 	'</div>'
 
@@ -300,11 +300,11 @@ if $ARGS[0]="younger_brother_debt_collection_2":
 End
 
 if $ARGS[0]="little_brother_dialogue_mpj":
-	if mpj_event_chain=1:mpj_event_chain=2
+	if $mpj_event_chain=1:$mpj_event_chain=2
 	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if mpj_event_chain=3:'<div class="button"><a href="exec:minutes+=15 & gt ''student_group_event'',''mpj_club''">They are here</a></div>'
+		if $mpj_event_chain=3:'<div class="button"><a href="exec:minutes+=15 & gt ''student_group_event'',''mpj_club''">They are here</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Leave</a></div>'
 	'</div>'
 
