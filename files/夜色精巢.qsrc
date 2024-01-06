@@ -20,11 +20,12 @@ gs'menu_gif'
 		'<div class="action">
 			<a class="photo" data-title="风俗区" href="exec:minutes+=5 & gt ''夜色精巢'',''风俗区''"><img class="img_stretch" src="images\place\VIP包间.gif"></a>
 		</div>'
-
+		'<div class="action">
+			<a class="photo" data-title="拳愿赛" href="exec:minutes+=5 & gt ''夜色精巢'',''擂台区''"><img class="img_stretch" src="images\place\擂台区.jpg"></a>
+		</div>'
 		'<div class="action">
 			<a class="photo" data-title="歌舞伎町" href="exec:minutes+=5 & gt ''歌舞伎町''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
 		</div>'
-		
 	'</div>'
 '</div>'
 
@@ -46,6 +47,8 @@ if $ARGS[0]="":
 		if $BGH.夜色>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''夜色精巢'',''找BGH''">找<<$BGH.name>></a></div>'
 		if rand(0,100)>=90 and $魅魔风俗=1:'<div class="buttonPu3"><a href="exec:gt ''魅魔_事件'',''魅魔_Fuck_夜店''"><<$MMS.name>>的身影</a></div>'
 		if $LB.available>0:'<div class="buttonR"><a href="exec:gt ''夜色精巢'',''私人办公室''">『私人办公室』</a></div>'
+		if $松本事件链=4  and hour=23 and minutes=45:'<div class="buttonPu4"><a href="exec:gt ''松本_事件'',''SB_A1''">？争执的身影？</a></div>'
+		if $松本事件链=5 and hour>=21:'<div class="buttonG"><a href="exec:gt ''松本_事件'',''SB_B1''"><<$SB.name>></a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">消磨时间</a></div>'
 	'</div>'
 
@@ -96,6 +99,27 @@ if $args[0] ='脱衣舞区':
 	'</div>'
 End
 
+if $ARGS[0]="擂台区":
+	擂台初始化=0
+	'<div class="show_menu">'
+			'<img src="images\place\擂台区.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn3"><a href="exec:擂台num=0 & 擂台无尽模式=0 & gt ''擂台初始''">常规擂台挑战</a></div>'
+		if 可擂台无尽=1:'<div class="buttonR3"><a href="exec:擂台num=0 & 擂台无尽模式=1 & gt ''擂台初始''">无尽模式挑战</a></div>'
+		'<div class="buttonP"><a href="exec:gt ''奖杯商店''">奖杯技能</a></div>'
+		if $擂台欢呼声>0:'<div class="buttonR5"><a href="exec:gt ''奖杯裁判''">贿赂裁判</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>女拳手：按道理说这里通常会有一段参赛说明，但我想你也懒得听。</p>'
+		'<p>我：怎么说？</p>'
+		'<p>女拳手：因为这里是用拳头说话的地方！</p>'
+		'<p>我：呃…</p>'
+	'</div>'
+End
 
 if $args[0] ='特摄剧邀演':
 	'<div class="show_menu">'
@@ -178,8 +202,6 @@ if $ARGS[0]="一边":
 End
 
 
-
-
 if $ARGS[0]="私人办公室":
 	if $催债=0:gt'老板_事件','催债对话'
 	if $老板事件链=6  and $老板上位!999:gt'夜色精巢','善后处理'
@@ -235,8 +257,9 @@ if $ARGS[0]="小弟催债":
 
 	'<div class="button_menu">'
 		if 催债Num>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''老板_事件'',''老板_Fuck_奖1''">向姐姐邀功</a></div>'else:'<div class="buttonGr"><a href="exec:">至少完成5个</a></div>'
-		if $老板事件链=3 or $老板事件链=4:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''暴力计划''">暴力计划</a></div>'
+		if $老板事件链=3 or $老板事件链=4:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''夜色精巢'',''暴力计划''">暴力计划</a></div>'
 		if $老板上位=999:'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''小弟催债2''">那天发生什么了</a></div>'
+		if 1<=$MPJ事件链 and $MPJ事件链<=3:'<div class="buttonR3"><a href="exec:minutes+=15 & gt ''夜色精巢'',''小弟对话MPJ''">关于爱车被砸</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">离开</a></div>'
 	'</div>'
 
@@ -276,7 +299,24 @@ if $ARGS[0]="小弟催债2":
 	'</div>'
 End
 
+if $ARGS[0]="小弟对话MPJ":
+	if $MPJ事件链=1:$MPJ事件链=2
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
 
+	'<div class="button_menu">'
+		if $MPJ事件链=3:'<div class="button"><a href="exec:minutes+=15 & gt ''学生群_事件'',''MPJ_俱乐部''">她们来了</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：你的车被砸了？</p>'
+		'<p>狂小弟：他妈的，不止一次了！那个畜生砸了车就开始躲起来了！我要立刻找到他！我不会让这件事就这么算了！</p>'
+		'<p>我：如果你愿意用和平的方式解决的话…</p>'
+		'<p>狂小弟：嘿，兄弟。我现在很平静。</p>'
+		'<p>我：那如果我把他约来的话…</p>'
+		'<p>狂小弟：我向你保证，我绝对不会动他一根毫毛！</p>'
+	'</div>'
+End
 
 
 if $ARGS[0]="露营区情况":

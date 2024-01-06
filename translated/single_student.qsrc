@@ -1,0 +1,171 @@
+# single_student
+cls
+a=0 & q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "bug_prolapse"
+'</div>'
+
+
+if $args[0]="MPJ":
+	'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\MPJ.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG2"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & $MPJ.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+		
+		'<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''BLC'' & gt ''cross_section_event'',''universal_cross_section''">Go and have a shot</a></div>'
+		if mpj_event_chain>=4:'<div class="buttonR"><a href="exec:$MPJ.love+=5 & $m_filename_reference=''MPJ'' &  $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & m_address=''GLN'' & gt ''cross_section_event'',''universal_cross_section''">Put on a dog chain</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection</a></div>'
+		'<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$MPJ.name>>: Hey, what`s the matter...？</p>'
+	'</div>'
+end
+
+
+if $args[0]="HME":
+	'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\HME.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG2"><a href="exec: $m_filename_reference=''HME'' & $m=''HME'' & $ma=$HME.name & $HME.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+		'<div class="buttonGn2"><a href="exec: $m_filename_reference=''HME'' & $m=''HME'' & $ma=$HME.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Private tutoring results</a></div>'
+		if hme_event_chain=0:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''av_interview''">Accompany her</a></div>'
+		if hme_event_chain=1 or hme_event_chain=3:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''av_interview_2''">Accompany her again</a></div>'
+		if hme_event_chain>=2:'<div class="buttonP"><a href="exec:gt ''student_group_event'',''oral_sex_exercise_3''">Go to the empty classroom for oral sex</a></div>'
+		if $HME.love>=my.charm*3:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''hot_spring_33''">Take her to the hot spring</a></div>'else:'<div class="buttonGr"><a href="exec:">Hot spring: insufficient favorability<<my.charm*3>></a></div>'
+		if hme_event_chain>=5:
+			'<div class="buttonPu4"><a href="exec:gt ''student_group_event'',''HME_AV''">Accompany her to shoot promiscuous AV</a></div>'
+			'<div class="buttonR4"><a href="exec:gt $loc,$metka">I`m not interested</a></div>'
+		end
+		'<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if hme_event_chain=0:
+		'<p><<$HME.name>>: I`m dying of boredom, you accompany me to be bold!</p>'
+		'<p>Me: Bold?Are you going to the haunted house?</p>'
+		'<p><<$HME.name>>: I`m going to an underground AV company to invest in interview materials!</p>'
+		end
+		if hme_event_chain=1:
+		'<p>Me: How is it?Do you still want to be an AV actress?</p>'
+		'<p><<$HME.name>>: I... I still want to do it!You can go with me again!</p>'
+		'<p>Me: It seems that you have already realized it?</p>'
+		end
+		if hme_event_chain=2:
+		'<p><<$HME.name>>: You came just in time... accompany me to practice oral sex!Actually underestimated by that idiot director!</p>'
+		'<p>Me: Uh……</p>'
+		end
+		if hme_event_chain=3:
+		'<p><<$HME.name>>: Let`s meet that idiot director again, I have made progress!</p>'
+		'<p>Me: Uh……</p>'
+		end
+		if hme_event_chain>=4:
+		'<p><<$HME.name>>: Why...do you like me?Still like to “fuck” me?</p>'
+		'<p>Me: Uh……</p>'
+		end
+		if hme_event_chain>=5:
+		'<p><<$HME.name>>: Aha❤The director called me just now and said that there is a promiscuous scene that is suitable for me. I am afraid that I will be too fucked to go. Why don`t you accompany me and send me back when it`s over?</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="FZL":
+	$FZL.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\FZL.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+	   
+        '<div class="buttonG2"><a href="exec: $m_filename_reference=''FZL'' & $m=''FZL'' & $ma=$FZL.name & $FZL.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+        '<div class="buttonG4"><a href="exec:gt ''student_group_event'',''fzl_treat''">Treat to eat</a></div>'
+        if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m_filename_reference=''FZL'' &  $m=''FZL'' & $ma=$FZL.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$FZL.name>>: Every time you lie, you have a lot of lies, and if you still have a face, you still have a face.</p>'
+    '</div>'
+end
+
+
+if $args[0]="SJ":
+	$SJ.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SJ.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonG2"><a href="exec: $m_filename_reference=''SJ'' & $m=''SJ'' & $ma=$SJ.name & $SJ.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+        '<div class="buttonS3"><a href="exec:gt ''student_group_event'',''secretary`s_house''">Go to her house</a></div>'
+        if sj_event_chain>=1:
+			if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $succubus_energy-=1 & gt ''student_group_event'',''sj_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+        end
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$SJ.name>>:Wow❤Meow meow~</p>'
+        '<p>Me: What are you doing?</p>'
+        '<p><<$SJ.name>>: Imitate a cat❤</p>'
+    '</div>'
+end
+
+
+if $args[0]="YLW":
+    $YLW.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\YLW.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB2"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & $YLW.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Take a massage to relax</a></div>'
+        if ylw_event_chain>=2:'<div class="buttonB3"><a href="exec:gt ''student_group_event'',''ylw_home_supplement''">✍Family counseling</a></div>'
+        if set_printing_card=1 and card1>0 and $YLW.love>=25:'<div class="buttonR3"><a href="exec:set_printing_number_s=5 & gt ''group_performation_event'',''general_fuck_jiyin_s''">❤Skip school and go out❤</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$YLW.name>>: Oh, no matter what, my parents` starting point is good... But my father`s harshness and my mother`s expectations always make me breathless.…</p>'
+    '</div>'
+end
+
+
+if $args[0]="SB":
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SB.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+	   if $SB.tel=1:'<div class="buttonS"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & love_num=$SB.love & m_address=''MBB'' & gt ''cross_section_event'',''universal_cross_section''">Kiss her forcibly</a></div>'
+        '<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''garage''">Take the key</a></div>'
+        if $QH.available=0:'<div class="buttonPu5"><a href="exec:minutes+=5 & gt ''single_student'',''SB2''">Deep room</a></div>'
+        
+    '</div>'
+    
+    '<div class="dialog_menu">'
+		if $matsumoto_event_chain=6:$matsumoto_event_chain=7
+        '<p><<$SB.name>>: Here, this is the car key of my car... How can there be a reason for a girl to drive❤</p>'
+    '</div>'
+end
+
+if $args[0]="SB2":
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SB.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+	   '<div class="buttonG"><a href="exec:$QH.available=1 & gt ''back_door_of_the_university''">Promise promise</a></div>'
+        '<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Forget it</a></div>'
+        
+    '</div>'
+    
+    '<div class="dialog_menu">'
+	   '<p>Me: What`s behind that door?</p>'
+        '<p><<$SB.name>>: Uh... there is a friend of mine who lives in it...For some reason she doesn`t want to go home. She is a little depressed, so she doesn`t want to tell anyone.</p>'
+	   '<p>Me: Maybe I can enlighten her?</p>'
+        '<p><<$SB.name>>: Yes, but you must first promise me that if you dare to speak rudely or hurt her, I will hate you for the rest of my life.*Fierce eyes</p>'
+    '</div>'
+end
+
+
+
+
+
+
+
+
+
+
+--- single_student ---------------------------------
+

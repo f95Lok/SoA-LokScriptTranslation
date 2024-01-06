@@ -1,0 +1,89 @@
+# ring_judgment
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+if i_throw_points<enemy_throwing_points:
+	my_shield_in_the_ring-=1
+	if my_shield_in_the_ring<=0:
+		ring_my_life-=1
+		if ring_my_life<=0:gt'failed_in_the_ring'
+		my_shield_in_the_ring=the_upper_limit_of_my_shield_in_the_ring
+	end
+end
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "ring_enemy_attributes"
+		'</div>'
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\女人1.jpg"></a>
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\N<<enemy_throwing_points>>.jpg"></a>
+		</div>'
+		
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\男人1.jpg"></a>
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\N<<i_throw_points>>.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			if ring_my_life<=5:'<a class="photo" data-title="Physical strength""><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<ring_my_life>>.jpg"></a>'
+			if ring_my_life>=6:'<a class="photo" data-title="Physical strength""><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
+			if my_shield_in_the_ring<=5:'<a class="photo" data-title="defense""><img class="img_stretch" src="images\videos\fighter\pics\C<<my_shield_in_the_ring>>.jpg"></a>'
+			if my_shield_in_the_ring>=6:'<a class="photo" data-title="defense""><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
+			'<a class="photo" data-title="Throw fight points" href="exec:a=2 & gt ''throw_points_in_the_ring''"><img class="img_stretch" src="images\videos\fighter\pics\投掷.jpg"></a>
+		</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+if $args[0] ='failed':
+	if my_shield_in_the_ring=0:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\fighter\<<ring_num>>\4.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	else:
+		'<div class="show_menu">'
+			 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\videos\fighter\<<ring_num>>\3.webm" type=''video/webm;''></video></div>'
+		'</div>'
+	end
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs 'my_data_in_the_ring'
+	'</div>'
+End
+
+
+if $args[0] ='draw':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<ring_num>>\6.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		'<p>...</p>'
+	'</div>'
+End
+--- ring_judgment ---------------------------------
+

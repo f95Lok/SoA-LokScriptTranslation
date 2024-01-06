@@ -236,7 +236,7 @@ if $args[0]="one-stage_completion":
         '</div>'
 
         '<div class="button_menu">'
-            '<div class="buttonR3"><a href="exec: gt ''university''">Unfinished to be continued…</a></div>'
+            '<div class="buttonS"><a href="exec: a=0 & gt ''student_group_event'',''kiss-ass_opening_0''">❤Come together❤</a></div>'
             '<div class="buttonGn"><a href="exec: gt ''university''">Leave</a></div>'
         '</div>'
 
@@ -247,8 +247,1233 @@ if $args[0]="one-stage_completion":
               '<p>Me: Is it time for me to fuck the whole class of girls now?</p>'
               '<p><<$SB.name>>: Huh, when did this lady break her promise?It`s a deal!</p>'
               '<p><<$SJ.name>>: Okay ❤ You can have sex again* Heckle</p>'
-              '<p>·--This is the end of the V48 version——</p>'
          '</div>'
 End
+
+if $args[0]="SB_A1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\A1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+        '<div class="button_menu">'
+            if a=0:'<div class="button"><a href="exec:a=1 & gt ''matsumoto_event'',''SB_A1''">She is reluctant to let go</a></div>'
+            if a=1:'<div class="button"><a href="exec:a=2 & gt ''matsumoto_event'',''SB_A1''">Chase out to see</a></div>'
+            if a=2:'<div class="button"><a href="exec:a=3 & gt ''matsumoto_event'',''SB_A1''">She was stunned in place</a></div>'
+            if a=3:'<div class="button"><a href="exec:a=4 & gt ''matsumoto_event'',''SB_A1''">Accosted</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu5"><a href="exec:a=0 & q=0 & $SB.love+=1 & gt ''matsumoto_event'',''SB_B1''">Go for a drink</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: What did you say…</p>'
+              '<p>Man in shirt: I said let`s break up.</p>'
+              '<p><<$SB.name>>: Is it because of which woman?What is she better than Miss Uemoto?</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>The man in the shirt: She is my first love.</p>'
+              '<p><<$SB.name>>: What about first love?Then don`t you like me anymore?Isn`t it just that I don`t like her enough!Hurry up, let`s kiss, and I can let go of the past!</p>'
+              '<p>The man in the shirt: She has been my childhood sweetheart since she was a child... You are just a substitute to fill the emptiness in my heart and eliminate loneliness!</p>'
+         '</div>'
+    end
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Stop it... I was a little wayward before... Let`s kiss and just treat it as if it`s over, okay?…</p>'
+              '<p>The man in the shirt: She is going to move to Luo Shengdu with me to live, don`t bother me anymore.</p>'
+              '<p><<$SB.name>>: Why?She suddenly appeared and wanted to take you away like this!Didn`t you still promise me... to accompany me to the fireworks display?</p>'
+              '<p>Man in shirt: Promises only count when you are in love.*Turn around</p>'
+              '<p><<$SB.name>>: Hmm………</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Hmm………</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p>Me: Is Miss Daughter okay?</p>'
+              '<p><<$SB.name>>: Ha, what can I do?I don`t even know who just... I don`t even know!Maybe it`s the next man who doesn`t know the sky is high and has a crush on me!</p>' 
+              '<p>Me: Really?</p>'
+              '<p><<$SB.name>>: Cut the nonsense, go have a drink with me?</p>' 
+               if $matsumoto_event_chain=4:$matsumoto_event_chain=5
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="SB_B1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\B1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonG1"><a href="exec:a=1 & gt ''matsumoto_event'',''SB_B1''">Cheers</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''matsumoto_event'',''SB_B1''">Poured down</a></div>'
+            if a=2:
+             '<div class="buttonR"><a href="exec:my.energy=-999 & gt ''matsumoto_event'',''SB_B1''">Drunk directly</a></div>'
+             if sb_wine>=5:'<div class="buttonS2"><a href="exec:a=3 & gt ''matsumoto_event'',''SB_B1''">Keep drinking after vomiting</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+            end
+            if a=3:'<div class="buttonG3"><a href="exec:a=4 & gt ''matsumoto_event'',''SB_B1''">Cheers</a></div>'
+
+            if a=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''matsumoto_event'',''SB_B1''">Poured down</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:my.energy=-999 & gt ''matsumoto_event'',''SB_B1''">Drunk directly</a></div>'
+                if sb_wine>=10:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''matsumoto_event'',''SB_C1''">Keep drinking after vomiting</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+          sb_wine+=3
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: Can you drink enough?！</p>'
+               '<p>Me: Can I still drink you?</p>'     
+              '<p><<$SB.name>>: Bartender... give me the strongest wine!Unlimited bombers!</p>'
+         '</div>'
+    end
+
+    if a=1 or a=4:
+         '<div class="dialog_menu">'
+              '<p>Me: Cheers!*Tons tons tons</p>' 
+              '<p><<$SB.name>>: Woohoo~* Tons tons tons</p>'
+         '</div>'
+    end
+    if a=2 or a=5:
+         '<div class="dialog_menu">'
+              '<p>Me: vomit >w< *Spit, spit, spit</p>' 
+              '<p><<$SB.name>>: Hahahahahaha❤</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Another round...bomber?</p>'
+               '<p>Me: Come on!</p>'  
+         '</div>'
+    end
+
+End
+
+if $args[0]="SB_C1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\C1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''SB_C1''">After kissing the top</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''matsumoto_event'',''SB_C1''">Go with her</a></div>'
+
+            if 4>=a and a>=2:'<div class="buttonS3"><a href="exec:a+=1 & gt ''matsumoto_event'',''SB_C1''">At her mercy</a></div>'
+
+            if 6>=a and a>=5:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''SB_C1''">Let me move</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''SB_C1''">Ejaculation</a></div>'
+            if a=8:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''SB_C1''">Talk</a></div>'
+            if a=9:'<div class="buttonP"><a href="exec:a+=1 & gt ''matsumoto_event'',''SB_C1''">Hug her</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=8 & a=0 & q=0 & gt ''matsumoto_event'',''sb_morning''">Sleep with her until the next day</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: Cheers... cheers... kiss your mouth, okay?…</p>'
+               '<p>Me: Hmm…</p>'     
+              '<p><<$SB.name>>: Kiss…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Come with me to the next game... there are many people here…</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p>Me: Um... * Dizzy</p>' 
+              '<p><<$SB.name>>: Lie down ❤</p>'
+         '</div>'
+    end
+
+    if 5>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Like it❤</p>'
+              '<p>Me: Um... * Dizzy</p>' 
+              if a=5:'<p><<$SB.name>>: The Lun family is tired~~ Let`s move for you❤</p>'
+         '</div>'
+    end
+    if 8>=a and a>=6:
+         '<div class="dialog_menu">'
+              '<p>Me: Then it`s my turn to work hard ❤</p>' 
+              '<p><<$SB.name>>: Harder<<$panting_2>></p>'
+         '</div>'
+    end
+    if a=9:
+         '<div class="dialog_menu">'
+              '<p>Me: Are you awake from drinking?*Sober</p>' 
+              '<p><<$SB.name>>: Is it important?Hurry up and put your arms around me to sleep*Open your arms</p>'
+         '</div>'
+    end
+    if a=10:
+		$SB.bad+=4
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: I can`t let go before I fall asleep❤</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="sb_morning":
+		if a=0 and hour>=8:
+		 minutes+=1440
+		 hour=7
+		end
+	    $SB.bad+=4
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\D1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonB1"><a href="exec:a=1 & gt ''matsumoto_event'',''sb_morning''">Wake up and talk</a></div>'
+            if a=1:'<div class="buttonB2"><a href="exec:a=2 & gt ''matsumoto_event'',''sb_morning''">Her answer</a></div>'
+
+            if a=2:
+               if $SB.love>=150:'<div class="buttonB3"><a href="exec:a=3 & gt ''matsumoto_event'',''sb_morning''">What else?</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+               '<div class="buttonB4"><a href="exec:a=5 & gt ''matsumoto_event'',''sb_morning''">Go to school together</a></div>'
+            end
+            if a=3:'<div class="buttonB5"><a href="exec:a=4 & gt ''matsumoto_event'',''sb_morning''">Come quickly</a></div>'
+            if a=4:'<div class="buttonB4"><a href="exec:a=5 & gt ''matsumoto_event'',''sb_morning''">Go to school together</a></div>'
+            if a=5:'<div class="buttonP"><a href="exec:a=6 & gt ''matsumoto_event'',''sb_morning''">Pampering: kiss your mouth</a></div>'
+            if a=5:'<div class="buttonR2"><a href="exec:$SB.love-=10 & gt ''residential_area''">Disobedience: just don`t kiss</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonB4"><a href="exec:$SB.love+=10 & gt ''university''">❤Favorability rises❤</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: Um... sleepy sleepy…</p>'
+               '<p>Me: zzZzzZ</p>'     
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Wake up…</p>'
+              '<p>Me: Um... good morning…</p>'  
+              '<p><<$SB.name>>: Your saliva is flowing out when you sleep…</p>'
+              '<p>Me: So... what is our relationship now?</p>'  
+         '</div>'
+    end
+    if a=2:
+		if $SB.love<50:sb_relationship='Looks more like a substitute for eliminating loneliness'
+		if $SB.love>=50:sb_relationship='Just sex friends'
+		if $SB.love>=100:sb_relationship='Ordinary lover relationship, right?'
+		if $SB.love>=150:sb_relationship='I thought you had already acquiesced that we were lovers'
+		if $SB.love>=200:sb_relationship='A super sweet couple that everyone envies'
+		if $SB.love>=900:sb_relationship='As long as you want, I can marry you tomorrow'
+         '<div class="dialog_menu">'
+              '<p>Me: So... what is our relationship now?</p>'  
+              '<p><<$SB.name>>:……</p>'
+              '<p>Me: I`m waiting for you to speak, why don`t you speak?</p>'  
+              '<p><<$SB.name>>: <<sb_relationship>>.</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p>Me: What else?</p>' 
+              '<p><<$SB.name>>: Like all of you ❤</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Before entering the school, while there is no one here, can you tweet my little mouth❤</p>'
+         '</div>'
+    end
+
+    if a=6:
+		if $matsumoto_event_chain=5:$matsumoto_event_chain=6
+         '<div class="dialog_menu">'
+              '<p>Me: Is there any meaning?</p>' 
+              '<p><<$SB.name>>: Kiss❤ Is the key to my happiness... If you make me angry next time, just kiss me and I won`t be angry❤</p>'
+              '<p>Me: Really?</p>' 
+              '<p><<$SB.name>>: Really, I promise you ❤</p>'
+              if $matsumoto_event_chain=11:
+			 '<p>Me: There will be a fireworks display tonight.</p>' 
+			 '<p><<$SB.name>>: Okay ❤ Let`s go see it together!</p>'
+              end
+         '</div>'
+    end
+End
+
+if $args[0]="get_in_the_car":
+		a=0 
+		q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\上车.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''driving''">ignition</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			if $SB.love<0:sb_name='<<$protagonists_name>>'
+			if $SB.love>=0:sb_name='My driver'
+			if $SB.love>=50:sb_name='fool'
+			if $SB.love>=100:sb_name='baby'
+			if $SB.love>=150:sb_name='baby'
+			if $SB.love>=200:sb_name='dear'
+			if $SB.love>=900:sb_name='husband'
+              '<p><<$SB.name>>:<<sb_name>>, Isn`t my car pretty good?</p>' 
+              if $SB.love>=100:'<p><<$SB.name>>: From now on, mine will be yours❤</p>' 
+         '</div>'
+
+End
+
+
+if $args[0]="driving":
+		a=0 
+		q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\dri_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+		  if sb_wine>=10:'<div class="buttonPu1"><a href="exec:a=0 & q=0 & gt ''matsumoto_event'',''SB_C1''">Go for a drink</a></div>'
+            '<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''zoo''">Date: Go to the zoo</a></div>'
+            if $matsumoto_event_chain>=8:'<div class="buttonS3"><a href="exec:gt ''matsumoto_event'',''shopping''">Date: Shopping and eating</a></div>'
+            if $matsumoto_event_chain>=10:'<div class="buttonS4"><a href="exec:gt ''matsumoto_event'',''tutoring''">Counseling: Go to my bedroom</a></div>'
+            if $matsumoto_event_chain>=11:'<div class="buttonS5"><a href="exec:gt ''matsumoto_event'',''tutoring_at_her_house_2''">Counseling: Go to her bedroom</a></div>'
+            if $matsumoto_event_chain=11:
+			if hour>=17:'<div class="buttonPu4"><a href="exec:gt ''matsumoto_event'',''sb_fireworks''">Date: Fireworks display</a></div>'else:'<div class="buttonGr"><a href="exec:">It needs to be dark</a></div>'
+            end
+            if $matsumoto_event_chain>=15:
+			if hour>=17:'<div class="buttonPu4"><a href="exec:gt ''matsumoto_event'',''sb_fireworks_2''">Date: Fireworks by the night</a></div>'else:'<div class="buttonGr"><a href="exec:">It needs to be dark</a></div>'
+		  end
+		  
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:<<sb_name>>, where are we going?</p>' 
+         '</div>'
+
+End
+
+
+if $args[0]="zoo":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\you1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:
+               if matsumoto_playground_progress>=5:'<div class="buttonP"><a href="exec:a=8 & gt ''matsumoto_event'',''zoo''">Go take the ferris wheel</a></div>'
+               '<div class="buttonGn1"><a href="exec:a=1 & gt ''matsumoto_event'',''zoo''">Go horse riding</a></div>'
+               if matsumoto_playground_progress>=1:'<div class="buttonGn2"><a href="exec:a=3 & gt ''matsumoto_event'',''zoo''">Go for a little exercise</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection</a></div>'
+               if matsumoto_playground_progress>=2:'<div class="buttonGn3"><a href="exec:a=4 & gt ''matsumoto_event'',''zoo''">Go see giraffes</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection</a></div>'
+               if matsumoto_playground_progress>=3:'<div class="buttonGn4"><a href="exec:a=5 & gt ''matsumoto_event'',''zoo''">Go see the color-changing lizards</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection</a></div>'
+               if matsumoto_playground_progress>=4:'<div class="buttonGn5"><a href="exec:a=6 & gt ''matsumoto_event'',''zoo''">Go see the long-armed golden monkey</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection</a></div>'
+            end 
+            if a=1:'<div class="buttonG2"><a href="exec:a=2 & gt ''matsumoto_event'',''zoo''">Praise her</a></div>'
+            if a=2 or a=7 or a=11:'<div class="buttonP"><a href="exec:a=12 & gt ''matsumoto_event'',''zoo''">Leave holding hands</a></div>'
+
+            if 3<=a and a<=6:
+               '<div class="buttonS3"><a href="exec:a=7 & gt ''matsumoto_event'',''zoo''">Lie to her to turn her head</a></div>'
+            end
+
+            if a=8:'<div class="buttonP"><a href="exec:a=9 & gt ''matsumoto_event'',''zoo''">Pull over</a></div>'
+            if a=9:'<div class="buttonP"><a href="exec:a=10 & gt ''matsumoto_event'',''zoo''">Affectionate</a></div>'
+            if a=10:'<div class="buttonP"><a href="exec:a=11 & gt ''matsumoto_event'',''zoo''">answer</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:$SB.love+=10 & gt ''matsumoto_event'',''her_house''">Take her home</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: <<sb_name>>, I actually like animals❤</p>'
+               '<p>Me: I also like small animals.</p>'     
+               '<p><<$SB.name>>: I like animals that are more ferocious ❤Oh!I want to go here!</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Huh... drive~~</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p>Me: You can still ride a horse, it`s amazing.</p>'  
+              '<p><<$SB.name>>: That`s not right... I have had a hobby of equestrian since I was a child.…</p>'
+              '<p>Me: It`s not a loss, it`s a rich lady.</p>'  
+              '<p><<$SB.name>>: Money is not in the vernacular, this is the secret of the Lun family`s super stability when riding on you❤</p>'
+         '</div>'
+    end
+
+    if 6>=a and a>=3:
+         '<div class="dialog_menu">'
+              if a>=3:'<p><<$SB.name>>: Sure enough... Miss Ben is still not good at this kind of ball game…</p>'
+              if a>=4:'<p><<$SB.name>>: Look, these animals are so happy…</p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p>Me: Look here!</p>'
+              '<p><<$SB.name>>: What...what...huh?！</p>'
+              '<p>*Time seems to stand still at this moment——</p>'
+              '<p><<$SB.name>>: Hate ❤ What are you doing ❤</p>'
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Ugh……</p>'
+              '<p>Me: What`s the matter?</p>'
+              '<p><<$SB.name>>: Why didn`t he choose me firmly?…</p>'
+         '</div>'
+    end
+
+    if a=9 or a=10:
+         '<div class="dialog_menu">'
+              '<p>*Kiss</p>'
+              '<p>Me: That`s his problem. His eyes are growing on his ass, and he doesn`t know the goods.</p>'
+              if a=10:'<p><<$SB.name>>: Haha, do you like me?</p>'
+         '</div>'
+    end
+    if a=11:
+         '<div class="dialog_menu">'
+              '<p>Me: I like…</p>'
+              '<p>*I`m about to speak</p>'
+              '<p><<$SB.name>>: Okay, I know you love me the most, I don`t want to hear anything else…</p>'
+         '</div>'
+    end
+
+
+    if a=12:
+          matsumoto_playground_progress+=1
+         '<div class="dialog_menu">'
+              '<p>Me: Let`s go, let`s go home.Are you happy today?</p>' 
+              '<p><<$SB.name>>: Happy ❤</p>'
+              '<p>Me: Do you want to draw a perfect end?</p>' 
+              '<p><<$SB.name>>: Ok ❤</p>'
+         '</div>'
+    end
+End
+
+
+if $args[0]="her_house":
+          a=0 
+          q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\回家0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+        
+            if matsumoto_playground_progress>=6:'<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''sit_down_and_chat''">Sit down and chat</a></div>'
+            '<div class="button"><a href="exec:gt ''residential_area''">Leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              if matsumoto_playground_progress<5:'<p><<$SB.name>>:<<sb_name>>,My shoulders are so sour~ but I`m super happy, take me to the zoo next time❤</p>' 
+              if matsumoto_playground_progress>=6:'<p><<$SB.name>>:<<sb_name>>, It seems that mom is not at home today.</p>' 
+         '</div>'
+
+End
+
+if $args[0]="sit_down_and_chat":
+          a=0 
+          q=0
+          sb-1=rand(1,2)
+          if sb-1=1:sb_question='Yuki Nagase (good girl)'
+          if sb-1=2:sb_question='Satsuki Ena (Stupid Secretary)'
+          if $matsumoto_event_chain=7:$matsumoto_event_chain=8
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\回家1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & love_num=$SB.love & m_address=''JIAR'' & gt ''cross_section_event'',''universal_cross_section''">Of course it`s you</a></div>'
+            '<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''sit_down_and_chat_2''"><<sb_question>></a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:<<sb_name>>, Let me ask you, me and<<sb_question>>Compared to, who looks better?You tell the truth!I promise not to be angry!</p>' 
+         '</div>'
+
+End
+
+if $args[0]="sit_down_and_chat_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\回家2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:gt ''residential_area''">。。。</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			$SB.love-=15
+			'<p><<$SB.name>>: OK.</p>' 
+			'<p>Me: I said I`m not angry…</p>' 
+              '<p><<$SB.name>>:What are you doing?I`m not angry.Now please help me take the garbage down, so I won`t send it if I leave!</p>' 
+         '</div>'
+
+End
+
+if $args[0]="shopping":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\ggai1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''matsumoto_event'',''shopping''">Meet a big-breasted girl</a></div>'
+            if a=1:'<div class="buttonR"><a href="exec:a=2 & gt ''matsumoto_event'',''shopping''">My arm was pinched</a></div>'
+            if a=2:
+               '<div class="buttonR2"><a href="exec:a=3 & gt ''matsumoto_event'',''shopping''">Who doesn`t love big-breasted girls</a></div>'
+               '<div class="buttonP"><a href="exec:a=3 & gt ''matsumoto_event'',''shopping''">The little one is cute</a></div>'
+            end
+            if a=3:
+               '<div class="buttonS3"><a href="exec:a=4 & gt ''matsumoto_event'',''shopping''">Sit down and eat</a></div>'
+            end
+
+            if a=4:'<div class="buttonP"><a href="exec:a=5 & gt ''matsumoto_event'',''shopping''">Open your mouth</a></div>'
+            if a=5:'<div class="buttonP"><a href="exec:a=6 & gt ''matsumoto_event'',''shopping''">Eat and drink enough</a></div>'
+            if a=6:
+               '<div class="buttonP"><a href="exec:a=7 & gt ''matsumoto_event'',''shopping''">Like you</a></div>'
+               '<div class="buttonR3"><a href="exec:a=9 & gt ''matsumoto_event'',''shopping''">Want to fuck you</a></div>'
+            end
+            if a=7:'<div class="buttonP"><a href="exec:a=8 & gt ''matsumoto_event'',''shopping''">Watching her leave</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">respectively</a></div>'
+            '</div>'
+    end
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: <<sb_name>>, If someone in the class provokes you, just tell me, I`ll teach her a lesson!</p>'
+               if a=1:'<p>Me: I……</p>'  
+               if a=2:'<p>Me: Pain, pain, pain…</p>'  
+               if a=2:'<p><<$SB.name>>: Now you are messing with me!Do you like big tits, did I wrong you?</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Damn it, damn it!Ah ah ah!</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p>Me: Are you angry?</p>'  
+              '<p><<$SB.name>>: No... it`s just that there are dishes I don`t like to eat here.</p>'
+              '<p>Me: It`s not good to be picky eaters, what don`t you eat?</p>'  
+              '<p><<$SB.name>>: I don`t eat beef!</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p>Me: Ah———</p>'
+              '<p><<$SB.name>>: Whoo-hoo-be careful, it`s still a little hot…</p>'
+         '</div>'
+    end
+
+    if a=6:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Na，<<sb_name>>, Do you like me or do you want to fuck me?</p>'
+              '<p>*There is light in her eyes when she looks at you</p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              if $matsumoto_event_chain=8:$matsumoto_event_chain=9
+              if $matsumoto_event_chain=9:
+				'<p><<$SB.name>>: That`s right!Will your mother be at home tomorrow?</p>'
+				'<p>Me: Why are you asking this?</p>'
+				'<p><<$SB.name>>: Secret ❤</p>'
+              end
+              if $matsumoto_event_chain!9:'<p><<$SB.name>>: Hmm... then we will see you tomorrow ❤ Love you!</p>'
+              
+         '</div>'
+    end
+    
+    if a=9:
+		$SB.love-=15
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Oh.It`s a pity that it won`t work today, I still have an appointment<<$YLW.name>>Watch horror movies together, bye bye.</p>' 
+         '</div>'
+    end
+
+    if a=8:
+		$SB.love+=10
+         '<div class="dialog_menu">'
+              '<p>Me: I can see that she is super happy.</p>' 
+         '</div>'
+    end
+End
+
+
+if $args[0]="before_tutoring":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\家教<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''before_tutoring''">Look to the other side</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''tutoring''">Go into the bedroom with her</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+               if a=0:
+                    '<p><<$JM.name>>:You kid………</p>'
+                    '<p><<$JJ.name>>: Brother... I really didn`t expect it❤</p>' 
+                    '<p>Me: What`s the matter?</p>' 
+               end
+               if a=1:
+                    '<p><<$SB.name>>:Hello❤</p>'
+                    '<p>Me: Why are you here?</p>' 
+                    '<p><<$SB.name>>: I want you to make up classes for me privately. You don`t want me to be scolded by my mother if I can`t finish my career, do you?</p>'
+                    '<p>Me: Uh…</p>' 
+                    '<p><<$SB.name>>: Auntie, then let`s go to the room to review our homework!</p>'
+               end
+         '</div>'
+End
+
+if $args[0]="tutoring":
+		a=0
+		q=0
+		if $matsumoto_event_chain=9:$matsumoto_event_chain=10
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\补习0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonGn2"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Private tutoring results</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 '<p><<$SB.name>>: Your mother and sister are both beautiful women, and<<$MM.name>>Or your sister!Damn it... would you like to move in with me?</p>'
+		 '<p>Me: Why?Are you jealous?</p>' 
+		 '<p><<$SB.name>>: Huh, listen up, if I call you in the future, you must answer it!Don`t answer it, you know…</p>'
+         '</div>'
+
+End
+
+
+if $args[0]="video_call":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\视频<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''video_call''">I`ll be right there</a></div>'
+			'<div class="buttonR3"><a href="exec:$SB.love-=15 & gt ''residential_area''">I`m not free</a></div>'
+		  end
+            if a=1:'<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''tutoring_at_her_house''">Pat the horse and rush</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+               if a=0:
+				'<p>Me: What`s the matter?</p>' 
+                    '<p><<$SB.name>>: Where are you... I can`t do it if I have a topic... can you teach me?…</p>'
+               end
+               if a=1:
+				'<p>Me: I`ll be right there.</p>' 
+                    '<p><<$SB.name>>:Hmm❤ Come quickly~</p>'
+               end
+         '</div>'
+End
+
+
+
+if $args[0]="tutoring_at_her_house":
+	   if sb_home_tutoring_number<=3:sb_home_tutoring_number+=1
+	   a=0 & q=0  
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\卧室状态<<sb_home_tutoring_number>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''tutoring_at_her_house_2''">Push the door to enter</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Why don`t you come yet❤</p>'
+              if sb_home_tutoring_number>=2:'<p><<$SB.name>>: It`s... kiss practice time❤</p>'
+              if sb_home_tutoring_number>=3:'<p><<$SB.name>>: Do I want to tell him that I bought sexy lingerie for him ❤</p>'
+              if sb_home_tutoring_number>=4:'<p><<$SB.name>>: Ah ah ah❤Can`t wait, why don`t I pick him up ❤I have to have a shot today!</p>'
+         '</div>'
+End
+
+
+if $args[0]="tutoring_at_her_house_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\卧室对话0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+			if sb_home_tutoring_number<=3:'<div class="buttonGn3"><a href="exec:$SB.study+=1 & gt ''residential_area''">Grades rise↑</a></div>'
+			if sb_home_tutoring_number>=4:'<div class="buttonS1"><a href="exec:gt ''matsumoto_event'',''tutoring_at_her_house_3''">Lie down instantly</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+              '<p>Me: What problem have you encountered?Do you need one-time guidance❤</p>'
+              '<p><<$SB.name>>: What are you thinking... you taught me to solve the problem!</p>'
+              '<p>Me: What?Is it really just teaching problem solving?</p>'
+              if sb_home_tutoring_number>=2:'<p><<$SB.name>>:Uh…</p>'
+              if sb_home_tutoring_number>=3:'<p><<$SB.name>>:Uh...uh…</p>'
+              if sb_home_tutoring_number>=4:'<p><<$SB.name>>: Ah ah ah❤ Hurry up and lie down!</p>'
+         '</div>'
+End
+
+if $args[0]="tutoring_at_her_house_3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\卧室对话1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+			'<div class="buttonS"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & love_num=$SB.love & m_address=''JLC'' & gt ''cross_section_event'',''universal_cross_section''">Kiss</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+              '<p>Me: I`ve been patient for a long time❤</p>'
+              '<p><<$SB.name>>: You are necrotic!Can`t you be tougher, and you have to take the initiative!</p>'
+              if $matsumoto_event_chain=10:$matsumoto_event_chain=11
+         '</div>'
+End
+
+
+if $args[0]="sb_fireworks":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\SAD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!22:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''sb_fireworks''">Walk to the bank of the river</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''matsumoto_event'',''sb_fireworks''">Look up</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''matsumoto_event'',''sb_fireworks''">She turned her head sideways</a></div>'
+
+            if a=3:'<div class="buttonS3"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Take a walk back</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Answer the phone</a></div>'
+            if 16>=a and a>=5:'<div class="buttonPu4"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Memories marquee</a></div>'
+            if a=17:'<div class="buttonP"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Recovered</a></div>'
+            if a=18:'<div class="buttonP"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Enter the house</a></div>'
+            if a=19:'<div class="buttonP"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Talk</a></div>'
+            if a=20:'<div class="buttonS"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Tough once</a></div>'
+            if a=21:'<div class="button"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks''">Pushed away</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:gt ''residential_area''">Dumped by her</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>Me: You look so good in a yukata❤</p>'     
+              '<p><<$SB.name>>: Is it? Is it? ❤ It looks good❤</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: So cold, so cold >_<  </p>'
+              '<p>Me: There are many couples around.</p>'  
+              '<p><<$SB.name>>: Yeah... he promised me at the time that he would show me around………</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+		    '<p>*5…</p>'
+		    '<p>*4…</p>'
+		    '<p>*3…</p>'
+		    '<p>*2…</p>'
+		    '<p>*1…</p>'
+              '<p><<$SB.name>>: Wow... so beautiful…</p>'
+              '<p>*The gorgeous red glow of fireworks is consistent with what appeared on my face when I looked at her…</p>' 
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p>*She stood on tiptoe...until the night sky was quiet again, none of us took another look at the fireworks…</p>' 
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Hey ❤ I just made a decision secretly!</p>'
+              '<p>Me: What decision?</p>' 
+              '<p><<$SB.name>>: Listen up❤ I...I want to be married to you...hu...n...*shy</p>'
+              '<p>*Jingle bell*</p>' 
+              '<p>Me: What is the knot?Wait a minute, I`ll answer the phone first.</p>' 
+         '</div>'
+    end
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p>Me: Qing... childhood sweetheart?Hello?</p>' 
+              '<p>？？？: Hello...<<$protagonists_surname>>…<<$protagonists_name>>...haha!Remember me!I am returning home!Will you pick me up at the airport tomorrow!It`s been a long time since I saw you!</p>' 
+              '<p>*<<$SB.name>>Secretly glanced at me</p>'
+         '</div>'
+    end
+    if 17>=a and a>=6:
+          $QMZM.name='Yukitaユマ (childhood sweetheart)'
+         '<div class="dialog_menu">'
+              '<p>(Dead memories suddenly appeared and began to attack me)</p>' 
+              '<p>I: …………</p>'
+              '<p><<$SB.name>>: ∎▅▍▔▄▅▇□▱▰▭▨▋⊞∎▉▋▂▄▅</p>' 
+              '<p>(Immersed in memories, I didn`t listen to what she was saying to me at all)</p>' 
+         '</div>'
+    end
+    if a=18:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Right right，<<$MPJ.name>>Is it very talented as a comedian?</p>'
+              '<p>(Immersed in memories, I didn`t listen to what she was saying to me at all)</p>' 
+         '</div>'
+    end
+    if a=19:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:……</p>'
+              '<p><<$SB.name>>:…………</p>'
+              '<p><<$SB.name>>: So... do you still miss her?</p>'
+              '<p>Me: Of course I don`t want to.</p>' 
+              '<p><<$SB.name>>: But I haven`t said who it is.</p>'
+         '</div>'
+    end
+    if a=20:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Hey, I haven`t finished speaking just now, now I want to repeat my decision!</p>'
+              '<p>Me: Hmm.</p>' 
+              '<p><<$SB.name>>: I want to end this relationship with you, let`s not meet again!</p>'
+         '</div>'
+    end
+    if a=21:
+         '<div class="dialog_menu">'
+              '<p>Me: Just turn the article over after the kiss, I will treat it as if I have never heard of this sentence.</p>' 
+         '</div>'
+    end
+    if a=22:
+		if $matsumoto_event_chain=11:
+			$matsumoto_event_chain=12
+			matsumoto_contradiction=1
+			$SB.love=-999
+		end
+         '<div class="dialog_menu">'
+               '<p>Me: Stop kidding, I know you mean it…</p>' 
+               '<p><<$SB.name>>: Let me go!I`m not kidding!What do you know?Don`t pretend to know me very well!You are just a substitute to fill the emptiness in my heart and eliminate loneliness!</p>'
+               '<p>Me: I promise you... it`s been so many years, and I will only associate with her as an ordinary friend.…</p>'  
+               '<p><<$SB.name>>: Promises only count when you are in love. This is what he taught me.Now... I allow you to leave.If I don`t leave, I will call the police.</p>'
+         '</div>'
+    end
+
+End
+
+
+if $args[0]="pick_up_1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\jie1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''pick_up_1''">Talk about the current situation</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''matsumoto_event'',''pick_up_1''">Internship</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''matsumoto_event'',''pick_up_1''">She is very happy</a></div>'
+
+            if a=3:'<div class="buttonS3"><a href="exec:a+=1 & gt ''matsumoto_event'',''pick_up_1''">Side of the car</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''pick_up_1''">。。。</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''pick_up_1''">。。。</a></div>'
+            if a=6:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''pick_up_1''">My side</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''pick_up_1''">Go to school</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''university''">Let`s do this first</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>Me: Hi, long time no see.</p>'     
+              '<p><<$QMZM.name>>: Hi ❤ You still haven`t changed at all.</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Why did you return home?If you don`t come back, I will almost forget you.</p>'  
+              '<p><<$QMZM.name>>: I came back this time to see if there is a suitable job for me in China…</p>'
+              '<p>Me: Then what do you want to do?</p>'  
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: I want to be a foreign language teacher. Do you know any leaders in the Ministry of Education?</p>'
+              '<p>Me: I don`t know the Ministry of Education, I may know a principal... I should…</p>'  
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: Thank you so much!Is it okay to wrap it on you?</p>'
+              '<p>Me: Ok…</p>'   
+              '<p>*Sweating profusely</p>' 
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$XMK.name>>: The car next to it is…<<$protagonists_name>>Isn`t that right.</p>'
+              '<p><<$SB.name>>: Ok……</p>' 
+              '<p><<$XMK.name>>: You just made a special trip to see this?</p>'
+              '<p><<$SB.name>>: No……</p>' 
+              '<p><<$XMK.name>>: It looks like people are making fast progress. * Laugh</p>'
+         '</div>'
+    end
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:…………</p>' 
+              '<p><<$XMK.name>>:…………</p>'
+              '<p><<$SB.name>>:………………</p>' 
+              '<p><<$XMK.name>>: …………………</p>'
+         '</div>'
+    end
+    if a=6:
+         '<div class="dialog_menu">'
+              '<p><<$XMK.name>>: Okay, don`t be sad, I`ll just arrange a friendship for you!I know so many men, and I will be able to find a new love soon!</p>'
+              '<p><<$SB.name>>: Not interested... I just want to be quiet…</p>' 
+              '<p><<$XMK.name>>: My little girl is so pitiful* Laughing</p>'
+         '</div>'
+    end
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p>Me: We haven`t seen each other for several years, so we kissed like this the first time we met?</p>'
+              '<p><<$QMZM.name>>: No, this is our etiquette abroad, not a tongue kiss!</p>' 
+              '<p>Me: If you are seen by others, you will misunderstand.</p>'
+              '<p><<$QMZM.name>>: Yes it is!Thank you for reminding!</p>' 
+         '</div>'
+    end
+    if a=8:
+          if $matsumoto_event_chain=12:$matsumoto_event_chain=13
+         '<div class="dialog_menu">'
+              '<p><<$XZ.name>>: Intern substitute teacher?I have no problem, I hope her stress resistance is strong enough.</p>'
+              '<p><<$QMZM.name>>: Stress resistance...yes?</p>' 
+              '<p><<$XZ.name>>: Anyway, remember one thing, don`t mess with it<<$SB.name>>That`s it, otherwise I won`t be able to keep you.</p>'
+              '<p><<$QMZM.name>>: What?Is she so scary?Hope I didn`t mess with her…</p>' 
+              '<p>Me: Uh... I hope I didn`t provoke her* stiff smile</p>'
+         '</div>'
+    end
+
+End
+
+
+if $args[0]="turn_around":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\FN1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!20:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''turn_around''">Awkward atmosphere</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''matsumoto_event'',''turn_around''">Arrived at her house</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''matsumoto_event'',''turn_around''">。。。</a></div>'
+
+            if a=3:'<div class="buttonS3"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Suddenly feed me</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Tell the truth</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Change position</a></div>'
+            if a=6:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Whisper</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Stare at me</a></div>'
+            if a=8:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Kiss her</a></div>'
+            if a=9:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Continue</a></div>'
+            if a=10:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Put your arms around her</a></div>'
+            if a=11:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Take the initiative to mouth me</a></div>'
+            if a=12:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Take the initiative to mouth me</a></div>'
+            if a=13:'<div class="buttonP"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Warmth and comfort</a></div>'
+            if a=14:'<div class="buttonS"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Take a shot</a></div>'
+            if a=15 or a=16:'<div class="buttonS"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Take a shot</a></div>'
+            if a=17:'<div class="buttonS"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Kiss</a></div>'
+            if a=18:'<div class="buttonS"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">agreement</a></div>'
+            if a=19:'<div class="buttonS"><a href="exec:a+=1 & gt ''matsumoto_event'',''turn_around''">Pull hook</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''residential_area''">See you tomorrow</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>Me: Hi, let`s go.</p>'     
+              '<p><<$QMZM.name>>: Wait, I also invited someone.</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: I have a senior who really wants to see<<$SB.name>>Want to know her.</p>'  
+              '<p>Me: Oh oh……</p>'  
+              '<p><<$SB.name>>: Am I not welcome?I have a veto power.</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: Cheers!This is<<$SB.name>>, You really want to see her.</p>'
+              '<p><<$SB.name>>: Cheers…</p>'  
+              '<p>Man: Come on, let`s have a drink……</p>' 
+              '<p><<$SB.name>>: Who are you, drink with this lady…</p>'
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Hahahaha... I`m kidding.</p>'
+              '<p><<$QMZM.name>>: You scared him.</p>'
+              '<p>I: ………</p>'   
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Ah... I don`t eat French fries except beef…</p>' 
+              '<p>Man: hiss……</p>' 
+              '<p><<$QMZM.name>>: What is the relationship between you two……</p>'
+         '</div>'
+    end
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p>Me: She dumped me…</p>' 
+              '<p><<$SB.name>>: No……</p>' 
+              '<p>Man: Oh?Have a story?</p>' 
+              '<p><<$QMZM.name>>: Then you two sit together…</p>'
+         '</div>'
+    end
+    if a=6:
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: Ahem…</p>'
+              '<p>Man: It seems that I have no chance…</p>' 
+         '</div>'
+    end
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: You…</p>' 
+              '<p><<$QMZM.name>>: Then it looks like my correction... is it a shoo-in?</p>'
+              '<p>Man: Not necessarily, if she knew you used to be with<<$protagonists_name>>...</p>' 
+              '<p><<$QMZM.name>>: Shhh———</p>'
+         '</div>'
+    end
+    if a=8:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: You make a decision... do you want to keep her?</p>' 
+              '<p>Me: Her teaching level……</p>'
+              '<p><<$SB.name>>: Then do you love me or her?Is it true that she is better than me, just tell the truth you want to say.</p>'
+         '</div>'
+    end
+    if a=9:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: What are you doing?</p>' 
+              '<p>Me: Don`t remember?You can make up with a kiss.</p>'
+              '<p><<$SB.name>>: You…</p>' 
+         '</div>'
+    end
+    if a=10 or a=11:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: These days are really hard... It`s really not easy to be rusty with you to this point... I miss you so much.…</p>' 
+         '</div>'
+    end
+    if a=12 or a=13:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: I understand the taste of being abandoned... I did something too much... sorry…</p>' 
+         '</div>'
+    end
+    if 17>=a and a>=14:
+         '<div class="dialog_menu">'
+              '<p>Me: I know you did it on purpose, because you like this kind of thing. If you cover your mouth, you will run out of your eyes.</p>'
+              '<p><<$SB.name>>: You are necrotic... I didn`t cry…</p>' 
+         '</div>'
+    end
+    if a=18:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Let`s... get back together…</p>' 
+              '<p>Me: Hmm.</p>'
+         '</div>'
+    end
+    if a=19:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Ask me to watch the fireworks again, I still have something to say.</p>' 
+              '<p>Me: OK.</p>'
+         '</div>'
+    end
+    if a=20:
+          if $matsumoto_event_chain=14:
+               $matsumoto_event_chain=15
+               $SB.love=999
+               matsumoto_contradiction=0
+          end
+         '<div class="dialog_menu">'
+            '<p><<$SB.name>>: Pull the hook, I won`t leave you again this time.</p>'
+         '</div>'
+    end
+End
+
+
+if $args[0]="sb_fireworks_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\SAA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''matsumoto_event'',''sb_fireworks_2''">Watch fireworks</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''matsumoto_event'',''sb_fireworks_2''">Kiss</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''matsumoto_event'',''sb_fireworks_2''">Answer the phone</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks_2''">It`s okay</a></div>'
+            if a=4:'<div class="buttonS5"><a href="exec:a+=1 & gt ''matsumoto_event'',''sb_fireworks_2''">Go home and have sex</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & q=0 & $m_filename_reference=''SB'' &  $m=''SB'' & $ma=$SB.name & love_num=$SB.love & m_address=''SSA'' & gt ''cross_section_event'',''universal_cross_section''">I love you too</a></div>'
+                '<div class="buttonR"><a href="exec:gt ''residential_area''">I have other things</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>Me: Let`s go.</p>'     
+              '<p><<$SB.name>>: Okay, I feel so happy watching fireworks with someone I like.</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Wow... so beautiful…</p>'  
+              '<p>*This time the fireworks bloomed in my eyes. I turned my head and found that she hadn`t looked at the fireworks but had been looking at my side face.</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p>Me: What`s wrong…</p>' 
+              '<p><<$SB.name>>: I love you…</p>'  
+              '<p>*Jingle bell</p>' 
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: <<$protagonists_name>>！Thank you!Although I can turn positive, I still like life abroad, thank you for me<<$SB.name>>, She voted in favor!</p>'
+              '<p>Me: So……</p>'  
+              '<p><<$QMZM.name>>: I`m already on the plane!We will see you again!</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: Whose phone…</p>' 
+              '<p>Me: <<$QMZM.name>>Gone... she still wants to develop abroad…</p>'  
+              '<p><<$SB.name>>: Let`s stop talking about her... Now it`s our two-person world…</p>'
+         '</div>'
+    end
+
+
+    if a=5:
+               if $matsumoto_event_chain=15:$matsumoto_event_chain=16
+               $SB.love+=99
+               $SB.bad+=a+50
+         '<div class="dialog_menu">'
+            '<p><<$SB.name>>: We are the second, third, fourth and fifth in the world... good fall!I love you so much❤</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="during_the_raid":
+          daily_counseling_matsumoto=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\AQA<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+               if a=0:
+                    '<div class="buttonP"><a href="exec:a=1 & gt ''matsumoto_event'',''during_the_raid''">Go in</a></div>'
+                    '<div class="button"><a href="exec:gt ''back_door_of_the_university''">Leave</a></div>'
+               end
+               if a=1:'<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''SB'' &  $m=''SB'' & $ma=$SB.name & love_num=$SB.love & m_address=''AQA'' & gt ''cross_section_event'',''universal_cross_section''">Kiss</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+               if a=0:'<p><<$SB.name>>:<<$protagonists_name>>❤</p>'
+               if a=1:
+                    '<p>Me: I miss you too ❤</p>'
+                    '<p><<$SB.name>>: You are necrotic!</p>'
+              end
+         '</div>'
+End
+
 --- matsumoto_event ---------------------------------
 

@@ -1,0 +1,74 @@
+# 擂台进行
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "擂台敌属性"
+		'</div>'
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\女人1.jpg"></a>
+		</div>'
+		
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\男人1.jpg"></a>'
+			
+			if a=9:'<a class="photo" data-title="射精追击" href="exec:a=10 & $擂台敌子宫+=5 & gt ''擂台进行''"><img class="img_stretch" src="images\videos\fighter\pics\MSK2.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $擂台我生命<=5:'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<$擂台我生命>>.jpg"></a>'
+			if $擂台我生命>=6:'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
+			if $擂台我护盾<=5:'<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\C<<$擂台我护盾>>.jpg"></a>'
+			if $擂台我护盾>=6:'<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
+			'<a class="photo" data-title="投掷拼点" href="exec:a=2 & gt ''擂台掷点''"><img class="img_stretch" src="images\videos\fighter\pics\投掷.jpg"></a>
+		</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+End
+
+if $args[0] ='再起':
+	$擂台敌生命-=1
+	if $擂台敌生命>0:$擂台敌护盾=$擂台敌护盾上限
+	if $擂台敌生命=0:gt'擂台胜利'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\24.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+End
+--- 擂台进行 ---------------------------------
+

@@ -236,7 +236,7 @@ if $args[0]="一阶段完成":
         '</div>'
 
         '<div class="button_menu">'
-            '<div class="buttonR3"><a href="exec: gt ''大学''">未完待续…</a></div>'
+            '<div class="buttonS"><a href="exec: a=0 & gt ''学生群_事件'',''马屁精开幕0''">❤一起来吧❤</a></div>'
             '<div class="buttonGn"><a href="exec: gt ''大学''">离开</a></div>'
         '</div>'
 
@@ -247,8 +247,1233 @@ if $args[0]="一阶段完成":
               '<p>我: 那现在是不是该让我操全班女生了？</p>'
               '<p><<$SB.name>>: 哼，本小姐哪次食言过？一言为定！</p>'
               '<p><<$SJ.name>>: 好耶❤又可以做爱咯*起哄</p>'
-              '<p>·——此为V48版本终点——</p>'
          '</div>'
 End
+
+if $args[0]="SB_A1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\A1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+        '<div class="button_menu">'
+            if a=0:'<div class="button"><a href="exec:a=1 & gt ''松本_事件'',''SB_A1''">她不依不饶</a></div>'
+            if a=1:'<div class="button"><a href="exec:a=2 & gt ''松本_事件'',''SB_A1''">追出去看</a></div>'
+            if a=2:'<div class="button"><a href="exec:a=3 & gt ''松本_事件'',''SB_A1''">她愣在原地</a></div>'
+            if a=3:'<div class="button"><a href="exec:a=4 & gt ''松本_事件'',''SB_A1''">搭话</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu5"><a href="exec:a=0 & q=0 & $SB.love+=1 & gt ''松本_事件'',''SB_B1''">去喝一杯</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 你说什么…</p>'
+              '<p>穿衬衫的男人: 我说我们分手吧。</p>'
+              '<p><<$SB.name>>: 是因为哪个女人嘛？她哪点比的上本小姐？</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>穿衬衫的男人: 她是我的初恋。</p>'
+              '<p><<$SB.name>>: 初恋又怎么样？那你还不是喜欢上我了？不就是不够喜欢她嘛！快点，我们亲亲一下，我就可以既往不咎！</p>'
+              '<p>穿衬衫的男人: 她从小就是我的青梅竹马…你只是为了填补我内心的空虚，消除寂寞的替代品罢了！</p>'
+         '</div>'
+    end
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 别闹了…之前是我有一点任性…我们亲亲一下，就当这件事过去了好嘛…</p>'
+              '<p>穿衬衫的男人: 她要和我搬去洛圣都生活了，你别再纠缠我了。</p>'
+              '<p><<$SB.name>>: 凭什么啊？她突然出现就这样要带走你！你不是还答应我…要陪我去看烟火大会吗？</p>'
+              '<p>穿衬衫的男人: 承诺只有在相爱时才算数。*转身</p>'
+              '<p><<$SB.name>>: 唔………</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 唔………</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p>我: 千金大小姐没事吧。</p>'
+              '<p><<$SB.name>>: 哈，能有什么事呢？刚刚哪个人…我认都不认识！可能又是哪个不知天高地厚暗恋我的下头男！</p>' 
+              '<p>我: 真的吗？</p>'
+              '<p><<$SB.name>>: 少废话了，去陪我喝一杯？</p>' 
+               if $松本事件链=4:$松本事件链=5
+         '</div>'
+    end
+
+  q+=1
+End
+
+if $args[0]="SB_B1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\B1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonG1"><a href="exec:a=1 & gt ''松本_事件'',''SB_B1''">干杯</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''松本_事件'',''SB_B1''">被灌倒了</a></div>'
+            if a=2:
+             '<div class="buttonR"><a href="exec:my.精力=-999 & gt ''松本_事件'',''SB_B1''">直接醉倒</a></div>'
+             if SB_酒>=5:'<div class="buttonS2"><a href="exec:a=3 & gt ''松本_事件'',''SB_B1''">吐完继续喝</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+            end
+            if a=3:'<div class="buttonG3"><a href="exec:a=4 & gt ''松本_事件'',''SB_B1''">干杯</a></div>'
+
+            if a=4:'<div class="buttonS5"><a href="exec:a=5 & gt ''松本_事件'',''SB_B1''">被灌倒了</a></div>'
+
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:my.精力=-999 & gt ''松本_事件'',''SB_B1''">直接醉倒</a></div>'
+                if SB_酒>=10:'<div class="buttonPu5"><a href="exec:a=0 & q=0 & gt ''松本_事件'',''SB_C1''">吐完继续喝</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+          SB_酒+=3
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: 你酒量行不行呀？！</p>'
+               '<p>我: 我还能喝不过你？</p>'     
+              '<p><<$SB.name>>: 酒保…给我上最最烈的酒！无限轰炸机！</p>'
+         '</div>'
+    end
+
+    if a=1 or a=4:
+         '<div class="dialog_menu">'
+              '<p>我: 干杯！*吨吨吨</p>' 
+              '<p><<$SB.name>>: 呜呼~*吨吨吨</p>'
+         '</div>'
+    end
+    if a=2 or a=5:
+         '<div class="dialog_menu">'
+              '<p>我: 呕 >w< *吐吐吐</p>' 
+              '<p><<$SB.name>>: 哈哈哈哈哈哈❤</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 再来一轮…轰炸机？</p>'
+               '<p>我: 来就来！</p>'  
+         '</div>'
+    end
+
+End
+
+if $args[0]="SB_C1":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\C1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''SB_C1''">亲上头后</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''松本_事件'',''SB_C1''">和她走</a></div>'
+
+            if 4>=a and a>=2:'<div class="buttonS3"><a href="exec:a+=1 & gt ''松本_事件'',''SB_C1''">由她摆布</a></div>'
+
+            if 6>=a and a>=5:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''SB_C1''">换我来动</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''SB_C1''">射精</a></div>'
+            if a=8:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''SB_C1''">对话</a></div>'
+            if a=9:'<div class="buttonP"><a href="exec:a+=1 & gt ''松本_事件'',''SB_C1''">抱住她</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:minutes+=1440 & hour=8 & a=0 & q=0 & gt ''松本_事件'',''SB_早上''">和她睡到第二天</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: 干…干杯……亲嘴巴好不好…</p>'
+               '<p>我: 嗯…</p>'     
+              '<p><<$SB.name>>: 亲亲…</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 跟我去下一场吧…这里人多…</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p>我: 嗯…*晕晕乎乎</p>' 
+              '<p><<$SB.name>>: 躺好❤</p>'
+         '</div>'
+    end
+
+    if 5>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 喜欢嘛❤</p>'
+              '<p>我: 嗯…*晕晕乎乎</p>' 
+              if a=5:'<p><<$SB.name>>: 伦家累啦~~换你来动❤</p>'
+         '</div>'
+    end
+    if 8>=a and a>=6:
+         '<div class="dialog_menu">'
+              '<p>我: 那轮到我发力了❤</p>' 
+              '<p><<$SB.name>>: 用力点<<$娇喘声>></p>'
+         '</div>'
+    end
+    if a=9:
+         '<div class="dialog_menu">'
+              '<p>我: 你酒醒了嘛？*清醒</p>' 
+              '<p><<$SB.name>>: 重要吗？快点搂着我睡觉吧*张开手臂</p>'
+         '</div>'
+    end
+    if a=10:
+		$SB.bad+=4
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 再我睡着之前不能松手喔❤</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="SB_早上":
+		if a=0 and hour>=8:
+		 minutes+=1440
+		 hour=7
+		end
+	    $SB.bad+=4
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\D1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonB1"><a href="exec:a=1 & gt ''松本_事件'',''SB_早上''">醒来对话</a></div>'
+            if a=1:'<div class="buttonB2"><a href="exec:a=2 & gt ''松本_事件'',''SB_早上''">她的回答</a></div>'
+
+            if a=2:
+               if $SB.love>=150:'<div class="buttonB3"><a href="exec:a=3 & gt ''松本_事件'',''SB_早上''">还有呢？</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+               '<div class="buttonB4"><a href="exec:a=5 & gt ''松本_事件'',''SB_早上''">一起去上学</a></div>'
+            end
+            if a=3:'<div class="buttonB5"><a href="exec:a=4 & gt ''松本_事件'',''SB_早上''">迅速来一发</a></div>'
+            if a=4:'<div class="buttonB4"><a href="exec:a=5 & gt ''松本_事件'',''SB_早上''">一起去上学</a></div>'
+            if a=5:'<div class="buttonP"><a href="exec:a=6 & gt ''松本_事件'',''SB_早上''">宠爱:亲嘴巴</a></div>'
+            if a=5:'<div class="buttonR2"><a href="exec:$SB.love-=10 & gt ''居民区''">忤逆:就不亲</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonB4"><a href="exec:$SB.love+=10 & gt ''大学''">❤好感上升❤</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: 嗯…困困困…</p>'
+               '<p>我: zzZzzZ</p>'     
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 醒啦…</p>'
+              '<p>我: 嗯…早上好…</p>'  
+              '<p><<$SB.name>>: 你睡觉口水都流出来了…</p>'
+              '<p>我: 所以…现在我们是什么关系？</p>'  
+         '</div>'
+    end
+    if a=2:
+		if $SB.love<50:$SB关系='看起来更像是消除寂寞的替代品'
+		if $SB.love>=50:$SB关系='炮友罢了'
+		if $SB.love>=100:$SB关系='普通的情人关系吧'
+		if $SB.love>=150:$SB关系='我还以为你早就默认我们是恋人了呢'
+		if $SB.love>=200:$SB关系='所有人都羡慕的超甜蜜情侣'
+		if $SB.love>=900:$SB关系='只要你愿意，我明天就可以嫁给你哟'
+         '<div class="dialog_menu">'
+              '<p>我: 所以…现在我们是什么关系？</p>'  
+              '<p><<$SB.name>>: ……</p>'
+              '<p>我: 我等你说话，为什么你不开口？</p>'  
+              '<p><<$SB.name>>: <<$SB关系>>。</p>'
+         '</div>'
+    end
+
+    if 4>=a and a>=3:
+         '<div class="dialog_menu">'
+              '<p>我: 还有呢？</p>' 
+              '<p><<$SB.name>>: 喜欢你的全部❤</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 进校门之前，趁这里没人，能不能啾一下我的小嘴巴呀❤</p>'
+         '</div>'
+    end
+
+    if a=6:
+		if $松本事件链=5:$松本事件链=6
+         '<div class="dialog_menu">'
+              '<p>我: 有什么寓意吗？</p>' 
+              '<p><<$SB.name>>: 亲亲嘛❤就是我幸福的存档点…如果下次你惹我生气了，只要亲亲我，我就不会生气啦❤</p>'
+              '<p>我: 真的吗？</p>' 
+              '<p><<$SB.name>>: 真的喔，我答应你❤</p>'
+              if $松本事件链=11:
+			 '<p>我: 今天晚上会有烟火大会喔。</p>' 
+			 '<p><<$SB.name>>: 好耶❤我们一起去看吧！</p>'
+              end
+         '</div>'
+    end
+End
+
+if $args[0]="上车":
+		a=0 
+		q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\上车.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:gt ''松本_事件'',''驾驶''">点火</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			if $SB.love<0:$SB称呼='<<$主角姓名>>'
+			if $SB.love>=0:$SB称呼='我的司机'
+			if $SB.love>=50:$SB称呼='傻瓜'
+			if $SB.love>=100:$SB称呼='宝宝'
+			if $SB.love>=150:$SB称呼='宝贝'
+			if $SB.love>=200:$SB称呼='亲爱的'
+			if $SB.love>=900:$SB称呼='老公'
+              '<p><<$SB.name>>:<<$SB称呼>>,我的车还不错吧？</p>' 
+              if $SB.love>=100:'<p><<$SB.name>>:以后我的都是你的❤</p>' 
+         '</div>'
+
+End
+
+
+if $args[0]="驾驶":
+		a=0 
+		q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\dri_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+		  if SB_酒>=10:'<div class="buttonPu1"><a href="exec:a=0 & q=0 & gt ''松本_事件'',''SB_C1''">去喝酒</a></div>'
+            '<div class="buttonS1"><a href="exec:gt ''松本_事件'',''动物园''">约会:去动物园</a></div>'
+            if $松本事件链>=8:'<div class="buttonS3"><a href="exec:gt ''松本_事件'',''逛街''">约会:逛街吃饭</a></div>'
+            if $松本事件链>=10:'<div class="buttonS4"><a href="exec:gt ''松本_事件'',''补习''">辅导:去我的卧室</a></div>'
+            if $松本事件链>=11:'<div class="buttonS5"><a href="exec:gt ''松本_事件'',''她家补习2''">辅导:去她的卧室</a></div>'
+            if $松本事件链=11:
+			if hour>=17:'<div class="buttonPu4"><a href="exec:gt ''松本_事件'',''SB_烟火''">约会:烟火大会</a></div>'else:'<div class="buttonGr"><a href="exec:">需要天黑</a></div>'
+            end
+            if $松本事件链>=15:
+			if hour>=17:'<div class="buttonPu4"><a href="exec:gt ''松本_事件'',''SB烟花2''">约会:夜畔烟花</a></div>'else:'<div class="buttonGr"><a href="exec:">需要天黑</a></div>'
+		  end
+		  
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:<<$SB称呼>>,我们要去哪？</p>' 
+         '</div>'
+
+End
+
+
+if $args[0]="动物园":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\you1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!12:
+        '<div class="button_menu">'
+            if a=0:
+               if $松本游乐场进度>=5:'<div class="buttonP"><a href="exec:a=8 & gt ''松本_事件'',''动物园''">去坐摩天轮</a></div>'
+               '<div class="buttonGn1"><a href="exec:a=1 & gt ''松本_事件'',''动物园''">去骑马</a></div>'
+               if $松本游乐场进度>=1:'<div class="buttonGn2"><a href="exec:a=3 & gt ''松本_事件'',''动物园''">去小运动</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+               if $松本游乐场进度>=2:'<div class="buttonGn3"><a href="exec:a=4 & gt ''松本_事件'',''动物园''">去看长颈鹿</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+               if $松本游乐场进度>=3:'<div class="buttonGn4"><a href="exec:a=5 & gt ''松本_事件'',''动物园''">去看变色蜥蜴</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+               if $松本游乐场进度>=4:'<div class="buttonGn5"><a href="exec:a=6 & gt ''松本_事件'',''动物园''">去看长臂金丝猴</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+            end 
+            if a=1:'<div class="buttonG2"><a href="exec:a=2 & gt ''松本_事件'',''动物园''">称赞她</a></div>'
+            if a=2 or a=7 or a=11:'<div class="buttonP"><a href="exec:a=12 & gt ''松本_事件'',''动物园''">牵手离开</a></div>'
+
+            if 3<=a and a<=6:
+               '<div class="buttonS3"><a href="exec:a=7 & gt ''松本_事件'',''动物园''">骗她转头</a></div>'
+            end
+
+            if a=8:'<div class="buttonP"><a href="exec:a=9 & gt ''松本_事件'',''动物园''">拉过来</a></div>'
+            if a=9:'<div class="buttonP"><a href="exec:a=10 & gt ''松本_事件'',''动物园''">含情脉脉</a></div>'
+            if a=10:'<div class="buttonP"><a href="exec:a=11 & gt ''松本_事件'',''动物园''">回答</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:$SB.love+=10 & gt ''松本_事件'',''她家''">送她回家</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: <<$SB称呼>>，我其实挺喜欢动物的呢❤</p>'
+               '<p>我: 我也挺喜欢小动物的。</p>'     
+               '<p><<$SB.name>>:我喜欢动物更凶猛一点的❤噢！我想去这里！</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 唔呼…驾~~</p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+              '<p>我: 你还会骑马啊，真厉害。</p>'  
+              '<p><<$SB.name>>: 那可不嘛…我从小就有马术的爱好喔…</p>'
+              '<p>我: 不亏是富家小姐。</p>'  
+              '<p><<$SB.name>>: 钱可不是白话的喔，这是伦家在你身上骑乘位时超级稳定的秘诀❤</p>'
+         '</div>'
+    end
+
+    if 6>=a and a>=3:
+         '<div class="dialog_menu">'
+              if a>=3:'<p><<$SB.name>>: 果然…本小姐还是不擅长这种球类运动…</p>'
+              if a>=4:'<p><<$SB.name>>: 你看，这些动物都好幸福…</p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p>我: 看这边！</p>'
+              '<p><<$SB.name>>: 什…么……嗯？！</p>'
+              '<p>*时间仿佛在此刻静置了——</p>'
+              '<p><<$SB.name>>: 讨厌❤你干嘛啦❤</p>'
+         '</div>'
+    end
+
+    if a=8:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 唉……</p>'
+              '<p>我: 怎么了？</p>'
+              '<p><<$SB.name>>: 为什么他没有坚定地选择我呢…</p>'
+         '</div>'
+    end
+
+    if a=9 or a=10:
+         '<div class="dialog_menu">'
+              '<p>*拥吻</p>'
+              '<p>我: 那是他的问题，他眼睛长在屁股上去了，不识货的东西。</p>'
+              if a=10:'<p><<$SB.name>>: 哈哈，那你喜欢我吗？</p>'
+         '</div>'
+    end
+    if a=11:
+         '<div class="dialog_menu">'
+              '<p>我: 我喜…</p>'
+              '<p>*我正要开口</p>'
+              '<p><<$SB.name>>: 好啦，我知道你最爱我了，我不想听别的…</p>'
+         '</div>'
+    end
+
+
+    if a=12:
+          $松本游乐场进度+=1
+         '<div class="dialog_menu">'
+              '<p>我: 走吧，我们回家吧。今天开心吗？</p>' 
+              '<p><<$SB.name>>: 开心呀❤</p>'
+              '<p>我: 要不要画上一个完美的句号？</p>' 
+              '<p><<$SB.name>>: 好呀❤</p>'
+         '</div>'
+    end
+End
+
+
+if $args[0]="她家":
+          a=0 
+          q=0
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\回家0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+        
+            if $松本游乐场进度>=6:'<div class="buttonS1"><a href="exec:gt ''松本_事件'',''坐下聊天''">坐下聊天</a></div>'
+            '<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              if $松本游乐场进度<5:'<p><<$SB.name>>:<<$SB称呼>>,肩膀好酸~但是超开心的，下次再带我去动物园玩吧❤</p>' 
+              if $松本游乐场进度>=6:'<p><<$SB.name>>:<<$SB称呼>>,看来老妈今天不在家呢。</p>' 
+         '</div>'
+
+End
+
+if $args[0]="坐下聊天":
+          a=0 
+          q=0
+          SB随机数1=rand(1,2)
+          if SB随机数1=1:$SB提问='永濑唯(乖乖女)'
+          if SB随机数1=2:$SB提问='沙月恵奈(笨蛋书记)'
+          if $松本事件链=7:$松本事件链=8
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\回家1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:$m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''JIAR'' & gt ''截面_事件'',''泛用截面''">当然是你</a></div>'
+            '<div class="buttonS1"><a href="exec:gt ''松本_事件'',''坐下聊天2''"><<$SB提问>></a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:<<$SB称呼>>,我问你喔，我和<<$SB提问>>相比，谁更好看？你实话实说！我保证不生气！</p>' 
+         '</div>'
+
+End
+
+if $args[0]="坐下聊天2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\回家2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonS1"><a href="exec:gt ''居民区''">。。。</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+			$SB.love-=15
+			'<p><<$SB.name>>:好。</p>' 
+			'<p>我:说好不生气的…</p>' 
+              '<p><<$SB.name>>:干嘛？我没生气啊。现在请你帮我垃圾带下去，走好不送！</p>' 
+         '</div>'
+
+End
+
+if $args[0]="逛街":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\ggai1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS"><a href="exec:a=1 & gt ''松本_事件'',''逛街''">迎面一个大胸妹</a></div>'
+            if a=1:'<div class="buttonR"><a href="exec:a=2 & gt ''松本_事件'',''逛街''">手臂被掐了</a></div>'
+            if a=2:
+               '<div class="buttonR2"><a href="exec:a=3 & gt ''松本_事件'',''逛街''">谁不爱大胸妹</a></div>'
+               '<div class="buttonP"><a href="exec:a=3 & gt ''松本_事件'',''逛街''">小小的很可爱</a></div>'
+            end
+            if a=3:
+               '<div class="buttonS3"><a href="exec:a=4 & gt ''松本_事件'',''逛街''">坐下吃饭</a></div>'
+            end
+
+            if a=4:'<div class="buttonP"><a href="exec:a=5 & gt ''松本_事件'',''逛街''">张嘴</a></div>'
+            if a=5:'<div class="buttonP"><a href="exec:a=6 & gt ''松本_事件'',''逛街''">吃饱喝足</a></div>'
+            if a=6:
+               '<div class="buttonP"><a href="exec:a=7 & gt ''松本_事件'',''逛街''">喜欢你</a></div>'
+               '<div class="buttonR3"><a href="exec:a=9 & gt ''松本_事件'',''逛街''">想操你</a></div>'
+            end
+            if a=7:'<div class="buttonP"><a href="exec:a=8 & gt ''松本_事件'',''逛街''">目送她离去</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">分别</a></div>'
+            '</div>'
+    end
+
+
+
+    if 2>=a and a>=0:
+         '<div class="dialog_menu">'
+               '<p><<$SB.name>>: <<$SB称呼>>，如果班上有人惹到你了就跟我说，我去教训她！</p>'
+               if a=1:'<p>我: 我……</p>'  
+               if a=2:'<p>我: 痛痛痛…</p>'  
+               if a=2:'<p><<$SB.name>>: 现在你惹到我了！你是不是喜欢大奶妹，我是不是委屈你了？</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 可恶可恶！啊啊啊！</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p>我: 生气啦？</p>'  
+              '<p><<$SB.name>>: 才没有…只是这里有我不爱吃的菜。</p>'
+              '<p>我: 挑食可不好，你不吃什么？</p>'  
+              '<p><<$SB.name>>: 我不吃牛肉！</p>'
+         '</div>'
+    end
+
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p>我: 啊———</p>'
+              '<p><<$SB.name>>: 呼呼—小心，还有点烫的…</p>'
+         '</div>'
+    end
+
+    if a=6:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 呐，<<$SB称呼>>，你是喜欢我还是想操我？</p>'
+              '<p>*她看着你的眼睛里有光</p>'
+         '</div>'
+    end
+
+    if a=7:
+         '<div class="dialog_menu">'
+              if $松本事件链=8:$松本事件链=9
+              if $松本事件链=9:
+				'<p><<$SB.name>>: 对啦！明天你妈妈在家吗？</p>'
+				'<p>我: 你问这个干嘛？</p>'
+				'<p><<$SB.name>>: 秘密❤</p>'
+              end
+              if $松本事件链!9:'<p><<$SB.name>>: 嗯…那我们明天见啦❤爱你！</p>'
+              
+         '</div>'
+    end
+    
+    if a=9:
+		$SB.love-=15
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 哦。可惜今天不行，我还约了<<$YLW.name>>一起看恐怖片，拜拜咯。</p>' 
+         '</div>'
+    end
+
+    if a=8:
+		$SB.love+=10
+         '<div class="dialog_menu">'
+              '<p>我: 看得出来，她超开心嘚。</p>' 
+         '</div>'
+    end
+End
+
+
+if $args[0]="补习前":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\家教<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''补习前''">看向另一边</a></div>'
+            if a=1:'<div class="buttonS1"><a href="exec:gt ''松本_事件'',''补习''">和她进卧室</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+               if a=0:
+                    '<p><<$JM.name>>:你小子………</p>'
+                    '<p><<$JJ.name>>:弟弟…真没想到呀❤</p>' 
+                    '<p>我:怎么了？</p>' 
+               end
+               if a=1:
+                    '<p><<$SB.name>>:哈喽❤</p>'
+                    '<p>我:你怎么在这？</p>' 
+                    '<p><<$SB.name>>:想让你给我私下补补课嘛，你也不想我毕不了业被妈妈骂吧？</p>'
+                    '<p>我:呃…</p>' 
+                    '<p><<$SB.name>>:伯母，那我们就去房间复习功课了！</p>'
+               end
+         '</div>'
+End
+
+if $args[0]="补习":
+		a=0
+		q=0
+		if $松本事件链=9:$松本事件链=10
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\补习0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonGn2"><a href="exec:$m=''SB'' & $ma=$SB.name & gt ''学生群_事件'',''学生群_Fuck_自补习''">私下辅导成绩</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 '<p><<$SB.name>>:你妈妈和姐姐都是大美女呢，而且<<$MM.name>>还是你妹妹！可恶…你要不搬来和我一起住？</p>'
+		 '<p>我:为什么啊？难道你吃醋了？</p>' 
+		 '<p><<$SB.name>>:哼，你听好了，如果以后我给你打电话，你一定要接！不准不接知道嘛…</p>'
+         '</div>'
+
+End
+
+
+if $args[0]="视频电话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\视频<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:
+			'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''视频电话''">我马上来</a></div>'
+			'<div class="buttonR3"><a href="exec:$SB.love-=15 & gt ''居民区''">老子没空</a></div>'
+		  end
+            if a=1:'<div class="buttonS1"><a href="exec:gt ''松本_事件'',''她家补习''">拍马赶到</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+               if a=0:
+				'<p>我:怎么了？</p>' 
+                    '<p><<$SB.name>>:你在哪里呀…我有题目不会做啦…你来教教我好不好嘛…</p>'
+               end
+               if a=1:
+				'<p>我:我马上来。</p>' 
+                    '<p><<$SB.name>>:嗯嗯❤你快点来喔~</p>'
+               end
+         '</div>'
+End
+
+
+
+if $args[0]="她家补习":
+	   if SB家补习数<=3:SB家补习数+=1
+	   a=0 & q=0  
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\卧室状态<<SB家补习数>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+			'<div class="buttonS1"><a href="exec:gt ''松本_事件'',''她家补习2''">推门进入</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>:怎么还不来呢❤</p>'
+              if SB家补习数>=2:'<p><<$SB.name>>:现在是…亲亲练习时间❤</p>'
+              if SB家补习数>=3:'<p><<$SB.name>>:我要不要告诉他我特意为他买了情趣内衣呢❤</p>'
+              if SB家补习数>=4:'<p><<$SB.name>>:啊啊啊啊❤等不及啦，要不我去接他吧❤今天必须要来一发！</p>'
+         '</div>'
+End
+
+
+if $args[0]="她家补习2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\卧室对话0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+			if SB家补习数<=3:'<div class="buttonGn3"><a href="exec:$SB.study+=1 & gt ''居民区''">成绩上升↑</a></div>'
+			if SB家补习数>=4:'<div class="buttonS1"><a href="exec:gt ''松本_事件'',''她家补习3''">瞬间躺好</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+              '<p>我:遇到什么难题了？需不需要一次性指导呀❤</p>'
+              '<p><<$SB.name>>:你想什么呢…你教我解题啦！</p>'
+              '<p>我:啊？真的只是教解题啊？</p>'
+              if SB家补习数>=2:'<p><<$SB.name>>:呃…</p>'
+              if SB家补习数>=3:'<p><<$SB.name>>:呃…呃…</p>'
+              if SB家补习数>=4:'<p><<$SB.name>>:啊啊啊啊❤快点躺好！</p>'
+         '</div>'
+End
+
+if $args[0]="她家补习3":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\卧室对话1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+			'<div class="buttonS"><a href="exec:$m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''JLC'' & gt ''截面_事件'',''泛用截面''">拥吻</a></div>'
+        '</div>'
+         '<div class="dialog_menu">'
+              '<p>我:忍耐了很久了吧❤</p>'
+              '<p><<$SB.name>>:你坏死了啦！你就不能强硬点嘛，还要人家主动！</p>'
+              if $松本事件链=10:$松本事件链=11
+         '</div>'
+End
+
+
+if $args[0]="SB_烟火":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\SAD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!22:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''SB_烟火''">走到江畔</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''松本_事件'',''SB_烟火''">抬头看</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''松本_事件'',''SB_烟火''">她侧过头</a></div>'
+
+            if a=3:'<div class="buttonS3"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">散步回去</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">接电话</a></div>'
+            if 16>=a and a>=5:'<div class="buttonPu4"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">回忆走马灯</a></div>'
+            if a=17:'<div class="buttonP"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">回过神</a></div>'
+            if a=18:'<div class="buttonP"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">进屋</a></div>'
+            if a=19:'<div class="buttonP"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">对话</a></div>'
+            if a=20:'<div class="buttonS"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">强硬一次</a></div>'
+            if a=21:'<div class="button"><a href="exec:a+=1 & gt ''松本_事件'',''SB_烟火''">被推开</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonPu4"><a href="exec:gt ''居民区''">被她甩了</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>我: 你穿浴衣真好看❤</p>'     
+              '<p><<$SB.name>>: 是吗是吗❤好看吧❤</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 好冷好冷 >_<  </p>'
+              '<p>我: 周围有好多情侣呢。</p>'  
+              '<p><<$SB.name>>: 是啊…当时他就答应我会带我来看的………</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+		    '<p>*5…</p>'
+		    '<p>*4…</p>'
+		    '<p>*3…</p>'
+		    '<p>*2…</p>'
+		    '<p>*1…</p>'
+              '<p><<$SB.name>>: 哇…好美…</p>'
+              '<p>*绚烂的烟火红霞，与我望向她时脸上浮现的一致…</p>' 
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p>*她踮起脚尖…直至夜空再次宁静，我们谁也没有再看一眼烟花…</p>' 
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 嘿❤我刚刚偷偷做了一个决定喔！</p>'
+              '<p>我: 什么决定？</p>' 
+              '<p><<$SB.name>>: 听好咯❤我…我想和你结…hu…n……*害羞</p>'
+              '<p>*叮铃铃*</p>' 
+              '<p>我: 结什么？等一下，我先接个电话。</p>' 
+         '</div>'
+    end
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p>我: 青…青梅竹马？喂？</p>' 
+              '<p>？？？: 喂…<<$主角姓>>…<<$主角姓名>>…哈哈！还记得我啊！我回国啦！明天来机场接我好吗！好久没见了！</p>' 
+              '<p>*<<$SB.name>>偷偷瞟向我</p>'
+         '</div>'
+    end
+    if 17>=a and a>=6:
+          $QMZM.name='幸田ユマ(青梅竹马)'
+         '<div class="dialog_menu">'
+              '<p>(死去的回忆突然浮现并开始攻击我)</p>' 
+              '<p>我: …………</p>'
+              '<p><<$SB.name>>: ∎▅▍▔▄▅▇□▱▰▭▨▋⊞∎▉▋▂▄▅</p>' 
+              '<p>(沉浸在回忆里，完全没听她在对我说什么)</p>' 
+         '</div>'
+    end
+    if a=18:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 对吧对吧，<<$MPJ.name>>是不是很有搞笑艺人的天赋？</p>'
+              '<p>(沉浸在回忆里，完全没听她在对我说什么)</p>' 
+         '</div>'
+    end
+    if a=19:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: ……</p>'
+              '<p><<$SB.name>>: …………</p>'
+              '<p><<$SB.name>>: 所以…你还想她吗？</p>'
+              '<p>我: 当然不想了。</p>' 
+              '<p><<$SB.name>>: 可我还没说是谁。</p>'
+         '</div>'
+    end
+    if a=20:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 喂，刚刚我还没说完，现在我要重新说一遍我的决定！</p>'
+              '<p>我: 嗯。</p>' 
+              '<p><<$SB.name>>: 我想和你结束这段关系，我们不要再见面了！</p>'
+         '</div>'
+    end
+    if a=21:
+         '<div class="dialog_menu">'
+              '<p>我: 亲完就翻篇吧，我会当作没听过这句话。</p>' 
+         '</div>'
+    end
+    if a=22:
+		if $松本事件链=11:
+			$松本事件链=12
+			$松本矛盾=1
+			$SB.love=-999
+		end
+         '<div class="dialog_menu">'
+               '<p>我: 别开玩笑了，我知道你是真心…</p>' 
+               '<p><<$SB.name>>: 放开我！我没有开玩笑！你知道什么啊？少装的很懂我！你只是为了填补我内心的空虚，消除寂寞的替代品罢了！</p>'
+               '<p>我: 我答应你…都过去这么多年了，和她只会当作普通朋友交往…</p>'  
+               '<p><<$SB.name>>: 承诺只有在相爱时才算数。 这是他教会我的。现在…我允许你离开了。再不走我就报警了。</p>'
+         '</div>'
+    end
+
+End
+
+
+if $args[0]="接机":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\jie1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''接机''">聊聊近况</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''松本_事件'',''接机''">实习工作</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''松本_事件'',''接机''">她很高兴</a></div>'
+
+            if a=3:'<div class="buttonS3"><a href="exec:a+=1 & gt ''松本_事件'',''接机''">侧面的轿车</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''接机''">。。。</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''接机''">。。。</a></div>'
+            if a=6:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''接机''">我这边</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''接机''">前往学校</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''大学''">先这样吧</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>我: 嗨，好久不见。</p>'     
+              '<p><<$QMZM.name>>: 嗨❤你还是一点都没变呢。</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>我: 怎么回国啦？你再不回来我都快忘了你呢。</p>'  
+              '<p><<$QMZM.name>>: 这次回来是想看看国内有没有适合我的工作…</p>'
+              '<p>我: 那你想做什么呢？</p>'  
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: 我想做个外语老师，你在教育部认识什么领导吗？</p>'
+              '<p>我: 教育部不认识，我可能认识一个校长…应该…</p>'  
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: 那太感谢你咯！包在你身上可以吗？</p>'
+              '<p>我: 行吧…</p>'   
+              '<p>*汗流浃背了</p>' 
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$XMK.name>>: 边上那辆车的是…<<$主角姓名>>没错吧。</p>'
+              '<p><<$SB.name>>: 嗯……</p>' 
+              '<p><<$XMK.name>>: 你就是专程来看这个的？</p>'
+              '<p><<$SB.name>>: 不是……</p>' 
+              '<p><<$XMK.name>>: 看起来人家的进度很快喔*嬉笑</p>'
+         '</div>'
+    end
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: …………</p>' 
+              '<p><<$XMK.name>>: …………</p>'
+              '<p><<$SB.name>>: ………………</p>' 
+              '<p><<$XMK.name>>: …………………</p>'
+         '</div>'
+    end
+    if a=6:
+         '<div class="dialog_menu">'
+              '<p><<$XMK.name>>: 好啦，别难过啦，我帮你安排联谊就是了！我认识那么多男人，很快就能找到新欢的！</p>'
+              '<p><<$SB.name>>: 没兴趣……我只想静静…</p>' 
+              '<p><<$XMK.name>>: 我的小妮子真是可怜呐*嬉笑</p>'
+         '</div>'
+    end
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p>我: 我们好几年不见了，第一次见面就这样舌吻？</p>'
+              '<p><<$QMZM.name>>: 不是啦，这是我们在国外的礼仪，不是舌吻啦！</p>' 
+              '<p>我: 被人看到的话会误会的。</p>'
+              '<p><<$QMZM.name>>: 是喔！多谢提醒！</p>' 
+         '</div>'
+    end
+    if a=8:
+          if $松本事件链=12:$松本事件链=13
+         '<div class="dialog_menu">'
+              '<p><<$XZ.name>>: 实习代课老师？我没意见，希望她的抗压能力够强。</p>'
+              '<p><<$QMZM.name>>: 抗压能力…是？</p>' 
+              '<p><<$XZ.name>>: 总之你记住一点，不要惹到<<$SB.name>>就好了，不然我也保不住你。</p>'
+              '<p><<$QMZM.name>>: 啊？她这么恐怖吗？希望我没有惹到她吧…</p>' 
+              '<p>我: 额…但愿没有惹到她吧*僵硬的笑</p>'
+         '</div>'
+    end
+
+End
+
+
+if $args[0]="峰回路转":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\FN1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!20:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''峰回路转''">气氛尴尬</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''松本_事件'',''峰回路转''">抵达她家</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''松本_事件'',''峰回路转''">。。。</a></div>'
+
+            if a=3:'<div class="buttonS3"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">突然喂我</a></div>'
+            if a=4:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">说真心话</a></div>'
+            if a=5:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">换位置</a></div>'
+            if a=6:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">悄悄话</a></div>'
+            if a=7:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">盯着我看</a></div>'
+            if a=8:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">亲她</a></div>'
+            if a=9:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">继续</a></div>'
+            if a=10:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">搂住她</a></div>'
+            if a=11:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">主动口我</a></div>'
+            if a=12:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">主动口我</a></div>'
+            if a=13:'<div class="buttonP"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">温暖安慰</a></div>'
+            if a=14:'<div class="buttonS"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">打一炮</a></div>'
+            if a=15 or a=16:'<div class="buttonS"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">打一炮</a></div>'
+            if a=17:'<div class="buttonS"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">接吻</a></div>'
+            if a=18:'<div class="buttonS"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">约定</a></div>'
+            if a=19:'<div class="buttonS"><a href="exec:a+=1 & gt ''松本_事件'',''峰回路转''">拉钩</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''居民区''">明天见</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>我: 嗨，出发吧。</p>'     
+              '<p><<$QMZM.name>>: 等等，我还请了一个人。</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: 我有个前辈特别想见<<$SB.name>>想认识她。</p>'  
+              '<p>我: 哦哦……</p>'  
+              '<p><<$SB.name>>: 是不欢迎我吗？我可是有一票否决权的哟。</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: 干杯！这位就是<<$SB.name>>，你很想见她吧。</p>'
+              '<p><<$SB.name>>: 干杯…</p>'  
+              '<p>男人: 来，咱俩喝一个……</p>' 
+              '<p><<$SB.name>>: 你算老几啊，和本小姐喝…</p>'
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 哈哈哈哈…我开玩笑的。</p>'
+              '<p><<$QMZM.name>>: 你把他吓坏了呢。</p>'
+              '<p>我: ………</p>'   
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 啊…我除了不吃牛肉还不吃薯条…</p>' 
+              '<p>男人: 嘶……</p>' 
+              '<p><<$QMZM.name>>: 你们俩什么关系……</p>'
+         '</div>'
+    end
+    if a=5:
+         '<div class="dialog_menu">'
+              '<p>我: 她把我甩了…</p>' 
+              '<p><<$SB.name>>: 不是……</p>' 
+              '<p>男人: 喔？有故事？</p>' 
+              '<p><<$QMZM.name>>: 那你俩坐一起呗…</p>'
+         '</div>'
+    end
+    if a=6:
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: 咳咳…</p>'
+              '<p>男人: 看来我是没机会了呢…</p>' 
+         '</div>'
+    end
+    if a=7:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 你…</p>' 
+              '<p><<$QMZM.name>>: 那看起来我的转正…是十拿九稳了？</p>'
+              '<p>男人: 这可未必，她如果知道你以前和<<$主角姓名>>…</p>' 
+              '<p><<$QMZM.name>>: 嘘———</p>'
+         '</div>'
+    end
+    if a=8:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 你做决定吧…要不要留下她？</p>' 
+              '<p>我: 她的教学水平……</p>'
+              '<p><<$SB.name>>: 那你爱我还是她？是不是真的她有比我好，就说出你想说的真心话。</p>'
+         '</div>'
+    end
+    if a=9:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 你干嘛？</p>' 
+              '<p>我: 不记得了？亲亲就能和好啊。</p>'
+              '<p><<$SB.name>>: 你…</p>' 
+         '</div>'
+    end
+    if a=10 or a=11:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 这段日子真的好难熬…和你生疏到这个地步真的很不容易…我好想你…</p>' 
+         '</div>'
+    end
+    if a=12 or a=13:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 我明白被人抛弃的滋味…我做了很过分的事…对不起…</p>' 
+         '</div>'
+    end
+    if 17>=a and a>=14:
+         '<div class="dialog_menu">'
+              '<p>我: 我知道你是故意的，因为喜欢这种东西，捂住嘴巴，也会从眼睛里跑出来。</p>'
+              '<p><<$SB.name>>: 你坏死了…我才没有哭…</p>' 
+         '</div>'
+    end
+    if a=18:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 我们…重归于好吧…</p>' 
+              '<p>我: 嗯。</p>'
+         '</div>'
+    end
+    if a=19:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 再约我去看烟花吧，我还有话没说完。</p>' 
+              '<p>我: 好。</p>'
+         '</div>'
+    end
+    if a=20:
+          if $松本事件链=14:
+               $松本事件链=15
+               $SB.love=999
+               $松本矛盾=0
+          end
+         '<div class="dialog_menu">'
+            '<p><<$SB.name>>: 拉钩，这次我不会再抛下你了。</p>'
+         '</div>'
+    end
+End
+
+
+if $args[0]="SB烟花2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\SAA1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!5:
+        '<div class="button_menu">'
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & gt ''松本_事件'',''SB烟花2''">看烟花</a></div>'
+            if a=1:'<div class="buttonS2"><a href="exec:a=2 & gt ''松本_事件'',''SB烟花2''">拥吻</a></div>'
+            if a=2:'<div class="buttonS3"><a href="exec:a=3 & gt ''松本_事件'',''SB烟花2''">接电话</a></div>'
+            if a=3:'<div class="buttonS4"><a href="exec:a+=1 & gt ''松本_事件'',''SB烟花2''">没事了</a></div>'
+            if a=4:'<div class="buttonS5"><a href="exec:a+=1 & gt ''松本_事件'',''SB烟花2''">回家做爱</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & q=0 & $m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''SSA'' & gt ''截面_事件'',''泛用截面''">我也爱你</a></div>'
+                '<div class="buttonR"><a href="exec:gt ''居民区''">我还有别的事</a></div>'
+            '</div>'
+    end
+
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+               '<p>我: 走吧。</p>'     
+              '<p><<$SB.name>>: 好耶，和喜欢的人一起看烟花感觉好幸福。</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+              '<p>我: 哇偶…真美…</p>'  
+              '<p>*这次烟花在我眼中绽放，我侧过头，发现她没有看烟花反而一直在看我的侧脸。</p>'
+         '</div>'
+    end
+    if a=2 :
+         '<div class="dialog_menu">'
+              '<p>我: 怎么了…</p>' 
+              '<p><<$SB.name>>: 我爱你…</p>'  
+              '<p>*叮铃铃</p>' 
+         '</div>'
+    end
+    if a=3 :
+         '<div class="dialog_menu">'
+              '<p><<$QMZM.name>>: <<$主角姓名>>！谢谢你！虽然我可以转正了，但我还是喜欢国外的生活，替我谢谢<<$SB.name>>，她投了赞成票喔！</p>'
+              '<p>我: 所以……</p>'  
+              '<p><<$QMZM.name>>: 我已经上飞机啦！我们还会再见的！</p>'
+         '</div>'
+    end
+
+    if a=4:
+         '<div class="dialog_menu">'
+              '<p><<$SB.name>>: 谁的电话…</p>' 
+              '<p>我: <<$QMZM.name>>走了…她还是想在国外发展…</p>'  
+              '<p><<$SB.name>>: 我们别聊她了…现在是我们的二人世界…</p>'
+         '</div>'
+    end
+
+
+    if a=5:
+               if $松本事件链=15:$松本事件链=16
+               $SB.love+=99
+               $SB.bad+=a+50
+         '<div class="dialog_menu">'
+            '<p><<$SB.name>>: 我们是天下第二第三第四第五…坠坠好！我好爱你呐❤</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="突袭中":
+          每日辅导松本=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\AQA<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+               if a=0:
+                    '<div class="buttonP"><a href="exec:a=1 & gt ''松本_事件'',''突袭中''">进去</a></div>'
+                    '<div class="button"><a href="exec:gt ''大学后门''">离开</a></div>'
+               end
+               if a=1:'<div class="buttonS"><a href="exec:a=0 & $m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''AQA'' & gt ''截面_事件'',''泛用截面''">拥吻</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+               if a=0:'<p><<$SB.name>>:<<$主角姓名>>❤</p>'
+               if a=1:
+                    '<p>我:我也很想你❤</p>'
+                    '<p><<$SB.name>>:你坏死了啦！</p>'
+              end
+         '</div>'
+End
+
 --- 松本_事件 ---------------------------------
 

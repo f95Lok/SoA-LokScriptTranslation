@@ -22,6 +22,11 @@ gs'menu_time_calc'
     if $args[0]='<<$MZ.name>>':'<a href="exec:gt ''角色攻略'',''<<$MZ.name>>'',''<<$MZ.love>>'',''<<$MZ.bad>>'',''48''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
     if $args[0]='<<$BZ.name>>':'<a href="exec:gt ''角色攻略'',''<<$BZ.name>>'',''<<$BZ.love>>'',''<<$BZ.bad>>'',''48''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
     if $args[0]='<<$SB.name>>':'<a href="exec:gt ''角色攻略'',''<<$SB.name>>'',''<<$SB.love>>'',''<<$SB.bad>>'',''48''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
+    if $args[0]='<<$SJ.name>>':'<a href="exec:gt ''角色攻略'',''<<$SJ.name>>'',''<<$SJ.love>>'',''<<$SJ.bad>>'',''50''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
+    if $args[0]='<<$YLW.name>>':'<a href="exec:gt ''角色攻略'',''<<$YLW.name>>'',''<<$YLW.love>>'',''<<$YLW.bad>>'',''50''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
+    if $args[0]='<<$HME.name>>':'<a href="exec:gt ''角色攻略'',''<<$HME.name>>'',''<<$HME.love>>'',''<<$HME.bad>>'',''50''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
+    if $args[0]='<<$FZL.name>>':'<a href="exec:gt ''角色攻略'',''<<$FZL.name>>'',''<<$FZL.love>>'',''<<$FZL.bad>>'',''50''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
+    if $args[0]='<<$MPJ.name>>':'<a href="exec:gt ''角色攻略'',''<<$MPJ.name>>'',''<<$MPJ.love>>'',''<<$MPJ.bad>>'',''50''"><div class="option_gonglue"data-title="角色攻略"></div></a>'
 '</div>'
 
 
@@ -30,14 +35,17 @@ gs'menu_time_calc'
 
 !#--------------------------------------------------------------------------------------------------
 '<div class="charac_nps_info">'
-
-	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
-		
+	 if $args[7]=-1:
+	     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>Y.png"></div>'
+	 else:
+		'<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+	 end
 	 '<div id="left-column2">'
 		'<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
 		'<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>>		'
 
 		if $args[1] <0:'厌恶'
+		if $args[1]=-999 and $args[0]='松本一香(部长千金)':'刻意冷漠'
 		if $args[1]=0 :'中立'
 		if 0<$args[1] and $args[1]<15 :'დ略有好感'
 		if 15<=$args[1] and $args[1]<30 :'❤有点喜欢'
@@ -108,7 +116,7 @@ gs'menu_time_calc'
 		'</font></span></p>'
 		end
 		
-	    if $args[7]=2:
+	    if $args[7]=-1:
 		'<span class="bold"><font color="#FF3939">㊡怀孕中-免除考试	'	
 		'</font></span></p>'
 		end

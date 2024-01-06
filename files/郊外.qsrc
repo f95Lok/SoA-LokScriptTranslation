@@ -69,6 +69,21 @@ if $args[0]="":
 				if 主教选择=2:'<p>·有一个男人垂头丧气地坐在教堂门口<a href="exec:gt ''郊外'',''见习男''">-搭话</a></p>'
 				if 主教选择=1 and $XN.审判>=1:'<p>·有一个男人双目无神地坐在教堂门口<a href="exec:gt ''郊外'',''见习男''">-搭话</a></p>'
 			end
+			if week_day=7 and hour=13:'<p>·远处有一辆车冒着浓烟<a href="exec:gt ''郊外'',''RV''">-查看</a></p>'
+			
+	'</div>'
+
+end
+
+if $args[0]="RV":
+	'<div class ="show_menu"><img src="images\place\RV.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：这辆车每周日的下午一点都会准时在这出现…但愿不是在做什么化学实验…</p>'
 	'</div>'
 
 end
@@ -222,7 +237,7 @@ if $args[0]="见习男赌局":
 
 	'<div class="dialog_menu">'
 		'<p>男人：规则很简单，掷出1-3为【小】；4-6为【大】</p>'
-		'<p>我：这筛子没问题吧？</p>'
+		'<p>我：这骰子没问题吧？</p>'
 		'<p>男人：当然了，我向你保证！绝对没问题！嘿嘿。不过你的赌注嘛…至少得这么多才行。*他眯起眼睛</p>'
 		$见习男点数=rand(1,6)
 	'</div>'

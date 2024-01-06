@@ -1,0 +1,126 @@
+# the_beginning_of_the_ring
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+
+ring_num+=1
+
+
+if endless_ring_mode=1:
+	if ring_num>=11:ring_num=1
+end
+q=0
+
+if the_first_ring=0:
+	the_upper_limit_of_my_life_in_the_ring=1
+	the_upper_limit_of_my_shield_in_the_ring=4
+	the_first_ring=1
+end
+
+
+if ring_initialization=0:
+	ring_my_life=the_upper_limit_of_my_life_in_the_ring
+	my_shield_in_the_ring=the_upper_limit_of_my_shield_in_the_ring
+	
+	round_trophy=1
+	ring_initialization=1
+	
+	ring_dodge=initial_dodge_in_the_ring
+	ring_back_to_the_shield=initial_return_to_the_shield_in_the_ring
+	dice_crit=initial_critical_strike_in_the_ring
+	rat_rat_open=0
+	rat_dice_1=0
+	ring_dice_1=60
+	ring_dice_2=48
+	ring_dice_3=36
+	ring_dice_4=24
+	ring_dice_5=20
+	ring_dice_6=12
+	cheers_in_the_ring.=100
+	the_upper_limit_of_the_enemy`s_life_in_the_ring=1
+	upper_limit_of_enemy_shield_in_the_ring=0
+	ring_luck=0
+	dice_corrosion_rate=0
+	cheers_in_the_ring=0
+	ring_return_rate=0
+end
+
+
+
+upper_limit_of_enemy_shield_in_the_ring+=2
+if upper_limit_of_enemy_shield_in_the_ring>5:
+	the_upper_limit_of_the_enemy`s_life_in_the_ring+=1
+	upper_limit_of_enemy_shield_in_the_ring=1
+end
+
+
+enemy_life_in_the_ring=the_upper_limit_of_the_enemy`s_life_in_the_ring
+ring_enemy_shield=upper_limit_of_enemy_shield_in_the_ring
+
+ring_enemy_uterus=0
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "ring_enemy_attributes"
+		'</div>'
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\女人1.jpg"></a>
+		</div>'
+		
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\男人1.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if ring_my_life<=5:'<a class="photo" data-title="Physical strength""><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<ring_my_life>>.jpg"></a>'
+			if ring_my_life>=6:'<a class="photo" data-title="Physical strength""><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
+			if my_shield_in_the_ring<=5:'<a class="photo" data-title="defense""><img class="img_stretch" src="images\videos\fighter\pics\C<<my_shield_in_the_ring>>.jpg"></a>'
+			if my_shield_in_the_ring>=6:'<a class="photo" data-title="defense""><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ="":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<ring_num>>\0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:a=1 & gt ''in_the_ring''">Challenge her</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		if ring_num=1:
+			'<p>·People often attribute their own mistakes to environmental factors, while they often attribute the mistakes of others to ability factors.…</p>'
+		else:
+			'<p>·I didn`t even mourn the last loser for a moment. It was the one who came to the battlefield immediately.......</p>'
+		end
+	'</div>'
+End
+
+
+
+
+
+
+
+
+
+--- the_beginning_of_the_ring ---------------------------------
+

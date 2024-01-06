@@ -20,11 +20,12 @@ gs'menu_gif'
 		'<div class="action">
 			<a class="photo" data-title="Custom area" href="exec:minutes+=5 & gt ''the_night_is_fine'',''custom_area''"><img class="img_stretch" src="images\place\VIP包间.gif"></a>
 		</div>'
-
+		'<div class="action">
+			<a class="photo" data-title="Boxing match" href="exec:minutes+=5 & gt ''the_night_is_fine'',''ring_area''"><img class="img_stretch" src="images\place\擂台区.jpg"></a>
+		</div>'
 		'<div class="action">
 			<a class="photo" data-title="Kabukicho" href="exec:minutes+=5 & gt ''kabukicho''"><img class="img_stretch" src="images\place\歌舞伎町.jpg"></a>
 		</div>'
-		
 	'</div>'
 '</div>'
 
@@ -46,6 +47,8 @@ if $ARGS[0]="":
 		if $bgh.night>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''the_night_is_fine'',''find_bgh''">find<<$BGH.name>></a></div>'
 		if rand(0,100)>=90 and $succubus_custom=1:'<div class="buttonPu3"><a href="exec:gt ''succubus_event'',''succubus_fuck_nightclub''"><<$MMS.name>>The figure</a></div>'
 		if $LB.available>0:'<div class="buttonR"><a href="exec:gt ''the_night_is_fine'',''private_office''">`Private office`</a></div>'
+		if $matsumoto_event_chain=4  and hour=23 and minutes=45:'<div class="buttonPu4"><a href="exec:gt ''matsumoto_event'',''SB_A1''">？The figure of the dispute?</a></div>'
+		if $matsumoto_event_chain=5 and hour>=21:'<div class="buttonG"><a href="exec:gt ''matsumoto_event'',''SB_B1''"><<$SB.name>></a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Pass time</a></div>'
 	'</div>'
 
@@ -96,6 +99,27 @@ if $args[0] ='striptease_area':
 	'</div>'
 End
 
+if $ARGS[0]="ring_area":
+	ring_initialization=0
+	'<div class="show_menu">'
+			'<img src="images\place\擂台区.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn3"><a href="exec:ring_num=0 & endless_ring_mode=0 & gt ''the_beginning_of_the_ring''">Regular ring challenge</a></div>'
+		if but_the_arena_is_endless=1:'<div class="buttonR3"><a href="exec:ring_num=0 & endless_ring_mode=1 & gt ''the_beginning_of_the_ring''">Endless mode challenge</a></div>'
+		'<div class="buttonP"><a href="exec:gt ''trophy_shop''">Trophy skills</a></div>'
+		if cheers_in_the_ring>0:'<div class="buttonR5"><a href="exec:gt ''trophy_referee''">Bribe the referee</a></div>'
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Female boxer: It stands to reason that there is usually a description of the competition here, but I don`t think you bother to listen.</p>'
+		'<p>Me: What do you say?</p>'
+		'<p>Female boxer: Because this is where you speak with your fists!</p>'
+		'<p>Me: Uh…</p>'
+	'</div>'
+End
 
 if $args[0] ='invited_performances_of_special_dramas':
 	'<div class="show_menu">'
@@ -178,8 +202,6 @@ if $ARGS[0]="one_side":
 End
 
 
-
-
 if $ARGS[0]="private_office":
 	if $debt_collection=0:gt'boss_event','debt_collection_dialogue'
 	if $boss_event_chain=6  and $boss_on_the_top!999:gt'the_night_is_fine','aftermath'
@@ -235,8 +257,9 @@ if $ARGS[0]="younger_brother_debt_collection":
 
 	'<div class="button_menu">'
 		if debt_collection_num>=5:'<div class="button"><a href="exec:minutes+=15 & gt ''boss_event'',''boss_fuck_award_1''">Take credit to my sister</a></div>'else:'<div class="buttonGr"><a href="exec:">Complete at least 5</a></div>'
-		if $boss_event_chain=3 or $boss_event_chain=4:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''violent_plan''">Violent plan</a></div>'
+		if $boss_event_chain=3 or $boss_event_chain=4:'<div class="buttonR"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''violent_plan''">Violent plan</a></div>'
 		if $boss_on_the_top=999:'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''younger_brother_debt_collection_2''">What happened that day</a></div>'
+		if 1<=mpj_event_chain and mpj_event_chain<=3:'<div class="buttonR3"><a href="exec:minutes+=15 & gt ''the_night_is_fine'',''little_brother_dialogue_mpj''">About the car being smashed</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Leave</a></div>'
 	'</div>'
 
@@ -276,7 +299,24 @@ if $ARGS[0]="younger_brother_debt_collection_2":
 	'</div>'
 End
 
+if $ARGS[0]="little_brother_dialogue_mpj":
+	if mpj_event_chain=1:mpj_event_chain=2
+	'<div class ="show_menu"><img src="images\NPC\LB\pics\office3.jpg" width="854"></div>'
 
+	'<div class="button_menu">'
+		if mpj_event_chain=3:'<div class="button"><a href="exec:minutes+=15 & gt ''student_group_event'',''mpj_club''">They are here</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''the_night_is_fine''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Your car was smashed?</p>'
+		'<p>Crazy little brother: Fuck, more than once!The beast smashed the car and started to hide!I want to find him immediately!I won`t let this matter just go away!</p>'
+		'<p>Me: If you are willing to resolve it peacefully…</p>'
+		'<p>Crazy little brother: Hey, brother.I am very calm now.</p>'
+		'<p>Me: Then if I make an appointment with him…</p>'
+		'<p>Crazy little brother: I assure you, I will never touch him a hair!</p>'
+	'</div>'
+End
 
 
 if $ARGS[0]="camping_area_situation":

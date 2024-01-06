@@ -640,9 +640,6 @@ def get_data(filepath):
     for i, line in zip(range(len(lines)), lines):
         _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
 
-        if i == 78:
-            print("debug")
-
         if not needs_translation(line):
             new_file.append(line)
             continue

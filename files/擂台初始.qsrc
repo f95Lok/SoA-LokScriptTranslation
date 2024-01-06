@@ -1,0 +1,126 @@
+# 擂台初始
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+
+擂台num+=1
+
+
+if 擂台无尽模式=1:
+	if 擂台num>=11:擂台num=1
+end
+q=0
+
+if 第一次擂台=0:
+	$擂台我生命上限=1
+	$擂台我护盾上限=4
+	第一次擂台=1
+end
+
+
+if 擂台初始化=0:
+	$擂台我生命=$擂台我生命上限
+	$擂台我护盾=$擂台我护盾上限
+	
+	$回合奖杯=1
+	擂台初始化=1
+	
+	$擂台闪避=$擂台初始闪避
+	$擂台回盾=$擂台初始回盾
+	$骰子暴击=$擂台初始暴击
+	鼠鼠开=0
+	$鼠鼠骰子1=0
+	$擂台骰子1=60
+	$擂台骰子2=48
+	$擂台骰子3=36
+	$擂台骰子4=24
+	$擂台骰子5=20
+	$擂台骰子6=12
+	$擂台欢呼声利息=100
+	$擂台敌生命上限=1
+	$擂台敌护盾上限=0
+	$擂台运气=0
+	$骰子腐蚀率=0
+	$擂台欢呼声=0
+	擂台回盾率=0
+end
+
+
+
+$擂台敌护盾上限+=2
+if $擂台敌护盾上限>5:
+	$擂台敌生命上限+=1
+	$擂台敌护盾上限=1
+end
+
+
+$擂台敌生命=$擂台敌生命上限
+$擂台敌护盾=$擂台敌护盾上限
+
+$擂台敌子宫=0
+
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "擂台敌属性"
+		'</div>'
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\女人1.jpg"></a>
+		</div>'
+		
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\男人1.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $擂台我生命<=5:'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<$擂台我生命>>.jpg"></a>'
+			if $擂台我生命>=6:'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
+			if $擂台我护盾<=5:'<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\C<<$擂台我护盾>>.jpg"></a>'
+			if $擂台我护盾>=6:'<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ="":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:a=1 & gt ''擂台进行''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		if 擂台num=1:
+			'<p>·人常把自己的过失归纳为环境因素，而常把别人的过失归结为能力因素…</p>'
+		else:
+			'<p>·连一刻都没有为上一位失败者哀悼，立刻赶来战场的是.......</p>'
+		end
+	'</div>'
+End
+
+
+
+
+
+
+
+
+
+--- 擂台初始 ---------------------------------
+
