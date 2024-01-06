@@ -1,0 +1,51 @@
+# 擂台地面
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "擂台敌属性"
+		'</div>'
+		
+		'<div class="action">'
+			if a=16 and SK地面操=1:'<a class="photo" data-title="稳定插入" href="exec:a=17 & $擂台敌子宫+=10 & gt ''擂台地面''"><img class="img_stretch" src="images\videos\fighter\pics\MSK10.jpg"></a>'
+			if a=17 and SK地面操射=1:'<a class="photo" data-title="射精" href="exec:a=20 & $擂台敌子宫+=20 & gt ''擂台地面''"><img class="img_stretch" src="images\videos\fighter\pics\MSK11.jpg"></a>'
+		'</div>'
+		
+		
+		'<div class="action">'
+			if a=16 and SK地面他口=1:'<a class="photo" data-title="地面口交支援" href="exec:a=18 & gt ''擂台地面''"><img class="img_stretch" src="images\videos\fighter\pics\MSK12.jpg"></a>'
+			if a=18 and SK地面他口射=1:'<a class="photo" data-title="射精" href="exec:a=19 & $擂台敌子宫+=15 & gt ''擂台地面''"><img class="img_stretch" src="images\videos\fighter\pics\MSK13.jpg"></a>'
+		'</div>'
+		'<div class="action">
+			<a class="photo" data-title="投掷拼点" href="exec:a=2 & gt ''擂台掷点''"><img class="img_stretch" src="images\videos\fighter\pics\投掷.jpg"></a>
+		</div>'
+
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+End
+--- 擂台地面 ---------------------------------
+

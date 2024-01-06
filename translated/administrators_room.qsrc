@@ -1,0 +1,264 @@
+# administrators_room
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	if $args[0]!"" and  $args[0]!"computer":
+		'<div class="action">'
+			'<a class="photo" data-title="A203" href="exec:gt ''administrators_room'',''play_203''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A202" href="exec:gt ''administrators_room'',''play_202''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Upper layer"><img class="img_stretch" src="images\place\电梯_上.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A201" href="exec:gt ''administrators_room'',''play_201''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo" data-title="A103" href="exec:gt ''administrators_room'',''play_103''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A102" href="exec:gt ''administrators_room'',''play_102''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A101" href="exec:gt ''administrators_room'',''play_101''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="Residential area" href="exec:gt ''administrators_room'',''play_003''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Apartment manager`s room" href="exec:gt ''administrators_room'',''at_the_door''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (7).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Community convenience store" href="exec:gt ''administrators_room'',''play_001''"><img class="img_stretch" src="images\place\公寓便利店小图.jpg"></a>'
+		'</div>'
+	end
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	if the_administrator_enters_for_the_first_time=0:
+		'<div class ="show_menu"><img src="images\place\管理室0.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">。。。</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>Woman: Congratulations on your qualification for the game.</p>'
+			'<p>Man: Hey, to be honest, I really want to play too, but I have an important job, and the whole apartment will be messed up without me.</p>'
+			'<p>Me: Uh... am I here at a bad time?</p>'
+			'<p>Woman: Of course not.It seems that someone can take over your job, come with us!</p>'
+			'<p>Man: I`m sorry!</p>'
+			'<p>*The man was taken away in custody…</p>'
+			the_administrator_enters_for_the_first_time=1
+		'</div>'
+	else:
+		'<div class ="show_menu"><img src="images\place\管理室1.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room'',''computer''">View computer</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">Leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>·The dormitory of the apartment administrator, the door handle is wet when opening the door…</p>'
+		'</div>'
+	end
+end
+
+if $args[0]="computer":
+	'<div class ="show_menu"><img src="images\place\管理室电脑.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room'',''computer_2''">Enter the computer</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Dormitory for apartment administrator</p>'
+		'<p>Me: Let me see what “surprises” the incoming administrator left me</p>'
+	'</div>'
+end
+
+if $args[0] ='computer_2':
+	$administrator_password = $TRIM($LCASE($input('Access password: What is the meaning of everything I do?')))
+	$the_administrator_has_the_correct_password=''
+	if $administrator_password!$the_administrator_has_the_correct_password:msg'Wrong password'  & gt 'administrators_room','computer'
+	'<div class ="show_menu"><img src="images\place\管理室花屏.jpg" width="854"></div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $administrator_password=$the_administrator_has_the_correct_password:'<div class="button"><a href="exec:minutes+=5 & gt ''talent_apartment''">Leave</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>*This is the answer</p>'
+		'<p>Me: Let me see what “surprises” the incoming administrator left me</p>'
+	'</div>'
+End
+
+
+
+
+if $args[0]="play_203":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\ZZER2-<<rand(0,10)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+
+if $args[0]="play_202":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YY\vids\HM1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+
+if $args[0]="play_201":
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\A201.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+		'<p>Me: How did this person make the room pandemonium?……</p>'
+	'</div>'
+end
+
+if $args[0]="play_103":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\TP_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+
+if $args[0]="play_102":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFsn1-5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+
+if $args[0]="play_101":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFSS2-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+
+if $args[0]="play_003":
+	if $times_of_day='':
+		'<div class ="show_menu"><img src="images\place\居民区_<<$times_of_day>>.jpg" width="854"></div>'
+	else:
+		'<div class ="show_menu"><img src="images\videos\杂\parkN<<rand(0,5)>>.jpg" width="854"></div>'
+	end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+
+if $args[0]="at_the_door":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\lur<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''group_performation_event'',''group_performance_fuck_management_portal''">Open the door and go out</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I just said why is the door handle wet?…</p>'
+	'</div>'
+end
+
+if $args[0]="play_001":
+	if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\BLDB<<rand(5,6)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\WSH<<rand(3,4)>>-4.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''administrators_room''">Don`t watch it anymore</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·It seems that the former administrator has a strong desire to be voyeuristic…</p>'
+	'</div>'
+end
+--- administrators_room ---------------------------------
+

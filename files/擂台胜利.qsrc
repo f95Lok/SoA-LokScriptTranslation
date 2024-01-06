@@ -1,0 +1,75 @@
+# 擂台胜利
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+$擂台欢呼声+=12+擂台num*6+基础欢呼
+
+$擂台欢呼声*=$擂台欢呼声利息
+$擂台欢呼声/=100
+
+if 擂台无尽模式=0:
+	$回合奖杯*=2
+else:
+	$回合奖杯+=16
+	$擂台运气+=1
+end
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征0.jpg"></a>
+			<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\MSK16.jpg"></a>'
+			if $擂台敌子宫<=9:'<a class="photo" data-title="状态""><img class="img_stretch" src="images\videos\fighter\pics\A0.jpg"></a>'
+			if 10<=$擂台敌子宫 and $擂台敌子宫<=50:'<a class="photo" data-title="状态""><img class="img_stretch" src="images\videos\fighter\pics\A1.jpg"></a>'
+			if 51<=$擂台敌子宫 and $擂台敌子宫<=99:'<a class="photo" data-title="状态""><img class="img_stretch" src="images\videos\fighter\pics\A2.jpg"></a>'
+			if 100<=$擂台敌子宫 and $擂台敌子宫<=199:'<a class="photo" data-title="状态""><img class="img_stretch" src="images\videos\fighter\pics\A3.jpg"></a>'
+			if $擂台敌子宫>=200:'<a class="photo" data-title="处决"><img class="img_stretch" src="images\videos\fighter\pics\A4.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\25.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		if 擂台无尽模式=0:
+		 if 擂台num<=9:
+			'<div class="buttonS"><a href="exec:gt ''擂台商店''">是：准备下一场</a></div>'
+			'<div class="buttonR"><a href="exec:$奖杯数+=0+$回合奖杯 & gt ''夜色精巢''">否：带走奖杯x<<$回合奖杯>></a></div>'
+		 else:
+		     '<div class="buttonG"><a href="exec:$奖杯数+=0+$回合奖杯 & 可擂台无尽=1 & gt ''夜色精巢''">解锁无尽模式</a></div>'
+		 end
+		end
+		if 擂台无尽模式=1:
+		'<div class="buttonS"><a href="exec:gt ''擂台商店''">是：准备下一场</a></div>'
+		'<div class="buttonR"><a href="exec:$奖杯数+=$回合奖杯 & gt ''夜色精巢''">否：带走奖杯x<<$回合奖杯>></a></div>'
+		end
+		
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		'<p>·获胜了</p>'
+		'<p>·是否继续挑战？</p>'
+		if 擂台无尽模式=0:
+			'<p>·是：下一场你将获得 奖杯 x <<$回合奖杯*2>></p>'
+		else:
+			'<p>·是：下一场你将获得 奖杯 x <<$回合奖杯+16>></p>'
+		end
+		'<p>·否：带走当前积累的奖杯</p>'
+	'</div>'
+End
+
+
+--- 擂台胜利 ---------------------------------
+

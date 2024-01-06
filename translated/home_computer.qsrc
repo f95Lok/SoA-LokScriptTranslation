@@ -110,6 +110,10 @@ if $args[0] = 'monitor':
 		'<div class="button"><a href="exec: a=0 & gt ''nun_event'',''choose_videotape''">Videotape·<<$LEI.name>></a></div>'
 		end 
 		
+		if fzl_videotape>=1:
+		'<div class="button"><a href="exec: a=-1 & gt ''student_group_event'',''fzl_videotape''">Videotape·<<$FZL.name>></a></div>'
+		end 
+		
 		'<div class="button"><a href="exec: minutes+=30 & a=0 & gt ''home_computer''">No signal</a></div>'
 	'</div>'
 
@@ -234,6 +238,45 @@ if $args[0] = 'private_message':
 	'</div>'
 End
 
+if $args[0] = 'test':
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\测试.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer'',''true_test''">Insist on entering</a></div>
+		<div class="button"><a href="exec: minutes+=30 & gt ''home_computer''">Leave</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+		'<p>·This room is a place for programmers/testing games, not where you, a player, should come!</p>'
+	'</div>'
+End
+
+if $args[0] = 'true_test':
+	a=0
+	q=0
+	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
+	'<div class="show_menu">'
+		'<img src="images\place\测试.jpg" width="854">'
+	'</div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">
+		<div class="buttonG3"><a href="exec: $gun_hunting_incident_chain=2 & gt ''police_station''">Police Officer 22</a></div>
+		<div class="buttonS5"><a href="exec: day=1 & month=1 & gt ''police_station''">Date reset</a></div>
+		<div class="buttonR5"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''CCSD'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Large section test</a></div>
+		<div class="buttonG5"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$FZL.name & love_B=$FZL.love & $FaceName_C=$HME.name & love_C=$HME.love &  $m_address=''CCSD'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Large section test 3 people</a></div>
+		<div class="buttonB5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''DCSE'' & gt ''cross-section_student_group_single'',''student_group_single''">Large section test 2 people</a></div>
+	</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">
+		<p><<$draft_event_chain>>SS<<electricguitar>></p>
+	</div>'
+	
+End
 
 if $args[0] = 'cheats':
 	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++

@@ -11,7 +11,7 @@ gs'menu_time_calc'
 
 
 
-if $args[3]>$攻略解锁 and $args[3]!$V48攻略解锁:gt'攻略赞助'
+if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁:gt'攻略赞助'
 
 
 
@@ -452,7 +452,7 @@ if $args[0]='<<$DCM.name>>':
                 '<font color="#FFFF99">记忆回想：❤电车初见❤<a href="exec:a=0 & q=0 & $电车角色=''B'' & gt''地铁_事件'',''地铁骚扰0''">←点击</a></font></p>' 
                 '<font color="#FFFF99">记忆回想：❤厕所更衣❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹A4''">←点击</a></font></p>'
                 '<font color="#FFFF99">记忆回想：❤闺房学习❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹A5''">←点击</a></font></p>' 
-                '<font color="#FFFF99">记忆回想：❤姐姐不在❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹B6''">←点击</a></font></p>' 
+                '<font color="#FFFF99">记忆回想：❤姐姐gank❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹妹姐B6''">←点击</a></font></p>' 
                 '<font color="#FFFF99">记忆回想：❤真的不在❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹B5''">←点击</a></font></p>' 
                 '<font color="#FFFF99">记忆回想：❤出去开房❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹A7''">←点击</a></font></p>' 
                 '<font color="#FFFF99">记忆回想：❤女仆面试❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''电车妹A8''">←点击</a></font></p>' 
@@ -494,21 +494,6 @@ if $args[0]='<<$MZ.name>>':
                 '<font color="#FFFF99">记忆回想：❤温泉约会❤<a href="exec:a=0 & q=0 & gt ''美妆_事件'',''美妆F8''">←点击</a></font></p>' 
             end
             if $美妆事件链>=11:'<font color="#FFFF99">记忆回想：❤共赴风雨❤<a href="exec:a=0 & q=0 & gt ''美妆_事件'',''美妆Z9''">←隐藏结局</a></font></p>' 
-     '</div>'
- '</div>'
-end
-
-if $args[0]='<<$SB.name>>':
- '<div class="charac_nps_info999">'
-     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
-     '<div id="left-column999">'
-            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
-            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
-            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
-            '<font color="#FFE4B5">前置：完成讲台剧情</font></p>'
-            if $松本事件链<3:'<font color="#BBFFBB">在三年二班里看向讲台</font></p>'
-            if $松本事件链=3:'<font color="#BBFFBB">阶段一：将班级名册上她不喜欢的3位学生除名，全部完成后与她对话</font></p>'
-            !if 新图书馆*新体育馆*新游泳馆=1:'<font color="#BBFFBB">阶段二：未实装·等待下个版本</font></p>'
      '</div>'
  '</div>'
 end
@@ -556,6 +541,133 @@ if $args[0]='<<$BZ.name>>':
                 '<font color="#FFFF99">记忆回想：❤银行掩护❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''班长B7''">←点击</a></font></p>' 
                 '<font color="#FFFF99">记忆回想：❤审讯拷问❤<a href="exec:a=0 & q=0 & gt ''学生群_事件'',''班长B8''">←点击</a></font></p>' 
             end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SB.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成讲台剧情</font></p>'
+            if $松本事件链<3:'<font color="#BBFFBB">在三年二班里看向讲台</font></p>'
+            if $松本事件链=3:'<font color="#BBFFBB">阶段一：将班级名册上她不喜欢的3位学生除名，全部完成后与她对话</font></p>'
+            if $松本事件链=4:'<font color="#BBFFBB">阶段二：千金休息室里查看备忘录</font></p>'
+            if $松本事件链=5:'<font color="#BBFFBB">继续每晚在俱乐部里陪她喝酒</font></p>'
+            if $松本事件链=6:'<font color="#BBFFBB">千金休息室里和她对话</font></p>'
+            if $松本事件链=7:'<font color="#BBFFBB">开她的车陪她在动物园到处玩</font></p>'
+            if $松本事件链=8:'<font color="#BBFFBB">开她的车陪她去逛街</font></p>'
+            if $松本事件链=9:'<font color="#BBFFBB">回到我自己的家</font></p>'
+            if $松本事件链=10:'<font color="#BBFFBB">在居民区闲逛</font></p>'
+            if $松本事件链=11:'<font color="#BBFFBB">开她的车陪她在晚上看烟火大会</font></p>'
+            if $松本事件链=12:'<font color="#BBFFBB">去机场接我的青梅竹马</font></p>'
+            if $松本事件链=13:'<font color="#BBFFBB">想想办法渡过实习期</font></p>'
+            if $松本事件链=14:'<font color="#BBFFBB">21点在学校门口见青梅竹马</font></p>'
+            if $松本事件链>=15:'<font color="#BBFFBB">再次约她去看烟火大会</font></p>'
+            if $松本事件链=16:'<font color="#BBFFBB">↑如选择【我也爱你】，将会得到电话号码</font></p>'
+     '</div>'
+ '</div>'
+end
+
+
+
+if $args[0]='<<$MPJ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $MPJ事件链=0:'<font color="#BBFFBB">想办法去她家</font></p>'
+            if $MPJ事件链=1:'<font color="#BBFFBB">去夜色CLUB办公室找狂小弟</font></p>'
+            if $MPJ事件链=2:'<font color="#BBFFBB">去她家转达消息</font></p>'
+            if $MPJ事件链=3:'<font color="#BBFFBB">第二天在夜色CLUB办公室找狂小弟处等他们来</font></p>'
+            if $MPJ事件链=4:'<font color="#BBFFBB">风波平息后去她家让她报答你</font></p>'
+            if $MPJ事件链>=5:'<font color="#BBFFBB">隔天再去她家，留姐弟独处</font></p>'
+            if $MPJ事件链>=6:'<font color="#BBFFBB">↑如选择进入掺和，将会得到电话号码</font></p>'
+     '</div>'
+ '</div>'
+end
+
+
+if $args[0]='<<$HME.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $HME事件链=0:'<font color="#BBFFBB"><<$HME.name>>在泡芙房里躺着玩手机，对话去AV拍摄片场。</font></p>'
+            if $HME事件链=1:'<font color="#BBFFBB"><<$HME.name>>考虑后陪她去试镜</font></p>'
+            if $HME事件链=2:'<font color="#BBFFBB">和她练习口交</font></p>'
+            if $HME事件链=3:'<font color="#BBFFBB">陪她去复试</font></p>'
+            if $HME事件链=4:'<font color="#BBFFBB">再次被拒绝后，她需要在泡芙房里被多人灌满一次</font></p>'
+            if $HME事件链>=5:'<font color="#BBFFBB">与她对话，得知导演邀约她</font></p>'
+            if $HME事件链>=6:'<font color="#BBFFBB">↑如选择陪她拍摄乱交AV，将会得到电话号码</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SJ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $SJ事件链=0:'<font color="#BBFFBB"><<$SJ.name>>在娱乐室里躺着玩手机，去她家吃饭提升好感度直至下面给她吃</font></p>'
+            if $SJ事件链=1:'<font color="#BBFFBB"><<$SJ.name>>在娱乐室里尝试催眠她</font></p>'
+            if $SJ事件链>=2:'<font color="#BBFFBB">①在她家让<<$SJ.name>>现出本体</font></p>'
+            if $SJ事件链>=2:'<font color="#BBFFBB">②在娱乐室里<<$SJ.name>>现出本体</font></p>'
+            if $SJ事件链>=2:'<font color="#BBFFBB">③在教室托人代课时可以使用特殊能力</font></p>'
+            if $SJ事件链>=2:'<font color="#BBFFBB">↑继续陪她约会后可获得她的电话号码</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$YLW.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $YLW事件链=0:'<font color="#BBFFBB">在千金休息室里观测她和<<$SB.name>>的对话</font></p>'
+            if $YLW事件链=1:'<font color="#BBFFBB">放学后在蓝色跑车边上等她们</font></p>'
+            if $YLW事件链=2:'<font color="#BBFFBB">去她家辅导学习</font></p>'
+            if $YLW事件链=3:'<font color="#BBFFBB">白天托外校人员代课时收她的纸条</font></p>'
+            if $YLW事件链=4:'<font color="#BBFFBB">白天托外校人员代课时收她的纸条，去图书馆搞</font></p>'
+            if $YLW事件链=5 or $YLW事件链=6:'<font color="#BBFFBB">白天托外校人员代课时收她的纸条，去去千金休息室搞</font></p>'
+            if $YLW事件链=5 or $YLW事件链=6:'<font color="#BBFFBB">↑如选择正面回复，将会缓解关系，隔天再次陪她们回家时有新选项</font></p>'
+            if $YLW事件链=7:'<font color="#BBFFBB">陪她们回家后加入她们，达成一致。</font></p>'
+            if $YLW事件链=8:'<font color="#BBFFBB">最后在千金休息室里达成最最好的三人行后可获得电话号码。</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$FZL.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $FZL事件链=0:'<font color="#BBFFBB"><<$FZL.name>>在后门深处走廊，请她吃东西</font></p>'
+            if $FZL事件链=1:'<font color="#BBFFBB"><<$FZL.name>>在后门深处走廊，请客时有人来找麻烦</font></p>'
+            if $FZL事件链>=2:'<font color="#BBFFBB">放学后她会在酒吧台喝醉：</font></p>'
+            if $FZL事件链>=2:'<font color="#BBFFBB">可选：拨打男人给你的名片上的电话</font></p>'
+            if FZL录像带>=1:'<font color="#BBFFBB">↑回家在卧室电脑可查看录像带</font></p>'
+            if $FZL事件链>=2:'<font color="#BBFFBB">可选：送她回家</font></p>'
+            if $FZL.room=1:'<font color="#BBFFBB">前往她在辣妹帮的房间</font></p>'
+            if $FZL.room=1:'<font color="#BBFFBB">↑如参加周六的派对可获得她的电话</font></p>'
      '</div>'
  '</div>'
 end

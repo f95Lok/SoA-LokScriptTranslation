@@ -1,0 +1,105 @@
+# ring_shop_2
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+$ring_shop_dice_1=1
+$ring_shop_dice_2=2
+$ring_shop_dice_3=3
+$ring_shop_dice_4=4
+$ring_shop_dice_5=5
+$ring_shop_dice_6=6
+
+if $ring_dice_1>=100:rat_rat_open=1
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if rat_rat_open=1:'<a class="photo" data-title="鼠鼠骰子<Only win 6 points><<$rat_dice_1>>%""><img class="img_stretch" src="images\videos\fighter\pics\N7.jpg"></a>'
+			'<a class="photo" data-title="throw<<$ring_shop_dice_1>>probability<<$ring_dice_1>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$ring_shop_dice_1>>.jpg"></a>
+			<a class="photo" data-title="throw<<$ring_shop_dice_2>>probability<<$ring_dice_2>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$ring_shop_dice_2>>.jpg"></a>
+			<a class="photo" data-title="throw<<$ring_shop_dice_3>>probability<<$ring_dice_3>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$ring_shop_dice_3>>.jpg"></a>
+			<a class="photo" data-title="throw<<$ring_shop_dice_4>>probability<<$ring_dice_4>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$ring_shop_dice_4>>.jpg"></a>
+			<a class="photo" data-title="throw<<$ring_shop_dice_5>>probability<<$ring_dice_5>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$ring_shop_dice_5>>.jpg"></a>
+			<a class="photo" data-title="throw<<$ring_shop_dice_6>>probability<<$ring_dice_6>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$ring_shop_dice_6>>.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			if rat_rat_open=1:
+				if $cheers_in_the_ring>=6:'<a class="photo" data-title="㊔x6" a href="exec:$cheers_in_the_ring-=6 & TZBL=0 & $ring_dice_1-=6 & $rat_dice_1+=6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x6"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			end
+			if $cheers_in_the_ring>=6:'<a class="photo" data-title="㊔x6" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_1*6 & TZBL=1 & $ring_dice_1+=TZBL+6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x6"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $cheers_in_the_ring>=12:'<a class="photo" data-title="㊔x12" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_2*6 & TZBL=1 & $ring_dice_2+=TZBL+6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x12"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $cheers_in_the_ring>=18:'<a class="photo" data-title="㊔x18" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_3*6 & TZBL=1 & $ring_dice_3+=TZBL+6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x18"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $cheers_in_the_ring>=24:'<a class="photo" data-title="㊔x24" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_4*6 & TZBL=1 & $ring_dice_4+=TZBL+6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x24"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $cheers_in_the_ring>=30:'<a class="photo" data-title="㊔x30" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_5*6 & TZBL=1 & $ring_dice_5+=TZBL+6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x30"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $cheers_in_the_ring>=36:'<a class="photo" data-title="㊔x36" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_6*6 & TZBL=1 & $ring_dice_6+=TZBL+6 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x36"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if rat_rat_open=1:
+				if $cheers_in_the_ring>=12:'<a class="photo" data-title="㊔x12" a href="exec:$cheers_in_the_ring-=12 & TZBL=0 & $ring_dice_1-=12 & $rat_dice_1+=12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x12"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			end
+			if $cheers_in_the_ring>=12:'<a class="photo" data-title="㊔x12" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_1*12 & TZBL=2 & $ring_dice_1+=TZBL+12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x12"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $cheers_in_the_ring>=24:'<a class="photo" data-title="㊔x24" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_2*12 & TZBL=2 & $ring_dice_2+=TZBL+12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x24"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $cheers_in_the_ring>=36:'<a class="photo" data-title="㊔x36" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_3*12 & TZBL=2 & $ring_dice_3+=TZBL+12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x36"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $cheers_in_the_ring>=48:'<a class="photo" data-title="㊔x48" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_4*12 & TZBL=2 & $ring_dice_4+=TZBL+12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x48"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $cheers_in_the_ring>=60:'<a class="photo" data-title="㊔x60" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_5*12 & TZBL=2 & $ring_dice_5+=TZBL+12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x60"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $cheers_in_the_ring>=72:'<a class="photo" data-title="㊔x72" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_6*12 & TZBL=2 & $ring_dice_6+=TZBL+12 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x72"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if rat_rat_open=1:
+				if $cheers_in_the_ring>=18:'<a class="photo" data-title="㊔x18" a href="exec:$cheers_in_the_ring-=18 & TZBL=0 & $ring_dice_1-=18 & $rat_dice_1+=18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x18"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			end
+			if $cheers_in_the_ring>=18:'<a class="photo" data-title="㊔x18" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_1*18 & TZBL=3 & $ring_dice_1+=TZBL+18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x18"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $cheers_in_the_ring>=36:'<a class="photo" data-title="㊔x36" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_2*18 & TZBL=3 & $ring_dice_2+=TZBL+18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x36"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $cheers_in_the_ring>=54:'<a class="photo" data-title="㊔x54" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_3*18 & TZBL=3 & $ring_dice_3+=TZBL+18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x54"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $cheers_in_the_ring>=72:'<a class="photo" data-title="㊔x72" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_4*18 & TZBL=3 & $ring_dice_4+=TZBL+18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x72"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $cheers_in_the_ring>=90:'<a class="photo" data-title="㊔x90" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_5*18 & TZBL=3 & $ring_dice_5+=TZBL+18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x90"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $cheers_in_the_ring>=108:'<a class="photo" data-title="㊔x108" a href="exec:$cheers_in_the_ring-=$ring_shop_dice_6*18 & TZBL=3 & $ring_dice_6+=TZBL+18 & gt ''ring_shop_2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x108"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+			'<img src="images\videos\fighter\pics\战利品1.jpg" width="854">'
+	'</div>'
+		
+	'<div class="button_menu">'
+			'<div class="buttonG3"><a href="exec:gt ''the_beginning_of_the_ring''">Start the next round</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs 'my_data_in_the_ring'
+	'</div>'
+	q+=1
+End
+
+if $args[0] ='2':
+	$ring_dice_1-=TZBL
+	$ring_dice_2-=TZBL
+	$ring_dice_3-=TZBL
+	$ring_dice_4-=TZBL
+	$ring_dice_5-=TZBL
+	$ring_dice_6-=TZBL
+	'<div class="show_menu">'
+			'<img src="images\videos\fighter\pics\战利品1.jpg" width="854">'
+	'</div>'
+		
+	'<div class="button_menu">'
+			'<div class="buttonG3"><a href="exec:gt ''the_beginning_of_the_ring''">Start the next round</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs 'my_data_in_the_ring'
+	'</div>'
+	q+=1
+End
+--- ring_shop_2 ---------------------------------
+

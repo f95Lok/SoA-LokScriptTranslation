@@ -69,6 +69,21 @@ if $args[0]="":
 				if bishopschoice=2:'<p>·There was a man sitting dejectedly at the door of the church<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
 				if bishopschoice=1 and $xn.trial>=1:'<p>·There was a man sitting at the door of the church with his eyes blankly<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
 			end
+			if week_day=7 and hour=13:'<p>·There is a car in the distance with thick smoke<a href="exec:gt ''suburbs'',''RV''">-View</a></p>'
+			
+	'</div>'
+
+end
+
+if $args[0]="RV":
+	'<div class ="show_menu"><img src="images\place\RV.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: This car will show up here on time every Sunday at one o`clock in the afternoon... I hope it`s not a chemical experiment.…</p>'
 	'</div>'
 
 end
@@ -222,7 +237,7 @@ if $args[0]="traineemalegambling":
 
 	'<div class="dialog_menu">'
 		'<p>Man: The rules are very simple, throwing 1-3 is [small]; 4-6 is [large]</p>'
-		'<p>Me: Is this sieve okay?</p>'
+		'<p>Me: Is this dice okay?</p>'
 		'<p>Man: Of course, I assure you!Absolutely no problem!Hehe.But your bet... at least so much.*He squinted his eyes</p>'
 		$trainee_male_points=rand(1,6)
 	'</div>'

@@ -1,0 +1,99 @@
+# 电话亭
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+
+'<div id="right-column">'
+     gs"精力判定"
+     gs'menu_time'
+     gs'menu_status_show'
+     gs'menu_option_show'
+     '<div class="actions_menu">'
+          '<div class="action">'
+               if $SB.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=2 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SB.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $MPJ.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=3 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$MPJ.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $FZL.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=5 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$FZL.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+              if $SJ.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=7 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SJ.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+              if $HME.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=11 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HME.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+              if $YLW.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=13 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$YLW.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $CBJ.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=17 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$CBJ.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $XMK.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=19 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$XMK.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $SYYY.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=23 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SYYY.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $BTH.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=29 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$BTH.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $HSW.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=31 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HSW.name>>.jpg"></a>'
+          '</div>'
+          '<div class="action">'
+               if $TMW.tel=1:'<a class="photo" data-title="拨打电话" href="exec:SF_NUM*=37 & gt ''电话亭''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$TMW.name>>.jpg"></a>'
+          '</div>'
+     '</div>'
+'</div>'
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\电话亭.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if SF_NUM>1:
+			if SF_NUM=55:'<div class="buttonS"><a href="exec:$FaceName_A=$HME.name & love_A=$HME.love & $FaceName_B=$FZL.name & love_B=$FZL.love &  $m地址=''HMEFZL'' & gt ''截面学生群_双人'',''学生群_双人''"><<$HME.NAME>>&<<$FZL.NAME>></a></div>'
+			if SF_NUM=21:'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$SJ.name & love_B=$SJ.love &  $m地址=''MPJSJ'' & gt ''截面学生群_双人'',''学生群_双人''"><<$MPJ.NAME>>&<<$SJ.NAME>></a></div>'
+			if SF_NUM=6:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$MPJ.name & love_B=$MPJ.love &  $m地址=''SBMPJ'' & gt ''截面学生群_双人'',''学生群_双人''"><<$SB.NAME>>&<<$MPJ.NAME>></a></div>'
+			if SF_NUM=26:
+				'<div class="buttonS1"><a href="exec:$FaceName_A=$YLW.name & love_A=$YLW.love & $FaceName_B=$SB.name & love_B=$SB.love &  $m地址=''YLWSB'' & gt ''截面学生群_双人'',''学生群_双人''"><<$YLW.NAME>>&<<$SB.NAME>></a></div>'
+				'<div class="buttonS2"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m地址=''YQB'' & gt ''截面学生群_双人'',''学生群_双人''"><<$SB.NAME>>&<<$YLW.NAME>></a></div>'
+				'<div class="buttonS3"><a href="exec: $FaceName_B=$SB.name & love_B=$SB.love & $FaceName_A=$YLW.name & love_A=$YLW.love &  $m地址=''AW'' & gt ''截面学生群_双人'',''学生群_双人''"><<$YLW.NAME>>&<<$SB.NAME>></a></div>'
+				'<div class="buttonS4"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m地址=''DCSE'' & gt ''截面学生群_双人'',''学生群_双人''"><<$SB.NAME>>&<<$YLW.NAME>></a></div>'
+				'<div class="buttonS5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m地址=''YQC'' & gt ''截面学生群_双人'',''学生群_双人''"><<$SB.NAME>>&<<$YLW.NAME>></a></div>'
+			end
+			if SF_NUM=10:'<div class="buttonS"><a href="exec:$FaceName_A=$FZL.name & love_A=$FZL.love & $FaceName_B=$SB.name & love_B=$SB.love &  $m地址=''FZLSB'' & gt ''截面学生群_双人'',''学生群_双人''"><<$FZL.NAME>>&<<$SB.NAME>></a></div>'
+			if SF_NUM=65:'<div class="buttonS"><a href="exec:$FaceName_A=$FZL.name & love_A=$FZL.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m地址=''FZLYLW'' & gt ''截面学生群_双人'',''学生群_双人''"><<$FZL.NAME>>&<<$YLW.NAME>></a></div>'
+			if SF_NUM=22:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$HME.name & love_B=$HME.love &  $m地址=''SBHME'' & gt ''截面学生群_双人'',''学生群_双人''"><<$SB.NAME>>&<<$HME.NAME>></a></div>'
+			if SF_NUM=14:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$SJ.name & love_B=$SJ.love &  $m地址=''SBSJ'' & gt ''截面学生群_双人'',''学生群_双人''"><<$SB.NAME>>&<<$SJ.NAME>></a></div>'
+			
+			if SF_NUM!55 and SF_NUM!21 and SF_NUM!6 and SF_NUM!26 and SF_NUM!10 and SF_NUM!65 and SF_NUM!22 and SF_NUM!14:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+		end
+		'<div class="button"><a href="exec:SF_NUM=1 & gt ''电话亭''">清空号码</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''大学后门''">离开</a></div>'
+	'</div>'
+
+    '<div class="dialog_menu">'
+	    '<p>我: 如果我有她们的电话号码的话…</p>'
+	    '<p>#161<<rand(8888,9999)>><<SF_NUM>></p>'
+    '</div>'
+         
+end
+
+
+
+
+
+
+
+
+
+
+
+
+--- 电话亭 ---------------------------------
+

@@ -11,7 +11,7 @@ gs'menu_time_calc'
 
 
 
-if $args[3]>$strategy_unlock and $args[3]!$v48_raiders_unlock:gt'strategy_sponsorship'
+if $args[3]>$strategy_unlock and $args[3]>$v48_raiders_unlock:gt'strategy_sponsorship'
 
 
 
@@ -452,7 +452,7 @@ if $args[0]='<<$DCM.name>>':
                 '<font color="#FFFF99">Memory recall: ❤First sight of the tram❤<a href="exec:a=0 & q=0 & $tram_role=''B'' & gt''subway_event'',''subway_harassment_0''">←click</a></font></p>' 
                 '<font color="#FFFF99">Memory recall: ❤Toilet change❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a4''">←click</a></font></p>'
                 '<font color="#FFFF99">Memory recall: ❤Study in the boudoir❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a5''">←click</a></font></p>' 
-                '<font color="#FFFF99">Memory recall: ❤Sister is not here❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_b6''">←click</a></font></p>' 
+                '<font color="#FFFF99">Memory recall: ❤Sister gank❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_sister_b6''">←click</a></font></p>' 
                 '<font color="#FFFF99">Memory recall: ❤Really not here❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_b5''">←click</a></font></p>' 
                 '<font color="#FFFF99">Memory recall: ❤Go out to open a room❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a7''">←click</a></font></p>' 
                 '<font color="#FFFF99">Memory recall: ❤Maid interview❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''tram_sister_a8''">←click</a></font></p>' 
@@ -494,21 +494,6 @@ if $args[0]='<<$MZ.name>>':
                 '<font color="#FFFF99">Memory recall: ❤Hot spring date❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_f8''">←click</a></font></p>' 
             end
             if $beauty_event_chain>=11:'<font color="#FFFF99">Memory recall: ❤Go to the wind and rain together❤<a href="exec:a=0 & q=0 & gt ''beauty_event'',''beauty_z9''">←Hidden ending</a></font></p>' 
-     '</div>'
- '</div>'
-end
-
-if $args[0]='<<$SB.name>>':
- '<div class="charac_nps_info999">'
-     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
-     '<div id="left-column999">'
-            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
-            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
-            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
-            '<font color="#FFE4B5">Front: Complete the podium plot</font></p>'
-            if $matsumoto_event_chain<3:'<font color="#BBFFBB">Looking at the podium in the second class of three years</font></p>'
-            if $matsumoto_event_chain=3:'<font color="#BBFFBB">Stage 1: Remove the 3 students she doesn`t like from the class roster, and talk to her after they are all completed</font></p>'
-            !if 新图书馆*新体育馆*新游泳馆=1:'<font color="#BBFFBB">阶段二：未实装·等待下个版本</font></p>'
      '</div>'
  '</div>'
 end
@@ -556,6 +541,133 @@ if $args[0]='<<$BZ.name>>':
                 '<font color="#FFFF99">Memory recall: ❤Bank cover❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b7''">←click</a></font></p>' 
                 '<font color="#FFFF99">Memory recall: ❤Interrogation and torture❤<a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b8''">←click</a></font></p>' 
             end
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SB.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: Complete the podium plot</font></p>'
+            if $matsumoto_event_chain<3:'<font color="#BBFFBB">Looking at the podium in the second class of three years</font></p>'
+            if $matsumoto_event_chain=3:'<font color="#BBFFBB">Stage 1: Remove the 3 students she doesn`t like from the class roster, and talk to her after they are all completed</font></p>'
+            if $matsumoto_event_chain=4:'<font color="#BBFFBB">Stage 2: Check the memo in the daughter`s lounge</font></p>'
+            if $matsumoto_event_chain=5:'<font color="#BBFFBB">Continue to drink with her in the club every night</font></p>'
+            if $matsumoto_event_chain=6:'<font color="#BBFFBB">Talk to her in the daughter`s lounge</font></p>'
+            if $matsumoto_event_chain=7:'<font color="#BBFFBB">Drive her car and accompany her around the zoo</font></p>'
+            if $matsumoto_event_chain=8:'<font color="#BBFFBB">Drive her car to go shopping with her</font></p>'
+            if $matsumoto_event_chain=9:'<font color="#BBFFBB">Back to my own home</font></p>'
+            if $matsumoto_event_chain=10:'<font color="#BBFFBB">Hanging out in residential areas</font></p>'
+            if $matsumoto_event_chain=11:'<font color="#BBFFBB">Drive her car to accompany her to watch the fireworks display at night</font></p>'
+            if $matsumoto_event_chain=12:'<font color="#BBFFBB">Pick up my childhood sweetheart at the airport</font></p>'
+            if $matsumoto_event_chain=13:'<font color="#BBFFBB">Think of a way to get through the internship period</font></p>'
+            if $matsumoto_event_chain=14:'<font color="#BBFFBB">Meet your childhood sweetheart at the entrance of the school at 21:00</font></p>'
+            if $matsumoto_event_chain>=15:'<font color="#BBFFBB">Ask her to see the fireworks show again</font></p>'
+            if $matsumoto_event_chain=16:'<font color="#BBFFBB">↑If you choose [I Love You Too], you will get a phone number</font></p>'
+     '</div>'
+ '</div>'
+end
+
+
+
+if $args[0]='<<$MPJ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $mpj_event_chain=0:'<font color="#BBFFBB">Find a way to go to her house</font></p>'
+            if $mpj_event_chain=1:'<font color="#BBFFBB">Go to the Night CLUB office to find the crazy brother</font></p>'
+            if $mpj_event_chain=2:'<font color="#BBFFBB">Go to her house to convey the news</font></p>'
+            if $mpj_event_chain=3:'<font color="#BBFFBB">The next day, I found the crazy little brother in the Night CLUB office and waited for them to come.</font></p>'
+            if $mpj_event_chain=4:'<font color="#BBFFBB">Go to her house after the storm subsides and let her repay you</font></p>'
+            if $mpj_event_chain>=5:'<font color="#BBFFBB">Go to her house the next day and leave her siblings alone</font></p>'
+            if $mpj_event_chain>=6:'<font color="#BBFFBB">↑If you choose to enter the blend, you will get a phone number</font></p>'
+     '</div>'
+ '</div>'
+end
+
+
+if $args[0]='<<$HME.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $hme_event_chain=0:'<font color="#BBFFBB"><<$HME.name>>Lying down in the puff room and playing with his mobile phone, the conversation went to the AV shooting set.</font></p>'
+            if $hme_event_chain=1:'<font color="#BBFFBB"><<$HME.name>>After considering it, accompany her to the audition</font></p>'
+            if $hme_event_chain=2:'<font color="#BBFFBB">Practice oral sex with her</font></p>'
+            if $hme_event_chain=3:'<font color="#BBFFBB">Accompany her to retake the exam</font></p>'
+            if $hme_event_chain=4:'<font color="#BBFFBB">After being rejected again, she needs to be filled by multiple people in the puff room once</font></p>'
+            if $hme_event_chain>=5:'<font color="#BBFFBB">Talk to her and learn that the director invited her</font></p>'
+            if $hme_event_chain>=6:'<font color="#BBFFBB">↑If you choose to accompany her to shoot promiscuous AV, you will get a phone number</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SJ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $sj_event_chain=0:'<font color="#BBFFBB"><<$SJ.name>>Lie down in the recreation room and play with your mobile phone, go to her house for dinner to increase your favorability until you give her food below</font></p>'
+            if $sj_event_chain=1:'<font color="#BBFFBB"><<$SJ.name>>Try to hypnotize her in the recreation room</font></p>'
+            if $sj_event_chain>=2:'<font color="#BBFFBB">①Let it at her house<<$SJ.name>>The body appears</font></p>'
+            if $sj_event_chain>=2:'<font color="#BBFFBB">② In the recreation room<<$SJ.name>>The body appears</font></p>'
+            if $sj_event_chain>=2:'<font color="#BBFFBB">③You can use special abilities when you are a substitute in the classroom</font></p>'
+            if $sj_event_chain>=2:'<font color="#BBFFBB">↑You can get her phone number after continuing to accompany her on a date</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$YLW.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $ylw_event_chain=0:'<font color="#BBFFBB">Observe her and her in the daughter`s lounge<<$SB.name>>dialogue</font></p>'
+            if $ylw_event_chain=1:'<font color="#BBFFBB">Waiting for them by the blue sports car after school</font></p>'
+            if $ylw_event_chain=2:'<font color="#BBFFBB">Go to her house for tutoring and study</font></p>'
+            if $ylw_event_chain=3:'<font color="#BBFFBB">Receive her note when she is a substitute for a foreign school staff during the day</font></p>'
+            if $ylw_event_chain=4:'<font color="#BBFFBB">During the day, she received her note when she was a substitute for a foreign school staff, and went to the library to do it.</font></p>'
+            if $ylw_event_chain=5 or $ylw_event_chain=6:'<font color="#BBFFBB">During the day, she received her note when she was a substitute for the foreign school staff, and went to the daughter`s lounge to do it.</font></p>'
+            if $ylw_event_chain=5 or $ylw_event_chain=6:'<font color="#BBFFBB">↑If you choose a positive reply, the relationship will be eased, and there will be a new option when you accompany them home again the next day.</font></p>'
+            if $ylw_event_chain=7:'<font color="#BBFFBB">After accompanying them home, join them and reach an agreement.</font></p>'
+            if $ylw_event_chain=8:'<font color="#BBFFBB">Finally, after reaching the best threesome in the daughter lounge, you can get a phone number.</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$FZL.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $fzl_event_chain=0:'<font color="#BBFFBB"><<$FZL.name>>In the corridor deep in the back door, invite her to eat</font></p>'
+            if $fzl_event_chain=1:'<font color="#BBFFBB"><<$FZL.name>>In the corridor deep in the back door, someone comes to trouble when you treat guests</font></p>'
+            if $fzl_event_chain>=2:'<font color="#BBFFBB">She will get drunk at the bar table after school：</font></p>'
+            if $fzl_event_chain>=2:'<font color="#BBFFBB">Optional: Call the number on the business card given to you by the man</font></p>'
+            if fzl_videotape>=1:'<font color="#BBFFBB">↑Go home and view the videotape on the computer in the bedroom</font></p>'
+            if $fzl_event_chain>=2:'<font color="#BBFFBB">Optional: Send her home</font></p>'
+            if $FZL.room=1:'<font color="#BBFFBB">Go to her room in the Hot Girls Gang</font></p>'
+            if $FZL.room=1:'<font color="#BBFFBB">↑If you attend a party on Saturday, you can get her phone number</font></p>'
      '</div>'
  '</div>'
 end

@@ -1,0 +1,529 @@
+# 大学后门
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="班级名册" href="exec:gt ''menu_charac_学生'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="废弃教室" href="exec:gt ''大学后门'',''废弃教室''"><img class="img_stretch" src="images\place\废弃教室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="千金休息室" href="exec:gt ''大学后门'',''千金休息室''"><img class="img_stretch" src="images\place\学校休息室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="活动教室" href="exec:gt ''大学后门'',''活动教室''"><img class="img_stretch" src="images\place\活动教室.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			if  8<=hour and hour<18 and week_day <6:
+			'<a class="photo" data-title="三年二班" href="exec:minutes+=5 & gt ''三年二班''"><img class="img_stretch" src="images\place\三年二班.jpg"></a>'
+			else:
+			'<a class="photo" data-title="三年二班" ><img class="img_stretch" src="images\place\三年二班2.jpg"></a>'
+			End
+		'</div>'
+		'<div class="action">
+			<a class="photo" data-title="后门走廊" href="exec:gt ''大学后门''"><img class="img_stretch" src="images\place\大学_后门.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="娱乐室" href="exec:gt ''大学后门'',''娱乐室''"><img class="img_stretch" src="images\place\娱乐室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="泡芙房" href="exec:gt ''大学后门'',''泡芙房''"><img class="img_stretch" src="images\place\炮房.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="大学正门" href="exec:minutes+=15 & gt ''大学''"><img class="img_stretch" src="images\place\大学_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		'<div class="action">
+			<a class="photo" data-title="废弃教室" href="exec:gt ''大学后门'',''废弃教室''"><img class="img_stretch" src="images\place\废弃教室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="后门尽头" href="exec:gt ''大学后门'',''尽头''"><img class="img_stretch" src="images\place\后门尽头.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="地下车库" href="exec:gt ''大学后门'',''车库''"><img class="img_stretch" src="images\place\车库0.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\大学_后门.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：教室后门原来有这么长的废弃区域…</p>'
+	'</div>'
+end
+
+if $args[0]="活动教室":
+	'<div class ="show_menu"><img src="images\place\活动教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·等待开展某些活动的教室。</p>'
+	'</div>'
+end
+
+if $args[0]="废弃教室":
+	'<div class ="show_menu"><img src="images\place\废弃教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·因为一些原因被废弃的教室。</p>'
+	'</div>'
+end
+
+if $args[0]="千金休息室":
+	QJ_suinum=rand(0,100)
+	if QJ_suinum>=80 and $SB.tel=1 and 每日辅导松本=0:gt '松本_事件','突袭中'
+	
+	'<div class ="show_menu"><img src="images\place\学校休息室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $松本事件链>=6:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''大学后门'',''松本立绘''"><<$SB.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·专为<<$SB.name>>打造的私人休息室</p>'
+		if $松本事件链=4:'<p>·不远处的备忘录上记着23:45分和夜色精巢的LOGO，还有超级多的❤</p>'
+		if QJ_suinum>=50:'<p>·<<$SB.name>>正在沙发上调戏<<$MPJ.name>><a href="exec:gt ''学生群_事件'',''女同_MPJ_SB''">-靠近</a></p>'
+		if QJ_suinum<=49:'<p>·<<$SB.name>>正在沙发上和<<$YLW.name>>嬉戏<a href="exec:gt ''大学后门'',''沙发嬉戏''">-靠近</a></p>'
+	'</div>'
+end
+
+if $args[0]="松本立绘":
+	if $松本矛盾=0:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\MN0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''单学生'',''SB''">是的呢</a></div>'
+		if $松本事件链>=7:'<div class="buttonP"><a href="exec:$m=''SB'' & $ma=$SB.name & $SB.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">按摩讨好</a></div>'
+		if $SB.love>=150 and 12<=hour and hour<=17:'<div class="buttonGn3"><a href="exec:a=-1 & $m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''MBC'' & gt ''截面_事件'',''泛用截面''">出去走走</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>:单独找伦家什么事呀❤是不是想和我约会呀❤</p>'
+	'</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\MN1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>:你再纠缠我的话，我就要告诉我妈了。到时候你会怎么样我可不在乎。</p>'
+	'</div>'
+	
+	end
+end
+
+
+if $args[0]="沙发嬉戏":
+	 $YLW.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YLW\vids\safa1-<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $YLW事件链>=6:'<div class="buttonS3"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m地址=''YQB'' & gt ''截面学生群_双人'',''学生群_双人''">插足双飞</a></div>'else:'<div class="buttonGr"><a href="exec:">插足？？？</a></div>' 
+		if $YLW事件链>=8:'<div class="buttonS5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m地址=''YQC'' & gt ''截面学生群_双人'',''学生群_双人''">最最好的三人行</a></div>'else:'<div class="buttonGr"><a href="exec:">最最好？？？</a></div>' 
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>:老婆❤亲一个嘛❤你是不是和伦家天下第一最最好❤</p>'
+		'<p><<$YLW.name>>:当然啦❤Mua❤</p>'
+		'<p><<$SB.name>>:放学了要不要去我家里看恐怖电影？</p>'
+		'<p><<$YLW.name>>:看恐怖电影？</p>'
+		'<p><<$SB.name>>:陪伦家看嘛~伦家一个人不敢看啦！</p>'
+		'<p><<$YLW.name>>:好吧，那放学了你载我去喔❤</p>'
+		'<p><<$SB.name>>:好滴！</p>'
+		if $YLW事件链=0:$YLW事件链=1
+	'</div>'
+end
+
+if $args[0]="娱乐室":
+	'<div class ="show_menu"><img src="images\place\娱乐室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''电话亭''">↑打开门↑</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门'',''酒吧台''">→酒吧台→</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门'',''大沙发''">←大沙发←</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·这里居然还会有娱乐室…</p>'
+		'<p>·<<$SJ.name>>在另一边躺着玩手机<a href="exec:gt ''大学后门'',''书记立绘''">-靠近</a></p>'
+	'</div>'
+end
+
+if $args[0]="酒吧台":
+	if $times_of_day="night":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\FZL\vids\SZG1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''学生群_事件'',''FZL醉倒''">摇摇她</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">不管她</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: <<$FZL.name>>在这里睡着了…</p>'
+	'</div>'
+	
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\bar.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:minutes+=5 & gt ''大学后门'',''吧台上''">吧台上</a></div>'
+		'<div class="buttonS3"><a href="exec:$m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & $m地址=''bbar'' & gt ''截面_事件'',''泛用截面''">围观<<$MPJ.name>>取乐</a></div>'
+		if $HME.love>=25:'<div class="buttonG4"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love & $FaceName_D=$SB.name & love_D=$SB.love & $m地址=''CCSD'' & gt ''截面学生群_多人'',''学生群_多人''">推到她们</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·这里居然还会有酒吧台…</p>'
+		'<p><<$SB.name>>：来！<<$MPJ.name>>给大伙表演个屄开啤酒瓶吧！*起哄</p>'
+		'<p><<$FZL.name>>：是啊！这是你的绝活！*起哄</p>'
+		'<p><<$HME.name>>：<<$主角姓名>>也来给你捧场了！不表演一下？*起哄</p>'
+		'<p><<$MPJ.name>>：这……</p>'
+	'</div>'
+	end
+end
+
+if $args[0]="吧台上":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YLW\vids\BAR0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:gt ''单学生'',''YLW''">★对话交流★</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YLW.name>>:<<$MPJ.name>>会喷的到处都是的！</p>'
+		'<p><<$SB.name>>:亲爱的能帮我倒一杯香槟嘛❤</p>'
+		'<p><<$YLW.name>>:<<$肯定回答>></p>'
+	'</div>'
+end
+
+if $args[0]="大沙发":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\sofa.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$YLW.name & love_C=$YLW.love & $FaceName_D=$SB.name & love_D=$SB.love & $m地址=''JSFS'' & gt ''截面学生群_多人'',''学生群_多人''">❤靠近她们❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>:去帮我们把酒倒上！</p>'
+		'<p><<$MPJ.name>>:小姐，好嘞！</p>'
+		'<p>·<<$FZL.name>>一个人躺在另一边<a href="exec:a=-1 & $m=''FZL'' & $ma=$FZL.name & love_num=$FZL.love & $m地址=''XX'' & gt ''截面_事件'',''泛用截面''">-靠近</a></p>'
+	'</div>'
+end
+
+if $args[0]="书记立绘":
+	 $SJ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SJ\vids\SOFA0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:gt ''单学生'',''SJ''">★深入交流★</a></div>'
+		'<div class="buttonS"><a href="exec:$m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m地址=''SOFA'' & gt ''截面_事件'',''泛用截面''">直接肏她</a></div>'
+		if $SJ事件链>=2:'<div class="buttonR"><a href="exec:a=-1 & $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m地址=''XS'' & gt ''截面_事件'',''泛用截面''">现出本体</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SJ.name>>: 呜呼❤神原，启动！</p>'
+	'</div>'
+end
+
+if $args[0]="泡芙房":
+	'<div class ="show_menu"><img src="images\place\炮房.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·所谓泡芙房的由来就是进去之后小穴要被精液灌成泡芙状才行…</p>'
+		'<p>————</p>'
+		'<p>·<<$HME.name>>在沙发上<a href="exec:gt ''大学后门'',''黑木耳立绘''">-搭话</a></p>'
+	'</div>'
+end
+
+if $args[0]="黑木耳立绘":
+	 $HME.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\HME\vids\KM.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:gt ''单学生'',''HME''">★深入交流★</a></div>'
+		'<div class="buttonS"><a href="exec:$HME.love+=5 & $m=''HME'' & $ma=$HME.name & love_num=$HME.love & $m地址=''zj'' & gt ''截面_事件'',''泛用截面''">出现肏她</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''HME_泡芙''">喊更多的人</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HME.name>>怎么没人来肏我，人都去哪了呢❤*边玩着手机边在自慰</p>'
+	'</div>'
+end
+
+if $args[0]="尽头":
+	'<div class ="show_menu"><img src="images\place\尽头1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & a_k=0 & gt ''大学后门'',''深入''">深入</a></div>'
+		'<div class="button"><a href="exec:gt ''单学生'',''FZL''">对话</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$FZL.name>>:兲兲嘟浑浑噩噩嘚却妚倁忄姒丢ㄋ…</p>'
+	'</div>'
+end
+
+if $args[0]="深入":
+	'<div class ="show_menu"><img src="images\place\深入<<a_k>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if a_k=0:'<div class="button"><a href="exec:minutes+=5 & a_k+=1 & gt ''大学后门'',''深入''">深入</a></div>'
+		if a_k=1:'<div class="button"><a href="exec:minutes+=5 & a_k+=1 & gt ''大学后门'',''深入''">深入</a></div>'
+		if a_k=2:
+			if $QH.available=1:'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门'',''独家房间''">打开</a></div>'else:'<div class="buttonGr"><a href="exec:">打开</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a_k=0:
+			'<p>…</p>'
+		end
+		if a_k=1:
+			'<p><<$XMK.name>>:你也是来看她的吗？别怪我没提醒你，如果你敢惹她伤心的话，我会找人揍你。</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="车库":
+	if hour=16 or hour=17:'<div class ="show_menu"><img src="images\place\车库1.jpg" width="854"></div>'else:'<div class ="show_menu"><img src="images\place\车库0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $松本事件链>=7 and $松本矛盾=0:
+			if hour!16 and hour!17:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''松本_事件'',''上车''">等<<$SB.name>></a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:这里居然停着这种车…</p>'
+		if hour=16 or hour=17:
+			'<p><<$SB.name>>:盯着本小姐的车入迷了吗？</p>'
+			if $YLW事件链>=1:
+				'<p><<$YLW.name>>:我们走吧，恐怖电影决定好看哪一部了吗？</p>'
+				'<p><<$SB.name>>:上次没看完的哪部！</p>'
+				'<p>我:我能一起去看吗？</p>'
+				'<p><<$SB.name>>:你看不到这辆车只能坐两个人嘛？</p>'
+				'<p><<$YLW.name>>:一起吧！我也挺怕的其实…</p>'
+				'<p><<$SB.name>>:唉，算啦！我们一起步行回去吧！路上再买点好次滴！<a href="exec:gt ''学生群_事件'',''YLW夜步''">-跟她们走</a></p>'
+			 end
+		end
+	'</div>'
+end
+
+
+if $args[0]="独家房间":
+	if $QH事件链>=4:gt'大学后门','独家房间2'
+	if QH_num>=3 and $QH事件链<=1:gt'大学后门','七海立绘2'
+	if $QH事件链=2:gt'大学后门','七海立绘3'
+	'<div class ="show_menu"><img src="images\place\独家房间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $QH事件链<=2:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''大学后门'',''七海立绘''">←<<$QH.name>></a></div>'
+		if $QH事件链>=3:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''大学后门'',''七海立绘4''">←<<$QH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·一个单独的房间………</p>'
+	'</div>'
+end
+
+
+if $args[0]="七海立绘":
+	 QH_num+=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\A0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QH.name>>:…</p>'
+		'<p>我：你好！</p>'
+		'<p><<$QH.name>>:……</p>'
+		'<p>我：嗨？你好？</p>'
+		'<p><<$QH.name>>:………</p>'
+		'<p>*她的脸上带着一丝麻木，依旧在笔记上写着什么，没有理我</p>'
+	'</div>'
+end
+
+if $args[0]="七海立绘2":
+	 if $QH事件链=0:$QH事件链=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\A1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>:混蛋，是不是你把她气跑了？她人呢？</p>'
+		'<p>我：我…我不知道啊…</p>'
+		'<p><<$SB.name>>:她已经有好几天不在了…我很担心她。</p>'
+		'<p>我：那她会去哪里？</p>'
+		'<p><<$SB.name>>:她经常会去海边或者公园，我们分头去找吧！一定要快！</p>'
+	'</div>'
+end
+
+if $args[0]="七海立绘3":
+	 if $QH事件链=2:$QH事件链=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\NA.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门'',''独家房间''">好的</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>:太好了，看起来她平安无事呢。</p>'
+		'<p>我：她…到底是怎么了？</p>'
+		'<p><<$SB.name>>:具体情况我也不是很了解，但是看到朋友郁郁寡欢都会尽力所能及的事去帮助她对吧？</p>'
+		'<p>我：是啊…</p>'
+		'<p><<$SB.name>>:那你也要多去鼓励开导她喔！</p>'
+	'</div>'
+end
+
+if $args[0]="七海立绘4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\A0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG1"><a href="exec:QH_num+=15 & gt ''学生群_事件'',''QH_吃饭''">陪她去吃芝士意面</a></div>'
+		if QH_num>=50:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''学生群_事件'',''QH_旅行''">陪她去看皑皑雪山</a></div>'
+		if QH_num>=100:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''学生群_事件'',''QH_太阳''">陪她出去晒晒太阳</a></div>'
+		if QH_num>=999:'<div class="buttonG5"><a href="exec:minutes+=5 & gt ''学生群_事件'',''QH_游泳''">出来玩！</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：嗨？今天天气不错呢。</p>'
+		'<p><<$QH.name>>: 嗯....</p>'
+		'<p>*她在笔记上写着什么，凑过头去看</p>'
+		if QH_num>=30:'<p>*笔记内容:我天性不宜交际。在多数场合，我不是觉得对方乏味，就是害怕对方觉得我乏味。可是我既不愿忍受对方的乏味，也不愿费劲使自己显得有趣，那都太累了。我独处时最轻松，因为我不觉得自己乏味，即使乏味，也自己承受，不累及他人，无需感到不安。</p>'
+		if QH_num>=50:'<p>*笔记内容:人生本是一场孤旅。像一列开往坟墓的列车，路途上会有很多站，每一站都会有人下车，在终点前，我想去看看皑皑雪山。</p>'
+		if QH_num>=100:'<p>*笔记内容:外面的天气真的很好，鸟语花香，空气也很清新，但阳光始终照不进我的围墙里。</p>'
+		if QH_num>=999:'<p>*笔记内容:我明明把墙砌得很高，但现在总有人在我丧气的时候仗义地过来按我门铃。</p>'
+	'</div>'
+end
+
+if $args[0]="独家房间2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\L9.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:QH_num+=10 & gt ''学生群_事件'',''QH_吃饭''">陪她去吃芝士意面</a></div>'
+		if QH_num>=40:'<div class="buttonG1"><a href="exec:minutes+=5 & gt ''学生群_事件'',''QH_旅行''">陪她去看皑皑雪山</a></div>'
+		if QH_num>=100:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''学生群_事件'',''QH_太阳''">陪她出去晒晒太阳</a></div>'
+		if QH_num>=999:'<div class="buttonG5"><a href="exec:minutes+=5 & gt ''学生群_事件'',''QH_游泳''">出来玩！</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QH.name>>: 嗨~</p>'
+		'<p>我：嗨？今天心情不错呢。</p>'
+		'<p>*她在笔记上写着什么，凑过头去看</p>'
+		'<p><s>*笔记内容:我天性不宜交际。在多数场合，我不是觉得对方乏味，就是害怕对方觉得我乏味。可是我既不愿忍受对方的乏味，也不愿费劲使自己显得有趣，那都太累了。我独处时最轻松，因为我不觉得自己乏味，即使乏味，也自己承受，不累及他人，无需感到不安。</s></p>'
+		'<p><s>*笔记内容:人生本是一场孤旅。像一列开往坟墓的列车，路途上会有很多站，每一站都会有人下车，在终点前，我想去看看皑皑雪山。</s></p>'
+		'<p><s>*笔记内容:外面的天气真的很好，鸟语花香，空气也很清新，但阳光始终照不进我的围墙里。</s></p>'
+		'<p><s>*笔记内容:我明明把墙砌得很高，但现在总有人在我丧气的时候仗义地过来按我门铃。</s></p>'
+		'<p><B>*笔记内容:感谢所有在天黑时依旧为我亮起的灯，所有在我丧气时仗义地过来按我门铃的人。</p>'
+		'<p>————</p>'
+		'<p><B><span class =''red''>请原谅卑劣的我，在一个黄油里投稿了一段没有涩涩的剧情。我没有消费逝者的意思，只希望在冰冷的赛博空间里，用拼凑起来的片段，给这个可怜的女孩创造一段美好的回忆。 ——群友投稿</p>'
+		'<p>她会永远地存活在这里，吃着她喜欢的食物，有关心她、愿意陪她玩的朋友——每一个打开这个房间的玩家。 ——作者寄语</p>'
+		'<p></p>'
+	'</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- 大学后门 ---------------------------------
+

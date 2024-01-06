@@ -1,0 +1,60 @@
+# 擂台追击
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+$擂台敌护盾-=1
+if $擂台敌护盾<0:$擂台敌护盾=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "擂台敌属性"
+		'</div>'
+		
+		'<div class="action">'
+			if SK揉奶=1:'<a class="photo" data-title="揉奶" href="exec:a=8 & gt ''擂台进行''"><img class="img_stretch" src="images\videos\fighter\pics\MSK1.jpg"></a>'
+			if SK网边=1:'<a class="photo" data-title="网边压制" href="exec:a=12 & gt ''擂台网边''"><img class="img_stretch" src="images\videos\fighter\pics\MSK4.jpg"></a>'
+		'</div>'
+		
+		
+		'<div class="action">'
+			if SK口交=1:'<a class="photo" data-title="口交" href="exec:a=9 & gt ''擂台进行''"><img class="img_stretch" src="images\videos\fighter\pics\MSK2.jpg"></a>'
+			if SK地面=1:'<a class="photo" data-title="地面压制" href="exec:a=16 & gt ''擂台地面''"><img class="img_stretch" src="images\videos\fighter\pics\MSK5.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if SK强插=1:'<a class="photo" data-title="插入" href="exec:a=11 & $擂台敌子宫+=5 & gt ''擂台进行''"><img class="img_stretch" src="images\videos\fighter\pics\MSK3.jpg"></a>'
+			if SKTKO=1:'<a class="photo" data-title="TKO" href="exec:a=21 & gt ''擂台TKO''"><img class="img_stretch" src="images\videos\fighter\pics\MSK6.jpg"></a>'
+			'<a class="photo" data-title="投掷拼点" href="exec:a=2 & gt ''擂台掷点''"><img class="img_stretch" src="images\videos\fighter\pics\投掷.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\7.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+End
+
+
+--- 擂台追击 ---------------------------------
+

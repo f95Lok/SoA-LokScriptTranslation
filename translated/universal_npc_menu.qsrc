@@ -22,6 +22,11 @@ gs'menu_time_calc'
     if $args[0]='<<$MZ.name>>':'<a href="exec:$filename_reference=''<<$MZ.filename>>'' & gt ''character_strategy'',''<<$MZ.name>>'',''<<$MZ.love>>'',''<<$MZ.bad>>'',''48''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
     if $args[0]='<<$BZ.name>>':'<a href="exec:$filename_reference=''<<$BZ.filename>>'' & gt ''character_strategy'',''<<$BZ.name>>'',''<<$BZ.love>>'',''<<$BZ.bad>>'',''48''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
     if $args[0]='<<$SB.name>>':'<a href="exec:$filename_reference=''<<$SB.filename>>'' & gt ''character_strategy'',''<<$SB.name>>'',''<<$SB.love>>'',''<<$SB.bad>>'',''48''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
+    if $args[0]='<<$SJ.name>>':'<a href="exec:$filename_reference=''<<$SJ.filename>>'' & gt ''character_strategy'',''<<$SJ.name>>'',''<<$SJ.love>>'',''<<$SJ.bad>>'',''50''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
+    if $args[0]='<<$YLW.name>>':'<a href="exec:$filename_reference=''<<$YLW.filename>>'' & gt ''character_strategy'',''<<$YLW.name>>'',''<<$YLW.love>>'',''<<$YLW.bad>>'',''50''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
+    if $args[0]='<<$HME.name>>':'<a href="exec:$filename_reference=''<<$HME.filename>>'' & gt ''character_strategy'',''<<$HME.name>>'',''<<$HME.love>>'',''<<$HME.bad>>'',''50''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
+    if $args[0]='<<$FZL.name>>':'<a href="exec:$filename_reference=''<<$FZL.filename>>'' & gt ''character_strategy'',''<<$FZL.name>>'',''<<$FZL.love>>'',''<<$FZL.bad>>'',''50''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
+    if $args[0]='<<$MPJ.name>>':'<a href="exec:$filename_reference=''<<$MPJ.filename>>'' & gt ''character_strategy'',''<<$MPJ.name>>'',''<<$MPJ.love>>'',''<<$MPJ.bad>>'',''50''"><div class="option_gonglue"data-title="Character strategy"></div></a>'
 '</div>'
 
 
@@ -30,9 +35,11 @@ gs'menu_time_calc'
 
 !#--------------------------------------------------------------------------------------------------
 '<div class="charac_nps_info">'
-
-	 '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
-		
+	 if $args[7]=-1:
+	     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>Y.png"></div>'
+	 else:
+		'<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+	 end
 	 '<div id="left-column2">'
 		'<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
 		'<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>>		'
@@ -193,6 +200,7 @@ gs'menu_time_calc'
 
 
 		if $args[1] <0:'Disgust'
+		if $args[1]=-999 and $args[0]='kazuka_matsumoto_(minister`s_daughter)':'Deliberately indifferent'
 		if $args[1]=0 :'Neutral'
 		if 0<$args[1] and $args[1]<15 :'დ Slightly favorably'
 		if 15<=$args[1] and $args[1]<30 :'❤ Kind of like it'
@@ -417,7 +425,7 @@ gs'menu_time_calc'
 		'</font></span></p>'
 		end
 		
-	    if $args[7]=2:
+	    if $args[7]=-1:
 		'<span class="bold"><font color="#FF3939">㊡ Pregnant-exemption from exams	'	
 		'</font></span></p>'
 		end

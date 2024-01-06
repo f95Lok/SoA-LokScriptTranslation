@@ -52,6 +52,7 @@ if $ARGS[0]="":
 	
 	'<div class="dialog_menu">'
 		'<p>·众教徒跪拜在两侧，教堂正中央供奉着希莫洛斯的神像，它代表着“无法抑制的欲望”。</p>'
+		if week_day=1 and hour=13:'<p>·每周一都会来的男人<a href="exec:a=4 & gt ''教堂'',''GOD0''">-旁观</a></p>'
 		if $XN.审判=1:'<p>·<<$XN.name>>被置于教堂内的惩戒厅内<a href="exec:a=4 & gt ''修女_事件'',''XN_Fuck_审判''">接受净化</a></p>'
 		if $LEI.最后=1:'<p><font color="#FF1493">·<<$LEI.name>>正在引导朝拜的信徒</font><a href="exec:gt ''教堂'',''蕾最后''">-查看</a></p>'
 		'<p>——————————</p>'
@@ -401,6 +402,19 @@ if $args[0]="教堂婚礼":
          '</div>'
 End
 
+if $args[0]="GOD0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\GOD0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+            '<div class="button"><a href="exec:minutes+=60 & gt ''教堂''">。。。</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>男人：可惜传统的道德都是依托于宗教的，而上帝已死的今天，没人在乎灵魂与死后的奖惩。失去宗教后，道德就变成了苍白无力的浮萍，于是我向自己祈祷，只为自己祈祷。</p>'
+         '</div>'
+End
 
 
 
