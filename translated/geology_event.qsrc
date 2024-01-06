@@ -40,24 +40,24 @@ if $ARGS[0]="first_meeting":
 
 	'<div class="dialog_menu">'
 		if $ARGS[1]="et al":
-		'<p>-<<$JJ.name>>: Brother!Here you are!It`s her!She is the famous icy goddess in Mgo Pharmaceutical, and she is also an excellent geological expert!At the same time, he is also my classmate and best friend!</p>'
+		'<p>-<<$JJ.name>>: Little brother! You`re here! It`s her! She`s the famous frigid goddess in Mugou Pharmaceutical, and she is also an outstanding geology expert! She also happens to be both my classmate and best friend!</p>'
 		end
 		
 		if $ARGS[1]="meet_3":
-		'<p>-Me: Hello!My name is<<$protagonist_name>>...'
-		'<p>-<<$DZ.name>>：<<$jj.name>>？Why did you keep me waiting for so long?What about your concept of time?Please at least abide by the concept of time before asking people!Hope you are on time next time!！</p>'
-		'<p>-<<$JJ.name>>: I waited for the analysis report for a while. It was all classmates. Why are you so fierce!My brother is still there, give me some face~~!Show you my latest analysis report!You will be surprised!</p>'
-		'<p>-<<$DZ.name>>: What?！Is this MacGuffin`s analysis report?！Isn`t the C-137 project already invalid?Where did you get the raw materials?OS: This is the effect of MacGuffin....Sure enough, it`s not easy.....</p>'
-		'<p>-<<$JJ.name>>: Hehe, keep it secret!By the way, my brother wants to ask you something.</p>'
-		'<p>-(She just looked at you now)</p>'
+		'<p>-Me: Hello! My name is <<$protagonist_name>>...'
+		'<p>-<<$DZ.name>>：<<$jj.name>>Why did you keep me waiting so long? Don`t you have a concept of time? Please at least respect others` time before asking them for a favor! Hope you are punctual next time!！</p>'
+		'<p>-<<$JJ.name>>: I was waiting for the analysis report for a while, so I got delayed a bit. We`re all classmates, so why are you being so mean! My little brother is still here, so can`t you give me some face~~! I`ll let you take a look at my latest analysis report! You`re definitely going to be shocked!</p>'
+		'<p>-<<$DZ.name>>: What the-?！Is this the MacGuffin`s analysis report?！Hasn`t the C-137 project already been scrapped? Where did you get the raw materials? OS: The effect of this MacGuffin.... is indeed not so simple.....</p>'
+		'<p>-<<$JJ.name>>: Hehe, keep it secret! Oh right, my little brother wants to ask you something.</p>'
+		'<p>-(Only at this moment did she take a good look at you)</p>'
 
 		end
 		
 		if $ARGS[1]="analysis":
-		'<p>-Me: I speculate that the soil is exposed to radiation, so the plants mutate.If you want to trace the roots, you also need to conduct soil testing!'
-		'<p>-<<$DZ.name>>: Soil testing?Just send the sample to my office.Sorry, it`s my break time now, so let`s go to my office if you have something to talk about.Farewell first.</p>'
-		'<p>-(Get up and prepare to leave)</p>'
-		'<p>-<<$JJ.name>>: Brother, don`t take offense!She is such a person, but don`t look at her appearance as cold and frosty, in fact, she is quite cute.OS: Especially when you are drunk.</p>'
+		'<p>-Me: I speculate that the soil was exposed to radiation, so the plants mutated. If we want to identify the cause, we need to conduct a more detailed soil test!'
+		'<p>-<<$DZ.name>>: A soil test? Just send the sample to my office. Sorry, it`s my break time right now. So go to my office if you have something to talk about. I`ll be leaving first.</p>'
+		'<p>-(She gets up and prepares to leave)</p>'
+		'<p>-<<$JJ.name>>: Little brother, don`t feel offended! She is just that way. But don`t judge her by her cold and frosty appearance. Actually, she is pretty cute. OS: Especially when she is drunk.</p>'
 		end
 		
 	'</div>'
@@ -72,13 +72,13 @@ if $ARGS[0]="eat_2":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:gt ''geology_event'',''meal_selection_is_complete'',''my_sister''">My sister</a></div>'
-		'<div class="button"><a href="exec:gt ''geology_event'',''meal_selection_is_complete'',''sister_you''">Sister you</a></div>'
+		'<div class="button"><a href="exec:gt ''geology_event'',''meal_selection_is_complete'',''my_sister''">My big sister</a></div>'
+		'<div class="button"><a href="exec:gt ''geology_event'',''meal_selection_is_complete'',''sister_you''">You, big sister</a></div>'
 	'</div>'
 
 
 	'<div class="dialog_menu">'
-		'<p>-<<$DZ.name>>: Okay, I have eaten with you.It`s time to answer my question, your sister and I, who is better for you?</p>'
+		'<p>-<<$DZ.name>>: Okay, I`ve had a meal with you. Now it`s time for you to answer my question. Between your big sister and I, who treats you better?</p>'
 	'</div>'
 
 end
@@ -98,14 +98,14 @@ if $ARGS[0]="meal_selection_is_complete":
 	$DZ.LOVE-=15
 	money-=500
 	'<div class="dialog_menu">'
-		'<p>-<<$DZ.name>>: Oh, you can buy the order, a total of ￥500.I`ll go first, if you don`t have any money, let your sister give you money!OS: What a conscientious nuisance.</p>'
+		'<p>-<<$DZ.name>>: Oh, why don`t you pay the tab, it should total ￥500. I`ll head out first. If you don`t have enough money, let your big sister give you money! OS: What a heartless bastard.</p>'
 	'</div>'
 	end
 	if $ARGS[1]="sister_you":
 	$DZ.LOVE+=10+my.charm
 	'<div class="dialog_menu">'
-		'<p>-Me: Of course it`s your sister~</p>'
-		'<p>-<<$DZ.name>>: Cut, I don`t care about a younger brother like you.I still have something to do, let`s go first.I paid the money.OS: Huh, you have a conscience.</p>'
+		'<p>-Me: Of course it`s you, big sister~</p>'
+		'<p>-<<$DZ.name>>: Tsk, I wouldn`t want a little brother like you. I still have something to do, so I`ll head out first. I already paid the tab. OS: Hmmph, looks like you still have a conscience.</p>'
 	'</div>'
 	end
 end
@@ -126,16 +126,16 @@ if $ARGS[0]="go_to_the_restaurant":
 
 
 	'<div class="dialog_menu">'
-		'<p>-<<$DZ.name>>: Your sister and I had a lot of suitors when we were students. It`s been so many years in the blink of an eye....</p>'
+		'<p>-<<$DZ.name>>: Your sister and I had a lot of suitors when we were students. So many years passed in the blink of an eye....</p>'
 		'<p>  </p>'
-		'<p>-<<$DZ.name>>: By the way, I have dinner with my best friend`s brother...It feels so subtle......</p>'
-		'<p>-The distance between each other has been narrowed a lot.. </p>'
+		'<p>-<<$DZ.name>>: Speaking of which, the feeling of having dinner with my best friend`s little brother...is really awkward......</p>'
+		'<p>-The distance between us has narrowed a lot... </p>'
 		
 	 if $DZ.BAD>=35:
-		'<p>-Under the table, she titillated your calf with the tip of her high heels...... </p>'
+		'<p>-Under the table, she`s teasing your calf with her high heels...... </p>'
 	 end
 	 if $DZ.BAD>=100:
-		'<p>-No one found out....She gradually moved the tip of her shoe up again..Teasing your crotch..... </p>'
+		'<p>-Nobody noticed....so she gradually moved the tip of her shoe up again... Teasing your crotch..... </p>'
 	 end
 	'</div>'
 end
@@ -297,7 +297,7 @@ if $args[0]="DZ_Fuck_sex":
 			'<div class="button"><a href="exec:a=5 & $filename_reference=''sex5sex'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex5sex''">Top to the uterine mouth</a></div>'
 			end
 			if a!6 and a!9 and  q>=5 :
-			'<div class="button"><a href="exec:a=6 & $filename_reference=''sex6冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex6_sprint_sex''">sprint</a></div>'
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''sex6冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex6_sprint_sex''">Thrust rapidly</a></div>'
 			end
 			if a=6: 
 			'<div class="button"><a href="exec:a=9 & $filename_reference=''sex7射'' & gt ''geology_event'',''DZ_Fuck_sex'',''sex7_shoot''">Creampie</a></div>'
@@ -398,7 +398,7 @@ if $args[0]="DZ_Fuck_sex2":
 			'<div class="button"><a href="exec:a=5 & $filename_reference=''sex25sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''sex25sex''">Missionary</a></div>'
 			end
 			if a!6 and a<6 and a!9 and  q>=5 :
-			'<div class="button"><a href="exec:a=6 & $filename_reference=''sex26冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''Sex26 Sprint Sex''">sprint</a></div>'
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''sex26冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''Sex26 Sprint Sex''">Thrust rapidly</a></div>'
 			end
 			if a=6: 
 			'<div class="button"><a href="exec:a=7 & $filename_reference=''sex26冲刺sex'' & gt ''geology_event'',''DZ_Fuck_sex2'',''Sex26 Sprint Sex''">Ejaculation</a></div>'
@@ -611,7 +611,7 @@ if $ARGS[0]="eat_at_home_1":
 
 
 	'<div class="button_menu">'
-	 	'<div class="button"><a href="exec:$filename_reference=''隐秘1-1'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-1''">agree</a></div>'
+	 	'<div class="button"><a href="exec:$filename_reference=''隐秘1-1'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-1''">Affirmative</a></div>'
 	 	'<div class="button"><a href="exec:gt ''subway''">Declined</a></div>'
 	'</div>'
 
@@ -647,7 +647,7 @@ if $args[0]="dz_fuck_secret":
 			'<div class="button"><a href="exec:a=5 & $filename_reference=''隐秘1-5'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-5''">Cowgirl</a></div>'
 			end
 			if a!6 and q>=6 :
-			'<div class="button"><a href="exec:a=6 & $filename_reference=''隐秘1-6'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-6''">sprint</a></div>'
+			'<div class="button"><a href="exec:a=6 & $filename_reference=''隐秘1-6'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-6''">Thrust rapidly</a></div>'
 			end
 			if a=6 :
 			'<div class="button"><a href="exec:a=9 & $filename_reference=''隐秘1-7'' & gt ''geology_event'',''dz_fuck_secret'',''secret_1-7'',''end''">Ejaculation</a></div>'
@@ -742,7 +742,7 @@ if $args[0]="dz_fuck_medicine":
 			'<div class="button"><a href="exec:a=7 & $filename_reference=''药9sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_9tex''">Missionary</a></div>'
 			end
 			if a!8 and q>=8 :
-			'<div class="button"><a href="exec:a=8 & $filename_reference=''药6冲刺sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_6_sprint_sex''">sprint</a></div>'
+			'<div class="button"><a href="exec:a=8 & $filename_reference=''药6冲刺sex'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_6_sprint_sex''">Thrust rapidly</a></div>'
 			end
 			if a=8: 
 			'<div class="button"><a href="exec:a=9 & $filename_reference=''药7射'' & gt ''geology_event'',''dz_fuck_medicine'',''medicine_7_shots''">Ejaculation</a></div>'
