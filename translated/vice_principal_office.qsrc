@@ -28,7 +28,7 @@ if $args[0]="":
 		if  $XZ_Event_3t=1:'<div class="button"><a href="exec:minutes+=5 & gt ''vice_principal_office'',''dialogue''">Talk</a></div>'
 		if $fxz_event_counseling=1:'<div class="button"><a href="exec:minutes+=50 & gt ''vice_principal_office'',''competition_counseling''">Competition counseling</a></div>'
 		if $fxz_event_counseling=2 and  $fxz_event_daughter<=1:'<div class="button"><a href="exec:minutes+=15 & gt ''vice_principal_office'',''what`s_on_her_mind''">What''s on her mind</a></div>'
-		if $fxz_event_counseling<2:'<div class="buttonGr"><a href="exec:">Not yet gained trust</a></div>'
+		if $fxz_event_counseling<2:'<div class="buttonGr"><a href="exec:">She doesn''t trust you enough</a></div>'
 		if  day>=28:'<div class="buttonS1"><a href="exec:minutes+=15 &  gt ''vice_principal_event'',''home_visit''">Home visit at the end of the month</a></div>'else:'<div class="buttonGr"><a href="exec:">At the end of the month?？</a></div>'
 		if hour=17 and $fxz_event_daughter=1: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''writer_event'',''first_meeting''">Go to her house</a></div>'
 		if  $fxz_event_daughter=2 and $ZJ_Event_count<3: '<div class="buttonS2"><a href="exec:minutes+=15 & gt ''writer_event'',''second_meeting''">Free</a></div>'
@@ -44,13 +44,13 @@ if $args[0]="":
 		'<p>Me: Hi professor!</p>'
 		'<p><<$FXZ.name>>: Hey, pay attention to my title! Call me vice principal! (Hmmph, vice principal? Who cares!)</p>'
 		'<p>Me: Hello, vice principal!</p>'
-		if  $fxz_event_daughter=2 and $ZJ_Event_count<3:  '<p><<$FXZ.name>>: The effect is good!My daughter keeps asking when you will go, are you free now?</p>'
+		if  $fxz_event_daughter=2 and $ZJ_Event_count<3:  '<p><<$FXZ.name>>: You''re pretty effective! My daughter keeps asking when you will go again. Are you free now?</p>'
 		if  $fxz_event_daughter=2 and $ZJ_Event_count>=3: 
-		'<p><<$FXZ.name>>: My daughter has become more cheerful recently, and she told me what she wants to do as a full-time novelist...You helped her a lot...This is the backup key to my house. You usually go and chat with her more when I''m away!</p>'
+		'<p><<$FXZ.name>>: My daughter has become more cheerful recently, and she told me what she wants to become a full-time novelist... You helped her a lot... This is the backup key to my house. Go and chat more with her while I''m out!</p>'
 	    if $FXZ.key=0:'<p><a href="exec:minutes+=15 & $FXZ.KEY=1 & gt ''vice_principal_office''">Take the key</a></p>'
 	    end 
-	    if  $FXZ.bad>=330-$FXZ.love and  hour!17 :'<p><<$FXZ.name>>: Remember to come to me after school, I will take you to a good place!</p>'
-	    if $picket_mission=1:'<p>·The members of the school picket team behind the door arrived, and they motioned to her<a href="exec:minutes+=15 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">Sign the abstention statement</a></p>'
+	    if  $FXZ.bad>=330-$FXZ.love and  hour!17 :'<p><<$FXZ.name>>: emember to come to me after school, I will take you somewhere nice!</p>'
+	    if $picket_mission=1:'<p>·The members of the school''s internal discipline committee have all arrived the door arrived, and they motioned her to<a href="exec:minutes+=15 & gt ''vice_principal_event'',''fxz_fuck_picket_team''">sign the papers forfeiting the election</a></p>'
 	'</div>'
 End
 
