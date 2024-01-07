@@ -225,6 +225,7 @@ def translate(text, data_type, uncertain=False):
                 translation = '$' + translation
             elif text[0] != '$' and translation[0] == '$':
                 translation = translation[1:]
+            translation.replace("-", "_")
 
         if uncertain:
             if translation not in _uncertainties_:
