@@ -33,15 +33,26 @@ gs'throw_point_details'
 		'</div>'
 		
 		'<div class="action">'
-			if $ring_my_life<=5:'<a class="photo" data-title="Physical strength""><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<$ring_my_life>>.jpg"></a>'
-			if $ring_my_life>=6:'<a class="photo" data-title="Physical strength""><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
-			if $my_shield_in_the_ring<=5:'<a class="photo" data-title="defense""><img class="img_stretch" src="images\videos\fighter\pics\C<<$my_shield_in_the_ring>>.jpg"></a>'
-			if $my_shield_in_the_ring>=6:'<a class="photo" data-title="defense""><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
+			if $ring_my_life<=5:'<a class="photo" data-title="Physical strength"><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<$ring_my_life>>.jpg"></a>'
+			if $ring_my_life>=6:'<a class="photo" data-title="Physical strength"><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
+			if $my_shield_in_the_ring<=5:'<a class="photo" data-title="defense"><img class="img_stretch" src="images\videos\fighter\pics\C<<$my_shield_in_the_ring>>.jpg"></a>'
+			if $my_shield_in_the_ring>=6:'<a class="photo" data-title="defense"><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
 			if $enemy_throwing_points>$i_throw_points:'<a class="photo" data-title="Failed to break the defense" href="exec:gt ''ring_judgment'',''failed''"><img class="img_stretch" src="images\videos\fighter\pics\下一步S.jpg"></a>'
 			if $enemy_throwing_points=$i_throw_points:'<a class="photo" data-title="Draw with each other" href="exec:gt ''ring_judgment'',''draw''"><img class="img_stretch" src="images\videos\fighter\pics\下一步.jpg"></a>'
 			if $enemy_throwing_points<$i_throw_points:'<a class="photo" data-title="Break the defense and chase" href="exec:gt ''ring_chase''"><img class="img_stretch" src="images\videos\fighter\pics\下一步Y.jpg"></a>'
 		'</div>'
 		
+	'</div>'
+
+	'<div class="button_menu">'
+		if active_cheats = 1: 
+			'<div class="button"><a href="exec:$i_throw_points = 2 & $enemy_throwing_points = 1 & gt ''ring_chase''">Win round</a></div>'
+			'<div class="button"><a href="exec:$ring_enemy_shield = 0 & gt ''in_the_ring''">Win match</a></div>'
+			'<div class="button"><a href="exec:$ring_my_life = 6 & $my_shield_in_the_ring = 6">Regen life</a></div>'
+			'<div class="button"><a href="exec:$i_throw_points = 2 & $enemy_throwing_points = 2 & gt ''ring_judgment'', ''draw''">Draw round</a></div>'
+			'<div class="button"><a href="exec:$i_throw_points = 1 & $enemy_throwing_points = 2 & gt ''ring_judgment'', ''failed''">Lose Round</a></div>'
+			'<div class="button"><a href="exec:$i_throw_points = 1 & $enemy_throwing_points = 2 & $my_shield_in_the_ring = 0 & gt ''ring_judgment'', ''failed''">Lose Match</a></div>'
+		end
 	'</div>'
 '</div>'
 
