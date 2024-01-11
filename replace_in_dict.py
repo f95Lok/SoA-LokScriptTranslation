@@ -44,8 +44,8 @@ values = {
         _text_: {},
     }
 
-target = "''"
-replacement = "&#39;"
+target = "&#39;"
+replacement = "`"
 for ori, tran in xml[_text_].items():
     if target in tran:
         xml[_text_][ori] = tran.replace(target, replacement)
