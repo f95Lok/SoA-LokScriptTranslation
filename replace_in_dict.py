@@ -44,9 +44,10 @@ values = {
         _text_: {},
     }
 
-
+target = "''"
+replacement = "&#39;"
 for ori, tran in xml[_text_].items():
-    if '`' in tran:
-        xml[_text_][ori] = tran.replace('`', "''")
+    if target in tran:
+        xml[_text_][ori] = tran.replace(target, replacement)
 
 write_xml(_text_)
