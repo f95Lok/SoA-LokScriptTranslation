@@ -21,7 +21,7 @@ a=0 & q=0
 	'<div class="button"><a href="exec:minutes+=15 & gt ''university''">Pass time</a></div>'
 '</div>'
 
-university_dialogue=RAND(0,9)
+university_dialogue=RAND(0,10)
 if $times_of_day="":
 	if university_dialogue=0:
 	'<div class="dialog_menu">'
@@ -104,12 +104,20 @@ if $times_of_day="":
 		'<p>？？？: How is that possible!</p>'
 	'</div>'
 	end
+	
+	if university_dialogue=10:
+	'<div class="dialog_menu">'
+		'<p>？？？: Hey, what`s wrong with your panda eyes?Did you stay up late to review or was you beaten?</p>'
+		'<p>？？？: Uh…</p>'
+		'<p>？？？: Oh!I see!Rule one, right?！Don`t worry, I understand❤</p>'
+	'</div>'
+	end
 end
 
 if $times_of_day!"":
 	'<div class="dialog_menu">'
 		'<p>School at night...There is always a trace of horror...</p>'
-		if $matsumoto_event_chain=14 and hour=21:'<p>· <<$QMZM.name>>Already waiting for you<a href="exec:gt ''matsumoto_event'',''turn_around''">-Get in the car</a></p>'
+		if $matsumoto_event_chain=14 and hour=22:'<p>· <<$QMZM.name>>Already waiting for you<a href="exec:gt ''matsumoto_event'',''turn_around''">-Get in the car</a></p>'
 	'</div>'
 	end
 end

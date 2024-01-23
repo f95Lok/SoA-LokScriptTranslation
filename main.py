@@ -994,12 +994,13 @@ done_file = io.open("done.txt", 'a', encoding="utf-8")
 auto = "no"
 
 t0 = time.process_time()
-for qsrc in os.listdir("files/"):
+tr_files = os.listdir("files/")
+for qsrc, tr_index in zip(tr_files, range(len(tr_files))):
     if qsrc not in done:
         if auto == "manual":
             inp = "y"
         else:
-            inp = input("Next file: " + qsrc + ". Continue? ").lower()
+            inp = input("Next file: " + qsrc + " (" + str(tr_index) + "/" + str(len(tr_files)) + ")" + ". Continue? ").lower()
 
         if inp == "auto":
             auto = "manual"

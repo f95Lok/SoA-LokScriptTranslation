@@ -46,9 +46,10 @@ end
 if 3<=hour and hour<=6:
 		if $paid_program_pre_=2 :
 		$program='《National Contribution-I want to be on TV》'
-		$program_evaluation='You only need to be willing to spend money, support videos, MV on demand, want your videos to appear on TV?Anything is fine!'
+		$program_evaluation='You only need to be willing to spend money, support advertising, MV on demand, want your video to appear on TV?Anything is fine!'
 		$paid_content=1
-		paid_channel_num=rand (1,7)
+		paid_channel_num=rand (1,8)
+		if paid_channel_num=8:$paid_content='It is said that he can provide you with the highest level of defense that money can buy!'
 		if paid_channel_num=7:$paid_content='Submitted by the `Graphic Raiders`...Postscript: The New Year is here, the fireworks are up~ That sailor wave is my last youth.Finally, I wish you all a happy Spring Festival!'
 		if paid_channel_num=6:$paid_content='Wow... this is the standard for idol singers... I don`t know who submitted the contribution.…'
 		if paid_channel_num=5:$paid_content='What kind of advertisement is this?…'
@@ -197,6 +198,7 @@ end
 		if fighting_show=6:'<div class="buttonR3"><a href="exec:gt ''group_performation_event'',''fighting_match_show_finals''">Finals</a></div>'
 	end
 	if $program_list=0:'<div class="button"><a href="exec:$program_list=1 & gt ''home_tv''">Open the program list</a></div>'else:'<div class="button"><a href="exec:$program_list=0 & gt ''home_tv''">Close the program list</a></div>'
+	if paid_channel_num=8:'<div class="buttonG3"><a href="exec:lawyer`s_phone=1 & minutes+=60  &  gt ''home_tv''">Write down his phone number</a></div>'
 '</div>'
 
 '<div class="dialog_menu">'

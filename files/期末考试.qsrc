@@ -1,0 +1,58 @@
+# 期末考试
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+    if a=0:$exam_name=$SB.name & $exam_fen=$SB.study & $exam_b=$SB.baby
+    if a=1:$exam_name=$MPJ.name & $exam_fen=$MPJ.study & $exam_b=$MPJ.baby
+    if a=2:$exam_name=$FZL.name & $exam_fen=$FZL.study & $exam_b=$FZL.baby
+    if a=3:$exam_name=$SJ.name & $exam_fen=$SJ.study & $exam_b=$SJ.baby
+    if a=4:$exam_name=$HME.name & $exam_fen=$HME.study & $exam_b=$HME.baby
+    if a=5:$exam_name=$YLW.name & $exam_fen=$YLW.study & $exam_b=$YLW.baby
+    if a=6:$exam_name=$CBJ.name & $exam_fen=$CBJ.study & $exam_b=$CBJ.baby
+    if a=7:$exam_name=$XMK.name & $exam_fen=$XMK.study & $exam_b=$XMK.baby
+    if a=8:$exam_name=$SYYY.name & $exam_fen=$SYYY.study & $exam_b=$SYYY.baby
+    if a=9:$exam_name=$BTH.name & $exam_fen=$BTH.study & $exam_b=$BTH.baby
+    if a=10:$exam_name=$HSW.name & $exam_fen=$HSW.study & $exam_b=$HSW.baby
+    if a=11:$exam_name=$TMW.name & $exam_fen=$TMW.study & $exam_b=$TMW.baby
+    
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action7">'
+			if $exam_b=1:'<a class="photo"  href="exec:"><img class="img_stretch" src="images\npc_l\<<$exam_name>>L.png"></a>'
+			if $exam_b=-1:'<a class="photo"  href="exec:"><img class="img_stretch" src="images\npc_l\<<$exam_name>>Y.png"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class="show_menu">'
+		'<img src="images\place\考核.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $exam_fen>=60 or $exam_b=-1:
+			if a<=10:'<div class="buttonGn5"><a href="exec:a+=1 & gt ''期末考试''">她可以通过</a></div>'
+			if a>=11:'<div class="buttonGn5"><a href="exec:a+=1 & gt ''学生群_事件'',''大学_结局''">她可以通过</a></div>'
+		else:
+			'<div class="buttonR4"><a href="exec:gt ''三年二班''">她无法通过</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>:让我们来看看她们的考核情况，这是一次模拟考试，当然，如果她们能全部通过的话，我自有方法让这次模拟变成最终结果。</p>'
+		'<p>————————</p>'
+		'<p><span class="bold"><font color="#FF9900">✿学生姓名：<<$exam_name>></font></p>'
+		if $exam_fen>=60:'<p><span class="bold"><font color="#339933">✎均分成绩：<<$exam_fen>>（及格）</font></p>'
+		if $exam_fen<=59:'<p><span class="bold"><font color="#666666">✎均分成绩：<<$exam_fen>>（不及格）</font></p>'
+		if $exam_b=1:'<p><span class="bold"><font color="#666666">♝怀孕免考：否（未怀孕）</font></p>'
+		if $exam_b=-1:'<p><span class="bold"><font color="#F20056">♝怀孕免考：是（怀孕中）</font></p>'
+	'</div>'
+
+end
+--- 期末考试 ---------------------------------
+
