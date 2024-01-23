@@ -9,10 +9,10 @@ gs'menu_time_calc'
 	gs'menu_act_hidden'
 '</div>'
 
+$glz_name=$args[0]
+$glz_lv=$args[3]
 
-
-if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁:gt'攻略赞助'
-
+if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁 and $args[3]!$V55攻略解锁:$攻略进入=0 & gt'攻略赞助'
 
 
 if $args[0]='<<$YS.name>>':
@@ -555,7 +555,7 @@ if $args[0]='<<$SB.name>>':
             '<font color="#FFE4B5">前置：完成讲台剧情</font></p>'
             if $松本事件链<3:'<font color="#BBFFBB">在三年二班里看向讲台</font></p>'
             if $松本事件链=3:'<font color="#BBFFBB">阶段一：将班级名册上她不喜欢的3位学生除名，全部完成后与她对话</font></p>'
-            if $松本事件链=4:'<font color="#BBFFBB">阶段二：千金休息室里查看备忘录</font></p>'
+            if $松本事件链=4:'<font color="#BBFFBB">阶段二：查看千金休息室里的备忘录，并且必须准时抵达备忘录上的地点</font></p>'
             if $松本事件链=5:'<font color="#BBFFBB">继续每晚在俱乐部里陪她喝酒</font></p>'
             if $松本事件链=6:'<font color="#BBFFBB">千金休息室里和她对话</font></p>'
             if $松本事件链=7:'<font color="#BBFFBB">开她的车陪她在动物园到处玩</font></p>'
@@ -565,14 +565,12 @@ if $args[0]='<<$SB.name>>':
             if $松本事件链=11:'<font color="#BBFFBB">开她的车陪她在晚上看烟火大会</font></p>'
             if $松本事件链=12:'<font color="#BBFFBB">去机场接我的青梅竹马</font></p>'
             if $松本事件链=13:'<font color="#BBFFBB">想想办法渡过实习期</font></p>'
-            if $松本事件链=14:'<font color="#BBFFBB">21点在学校门口见青梅竹马</font></p>'
+            if $松本事件链=14:'<font color="#BBFFBB">22点在学校门口见青梅竹马</font></p>'
             if $松本事件链>=15:'<font color="#BBFFBB">再次约她去看烟火大会</font></p>'
             if $松本事件链=16:'<font color="#BBFFBB">↑如选择【我也爱你】，将会得到电话号码</font></p>'
      '</div>'
  '</div>'
 end
-
-
 
 if $args[0]='<<$MPJ.name>>':
  '<div class="charac_nps_info999">'
@@ -583,7 +581,7 @@ if $args[0]='<<$MPJ.name>>':
             '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
             '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
             if $MPJ事件链=0:'<font color="#BBFFBB">想办法去她家</font></p>'
-            if $MPJ事件链=1:'<font color="#BBFFBB">去夜色CLUB办公室找狂小弟</font></p>'
+            if $MPJ事件链=1:'<font color="#BBFFBB">去夜色CLUB办公室找狂小弟（办公室需完成<<$LB.name>>的事件解锁）</font></p>'
             if $MPJ事件链=2:'<font color="#BBFFBB">去她家转达消息</font></p>'
             if $MPJ事件链=3:'<font color="#BBFFBB">第二天在夜色CLUB办公室找狂小弟处等他们来</font></p>'
             if $MPJ事件链=4:'<font color="#BBFFBB">风波平息后去她家让她报答你</font></p>'
@@ -592,7 +590,6 @@ if $args[0]='<<$MPJ.name>>':
      '</div>'
  '</div>'
 end
-
 
 if $args[0]='<<$HME.name>>':
  '<div class="charac_nps_info999">'
@@ -662,7 +659,7 @@ if $args[0]='<<$FZL.name>>':
             '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
             if $FZL事件链=0:'<font color="#BBFFBB"><<$FZL.name>>在后门深处走廊，请她吃东西</font></p>'
             if $FZL事件链=1:'<font color="#BBFFBB"><<$FZL.name>>在后门深处走廊，请客时有人来找麻烦</font></p>'
-            if $FZL事件链>=2:'<font color="#BBFFBB">放学后她会在酒吧台喝醉：</font></p>'
+            if $FZL事件链>=2:'<font color="#BBFFBB">深夜时她会在学校酒吧台喝醉：</font></p>'
             if $FZL事件链>=2:'<font color="#BBFFBB">可选：拨打男人给你的名片上的电话</font></p>'
             if FZL录像带>=1:'<font color="#BBFFBB">↑回家在卧室电脑可查看录像带</font></p>'
             if $FZL事件链>=2:'<font color="#BBFFBB">可选：送她回家</font></p>'
@@ -671,6 +668,166 @@ if $args[0]='<<$FZL.name>>':
      '</div>'
  '</div>'
 end
+
+if $args[0]='<<$TMW.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $TMW事件链=0:'<font color="#BBFFBB"><<$TMW.name>>在活动教室里，与她对话策划活动1。</font></p>'
+            if $TMW事件链=1:'<font color="#BBFFBB">在活动教室召开周一活动。</font></p>'
+            if $TMW事件链=2:'<font color="#BBFFBB">与她对话犒赏</font></p>'
+            if $TMW事件链=3:'<font color="#BBFFBB"><<$TMW.name>>在活动教室里，与她对话策划活动2。</font></p>'
+            if $TMW事件链=4:'<font color="#BBFFBB">在活动教室召开周二活动。</font></p>'
+            if $TMW事件链=5:'<font color="#BBFFBB">与她对话犒赏</font></p>'
+            if $TMW事件链=6:'<font color="#BBFFBB"><<$TMW.name>>在活动教室里，与她对话策划活动3。</font></p>'
+            if $TMW事件链=7:'<font color="#BBFFBB">在活动教室召开周三活动。</font></p>'
+            if $TMW事件链=8:'<font color="#BBFFBB">与她对话犒赏</font></p>' 
+            if $TMW事件链=9:'<font color="#BBFFBB"><<$TMW.name>>在活动教室里，与她对话策划活动4。</font></p>' 
+            if $TMW事件链=10:'<font color="#BBFFBB">在活动教室召开周四活动。</font></p>' 
+            if $TMW事件链=11:'<font color="#BBFFBB">与她对话犒赏</font></p>' 
+            if $TMW事件链=12:'<font color="#BBFFBB"><<$TMW.name>>在活动教室里，与她对话策划活动5。</font></p>' 
+            if $TMW事件链=13:'<font color="#BBFFBB">在活动教室召开周五活动。</font></p>' 
+            if $TMW事件链=14:'<font color="#BBFFBB">与她对话商量对策</font></p>' 
+            if $TMW事件链=15:'<font color="#BBFFBB">与她对话讨论借条</font></p>' 
+            if $TMW事件链=16:'<font color="#BBFFBB">她独自讨债去了，可在歌舞伎町-龙口组(由<<$YS.name>>事件解锁)发现她</font></p>' 
+            if $TMW事件链>=17:'<font color="#BBFFBB">心理作用下她对我产生了依赖性，可以提出约会了</font></p>' 
+            if $TMW事件链>=17:'<font color="#BBFFBB">↑在旅馆脱力时可获得电话号码</font></p>' 
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SYYY.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $SYYY事件链=0:'<font color="#BBFFBB"><<$SYYY.name>>在教室后门楼梯间，目睹事件。</font></p>'
+            if $SYYY事件链=1:'<font color="#BBFFBB">14点去公园尾随<<$SYYY.name>>拍摄</font></p>'
+            if $SYYY事件链=2:'<font color="#BBFFBB">回到教室后门楼梯间，目睹事件</font></p>'
+            if $SYYY事件链=3:'<font color="#BBFFBB">周五23点后在歌舞伎町能够遇见她</font></p>'
+            if $SYYY事件链=4:'<font color="#BBFFBB">回到三年二班和野比小熊对话</font></p>'
+            if $SYYY事件链=5:'<font color="#BBFFBB">在水烟间和<<$SYYY.name>>对话</font></p>'
+            if $SYYY事件链=6:'<font color="#BBFFBB">前往帝国娱乐与<<$TS.name>>对话引荐</font></p>'
+            if $SYYY事件链=7:'<font color="#BBFFBB">19点赤色餐厅约饭引荐</font></p>'
+            if $SYYY事件链=8:'<font color="#BBFFBB">带她完成一次帝国娱乐摄影棚的拍摄工作</font></p>' 
+            if $SYYY事件链=9:'<font color="#BBFFBB">和<<$SYYY.name>>对话找<<$SB.name>>提议</font></p>' 
+            if $SYYY事件链=10:'<font color="#BBFFBB">让她完成陪我一天的承诺</font></p>' 
+            if $SYYY事件链=11:'<font color="#BBFFBB">和<<$SYYY.name>>对话找<<$SB.name>>提议，需要完成她的剧情线才能让她同意</font></p>' 
+            if $SYYY事件链>=12:'<font color="#BBFFBB">废弃教室A已被征用为社团，前往社团与她对话，直至完成邪恶事件</font></p>' 
+            if $SYYY事件链>=13:'<font color="#BBFFBB">完成选择后即可获得她的号码</font></p>' 
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$CBJ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $CBJ.available=0:'<font color="#BBFFBB"><<$CBJ.name>>在泡芙室里，与她对话。</font></p>'
+            if $CBJ.love<=50+5*my.魅力:'<font color="#BBFFBB">陪她参与酒局提升好感，直至可以去她家。</font></p>'
+            if $CBJ.监禁=1:'<font color="#BBFFBB">#我应该去公园流浪汉集聚的地方找找她</font></p>'
+            if 50+8*my.魅力>$CBJ.love and $CBJ.love>50+5*my.魅力:'<font color="#BBFFBB">陪她在家饮酒提升好感，直至可以二人幽会。</font></p>'
+            if $CBJ.love>=50+8*my.魅力:'<font color="#BBFFBB">陪她在家饮酒提升好感，结束后和她一同买酒。</font></p>'
+            if $CBJ.love>=50+9*my.魅力:'<font color="#BBFFBB">↑如承认酒量不如她，可获得她的电话。</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$HSW.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $HSW.available=0:'<font color="#BBFFBB"><<$HSW.name>>在废弃教室B里，与她对话。</font></p>'
+            if $HSW事件链=0:'<font color="#BBFFBB">载她上车，带她去见大伯哥。</font></p>'
+            if 2>=$HSW事件链 and $HSW事件链>=1:
+                '<font color="#BBFFBB">辅助或者旁观她偿还【所有】负债</font></p>'
+                if HSWBJ=1:'<font color="#BBFFBB">#兼职上门保洁每次可获得18000。</font></p>'
+                if HSWXS=1:'<font color="#BBFFBB">#兼职保险销售每次可获得700~60000。</font></p>'
+                if HSWDY=1:'<font color="#BBFFBB">#兼职导演助理每次可获得2000~50000+</font></p>'
+                if HSWDP=1:'<font color="#BBFFBB">#在夜总会兼职每次可获得25000。</font></p>'
+            end
+            if $HSW事件链=2:'<font color="#BBFFBB">辅助或者旁观她偿还大伯哥的医疗费。</font></p>'
+            if $HSW事件链=3:'<font color="#BBFFBB">在废弃教室B和<<$SB.name>>一起出去玩，并且选择她获得完全使用权。</font></p>'
+            if $HSW事件链=4:'<font color="#BBFFBB">已经获得完全使用权，在废弃教室B里<<$TMW.name>>会来。</font></p>'
+            if $HSW事件链=5:'<font color="#BBFFBB">与<<$SYYY.name>>在COS社团对话，合理利用废弃教室B</font></p>'
+            if $HSW事件链>=6:'<font color="#BBFFBB">载她<<$HSW.name>>一同去买床垫</font></p>'
+            if $HSW事件链>=7:'<font color="#BBFFBB">↑如选择一起逃跑可获得她的电话</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$XMK.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#1E90FF">前置：得到<<$SB.name>>的电话</font></p>'
+            if $XMK事件链=0:'<font color="#BBFFBB">她在大学后门的深处生闷气，找她谈谈。</font></p>'
+            if $XMK事件链=1:'<font color="#BBFFBB">去和<<$SB.name>>对话让她看短信</font></p>'
+            if $XMK事件链=2:'<font color="#BBFFBB">作为保镖陪同她出行</font></p>'
+            if $XMK事件链=3:'<font color="#BBFFBB">作为保镖陪同她去千金休息室</font></p>'
+            if $XMK事件链=4:'<font color="#BBFFBB">去千金休息室找手链</font></p>'
+            if $XMK事件链=5:'<font color="#BBFFBB">把手链还给她</font></p>'
+            if $XMK事件链=6:'<font color="#BBFFBB">和她聊天增加好感度</font></p>'
+            if $XMK事件链=7:'<font color="#BBFFBB">陪她去屋顶戏水</font></p>'
+            if $XMK事件链=8:'<font color="#BBFFBB">陪她去二人约会</font></p>'
+            if $XMK事件链=9:'<font color="#BBFFBB">依然默默保护陪她回家</font></p>'
+            if $XMK事件链=10:'<font color="#BBFFBB">送她回家，她的对话变了</font></p>'
+            if $XMK事件链=11:'<font color="#BBFFBB">送她回家，约会<<$FZL.name>></font></p>'
+            if $XMK事件链=12:'<font color="#BBFFBB">送她回家，约会<<$YLW.name>></font></p>'  
+            if $XMK事件链=13:'<font color="#BBFFBB">送她回家，单独旅行</font></p>'  
+            if $XMK事件链=14:'<font color="#BBFFBB">和她对话找<<$SB.name>></font></p>'  
+            if $XMK事件链=15:'<font color="#BBFFBB">对话时让<<$SB.name>>加入大满足后可获得电话</font></p>'    
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$BTH.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$SB.name>>一阶段</font></p>'
+            if $BTH事件链=0:'<font color="#BBFFBB"><<$BTH.name>>在后门走廊里，偷听对话。</font></p>'
+            if $BTH事件链=1:'<font color="#BBFFBB">周末在赤色餐厅里，20点找她提升好感</font></p>'
+            if $BTH事件链=2:'<font color="#BBFFBB">在活动教室里见她</font></p>'
+            if $BTH事件链=3:'<font color="#BBFFBB">去别墅区她男友的房子</font></p>'
+            if $BTH事件链=4:'<font color="#BBFFBB">再去别墅区她男友的房子</font></p>'
+            if $BTH事件链=5:'<font color="#BBFFBB">再去别墅区她男友的房子</font></p>'
+            if $BTH事件链=6:'<font color="#BBFFBB">自己在班上代课结束后与她对话后开始调教她，至少忍耐一周</font></p>'
+            if $BTH事件链=7:'<font color="#BBFFBB">晚上22点去公园厕所等她</font></p>'
+            if $BTH事件链=8:'<font color="#BBFFBB">自己在班上代课结束后与她对话后开始调教她，至少忍耐一周后发布任务B</font></p>' 
+            if $BTH事件链=9:'<font color="#BBFFBB">去学校午夜走廊等她</font></p>' 
+            if $BTH事件链=10:'<font color="#BBFFBB">自己在班上代课结束后与她对话后开始调教她，至少忍耐一周后发布任务C</font></p>' 
+            if $BTH事件链=11:'<font color="#BBFFBB">去学校图书馆等她</font></p>' 
+            if $BTH事件链=12:'<font color="#BBFFBB">去别墅区她男友的房子，选择借口离开</font></p>' 
+            if $BTH事件链=13:'<font color="#BBFFBB">去别墅区她男友的房子，接受请柬</font></p>' 
+            if $BTH事件链=14:'<font color="#BBFFBB">去教堂代理婚礼（需开启教堂婚礼业务）</font></p>' 
+            if $BTH事件链=15:'<font color="#BBFFBB">去别墅区她男友的房子，恭喜新婚并灌酒</font></p>' 
+            if $BTH事件链>=15:'<font color="#BBFFBB">↑最后可获得电话号码</font></p>' 
+     '</div>'
+ '</div>'
+end
+
 
 '<div class="options_back"><a href="exec:gt''menu_charac_nps''"><div class="settings_back_menu"></div></a></div>'
 --- 角色攻略 ---------------------------------

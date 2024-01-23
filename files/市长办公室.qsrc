@@ -26,6 +26,7 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt ''市长办公室'',''五常会议室''">五常会议室</a></div>'
 		'<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">市长办公室</a></div>'
 		'<div class="button"><a href="exec:gt ''市长办公室'',''城建部长室''">城建部长室</a></div>'
+		if $JYB.ok=1:'<div class="button"><a href="exec:gt ''市长办公室'',''教育部长室''">教育部长室</a></div>'else:'<div class="buttonGr"><a href="exec:">教育部长室</a></div>'
 		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
 	'</div>'
 	
@@ -43,15 +44,16 @@ if $ARGS[0]="":
 end
 
 if $ARGS[0]="市长室":
-	'<div class ="show_menu"><img src="images\place\不开放.jpg" width="854"></div>'
+	'<div class ="show_menu"><img src="images\place\真市长室.jpg" width="854"></div>'
 
 
 	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:"><<$SZ.name>></a></div>'
 		'<div class="buttonR2"><a href="exec:gt ''市政厅''">离开</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
-		'<p></p>'
+		'<p>·当前版本无内容</p>'
 	'</div>'
 end
 
@@ -286,6 +288,24 @@ if $ARGS[0]="黑暗议会":
 		end
 	'</div>'
 end
+
+if $ARGS[0]="教育部长室":
+	 if $序幕<=2:gt'最终_事件','银行序幕'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市长办公室''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$JYB.name>>:做的好…2.2亿被劫走，帐一下就平了，不过令我意外的是…你居然没死？</p>'
+	'</div>'
+end
+
+
 
 
 

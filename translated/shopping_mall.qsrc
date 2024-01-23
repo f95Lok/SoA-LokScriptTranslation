@@ -40,7 +40,7 @@ minutes+=10
 '</div>'
 
 if $ARGS[0]="":
-	$mall_num=RAND(1,14)
+	$mall_num=RAND(1,16)
 	$shopping_mall_n=1
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
@@ -49,6 +49,7 @@ if $ARGS[0]="":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=30 & gt ''shopping_mall''">Pass time</a></div>'
+		if $mall_num=15 or $mall_num=16:'<div class="buttonR"><a href="exec:gt ''shopping_mall'',''street_alarm''">Look closer at the screen</a></div>'
 		if $audit_level>1:
 			if 8>=$mall_num and $mall_num>=6:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=1 & gt ''shopping_mall'',''trailing''">Follow her</a></div>'
 			if 10>=$mall_num and $mall_num>=9:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=2& gt ''shopping_mall'',''trailing''">Follow her</a></div>'
@@ -74,6 +75,7 @@ if $ARGS[0]="":
 		'<p>Wow~ a feast for eyes!</p>'
 	'</div>'
 End
+
  
  
  
@@ -102,7 +104,22 @@ if $ARGS[0]="trailing":
 End
 
 
+if $ARGS[0]="street_alarm":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/街警报1.webm" type=''video/webm;''></video></div>'
+	'</div>'
 
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''shopping_mall''">Leave</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>*Warning: According to the latest news from the Pacific Rim, our city may be facing some unknown disasters, and the current threat level is unknown.We strongly recommend that residents stay vigilant and take preventive measures to ensure the safety of themselves and their families.Please pay close attention to the early warning information issued by the local government and the media, and follow the relevant emergency guidelines.</p>'
+		'<p>Me: The impact of unknown disasters?Someone must be able to stand up and let those who are capable face it and solve it.</p>'
+	'</div>'
+End
 
 
 --- shopping_mall ---------------------------------

@@ -389,8 +389,9 @@ if $args[0]="教堂婚礼":
         '<div class="button_menu">'
 		  '<div class="buttonS"><a href="exec: gt ''修女_事件'',''XN_Fuck_WED''">带她去你房间</a></div>'
             '<div class="buttonGn3"><a href="exec: gt ''教堂''">离开</a></div>'
-            if $银行事件链B>=8:'<div class="buttonG4"><a href="exec: gt ''银行_事件'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
+            if $银行事件链B>=8:'<div class="buttonG3"><a href="exec: gt ''银行_事件'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
             if $WH.婚纱=1:'<div class="buttonG4"><a href="exec:gt ''网红_事件'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'
+            if $BTH事件链>=14:'<div class="buttonG5"><a href="exec:gt ''学生群_事件'',''BTH_婚礼''">㊕<<$BTH.name>></a></div>'
         '</div>'
 
          '<div class="dialog_menu">'
@@ -408,7 +409,8 @@ if $args[0]="GOD0":
              <source src="images\NPC\XN\vids\GOD0.webm" type=''video/webm;''></video></div>'
         '</div>'
         '<div class="button_menu">'
-            '<div class="button"><a href="exec:minutes+=60 & gt ''教堂''">。。。</a></div>'
+		  if $序幕=3:'<div class="button"><a href="exec:minutes+=60 & gt ''最终_事件'',''弗兰克对话''">跟上去对话</a></div>'
+            '<div class="button"><a href="exec:minutes+=60 & gt ''教堂''">不睬他</a></div>'
         '</div>'
         
          '<div class="dialog_menu">'

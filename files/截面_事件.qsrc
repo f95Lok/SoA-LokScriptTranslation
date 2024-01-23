@@ -114,7 +114,7 @@ if $args[0]="妊娠检测":
 			'<img src="images\NPC\MPJ\pics\A1.jpg" width="854">'
 		'</div>'
 		  '<div class="button_menu">'
-			 '<div class="buttonS"><a href="exec:gt ''大学''">❤❤受孕成功了❤❤</a></div>'
+			 if $ma!$CBJ.name and $ma!$HSW.name:'<div class="buttonS"><a href="exec:gt ''大学''">❤❤受孕成功了❤❤</a></div>'else:'<div class="buttonS"><a href="exec:gt ''居民区''">❤❤受孕成功了❤❤</a></div>'
 		  '</div>'
 		
         else:
@@ -122,7 +122,7 @@ if $args[0]="妊娠检测":
 			'<img src="images\NPC\MPJ\pics\A2.jpg" width="854">'
 		'</div>'
 		  '<div class="button_menu">'
-			 '<div class="buttonGn3"><a href="exec:gt ''大学''">卵子受精失败</a></div>'
+			 if $ma!$CBJ.name and $ma!$HSW.name:'<div class="buttonGn3"><a href="exec:gt ''大学''">卵子受精失败</a></div>'else:'<div class="buttonS"><a href="exec:gt ''居民区''">卵子受精失败</a></div>'
 		  '</div>'
         end
     '<div class="dialog_menu">'
@@ -159,6 +159,18 @@ if $args[0]="泛用截面":
 			 if $m='SB' :
 				if $m地址!'AQA' and $m地址!'MBB':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''松本_事件'',''SB_早上''">陪她过夜</a></div>'
 			 end
+			 if $m地址='JSZ':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''SYYY_洗澡''">陪我洗澡</a></div>'
+			 if $m地址='TMWFN':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''TMW_事后对话''">虚脱对话</a></div>'
+			 if $m地址='DDY':'<div class="buttonG3"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''CBJ_第二天''">睡到第二天</a></div>'
+			 if $m地址='YWT':'<div class="buttonP"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''XMK_爱意''">对话</a></div>'
+			 if $m地址='AWQ' and $XMK事件链=13:'<div class="buttonG1"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''XMK_旅行对话''">睡到第二天</a></div>'
+			 if $m地址='XMKGG':'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''XMK_大满足''">大满足</a></div>'
+			 if $m地址='HDLG':'<div class="buttonP"><a href="exec:gt ''学生群_事件'',''BTH_不行2''">对话</a></div>'
+			 if $m地址='HBTX':'<div class="buttonP"><a href="exec:gt ''学生群_事件'',''BTH_不行3''">好好谈谈</a></div>'
+			 if $m地址='SYSS':'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''BTH_禁欲''">发布任务</a></div>'
+			 if $m地址='STSG':'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''BTH_Fuck_书2''">性癖增加</a></div>'
+			 if $m地址='JZLKK':'<div class="buttonR"><a href="exec:a=6 & gt ''学生群_事件'',''BTH_Fuck_离开''">回去看</a></div>'
+			 if $m地址='BHZZP':'<div class="buttonR"><a href="exec: gt ''学生群_事件'',''BTH_Fuck_结局''">看向她老公</a></div>'
                 '<div class="buttonG5"><a href="exec:gt ''截面_事件'',''妊娠检测''">妊娠检测</a></div>'
             '</div>'
     end
@@ -171,17 +183,29 @@ if $args[0]="泛用截面":
               if $m='SJ' :'<p><<$ma>>: 嘿嘿❤我猜你有个大宝贝❤</p>'
               if $m='YLW' :'<p><<$ma>>: 看够了没？</p>'
               if $m='MPJ' :'<p><<$ma>>: 你在担心什么…别装模作样了…</p>'
+              if $m='SYYY' :'<p><<$ma>>: 来吧…你的话我可以❤</p>'
+              if $m='TMW' :'<p><<$ma>>: 我比你想得还要欠操喔❤</p>'
+              if $m='HSW' :'<p><<$ma>>: 在想什么呢❤</p>'
+              if $m='CBJ' :'<p><<$ma>>: 我…没有上头❤</p>'
+              if $m='XMK' :'<p><<$ma>>: 喜欢❤</p>'
+              if $m='BTH' :'<p><<$ma>>: 喜欢❤</p>'
          '</div>'
     end
 
     if 9>=a and a>=0:
          '<div class="dialog_menu">'
               if $m='SB' :'<p><<$ma>>: 你的嘴巴真软❤</p>'
-              if $m='HME' :'<p><<$ma>>: 我非常喜欢❤</p>'
+              if $m='HME' :'<p><<$ma>>: 我和我的骚逼都迫不及待了❤</p>'
               if $m='FZL' :'<p><<$ma>>:这庅湥嘫？</p>'
-              if $m='SJ' :'<p><<$ma>>: 嘿嘿❤</p>'
+              if $m='SJ' :'<p><<$ma>>: 嘿嘿❤来吧❤</p>'
               if $m='YLW' :'<p><<$ma>>: 正合我意❤</p>'
               if $m='MPJ' :'<p><<$ma>>: 反正我怎么样都行…</p>'
+              if $m='SYYY' :'<p><<$ma>>: 你怎么知道我也是这么想的❤</p>'
+              if $m='TMW' :'<p><<$ma>>: 快来满足我的骚屄吧❤</p>'
+              if $m='HSW' :'<p><<$ma>>: 好刺激，我好喜欢❤</p>'
+              if $m='CBJ' :'<p><<$ma>>: 灌满我的每…每一个穴❤</p>'
+              if $m='XMK' :'<p><<$ma>>: 其实我…蛮喜欢这样的❤</p>'
+              if $m='BTH' :'<p><<$ma>>: 拜托了❤满足我吧❤插到我子宫的最深处好嘛？</p>'
               if a>=1:'<p>我: 那我不客气了❤</p>'
               if a>=2:'<p><<$ma>>: 好棒啊<<$娇喘声>></p>'
               if a>=5:'<p><<$ma>>: 好爽<<$话>></p>'
@@ -220,6 +244,27 @@ if $args[0]="泛用截面":
 				'<p><<$ma>>: 喏，这是我的电话号码，Mua❤</p>'
 				'<p>·————</p>'
 				'<p>·此处为该人物故事线的结尾。但终极目标是班级名册全员通过考试，方法有孕期免考或成绩及格。</p>'
+              end
+
+              if $m地址='UCSC':
+				$SYYY.bad+=q+my.魅力
+				$SYYY.love+=q+my.魅力  
+				$SYYY.tel=1
+				'<B><span class =''red''><p>☎获取了她的信任❤</p>'
+				'<p><<$ma>>: 你可真是个和我一样的坏胚！喏，这是我的电话号码，想做爱的话可以打给我喔❤</p>'
+				'<p>·————</p>'
+				'<p>·此处为该人物故事线的结尾。但终极目标是班级名册全员通过考试，方法有孕期免考或成绩及格。</p>'
+              end
+              
+              if $m地址='CARG':
+                $HSW.bad+=q+my.魅力
+                $HSW.love+=q+my.魅力*2
+                $HSW.tel=1
+                '<p>我： 那些Coser兼职的事我也会替你关照着的。</p>'
+                '<B><span class =''red''><p>☎获取了她的信任❤</p>'
+                '<p><<$ma>>: 喏，这是我的电话号码❤</p>'
+                '<p>·————</p>'
+                '<p>·此处为该人物故事线的结尾。但终极目标是班级名册全员通过考试，方法有孕期免考或成绩及格。</p>'
               end
          '</div>'
     end

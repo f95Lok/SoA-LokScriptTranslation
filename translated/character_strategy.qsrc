@@ -9,10 +9,10 @@ gs'menu_time_calc'
 	gs'menu_act_hidden'
 '</div>'
 
+$glz_name=$args[0]
+$glz_lv=$args[3]
 
-
-if $args[3]>$strategy_unlock and $args[3]>$v48_raiders_unlock:gt'strategy_sponsorship'
-
+if $args[3]>$strategy_unlock and $args[3]>$v48_raiders_unlock and $args[3]!$v55_strategy_unlock:$raiders_enter=0 & gt'strategy_sponsorship'
 
 
 if $args[0]='<<$YS.name>>':
@@ -555,7 +555,7 @@ if $args[0]='<<$SB.name>>':
             '<font color="#FFE4B5">Front: Complete the podium plot</font></p>'
             if $matsumoto_event_chain<3:'<font color="#BBFFBB">Looking at the podium in the second class of three years</font></p>'
             if $matsumoto_event_chain=3:'<font color="#BBFFBB">Stage 1: Remove the 3 students she doesn`t like from the class roster, and talk to her after they are all completed</font></p>'
-            if $matsumoto_event_chain=4:'<font color="#BBFFBB">Stage 2: Check the memo in the daughter`s lounge</font></p>'
+            if $matsumoto_event_chain=4:'<font color="#BBFFBB">Stage 2: Check the memo in the daughter`s lounge, and you must arrive at the location on the memo on time</font></p>'
             if $matsumoto_event_chain=5:'<font color="#BBFFBB">Continue to drink with her in the club every night</font></p>'
             if $matsumoto_event_chain=6:'<font color="#BBFFBB">Talk to her in the daughter`s lounge</font></p>'
             if $matsumoto_event_chain=7:'<font color="#BBFFBB">Drive her car and accompany her around the zoo</font></p>'
@@ -565,14 +565,12 @@ if $args[0]='<<$SB.name>>':
             if $matsumoto_event_chain=11:'<font color="#BBFFBB">Drive her car to accompany her to watch the fireworks display at night</font></p>'
             if $matsumoto_event_chain=12:'<font color="#BBFFBB">Pick up my childhood sweetheart at the airport</font></p>'
             if $matsumoto_event_chain=13:'<font color="#BBFFBB">Think of a way to get through the internship period</font></p>'
-            if $matsumoto_event_chain=14:'<font color="#BBFFBB">Meet your childhood sweetheart at the entrance of the school at 21:00</font></p>'
+            if $matsumoto_event_chain=14:'<font color="#BBFFBB">Meet your childhood sweetheart at the entrance of the school at 22 o`clock</font></p>'
             if $matsumoto_event_chain>=15:'<font color="#BBFFBB">Ask her to see the fireworks show again</font></p>'
             if $matsumoto_event_chain=16:'<font color="#BBFFBB">↑If you choose [I Love You Too], you will get a phone number</font></p>'
      '</div>'
  '</div>'
 end
-
-
 
 if $args[0]='<<$MPJ.name>>':
  '<div class="charac_nps_info999">'
@@ -583,7 +581,7 @@ if $args[0]='<<$MPJ.name>>':
             '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
             '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
             if $mpj_event_chain=0:'<font color="#BBFFBB">Find a way to go to her house</font></p>'
-            if $mpj_event_chain=1:'<font color="#BBFFBB">Go to the Night CLUB office to find the crazy brother</font></p>'
+            if $mpj_event_chain=1:'<font color="#BBFFBB">Go to the Night CLUB office to find the crazy brother (the office needs to be completed<<$LB.name>>The event is unlocked)</font></p>'
             if $mpj_event_chain=2:'<font color="#BBFFBB">Go to her house to convey the news</font></p>'
             if $mpj_event_chain=3:'<font color="#BBFFBB">The next day, I found the crazy little brother in the Night CLUB office and waited for them to come.</font></p>'
             if $mpj_event_chain=4:'<font color="#BBFFBB">Go to her house after the storm subsides and let her repay you</font></p>'
@@ -592,7 +590,6 @@ if $args[0]='<<$MPJ.name>>':
      '</div>'
  '</div>'
 end
-
 
 if $args[0]='<<$HME.name>>':
  '<div class="charac_nps_info999">'
@@ -662,7 +659,7 @@ if $args[0]='<<$FZL.name>>':
             '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
             if $fzl_event_chain=0:'<font color="#BBFFBB"><<$FZL.name>>In the corridor deep in the back door, invite her to eat</font></p>'
             if $fzl_event_chain=1:'<font color="#BBFFBB"><<$FZL.name>>In the corridor deep in the back door, someone comes to trouble when you treat guests</font></p>'
-            if $fzl_event_chain>=2:'<font color="#BBFFBB">She will get drunk at the bar table after school：</font></p>'
+            if $fzl_event_chain>=2:'<font color="#BBFFBB">She would get drunk at the school bar late at night：</font></p>'
             if $fzl_event_chain>=2:'<font color="#BBFFBB">Optional: Call the number on the business card given to you by the man</font></p>'
             if fzl_videotape>=1:'<font color="#BBFFBB">↑Go home and view the videotape on the computer in the bedroom</font></p>'
             if $fzl_event_chain>=2:'<font color="#BBFFBB">Optional: Send her home</font></p>'
@@ -671,6 +668,166 @@ if $args[0]='<<$FZL.name>>':
      '</div>'
  '</div>'
 end
+
+if $args[0]='<<$TMW.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $tmw_event_chain=0:'<font color="#BBFFBB"><<$TMW.name>>In the activity classroom, talk to her to plan activities 1.</font></p>'
+            if $tmw_event_chain=1:'<font color="#BBFFBB">Monday`s event was held in the activity classroom.</font></p>'
+            if $tmw_event_chain=2:'<font color="#BBFFBB">Reward for talking to her</font></p>'
+            if $tmw_event_chain=3:'<font color="#BBFFBB"><<$TMW.name>>In the activity classroom, talk to her to plan activities 2.</font></p>'
+            if $tmw_event_chain=4:'<font color="#BBFFBB">Tuesday`s event was held in the activity classroom.</font></p>'
+            if $tmw_event_chain=5:'<font color="#BBFFBB">Reward for talking to her</font></p>'
+            if $tmw_event_chain=6:'<font color="#BBFFBB"><<$TMW.name>>In the activity classroom, talk to her to plan activities 3.</font></p>'
+            if $tmw_event_chain=7:'<font color="#BBFFBB">Wednesday`s event was held in the activity classroom.</font></p>'
+            if $tmw_event_chain=8:'<font color="#BBFFBB">Reward for talking to her</font></p>' 
+            if $tmw_event_chain=9:'<font color="#BBFFBB"><<$TMW.name>>In the activity classroom, talk to her to plan activities 4.</font></p>' 
+            if $tmw_event_chain=10:'<font color="#BBFFBB">Thursday`s event was held in the activity classroom.</font></p>' 
+            if $tmw_event_chain=11:'<font color="#BBFFBB">Reward for talking to her</font></p>' 
+            if $tmw_event_chain=12:'<font color="#BBFFBB"><<$TMW.name>>In the activity classroom, talk to her to plan activities 5.</font></p>' 
+            if $tmw_event_chain=13:'<font color="#BBFFBB">Friday activities are held in the activity classroom.</font></p>' 
+            if $tmw_event_chain=14:'<font color="#BBFFBB">Talk to her to discuss countermeasures</font></p>' 
+            if $tmw_event_chain=15:'<font color="#BBFFBB">Talk to her to discuss the iou</font></p>' 
+            if $tmw_event_chain=16:'<font color="#BBFFBB">She went to collect debts alone, but in Kabukicho-Ryukuchi Group (by<<$YS.name>>(Unlocked) Found her</font></p>' 
+            if $tmw_event_chain>=17:'<font color="#BBFFBB">Under the psychological effect, she became dependent on me, so she can propose a date.</font></p>' 
+            if $tmw_event_chain>=17:'<font color="#BBFFBB">↑You can get a phone number when you are out of power at the hotel</font></p>' 
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SYYY.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $syyy_event_chain=0:'<font color="#BBFFBB"><<$SYYY.name>>In the stairwell at the back of the classroom, I witnessed the incident.</font></p>'
+            if $syyy_event_chain=1:'<font color="#BBFFBB">Go to the park at 14 o`clock.<<$SYYY.name>>shooting</font></p>'
+            if $syyy_event_chain=2:'<font color="#BBFFBB">Go back to the stairwell at the back door of the classroom and witness the incident</font></p>'
+            if $syyy_event_chain=3:'<font color="#BBFFBB">I can meet her in Kabukicho after 23 o`clock on Friday</font></p>'
+            if $syyy_event_chain=4:'<font color="#BBFFBB">Go back to the second class of the third year and have a conversation with the wild Bichon</font></p>'
+            if $syyy_event_chain=5:'<font color="#BBFFBB">In the hookah room and<<$SYYY.name>>Talk</font></p>'
+            if $syyy_event_chain=6:'<font color="#BBFFBB">Go to Empire Entertainment and<<$TS.name>>Dialogue introduction</font></p>'
+            if $syyy_event_chain=7:'<font color="#BBFFBB">19 o`clock red restaurant appointment introduction</font></p>'
+            if $syyy_event_chain=8:'<font color="#BBFFBB">Take her to complete a shooting job at Empire Entertainment Studio</font></p>' 
+            if $syyy_event_chain=9:'<font color="#BBFFBB">and<<$SYYY.name>>Dialogue to find<<$SB.name>>proposal</font></p>' 
+            if $syyy_event_chain=10:'<font color="#BBFFBB">Let her fulfill her promise to accompany me for a day</font></p>' 
+            if $syyy_event_chain=11:'<font color="#BBFFBB">and<<$SYYY.name>>Dialogue to find<<$SB.name>>It is proposed that she needs to complete her plot line to get her to agree</font></p>' 
+            if $syyy_event_chain>=12:'<font color="#BBFFBB">Abandoned classroom A has been requisitioned as a club, go to the club to talk to her until the evil event is completed</font></p>' 
+            if $syyy_event_chain>=13:'<font color="#BBFFBB">After completing the selection, you can get her number</font></p>' 
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$CBJ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $CBJ.available=0:'<font color="#BBFFBB"><<$CBJ.name>>In the puff room, talk to her.</font></p>'
+            if $CBJ.love<=50+5*my.charm:'<font color="#BBFFBB">Accompany her to participate in the wine bureau to increase her favorability until she can go to her house.</font></p>'
+            if $cbj.imprisonment=1:'<font color="#BBFFBB">#I should go to the place where the homeless gather in the park to find her</font></p>'
+            if 50+8*my.charm>$CBJ.love and $CBJ.love>50+5*my.charm:'<font color="#BBFFBB">Accompany her to drink at home to increase her favorability until the two can have a tryst.</font></p>'
+            if $CBJ.love>=50+8*my.charm:'<font color="#BBFFBB">Accompany her to drink at home to enhance her good feelings, and buy wine with her after the end.</font></p>'
+            if $CBJ.love>=50+9*my.charm:'<font color="#BBFFBB">↑If you admit that your alcohol intake is not as good as hers, you can get her phone number.</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$HSW.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $HSW.available=0:'<font color="#BBFFBB"><<$HSW.name>>In the abandoned classroom B, talk to her.</font></p>'
+            if $hsw_event_chain=0:'<font color="#BBFFBB">Take her in the car and take her to see her uncle.</font></p>'
+            if 2>=$hsw_event_chain and $hsw_event_chain>=1:
+                '<font color="#BBFFBB">Assist or watch her repay [all] debts</font></p>'
+                if HSWBJ=1:'<font color="#BBFFBB">#Part-time door-to-door cleaning can get 18,000 each time.</font></p>'
+                if HSWXS=1:'<font color="#BBFFBB">#Part-time insurance sales can get 700~60,000 each time.</font></p>'
+                if HSWDY=1:'<font color="#BBFFBB">#Part-time director assistant can get 2000~50000+ each time</font></p>'
+                if HSWDP=1:'<font color="#BBFFBB">#You can get 25,000 per time you work part-time in a nightclub.</font></p>'
+            end
+            if $hsw_event_chain=2:'<font color="#BBFFBB">Assist or watch her repay her uncle`s medical expenses.</font></p>'
+            if $hsw_event_chain=3:'<font color="#BBFFBB">In the abandoned classroom B and<<$SB.name>>Go out and play together, and choose her to get full access.</font></p>'
+            if $hsw_event_chain=4:'<font color="#BBFFBB">Has obtained the full right to use it, in the abandoned classroom B<<$TMW.name>>Will come.</font></p>'
+            if $hsw_event_chain=5:'<font color="#BBFFBB">with<<$SYYY.name>>Dialogue in the COS community and make rational use of abandoned classroom B</font></p>'
+            if $hsw_event_chain>=6:'<font color="#BBFFBB">Drive her<<$HSW.name>>Go buy a mattress together</font></p>'
+            if $hsw_event_chain>=7:'<font color="#BBFFBB">↑If you choose to escape together, you can get her phone number</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$XMK.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#1E90FF">Front: Get<<$SB.name>>The phone</font></p>'
+            if $xmk_event_chain=0:'<font color="#BBFFBB">She sulked deep in the back door of the university and talked to her.</font></p>'
+            if $xmk_event_chain=1:'<font color="#BBFFBB">Go and<<$SB.name>>Let her read the text message in the conversation</font></p>'
+            if $xmk_event_chain=2:'<font color="#BBFFBB">Accompany her on the trip as a bodyguard</font></p>'
+            if $xmk_event_chain=3:'<font color="#BBFFBB">Accompany her to the daughter`s lounge as a bodyguard</font></p>'
+            if $xmk_event_chain=4:'<font color="#BBFFBB">Go to the daughter lounge to find the bracelet</font></p>'
+            if $xmk_event_chain=5:'<font color="#BBFFBB">Give her back the bracelet</font></p>'
+            if $xmk_event_chain=6:'<font color="#BBFFBB">Chat with her to increase favorability</font></p>'
+            if $xmk_event_chain=7:'<font color="#BBFFBB">Accompany her to the roof to play in the water</font></p>'
+            if $xmk_event_chain=8:'<font color="#BBFFBB">Accompany her on a two-person date</font></p>'
+            if $xmk_event_chain=9:'<font color="#BBFFBB">Still silently protect and accompany her home</font></p>'
+            if $xmk_event_chain=10:'<font color="#BBFFBB">Send her home, her conversation has changed</font></p>'
+            if $xmk_event_chain=11:'<font color="#BBFFBB">Send her home, date<<$FZL.name>></font></p>'
+            if $xmk_event_chain=12:'<font color="#BBFFBB">Send her home, date<<$YLW.name>></font></p>'  
+            if $xmk_event_chain=13:'<font color="#BBFFBB">Take her home and travel alone</font></p>'  
+            if $xmk_event_chain=14:'<font color="#BBFFBB">Talk to her to find<<$SB.name>></font></p>'  
+            if $xmk_event_chain=15:'<font color="#BBFFBB">Let the conversation<<$SB.name>>You can get a phone number after joining the big meeting</font></p>'    
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$BTH.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$filename_reference>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎name:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕ Affection:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝ Degree of depravity:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">Front: complete<<$SB.name>>One stage</font></p>'
+            if $bth_event_chain=0:'<font color="#BBFFBB"><<$BTH.name>>In the corridor at the back door, eavesdropping on the conversation.</font></p>'
+            if $bth_event_chain=1:'<font color="#BBFFBB">On weekends in the red restaurant, find her at 20 o`clock to increase her favorability</font></p>'
+            if $bth_event_chain=2:'<font color="#BBFFBB">Meet her in the activity classroom</font></p>'
+            if $bth_event_chain=3:'<font color="#BBFFBB">Go to her boyfriend`s house in the villa area</font></p>'
+            if $bth_event_chain=4:'<font color="#BBFFBB">Go to her boyfriend`s house in the villa area again</font></p>'
+            if $bth_event_chain=5:'<font color="#BBFFBB">Go to her boyfriend`s house in the villa area again</font></p>'
+            if $bth_event_chain=6:'<font color="#BBFFBB">I started to train her after talking to her after the substitute class was over, and endured for at least a week.</font></p>'
+            if $bth_event_chain=7:'<font color="#BBFFBB">Go to the park toilet at 22 o`clock in the evening and wait for her</font></p>'
+            if $bth_event_chain=8:'<font color="#BBFFBB">I started to train her after talking to her after the substitute class was over, and released task B at least a week later.</font></p>' 
+            if $bth_event_chain=9:'<font color="#BBFFBB">Go to school and wait for her in the corridor at midnight</font></p>' 
+            if $bth_event_chain=10:'<font color="#BBFFBB">I started to train her after talking to her after the substitute class was over, and released task C after at least a week of patience.</font></p>' 
+            if $bth_event_chain=11:'<font color="#BBFFBB">Go to the school library and wait for her</font></p>' 
+            if $bth_event_chain=12:'<font color="#BBFFBB">Go to her boyfriend`s house in the villa area and choose an excuse to leave</font></p>' 
+            if $bth_event_chain=13:'<font color="#BBFFBB">Go to her boyfriend`s house in the villa area and accept the invitation</font></p>' 
+            if $bth_event_chain=14:'<font color="#BBFFBB">Go to the church to represent the wedding (need to start the church wedding business)</font></p>' 
+            if $bth_event_chain=15:'<font color="#BBFFBB">Go to her boyfriend`s house in the villa area, congratulate the newlyweds and drink</font></p>' 
+            if $bth_event_chain>=15:'<font color="#BBFFBB">↑Finally get a phone number</font></p>' 
+     '</div>'
+ '</div>'
+end
+
 
 '<div class="options_back"><a href="exec:gt''menu_charac_nps''"><div class="settings_back_menu"></div></a></div>'
 --- character_strategy ---------------------------------

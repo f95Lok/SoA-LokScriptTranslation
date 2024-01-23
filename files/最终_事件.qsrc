@@ -1,0 +1,272 @@
+# 最终_事件
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.精力-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "BUG脱出"
+'</div>'
+
+if $args[0]="银行序幕":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:
+			if $MY.银行=1:'<div class="buttonG"><a href="exec: a=1 & gt ''最终_事件'',''银行序幕''">我就是副行长</a></div>'
+			if $MY.银行!1:'<div class="buttonGr"><a href="exec: ">需要担任副行长</a></div>'
+		  end
+            '<div class="buttonGn"><a href="exec: gt ''市长办公室''">离开</a></div>'
+        '</div>'
+	if a=0:
+	'<div class="dialog_menu">'
+		'<p><<$JYB.name>>:你来得正好，我遇到一点麻烦。</p>'
+		'<p>我:什么麻烦？</p>'
+		'<p><<$JYB.name>>:你知道的，我给我宝贝女儿建的新图书馆，游泳馆，体育馆，都是很花钱的。</p>'
+		'<p>我:花了多少钱？</p>'
+		'<p><<$JYB.name>>:粗略算了一下，扣掉那些回扣，大概花了2.2亿。</p>'
+		'<p>我:2.2亿？</p>'
+		'<p><<$JYB.name>>:现在我委托人设计了一个平账的办法，但还需要一点银行内部的关系，听<<$XZ.name>>说你能摆平三年二班，那银行内你也应该有关系吧？</p>'
+	'</div>'
+	end
+	if a=1:
+	 if $序幕=0:$序幕=1
+	'<div class="dialog_menu">'
+		'<p>我:正巧了，我现在就担任副行长一职，不知道有什么可以帮到您的？</p>'
+		'<p><<$JYB.name>>:那太好了。你是知道金库密码的人对吧？</p>'
+		'<p>我:金库密码？我不知道。</p>'
+		'<p><<$JYB.name>>:那你至少清楚安保系统对吧？</p>'
+		'<p>我:是的，我对布局还是听清楚的，怎么？</p>'
+		'<p><<$JYB.name>>:我们去抢银行！听着，地点是郊外，时间选在一个下雨的下午，撑一把黑伞，届时行动的负责人会告诉你该做什么。</p>'
+	'</div>'
+	end
+End
+
+if $args[0]="黑伞":
+	 minutes+=180
+	 if $序幕=1:$序幕=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KMN~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonG"><a href="exec: gt ''郊外''">明白了</a></div>'
+        '</div>'
+
+	 
+	'<div class="dialog_menu">'
+	    '<p>？？？(贝恩): 看来第二位内应也到齐了，下面我来说一下具体的任务安排。</p>'
+	    '<p>我:喂喂，你们这个架势不会真的要抢银行吧？</p>'
+	    '<p>？？？(贝恩): 你负责在下个月的15日，下午15点15分，在你的副行长室内解除警报。</p>'
+	    '<p>我:…………</p>'
+	    '<p>？？？(贝恩): 三人一组，一共抢9个现金包，大约在￥900万至￥950万。</p>'
+	    '<p>我:啊？才900万？<<$JYB.name>>说要平2.2亿的帐…</p>'
+	    '<p>？？？(贝恩): 我们抢多少是由我们决定的！但她们上报失窃多少是她们说了算的！明白了吗？</p>'
+	    '<p>我:呃，那还有什么我需要知道的？比如第一位内应是谁呢？</p>'
+	    '<p>？？？(贝恩): 嘿！你的问题太多了！其他不属于你的任务你没有知情权！做好你分内的事。</p>'
+	'</div>'
+
+End
+
+
+if $args[0]="JYB_银行":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\BEG1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">搭把手！</a></div>'
+           if a=1:'<div class="buttonR4"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">干活</a></div>'
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">后门撤离</a></div>'
+           if a=3:'<div class="buttonR"><a href="exec:a=11 & gt ''最终_事件'',''JYB_银行''">上车跑路</a></div>'
+           if a=11:'<div class="buttonG"><a href="exec:a=4 & gt ''最终_事件'',''JYB_银行''">搬运现金</a></div>'
+           if a=4:'<div class="buttonR"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">?!!!</a></div>'
+           if a=5:'<div class="buttonR"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">危险!!!</a></div>'
+           if a=6:'<div class="buttonPu2"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">醒来</a></div>'
+           if a=7:'<div class="buttonR"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">别走…</a></div>'
+           if a=8:'<div class="buttonPu5"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">昏迷</a></div>'
+           if a=9:'<div class="buttonR3"><a href="exec:a+=1 & gt ''最终_事件'',''JYB_银行''">疑惑</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:gt ''最终_事件'',''亲友探视2''">记在心里</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>*当我解除警报的瞬间，一伙悍匪冲进了银行里…</p>'
+         '</div>'
+    end
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p>???(贝恩): 计划有变，你也要运！*丢过来钱</p>'
+              '<p>我: 啊？？我也要运？？</p>'
+              '<p>???(贝恩): 放心！警方会误以为是劫匪“胁迫”你搬运的！</p>'
+         '</div>'
+    end
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>???(贝恩): 手铐给我！把她拷上！</p>'
+              '<p>我: 啊？？她谁啊？</p>'
+              '<p>???(贝恩): 不需要你管！她是今天的二号目标！她作为人质可以保证我们撤离的安全！</p>'
+         '</div>'
+    end
+    if a=3: 
+         '<div class="dialog_menu">'
+              '<p>我: 喂喂？！这就是你说的安全？</p>'
+              '<p>???(贝恩): 已经很安全了！可恶的臭女人不是说会支开全部警力去做安全教育培训吗？</p>'
+         '</div>'
+    end
+    if a=11: 
+         '<div class="dialog_menu">'
+		    '<p>我: 去你妈的！</p>'	
+         '</div>'
+    end
+    if a=4: 
+         '<div class="dialog_menu">'
+		    '<p>我: 呼——警察没追上我们吧？</p>'	
+              '<p>???(贝恩): 把钱丢给我！快！一袋接一袋！</p>'
+         '</div>'
+    end
+    if a=5: 
+         '<div class="dialog_menu">'
+              '<p>我: 该死…怎么会这样？</p>'
+         '</div>'
+    end
+    if a=6: 
+         '<div class="dialog_menu">'
+              '<p>女人: 小心！</p>'
+         '</div>'
+    end
+    if a=7: 
+         '<div class="dialog_menu">'
+              '<p>*被痛醒</p>'
+              '<p>我: 唔……我…我还以为我死定了…你…你没事吧……</p>'
+              '<p>女人: ………</p>'
+         '</div>'
+    end
+    if a=8: 
+         '<div class="dialog_menu">'
+              '<p>我: 喂…把钱放下……</p>'
+              '<p>女人: 蠢货，我是和你一伙的！</p>'
+              '<p>我: 什…什么意思啊啊…*疼痛让你无法立即思考</p>'
+         '</div>'
+    end
+    if a=9: 
+          minutes+=1440
+         '<div class="dialog_menu">'
+              '<p>？？？: 还好避开了心脏，看来已经恢复了意识…</p>'
+              '<p>我: 我…我是死了嘛…*睁开眼</p>'
+              '<p>？？？: 本来你是应该死的…今天的新闻是《15日特大银行抢劫案告破！———劫匪无人生还》</p>'
+         '</div>'
+    end
+    if a=10: 
+          if $序幕=2:$序幕=3
+         '<div class="dialog_menu">'
+              '<p>？？？: 本来你是应该死的…今天的新闻是《15日特大银行抢劫案告破！———劫匪无人生还》</p>'
+              '<p>我: 那我这是…什么情况？</p>'
+              '<p>？？？: 因为你是山峦R&M地块的拥有人，所以你既不能死，也不会被当做劫匪。</p>'
+              '<p>我: 什么意思啊……</p>'
+              '<p>？？？: 有人保了你的命。他会在周一下午13点在教堂里等你，记住了吗？</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="亲友探视2":
+		 a=0 
+		 q=0
+		   '<div class="show_menu">'
+			   '<video preload="metadata" autoplay loop height="480">
+			   <source src="images\NPC\JY\vids\枪1-3.webm" type=''video/webm;''></video></div>'
+		   '</div>'
+	 
+		'<div class="button_menu">'
+		  if $HZ.bad>=250-$HZ.love:'<div class="buttonB"><a href="exec:gt ''会长_事件'',''HZ_Fuck_医院探视''"><<$HZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？的辣妹</a></div>'
+		  if $EDM.love>=100:'<div class="buttonB"><a href="exec:gt ''二代目_事件'',''EDM_Fuck_医院探视''"><<$EDM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？的辣妹</a></div>'
+		  if $SF.bad>=270-$SF.love:'<div class="buttonB"><a href="exec:gt ''少妇_事件'',''SF_Fuck_病房受孕''"><<$SF.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位少妇</a></div>'
+		  if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec:$m=''TZ'' & $ma=$TZ.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位台长</a></div>'
+            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec:$m=''QT'' & $ma=$QT.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位播音员</a></div>'
+            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec:$m=''JM'' & $ma=$JM.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位继母</a></div>'
+            if $ZX.bad>=500-$ZX.love:'<div class="buttonB"><a href="exec:$m=''ZX'' & $ma=$ZX.name & gt ''群演_事件'',''泛用_Fuck_探视''"><<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？某位医生</a></div>'
+		  '<div class="buttonGn"><a href="exec:a+=1 & gt ''医院''">独自出院 </a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+				'<p>我: 这是医院的天花板吗？</p>'
+				'<p>护士: 你醒了？正好有人来探视你了！</p>'
+		'</div>'
+End
+
+if $args[0]="弗兰克对话":
+		   '<div class="show_menu">'
+			   '<video preload="metadata" autoplay loop height="480">
+			   <source src="images\NPC\JYB\vids\WWD.webm" type=''video/webm;''></video></div>'
+		   '</div>'
+	 
+		'<div class="button_menu">'
+		  '<div class="buttonGn"><a href="exec:gt ''最终_事件'',''Event_晚餐''">和他去吃晚餐 </a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+				'<p>我: 您找我？听说是您派人救了我？</p>'
+				'<p>？？？: 等我扫完墓，和我去吃个晚餐吧。</p>'
+				'<p>我: 这是谁的墓碑？</p>'
+				'<p>？？？: 上一任那个发了疯的市长的，但我相信，很快就会变成上上任。</p>'
+		'</div>'
+End
+
+
+if $args[0]="Event_晚餐":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\WAD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''最终_事件'',''Event_晚餐''">进入餐厅</a></div>'
+           if a=1:'<div class="buttonR4"><a href="exec:a+=1 & gt ''最终_事件'',''Event_晚餐''">杵在一旁</a></div>'
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''最终_事件'',''Event_晚餐''">杵在一旁</a></div>'
+           if a=3:'<div class="buttonR"><a href="exec:a+=1 & gt ''最终_事件'',''Event_晚餐''">杵在一旁</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:gt ''居民区''">离开·未完待续</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>???: 站在一旁就好，像保镖那样，不要出声。*下车时嘱咐我</p>'
+              '<p>我: 呃…好吧。</p>'
+         '</div>'
+    end
+    if a=1 or a=2 or a=3: 
+         '<div class="dialog_menu">'
+              '<p>我: 这完全不是吃饭的气氛……*心想</p>'
+              if a=3:'<p>我: 钐-149？我好像在哪个检测报告上看到过…*心想</p>'
+         '</div>'
+    end
+    if a=4: 
+         '<div class="dialog_menu">'
+              '<p>我: 钐-149？我好像在哪个检测报告上看到过…*心想</p>'
+              '<p>???: 我非常愿意与你平等的合作，我会解决钐-149。</p>'
+              '<p>————————</p>'
+              '<p><span class="bold"><font color="#F20056">*至此为当前版本的终点，目前还新增了两个有对应道具的NPC角色，如果在当前版本找到他们的话，在之后的版本里将给予你更多的结局选择。</p>'
+         '</div>'
+    end
+End
+
+--- 最终_事件 ---------------------------------
+

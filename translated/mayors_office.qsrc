@@ -26,6 +26,7 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt ''mayors_office'',''wuchang_conference_room''">Wuchang Conference Room</a></div>'
 		'<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">Mayor`s Office</a></div>'
 		'<div class="button"><a href="exec:gt ''mayors_office'',''urban_construction_minister`s_office''">Urban Construction Minister`s Office</a></div>'
+		if $JYB.ok=1:'<div class="button"><a href="exec:gt ''mayors_office'',''minister_of_education`s_office''">Minister of Education`s Office</a></div>'else:'<div class="buttonGr"><a href="exec:">Minister of Education`s Office</a></div>'
 		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
@@ -43,15 +44,16 @@ if $ARGS[0]="":
 end
 
 if $ARGS[0]="mayor`s_office":
-	'<div class ="show_menu"><img src="images\place\不开放.jpg" width="854"></div>'
+	'<div class ="show_menu"><img src="images\place\真市长室.jpg" width="854"></div>'
 
 
 	'<div class="button_menu">'
+		'<div class="buttonGr"><a href="exec:"><<$SZ.name>></a></div>'
 		'<div class="buttonR2"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
-		'<p></p>'
+		'<p>·The current version has no content</p>'
 	'</div>'
 end
 
@@ -286,6 +288,24 @@ if $ARGS[0]="dark_council":
 		end
 	'</div>'
 end
+
+if $ARGS[0]="minister_of_education`s_office":
+	 if $prologue<=2:gt'final_event','bank_account'
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''mayors_office''">Return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$JYB.name>>: Well done...220 million was robbed, and the account was settled at once, but to my surprise...you are not dead?</p>'
+	'</div>'
+end
+
+
 
 
 
