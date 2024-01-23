@@ -389,8 +389,9 @@ if $args[0]="church_wedding":
         '<div class="button_menu">'
 		  '<div class="buttonS"><a href="exec: gt ''nun_event'',''XN_Fuck_WED''">Take her to your room</a></div>'
             '<div class="buttonGn3"><a href="exec: gt ''church''">Leave</a></div>'
-            if $bank_event_chain_b>=8:'<div class="buttonG4"><a href="exec: gt ''bank_event'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
+            if $bank_event_chain_b>=8:'<div class="buttonG3"><a href="exec: gt ''bank_event'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
             if $wh.wedding_dress=1:'<div class="buttonG4"><a href="exec:gt ''net_celebrity_event'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'
+            if $bth_event_chain>=14:'<div class="buttonG5"><a href="exec:gt ''student_group_event'',''bth_wedding''">㊕<<$BTH.name>></a></div>'
         '</div>'
 
          '<div class="dialog_menu">'
@@ -408,7 +409,8 @@ if $args[0]="GOD0":
              <source src="images\NPC\XN\vids\GOD0.webm" type=''video/webm;''></video></div>'
         '</div>'
         '<div class="button_menu">'
-            '<div class="button"><a href="exec:minutes+=60 & gt ''church''">。。。</a></div>'
+		  if $prologue=3:'<div class="button"><a href="exec:minutes+=60 & gt ''final_event'',''frank_dialogue''">Keep up the conversation</a></div>'
+            '<div class="button"><a href="exec:minutes+=60 & gt ''church''">Ignore him</a></div>'
         '</div>'
         
          '<div class="dialog_menu">'

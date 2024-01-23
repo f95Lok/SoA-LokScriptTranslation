@@ -13,20 +13,18 @@ gs'menu_time_calc'
 if $args[0] ='':
 	!++++++++++++++++++↓主画面↓+++++++++++++++++++++++++++++++++++
 	'<div class="show_menu">'
-		'<img src="images\place\对话1.jpg" width="854">'
+		'<img src="images\place\解锁.jpg" width="854">'
 	'</div>'
 	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
 	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:gt ''strategy_sponsorship'',''V48''">Click to open the strategy</a></div>'
 		'<div class="button"><a href="exec: gt $loc,$metka">Leave</a></div>'
-		'<div class="buttonG"><a href="exec:gt ''strategy_sponsorship'',''V48''">Click to activate the strategy</a></div>'
 	'</div>'
 	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
 	'<div class="dialog_menu">'
 		'<p><span class="bold"><font color="#2E8B57">First of all, thank you for your continued support and love for me.I sincerely thank you for your trust and favor.</p>'
 		'<p><span class="bold"><font color="#808000">After the V40 version, I directly integrated the new character strategy into the game.：</font></p>'
-		'<p><B><font color="#FF6347">I used pictures to unlock it before, which really exhausted me physically and mentally. A few friends didn`t know how to download, how to unzip...how to click on pictures...Because I couldn`t unlock the strategy, my mentality changed from a warm-hearted sponsor to a cold consumer. o (╥)╥)o
-I basically check my mailbox as soon as I have time. If I don`t reply in time, some impatient friends will behave very scary and even attack me personally, which brings me a lot of mental pressure.…</p>'
-		'<p><font color="#2E8B57">So the current mode is very simple, enter the 10-digit CDK password to unlock it directly…</p>'
+		if $raiders_enter!55:'<p><span class="bold"><font color="#FF0000">It seems that you have not activated yet<font color="#FFA500">『<font color="#FF00FF">V<<$glz_lv>>Version role<font color="#FFA500">❀<<$glz_name>>』<font color="#FF0000">The built-in strategy, so you can`t view the relevant content.The built-in strategy provides you with real-time task guidance in the game, and you can activate it by entering a 10-digit CDK.</p>'
 	'</div>'
 End
 
@@ -39,19 +37,20 @@ if $args[0] ='V48':
 	'</div>'
 	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec: gt $loc,$metka">Leave</a></div>'
-		'<div class="buttonR4"><a href="exec:gt ''strategy_sponsorship_3'',''old_driver''">V50_new role CDK</a></div>'
-		if $v48_raiders_unlock=50:'<div class="buttonG5"><a href="#" onclick="recordmsgA()">激活Activated V<<$v48_raiders_unlock>>Built-in strategy</a></div>'
-		'<div class="buttonGn4"><a href="exec:gt ''strategy_sponsorship_3''">Full character Strategy CDK</a></div>'
-		if $strategy_unlock=50:'<div class="buttonG5"><a href="exec:gt ''strategy_sponsorship_3'',''unlock_all''">cdNew player cdk has been activated</a></div>'
+		'<div class="button"><a href="exec: gt $loc,$metka">Forget it</a></div>'
+		'<div class="buttonR4"><a href="exec:gt ''strategy_sponsorship_3'',''old_driver''">Add V55 character strategy</a></div>'
+		if $v55_strategy_unlock=55:'<div class="buttonG3"><a href="#" onclick="recordmsgA()">激活Activated V<<$v55_strategy_unlock>>Character strategy</a></div>'
+		'<div class="buttonGn4"><a href="exec:gt ''strategy_sponsorship_3''">Activate the full character strategy</a></div>'
+		if $strategy_unlock=55:'<div class="buttonG5"><a href="exec:gt ''strategy_sponsorship_3'',''unlock_all''">↑Full role cdk has been activated</a></div>'
 	'</div>'
 	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
 	'<div class="dialog_menu">'
-        '<p><B><font color="#FF6347">Question: Is it impossible to create a new character without buying a CDK?</p>'
+        '<p><B><font color="#FF6322"><Frequently asked questions></p>'
+        '<p><B><font color="#FF6347">Q: Can`t you create a new character without buying a CDK?</p>'
         '<p><font color="#2E8B57">Answer: Of course not. CDK unlocks the strategy, which is equivalent to real-time mission guidance.Whether you purchase a CDK or not, it will not have any impact on the plot of the game.If you are a player who is unwilling to read text dialogue messages, it is a good idea to buy a CDK.Admittedly, you can also think of it as pure sponsorship.</p>'
         '<p><font color="#FF6347">Question: How much does CDK sell for?</p>'
-        '<p><font color="#483D8B">Answer: If you are<font color="#FF0000">Old driver</font>, Only the current V_50 is required<font color="#FF0000">New character strategy</font>→30￥</p>'
-        '<p><font color="#483D8B">Answer: If you are<font color="#3CB371">New player</font>, Need to be in the character guide<font color="#3CB371">All character raiders</font>→99￥(<font color="#FF0000">Contains the above</font>)</p>'
+        '<p><font color="#483D8B">Answer: If you are<font color="#FF0000">Master players who have cleared the V50 version✌</font>, Only the current V55 version is required<font color="#FF0000">New character strategy</font>→33￥</p>'
+        '<p><font color="#483D8B">Answer: If you are<font color="#3CB371">Half-ignorant and half-understanding player</font>At a loss in the face of dazzling character illustrations, I suggest buying<font color="#3CB371">All character raiders</font>→99￥(<font color="#FF0000">Contains the latest V55 character strategy</font>)</p>'
 	'</div>'
 End
 --- strategy_sponsorship ---------------------------------

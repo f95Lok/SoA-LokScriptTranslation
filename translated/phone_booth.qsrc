@@ -4,6 +4,7 @@ $metka = $ARGS[0]
 $loc = $CURLOC
 gs'menu_gif'
 
+SF_NUMSHOW=0
 
 '<div id="right-column">'
      gs"energy_judgment"
@@ -12,40 +13,112 @@ gs'menu_gif'
      gs'menu_option_show'
      '<div class="actions_menu">'
           '<div class="action">'
-               if $SB.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=2 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SB.filename>>.jpg"></a>'
+               if $SB.tel=1:
+				if SF_NUM=3 or SF_NUM=5 or SF_NUM=7 or SF_NUM=11 or SF_NUM=13 or SF_NUM=17 or SF_NUM=19 or SF_NUM=23 or SF_NUM=29 or SF_NUM=31 or SF_NUM=37 or SF_NUM=11*5 or SF_NUM=3*11*13 or SF_NUM=3*11*5:
+				'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=2 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SB.filename>>d.jpg"></a>'
+				else:
+				'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=2 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SB.filename>>.jpg"></a>'
+				end
+               end
           '</div>'
           '<div class="action">'
-               if $MPJ.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=3 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$MPJ.filename>>.jpg"></a>'
+               if $MPJ.tel=1:
+				if SF_NUM=2 or SF_NUM=11 or SF_NUM=5 or SF_NUM=7 or SF_NUM=13 or SF_NUM=23 or SF_NUM=29 or SF_NUM=2*11 or SF_NUM=2*13 or SF_NUM=2*11*13 or SF_NUM=2*5 or SF_NUM=11*5 or SF_NUM=2*11*5:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=3 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$MPJ.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=3 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$MPJ.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $FZL.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=5 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$FZL.filename>>.jpg"></a>'
+               if $FZL.tel=1:
+				if SF_NUM=2 or SF_NUM=3 or SF_NUM=11 or SF_NUM=13 or SF_NUM=19 or SF_NUM=29 or SF_NUM=22 or SF_NUM=2*3*11 or SF_NUM=2*3 or SF_NUM=33:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=5 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$FZL.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=5 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$FZL.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-              if $SJ.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=7 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SJ.filename>>.jpg"></a>'
+              if $SJ.tel=1:
+			      if SF_NUM=2 or SF_NUM=3 or SF_NUM=17 or SF_NUM=23 or SF_NUM=31 or SF_NUM=37 or SF_NUM=23*31:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=7 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SJ.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=7 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SJ.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-              if $HME.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=11 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HME.filename>>.jpg"></a>'
+              if $HME.tel=1:
+			      if SF_NUM=2 or SF_NUM=3  or SF_NUM=13 or SF_NUM=5 or SF_NUM=10 or SF_NUM=2*3 or SF_NUM=2*13 or SF_NUM=6*13 or SF_NUM=2*3*5 or SF_NUM=15:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=11 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HME.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=11 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HME.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-              if $YLW.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=13 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$YLW.filename>>.jpg"></a>'
+              if $YLW.tel=1:
+			      if SF_NUM=2 or SF_NUM=5  or SF_NUM=19 or SF_NUM=2*11 or SF_NUM=2*3 or SF_NUM=6*11:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=13 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$YLW.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=13 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$YLW.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $CBJ.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=17 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$CBJ.filename>>.jpg"></a>'
+               if $CBJ.tel=1:
+			      if SF_NUM=2 or SF_NUM=7  or SF_NUM=31 or SF_NUM=29 or SF_NUM=31*29:
+				'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=17 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$CBJ.filename>>d.jpg"></a>'
+				else:
+				'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=17 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$CBJ.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $XMK.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=19 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$XMK.filename>>.jpg"></a>'
+               if $XMK.tel=1:
+			      if SF_NUM=2 or SF_NUM=5 or SF_NUM=13 or SF_NUM=29:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=19 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$XMK.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=19 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$XMK.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $SYYY.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=23 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SYYY.filename>>.jpg"></a>'
+               if $SYYY.tel=1:
+			      if SF_NUM=2 or SF_NUM=3 or SF_NUM=7 or SF_NUM=31 or SF_NUM=7*31:
+				'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=23 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SYYY.filename>>d.jpg"></a>'
+				else:
+				'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=23 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$SYYY.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $BTH.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=29 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$BTH.filename>>.jpg"></a>'
+               if $BTH.tel=1:
+			      if SF_NUM=2 or SF_NUM=3 or SF_NUM=5 or SF_NUM=19 or SF_NUM=31 or SF_NUM=17 or SF_NUM=31*17:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=29 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$BTH.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=29 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$BTH.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $HSW.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=31 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HSW.filename>>.jpg"></a>'
+               if $HSW.tel=1:
+			      if SF_NUM=2 or SF_NUM=7 or SF_NUM=17 or SF_NUM=29 or SF_NUM=17*29 or SF_NUM=23 or SF_NUM=7*23:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=31 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HSW.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=31 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$HSW.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
           '<div class="action">'
-               if $TMW.tel=1:'<a class="photo" data-title="Make a call" href="exec:SF_NUM*=37 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$TMW.filename>>.jpg"></a>'
+               if $TMW.tel=1:
+			      if SF_NUM=2 or SF_NUM=7:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=37 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$TMW.filename>>d.jpg"></a>'
+				else:
+				 '<a class="photo" data-title="Make a call" href="exec:SF_NUM*=37 & gt ''phone_booth''"><img class="img_stretch" src="images\NPC\MPJ\pics\<<$TMW.filename>>.jpg"></a>'
+				end
+			end
           '</div>'
      '</div>'
 '</div>'
@@ -70,15 +143,49 @@ if $args[0]="":
 			if SF_NUM=65:'<div class="buttonS"><a href="exec:$FaceName_A=$FZL.name & love_A=$FZL.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''FZLYLW'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$FZL.NAME>>&<<$YLW.NAME>></a></div>'
 			if SF_NUM=22:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$HME.name & love_B=$HME.love &  $m_address=''SBHME'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$HME.NAME>></a></div>'
 			if SF_NUM=14:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$SJ.name & love_B=$SJ.love &  $m_address=''SBSJ'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$SJ.NAME>></a></div>'
+			if SF_NUM=46:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$SYYY.name & love_B=$SYYY.love &  $m_address=''SBSYYY'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$SYYY.NAME>></a></div>'
+			if SF_NUM=23*7:'<div class="buttonS"><a href="exec:$FaceName_A=$SYYY.name & love_A=$SYYY.love & $FaceName_B=$SJ.name & love_B=$SJ.love &  $m_address=''SYYYSJ'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SYYY.NAME>>&<<$SJ.NAME>></a></div>'
+			if SF_NUM=3*23:'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$SYYY.name & love_B=$SYYY.love &  $m_address=''MPJSYYY'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$MPJ.NAME>>&<<$SYYY.NAME>></a></div>'
+			if SF_NUM=2*37:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$TMW.name & love_B=$TMW.love &  $m_address=''SBTMW'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$TMW.NAME>></a></div>'
+			if SF_NUM=7*37:'<div class="buttonS"><a href="exec:$FaceName_A=$SJ.name & love_A=$SJ.love & $FaceName_B=$TMW.name & love_B=$TMW.love &  $m_address=''SJTMW'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SJ.NAME>>&<<$TMW.NAME>></a></div>'
 			
-			if SF_NUM!55 and SF_NUM!21 and SF_NUM!6 and SF_NUM!26 and SF_NUM!10 and SF_NUM!65 and SF_NUM!22 and SF_NUM!14:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
+			if SF_NUM=2*17:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$CBJ.name & love_B=$CBJ.love &  $m_address=''SBCBJ'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$CBJ.NAME>></a></div>'
+			if SF_NUM=7*17:'<div class="buttonS"><a href="exec:$FaceName_A=$SJ.name & love_A=$SJ.love & $FaceName_B=$CBJ.name & love_B=$CBJ.love &  $m_address=''SJCBJ'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SJ.NAME>>&<<$CBJ.NAME>></a></div>'
+			if SF_NUM=31*17:'<div class="buttonS"><a href="exec:$FaceName_A=$HSW.name & love_A=$HSW.love & $FaceName_B=$CBJ.name & love_B=$CBJ.love &  $m_address=''HSWCBJ'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$HSW.NAME>>&<<$CBJ.NAME>></a></div>'
+			
+			
+			if SF_NUM=31*2:'<div class="buttonS"><a href="exec:$FaceName_A=$HSW.name & love_A=$HSW.love & $FaceName_B=$SB.name & love_B=$SB.love &  $m_address=''HSWSB'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$HSW.NAME>>&<<$SB.NAME>></a></div>'
+			if SF_NUM=31*7:'<div class="buttonS"><a href="exec:$FaceName_A=$HSW.name & love_A=$HSW.love & $FaceName_B=$SJ.name & love_B=$SJ.love &  $m_address=''HSWSJ'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$HSW.NAME>>&<<$SJ.NAME>></a></div>'
+			
+			
+			if SF_NUM=5*19:'<div class="buttonS"><a href="exec:$FaceName_A=$FZL.name & love_A=$FZL.love & $FaceName_B=$XMK.name & love_B=$XMK.love &  $m_address=''FZLXMK'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$FZL.NAME>>&<<$XMK.NAME>></a></div>'
+			if SF_NUM=13*19:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''XMK_YLW''"><<$YLW.NAME>>&<<$XMK.NAME>></a></div>'
+			if SF_NUM=2*19:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$XMK.name & love_B=$XMK.love &  $m_address=''SBXMK'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$XMK.NAME>></a></div>'
+			if SF_NUM=29*19:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''xmk_white_flower''"><<$BTH.NAME>>&<<$XMK.NAME>></a></div>'
+			
+               if SF_NUM=5*29:'<div class="buttonS"><a href="exec:$FaceName_A=$FZL.name & love_A=$FZL.love & $FaceName_B=$BTH.name & love_B=$BTH.love &  $m_address=''FZLBTH'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$FZL.NAME>>&<<$BTH.NAME>></a></div>'
+               if SF_NUM=31*29:'<div class="buttonS"><a href="exec:$FaceName_A=$HSW.name & love_A=$HSW.love & $FaceName_B=$BTH.name & love_B=$BTH.love &  $m_address=''HSWBTH'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$HSW.NAME>>&<<$BTH.NAME>></a></div>'
+               if SF_NUM=3*29:'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$BTH.name & love_B=$BTH.love &  $m_address=''MPJBTH'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$MPJ.NAME>>&<<$BTH.NAME>></a></div>'
+               if SF_NUM=2*29:'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$BTH.name & love_B=$BTH.love &  $m_address=''SBBTH'' & gt ''cross-section_student_group_single'',''student_group_single''"><<$SB.NAME>>&<<$BTH.NAME>></a></div>'
+			
+			if SF_NUM=15283:'<div class="buttonG5"><a href="exec:$FaceName_A=$CBJ.name & love_A=$CBJ.love & $FaceName_B=$BTH.name & love_B=$BTH.love & $FaceName_C=$HSW.name & love_C=$HSW.love &  $m_address=''HZSR'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">㊯Fornication threesome</a></div>'
+			if SF_NUM=110:'<div class="buttonB5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love &  $m_address=''NBSR'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Wukong school uniform threesome</a></div>'
+			
+			if SF_NUM=858:'<div class="buttonPu3"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$YLW.name & love_C=$YLW.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''JSFS'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">㊯Drinking for four people</a></div>'
+			if SF_NUM=330:'<div class="buttonS5"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''CCSD'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">❤Tear them down❤</a></div>'
+			if SF_NUM=4991:'<div class="buttonPu5"><a href="exec:$FaceName_A=$SJ.name & love_A=$SJ.love & $FaceName_B=$SYYY.name & love_B=$SYYY.love & $FaceName_C=$HSW.name & love_C=$HSW.love &  $m_address=''SYSR'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Wukong hookah threesome</a></div>'
+			
+			if SF_NUM!55 and SF_NUM!21 and SF_NUM!58 and SF_NUM!145 and SF_NUM!87 and SF_NUM!899 and SF_NUM!551 and SF_NUM!38 and SF_NUM!247 and SF_NUM!95 and SF_NUM!217 and SF_NUM!6 and SF_NUM!26 and SF_NUM!62 and SF_NUM!10 :SF_NUMSHOW+=1
+			if SF_NUM!65 and SF_NUM!22 and SF_NUM!330 and SF_NUM!4991 and SF_NUM!858 and SF_NUM!110 and SF_NUM!14 and SF_NUM!46 and SF_NUM!161 and SF_NUM!69 and SF_NUM!74 and SF_NUM!259 and SF_NUM!34 and SF_NUM!119 and SF_NUM!527 and SF_NUM!15283:SF_NUMSHOW+=1
+			
+			if SF_NUMSHOW!1:'<div class="buttonGr"><a href="exec:">Unanswered</a></div>'
 		end
 		'<div class="button"><a href="exec:SF_NUM=1 & gt ''phone_booth''">Clear the number</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''back_door_of_the_university''">Leave</a></div>'
 	'</div>'
 
     '<div class="dialog_menu">'
-	    '<p>Me: If I have their phone number…</p>'
+	    '<p>Me: If I have their phone number... I can watch it again and again.…</p>'
 	    '<p>#161<<rand(8888,9999)>><<SF_NUM>></p>'
     '</div>'
          

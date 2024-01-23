@@ -58,7 +58,7 @@ if $args[0]="":
 		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
 			if hour=22 and $督察事件链=3:'<div class="button"><a href="exec:minutes+=15 & a=1 & gt ''督察_事件'',''DC_Fuck_收网''">废弃仓库</a></div>'
 			if 集印卡=1 and hour=15 and week_day =1:'<div class="buttonS"><a href="exec:集印编号=8 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
-
+			if ($序幕=1 or $序幕=2) and 15>=hour and hour>=13 and $天气='☂雨':'<div class="buttonR"><a href="exec:gt ''最终_事件'',''黑伞''">撑黑伞的面具人</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -69,7 +69,7 @@ if $args[0]="":
 				if 主教选择=2:'<p>·有一个男人垂头丧气地坐在教堂门口<a href="exec:gt ''郊外'',''见习男''">-搭话</a></p>'
 				if 主教选择=1 and $XN.审判>=1:'<p>·有一个男人双目无神地坐在教堂门口<a href="exec:gt ''郊外'',''见习男''">-搭话</a></p>'
 			end
-			if week_day=7 and hour=13:'<p>·远处有一辆车冒着浓烟<a href="exec:gt ''郊外'',''RV''">-查看</a></p>'
+		if week_day=7 and hour=13:'<p>·远处有一辆车冒着浓烟<a href="exec:gt ''郊外'',''RV''">-查看</a></p>'
 			
 	'</div>'
 
@@ -79,6 +79,7 @@ if $args[0]="RV":
 	'<div class ="show_menu"><img src="images\place\RV.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=15 & RV_NUM=0 & gt ''郊外'',''RV内''">透过门缝看</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
 	'</div>'
 
@@ -87,6 +88,68 @@ if $args[0]="RV":
 	'</div>'
 
 end
+
+if $args[0]="RV内":
+         minutes+=15
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\cook1-<<RV_NUM>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if RV_NUM!4:
+        '<div class="button_menu">'
+            if RV_NUM=0:'<div class="buttonG3"><a href="exec:RV_NUM+=1 & gt ''郊外'',''RV内''">偷看交易</a></div>' 
+            if RV_NUM=1:'<div class="buttonR"><a href="exec:RV_NUM+=1 & gt ''郊外'',''RV内''">？！？！</a></div>' 
+            if RV_NUM=2:'<div class="buttonR3"><a href="exec:RV_NUM+=1 & gt ''郊外'',''RV内''">醒来</a></div>' 
+            if RV_NUM=3:'<div class="buttonR"><a href="exec:RV_NUM+=1 & gt ''郊外'',''RV内''">害怕</a></div>' 
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:gt ''郊外''">✞我会忘记今天的事</a></div>'
+                '<div class="buttonPu1"><a href="exec:画像草稿=1 & gt ''郊外''">✍偷偷画下他的长相</a></div>'
+            '</div>'
+    end
+
+    if RV_NUM=0:        
+         '<div class="dialog_menu">'
+              '<p>我: 里面的人在聊什么呢？</p>'
+              '<p>？？？: 你真是个艺术家！我从没想到可以制出这么纯正味道的薯片！</p>'
+              '<p>？？？: 冷静点，这只是基础化学。</p>'
+              '<p>？？？: 我想我知道该卖给谁！</p>'
+         '</div>'
+    end
+
+    if RV_NUM=1:        
+         '<div class="dialog_menu">'
+              '<p>？？？: 这种口味是我们的独家，我们从本地的植物中萃取出了一种尚未通过食品药物管理局（FDA）审批的添加剂，它可以让味道更加纯正且令人迷人…*交易中</p>'
+              '<p>？？？: 太太太正了！没问题！嗯……？谁在哪边？</p>'
+         '</div>'
+    end
+
+    if RV_NUM=2:        
+         '<div class="dialog_menu">'
+		    '<p>？？？: 站住！？别想跑！</p>'	
+              '<p>我: 坏了，快跑…</p>'
+         '</div>'
+    end
+
+    if RV_NUM=3:        
+         '<div class="dialog_menu">'
+              '<p>？？？: 醒醒！</p>'
+              '<p>我: 唔……*耳鸣中</p>'
+         '</div>'
+    end
+    
+    if RV_NUM=4:        
+         '<div class="dialog_menu">'
+              '<p>？？？: 我已经表达清楚了吧？<<$主角姓名>>，我记住你的名字和你的脸了！不要自寻死路！</p>'
+              '<p>我: 是…是…*发抖</p>'
+              '<p>？？？: 如果你告诉别人，我向你保证，我绝对不会坐以待毙，我会是上门给你吃子弹的那个人！我的名字是海森堡，给老子一个字一个字地念出来！</p>'
+              '<p>我: 海…海…森…堡…*被枪指头</p>'
+              '<p>海森堡: 记住我的名字和我说的话，然后滚出我的地盘！</p>'
+         '</div>'
+    end
+End
 
 if $args[0]="警戒线":
 

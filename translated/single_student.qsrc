@@ -14,9 +14,9 @@ if $args[0]="MPJ":
 	'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\MPJ.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonG2"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & $MPJ.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
-		
-		'<div class="buttonS"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''BLC'' & gt ''cross_section_event'',''universal_cross_section''">Go and have a shot</a></div>'
+		'<div class="buttonS1"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & $MPJ.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+		if $MPJ.love>99 and school_cos_group=1:'<div class="buttonS2"><a href="exec:MPJ_COS=1 & $m_filename_reference=''MPJ'' &  $m=''MPJ'' & $ma=$MPJ.name & $MPJ.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+		'<div class="buttonS4"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''BLC'' & gt ''cross_section_event'',''universal_cross_section''">Go and have a shot</a></div>'
 		if $mpj_event_chain>=4:'<div class="buttonR"><a href="exec:$MPJ.love+=5 & $m_filename_reference=''MPJ'' &  $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''GLN'' & gt ''cross_section_event'',''universal_cross_section''">Put on a dog chain</a></div>'else:'<div class="buttonGr"><a href="exec:">Lack of affection</a></div>'
 		'<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
 	'</div>'
@@ -30,7 +30,8 @@ if $args[0]="HME":
 	'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\HME.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="buttonG2"><a href="exec: $m_filename_reference=''HME'' & $m=''HME'' & $ma=$HME.name & $HME.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+		'<div class="buttonS2"><a href="exec: $m_filename_reference=''HME'' & $m=''HME'' & $ma=$HME.name & $HME.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+		if $HME.love>99 and school_cos_group=1:'<div class="buttonG3"><a href="exec:HME_COS=1 & $m_filename_reference=''HME'' &  $m=''HME'' & $ma=$HME.name & $HME.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
 		'<div class="buttonGn2"><a href="exec: $m_filename_reference=''HME'' & $m=''HME'' & $ma=$HME.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Private tutoring results</a></div>'
 		if $hme_event_chain=0:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''av_interview''">Accompany her</a></div>'
 		if $hme_event_chain=1 or $hme_event_chain=3:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''av_interview_2''">Accompany her again</a></div>'
@@ -79,7 +80,8 @@ if $args[0]="FZL":
     '<div class="button_menu">'
 	   
         '<div class="buttonG2"><a href="exec: $m_filename_reference=''FZL'' & $m=''FZL'' & $ma=$FZL.name & $FZL.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
-        '<div class="buttonG4"><a href="exec:gt ''student_group_event'',''fzl_treat''">Treat to eat</a></div>'
+	   if $FZL.love>99 and school_cos_group=1:'<div class="buttonG3"><a href="exec:FZL_COS=1 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $ma=$FZL.name & $FZL.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+        '<div class="buttonG5"><a href="exec:gt ''student_group_event'',''fzl_treat''">Treat to eat</a></div>'
         if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m_filename_reference=''FZL'' &  $m=''FZL'' & $ma=$FZL.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
         '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
     '</div>'
@@ -95,6 +97,7 @@ if $args[0]="SJ":
 
     '<div class="button_menu">'
         '<div class="buttonG2"><a href="exec: $m_filename_reference=''SJ'' & $m=''SJ'' & $ma=$SJ.name & $SJ.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+        if $SJ.love>99 and school_cos_group=1:'<div class="buttonS2"><a href="exec:SJ_COS=1 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & $SJ.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
         '<div class="buttonS3"><a href="exec:gt ''student_group_event'',''secretary`s_house''">Go to her house</a></div>'
         if $sj_event_chain>=1:
 			if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $succubus_energy-=1 & gt ''student_group_event'',''sj_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
@@ -116,6 +119,7 @@ if $args[0]="YLW":
     '<div class="button_menu">'
         '<div class="buttonB2"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & $YLW.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Take a massage to relax</a></div>'
         if $ylw_event_chain>=2:'<div class="buttonB3"><a href="exec:gt ''student_group_event'',''ylw_home_supplement''">✍Family counseling</a></div>'
+        if $YLW.love>99 and school_cos_group=1:'<div class="buttonS2"><a href="exec:YLW_COS=1 & $m_filename_reference=''YLW'' &  $m=''YLW'' & $ma=$YLW.name & $YLW.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
         if set_printing_card=1 and card1>0 and $YLW.love>=25:'<div class="buttonR3"><a href="exec:set_printing_number_s=5 & gt ''group_performation_event'',''general_fuck_jiyin_s''">❤Skip school and go out❤</a></div>'
         '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
     '</div>'
@@ -159,12 +163,152 @@ if $args[0]="SB2":
 end
 
 
+if $args[0]="SYYY":
+	$SYYY.available=1
+     '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SYYY.jpg" width="854"></div>'
+
+     '<div class="button_menu">'
+		if $syyy_event_chain=5 or $syyy_event_chain=6:'<div class="buttonG1"><a href="exec:gt ''single_student'',''SYYY2''">Talk</a></div>'
+		if $syyy_event_chain>=11:'<div class="buttonP"><a href="exec: $m_filename_reference=''SYYY'' & $m=''SYYY'' & $ma=$SYYY.name & $SYYY.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Go for a massage to relax</a></div>'
+          if $syyy_event_chain>=10:'<div class="buttonGn1"><a href="exec: $m_filename_reference=''SYYY'' & $m=''SYYY'' & $ma=$SYYY.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Tutoring results</a></div>'
+          if $syyy_event_chain>=8:'<div class="buttonGn5"><a href="exec: gt ''student_group_event'',''syyy_go_out_to_play''">Go out to play</a></div>'
+          '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+     '</div>'
+     '<div class="dialog_menu">'
+          '<p><<$SYYY.name>>: When will I set up a Cosplay club~</p>'
+     '</div>'
+end
+
+
+if $args[0]="SYYY2":
+	if $syyy_event_chain=5:$syyy_event_chain=6
+     '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SYYY.jpg" width="854"></div>'
+
+     '<div class="button_menu">'
+          '<div class="button"><a href="exec:gt ''residential_area''">I`ll give it a try</a></div>'
+     '</div>'
+     '<div class="dialog_menu">'
+          '<p><<$SYYY.name>>: What`s the matter with me?</p>'
+          '<p>Me: Maybe I can help a little bit, such as recommending you to some regular studios.</p>'
+          '<p><<$SYYY.name>>: Aha?Could it be that you are<<$TS.name>>The scout?Can you help me make an appointment<<$TS.name>>Is it a dinner party?I want to recommend myself!</p>'
+          '<p>Me: Let me try it.</p>'
+     '</div>'
+end
 
 
 
+if $args[0]="TMW":
+     $TMW.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\TMW.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if $TMW.love>99 and school_cos_group=1:'<div class="buttonG3"><a href="exec:TMW_COS=1 & $m_filename_reference=''TMW'' &  $m=''TMW'' & $ma=$TMW.name & $TMW.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+        if $tmw_event_chain=0 or $tmw_event_chain=3 or $tmw_event_chain=6 or $tmw_event_chain=9 or $tmw_event_chain=12:'<div class="buttonS2"><a href="exec:gt ''student_group_event'',''tmw_event_planning''">Planning a new event</a></div>'
+        if $tmw_event_chain=2 or $tmw_event_chain=5 or $tmw_event_chain=8 or $tmw_event_chain=11 or $tmw_event_chain>=17:'<div class="buttonS2"><a href="exec:a=-1 & gt ''student_group_event'',''tmw_penny''">How much did you earn?</a></div>'
+        if $tmw_event_chain=14:'<div class="buttonR"><a href="exec:gt ''student_group_event'',''tmw_countermeasure''">Discuss countermeasures</a></div>'
+        if $tmw_event_chain=15:'<div class="buttonR"><a href="exec:gt ''student_group_event'',''tmw_iou''">IOU details</a></div>'
+        if $tmw_event_chain>=17:'<div class="buttonS4"><a href="exec:gt ''student_group_event'',''tmw_appointment''">Going out on a date</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        if $tmw_event_chain<17:'<p><<$TMW.name>>：<<$protagonists_name>>, You seem to be a smart person?Help me think of a way❤</p>'else:'<p><<$TMW.name>>：<<$protagonists_name>>, I should really listen to you everything❤</p>'
+    '</div>'
+end
 
 
+if $args[0]="CBJ":
+    $CBJ.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\CBJ.jpg" width="854"></div>'
 
+    '<div class="button_menu">'
+        if $CBJ.love>99 and school_cos_group=1:'<div class="buttonS1"><a href="exec:CBJ_COS=1 & $m_filename_reference=''CBJ'' &  $m=''CBJ'' & $ma=$CBJ.name & $CBJ.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+        '<div class="buttonS3"><a href="exec:gt ''student_group_event'',''cbj_intelligence_bureau''">Participate in the wine bureau</a></div>'
+        if $CBJ.love>=50+5*my.charm:'<div class="buttonS5"><a href="exec:gt ''student_group_event'',''cbj_家酒''">Go to her house to drink</a></div>'else:'<div class="buttonGr"><a href="exec:">I don`t need to go to her house<<50+5*my.charm>></a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$CBJ.name>>: I am completely awake!As the saying goes, wine is a grain essence, and the more you drink, the younger you are!</p>'
+        '<p>Me: Uh…</p>'
+        if $CBJ.love>=50+5*my.charm:
+		'<p><<$CBJ.name>>: Why don`t you go to my house for a drink?It`s too dangerous to go home at night❤</p>'
+        else:
+		'<p><<$CBJ.name>>: I will have a wine bureau later, come with me!I will definitely be drunk, just take me home when the time comes.</p>'
+        end
+    '</div>'
+end
+
+
+if $args[0]="HSW":
+    $HSW.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\HSW\vids\HSWLH1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+	   if $matsumoto_contradiction=0:'<div class="buttonP"><a href="exec:gt ''student_group_event'',''HSW_SB''"><<$SB.name>>Coming</a></div>'
+        if $HSW.love>99 and school_cos_group=1:'<div class="buttonG2"><a href="exec:HSW_COS=1 & $m_filename_reference=''HSW'' &  $m=''HSW'' & $ma=$HSW.name & $HSW.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+        if $hsw_event_chain>=2:'<div class="buttonG4"><a href="exec: $m_filename_reference=''HSW'' & $m=''HSW'' & $ma=$HSW.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Continue to improve your grades</a></div>'
+        '<div class="buttonG5"><a href="exec:gt ''student_group_event'',''hsw_car''">Take her in the car</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        if $hsw_event_chain<3:'<p><<$HSW.name>>: Can I save some money by hitchhiking you?I have taken on a lot of part-time jobs, and I have been under a lot of financial pressure recently... The specific reasons are inconvenient to say.Of course, forget it if you don`t want to.</p>'
+        if $hsw_event_chain>=3:'<p><<$HSW.name>>: Take me out to play❤</p>'
+        '<p>我：呃…我想想。</p>'
+    '</div>'
+end
+
+if $args[0]="XMK":
+    $XMK.available=1
+     if $xmk_event_chain>=15:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XMK\vids\GFN0-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+		'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\XMK.jpg" width="854"></div>'
+	end
+
+    '<div class="button_menu">'
+	   if $xmk_event_chain>=15:'<div class="buttonS3"><a href="exec:a=1 & gt ''student_group_event'',''XMK_GFN''">Someone is coming</a></div>'
+	   if $xmk_event_chain>=15:'<div class="buttonGn3"><a href="exec: $m_filename_reference=''XMK'' & $m=''XMK'' & $ma=$XMK.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Absent-minded counseling</a></div>'
+        if $XMK.love>99:'<div class="buttonG2"><a href="exec: $m_filename_reference=''XMK'' & $m=''XMK'' & $ma=$XMK.name & gt ''student_group_event'',''student_group_fuck_massage''">Massage to relieve fatigue</a></div>'
+        if $XMK.love>99 and school_cos_group=1:'<div class="buttonS2"><a href="exec:XMK_COS=1 & $m_filename_reference=''XMK'' &  $m=''XMK'' & $ma=$XMK.name & $XMK.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+        if $SB.Tel=1 and $xmk_event_chain<=1:'<div class="buttonR"><a href="exec:gt ''single_student'',''XMK2''">Frowning irritability</a></div>'
+        if $xmk_event_chain>=2:
+			if $xmk_event_chain!9:'<div class="buttonGn3"><a href="exec:gt ''student_group_event'',''xmk_peer''">Accompany her out</a></div>'
+			if $xmk_event_chain=9:'<div class="buttonPu1"><a href="exec:gt ''student_group_event'',''xmk_peer_tracking''">Silently accompany</a></div>'
+	   end
+	   if $xmk_event_chain=14:'<div class="buttonS3"><a href="exec:gt ''student_group_event'',''xmk_showdown''">and<<$SB.name>>showdown</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">Return</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$XMK.name>>: What do you want to talk to me about?</p>'
+        if $xmk_event_chain=9:'<p><<$XMK.name>>: Go away, we have nothing to do with it, I don`t need you to follow me anymore.</p>'
+    '</div>'
+end
+
+if $args[0]="XMK2":
+	if $xmk_event_chain=0:
+		$xmk_event_chain=1
+		$XMK.love=-99
+	end
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\XMK.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt $loc,$metka">Run away</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+	   '<p>Me: What`s wrong with you?Look very unhappy?</p>'
+        '<p><<$XMK.name>>: Oh, you two are reconciled again, right?</p>'
+	   '<p>Me: Who are you talking about?</p>'
+        '<p><<$XMK.name>>: Who else can you say?As soon as your childhood sweetheart comes back<<$SB.name>>Cry and mourn every day.I finally enlightened her and drove her to see your “scumbag` face clearly. As a result, as soon as your childhood sweetheart left, you two reconciled again?Play with me?</p>'
+	   '<p>Me: Uh……</p>'
+        '<p><<$XMK.name>>: Now I can`t read the messages I sent her back. Isn`t it because of you?！</p>'
+	   '<p>Me: Don`t be angry, I`ll go and ask her to read your text messages!</p>'
+    '</div>'
+end
 
 
 --- single_student ---------------------------------

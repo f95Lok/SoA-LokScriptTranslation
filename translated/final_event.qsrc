@@ -1,0 +1,272 @@
+# final_event
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+my.energy-=3
+minutes+=15
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	gs "bug_prolapse"
+'</div>'
+
+if $args[0]="bank_account":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            if a=0:
+			if $my.bank=1:'<div class="buttonG"><a href="exec: a=1 & gt ''final_event'',''bank_account''">I am the vice president</a></div>'
+			if $my.bank!1:'<div class="buttonGr"><a href="exec: ">Need to serve as deputy governor</a></div>'
+		  end
+            '<div class="buttonGn"><a href="exec: gt ''mayors_office''">Leave</a></div>'
+        '</div>'
+	if a=0:
+	'<div class="dialog_menu">'
+		'<p><<$JYB.name>>: You came just in time, I have a little trouble.</p>'
+		'<p>Me: What`s the trouble?</p>'
+		'<p><<$JYB.name>>: You know, the new library, swimming pool, and gymnasium I built for my baby daughter are all very expensive.</p>'
+		'<p>Me: How much did it cost?</p>'
+		'<p><<$JYB.name>>: Roughly calculate it, it cost about 220 million to deduct those rebates.</p>'
+		'<p>Me: 220 million?</p>'
+		'<p><<$JYB.name>>: Now my client has designed a way to settle the account, but it still needs a little internal relationship between the bank, listen<<$XZ.name>>If you can settle the second shift in three years, then you should also have a relationship in the bank, right?</p>'
+	'</div>'
+	end
+	if a=1:
+	 if $prologue=0:$prologue=1
+	'<div class="dialog_menu">'
+		'<p>Me: It just so happens that I am now serving as deputy governor. I don`t know how I can help you?</p>'
+		'<p><<$JYB.name>>: That`s great.You are the one who knows the password of the vault, right?</p>'
+		'<p>Me: The vault password?I have no idea</p>'
+		'<p><<$JYB.name>>: Then you at least know the security system, right?</p>'
+		'<p>Me: Yes, I still hear the layout clearly, why?</p>'
+		'<p><<$JYB.name>>: Let`s rob a bank!Listen, the location is in the suburbs, and the time is chosen on a rainy afternoon. Hold a black umbrella. The person in charge of the operation will tell you what to do.</p>'
+	'</div>'
+	end
+End
+
+if $args[0]="black_umbrella":
+	 minutes+=180
+	 if $prologue=1:$prologue=2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KMN~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+        '<div class="button_menu">'
+            '<div class="buttonG"><a href="exec: gt ''suburbs''">Got it</a></div>'
+        '</div>'
+
+	 
+	'<div class="dialog_menu">'
+	    '<p>？？？(Bain): It seems that the second person should also be here. Let me talk about the specific task arrangement.</p>'
+	    '<p>Me: Hey, you guys don`t really want to rob a bank in this posture, do you?</p>'
+	    '<p>？？？(Bain): You are responsible for lifting the alarm in your deputy governor`s room at 15:15 pm on the 15th of next month.</p>'
+	    '<p>Me:…………</p>'
+	    '<p>？？？(Bain): In a group of three, a total of 9 cash bags were robbed, which was about ￥9 million to ￥9.5 million.</p>'
+	    '<p>Me: What?Only 9 million?<<$JYB.name>>Said to settle 220 million accounts…</p>'
+	    '<p>？？？(Bain): It`s up to us to decide how much we grab!But they are in charge of how much they report the theft!Do you understand?</p>'
+	    '<p>Me: Uh, what else do I need to know?For example, who should be the first one?</p>'
+	    '<p>？？？(Bain): Hey!You have too many questions!You have no right to know about other tasks that are not yours!Do your part.</p>'
+	'</div>'
+
+End
+
+
+if $args[0]="jyb_bank":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\BEG1-<<a>>~1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!10:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">Give me a hand!</a></div>'
+           if a=1:'<div class="buttonR4"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">Work</a></div>'
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">Evacuate by the back door</a></div>'
+           if a=3:'<div class="buttonR"><a href="exec:a=11 & gt ''final_event'',''jyb_bank''">Get in the car and run away</a></div>'
+           if a=11:'<div class="buttonG"><a href="exec:a=4 & gt ''final_event'',''jyb_bank''">Handling cash</a></div>'
+           if a=4:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">?!!!</a></div>'
+           if a=5:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">danger!!!</a></div>'
+           if a=6:'<div class="buttonPu2"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">Wake up</a></div>'
+           if a=7:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">Don`t go…</a></div>'
+           if a=8:'<div class="buttonPu5"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">coma</a></div>'
+           if a=9:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''jyb_bank''">doubt</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:gt ''final_event'',''relatives_and_friends_visit_2''">Keep it in mind</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>*The moment I lifted the alarm, a group of gangsters rushed into the bank…</p>'
+         '</div>'
+    end
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p>???(Bain): The plan has changed, you have to be lucky too!*Lost money</p>'
+              '<p>Me: What?？I want to ship too?？</p>'
+              '<p>???(Bain): Don`t worry!The police will mistakenly think that the robbers `coerced` you to carry it!</p>'
+         '</div>'
+    end
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>???(Bain): Give me the handcuffs!Cuff her!</p>'
+              '<p>Me: What?？Who is she?</p>'
+              '<p>???(Bain): You don`t need to take care of it!She is today`s number two target!As a hostage, she can guarantee the safety of our evacuation!</p>'
+         '</div>'
+    end
+    if a=3: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hello?！Is this what you call safety?</p>'
+              '<p>???(Bain): It`s already safe!Didn`t the hateful stinky woman say that she would spend all her police force on safety education and training?</p>'
+         '</div>'
+    end
+    if a=11: 
+         '<div class="dialog_menu">'
+		    '<p>Me: Fuck you!</p>'	
+         '</div>'
+    end
+    if a=4: 
+         '<div class="dialog_menu">'
+		    '<p>Me: Huh-the police didn`t catch up with us, did they?</p>'	
+              '<p>???(Bain): Throw me the money!fast!Bag after bag!</p>'
+         '</div>'
+    end
+    if a=5: 
+         '<div class="dialog_menu">'
+              '<p>Me: Damn... how could this happen?</p>'
+         '</div>'
+    end
+    if a=6: 
+         '<div class="dialog_menu">'
+              '<p>Woman: Be careful!</p>'
+         '</div>'
+    end
+    if a=7: 
+         '<div class="dialog_menu">'
+              '<p>*Awakened by pain</p>'
+              '<p>Me: Um... I... I thought I was dead... you... are you okay?……</p>'
+              '<p>woman: ………</p>'
+         '</div>'
+    end
+    if a=8: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hey... put the money down……</p>'
+              '<p>Woman: Idiot, I`m with you!</p>'
+              '<p>Me: What... what do you mean... * Pain makes you unable to think immediately</p>'
+         '</div>'
+    end
+    if a=9: 
+          minutes+=1440
+         '<div class="dialog_menu">'
+              '<p>？？？: Fortunately, I avoided the heart, and it seems that I have regained consciousness.…</p>'
+              '<p>Me: I... I`m dead... * Open your eyes</p>'
+              '<p>？？？: You should have died... Today`s news is `The 15th Super Bank Robbery is solved!`———No one survived the robbers`</p>'
+         '</div>'
+    end
+    if a=10: 
+          if $prologue=2:$prologue=3
+         '<div class="dialog_menu">'
+              '<p>？？？: You should have died... Today`s news is `The 15th Super Bank Robbery is solved!`———No one survived the robbers`</p>'
+              '<p>Me: Then what`s the situation with me?</p>'
+              '<p>？？？: Because you are the owner of the Mountain R&M plot, you can neither die nor be regarded as a robber.</p>'
+              '<p>Me: What do you mean……</p>'
+              '<p>？？？: Someone saved your life.He will wait for you in the church at 13 o`clock on Monday afternoon, remember?</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="relatives_and_friends_visit_2":
+		 a=0 
+		 q=0
+		   '<div class="show_menu">'
+			   '<video preload="metadata" autoplay loop height="480">
+			   <source src="images\NPC\JY\vids\枪1-3.webm" type=''video/webm;''></video></div>'
+		   '</div>'
+	 
+		'<div class="button_menu">'
+		  if $HZ.bad>=250-$HZ.love:'<div class="buttonB"><a href="exec:gt ''president_event'',''hz_fuck_hospital_visit''"><<$HZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？The hot girl</a></div>'
+		  if $EDM.love>=100:'<div class="buttonB"><a href="exec:gt ''second_generation_project_event'',''edm_fuck_hospital_visit''"><<$EDM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？？？The hot girl</a></div>'
+		  if $SF.bad>=270-$SF.love:'<div class="buttonB"><a href="exec:gt ''young_woman_event'',''sf_fuck_ward_conception''"><<$SF.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A young woman</a></div>'
+		  if $TZ.bad>=500-$TZ.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''TZ'' & $m=''TZ'' & $ma=$TZ.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$TZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain director</a></div>'
+            if $QT.bad>=500-$QT.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''QT'' & $m=''QT'' & $ma=$QT.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$QT.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain announcer</a></div>'
+            if $JM.bad>=500-$JM.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''JM'' & $m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$JM.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain stepmother</a></div>'
+            if $ZX.bad>=500-$ZX.love:'<div class="buttonB"><a href="exec: $m_filename_reference=''ZX'' & $m=''ZX'' & $ma=$ZX.name & gt ''group_performation_event'',''general_fuck_visitation''"><<$ZX.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">？？A certain doctor</a></div>'
+		  '<div class="buttonGn"><a href="exec:a+=1 & gt ''hospital''">Discharged alone </a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+				'<p>Me: Is this the ceiling of the hospital?</p>'
+				'<p>Nurse: Are you awake?Someone happened to come to visit you!</p>'
+		'</div>'
+End
+
+if $args[0]="frank_dialogue":
+		   '<div class="show_menu">'
+			   '<video preload="metadata" autoplay loop height="480">
+			   <source src="images\NPC\JYB\vids\WWD.webm" type=''video/webm;''></video></div>'
+		   '</div>'
+	 
+		'<div class="button_menu">'
+		  '<div class="buttonGn"><a href="exec:gt ''final_event'',''event_dinner''">Go to dinner with him </a></div>'
+		'</div>'
+		'<div class="dialog_menu">'
+				'<p>Me: Are you looking for me?I heard that you sent someone to save me?</p>'
+				'<p>？？？: When I finish sweeping the tomb, let`s have dinner with me.</p>'
+				'<p>Me: Whose tombstone is this?</p>'
+				'<p>？？？: The last mayor who went crazy, but I believe it will soon become the last mayor.</p>'
+		'</div>'
+End
+
+
+if $args[0]="event_dinner":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\WAD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!4:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''event_dinner''">Enter the restaurant</a></div>'
+           if a=1:'<div class="buttonR4"><a href="exec:a+=1 & gt ''final_event'',''event_dinner''">Stand aside</a></div>'
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''event_dinner''">Stand aside</a></div>'
+           if a=3:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''event_dinner''">Stand aside</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonG"><a href="exec:gt ''residential_area''">Leave·Unfinished to be continued</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>???: Just stand aside, like a bodyguard, don`t make a sound.*Tell me when you get off the bus</p>'
+              '<p>Me: Uh...okay.</p>'
+         '</div>'
+    end
+    if a=1 or a=2 or a=3: 
+         '<div class="dialog_menu">'
+              '<p>Me: This is not the atmosphere of eating at all...* Thinking to myself</p>'
+              if a=3:'<p>Me: Samarium-149?I seem to have seen it on some test report...* thought to myself</p>'
+         '</div>'
+    end
+    if a=4: 
+         '<div class="dialog_menu">'
+              '<p>Me: Samarium-149?I seem to have seen it on some test report...* thought to myself</p>'
+              '<p>???: I am very willing to cooperate with you on an equal basis, and I will solve S-149.</p>'
+              '<p>————————</p>'
+              '<p><span class="bold"><font color="#F20056">*This is the end of the current version. At present, two new NPC characters with corresponding props have been added. If you find them in the current version, you will be given more ending options in future versions.</p>'
+         '</div>'
+    end
+End
+
+--- final_event ---------------------------------
+

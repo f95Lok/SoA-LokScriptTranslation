@@ -58,7 +58,7 @@ if $args[0]="":
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
 			if hour=22 and $inspector_event_chain=3:'<div class="button"><a href="exec:minutes+=15 & a=1 & gt ''inspector_event'',''dc_fuck_receiving_network''">Abandoned warehouse</a></div>'
 			if set_printing_card=1 and hour=15 and week_day =1:'<div class="buttonS"><a href="exec:set_printing_number=8 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with passersby❤</a></div>'
-
+			if ($prologue=1 or $prologue=2) and 15>=hour and hour>=13 and $weather='☂ Rainy':'<div class="buttonR"><a href="exec:gt ''final_event'',''black_umbrella''">Masked man with black umbrella</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -69,7 +69,7 @@ if $args[0]="":
 				if bishopschoice=2:'<p>·There was a man sitting dejectedly at the door of the church<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
 				if bishopschoice=1 and $xn.trial>=1:'<p>·There was a man sitting at the door of the church with his eyes blankly<a href="exec:gt ''suburbs'',''trainee_male''">-Talk to me</a></p>'
 			end
-			if week_day=7 and hour=13:'<p>·There is a car in the distance with thick smoke<a href="exec:gt ''suburbs'',''RV''">-View</a></p>'
+		if week_day=7 and hour=13:'<p>·There is a car in the distance with thick smoke<a href="exec:gt ''suburbs'',''RV''">-View</a></p>'
 			
 	'</div>'
 
@@ -79,6 +79,7 @@ if $args[0]="RV":
 	'<div class ="show_menu"><img src="images\place\RV.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=15 & RV_NUM=0 & gt ''suburbs'',''inside_the_rv''">Look through the door</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
 	'</div>'
 
@@ -87,6 +88,68 @@ if $args[0]="RV":
 	'</div>'
 
 end
+
+if $args[0]="inside_the_rv":
+         minutes+=15
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\cook1-<<RV_NUM>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if RV_NUM!4:
+        '<div class="button_menu">'
+            if RV_NUM=0:'<div class="buttonG3"><a href="exec:RV_NUM+=1 & gt ''suburbs'',''inside_the_rv''">Peek at the transaction</a></div>' 
+            if RV_NUM=1:'<div class="buttonR"><a href="exec:RV_NUM+=1 & gt ''suburbs'',''inside_the_rv''">？！？！</a></div>' 
+            if RV_NUM=2:'<div class="buttonR3"><a href="exec:RV_NUM+=1 & gt ''suburbs'',''inside_the_rv''">Wake up</a></div>' 
+            if RV_NUM=3:'<div class="buttonR"><a href="exec:RV_NUM+=1 & gt ''suburbs'',''inside_the_rv''">scared</a></div>' 
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:gt ''suburbs''">✞I will forget about today</a></div>'
+                '<div class="buttonPu1"><a href="exec:draft_portrait=1 & gt ''suburbs''">偷偷Secretly draw his appearance</a></div>'
+            '</div>'
+    end
+
+    if RV_NUM=0:        
+         '<div class="dialog_menu">'
+              '<p>Me: What are the people inside talking about?</p>'
+              '<p>？？？: You are such an artist!I never thought I could make potato chips with such a pure taste!</p>'
+              '<p>？？？: Calm down, this is just basic chemistry.</p>'
+              '<p>？？？: I think I know who to sell to!</p>'
+         '</div>'
+    end
+
+    if RV_NUM=1:        
+         '<div class="dialog_menu">'
+              '<p>？？？: This taste is our exclusive. We have extracted an additive from local plants that has not yet been approved by the Food and Drug Administration (FDA). It can make the taste more pure and fascinating...* In the transaction</p>'
+              '<p>？？？: My wife is too upright!No problem!Hmm......?Who is on which side?</p>'
+         '</div>'
+    end
+
+    if RV_NUM=2:        
+         '<div class="dialog_menu">'
+		    '<p>？？？: Stop!？Don`t want to run!</p>'	
+              '<p>Me: It`s broken, run…</p>'
+         '</div>'
+    end
+
+    if RV_NUM=3:        
+         '<div class="dialog_menu">'
+              '<p>？？？: Wake up!</p>'
+              '<p>Me: Um...* Tinnitus</p>'
+         '</div>'
+    end
+    
+    if RV_NUM=4:        
+         '<div class="dialog_menu">'
+              '<p>？？？: I have made it clear, right?<<$protagonists_name>>, I remember your name and your face!Don`t kill yourself!</p>'
+              '<p>Me: Yes... yes...*trembling</p>'
+              '<p>？？？: If you tell others, I assure you that I will never sit still, I will be the one who comes to the door to give you bullets!My name is Heisenberg, and I will read it out word by word for Lao Tzu!</p>'
+              '<p>Me: Hai...Hai...Sen...Fort...* Pointed at by a gun</p>'
+              '<p>Heisenberg: Remember my name and what I said, and get out of my territory!</p>'
+         '</div>'
+    end
+End
 
 if $args[0]="cordon":
 

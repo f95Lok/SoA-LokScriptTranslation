@@ -1,0 +1,58 @@
+# final_exam
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+    if a=0:$exam_name=$SB.name & $exam_fen=$SB.study & $exam_b=$SB.baby
+    if a=1:$exam_name=$MPJ.name & $exam_fen=$MPJ.study & $exam_b=$MPJ.baby
+    if a=2:$exam_name=$FZL.name & $exam_fen=$FZL.study & $exam_b=$FZL.baby
+    if a=3:$exam_name=$SJ.name & $exam_fen=$SJ.study & $exam_b=$SJ.baby
+    if a=4:$exam_name=$HME.name & $exam_fen=$HME.study & $exam_b=$HME.baby
+    if a=5:$exam_name=$YLW.name & $exam_fen=$YLW.study & $exam_b=$YLW.baby
+    if a=6:$exam_name=$CBJ.name & $exam_fen=$CBJ.study & $exam_b=$CBJ.baby
+    if a=7:$exam_name=$XMK.name & $exam_fen=$XMK.study & $exam_b=$XMK.baby
+    if a=8:$exam_name=$SYYY.name & $exam_fen=$SYYY.study & $exam_b=$SYYY.baby
+    if a=9:$exam_name=$BTH.name & $exam_fen=$BTH.study & $exam_b=$BTH.baby
+    if a=10:$exam_name=$HSW.name & $exam_fen=$HSW.study & $exam_b=$HSW.baby
+    if a=11:$exam_name=$TMW.name & $exam_fen=$TMW.study & $exam_b=$TMW.baby
+    
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action7">'
+			if $exam_b=1:'<a class="photo"  href="exec:"><img class="img_stretch" src="images\npc_l\<<$exam_name>>L.png"></a>'
+			if $exam_b=-1:'<a class="photo"  href="exec:"><img class="img_stretch" src="images\npc_l\<<$exam_name>>Y.png"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $ARGS[0] ="":
+	'<div class="show_menu">'
+		'<img src="images\place\考核.jpg" width="854">'
+	'</div>'
+	
+	'<div class="button_menu">'
+		if $exam_fen>=60 or $exam_b=-1:
+			if a<=10:'<div class="buttonGn5"><a href="exec:a+=1 & gt ''final_exam''">She can pass</a></div>'
+			if a>=11:'<div class="buttonGn5"><a href="exec:a+=1 & gt ''student_group_event'',''university_ending''">She can pass</a></div>'
+		else:
+			'<div class="buttonR4"><a href="exec:gt ''second_shift_in_three_years''">She couldn`t pass</a></div>'
+		end
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$XZ.name>>: Let`s take a look at their assessment. This is a mock exam. Of course, if they can all pass, I have my own way to make this simulation the final result.</p>'
+		'<p>————————</p>'
+		'<p><span class="bold"><font color="#FF9900">学生Student`s name：<<$exam_name>></font></p>'
+		if $exam_fen>=60:'<p><span class="bold"><font color="#339933">✎Average score：<<$exam_fen>>(Pass)</font></p>'
+		if $exam_fen<=59:'<p><span class="bold"><font color="#666666">✎Average score：<<$exam_fen>>(Failed)</font></p>'
+		if $exam_b=1:'<p><span class="bold"><font color="#666666">(Pregnancy exemption test: No (not pregnant)</font></p>'
+		if $exam_b=-1:'<p><span class="bold"><font color="#F20056">(Pregnancy exemption test: Yes (pregnant)</font></p>'
+	'</div>'
+
+end
+--- final_exam ---------------------------------
+

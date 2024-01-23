@@ -114,7 +114,7 @@ if $args[0]="pregnancy_test":
 			'<img src="images\NPC\MPJ\pics\A1.jpg" width="854">'
 		'</div>'
 		  '<div class="button_menu">'
-			 '<div class="buttonS"><a href="exec:gt ''university''">❤❤Successful conception❤❤</a></div>'
+			 if $ma!$CBJ.name and $ma!$HSW.name:'<div class="buttonS"><a href="exec:gt ''university''">❤❤Successful conception❤❤</a></div>'else:'<div class="buttonS"><a href="exec:gt ''residential_area''">❤❤Successful conception❤❤</a></div>'
 		  '</div>'
 		
         else:
@@ -122,7 +122,7 @@ if $args[0]="pregnancy_test":
 			'<img src="images\NPC\MPJ\pics\A2.jpg" width="854">'
 		'</div>'
 		  '<div class="button_menu">'
-			 '<div class="buttonGn3"><a href="exec:gt ''university''">Egg fertilization failed</a></div>'
+			 if $ma!$CBJ.name and $ma!$HSW.name:'<div class="buttonGn3"><a href="exec:gt ''university''">Egg fertilization failed</a></div>'else:'<div class="buttonS"><a href="exec:gt ''residential_area''">Egg fertilization failed</a></div>'
 		  '</div>'
         end
     '<div class="dialog_menu">'
@@ -159,6 +159,18 @@ if $args[0]="universal_cross_section":
 			 if $m='SB' :
 				if $m_address!'AQA' and $m_address!'MBB':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''matsumoto_event'',''sb_morning''">Spend the night with her</a></div>'
 			 end
+			 if $m_address='JSZ':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''syyy_bathe''">Take a bath with me</a></div>'
+			 if $m_address='TMWFN':'<div class="buttonPu2"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''tmw_post-mortem_dialogue''">Prostration dialogue</a></div>'
+			 if $m_address='DDY':'<div class="buttonG3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''cbj_the_next_day''">Sleep until the next day</a></div>'
+			 if $m_address='YWT':'<div class="buttonP"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''xmk_aiyi''">Talk</a></div>'
+			 if $m_address='AWQ' and $xmk_event_chain=13:'<div class="buttonG1"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''xmk_travel_conversation''">Sleep until the next day</a></div>'
+			 if $m_address='XMKGG':'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''xmk_big_satisfaction''">Great satisfaction</a></div>'
+			 if $m_address='HDLG':'<div class="buttonP"><a href="exec:gt ''student_group_event'',''bth_can`t_do_2''">Talk</a></div>'
+			 if $m_address='HBTX':'<div class="buttonP"><a href="exec:gt ''student_group_event'',''bth_can`t_do_3''">Have a good talk</a></div>'
+			 if $m_address='SYSS':'<div class="buttonR"><a href="exec:gt ''student_group_event'',''bth_abstinence''">Publish task</a></div>'
+			 if $m_address='STSG':'<div class="buttonR"><a href="exec:gt ''student_group_event'',''bth_fuck_book_2''">Increased sex addiction</a></div>'
+			 if $m_address='JZLKK':'<div class="buttonR"><a href="exec:a=6 & gt ''student_group_event'',''bth_fuck_leave''">Go back and see</a></div>'
+			 if $m_address='BHZZP':'<div class="buttonR"><a href="exec: gt ''student_group_event'',''bth_fuck_ending''">Look at her husband</a></div>'
                 '<div class="buttonG5"><a href="exec:gt ''cross_section_event'',''pregnancy_test''">Pregnancy test</a></div>'
             '</div>'
     end
@@ -171,17 +183,29 @@ if $args[0]="universal_cross_section":
               if $m='SJ' :'<p><<$ma>>: Hehe❤ I guess you have a big baby❤</p>'
               if $m='YLW' :'<p><<$ma>>: Have you seen enough?</p>'
               if $m='MPJ' :'<p><<$ma>>: What are you worried about... don`t pretend…</p>'
+              if $m='SYYY' :'<p><<$ma>>: Come on... I can do it if you want❤</p>'
+              if $m='TMW' :'<p><<$ma>>: I owe you more than you think ❤</p>'
+              if $m='HSW' :'<p><<$ma>>: What are you thinking ❤</p>'
+              if $m='CBJ' :'<p><<$ma>>: I... not above ❤</p>'
+              if $m='XMK' :'<p><<$ma>>: Like ❤</p>'
+              if $m='BTH' :'<p><<$ma>>: Like ❤</p>'
          '</div>'
     end
 
     if 9>=a and a>=0:
          '<div class="dialog_menu">'
               if $m='SB' :'<p><<$ma>>: Your mouth is so soft❤</p>'
-              if $m='HME' :'<p><<$ma>>: I like it very much ❤</p>'
+              if $m='HME' :'<p><<$ma>>: My Sao and I can`t wait❤</p>'
               if $m='FZL' :'<p><<$ma>>: Is this庅湥嘫?</p>'
-              if $m='SJ' :'<p><<$ma>>:Hehe❤</p>'
+              if $m='SJ' :'<p><<$ma>>: Hehe ❤ Come on❤</p>'
               if $m='YLW' :'<p><<$ma>>: Just what I want ❤</p>'
               if $m='MPJ' :'<p><<$ma>>: I can do whatever I want anyway…</p>'
+              if $m='SYYY' :'<p><<$ma>>: How do you know that I think so too❤</p>'
+              if $m='TMW' :'<p><<$ma>>: Come and satisfy my cunt❤</p>'
+              if $m='HSW' :'<p><<$ma>>: So exciting, I like it so much❤</p>'
+              if $m='CBJ' :'<p><<$ma>>: Fill every... every hole in me❤</p>'
+              if $m='XMK' :'<p><<$ma>>: Actually I... quite like this❤</p>'
+              if $m='BTH' :'<p><<$ma>>: Please ❤ Satisfy me ❤ Insert it into the deepest part of my uterus, okay?</p>'
               if a>=1:'<p>Me: Then I`m welcome❤</p>'
               if a>=2:'<p><<$ma>>: Great<<$panting_2>></p>'
               if a>=5:'<p><<$ma>>:So cool<<$words>></p>'
@@ -220,6 +244,27 @@ if $args[0]="universal_cross_section":
 				'<p><<$ma>>: Here, this is my phone number, Mua❤</p>'
 				'<p>·————</p>'
 				'<p>·This is the end of the character`s story line.But the ultimate goal is for all members of the class roster to pass the exam, including exemption from the exam during pregnancy or passing the exam.</p>'
+              end
+
+              if $m_address='UCSC':
+				$SYYY.bad+=q+my.charm
+				$SYYY.love+=q+my.charm  
+				$SYYY.tel=1
+				'<B><span class =''red''><p>获取Gained her trust❤</p>'
+				'<p><<$ma>>: You are really a bad embryo like me!Here, this is my phone number, you can call me if you want to have sex ❤</p>'
+				'<p>·————</p>'
+				'<p>·This is the end of the character`s story line.But the ultimate goal is for all members of the class roster to pass the exam, including exemption from the exam during pregnancy or passing the exam.</p>'
+              end
+              
+              if $m_address='CARG':
+                $HSW.bad+=q+my.charm
+                $HSW.love+=q+my.charm*2
+                $HSW.tel=1
+                '<p>Me: I will also take care of those Coser part-time jobs for you.</p>'
+                '<B><span class =''red''><p>获取Gained her trust❤</p>'
+                '<p><<$ma>>: Here, this is my phone number ❤</p>'
+                '<p>·————</p>'
+                '<p>·This is the end of the character`s story line.But the ultimate goal is for all members of the class roster to pass the exam, including exemption from the exam during pregnancy or passing the exam.</p>'
               end
          '</div>'
     end
