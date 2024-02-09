@@ -22,15 +22,14 @@ if $ARGS[0]="":
 		  <input type="text" id="cdkValue">
 		  <button onclick="checkCDKResult()">核销CDK</button>
 		</div>
-		
          </div>'
 
     '<div class="dialog_menu">'
-	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:gt ''攻略赞助3'',''全部解锁''" class="buttonGn5"style="display: none;">然后➤『请点击此处解锁内置攻略』</a></p>'
+	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:保存了=0 & gt ''攻略赞助3'',''全部解锁''" class="buttonGn5"style="display: none;">然后➤『请点击此处解锁内置攻略』</a></p>'
         '<p><font color="#FF6347">←CDK解锁后将获得：V40版本前的全角色PDF攻略+V40版本至目前版本的全角色内置攻略+300万游戏$+300点精力上限以便轻松地游玩</p>'
         '<p><font color="#2E8B57">问：全角色CDK在哪里购买呢？</p>'
 	   '<p><font color="#FF6347">答：↓攻略CDK&赞助↓加载较慢请用Chrome, Firefox, Edge等浏览器访问，感谢您的支持</p>'
-	   '<a href="https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT"> https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT</a></p>'
+	   '<a href="https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e"> https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e</a></p>'
     '</div>'
 End
 
@@ -39,7 +38,7 @@ if $ARGS[0]="老司机":
 	'<div class ="show_menu"><img src="images\place\输入.jpg" width="854"></div>'
         
     '<div class="button_menu">'
-		'<div class="buttonGn2"><a href="#" onclick="checkCDK()">输入V55卡密(cdk)</a></div>
+		'<div class="buttonGn2"><a href="#" onclick="checkCDK()">输入V60新角色卡密(cdk)</a></div>
 		<div id="cdkInput" style="display: none;">
 		  <input type="text" id="cdkValue">
 		  <button onclick="checkCDKResultOD()">核销CDK</button>
@@ -47,26 +46,27 @@ if $ARGS[0]="老司机":
          </div>'
 
     '<div class="dialog_menu">'
-	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:gt ''攻略赞助3'',''V48攻略解锁''" class="buttonGn5"style="display: none;">然后➤『请点击此处解锁内置攻略』</a></p>'
-        '<p><font color="#FF6347">←CDK解锁后将获得：<font color="#FF0000"><B>V55的新增角色</B><font color="#FF6347">内置攻略+150万游戏$+50点精力上限以便轻松地游玩</p>'
+	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:保存了=0 & gt ''攻略赞助3'',''V48攻略解锁''" class="buttonGn5"style="display: none;">然后➤『请点击此处解锁内置攻略』</a></p>'
+        '<p><font color="#FF6347">←CDK解锁后将获得：<font color="#FF0000"><B>V60的新增角色</B><font color="#FF6347">内置攻略+150万游戏$+50点精力上限以便轻松地游玩</p>'
         '<p><font color="#2E8B57">问：CDK在哪里购买呢？</p>'
 	   '<p><font color="#FF6347">答：↓攻略CDK&赞助↓加载较慢请用Chrome, Firefox, Edge等浏览器访问，感谢您的支持。</p>'
-	   '<a href="https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT"> https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT</a></p>'
+	   '<a href="https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e"> https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e</a></p>'
 	   '<p>𒁈𒁈𒁈</p>'
-	   '<p><B><span class =''red''>注:强烈建议您在购买前充分了解该cdk仅作为解锁V55新增角色（三年二班第二排的角色）使用，无法解锁V50版本及之前的角色。</p>'
+	   '<p><B><span class =''red''>注:强烈建议您在购买前充分了解该cdk仅作为解锁V60新增角色使用，无法解锁V55版本及之前的角色。</p>'
     '</div>'
 End
 
 if $ARGS[0]="V48攻略解锁":
-	 if $V55攻略解锁!55:
-		$V55攻略解锁=55
+	 if $V60攻略解锁!60:
+		$V60攻略解锁=60
 		money+=1500000
 		mymax[精力]+=50
 	 end
 	'<div class ="show_menu"><img src="images\place\猫咪密码.jpg" width="854"></div>'
         
     '<div class="button_menu">'
-        '<div class="button"><a href="exec: gt $loc,$metka">明白了</a></div>'
+        if 保存了=0:'<div class="buttonG3"><a href="exec: 保存了=1 & SAVEGAME & gt ''攻略赞助3'',''V48攻略解锁''">保存进度</a></div>'
+        if 保存了!0:'<div class="buttonGn5"><a href="exec: gt $loc,$metka">CDK已使用</a></div>'
     '</div>'
 
     '<div class="dialog_menu">'
@@ -77,15 +77,17 @@ if $ARGS[0]="V48攻略解锁":
 End
 
 if $ARGS[0]="全部解锁":
-	 if $攻略解锁<55:
-		$攻略解锁=55
+	 if $攻略解锁<60:
+		$攻略解锁=60
 		money+=3000000
 		mymax[精力]+=300
 	 end
+	 
 	'<div class ="show_menu"><img src="images\place\猫咪密码.jpg" width="854"></div>'
         
     '<div class="button_menu">'
-        '<div class="buttonGn3"><a href="exec: gt $loc,$metka">明白了</a></div>'
+        if 保存了=0:'<div class="buttonG3"><a href="exec: 保存了=1 & SAVEGAME & gt ''攻略赞助3'',''全部解锁''">保存进度</a></div>'
+        if 保存了!0:'<div class="buttonGn5"><a href="exec: gt $loc,$metka">CDK已使用</a></div>'
     '</div>'
 
     '<div class="dialog_menu">'

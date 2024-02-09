@@ -13,7 +13,20 @@ minutes+=15
 	gs'menu_option_show'
 	'<div class="actions_menu">'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
+			if $YXH事件链>=2:'<a class="photo" data-title="A503" href="exec:gt ''人才公寓2'',''A503''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'else:'<a class="photo" data-title="A503" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $SZ事件链>=4:'<a class="photo" data-title="A502" href="exec:gt ''人才公寓2'',''A502''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'else:'<a class="photo" data-title="A502" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'		
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $SZ事件链>=3:'<a class="photo" data-title="A501" href="exec:gt ''最终_事件'',''A501''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'else:'<a class="photo" data-title="A501" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'			
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo" data-title="A403" href="exec:gt ''人才公寓2'',''A403''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
@@ -26,20 +39,7 @@ minutes+=15
 		'</div>'
 		! ###############################################################
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
-		'</div>'
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
-		'</div>'
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\place\电梯.jpg"></a>'
-		'</div>'
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
-		'</div>'
-		! ###############################################################
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
+			if $BX.available=1:'<a class="photo" data-title="A303" href="exec:gt ''人才公寓2'',''A303''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'else:'<a class="photo" data-title="A303" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
@@ -65,5 +65,118 @@ if $args[0]="":
 		'<p>·帝国集团为了吸引优秀人才加入而将其名下的私人别墅改造成职工专属的家属公寓。此举引起了周边业主的不满，他们认为这会降低社区综合质量，从而使别墅区的房价下跌。</p>'
 	'</div>'
 end
+
+if $args[0]="A502":
+	'<div class ="show_menu"><img src="images\NPC\SZ\pics\A502.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if ZZU盘=1 and 被骗测试=0 and 市长确定=0:'<div class="button"><a href="exec:minutes+=5 & gt ''最终_事件'',''SZ骗''">等待<<$SZ.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·如果我有政治献金的情况下，可以在这里等待<<$SZ.name>></p>'
+		if 市长确定=1:'<p><B><span class =''red''>我: 市长竞选都结束了，这个房间没作用了。</p>'
+	'</div>'
+end
+
+if $args[0]="A503":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\ASK0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $ZZ.money>=1:'<div class="buttonGn4"><a href="exec:minutes+=5 & gt ''人才公寓2'',''A503_2''">轻轻点头</a></div>'else:'<div class="buttonGr"><a href="exec:">没有政治献金</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YXH.name>>:向我承认你有大一笔钱可以作为政治献金的话…我可以给你点甜头尝尝喔❤</p>'
+		if $AW.money=0:
+		 '<p>我:是没人支持你的政治献金了，所以才想起的我嘛？</p>'
+		 '<p><<$YXH.name>>:怎么会呢❤我对你是一心一意的❤</p>'
+		else
+		 '<p>我:<<$AW.name>>应该有足够的钱支持你，为什么还要来找我？做备选资金吗？</p>'
+		 '<p><<$YXH.name>>:谁会嫌支持者少呢？而且如果有你支持的话…当上市长应该没有难度❤</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="A503_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\ASK1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''最终_事件'',''YXH_奶炮''">❤还能怎么样❤</a></div>'
+		if $MFD.GO>=1:'<div class="buttonS"><a href="exec:$MFD.GO+=1 & a=0 & $m=''YXH'' & $ma=$YXH.name & $m地址=''FSYF'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''最终_事件'',''YXH_衣服''">❤网眼包臀裙❤</a></div>'
+		if $EDM.GO>=1:'<div class="buttonW"><a href="exec:$EDM.GO+=1 & a=0 & $m=''YXH'' & $ma=$YXH.name & $m地址=''SYUA'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''最终_事件'',''YXH_衣服''">❤束腰战斗服❤</a></div>'
+		if $JM.GO>=1:'<div class="buttonPu4"><a href="exec:$JM.GO+=1 & a=0 & $m=''YXH'' & $ma=$YXH.name & $m地址=''WJTZ'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''最终_事件'',''YXH_衣服''">❤通电工作装❤</a></div>'
+		if $WQ.GO>=1:'<div class="buttonR4"><a href="exec:$WQ.GO+=1 & a=0 & $m=''YXH'' & $ma=$YXH.name & $m地址=''TNLN'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''最终_事件'',''YXH_衣服''">❤捆绑兔女郎❤</a></div>'
+		if $MFD.GO*$EDM.GO*$JM.GO*$WQ.GO=0:'<div class="buttonGr"><a href="exec:">❤？？？？？❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YXH.name>>:好极了宝贝❤我果然没看错你❤</p>'
+		 '<p>我:你的眼光挺凶的…</p>'
+		 '<p><<$YXH.name>>:怎么会呢❤我想为你服务都来不及❤这件衣服不太方便，只能打奶炮喔❤</p>'
+	'</div>'
+end
+
+if $args[0]="A303":
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (4).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $BX事件链=0:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''最终_事件'',''BX_初次''">敲门</a></div>'
+		if $BX事件链=1:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''最终_事件'',''BX_隔空''">敲门</a></div>'
+		if $BX事件链=2:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''最终_事件'',''BX_初次2''">敲门</a></div>'
+		if $BX事件链=3:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''最终_事件'',''BX_初次3''">打开门</a></div>'
+		if $BX事件链>=4:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''最终_事件'',''BX_隔空2''">进去肏她</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·住户是<<$BX.name>>和她的丈夫</p>'
+	'</div>'
+end
+
+
+if $args[0]="A403":
+	if $SML事件链>=9:gt'人才公寓2','A403F'
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (4).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $A403.key=0:'<div class="buttonG"><a href="exec:minutes+=5 & gt ''最终_事件'',''SML_买房''">询问价格</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $A403.key=0:'<p>·这间套房正在待售。</p>'
+		if $A403.key=1:'<p>·我买下了这间套房。</p>'
+	'</div>'
+end
+
+
+if $args[0]="A403F":
+          '<div class="show_menu">'
+                '<video preload="metadata" autoplay loop height="480">
+                <source src="images\NPC\SML\vids\A302.webm" type=''video/webm;''></video></div>'
+          '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:a=0 & $m=''SML'' & $ma=$SML.name & $m地址=''A302'' & Telove=$SML.love & $Tename=''满足'' & Tebad=$SML.bad & gt ''泛用SEX'',''DEMO''">进去肏她</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SML.name>>正享受着她的小家</p>'
+	'</div>'
+end
+
+
+
 --- 人才公寓2 ---------------------------------
 

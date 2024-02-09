@@ -42,11 +42,17 @@ q=0
 		'<div class="action">'
 			'<a class="photo" data-title="机场" href="exec:minutes+=5 & gt ''机场''"><img class="img_stretch" src="images\place\机场_小图.jpg"></a>'
 		'</div>'
+		if AW.room=1:
+		'<div class="action">'
+			'<a class="photo" data-title="沉思酒庄" href="exec:gt ''郊外'',''沉思酒庄''"><img class="img_stretch" src="images\place\沉思酒庄.jpg"></a>'
+		'</div>'
+		end
 		if $银行事件链A>=1 or $银行事件链B>=2:
 		'<div class="action">'
 			'<a class="photo" data-title="钢铁厂" href="exec:gt ''银行_事件'',''钢铁厂''"><img class="img_stretch" src="images\place\钢铁厂.jpg"></a>'
 		'</div>'
 		end
+
 	'</div>'
 '</div>'
 
@@ -350,7 +356,21 @@ if $args[0]="见习男我赢":
 end
 
 
+if $args[0]="沉思酒庄":
+	'<div class ="show_menu"><img src="images\place\沉思酒庄.jpg" width="854"></div>'
 
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=15 & gt ''沉思酒庄''">进入</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>AI机器人：请注视前方，接受虹膜扫描……</p>'
+		'<p>我：……</p>'
+		'<p>AI机器人：<<$主角姓名>>先生，欢迎您莅临沉思酒庄，我们非常重视您的隐私，您的个人信息将被严格保密。</p>'
+		'<p>我：沉思酒庄?这名字好熟悉呢…</p>'
+	'</div>'
+end
 
 
 

@@ -27,6 +27,7 @@ if $ARGS[0]="":
 		if $XN.审判=1:'<div class="buttonPu2"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_主教见习修''">主教房间</a></div>'
 		if $XN.审判<2:'<div class="buttonG1"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_圣餐''">窥伺圣餐</a></div>'
 		if $我主教=1:'<div class="buttonG2"><a href="exec:minutes+=15 & gt ''教堂'',''主教位''">坐上主教位</a></div>'
+		if $LEI.最后=1:'<div class="buttonG5"><a href="exec:minutes+=15 & gt ''教堂'',''教堂婚礼''">业务:教堂婚礼</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
 	'</div>'
 
@@ -52,7 +53,7 @@ if $ARGS[0]="":
 	
 	'<div class="dialog_menu">'
 		'<p>·众教徒跪拜在两侧，教堂正中央供奉着希莫洛斯的神像，它代表着“无法抑制的欲望”。</p>'
-		if week_day=1 and hour=13:'<p>·每周一都会来的男人<a href="exec:a=4 & gt ''教堂'',''GOD0''">-旁观</a></p>'
+		if week_day=1 and hour=13 and $FK死=0:'<p>·每周一都会来的男人<a href="exec:a=4 & gt ''教堂'',''GOD0''">-旁观</a></p>'
 		if $XN.审判=1:'<p>·<<$XN.name>>被置于教堂内的惩戒厅内<a href="exec:a=4 & gt ''修女_事件'',''XN_Fuck_审判''">接受净化</a></p>'
 		if $LEI.最后=1:'<p><font color="#FF1493">·<<$LEI.name>>正在引导朝拜的信徒</font><a href="exec:gt ''教堂'',''蕾最后''">-查看</a></p>'
 		'<p>——————————</p>'
@@ -387,8 +388,9 @@ if $args[0]="教堂婚礼":
         '<div class ="show_menu2"><img src="images\NPC\XN\pics\wed (<<rand(1,7)>>).jpg" height="492"></div>'
        
         '<div class="button_menu">'
-		  '<div class="buttonS"><a href="exec: gt ''修女_事件'',''XN_Fuck_WED''">带她去你房间</a></div>'
+		  '<div class="buttonP"><a href="exec: gt ''修女_事件'',''XN_Fuck_WED''">带她去你房间</a></div>'
             '<div class="buttonGn3"><a href="exec: gt ''教堂''">离开</a></div>'
+            if $JYB事件链>=17:'<div class="buttonS"><a href="exec: gt ''教堂'',''一妻多夫婚礼''">㊛一妻多夫婚礼㊚</a></div>'
             if $银行事件链B>=8:'<div class="buttonG3"><a href="exec: gt ''银行_事件'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
             if $WH.婚纱=1:'<div class="buttonG4"><a href="exec:gt ''网红_事件'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'
             if $BTH事件链>=14:'<div class="buttonG5"><a href="exec:gt ''学生群_事件'',''BTH_婚礼''">㊕<<$BTH.name>></a></div>'
@@ -402,6 +404,48 @@ if $args[0]="教堂婚礼":
 			  '<p>新娘：我明白了，神父大人…不如乘着他还没来…你先好好“惩罚”一下我？别看我这样，我可是个婊子呢❤</p>'
          '</div>'
 End
+
+if $args[0]="一妻多夫婚礼":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\WEDN.webm" type=''video/webm;''></video></div>'
+        '</div>'
+       
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec:$m=''JYB'' & $ma=$JYB.name & $m地址=''HSXC'' & $Tename=''满足'' & Telove=$JYB.love & Tebad=$JYB.bad & gt ''泛用SEX'',''DEMO''"><<$JYB.name>>的新婚</a></div>'
+		  '<div class="buttonG1"><a href="exec: gt ''教堂'',''我婚礼''">我收到的求婚函</a></div>'
+            '<div class="buttonGn3"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 '<p>>《 一妻多夫制婚姻法》 一妻多夫制 ：介于男性市民数量骤减，为确保优质女性的生育率，一位女性公民可以充分享受婚姻自由，与多位男性成为性配偶。</p>'
+		 '<p>>1.1条例补充：为确保所有女性公民有充分的择偶权利，女性配偶不得独占其男性配偶。</p>'
+		 '<p>>1.2条例补充：为确保女性地位，性配偶之间的关系随时可由女方以“休夫”方式解除。</p>'
+		 '<p>>1.3条例补充：如在《 一妻多夫制婚姻法》 生效前的夫妻关系将认定为封建婚姻，女方可以单方面解除婚姻关系，之前女方所有的出轨、婚外情、偷奸、与他人乱交等将不予追究。</p>'
+         '</div>'
+End
+
+if $args[0]="我婚礼":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\WEDN1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+       
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec:gt ''最终_事件'',''SB_婚礼''"><<$SB.name>>的求婚函</a></div>'
+		  if $HB事件链H=1:'<div class="buttonG4"><a href="exec:gt ''最终_事件'',''HB_婚礼''"><<$HB.name>>的求婚函</a></div>'
+            '<div class="buttonGn3"><a href="exec: gt ''教堂''">离开</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 '<p>>《 一妻多夫制婚姻法》 一妻多夫制 ：介于男性市民数量骤减，为确保优质女性的生育率，一位女性公民可以充分享受婚姻自由，与多位男性成为性配偶。</p>'
+		 '<p>>1.1条例补充：为确保所有女性公民有充分的择偶权利，女性配偶不得独占其男性配偶。</p>'
+		 '<p>>1.2条例补充：为确保女性地位，性配偶之间的关系随时可由女方以“休夫”方式解除。</p>'
+		 '<p>>1.3条例补充：如在《 一妻多夫制婚姻法》 生效前的夫妻关系将认定为封建婚姻，女方可以单方面解除婚姻关系，之前女方所有的出轨、婚外情、偷奸、与他人乱交等将不予追究。</p>'
+		 '<p>>我: 看来我还是蛮受欢迎的…</p>'
+         '</div>'
+End
+
 
 if $args[0]="GOD0":
         '<div class="show_menu">'

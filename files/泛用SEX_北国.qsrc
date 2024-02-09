@@ -1,0 +1,171 @@
+# 泛用SEX_北国
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+minutes+=5
+
+if a<=0:
+	q=0
+	f_manz=0
+	my_manz=0
+end
+
+if Telove>=300:f_manz+=1
+if Tebad>=300:f_manz+=1
+
+if my_manz>=6:my_manz=6
+if f_manz>=9:f_manz=9
+if f_manz<=0:f_manz=0
+
+FN随N=rand(1,5)
+
+
+
+
+
+'<div id="right-column">'
+    gs"精力判定"
+    gs'menu_time'
+    gs'menu_status_show'
+    gs'menu_option_hidden'
+    '<div class="actions_menu">'
+        '<div class="action">'
+        '<a class="photo"><img class="img_stretch" src="images\NPC\MPJ\pics\三维_76女厕.jpg"></a>'
+        '</div>'
+        '<div class="action">'
+        '</div>'
+        '<div class="action">'
+        '</div>'
+        '<div class="action">'
+        '<a class="photo"><img class="img_stretch" src="images\NPC\MPJ\pics\三维_127男厕.jpg"></a>'
+        '</div>'
+        '<div class="action8">'
+            '<a class="photo"><img class="img_stretch" src="images\NPC\MPJ\pics\heart<<$Tename>><<f_manz>>.png"></a>'
+        '</div>'
+        '<div class="action8">'
+            '<a class="photo"><img class="img_stretch" src="images\NPC\MPJ\pics\heart1<<my_manz>>.png"></a>'
+        '</div>'
+        '<div class="action">'
+            !'<a class="photo" data-title="轻易勿点，BUG时脱出" href="exec:gt ''家_卧室''"><img class="img_stretch" src="images\place\回家1.jpg"></a>'
+        '</div>'
+    '</div>'
+'</div>'
+
+
+
+if $args[0]="DEMO":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\<<$m>>\vids\<<$m地址>>1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+        '<div class="button_menu">'
+          if $m地址='KBDWZ':
+             if f_manz=1 or f_manz=3 or f_manz=5 or f_manz=7:'<div class="buttonPu<<rand(1,5)>>"><a href="exec:gt ''最终_事件'',''SML_一边''">▶同一时间▶</a></div>'else:'<div class="buttonGn<<rand(1,5)>>"><a href="exec:gt ''最终_事件'',''SML_一边''">▶与此同时▶</a></div>'
+          end
+          if $m地址='CJGFB':
+             if f_manz=1 or f_manz=3 or f_manz=5 or f_manz=7:'<div class="buttonGn<<rand(1,5)>>"><a href="exec:gt ''最终_事件'',''SML_一边2''">▶同一时间▶</a></div>'else:'<div class="buttonPu<<rand(1,5)>>"><a href="exec:gt ''最终_事件'',''SML_一边2''">▶与此同时▶</a></div>'
+          end
+            if a=0:'<div class="buttonS1"><a href="exec:a=1 & f_manz+=1 & gt ''泛用SEX_北国'',''DEMO''">❤弄湿她❤</a></div>'
+            if a=1 or a=7:'<div class="buttonR3"><a href="exec:a=2 & gt ''泛用SEX_北国'',''DEMO''">❤吹硬我❤</a></div>'
+            if a=2 and $ma=$YXH.name:'<div class="buttonG2"><a href="exec:a=10 & my_manz+=1 & gt ''泛用SEX_北国'',''DEMO''">❤专属乳交❤</a></div>'
+            if a=2 and $ma=$HB.name:'<div class="buttonG2"><a href="exec:a=11 & my_manz+=1 & gt ''泛用SEX_北国'',''DEMO''">❤特色口交❤</a></div>'
+            if a=2 and q=2:'<div class="buttonS3"><a href="exec:a=3 & my_manz-=1 & gt ''泛用SEX_北国'',''DEMO''">❤分开双腿❤</a></div>'
+            
+            if q>=3 and 2<=my_manz and my_manz<=5: 
+			  '<div class="buttonS3"><a href="exec:a=4 & f_manz+=1 & gt ''泛用SEX_北国'',''DEMO''">缓慢抽插❤</a></div>'
+			  '<div class="buttonS4"><a href="exec:a=5 & my_manz+=1 & f_manz+=2 & gt ''泛用SEX_北国'',''DEMO''">加速抽插❤❤</a></div>'
+			  '<div class="buttonS5"><a href="exec:a=6 & my_manz+=2 & f_manz+=3 & gt ''泛用SEX_北国'',''DEMO''">大力抽插❤❤❤</a></div>'
+            end
+            if my_manz>=6:'<div class="buttonG"><a href="exec:a=7 & my_manz=1 &  gt ''泛用SEX_北国'',''DEMO''">❤射精❤</a></div>'
+            if a=7 and $Tename='满足':
+                if f_manz>=9:'<div class="buttonS"><a href="exec:a=8 & gt ''泛用SEX_北国'',''DEMO''">❤她超级爱你❤</a></div>'else:'<div class="buttonGr"><a href="exec:">她欲求不满</a></div>'
+            end
+            if a=7 and $Tename='屈服':
+                if f_manz>=9:'<div class="buttonG2"><a href="exec:a=8 & gt ''泛用SEX_北国'',''DEMO''">❤她被征服了❤</a></div>'else:'<div class="buttonGr"><a href="exec:">她不肯服输</a></div>'
+            end
+            
+        '</div>'
+        else:
+            '<div class="button_menu">'
+              if $m地址='CJXH':'<div class="buttonGn5"><a href="exec:hour=14 & gt ''北国''">外出工作</a></div>'
+              if $m地址='JDPAV':'<div class="buttonPu3"><a href="exec:minutes+=1440 & 市长确定=1 & hour=8 & gt ''北国''">相拥入梦</a></div>'
+              if $m地址='XLCM':'<div class="buttonGn5"><a href="exec:hour=9 & gt ''北国''">着装出门</a></div>'
+            '</div>'
+    end
+
+    if a=0:
+         '<div class="dialog_menu">'
+              if $ma=$UN.name:'<p><<$ma>>:白天钓钓鱼砍砍树，晚上我们做直播，在个小小北国里幸福一辈子就完事了❤</p>'
+            '<p>我:<<$肯定回答>></p>'
+         '</div>'
+    end
+
+    if a=10:
+         '<div class="dialog_menu">'
+            '<p><<$ma>>:<<$YXH称呼>>喜欢<<$YXH称呼她>>用软软的骚奶子给你乳交嘛？</p>'
+         '</div>'
+    end
+
+    if a=11:
+         '<div class="dialog_menu">'
+            '<p><<$ma>>:<<$主角姓名>>，这是我在特训中的成果…希望您能满意❤</p>'
+         '</div>'
+    end
+
+    if a=1:
+         '<div class="dialog_menu">'
+            '<p><<$ma>>:我好爱你<<$娇喘声>></p>'
+         '</div>'
+    end
+
+    if a=2:
+         '<div class="dialog_menu">'
+            '<p>我:嘶——真难忍耐…</p>'
+         '</div>'
+    end
+
+    if a=3:
+         '<div class="dialog_menu">'
+            '<p><<$ma>>:宝贝，快插进来❤</p>'
+         '</div>'
+    end
+
+    if 4<=a and a<=6:
+         '<div class="dialog_menu">'
+              if a=4:'<p><<$ma>>: 再插深点<<$娇喘声>></p>'
+              if a=5:'<p><<$ma>>: 再用力点<<$话>></p>'
+              if a=6:'<p><<$ma>>: 太舒服了<<$话>></p>'
+         '</div>'
+    end
+    if a=7:
+         '<div class="dialog_menu">'
+            '<p>我:忍不住了！射了！</p>'
+         '</div>'
+    end
+    if a=8:
+        my_manz-=1
+         '<div class="dialog_menu">'
+            if $Tename='满足':'<p><<$ma>>: 亲爱的❤我们就这样一直幸福下去吧❤</p>'
+            '<p>我:嗯。</p>'
+            if $ma=$UN.name:
+             $UN.love+=my.魅力+a
+             $UN.bad+=my.魅力+q
+            end
+            if $m地址='JDPAV':
+             '<p>·——————</p>'
+             '<p>*至此为人物剧情终点&游戏结局【比翼远行】——在这个结局中，我与<<$UN.name>>一同逃离都市的喧嚣，开始了一段隐居雪国的宁静生活。</p>'
+             '<p>*可以点击主角属性界面的按钮重置结局</p>'
+            end
+         '</div>'
+    end
+
+    q+=1
+    my_manz+=1
+End
+
+
+
+--- 泛用SEX_北国 ---------------------------------
+
