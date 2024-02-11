@@ -26,6 +26,7 @@ if $args[0]="":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''andrology'',''physical_examination''">Physical examination</a></div>'
+		if $jyb_event_chain=4 and $NK.IN=0:'<div class="buttonG"><a href="exec: gt ''andrology'',''invitation_drafting''">Invitation to draft an education bill</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''andrology'',''it`s_okay''">I`m fine</a></div>'
 	'</div>'
 
@@ -65,6 +66,28 @@ if $args[0]="it`s_okay":
 	
 	'<div class="dialog_menu">'
 		'<p>·When I left, I saw the doctor masturbating.</p>'
+	'</div>'
+End
+
+if $args[0]="invitation_drafting":
+	$NK.IN=1 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+			 <source src="images\NPC\NK\vids\医生诱惑~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''andrology''">Hand out the invitation letter</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I represent<<$JYB.name>>Send you an invitation.</p>'
+		'<p><<$NK.name>>:*The corner of the mouth rises*What do you need me to do?</p>'
+		'<p>Me: She needs an excellent andrology doctor to make a health assessment. I think you are the only one in this role.</p>'
+		'<p><<$NK.name>>: Sex Education Bill?I`m not interested in this, but I`m very interested in the students` meat sticks❤</p>'
+		'<p>Me: Did you agree?</p>'
+		'<p><<$NK.name>>: Yes, I will go to her minister`s office to assist her.</p>'
+		'<p>Me: See you later.</p>'
 	'</div>'
 End
 --- andrology ---------------------------------

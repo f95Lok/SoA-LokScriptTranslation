@@ -22,15 +22,14 @@ if $ARGS[0]="":
 		  <input type="text" id="cdkValue">
 		  <button onclick="checkCDKResult()">核销CDK</button>
 		</div>
-		
          </div>'
 
     '<div class="dialog_menu">'
-	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:gt ''strategy_sponsorship_3'',''unlock_all''" class="buttonGn5"style="display: none;">Then ➤ 『Please click here to unlock the built-in strategy』</a></p>'
+	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:saved=0 & gt ''strategy_sponsorship_3'',''unlock_all''" class="buttonGn5"style="display: none;">Then ➤ 『Please click here to unlock the built-in strategy』</a></p>'
         '<p><font color="#FF6347">←After CDK is unlocked, you will get: Full-character PDF raiders before the V40 version + full-character built-in raiders from the V40 version to the current version + 3 million game$ + 300 energy limit for easy play</p>'
         '<p><font color="#2E8B57">Question: Where can I buy the full-character CDK?</p>'
 	   '<p><font color="#FF6347">Answer:攻略Strategy CDK& Sponsorship↓Slow loading, please use Chrome, Firefox, Edge and other browsers to access, thank you for your support</p>'
-	   '<a href="https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT"> https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT</a></p>'
+	   '<a href="https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e"> https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e</a></p>'
     '</div>'
 End
 
@@ -39,7 +38,7 @@ if $ARGS[0]="old_driver":
 	'<div class ="show_menu"><img src="images\place\输入.jpg" width="854"></div>'
         
     '<div class="button_menu">'
-		'<div class="buttonGn2"><a href="#" onclick="checkCDK()">Enter V55 card secret (cdk)</a></div>
+		'<div class="buttonGn2"><a href="#" onclick="checkCDK()">Enter the V60 new character card key (cdk)</a></div>
 		<div id="cdkInput" style="display: none;">
 		  <input type="text" id="cdkValue">
 		  <button onclick="checkCDKResultOD()">核销CDK</button>
@@ -47,26 +46,27 @@ if $ARGS[0]="old_driver":
          </div>'
 
     '<div class="dialog_menu">'
-	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:gt ''strategy_sponsorship_3'',''v48_raiders_unlock''" class="buttonGn5"style="display: none;">Then ➤ 『Please click here to unlock the built-in strategy』</a></p>'
-        '<p><font color="#FF6347">←CDK will be obtained after unlocking：<font color="#FF0000"><B>New roles in V55</B><font color="#FF6347">Built-in strategy + 1.5 million game$ + 50 energy limit for easy play</p>'
+	   '<p id="savedTime"><p style="text-align: center;"><a href="exec:saved=0 & gt ''strategy_sponsorship_3'',''v48_raiders_unlock''" class="buttonGn5"style="display: none;">Then ➤ 『Please click here to unlock the built-in strategy』</a></p>'
+        '<p><font color="#FF6347">←CDK will be obtained after unlocking：<font color="#FF0000"><B>New roles in V60</B><font color="#FF6347">Built-in strategy + 1.5 million game$ + 50 energy limit for easy play</p>'
         '<p><font color="#2E8B57">Question: Where can I buy CDK?</p>'
 	   '<p><font color="#FF6347">Answer:攻略Strategy CDK& Sponsorship↓Slow loading, please use Chrome, Firefox, Edge and other browsers to access, thank you for your support.</p>'
-	   '<a href="https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT"> https://airtable.com/app2MbxlGe2mPexzv/shrbq8F9ysuI1htNT</a></p>'
+	   '<a href="https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e"> https://airtable.com/appQnDEYtaqkgTPcF/shronmsnBfhJSNh5e</a></p>'
 	   '<p>𒁈𒁈𒁈</p>'
-	   '<p><B><span class =''red''>Note: It is strongly recommended that you fully understand before purchasing that the cdk is only used to unlock new characters in V55 (characters in the second row of the second shift in three years), and cannot unlock characters in the V50 version and before.</p>'
+	   '<p><B><span class =''red''>Note: It is strongly recommended that you fully understand that the cdk is only used to unlock new characters in V60 before purchasing, and cannot unlock characters in V55 version and before.</p>'
     '</div>'
 End
 
 if $ARGS[0]="v48_raiders_unlock":
-	 if $v55_strategy_unlock!55:
-		$v55_strategy_unlock=55
+	 if $v60_raiders_unlock!60:
+		$v60_raiders_unlock=60
 		money+=1500000
 		mymax[energy]+=50
 	 end
 	'<div class ="show_menu"><img src="images\place\猫咪密码.jpg" width="854"></div>'
         
     '<div class="button_menu">'
-        '<div class="button"><a href="exec: gt $loc,$metka">Got it</a></div>'
+        if saved=0:'<div class="buttonG3"><a href="exec: saved=1 & SAVEGAME & gt ''strategy_sponsorship_3'',''v48_raiders_unlock''">Save progress</a></div>'
+        if saved!0:'<div class="buttonGn5"><a href="exec: gt $loc,$metka">CDK has been used</a></div>'
     '</div>'
 
     '<div class="dialog_menu">'
@@ -77,15 +77,17 @@ if $ARGS[0]="v48_raiders_unlock":
 End
 
 if $ARGS[0]="unlock_all":
-	 if $strategy_unlock<55:
-		$strategy_unlock=55
+	 if $strategy_unlock<60:
+		$strategy_unlock=60
 		money+=3000000
 		mymax[energy]+=300
 	 end
+	 
 	'<div class ="show_menu"><img src="images\place\猫咪密码.jpg" width="854"></div>'
         
     '<div class="button_menu">'
-        '<div class="buttonGn3"><a href="exec: gt $loc,$metka">Got it</a></div>'
+        if saved=0:'<div class="buttonG3"><a href="exec: saved=1 & SAVEGAME & gt ''strategy_sponsorship_3'',''unlock_all''">Save progress</a></div>'
+        if saved!0:'<div class="buttonGn5"><a href="exec: gt $loc,$metka">CDK has been used</a></div>'
     '</div>'
 
     '<div class="dialog_menu">'

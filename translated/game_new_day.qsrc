@@ -19,14 +19,17 @@ daily_succubus=0
 daily_counseling_matsumoto=0
 daily_cos=0
 dcm_study=0
+if special_day_phone>=2:special_day_phone=0
+
 
 daily_tz_wq=0
+
 
 
 if $bth_chastity_belt=1:$bth_chastity_belt_day+=1
 
 if qt.reply>=1:qt.reply+=1
-
+if $company_closing_day>0:$company_closing_day-=1
 
 if xm_videotape>=2:$the_number_of_days_the_xm_video_has_not_been_watched+=1
 
@@ -37,6 +40,10 @@ if bigvillaforthefirsttime>0 and $QB.love>=200: hashimoto_cd+=1
 if bigvillaforthefirsttime>0 and $SF.love>=200: xunguo_cd+=1
 if $TS.ROOM>0 and TSMM>0: angel_cd+=1
 if $MMS.love>5: succubus_cd+=1
+
+if $sz_event_chain>=3 and the_mayor_is_sure=0:campaign_day-=1
+
+if $fk.mountains>=50:$FK.money=1
 
 if $entering_a_convenience_store_for_the_first_time=1:
 	!if $FW.积极性>=$FW.积极性上限:$FW.积极性=$FW.积极性上限

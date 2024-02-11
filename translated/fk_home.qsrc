@@ -1,0 +1,547 @@
+# fk_home
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''attic''"><img class="img_stretch" src="images\NPC\JYB\pics\11.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\12.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\12.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\12.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''telephone_room''"><img class="img_stretch" src="images\NPC\JYB\pics\21.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''fk_home_xn''"><img class="img_stretch" src="images\NPC\JYB\pics\22.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt''fk_home'',''middle_room''"><img class="img_stretch" src="images\NPC\JYB\pics\23.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''fk_home_dn''"><img class="img_stretch" src="images\NPC\JYB\pics\24.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''sml_vertical_painting''"><img class="img_stretch" src="images\NPC\JYB\pics\31.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home''"><img class="img_stretch" src="images\NPC\JYB\pics\32.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''conference_room''"><img class="img_stretch" src="images\NPC\JYB\pics\33.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''fk_home'',''security_door''"><img class="img_stretch" src="images\NPC\JYB\pics\34.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\32.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The entire living room is spacious, bright and luxuriously decorated.When you enter the door, you can see a long solid wood dining table with exquisite candlesticks and silverware on the table.On both sides are comfortable sofas with gorgeous cushions and plush blankets.Opposite the sofa is an old fireplace.The decoration of the entire living room is very elegant, revealing the noble temperament of the owner.</p>'
+	'</div>'
+end
+
+if $args[0]="hb_vertical_painting":
+	$HB.available=1
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\ALH<<rand(0,7)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''final_event'',''HB_BASE''">Touch her face</a></div>'
+		if $HB.love>0 and $UN.available=0:'<div class="buttonG"><a href="exec:gt ''final_event'',''un_first_sight''">Birthday party</a></div>'
+		'<div class="button"><a href="exec:gt ''fk_home''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HB.name>>:Hello，<<$protagonists_name>>Mr.…</p>'
+	'</div>'
+end
+
+if $args[0]="un_vertical_painting":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\nomo.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec: gt ''final_event'',''un_shot_0''">Simple shooting</a></div>'
+		if $UN.fans>=400:'<div class="buttonS2"><a href="exec: gt ''final_event'',''un_shot_1''">Top vacuum</a></div>'
+		if $un_event_chain>=2:'<div class="buttonS3"><a href="exec: gt ''final_event'',''un_shot_2''">Lower body vacuum</a></div>'
+		if $un_event_chain>=3:'<div class="buttonS4"><a href="exec: gt ''final_event'',''un_shot_3''">Naked up and down</a></div>'
+		if $un_event_chain>=4:'<div class="buttonS5"><a href="exec: gt ''final_event'',''un_seeking_revenge''">Million fan Banquet</a></div>'
+		if $hb_event_chain=3 and $un_event_chain>=5: '<div class="buttonG"><a href="exec: gt ''final_event'',''hb_time_to_go''">Final dinner</a></div>'
+		'<div class="button"><a href="exec:gt ''fk_home''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$UN.name>>: What can I take today?…</p>'
+	'</div>'
+end
+
+if $args[0]="hb_phone":
+	if special_day_phone=1:gt'fk_home','middle_room'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\DDH0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn4"><a href="exec:minutes+=5 & gt ''fk_home'',''hb_phone_2''">Eavesdropping on the phone</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		special_day_phone+=1
+		'<p><<$HB.name>>: Hello... why are you……</p>'
+	'</div>'
+end
+
+if $args[0]="hb_phone_2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\DDH1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn4"><a href="exec:minutes+=5 & gt ''fk_home'',''middle_room''">。。。</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $hb_event_chain=0:$hb_event_chain=1
+		'<p>Male voice: Are you free?Let`s see each other again…</p>'
+		'<p><<$HB.name>>: Um... yes... week<<UN.day>>I`m free in the evening... shall we meet?</p>'
+		'<p>Male voice: Is it okay at 21 o`clock in the evening?</p>'
+		'<p><<$HB.name>>: Yes... I`ll see you at the red restaurant that night…</p>'
+	'</div>'
+end
+
+
+if $args[0]="middle_room":
+	OutDay=UN.day-1
+	if OutDay=0:OutDay=7
+	if $UN.available=1 and week_day=OutDay and $hb_event_chain<=2 and special_day_phone=0:gt'fk_home','hb_phone'
+	special_day_phone+=1
+	if $un_event_chain=6:gt'final_event','un_select'
+	if $hb_event_chain=4:gt'final_event','hb_trial'
+	if $hb_event_chain_h>=2:gt'fk_home','hb_after_marriage'
+	if $hb_event_chain_b>=1:gt'fk_home','hb_is_not_married'
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\e2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if week_day=UN.day and $un_event_chain<=6:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''fk_home'',''un_vertical_painting''"><<$UN.name>></a></div>'else:'<div class="buttonW"><a href="exec:minutes+=5 & gt ''fk_home'',''hb_vertical_painting''"><<$HB.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·A beautiful boudoir.</p>'
+	'</div>'
+end
+
+if $args[0]="hb_after_marriage":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\HFFQL0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $hb_event_chain_h<=3:'<div class="buttonS"><a href="exec: $m_filename_reference=''HB'' & $m=''HB'' & $ma=$HB.name & $m_address=''HFFQL'' & Telove=$HB.love & $Tename=''屈服'' & Tebad=$HB.bad & gt ''universal_sex'',''DEMO''">Fuck her</a></div>'
+		if $hb_event_chain_h=5 or $hb_event_chain_h=6:'<div class="buttonR"><a href="exec:gt ''final_event'',''hb_dialogue''">Talk</a></div>'
+		'<div class="button"><a href="exec:gt ''fk_home''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HB.name>>:<<$protagonists_name>>Sir...now I am your legal wife... I don`t care how many women are willing to marry you…</p>'
+	'</div>'
+end
+
+if $args[0]="hb_is_not_married":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\BEAND0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec: $m_filename_reference=''HB'' & $m=''HB'' & $ma=$HB.name & $m_address=''BEAND'' & Telove=$HB.love & $Tename=''屈服'' & Tebad=$HB.bad & gt ''universal_sex'',''DEMO''">Fuck her</a></div>'
+		'<div class="button"><a href="exec:gt ''fk_home''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HB.name>>:<<$protagonists_name>>Sir...I`m really sorry...I promise you...I won`t leave this room again...please ask<<$FK.name>>Will you please let Shan Yinmai go?please.</p>'
+		'<p>Me: Who is Shanyinmai?</p>' 
+		'<p><<$HB.name>>: That`s...the man you saw tryst with me in the red restaurant…</p>' 
+		'<p>Me: Oh...* It turned out to be that man…</p>' 
+	'</div>'
+end
+
+if $args[0]="telephone_room":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\21.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:fk_num=0 & gt ''fk_home'',''fk_vertical_painting''"><<$FK.name>></a></div>'
+		'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''fk_home'',''EVA''">Peek at files</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·A special room isolates all signals, making any external communication or snooping impossible.There is no camera to spy on the interior of this room, and there is no signal to pass in.This room is like a closed private world, with only the red phone as the only way to contact.</p>'
+	'</div>'
+end
+
+if $args[0]="fk_vertical_painting":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\talk<<fk_num>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if fk_num=0 and $fk.mountains<=50:'<div class="buttonR"><a href="exec:fk_num=1 & $fk.mountains+=25 & gt ''fk_home'',''fk_vertical_painting''">Give 25% ownership</a></div>'
+		if fk_num=1 and $fk.mountains>=26:'<div class="buttonS"><a href="exec:gt ''final_event'',''hb_signature''">Call<<$HB.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''fk_home''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$FK.name>>:<<$protagonists_name>>Sir, I promise you that I only need part of the ownership of Shanluan R&M to help you become mayor.Believe me, let us work together to take this city.</p>'
+		'<p>Me: How much do you need?</p>'
+		'<p><<$FK.name>>: I need at least 50% to prepare sufficient political contributions.</p>'
+		'<p>·——————</p>'
+		'<p>My land ownership：<<100-$fk.mountains>>%</p>'
+		if fk_num=1:
+		'<p>·——————</p>'
+		'<p><<$FK.name>>: Very good, you made the right choice, I will formulate a detailed campaign strategy for you and clear all opponents.At the same time I don`t mind you and<<$HB.name>>Further development.</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="EVA":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\e1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if ENDTX>=100:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''fk_home'',''EVA2''">Next page</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''fk_home''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*Looks like a drawing of a robot?</p>'
+	'</div>'
+end
+
+if $args[0]="EVA2":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\222.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''fk_home''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*Case report:<<$father`s_name>></p>'
+		'<p>*Case description: Due to brain damage caused by a sudden accident, he was urgently sent to the hospital for rescue.However, medical staff were unable to respond quickly due to human interference, which delayed the first aid time, causing the patient`s brain to be hypoxic for too long and eventually entered a coma.</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="attic":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\11.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $sml_event_chain<9:'<div class="buttonGn2"><a href="exec:gt ''final_event'',''sml_boyfriend''">Sound outside the window</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The gray attic, it looks like someone once lived here…</p>'
+	'</div>'
+end
+
+if $args[0]="conference_room":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\33.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $sml_event_chain=0:'<div class="buttonP"><a href="exec:gt ''final_event'',''SML_KS''">Voice next door</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Some political elites and entrepreneurs in suits and shoes are meeting... It is worth noting that they are all men.</p>'
+	'</div>'
+end
+
+if $args[0]="security_door":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\34.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $fk.mountains>=100:'<div class="buttonGn3"><a href="exec:gt ''final_event'',''underground_passage''">open</a></div>'else:'<div class="buttonGr"><a href="exec:">open</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·In an inconspicuous corner, there is an unusually heavy door hidden. This should be the place with the highest level of security here.</p>'
+		'<p>·When the quilt<<$FK.name>>Can be opened when fully trusted.</p>'
+	'</div>'
+end
+
+if $args[0]="sml_vertical_painting":
+	if $bx_event_chain=6 and $sml_event_chain=1:gt'final_event','sml_cooperation'
+	if $SML.available=0:gt'final_event','fk_introduction'
+	$SML.available=1
+	a_x=0
+	a_y=0
+	if $sml_event_chain>=2:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\HKM<<rand(0,3)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	else:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''fk_home''">Registered visitor</a></div>'
+		if $BX.available=1:'<div class="buttonR1"><a href="exec:gt ''fk_home'',''bx_information''">✯ intelligence:<<$BX.name>></a></div>'
+		if $sml_event_chain>=2:'<div class="buttonR3"><a href="exec:gt ''fk_home'',''mobile_information''">✮ Intelligence: Technology team</a></div>'
+		if $sml_event_chain>=5:'<div class="buttonR"><a href="exec:gt ''fk_home'',''defense_department''">情报Intelligence: Defense Department</a></div>'
+		if $sml_event_chain=3 and day=17 and hour=17:'<div class="buttonG"><a href="exec:gt ''final_event'',''sml_technical''">Welcome visitors</a></div>'
+		if $sml_event_chain=6 and day=21 and hour=21:'<div class="buttonG"><a href="exec:gt ''final_event'',''sml_national_defense''">Welcome visitors</a></div>'
+		if $sml_event_chain=4:'<div class="buttonG"><a href="exec:gt ''final_event'',''sml_celebrate_success''">庆祝Celebrate success</a></div>'
+		if $sml_event_chain=7:'<div class="buttonG"><a href="exec:gt ''final_event'',''sml_celebrate_2''">庆祝Celebrate success</a></div>'
+		if $sml_event_chain>=8:'<div class="buttonPu4"><a href="exec:$SML.bad+=my.charm & a=0 & $m_filename_reference=''SML'' &  $m=''SML'' & $ma=$SML.name & $m_address=''WDQR'' & Telove=$SML.love & $Tename=''屈服'' & Tebad=$SML.bad & gt ''universal_sex'',''DEMO''">Blindfolded</a></div>'
+		if $sml_event_chain>=2:'<div class="buttonS"><a href="exec:$SML.love+=my.charm & a=0 & $m_filename_reference=''SML'' &  $m=''SML'' & $ma=$SML.name & $m_address=''MSDY'' & Telove=$SML.love & $Tename=''满足'' & Tebad=$SML.bad & gt ''universal_sex'',''DEMO''">You come and sit down first❤</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $sml_event_chain<2:'<p><<$SML.name>>:Hello，<<$protagonists_name>>Sir, according to the regulations, I need to register your personal information.</p>'
+		if $sml_event_chain>=2:'<p><<$SML.name>>: I think the magnetic fields of the two of us are the same. They are two of the same kind that attract each other. We can fight side by side❤</p>'
+	'</div>'
+end
+
+
+if $args[0]="bx_information":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''fk_home''">Remember</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>>information： <<$BX.name>></p>'
+		'<p>>Measurements: 84 - 58 - 88 cm</p>'
+		'<p>>Aliases: Kurokawa Jin, Kamimura Chihiro, Shinohara Kasumi</p>'
+		'<p>>Blood type: O</p>'
+		'<p>>Length: 171cm</p>'
+		'<p>>Hobbies: yoga, running, nondescript love, rap, swimming</p>'
+		'<p>>Address: Talent Apartment A303</p>'
+	'</div>'
+end
+
+if $args[0]="mobile_information":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''fk_home''">Remember</a></div>'
+	'</div>'
+	if $sml_event_chain=2:$sml_event_chain=3
+	'<div class="dialog_menu">'
+		'<p>>Project name: Special motorized device███</p>'
+		'<p>>Project level: Confidential</p>'
+		'<p>>object： <<$SC.name>>, Wang Dalang (mechanical Expert)</p>'
+		'<p>>Length: 170cm, 177cm</p>'
+		'<p>>Weaknesses: alcoholism, lust</p>'
+		'<p>>Hobby: Organize the development of a human-type mechanical unit with a high degree of combat ability</p>'
+		'<p>>Visit time: 17:00 on the 17th</p>'
+		'<p>>Purpose: To provoke and isolate the cooperative relationship between the two</p>'
+	'</div>'
+end
+
+if $args[0]="defense_department":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''fk_home''">Remember</a></div>'
+	'</div>'
+	if $sml_event_chain=5:$sml_event_chain=6
+	'<div class="dialog_menu">'
+		'<p>>Project name: Department of National Defense Affairs</p>'
+		'<p>>Project level: Top secret</p>'
+		'<p>>Target: Song Song (Minister of Defense)， <<$GF.name>></p>'
+		'<p>>Length: 174cm, 172cm</p>'
+		'<p>>Weaknesses: Lust, vanity</p>'
+		'<p>>Relationship: Husband and wife</p>'
+		'<p>>Visit time: 21:00 on the 21st</p>'
+		'<p>>Objective: To master the target handle and pass the national defense review.</p>'
+	'</div>'
+end
+
+if $args[0]="fk_home_xn":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SML\vids\XNZ1-<<a_x>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a_x!6:
+         '<div class="button_menu">'
+           if a_x=0:'<div class="buttonS2"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">What are you hiding?</a></div>'
+           if a_x=1:'<div class="buttonP"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">I heard the sound!</a></div>'
+           if a_x=2:'<div class="buttonR4"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">Someone is coming</a></div>'
+           if a_x=3:'<div class="buttonG2"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">Think of a punishment</a></div>'
+           if a_x=4:'<div class="buttonR4"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">Squat up 50 times!</a></div>'
+           if a_x=5:'<div class="buttonG2"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">Dragged up</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''fk_home''">She went out</a></div>'
+            '</div>'
+    end
+
+    if a_x=0: 
+         '<div class="dialog_menu">'
+              '<p>Me: This girl is actually pretty good…</p>'
+         '</div>'
+    end
+    if a_x=1: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hey!What are you hiding behind you?What good thing can`t I see?</p>'
+              '<p>???: Big brother... nothing……</p>'
+         '</div>'
+    end
+    if a_x=2: 
+         '<div class="dialog_menu">'
+              '<p>Me: I heard the sound!Lying is not a good boy……</p>'
+              '<p>???: It`s this ❤</p>'
+         '</div>'
+    end
+    if a_x=3: 
+         '<div class="dialog_menu">'
+              '<p><<$SML.name>>: Miss, your masturbation frequency this month has exceeded the standard, I am going to confiscate your toys!</p>'
+              '<p>???: Wait❤</p>'
+         '</div>'
+    end
+    if a_x=4: 
+         '<div class="dialog_menu">'
+              '<p>???: I... I`ll just do the punishment ❤</p>'
+              '<p><<$SML.name>>: What punishment do you want to do?Do you copy the text or memorize the vocabulary list?</p>'
+         '</div>'
+    end
+    if a_x=5: 
+         '<div class="dialog_menu">'
+              '<p>???: Squat up 50 times!</p>'
+         '</div>'
+    end
+    if a_x=6: 
+         '<div class="dialog_menu">'
+              '<p><<$SML.name>>: Miss, you don`t think you can get away with it like this, do you?</p>'
+              '<p>???: What should I do ❤</p>'
+              '<p><<$SML.name>>: Now add a special training!</p>'
+              '<p>???: It`s so annoying, let`s go now❤</p>'
+         '</div>'
+    end
+End
+
+
+if $args[0]="fk_home_dn":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SML\vids\DNZ1-<<a_y>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a_y!8:
+         '<div class="button_menu">'
+           if a_y=0:'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Say hello</a></div>'
+           if a_y=1:'<div class="buttonP"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Someone is looking for her</a></div>'
+           if a_y=2:'<div class="buttonR4"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Special training time</a></div>'
+           if a_y=3:'<div class="buttonG2"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Watch special training</a></div>'
+           if a_y=4:'<div class="buttonR3"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">What?Is this it?</a></div>'
+           if a_y=5:'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Additional difficulty</a></div>'
+           if a_y=6:'<div class="buttonS3"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">She is very good at</a></div>'
+           if a_y=7:'<div class="buttonS4"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Open the bow left and right</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''fk_home''">Praise each other</a></div>'
+            '</div>'
+    end
+
+    if a_y=0: 
+         '<div class="dialog_menu">'
+              '<p>Me: Wow, this girl has a really good figure…</p>'
+         '</div>'
+    end
+    if a_y=1: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hi?What are you doing right now?</p>'
+              '<p>???: Practice kissing, can`t you see it?</p>'
+         '</div>'
+    end
+    if a_y=2: 
+         '<div class="dialog_menu">'
+              '<p><<$SML.name>>: Miss, it`s time for special training!</p>'
+              '<p>???: Coming soon ❤</p>'
+         '</div>'
+    end
+    if a_y=3: 
+         '<div class="dialog_menu">'
+              '<p>Me: What is this for?</p>'
+         '</div>'
+    end
+    if a_y=4: 
+         '<div class="dialog_menu">'
+              '<p>???: The goal this time is within 1 minute!More than<<$HB.name>>The record!</p>'
+         '</div>'
+    end
+    if 7>=a_y and a_y>=5: 
+         '<div class="dialog_menu">'
+              '<p>???: Come on<<$panting_2>></p>'
+              if a_y>=6:'<p>???: Add mayonnaise ❤ Mayonnaise is my favorite ❤ I want to marry a man who also likes mayonnaise❤</p>'
+              if a_y>=7:'<p>???: It`s too late<<$panting_3>></p>'
+         '</div>'
+    end
+    if a_y=8: 
+         '<div class="dialog_menu">'
+              '<p>*Her oral sex skills are perfect!</p>'
+         '</div>'
+    end
+End
+
+
+
+--- fk_home ---------------------------------
+
