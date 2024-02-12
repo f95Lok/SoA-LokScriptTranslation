@@ -12,6 +12,20 @@ if TJ任务=1:gt'执行官_事件','执行官_Fuck_超市'
 	gs'menu_status_show'
 	gs'menu_option_show'
 	'<div class="actions_menu">'
+	if $HB事件链H=6:
+	     if 牛排和红酒>=0 and money>=2000:
+		   '<div class="action">'
+		   '<a class="photo" data-title="牛排和红酒 (2000￥) " href="exec:money-=2000 & 牛排和红酒=1 & gt ''百货商店'',''购买成功''"><img class="img_stretch" src="images\items\牛排和红酒.jpg"></a>'
+		   '</div>'
+		end
+        
+		if 牛排和红酒>=0 and money<2000:
+		   '<div class="action">'
+		   '<a class="photo" data-title="牛排和红酒 (2000￥) " href="exec:gt ''百货商店'',''购买失败，钱不够。''"><img class="img_stretch" src="images\items\牛排和红酒.jpg"></a>'
+		   '</div>'
+		end
+     end
+
 
 	 if 金坷垃>=0 and money>=500:
 		'<div class="action">'

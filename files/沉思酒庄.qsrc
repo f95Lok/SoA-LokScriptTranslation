@@ -1,0 +1,285 @@
+# 沉思酒庄
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="酒庄三楼" href="exec:gt ''沉思酒庄'',''酒庄三楼''"><img class="img_stretch" src="images\place\酒庄三楼.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		!###
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="酒庄二楼" href="exec:gt ''沉思酒庄'',''酒庄二楼''"><img class="img_stretch" src="images\place\酒庄二楼.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		!###
+		'<div class="action">'
+		'<a class="photo" data-title="酒庄入口" href="exec:gt ''沉思酒庄''"><img class="img_stretch" src="images\place\沉思酒庄.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="宴客厅" href="exec:gt ''沉思酒庄'',''宴客厅''"><img class="img_stretch" src="images\place\酒庄早餐.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="会客厅" href="exec:gt ''沉思酒庄'',''会客厅''"><img class="img_stretch" src="images\place\酒庄前厅.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="客房" href="exec:gt ''沉思酒庄'',''客房''"><img class="img_stretch" src="images\place\酒庄一楼.jpg"></a>'
+		'</div>'
+		!###
+	'</div>'
+'</div>'
+
+
+
+
+
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\酒庄通道.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：我想起来了，沉思酒庄不就是那个饮弹自尽的前首富家嘛…</p>'
+	'</div>'
+end
+
+if $args[0]="酒庄三楼":
+	'<div class ="show_menu"><img src="images\place\酒庄三楼.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $ZM.available=1:'<div class="buttonG"><a href="exec:ZM对话=0 & gt ''沉思酒庄'',''ZM立绘''"><<$ZM.name>></a></div>'
+		if $ZMK.GO=1:'<div class="buttonP"><a href="exec:gt ''沉思酒庄'',''ZMK立绘''">㊕<<$ZMK.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：据说原主人的妻子与亲女儿曾生活在这一层…</p>'
+	'</div>'
+end
+
+
+if $args[0]="酒庄二楼":
+	'<div class ="show_menu"><img src="images\place\酒庄二楼.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $ZXG.GO=1:'<div class="buttonR"><a href="exec:a=3 & gt ''最终_事件'',''酒庄_执行官''"><<$ZXG.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：据说原主人的助手和养女曾生活在这一层…</p>'
+	'</div>'
+end
+
+
+if $args[0]="会客厅":
+	'<div class ="show_menu"><img src="images\place\酒庄前厅.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：真是豪华气派…</p>'
+	'</div>'
+end
+
+if $args[0]="宴客厅":
+	'<div class ="show_menu"><img src="images\place\酒庄早餐.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonW"><a href="exec:minutes+=15 & gt ''沉思酒庄'',''AW立绘''"><<$AW.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：我肚子都饿了…</p>'
+	'</div>'
+end
+
+if $args[0]="客房":
+	'<div class ="show_menu"><img src="images\place\酒庄一楼.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $FP.GO=1:'<div class="buttonS"><a href="exec:a=3 & gt ''最终_事件'',''酒庄_富婆''"><<$FP.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''郊外''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：真不错…连给宾客住的客房都这么有格调。</p>'
+	'</div>'
+end
+
+
+if $args[0]="AW立绘":
+	 $AW.available=1
+	 awkm=($AW.love+1)/70
+	 if awkm>=3:awkm=3 
+	 if $SZ事件链>=3:ENDTX=100
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\AW\vids\KM<<awkm>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $AW事件链=0:'<div class="button"><a href="exec:minutes+=15 & gt ''最终_事件'',''AW_SZ''"><<$CT.name>></a></div>'
+		if $AW事件链=1:'<div class="button"><a href="exec:minutes+=15 & gt ''最终_事件'',''AW_SZ2''">身体检测</a></div>'
+		if $AW事件链>=2 and ENDTX>=100:'<div class="buttonG"><a href="exec:minutes+=15 & gt ''沉思酒庄'',''AW_检测结果''">精子检测结果</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''沉思酒庄'',''宴客厅''">没事</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$AW.name>>：我需要确保你能够完全胜任自己作为精源项目代表的职责，并为我实现关乎全人类复兴的伟大目标做出应有的贡献。</p>'
+		'<p>我：呃…这么伟大吗？</p>'
+		if $AW事件链=0:'<p><<$AW.name>>：什么？作为精源项目的头号代表你居然不知道你的价值？你的授孕执照是谁给你的？</p>'
+		if $AW事件链=1:'<p><<$AW.name>>：不着急，在此之前我还需要给你做全方面的体检才行。先去沐浴更衣吧。</p>'
+		if $AW事件链=2:'<p><<$AW.name>>：检测Alpha级精子含量进度>>><<ENDTX>>%</p>'
+	'</div>'
+end
+
+
+if $args[0]="AW_检测结果":
+	 if $AW事件链=2:$AW事件链=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\AW\vids\FJG.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''沉思酒庄'',''宴客厅''">知道了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$AW.name>>：非常好，您的精液水平超常好，这是非常理想的情况。您的生殖健康状况非常良好，这对于未来的精源计划是非常有利的。</p>'
+		'<p>我：所以说…我要为全市的女性配种了吗？*兴奋</p>'
+		'<p><<$AW.name>>：全市的女性？她们也配吗？看到这份邀请函了吧？</p>'
+		'<p>我：这是……*疑惑</p>'
+		'<p><邀请函>：致亲爱的<<$主角姓名>>先生，您拥有非常大的价值，是千万分之一的优质男性。为此我们给你安排了一份舒适的工作，如果你有兴趣的话，请在每个周六晚23点前往黄金海岸的沙滩上，夜幕降临时会有人联系你。</p>'
+		'<p>我：呃…</p>'
+		'<p><<$AW.name>>：接头暗号是“面朝大海，春暖花开”</p>'
+	'</div>'
+end
+
+
+if $args[0]="ZM立绘":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZM\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if ZM对话=1 and $ZM事件链<=2:
+			if $JY.GO*$SS.GO*$FP.GO*$ZXG.GO=1:'<div class="buttonGn5"><a href="exec:gt ''最终_事件'',''酒庄_推理''">推理答案</a></div>'
+		end
+		if 2>=$ZM事件链 and $ZM事件链>=1 and ZM对话!1:'<div class="button"><a href="exec:ZM对话=1 & gt ''沉思酒庄'',''ZM立绘''">答案是…</a></div>'
+		if ZM对话=0:'<div class="buttonW"><a href="exec:gt ''沉思酒庄'',''ZM_AW''"><<$AW.name>></a></div>'
+		if ZM对话=1 and $JY.GO=1:'<div class="buttonG5"><a href="exec:gt ''最终_事件'',''酒庄_警员''">约见<<$JY.name>></a></div>'
+		if ZM对话=1 and $FP.GO=1:'<div class="buttonG3"><a href="exec:gt ''最终_事件'',''酒庄_富婆''">约见<<$FP.name>></a></div>'
+		if ZM对话=1 and $SS.GO=1:'<div class="buttonG1"><a href="exec:gt ''最终_事件'',''酒庄_杀手''">约见<<$SS.name>></a></div>'
+		if ZM对话=1 and $ZXG.GO=1:'<div class="buttonG3"><a href="exec:gt ''最终_事件'',''酒庄_执行官''">约见<<$ZXG.name>></a></div>'
+		if ZM对话=1 and $ZMK.GO=1:'<div class="buttonG5"><a href="exec:a=2 & gt ''最终_事件'',''酒庄_女儿''">约见<<$ZMK.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''沉思酒庄'',''酒庄三楼''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if ZM对话=0:'<p><<$ZM.name>>：我在去年找过算命师，她说姓<<$主角姓>>的人在冥冥之中会告诉我答案，这个姓<<$主角姓>>的人会是你吗？</p>'
+		if ZM对话=1:
+			if $ZM事件链=1:$ZM事件链=2
+			知道U盘=1
+			'<p><B>我：你所说的答案是……？</p>'
+			'<p><<$ZM.name>>：当年的那桩悬案，<font color="#FF0000">究竟是谁在酒瓶里下毒的！</font></p>'
+			'<p>我：这个答案很重要吗？</p>'
+			'<p><<$ZM.name>>：正因为没有答案，让所有的家庭成员互相猜忌，最终分崩离析，如今只剩我孤家寡人…有这么大的酒庄依然填补不了内心的空虚……</p>'
+			'<p>我：真是令人唏嘘…</p>'
+			'<p><<$ZM.name>>：如果你能告诉我答案，我愿意分你一大笔钱，我有很多钱存在银行的<font color="#ff8d00">2359号保险柜里。</font></p>'
+			'<p>我：<font color="#FF0000">亲历那桩悬案的当事人，有至少4位在这座城市里，我或许该去找找她们过来谈谈…</p>'
+		end
+		if $ZM事件链>=3:'<p>我：没错，告诉你答案的那个人正是我。</p>'
+	'</div>'
+end
+
+
+if $args[0]="ZM_AW":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZM\vids\KM1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''沉思酒庄'',''ZM立绘''">她摇摇头</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $ZM事件链=0:$ZM事件链=1
+		'<p><<$AW.name>>：天哪…您怎么会大驾光临？怎么也不提前说一声呢。</p>'
+		'<p><<$ZM.name>>：怎么了？我回我的房子还需要提前通知你？</p>'
+		'<p><<$AW.name>>：当然不用！能托管这栋酒庄是我毕生的荣幸。</p>'
+		'<p><<$ZM.name>>：漂亮话说这么多，是为了你的【政治献金】吧？</p>'
+		'<p><<$AW.name>>：呃…您可不像<<$FP.name>>都快地把遗产金败光了，我为您打理的理财项目可都是正收益，我再索要一些【政治献金】不过分吧？*眼睛看向我</p>'
+		'<p><<$ZM.name>>：你知道我最关心的是什么！我雇你是为了找出事情的真相！而不是让你去租一个岛屿，宴请那些达官显贵！</p>'
+		'<p><<$AW.name>>：那些人可是掌握着世界的一线情报，这么多年了，他们都没辙，就算了吧。再说我看您不是和那几个黑人厮混地挺开心的嘛？</p>'
+	'</div>'
+end
+
+
+if $args[0]="ZMK立绘":
+	 $ZMK.love+=my.魅力*7
+	 $ZMK.bad+=my.魅力*6
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZMK\vids\ROM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+     '<div class="button_menu">'
+          '<div class="buttonS2"><a href="exec:$m=''ZMK'' & $ma=$ZMK.name & $m地址=''ROM'' & Telove=$ZMK.love & $Tename=''满足'' & Tebad=$ZMK.bad & gt ''泛用SEX'',''DEMO''">想我了？</a></div>'
+          if $SS.GO=1:'<div class="buttonS5"><a href="exec:gt ''最终_事件'',''ZMK_SS''">有人来了？</a></div>'
+          '<div class="button"><a href="exec:gt ''沉思酒庄'',''酒庄三楼''">离开</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p><<$ZMK.name>>：又想要了…<<$主角姓名>>❤</p>'
+     '</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- 沉思酒庄 ---------------------------------
+

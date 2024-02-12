@@ -44,7 +44,7 @@ if $ARGS[0]="":
 	if 20>hour and hour>=8 and $QT.job!2:
 	'<div class ="show_menu"><img src="images\\NPC\QT\pics\市政厅前台.jpg" width="854"></div>'
 	else: 
-	'<div class ="show_menu"><img src="images\place\市政大厅.jpg" width="854"></div>'
+	 if $jyb_event_chain=19 and $sz_event_chain<3:'<div class ="show_menu"><img src="images\NPC\AW\pics\456.jpg" width="854"></div>'else:'<div class ="show_menu"><img src="images\place\市政大厅.jpg" width="854"></div>'
 	end
 	
 	'<div class="button_menu">'
@@ -52,10 +52,15 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt ''city_hall'',''front_desk_vertical_painting''">Talk</a></div>'
 		end
 		if $sister_hua_event_chain=2:'<div class="button"><a href="exec:gt ''judges_event'',''pw_fuck_catwalk''">Secret meeting room</a></div>'
+		if $sz_event_chain=2:'<div class="buttonR"><a href="exec:gt ''final_event'',''impeach_the_mayor''">Impeach the mayor</a></div>'
 		'<div class="button"><a href="exec:minutes+=20 & gt ''subway''">Leave</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·City Hall operating hours: 8:00--21:00 open all year round</p>'
+		if $jyb_event_chain=19 and $sz_event_chain<3:'<p>·？？？: Liar government!How long will nuclear pollution have to be concealed?！<<$SZ.name>>Step down!Step down!</p>'
+		if $jyb_event_chain=19 and $sz_event_chain<3:'<p>·？？？: Liar government!How long will nuclear pollution have to be concealed?！<<$SZ.name>>Step down!Step down!</p>'
+		if $jyb_event_chain=19 and $sz_event_chain<3:'<p>·？？？: Liar government!How long will nuclear pollution have to be concealed?！<<$SZ.name>>Step down!Step down!</p>'
+		if $sz_event_chain>=3 and the_mayor_is_sure=0:'<p><B><span class =''red''>·There is still time before the next mayoral election<<campaign_day>>day</p>'
 	'</div>'
 end
 

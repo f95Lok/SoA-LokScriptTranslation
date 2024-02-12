@@ -13,7 +13,20 @@ minutes+=15
 	gs'menu_option_show'
 	'<div class="actions_menu">'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
+			if $yxh_event_chain>=2:'<a class="photo" data-title="A503" href="exec:gt ''talent_apartment_2'',''A503''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'else:'<a class="photo" data-title="A503" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $sz_event_chain>=4:'<a class="photo" data-title="A502" href="exec:gt ''talent_apartment_2'',''A502''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'else:'<a class="photo" data-title="A502" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'		
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $sz_event_chain>=3:'<a class="photo" data-title="A501" href="exec:gt ''final_event'',''A501''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'else:'<a class="photo" data-title="A501" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'			
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo" data-title="A403" href="exec:gt ''talent_apartment_2'',''A403''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
@@ -26,20 +39,7 @@ minutes+=15
 		'</div>'
 		! ###############################################################
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
-		'</div>'
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
-		'</div>'
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\place\电梯.jpg"></a>'
-		'</div>'
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
-		'</div>'
-		! ###############################################################
-		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
+			if $BX.available=1:'<a class="photo" data-title="A303" href="exec:gt ''talent_apartment_2'',''A303''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'else:'<a class="photo" data-title="A303" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
@@ -65,5 +65,118 @@ if $args[0]="":
 		'<p>·In order to attract talented people to join, the Imperial Group transformed the private villa under its name into an exclusive family apartment for employees.This move caused dissatisfaction among surrounding owners, who believed that it would reduce the overall quality of the community and cause house prices in the villa area to fall.</p>'
 	'</div>'
 end
+
+if $args[0]="A502":
+	'<div class ="show_menu"><img src="images\NPC\SZ\pics\A502.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if zzu_disk=1 and cheated_test=0 and the_mayor_is_sure=0:'<div class="button"><a href="exec:minutes+=5 & gt ''final_event'',''sz_cheat''">Wait for <<$SZ.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·If I have a political contribution, I can wait here<<$SZ.name>></p>'
+		if the_mayor_is_sure=1:'<p><B><span class =''red''>Me: The mayoral campaign is over, and this room is useless.</p>'
+	'</div>'
+end
+
+if $args[0]="A503":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\ASK0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $ZZ.money>=1:'<div class="buttonGn4"><a href="exec:minutes+=5 & gt ''talent_apartment_2'',''A503_2''">Nod gently</a></div>'else:'<div class="buttonGr"><a href="exec:">No political contributions</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YXH.name>>: If you admit to me that you have a large sum of money that can be used as a political contribution... I can give you some sweetness❤</p>'
+		if $AW.money=0:
+		 '<p>Me: No one supports your political contributions anymore, so you think of me?</p>'
+		 '<p><<$YXH.name>>: How could it be ❤I am single-minded to you❤</p>'
+		else
+		 '<p>Me:<<$AW.name>>There should be enough money to support you, why come to me?Do you have alternative funds?</p>'
+		 '<p><<$YXH.name>>: Who would think there are too few supporters?And if you have your support... it shouldn`t be difficult to become mayor❤</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="A503_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\ASK1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''final_event'',''yxh_milk_cannon''">❤What else can I do❤</a></div>'
+		if $MFD.GO>=1:'<div class="buttonS"><a href="exec:$MFD.GO+=1 & a=0 & $m_filename_reference=''YXH'' &  $m=''YXH'' & $ma=$YXH.name & $m_address=''FSYF'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''final_event'',''yxh_clothes''">❤Mesh bag hip skirt❤</a></div>'
+		if $EDM.GO>=1:'<div class="buttonW"><a href="exec:$EDM.GO+=1 & a=0 & $m_filename_reference=''YXH'' &  $m=''YXH'' & $ma=$YXH.name & $m_address=''SYUA'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''final_event'',''yxh_clothes''">❤Waist combat uniform❤</a></div>'
+		if $JM.GO>=1:'<div class="buttonPu4"><a href="exec:$JM.GO+=1 & a=0 & $m_filename_reference=''YXH'' &  $m=''YXH'' & $ma=$YXH.name & $m_address=''WJTZ'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''final_event'',''yxh_clothes''">❤Energized work outfit❤</a></div>'
+		if $WQ.GO>=1:'<div class="buttonR4"><a href="exec:$WQ.GO+=1 & a=0 & $m_filename_reference=''YXH'' &  $m=''YXH'' & $ma=$YXH.name & $m_address=''TNLN'' & Telove=$YXH.love & $Tename=''满足'' & Tebad=$YXH.bad & gt ''final_event'',''yxh_clothes''">❤Bundled bunny girl❤</a></div>'
+		if $MFD.GO*$EDM.GO*$JM.GO*$WQ.GO=0:'<div class="buttonGr"><a href="exec:">❤？？？？？❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YXH.name>>:Great baby ❤ I really read you right❤</p>'
+		 '<p>Me: Your eyes are fierce…</p>'
+		 '<p><<$YXH.name>>: How could it be ❤It`s too late for me to serve you ❤This dress is not very convenient, I can only make milk shots❤</p>'
+	'</div>'
+end
+
+if $args[0]="A303":
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (4).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $bx_event_chain=0:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''final_event'',''bx_for_the_first_time''">Knock on the door</a></div>'
+		if $bx_event_chain=1:'<div class="buttonS"><a href="exec:minutes+=5 & gt ''final_event'',''bx_space''">Knock on the door</a></div>'
+		if $bx_event_chain=2:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''final_event'',''bx_-2''">Knock on the door</a></div>'
+		if $bx_event_chain=3:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''final_event'',''bx_-3''">Open the door</a></div>'
+		if $bx_event_chain>=4:'<div class="buttonS3"><a href="exec:minutes+=5 & gt ''final_event'',''bx_space_2''">Go in and fuck her</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The resident is<<$BX.name>>And her husband</p>'
+	'</div>'
+end
+
+
+if $args[0]="A403":
+	if $sml_event_chain>=9:gt'talent_apartment_2','A403F'
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (4).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $A403.key=0:'<div class="buttonG"><a href="exec:minutes+=5 & gt ''final_event'',''sml_buy_a_house''">Ask for the price</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $A403.key=0:'<p>·This suite is for sale.</p>'
+		if $A403.key=1:'<p>·I bought this suite.</p>'
+	'</div>'
+end
+
+
+if $args[0]="A403F":
+          '<div class="show_menu">'
+                '<video preload="metadata" autoplay loop height="480">
+                <source src="images\NPC\SML\vids\A302.webm" type=''video/webm;''></video></div>'
+          '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''SML'' &  $m=''SML'' & $ma=$SML.name & $m_address=''A302'' & Telove=$SML.love & $Tename=''满足'' & Tebad=$SML.bad & gt ''universal_sex'',''DEMO''">Go in and fuck her</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SML.name>>Enjoying her little home</p>'
+	'</div>'
+end
+
+
+
 --- talent_apartment_2 ---------------------------------
 

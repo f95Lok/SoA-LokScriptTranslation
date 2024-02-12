@@ -395,7 +395,6 @@ if $args[0]="car_dealer_fuck_meal_2":
 
     if a<5:
         '<div class="button_menu">'
-
             if a=0:
             '<div class="buttonP"><a href="exec:a=1 & gt ''dealer_event'',''car_dealer_fuck_meal_2''">Have a shot?</a></div>'
             end
@@ -411,8 +410,6 @@ if $args[0]="car_dealer_fuck_meal_2":
             if a=4:
             '<div class="buttonS4"><a href="exec:a=5 & gt ''dealer_event'',''car_dealer_fuck_meal_2''">Discuss cooperation</a></div>'
             end
-
-
         '</div>'
         else:
             '<div class="button_menu">'
@@ -441,7 +438,6 @@ if $args[0]="car_dealer_fuck_meal_2":
     end
 
     if a=5:
-
          '<div class="dialog_menu">'
                 '<p><<$TS.name>>: Let me ask you, who is beautiful between me and her? </p>'
                 '<p>Me: Why are you asking this?</p>'      
@@ -452,12 +448,16 @@ if $args[0]="car_dealer_fuck_meal_2":
 				'<p>Me: Of course it`s you!</p>' 
 				'<p><<$TS.name>>: It`s almost the same. I will arrange a photographer for her every Sunday.Now you know who treats you well, right? </p>'
                 end
+                if $zmk_event_chain=1:
+				'<p>Me: Of course it`s you!</p>' 
+				'<p><<$TS.name>>: It`s almost the same. I will arrange a photographer for her every Friday.Now you know who treats you well, right? </p>'
+                end
          '</div>'
 
         if $ch.rice=1:$ch.rice=2 & ch.desire_to_buy_1+=30 & $CH.love+=15
         if $syyy_event_chain=7:$syyy_event_chain=8
+        if $zmk_event_chain=1:$zmk_event_chain=2
     end
-
 
   q+=1
 End

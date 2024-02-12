@@ -36,6 +36,7 @@ if $args[0]="":
 		if  $FXZ.bad>=150:'<div class="buttonS4"><a href="exec:minutes+=15 &  gt ''vice_principal_event'',''fxz_fuck_office''">Fuck her</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 	    if  $FXZ.bad>=330-$FXZ.love and hour=17:'<div class="buttonS5"><a href="exec:minutes+=15 &  gt ''vice_principal_event'',''fxz_fuck_principal`s_office''">Go to the principal`s office to have sex</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
         if insemination_room=1 and $FXZ.bad>=200 and $fxz.insemination=0:'<div class="buttonS"><a href="exec:$fxz.insemination=1 & gt ''vice_principal_office''">Invite artificial insemination</a></div>'
+        if $jyb_event_chain=4 and $FXZ.IN=0:'<div class="buttonG"><a href="exec: gt ''vice_principal_office'',''invitation_drafting''">Invitation to draft an education bill</a></div>'
 
 		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
 	'</div>'
@@ -150,5 +151,26 @@ if $args[0]="win_over":
 	'</div>'
 End
 
+if $args[0]="invitation_drafting":
+	$FXZ.IN=1 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Hand out the invitation letter</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I represent<<$JYB.name>>Send you an invitation.</p>'
+		'<p><<$FXZ.name>>:*Weird eyes*<<$JYB.name>>？That`s the one I`ve always wanted to bow to…</p>'
+		'<p>Me: She needs a university teacher of sufficient teaching age to be the editor-in-chief. I think you are the only one in this role.</p>'
+		'<p><<$FXZ.name>>: Of course!I am very happy!</p>'
+		'<p>Me: Then we are settled?</p>'
+		'<p><<$FXZ.name>>: No problem, I will go to her minister`s office to draft an education bill for her, by the way，<<$XZ.name>>Don`t you have her share?</p>'
+		'<p>Me: Of course.</p>'
+	'</div>'
+End
 --- vice_principal_office ---------------------------------
 

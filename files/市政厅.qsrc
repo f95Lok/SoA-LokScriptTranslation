@@ -44,7 +44,7 @@ if $ARGS[0]="":
 	if 20>hour and hour>=8 and $QT.job!2:
 	'<div class ="show_menu"><img src="images\\NPC\QT\pics\市政厅前台.jpg" width="854"></div>'
 	else: 
-	'<div class ="show_menu"><img src="images\place\市政大厅.jpg" width="854"></div>'
+	 if $JYB事件链=19 and $SZ事件链<3:'<div class ="show_menu"><img src="images\NPC\AW\pics\456.jpg" width="854"></div>'else:'<div class ="show_menu"><img src="images\place\市政大厅.jpg" width="854"></div>'
 	end
 	
 	'<div class="button_menu">'
@@ -52,10 +52,15 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt ''市政厅'',''前台立绘''">对话</a></div>'
 		end
 		if $花姐事件链=2:'<div class="button"><a href="exec:gt ''评委_事件'',''PW_Fuck_走秀''">隐秘会议室</a></div>'
+		if $SZ事件链=2:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''弹劾市长''">弹劾市长</a></div>'
 		'<div class="button"><a href="exec:minutes+=20 & gt ''地铁''">离开</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·市政办公室开放时间：8:00——21:00 全年无休</p>'
+		if $JYB事件链=19 and $SZ事件链<3:'<p>·？？？:骗子政府！核污染还要隐瞒多久？！<<$SZ.name>>下台！下台！</p>'
+		if $JYB事件链=19 and $SZ事件链<3:'<p>·？？？:骗子政府！核污染还要隐瞒多久？！<<$SZ.name>>下台！下台！</p>'
+		if $JYB事件链=19 and $SZ事件链<3:'<p>·？？？:骗子政府！核污染还要隐瞒多久？！<<$SZ.name>>下台！下台！</p>'
+		if $SZ事件链>=3 and 市长确定=0:'<p><B><span class =''red''>·距离下一次市长竞选还有<<竞选day>>天</p>'
 	'</div>'
 end
 
