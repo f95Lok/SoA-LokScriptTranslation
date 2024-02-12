@@ -1,0 +1,114 @@
+# FK家2
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\11.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F30.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F30.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F30.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\21.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F20.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''FK家2'',''后HB立绘''"><img class="img_stretch" src="images\NPC\JYB\pics\F23.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F20.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''FK家2'',''安全门2''"><img class="img_stretch" src="images\NPC\JYB\pics\F34.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\F10.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·整栋建筑物遭到了毁灭性的打击，弹孔在墙上散布着，家具被打乱，地上散落着碎玻璃和弹壳。房间里弥漫着硝烟味和恐惧的气氛。</p>'
+		'<p>·——————</p>'
+		'<p>*突发新闻：昨晚<<$FK.name>>在家中遭到袭击身亡。警方称，案发地点为议员的住所，目前正在展开调查。据知情人士透露，议员被发现时已经伤重不治，其部分家眷已转移出境。警方呼吁目击者提供线索，以便尽快破案。<<$FK.name>>的死讯震惊了社会，引发了广泛关注和谴责。此案的动机和凶手尚未得到确认。我们将继续关注并及时更新相关进展。</p>'
+	'</div>'
+end
+
+
+if $args[0]="后HB立绘":
+	$HB.love+=my.魅力
+	$HB.bad+=my.魅力
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\ALH4.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''最终_事件'',''她要操你''">她要操你</a></div>'
+		'<div class="button"><a href="exec:gt ''FK家2''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:你怎么没走？</p>'
+		'<p><<$HB.name>>:我为什么要走？这里就是我的家啊❤</p>'
+		'<p>我:好吧。</p>'
+		'<p><<$HB.name>>:老公，我該怎麼好好對你呢？怎么样才能永远不离开我呢？</p>'
+		'<p>·——————</p>'
+		'<p>此处为该角色剧情结局</p>'
+	'</div>'
+end
+
+
+if $args[0]="安全门2":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\F34.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn3"><a href="exec:gt ''最终_事件'',''地下通道''">进入</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·这一扇异常厚重的门，居然被破坏了…</p>'
+	'</div>'
+end
+
+
+
+
+--- FK家2 ---------------------------------
+

@@ -1,0 +1,56 @@
+# shoot
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Don`t click easily, prolapse when BUGS occur" href="exec:gt ''cycle_ending''"><img class="img_stretch" src="images\place\回家1.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+
+if $args[0]="start":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\END00.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">
+		<div class="buttonB3"><a href="exec:gt ''shoot'',''start_2''">Calm down!</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*The door was knocked open, and a pistol was pointed at me in an instant…</p>'
+		'<p>Me: Hey, hey, I have no grievances with you…</p>'
+		if escape_cs>1:'<p>???: Do you think you can escape?I don`t care who you are, the police or the judge, I`m just a little person, you won`t let me go!！This is your ending!</p>'
+		if escape_cs>3:'<p>???: Do you think that clicking that damn button can be regarded as nothing happened?Face your death.</p>'
+	'</div>'
+end
+
+if $args[0]="start_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\END01.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">
+		<div class="buttonR"><a href="exec:gt ''star''">死亡Death ending☠</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It`s cold, will you calm down?…</p>'
+		'<p>*He looked at me without saying a word, my gaze slowly focused on the muzzle of the gun, and the air stagnated as if suffocating.</p>'
+	'</div>'
+end
+
+
+--- shoot ---------------------------------
+

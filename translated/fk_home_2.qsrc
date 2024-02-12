@@ -1,0 +1,114 @@
+# fk_home_2
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\11.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F30.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F30.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F30.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\21.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F20.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''fk_home_2'',''after_hb_vertical_painting''"><img class="img_stretch" src="images\NPC\JYB\pics\F23.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F20.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\F10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" href="exec:gt ''fk_home_2'',''safety_door_2''"><img class="img_stretch" src="images\NPC\JYB\pics\F34.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\F10.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The entire building was devastated. Bullet holes were scattered on the walls, furniture was disrupted, and broken glass and shell casings were scattered on the ground.The room was filled with the smell of smoke and an atmosphere of fear.</p>'
+		'<p>·——————</p>'
+		'<p>*Breaking news: last night<<$FK.name>>He was attacked and killed at home.The police said that the crime took place at the residence of a member of parliament and an investigation is currently under way.According to people familiar with the matter, the congressman was seriously injured when he was found, and some of his family members have been transferred out of the country.The police appealed to witnesses to provide clues in order to solve the case as soon as possible.<<$FK.name>>The news of his death shocked the society and attracted widespread attention and condemnation.The motive and murderer of this case have not yet been confirmed.We will continue to pay attention to and update relevant developments in a timely manner.</p>'
+	'</div>'
+end
+
+
+if $args[0]="after_hb_vertical_painting":
+	$HB.love+=my.charm
+	$HB.bad+=my.charm
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\ALH4.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:gt ''final_event'',''she_wants_to_fuck_you''">She wants to fuck you</a></div>'
+		'<div class="button"><a href="exec:gt ''fk_home_2''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Why didn`t you leave?</p>'
+		'<p><<$HB.name>>: Why should I leave?This is my home❤</p>'
+		'<p>Me: Okay.</p>'
+		'<p><<$HB.name>>: Husband, how can I treat you well?How can you never leave me?</p>'
+		'<p>·——————</p>'
+		'<p>Here is the ending of the character`s plot</p>'
+	'</div>'
+end
+
+
+if $args[0]="safety_door_2":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\F34.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn3"><a href="exec:gt ''final_event'',''underground_passage''">enter</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·This unusually heavy door was actually destroyed…</p>'
+	'</div>'
+end
+
+
+
+
+--- fk_home_2 ---------------------------------
+

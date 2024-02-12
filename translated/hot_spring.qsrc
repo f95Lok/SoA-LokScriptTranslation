@@ -68,6 +68,7 @@ if $ARGS[0]="suite":
 	'<div class ="show_menu"><img src="images\place\温泉双人房.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
+		if $yxh_placement=1:'<div class="buttonR"><a href="exec:a=5 & gt ''final_event'',''yxh_hot_spring''"><<$YXH.name>></a></div>'
 		'<div class="buttonP"><a href="exec:minutes+=60 & my.energy+=30 & gt ''hot_spring_corridor''">Get around</a></div>'
 		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''hot_spring'',''appointment''">Appointment</a></div>'
 		'<div class="buttonGn"><a href="exec:minutes+=60 & my.energy+=30 & gt ''hot_spring'',''suite''">rest</a></div>'
@@ -95,6 +96,7 @@ if $ARGS[0]="hot_spring_vertical_painting":
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & hot_spring_comfort+=my.physical_strength+rand(1,5) & gt ''hot_spring'',''help_her_clean''">Help her clean</a></div>'
 		if hot_spring_comfort>=33:'<div class="button"><a href="exec:minutes+=15 & hot_spring_comfort+=my.physical_strength+rand(10,15) & gt ''hot_spring'',''new_dishes''">Research on new dishes</a></div>'else:'<div class="buttonGr"><a href="exec:">Insufficient comfort</a></div>'
+		if $yxh_event_chain>=3 and $WQ.love>=200:'<div class="buttonS"><a href="exec:$WQ.GO+=1 & $m_filename_reference=''WQ'' &  $m=''WQ'' & $ma=$WQ.name & $m_address=''WQTG'' & Telove=$WQ.love & $Tename=''屈服'' & Tebad=$WQ.bad & gt ''universal_sex'',''DEMO''">Convince her to support</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
 	'</div>'
 

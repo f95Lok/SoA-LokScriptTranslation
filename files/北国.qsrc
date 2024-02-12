@@ -1,0 +1,110 @@
+# 北国
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "精力判定"
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+
+if $args[0]="":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\DD.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if hour<=8:'<div class="buttonB2"><a href="exec:$m=''UN'' & $ma=$UN.name & $m地址=''XLCM'' & Telove=$UN.love & $Tename=''满足'' & Tebad=$UN.bad & gt ''泛用SEX_北国'',''DEMO''">清晨:叫醒服务</a></div>'
+		if 11>=hour and hour>=9:'<div class="buttonB5"><a href="exec:gt ''北国'',''钓鱼工作''">上午:乘船海钓</a></div>'
+		if hour=14:'<div class="buttonG3"><a href="exec:gt ''北国'',''伐木工作''">下午:伐木工作</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·远处的山脉、森林和湖泊都被厚厚的白雪覆盖。在阳光照射下，雪景显得格外美丽，宛如童话世界般令人心驰神往。</p>'
+	'</div>'
+end
+
+
+if $args[0]="伐木工作":
+	money+=200
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\FM0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG1"><a href="exec:minutes+=180 & gt ''北国'',''伐木工作2''">3小时后</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*我驾驶着全自动伐木机械，在森林里伐木赚点小钱。</p>'
+	'</div>'
+end
+
+if $args[0]="伐木工作2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\FM1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$m=''UN'' & $ma=$UN.name & $m地址=''JDPAV'' & Telove=$UN.love & $Tename=''满足'' & Tebad=$UN.bad & gt ''泛用SEX_北国'',''DEMO''">回家做男主角</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Unpai_Doll: 宝贝们，大秀就要开始了喔❤刷超级火箭可以看我被我老公狠狠操逼逼喔❤</p>'
+		'<p>我：<<$UN.name>>的on1yfans直播要开始了…我得回去了…</p>'
+	'</div>'
+end
+
+if $args[0]="钓鱼工作":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\FS0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG3"><a href="exec:minutes+=180 & gt ''北国'',''钓鱼工作2''">满载而归</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*我和当地居民融入地很好，他们经常带我出去海钓。</p>'
+	'</div>'
+end
+
+if $args[0]="钓鱼工作2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\FS1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$m=''UN'' & $ma=$UN.name & $m地址=''CJXH'' & Telove=$UN.love & $Tename=''满足'' & Tebad=$UN.bad & gt ''泛用SEX_北国'',''DEMO''">饭后肏逼</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*我带回的新鲜食材交给<<$UN.name>>烹饪，她的厨艺在不断进步。</p>'
+		'<p>我:好香呐❤</p>'
+		'<p><<$UN.name>>: 老公❤我喂你吃❤啊~~~</p>'
+	'</div>'
+end
+
+
+
+
+
+
+
+
+
+--- 北国 ---------------------------------
+

@@ -1,0 +1,56 @@
+# 开枪
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+minutes+=15
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="轻易勿点，BUG时脱出" href="exec:gt ''循环结局''"><img class="img_stretch" src="images\place\回家1.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+
+if $args[0]="开始":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\END00.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">
+		<div class="buttonB3"><a href="exec:gt ''开枪'',''开始2''">冷静点！</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*门被撞开了，瞬间就有一把手枪指着我…</p>'
+		'<p>我: 嘿，嘿，我和你无冤无仇…</p>'
+		if 逃跑CS>1:'<p>???: 你以为你能逃得掉吗？我不管你是谁，警察也好，法官也罢，我只是一个小人物，是你不肯放过我！！这就是你的结局！</p>'
+		if 逃跑CS>3:'<p>???: 你以为点了那个该死的按钮就可以当做什么事都没发生吗？直面你的死亡吧。</p>'
+	'</div>'
+end
+
+if $args[0]="开始2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\END01.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">
+		<div class="buttonR"><a href="exec:gt ''star''">☠死亡结局☠</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我: 冷，冷静点好吗…</p>'
+		'<p>*他看着我一言不发，我的目光慢慢聚焦到了枪口上，空气凝滞地仿佛要窒息了。</p>'
+	'</div>'
+end
+
+
+--- 开枪 ---------------------------------
+

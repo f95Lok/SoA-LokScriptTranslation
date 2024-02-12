@@ -68,6 +68,7 @@ if $ARGS[0]="套间":
 	'<div class ="show_menu"><img src="images\place\温泉双人房.jpg" width="854"></div>'
 	
 	'<div class="button_menu">'
+		if $YXH放置=1:'<div class="buttonR"><a href="exec:a=5 & gt ''最终_事件'',''YXH_温泉''"><<$YXH.name>></a></div>'
 		'<div class="buttonP"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉走廊''">四处逛逛</a></div>'
 		'<div class="buttonG"><a href="exec:minutes+=15 & gt ''温泉'',''约人''">约人</a></div>'
 		'<div class="buttonGn"><a href="exec:minutes+=60 & my.精力+=30 & gt ''温泉'',''套间''">休息</a></div>'
@@ -95,6 +96,7 @@ if $ARGS[0]="温泉立绘":
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & 温泉舒适度+=my.体力+rand(1,5) & gt ''温泉'',''帮她打扫''">帮她打扫</a></div>'
 		if 温泉舒适度>=33:'<div class="button"><a href="exec:minutes+=15 & 温泉舒适度+=my.体力+rand(10,15) & gt ''温泉'',''新菜品''">研究新菜品</a></div>'else:'<div class="buttonGr"><a href="exec:">舒适度不足</a></div>'
+		if $YXH事件链>=3 and $WQ.love>=200:'<div class="buttonS"><a href="exec:$WQ.GO+=1 & $m=''WQ'' & $ma=$WQ.name & $m地址=''WQTG'' & Telove=$WQ.love & $Tename=''屈服'' & Tebad=$WQ.bad & gt ''泛用SEX'',''DEMO''">说服她支持</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
 	'</div>'
 

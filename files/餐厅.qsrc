@@ -14,8 +14,14 @@ gs'menu_gif'
 
 if $ARGS[0] ="":
 	$随机数=rand(1,100)
-	'<div class ="show_menu"><img src="images\place\餐厅.jpg" width="854"></div>'
-
+	if $随机数>=99:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\ZAQS.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else 
+		'<div class ="show_menu"><img src="images\place\餐厅.jpg" width="854"></div>'
+	end
 
 	'<div class="button_menu">'
 		if $寻枪事件链>=2:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''餐厅'',''酒保立绘''">酒保</a></div>'
@@ -54,6 +60,12 @@ if $ARGS[0] ="":
 		if 餐厅经营=2:'<div class="buttonG5"><a href="exec:a=0 & q=0 & gt ''帝国_事件'',''帝国_Fuck_餐厅情况''">经营餐厅</a></div>'
 		
 		if $BTH事件链=1 and hour=20 and week_day>=6:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''学生群_事件'',''BTH_吃饭''"><<$BTH.name>></a></div>'
+		
+		if $YXH事件链=1 and hour=21:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''最终_事件'',''YXH_吃饭''"><<$YXH.name>></a></div>'
+		
+		if $HB事件链>=1 and hour=21 and week_day=UN.day and $HB事件链H<3 and $HB事件链B=0:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''最终_事件'',''HB_出轨''"><<$HB.name>></a></div>'
+		if $HB事件链H=3 and hour=23:'<div class="buttonR"><a href="exec:a=0 & q=0 & gt ''最终_事件'',''HB_餐厅2''"><<$HB.name>></a></div>'
+		if $HB事件链H=7 and hour=23:'<div class="buttonR"><a href="exec:a=0 & q=0 & gt ''最终_事件'',''HB_餐厅杀''"><<$HB.name>></a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''商场''">离开</a></div>'
 	'</div>'
 

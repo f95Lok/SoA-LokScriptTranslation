@@ -42,11 +42,17 @@ q=0
 		'<div class="action">'
 			'<a class="photo" data-title="airport" href="exec:minutes+=5 & gt ''airport''"><img class="img_stretch" src="images\place\机场_小图.jpg"></a>'
 		'</div>'
+		if AW.room=1:
+		'<div class="action">'
+			'<a class="photo" data-title="Contemplation Winery" href="exec:gt ''suburbs'',''contemplation_winery''"><img class="img_stretch" src="images\place\沉思酒庄.jpg"></a>'
+		'</div>'
+		end
 		if $bank_event_chain_a>=1 or $bank_event_chain_b>=2:
 		'<div class="action">'
 			'<a class="photo" data-title="Steel plant" href="exec:gt ''bank_event'',''steel_plant''"><img class="img_stretch" src="images\place\钢铁厂.jpg"></a>'
 		'</div>'
 		end
+
 	'</div>'
 '</div>'
 
@@ -350,7 +356,21 @@ if $args[0]="trainee_male_i_win":
 end
 
 
+if $args[0]="contemplation_winery":
+	'<div class ="show_menu"><img src="images\place\沉思酒庄.jpg" width="854"></div>'
 
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=15 & gt ''contemplation_winery''">enter</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>AI robot: Please look ahead and accept IRIS scanning……</p>'
+		'<p>I：……</p>'
+		'<p>AI robot：<<$protagonists_name>>Sir, welcome to our winery. We attach great importance to your privacy and your personal information will be kept strictly confidential.</p>'
+		'<p>Me: Contemplation Winery?The name is so familiar…</p>'
+	'</div>'
+end
 
 
 

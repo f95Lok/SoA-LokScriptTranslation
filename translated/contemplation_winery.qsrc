@@ -1,0 +1,285 @@
+# contemplation_winery
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0
+q=0
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="Third floor of the winery" href="exec:gt ''contemplation_winery'',''third_floor_of_the_winery''"><img class="img_stretch" src="images\place\酒庄三楼.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		!###
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="Second floor of the winery" href="exec:gt ''contemplation_winery'',''second_floor_of_the_winery''"><img class="img_stretch" src="images\place\酒庄二楼.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'</div>'
+		!###
+		'<div class="action">'
+		'<a class="photo" data-title="Entrance to the winery" href="exec:gt ''contemplation_winery''"><img class="img_stretch" src="images\place\沉思酒庄.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="Banquet living room" href="exec:gt ''contemplation_winery'',''banquet_living_room''"><img class="img_stretch" src="images\place\酒庄早餐.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="Living room" href="exec:gt ''contemplation_winery'',''living_room_1''"><img class="img_stretch" src="images\place\酒庄前厅.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+		'<a class="photo" data-title="Guest room" href="exec:gt ''contemplation_winery'',''guest_room''"><img class="img_stretch" src="images\place\酒庄一楼.jpg"></a>'
+		'</div>'
+		!###
+	'</div>'
+'</div>'
+
+
+
+
+
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\酒庄通道.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I remember, isn`t this winery the former richest man who killed himself by drinking bullets?…</p>'
+	'</div>'
+end
+
+if $args[0]="third_floor_of_the_winery":
+	'<div class ="show_menu"><img src="images\place\酒庄三楼.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $ZM.available=1:'<div class="buttonG"><a href="exec:zm_dialogue=0 & gt ''contemplation_winery'',''zm_vertical_painting''"><<$ZM.name>></a></div>'
+		if $ZMK.GO=1:'<div class="buttonP"><a href="exec:gt ''contemplation_winery'',''zmk_vertical_painting''">㊕<<$ZMK.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It is said that the wife and daughter of the original owner once lived on this floor…</p>'
+	'</div>'
+end
+
+
+if $args[0]="second_floor_of_the_winery":
+	'<div class ="show_menu"><img src="images\place\酒庄二楼.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $ZXG.GO=1:'<div class="buttonR"><a href="exec:a=3 & gt ''final_event'',''wine_executive_officer''"><<$ZXG.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It is said that the assistant and adopted daughter of the original owner once lived on this floor…</p>'
+	'</div>'
+end
+
+
+if $args[0]="living_room_1":
+	'<div class ="show_menu"><img src="images\place\酒庄前厅.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It`s really luxurious…</p>'
+	'</div>'
+end
+
+if $args[0]="banquet_living_room":
+	'<div class ="show_menu"><img src="images\place\酒庄早餐.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonW"><a href="exec:minutes+=15 & gt ''contemplation_winery'',''aw_vertical_painting''"><<$AW.name>></a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: I`m hungry…</p>'
+	'</div>'
+end
+
+if $args[0]="guest_room":
+	'<div class ="show_menu"><img src="images\place\酒庄一楼.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $FP.GO=1:'<div class="buttonS"><a href="exec:a=3 & gt ''final_event'',''wining_full_woman''"><<$FP.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: It`s really nice... even the guest rooms for guests are so stylish.</p>'
+	'</div>'
+end
+
+
+if $args[0]="aw_vertical_painting":
+	 $AW.available=1
+	 awkm=($AW.love+1)/70
+	 if awkm>=3:awkm=3 
+	 if $sz_event_chain>=3:ENDTX=100
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\AW\vids\KM<<awkm>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $aw_event_chain=0:'<div class="button"><a href="exec:minutes+=15 & gt ''final_event'',''AW_SZ''"><<$CT.name>></a></div>'
+		if $aw_event_chain=1:'<div class="button"><a href="exec:minutes+=15 & gt ''final_event'',''AW_SZ2''">Body test</a></div>'
+		if $aw_event_chain>=2 and ENDTX>=100:'<div class="buttonG"><a href="exec:minutes+=15 & gt ''contemplation_winery'',''aw_test_result''">Sperm test results</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''contemplation_winery'',''banquet_living_room''">I`m fine</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$AW.name>>: I need to make sure that you are fully qualified for your responsibilities as a representative of the Jingyuan project and make due contributions to my realization of the great goal of the rejuvenation of all mankind.</p>'
+		'<p>Me: Uh...is it so great?</p>'
+		if $aw_event_chain=0:'<p><<$AW.name>>: What?As the number one representative of the Jingyuan Project, don`t you know your value?Who gave you your pregnancy license?</p>'
+		if $aw_event_chain=1:'<p><<$AW.name>>: Don`t worry, I still need to give you a full medical examination before that.Let`s take a bath and change clothes first.</p>'
+		if $aw_event_chain=2:'<p><<$AW.name>>: Progress in detecting Alpha-level sperm content>>><<ENDTX>>%</p>'
+	'</div>'
+end
+
+
+if $args[0]="aw_test_result":
+	 if $aw_event_chain=2:$aw_event_chain=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\AW\vids\FJG.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''contemplation_winery'',''banquet_living_room''">Got it</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$AW.name>>: Very good, your semen level is very good, this is a very ideal situation.Your reproductive health is very good, which is very beneficial for future sperm source plans.</p>'
+		'<p>Me: So... am I going to breed for women in the city?*Excited</p>'
+		'<p><<$AW.name>>: Women in the city?Are they worthy too?Have you seen this invitation letter?</p>'
+		'<p>Me: This is...*Doubt</p>'
+		'<p><Invitation letter>: To my dear<<$protagonists_name>>Sir, you have great value and are one in ten million high-quality men.For this reason, we have arranged a comfortable job for you. If you are interested, please go to the beach on the Gold Coast at 23:00 every Saturday night. Someone will contact you when night falls.</p>'
+		'<p>Me: Uh…</p>'
+		'<p><<$AW.name>>: The joint code is “facing the sea, spring flowers bloom”</p>'
+	'</div>'
+end
+
+
+if $args[0]="zm_vertical_painting":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZM\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if zm_dialogue=1 and $zm_event_chain<=2:
+			if $JY.GO*$SS.GO*$FP.GO*$ZXG.GO=1:'<div class="buttonGn5"><a href="exec:gt ''final_event'',''winery_reasoning''">Reasoning answer</a></div>'
+		end
+		if 2>=$zm_event_chain and $zm_event_chain>=1 and zm_dialogue!1:'<div class="button"><a href="exec:zm_dialogue=1 & gt ''contemplation_winery'',''zm_vertical_painting''">The answer is…</a></div>'
+		if zm_dialogue=0:'<div class="buttonW"><a href="exec:gt ''contemplation_winery'',''ZM_AW''"><<$AW.name>></a></div>'
+		if zm_dialogue=1 and $JY.GO=1:'<div class="buttonG5"><a href="exec:gt ''final_event'',''winter_police''">Date<<$JY.name>></a></div>'
+		if zm_dialogue=1 and $FP.GO=1:'<div class="buttonG3"><a href="exec:gt ''final_event'',''wining_full_woman''">Date<<$FP.name>></a></div>'
+		if zm_dialogue=1 and $SS.GO=1:'<div class="buttonG1"><a href="exec:gt ''final_event'',''winery_killer''">Date<<$SS.name>></a></div>'
+		if zm_dialogue=1 and $ZXG.GO=1:'<div class="buttonG3"><a href="exec:gt ''final_event'',''wine_executive_officer''">Date<<$ZXG.name>></a></div>'
+		if zm_dialogue=1 and $ZMK.GO=1:'<div class="buttonG5"><a href="exec:a=2 & gt ''final_event'',''winery_daughter''">Date<<$ZMK.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''contemplation_winery'',''third_floor_of_the_winery''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if zm_dialogue=0:'<p><<$ZM.name>>: I looked for a fortune teller last year, she said her last name<<$protagonists_surname>>The person will tell me the answer in the dark, this surname<<$protagonists_surname>>Will it be you?</p>'
+		if zm_dialogue=1:
+			if $zm_event_chain=1:$zm_event_chain=2
+			know_the_usb_flash_drive=1
+			'<p><B>Me: The answer you said is...?</p>'
+			'<p><<$ZM.name>>: The unsolved case back then，<font color="#FF0000">Who on earth poisoned the wine bottle!</font></p>'
+			'<p>Me: Is this answer important?</p>'
+			'<p><<$ZM.name>>: Because there is no answer, all the family members are suspicious of each other and eventually fall apart. Now I am the only one left alone... With such a big family, I still can`t fill the emptiness in my heart.……</p>'
+			'<p>Me: It`s really amazing…</p>'
+			'<p><<$ZM.name>>: If you can tell me the answer, I am willing to share a lot of money with you. I have a lot of money in the bank.<font color="#ff8d00">In safe No. 2359.</font></p>'
+			'<p>I：<font color="#FF0000">There are at least 4 parties who have experienced the unsolved case in this city. Maybe I should go and talk to them.…</p>'
+		end
+		if $zm_event_chain>=3:'<p>Me: That`s right, it was me who told you the answer.</p>'
+	'</div>'
+end
+
+
+if $args[0]="ZM_AW":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZM\vids\KM1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''contemplation_winery'',''zm_vertical_painting''">She shook her head</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $zm_event_chain=0:$zm_event_chain=1
+		'<p><<$AW.name>>: Oh my god...why are you here?Why didn`t you say it in advance?</p>'
+		'<p><<$ZM.name>>: What`s the matter?Do I need to notify you in advance when I return to my house?</p>'
+		'<p><<$AW.name>>:Of course not!It is an honor of my life to be able to host this winery.</p>'
+		'<p><<$ZM.name>>: `I said so much, it`s for your [political contributions], right?</p>'
+		'<p><<$AW.name>>: Uh...you are not like<<$FP.name>>I quickly lost all the inheritance money. The financial projects I took care of for you are all positive returns. It`s not too much for me to ask for some [political contributions], right?*Look at me with your eyes</p>'
+		'<p><<$ZM.name>>: You know what I care about most!I hired you to find out the truth!Instead of letting you rent an island and feast on those dignitaries!</p>'
+		'<p><<$AW.name>>: Those people have the first-line intelligence of the world. After so many years, they have nothing to do. Forget it.Besides, I think you are very happy to hang out with those black people, don`t you?</p>'
+	'</div>'
+end
+
+
+if $args[0]="zmk_vertical_painting":
+	 $ZMK.love+=my.charm*7
+	 $ZMK.bad+=my.charm*6
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\ZMK\vids\ROM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+     '<div class="button_menu">'
+          '<div class="buttonS2"><a href="exec: $m_filename_reference=''ZMK'' & $m=''ZMK'' & $ma=$ZMK.name & $m_address=''ROM'' & Telove=$ZMK.love & $Tename=''满足'' & Tebad=$ZMK.bad & gt ''universal_sex'',''DEMO''">Miss me?</a></div>'
+          if $SS.GO=1:'<div class="buttonS5"><a href="exec:gt ''final_event'',''ZMK_SS''">Someone is coming?</a></div>'
+          '<div class="button"><a href="exec:gt ''contemplation_winery'',''third_floor_of_the_winery''">Leave</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p><<$ZMK.name>>: I want it again…<<$protagonists_name>>❤</p>'
+     '</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- contemplation_winery ---------------------------------
+

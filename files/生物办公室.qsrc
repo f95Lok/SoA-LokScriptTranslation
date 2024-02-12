@@ -34,6 +34,7 @@ if $args[0]="":
 		if  $SW.love>=100 and hour>=15 :'<div class="buttonS4"><a href="exec:minutes+=5 & gt ''生物_事件'',''SW_Fuck_回家''">一同回家</a></div>'else:'<div class="buttonGr"><a href="exec:">一同？？</a></div>'
 		if  $SW.bad>=250-$SW.love and hour>=16:'<div class="buttonS5"><a href="exec:minutes+=5 & gt ''生物_事件'',''SW_Fuck_加班''">留校加班</a></div>'else:'<div class="buttonGr"><a href="exec:">留校？？</a></div>'
 		if  $SW_Event_XZ!2 and $SW.LOVE>=200 and $SW.BAD>=200:'<div class="buttonB"><a href="exec:minutes+=5 & gt ''生物办公室'',''课改提议''">课改提议</a></div>'
+		if $JYB事件链=4 and $SW.IN=0:'<div class="buttonG"><a href="exec: gt ''生物办公室'',''邀请草拟''">邀请草拟教育法案</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
 	'</div>'
 
@@ -204,7 +205,27 @@ if $args[0]="课改提议":
 	'</div>'
 End
 
+if $args[0]="邀请草拟":
+	$SW.IN=1 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SW\vids\办公室002~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
 
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">递出邀请函</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：我代表<<$JYB.name>>向您发出邀请。</p>'
+		'<p><<$SW.name>>：*略带惊讶*<<$JYB.name>>？她包养二十多个小白脸的事我有所耳闻…</p>'
+		'<p>我：呃…她需要一个懂男性生理教育方面的老师担任行为指导，我想这个角色非你莫属了。</p>'
+		'<p><<$SW.name>>：这不就是我的课改提议嘛❤这下是撞到大运了❤</p>'
+		'<p>我：那我们说定了？</p>'
+		'<p><<$SW.name>>：没问题，我会去她的部长办公室协助她的。</p>'
+		'<p>我：那回头见。</p>'
+	'</div>'
+End
 
 
 

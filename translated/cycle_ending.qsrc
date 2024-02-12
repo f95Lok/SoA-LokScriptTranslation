@@ -1,0 +1,54 @@
+# cycle_ending
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+
+
+
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Go to the lobby" href="exec:minutes+=5 & gt ''shoot'',''start''"><img class="img_stretch" src="images\place\家.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Computer" href="exec:minutes+=5 & gt ''shoot'',''start''"><img class="img_stretch" src="images\place\电脑.jpg"></a>
+		</div>'
+		
+		if tv_set>=1:
+			'<div class="action">
+				<a class="photo" data-title="Plasma TV" href="exec:minutes+=5 & gt ''shoot'',''start''"><img class="img_stretch" src="images\place\电视.jpg"></a>
+			</div>'
+		end
+
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	escape_cs+=1
+	'<div class="show_menu">'
+			'<img src="images\place\房间_<<$times_of_day>>.jpg" width="854">'
+	'</div>'
+
+
+	'<div class="button_menu">
+		<div class="buttonR"><a href="exec:gt ''shoot'',''start''">Someone knocked on the door</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>My bedroom is so beautiful</p>'
+	'</div>'
+end
+
+
+
+
+
+
+ 
+--- cycle_ending ---------------------------------
+

@@ -122,7 +122,7 @@ if $ARGS[0]="无偿协助":
 		if $YDM_Event_free>=11:
 		 if $处分奖励=0:'<div class="button"><a href="exec:gt ''警察局'',''内部处分''">案子：内部处分</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''警察局'',''内部处分''">已结案：内部处分</a></div>'
 		end
-		'<div class="buttonG"><a href="exec:gt ''奖励''">陈年旧案</a></div>'
+		!'<div class="buttonG"><a href="exec:gt ''奖励''">陈年旧案</a></div>'
 		'<div class="buttonGr"><a href="exec:gt ''警察局''">没有更多的案子</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -217,6 +217,8 @@ if $ARGS[0]="警员立绘":
 	 	 <source src="images\NPC\JY\vids\开幕<<$jy_num>>~1.webm" type=''video/webm;''></video></div>'
 	'</div>'
 	'<div class="button_menu">'
+		if $ZM事件链>=2 and $JY.GO=0:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''酒庄_警员''">邀请去沉思酒庄</a></div>'
+		if $HB事件链H=4:'<div class="buttonG"><a href="exec:a=4 & gt ''学生群_事件'',''SYYY_FBI''">回忆：R&M核泄露案</a></div>'
 		if $jy_num=0:
 			if $JY.上垒=1:'<div class="buttonS"><a href="exec:gt ''警员_事件'',''JY_Fuck_办公室''">在这搞一发</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		end
@@ -700,15 +702,16 @@ if $ARGS[0]="看守所":
 		if $班长事件链B=5 or $班长事件链B=6:'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''班长B8''">审讯<<$BZ.name>></a></div>'
 		if  $SS_逮捕=1:'<div class="buttonR"><a href="exec:gt ''杀手_事件'',''SS_Event_审讯''">审讯<<$SS.name>></a></div>'
 		if $贼被抓=1 or $贼被抓=2:'<div class="buttonR"><a href="exec:gt ''群演_事件'',''群演_Fuck_贼4''">叮嘱希咲エマ（惯偷）</a></div>'
+		if U盘失窃=2:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''TCK_被捕''"><<$TCK.name>></a></div>'
 		'<div class="button"><a href="exec:gt ''警察局''">返回</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
 		'<p>·警察局内部的看守所，对于涉嫌犯罪的女子嫌疑人一般来说只是象征性地拘留几日作为处罚。</p>'
-		'<p>·————————</p>'
-		'<p>·家里的小偷如果在这审讯完，最后会在（监狱-拥有肥皂钥匙的情况下-晚上去-纵火犯审讯室）</p>'
-		'<p>·原本想做个抓捕嫌犯然后关在这里调教的计划，但海上长时间无网络或者几KB根本下载不了我这个计划，目前的库存无法支撑…只能搁置了</p>'
 	'</div>'
 end
+
+
+
 --- 警察局 ---------------------------------
 

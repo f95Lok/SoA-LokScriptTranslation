@@ -1,0 +1,547 @@
+# FK家
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''阁楼''"><img class="img_stretch" src="images\NPC\JYB\pics\11.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\12.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\12.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"><img class="img_stretch" src="images\NPC\JYB\pics\12.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''电话室''"><img class="img_stretch" src="images\NPC\JYB\pics\21.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''FK家XN''"><img class="img_stretch" src="images\NPC\JYB\pics\22.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt''FK家'',''中房间''"><img class="img_stretch" src="images\NPC\JYB\pics\23.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''FK家DN''"><img class="img_stretch" src="images\NPC\JYB\pics\24.jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''SML立绘''"><img class="img_stretch" src="images\NPC\JYB\pics\31.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家''"><img class="img_stretch" src="images\NPC\JYB\pics\32.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''会议室''"><img class="img_stretch" src="images\NPC\JYB\pics\33.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"href="exec:gt ''FK家'',''安全门''"><img class="img_stretch" src="images\NPC\JYB\pics\34.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\32.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·整个客厅宽敞明亮，装饰豪华。进门便能看到一张长长的实木餐桌，桌子上摆放着精美的烛台和银器。两侧是舒适的沙发，沙发上摆放着华丽的靠垫和绒毛毯。沙发对面是一座古老的壁炉。整个客厅的装饰都显得非常典雅，透露着主人的高贵气质。</p>'
+	'</div>'
+end
+
+if $args[0]="HB立绘":
+	$HB.available=1
+	
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\ALH<<rand(0,7)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''最终_事件'',''HB_BASE''">摸她的脸</a></div>'
+		if $HB.love>0 and $UN.available=0:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''UN_初见''">生日宴会</a></div>'
+		'<div class="button"><a href="exec:gt ''FK家''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HB.name>>:您好，<<$主角姓名>>先生…</p>'
+	'</div>'
+end
+
+if $args[0]="UN立绘":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\UN\vids\nomo.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec: gt ''最终_事件'',''UN_拍0''">简单拍摄</a></div>'
+		if $UN.fans>=400:'<div class="buttonS2"><a href="exec: gt ''最终_事件'',''UN_拍1''">上衣真空</a></div>'
+		if $UN事件链>=2:'<div class="buttonS3"><a href="exec: gt ''最终_事件'',''UN_拍2''">下体真空</a></div>'
+		if $UN事件链>=3:'<div class="buttonS4"><a href="exec: gt ''最终_事件'',''UN_拍3''">上下全裸</a></div>'
+		if $UN事件链>=4:'<div class="buttonS5"><a href="exec: gt ''最终_事件'',''UN_寻仇''">百万粉丝宴会</a></div>'
+		if $HB事件链=3 and $UN事件链>=5: '<div class="buttonG"><a href="exec: gt ''最终_事件'',''HB_该走了''">最后晚宴</a></div>'
+		'<div class="button"><a href="exec:gt ''FK家''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$UN.name>>:今天拍点什么好呢…</p>'
+	'</div>'
+end
+
+if $args[0]="HB电话":
+	if 特日电话=1:gt'FK家','中房间'
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\DDH0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn4"><a href="exec:minutes+=5 & gt ''FK家'',''HB电话2''">偷听电话</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		特日电话+=1
+		'<p><<$HB.name>>: 喂…怎么是你……</p>'
+	'</div>'
+end
+
+if $args[0]="HB电话2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\DDH1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonGn4"><a href="exec:minutes+=5 & gt ''FK家'',''中房间''">。。。</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $HB事件链=0:$HB事件链=1
+		'<p>男声: 有空嘛？我们再见一面吧…</p>'
+		'<p><<$HB.name>>: 嗯…是…星期<<UN.day>>晚上的时候我有空…我们见一面吧？</p>'
+		'<p>男声: 晚上21点可以吗？</p>'
+		'<p><<$HB.name>>: 可以…那晚上我们赤色餐厅见…</p>'
+	'</div>'
+end
+
+
+if $args[0]="中房间":
+	OutDay=UN.day-1
+	if OutDay=0:OutDay=7
+	if $UN.available=1 and week_day=OutDay and $HB事件链<=2 and 特日电话=0:gt'FK家','HB电话'
+	特日电话+=1
+	if $UN事件链=6:gt'最终_事件','UN_选择'
+	if $HB事件链=4:gt'最终_事件','HB_审判'
+	if $HB事件链H>=2:gt'FK家','HB婚后'
+	if $HB事件链B>=1:gt'FK家','HB不婚'
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\e2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if week_day=UN.day and $UN事件链<=6:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''FK家'',''UN立绘''"><<$UN.name>></a></div>'else:'<div class="buttonW"><a href="exec:minutes+=5 & gt ''FK家'',''HB立绘''"><<$HB.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·清秀的闺房。</p>'
+	'</div>'
+end
+
+if $args[0]="HB婚后":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\HFFQL0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if $HB事件链H<=3:'<div class="buttonS"><a href="exec:$m=''HB'' & $ma=$HB.name & $m地址=''HFFQL'' & Telove=$HB.love & $Tename=''屈服'' & Tebad=$HB.bad & gt ''泛用SEX'',''DEMO''">操她</a></div>'
+		if $HB事件链H=5 or $HB事件链H=6:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''HB_对话''">对话</a></div>'
+		'<div class="button"><a href="exec:gt ''FK家''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HB.name>>:<<$主角姓名>>先生…现在我是你的合法妻子了…我不在乎还有多少女人愿意嫁给你…</p>'
+	'</div>'
+end
+
+if $args[0]="HB不婚":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\BEAND0.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:$m=''HB'' & $ma=$HB.name & $m地址=''BEAND'' & Telove=$HB.love & $Tename=''屈服'' & Tebad=$HB.bad & gt ''泛用SEX'',''DEMO''">操她</a></div>'
+		'<div class="button"><a href="exec:gt ''FK家''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HB.name>>:<<$主角姓名>>先生…真的很抱歉…我向您承诺……我不会再离开这个房间一步了…请您向<<$FK.name>>求情放过山音麦好吗？求你了。</p>'
+		'<p>我:谁是山音麦？</p>' 
+		'<p><<$HB.name>>:就是…您在赤色餐厅看到与我幽会的那个男人…</p>' 
+		'<p>我:喔…*原来是那个男人啊…</p>' 
+	'</div>'
+end
+
+if $args[0]="电话室":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\21.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:fk_num=0 & gt ''FK家'',''FK立绘''"><<$FK.name>></a></div>'
+		'<div class="buttonR4"><a href="exec:minutes+=5 & gt ''FK家'',''EVA''">偷瞄文件</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·一间特制的房间，隔绝了一切信号，使得任何外部通讯或窥探都成为不可能。没有任何摄像头可以窥探这个房间的内部，也没有任何信号可以传递进来。这个房间就像是一个封闭的私人世界，只有那部红色电话，成为唯一的联系通道。</p>'
+	'</div>'
+end
+
+if $args[0]="FK立绘":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\HB\vids\talk<<fk_num>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		if fk_num=0 and $FK.山峦<=50:'<div class="buttonR"><a href="exec:fk_num=1 & $FK.山峦+=25 & gt ''FK家'',''FK立绘''">赠予25%所有权</a></div>'
+		if fk_num=1 and $FK.山峦>=26:'<div class="buttonS"><a href="exec:gt ''最终_事件'',''HB_签字''">喊来<<$HB.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''FK家''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$FK.name>>:<<$主角姓名>>先生，我向你承诺，我只需要山峦R&M的一部分所有权，就能帮助你成为市长。相信我，让我们一起携手拿下这座城市。</p>'
+		'<p>我:你需要多少？</p>'
+		'<p><<$FK.name>>:我至少需要50%才能筹备充足的政治献金。</p>'
+		'<p>·——————</p>'
+		'<p>我的土地所有权：<<100-$FK.山峦>>%</p>'
+		if fk_num=1:
+		'<p>·——————</p>'
+		'<p><<$FK.name>>:很好，你做出了正确的选择，我会为你制定详细的竞选策略并且扫清一切对手。与此同时我不介意你和<<$HB.name>>进一步发展。</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="EVA":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\e1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if ENDTX>=100:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''FK家'',''EVA2''">下一页</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''FK家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*看上去像是机器人的图纸？</p>'
+	'</div>'
+end
+
+if $args[0]="EVA2":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\222.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''FK家''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*病例报告:<<$爹名>></p>'
+		'<p>*病例说明:因为突发意外事件导致脑部损伤，被紧急送往医院进行抢救。然而医护人员由于人为干涉原因无法迅速做出反应，延误了急救时间，导致患者脑部缺氧时间过长，最终进入昏迷状态。</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="阁楼":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\11.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $SML事件链<9:'<div class="buttonGn2"><a href="exec:gt ''最终_事件'',''SML_男友''">窗外的声音</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·积灰的阁楼，看上去有人曾经在这里居住过…</p>'
+	'</div>'
+end
+
+if $args[0]="会议室":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\33.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $SML事件链=0:'<div class="buttonP"><a href="exec:gt ''最终_事件'',''SML_KS''">隔壁声音</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·一些西装革履的政治精英和企业家正在开会…值得注意的是他们全部都是男性。</p>'
+	'</div>'
+end
+
+if $args[0]="安全门":
+	'<div class ="show_menu"><img src="images\NPC\JYB\pics\34.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $FK.山峦>=100:'<div class="buttonGn3"><a href="exec:gt ''最终_事件'',''地下通道''">打开</a></div>'else:'<div class="buttonGr"><a href="exec:">打开</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·在不起眼的角落，隐藏着一扇异常厚重的门，这应该是此处安全等级最高的地方了。</p>'
+		'<p>·当被<<$FK.name>>充分信任时可以打开。</p>'
+	'</div>'
+end
+
+if $args[0]="SML立绘":
+	if $BX事件链=6 and $SML事件链=1:gt'最终_事件','SML_合作'
+	if $SML.available=0:gt'最终_事件','FK介绍'
+	$SML.available=1
+	a_x=0
+	a_y=0
+	if $SML事件链>=2:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\HKM<<rand(0,3)>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	else:
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''FK家''">登记访客</a></div>'
+		if $BX.available=1:'<div class="buttonR1"><a href="exec:gt ''FK家'',''BX资料''">✯情报:<<$BX.name>></a></div>'
+		if $SML事件链>=2:'<div class="buttonR3"><a href="exec:gt ''FK家'',''机动资料''">✮情报:科技团队</a></div>'
+		if $SML事件链>=5:'<div class="buttonR"><a href="exec:gt ''FK家'',''国防部门''">✪情报:国防部门</a></div>'
+		if $SML事件链=3 and day=17 and hour=17:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''SML_科技''">✮迎接访客</a></div>'
+		if $SML事件链=6 and day=21 and hour=21:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''SML_国防''">✪迎接访客</a></div>'
+		if $SML事件链=4:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''SML_庆祝成功''">✮庆祝成功</a></div>'
+		if $SML事件链=7:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''SML_庆祝2''">✪庆祝成功</a></div>'
+		if $SML事件链>=8:'<div class="buttonPu4"><a href="exec:$SML.bad+=my.魅力 & a=0 & $m=''SML'' & $ma=$SML.name & $m地址=''WDQR'' & Telove=$SML.love & $Tename=''屈服'' & Tebad=$SML.bad & gt ''泛用SEX'',''DEMO''">蒙上眼睛</a></div>'
+		if $SML事件链>=2:'<div class="buttonS"><a href="exec:$SML.love+=my.魅力 & a=0 & $m=''SML'' & $ma=$SML.name & $m地址=''MSDY'' & Telove=$SML.love & $Tename=''满足'' & Tebad=$SML.bad & gt ''泛用SEX'',''DEMO''">你先过来坐❤</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $SML事件链<2:'<p><<$SML.name>>:您好，<<$主角姓名>>先生，按照规定，我需要登记您的个人信息。</p>'
+		if $SML事件链>=2:'<p><<$SML.name>>:我想我们两个的磁场一致，是互相吸引的两个同类，我们可以并肩作战❤</p>'
+	'</div>'
+end
+
+
+if $args[0]="BX资料":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''FK家''">记住了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>>信息： <<$BX.name>></p>'
+		'<p>>三圍： 84 - 58 - 88 cm</p>'
+		'<p>>別名： 黑川堇、上村ちひろ、篠原かすみ</p>'
+		'<p>>血型： O</p>'
+		'<p>>身長：171cm</p>'
+		'<p>>爱好：瑜伽、跑步、不倫恋、说唱、游泳</p>'
+		'<p>>住址：人才公寓A303</p>'
+	'</div>'
+end
+
+if $args[0]="机动资料":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''FK家''">记住了</a></div>'
+	'</div>'
+	if $SML事件链=2:$SML事件链=3
+	'<div class="dialog_menu">'
+		'<p>>項目名称： 特殊机动装置███</p>'
+		'<p>>項目等級： 机密</p>'
+		'<p>>对象： <<$SC.name>>，珷大郎(机械专家)</p>'
+		'<p>>身長： 170cm，177cm</p>'
+		'<p>>弱点： 酗酒，好色</p>'
+		'<p>>爱好： 组织开发一种具有高度战斗能力的人型机械单位</p>'
+		'<p>>访问时间： 17日17时</p>'
+		'<p>>目的： 挑拨，离间二人合作关系</p>'
+	'</div>'
+end
+
+if $args[0]="国防部门":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\SML\vids\KM.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''FK家''">记住了</a></div>'
+	'</div>'
+	if $SML事件链=5:$SML事件链=6
+	'<div class="dialog_menu">'
+		'<p>>項目名称： 国防事务███部门</p>'
+		'<p>>項目等級： 最高机密</p>'
+		'<p>>对象： 倵松(国防部长)， <<$GF.name>></p>'
+		'<p>>身長： 174cm，172cm</p>'
+		'<p>>弱点： 好色，虚荣</p>'
+		'<p>>关系： 夫妻</p>'
+		'<p>>访问时间： 21日21时</p>'
+		'<p>>目的： 掌握目标把柄，通过国防审核。</p>'
+	'</div>'
+end
+
+if $args[0]="FK家XN":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SML\vids\XNZ1-<<a_x>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a_x!6:
+         '<div class="button_menu">'
+           if a_x=0:'<div class="buttonS2"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">藏什么了？</a></div>'
+           if a_x=1:'<div class="buttonP"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">我都听见声音了！</a></div>'
+           if a_x=2:'<div class="buttonR4"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">有人来了</a></div>'
+           if a_x=3:'<div class="buttonG2"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">想个惩罚</a></div>'
+           if a_x=4:'<div class="buttonR4"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">蹲起50下！</a></div>'
+           if a_x=5:'<div class="buttonG2"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">被拽起来</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''FK家''">她出去了</a></div>'
+            '</div>'
+    end
+
+    if a_x=0: 
+         '<div class="dialog_menu">'
+              '<p>我: 这妹子其实也不错…</p>'
+         '</div>'
+    end
+    if a_x=1: 
+         '<div class="dialog_menu">'
+              '<p>我: 嘿！你身后藏什么了？是什么好东西不能给我看见呀？</p>'
+              '<p>???: 大哥哥…没什么……</p>'
+         '</div>'
+    end
+    if a_x=2: 
+         '<div class="dialog_menu">'
+              '<p>我: 我都听见声音了！说谎可不是好孩子……</p>'
+              '<p>???: 是这个啦❤</p>'
+         '</div>'
+    end
+    if a_x=3: 
+         '<div class="dialog_menu">'
+              '<p><<$SML.name>>: 小姐，您本月的自慰次数已经超标了，我要没收你的玩具了！</p>'
+              '<p>???: 等等啦❤</p>'
+         '</div>'
+    end
+    if a_x=4: 
+         '<div class="dialog_menu">'
+              '<p>???: 我…我做惩罚就是了嘛❤</p>'
+              '<p><<$SML.name>>: 您想做什么惩罚？是抄课文还是背单词表？</p>'
+         '</div>'
+    end
+    if a_x=5: 
+         '<div class="dialog_menu">'
+              '<p>???: 蹲起50下吧！</p>'
+         '</div>'
+    end
+    if a_x=6: 
+         '<div class="dialog_menu">'
+              '<p><<$SML.name>>: 小姐，您不会以为这样就能蒙混过关吧？</p>'
+              '<p>???: 那怎么办呢❤</p>'
+              '<p><<$SML.name>>: 现在追加一次特训！</p>'
+              '<p>???: 太好惹，我们现在就去吧❤</p>'
+         '</div>'
+    end
+End
+
+
+if $args[0]="FK家DN":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SML\vids\DNZ1-<<a_y>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a_y!8:
+         '<div class="button_menu">'
+           if a_y=0:'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">打招呼</a></div>'
+           if a_y=1:'<div class="buttonP"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">有人找她</a></div>'
+           if a_y=2:'<div class="buttonR4"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">特训时间</a></div>'
+           if a_y=3:'<div class="buttonG2"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">观看特训</a></div>'
+           if a_y=4:'<div class="buttonR3"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">啊？是这个？</a></div>'
+           if a_y=5:'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">追加难度</a></div>'
+           if a_y=6:'<div class="buttonS3"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">她很擅长</a></div>'
+           if a_y=7:'<div class="buttonS4"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">左右开弓</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''FK家''">交口称赞</a></div>'
+            '</div>'
+    end
+
+    if a_y=0: 
+         '<div class="dialog_menu">'
+              '<p>我: 哇偶，这妹子的身材可真好…</p>'
+         '</div>'
+    end
+    if a_y=1: 
+         '<div class="dialog_menu">'
+              '<p>我: 嗨？你在干什么？</p>'
+              '<p>???: 练习接吻，看不出来吗？</p>'
+         '</div>'
+    end
+    if a_y=2: 
+         '<div class="dialog_menu">'
+              '<p><<$SML.name>>: 小姐，到了特训时间了！</p>'
+              '<p>???: 马上就来❤</p>'
+         '</div>'
+    end
+    if a_y=3: 
+         '<div class="dialog_menu">'
+              '<p>我: 这是要干什么？</p>'
+         '</div>'
+    end
+    if a_y=4: 
+         '<div class="dialog_menu">'
+              '<p>???: 这次的目标是1分钟以内！超过<<$HB.name>>的记录！</p>'
+         '</div>'
+    end
+    if 7>=a_y and a_y>=5: 
+         '<div class="dialog_menu">'
+              '<p>???: 加油<<$娇喘声>></p>'
+              if a_y>=6:'<p>???: 加上蛋黄酱❤蛋黄酱是我的最爱❤想和一个也喜欢蛋黄酱的男人结婚❤</p>'
+              if a_y>=7:'<p>???: 来不及了嘛<<$娇喘声2>></p>'
+         '</div>'
+    end
+    if a_y=8: 
+         '<div class="dialog_menu">'
+              '<p>*她的口交技术炉火纯青！</p>'
+         '</div>'
+    end
+End
+
+
+
+--- FK家 ---------------------------------
+

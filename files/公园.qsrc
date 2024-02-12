@@ -77,7 +77,7 @@ if $ARGS[0]="":
 		if $ZX约公园=1 and hour=12:'<div class="button"><a href="exec:gt ''整形_事件'',''ZX_Fuck_公园野战''"><<$ZX.name>></a></div>'
 		if $QH事件链=1 and $times_of_day='':'<div class="button"><a href="exec:gt ''学生群_事件'',''QH_公园''">孤单的身影</a></div>'
 		if $SYYY事件链=1 and hour=14:'<div class="buttonP"><a href="exec:gt ''学生群_事件'',''SYYY_拍摄1''"><<$SYYY.name>></a></div>'
-		
+		if U盘失窃=3:'<div class="buttonPu3"><a href="exec:gt ''最终_事件'',''TCK_长椅''">酒鬼&长椅</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·时隔数年，市议会终于通过了《公园特别管理法》，这促进了市中央公园的发展，为人们忙碌紧张的生活提供一个悠闲的场所。</p>'
@@ -272,6 +272,7 @@ if $ARGS[0]="露营区2":
 	'<div class ="show_menu"><img src="images\place\露营区2.jpg"  height="480"></div>'
 	
 	'<div class="button_menu">'
+		if $times_of_day="":'<div class="buttonP"><a href="exec:gt ''公园'',''富婆''">还有女菩萨</a></div>'
 		if hour=16 and $LXS.love>=100:'<div class="button"><a href="exec:$留学生帐篷=0 & gt ''留学_事件'',''帐篷约会''">约<<$LXS.name>></a></div>'
 		if $CBJ.监禁=1:'<div class="buttonS"><a href="exec:gt ''学生群_事件'',''CBJ_流浪''">流浪汉的垃圾堆</a></div>'
 		'<div class="button"><a href="exec:gt ''公园''">返回</a></div>'
@@ -281,6 +282,25 @@ if $ARGS[0]="露营区2":
 		if $露营垃圾=1 and $times_of_day="":	'<p>·由于垃圾分类太麻烦和流浪汉的小心思，在一角堆积着大量易燃垃圾<a href="exec:gt ''公园'',''易燃垃圾''">-清理</a></p>'
 	'</div>'
 end
+
+
+if $ARGS[0]="富婆":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\FP\vids\CK1-<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if $ZM事件链>=2:'<div class="buttonS"><a href="exec:gt ''最终_事件'',''酒庄_富婆''">邀请去沉思酒庄</a></div>'
+		'<div class="button"><a href="exec:gt ''公园''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$FP.name>>:听好了，垃圾要收干净喔❤如果你们肯乖乖清理，我每天都会免费发吃的！</p>'
+		'<p>流浪汉:太好了！又要到饭了，家人们！</p>'
+	'</div>'
+end
+
 
 if $ARGS[0]="易燃垃圾":
 	'<div class ="show_menu"><img src="images\task\LJN (<<rand(1,13)>>).jpg"  height="480"></div>'

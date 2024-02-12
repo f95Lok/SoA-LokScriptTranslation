@@ -8,7 +8,8 @@ gs'menu_gif'
 $random_number=rand(0,100)
 
 
-
+if $un_event_chain=8:hour=8 & gt'northland'
+if $fk_bad_ending>0:gt'final_event','escape'
 
 if $champion_event_chain=7 and hour=16 and week_day =6:gt 'champion_event','gj_fuck_hostel'
 
@@ -71,9 +72,6 @@ else:
 end
 
 
-
-
-
 '<div class="button_menu">'
 	if cat_feeding_task=1 and hour=cat_feeding_time:'<div class="buttonPu1"><a href="exec:minutes+=30 & gt ''task_event'',''feed_the_cat''">Meow meow meow</a></div>'
 
@@ -88,6 +86,7 @@ end
 	if $task_women_police_jacket=2 and $times_of_day!"night":'<div class="buttonPu2"><a href="exec:gt ''task_event'',''policewomanjacket''">Looking for policewoman</a></div>'
 	if hour=22 and $caesar_event_chain=2:'<div class="buttonR3"><a href="exec:gt ''champion_event'',''gj_fuck_encounter''"><<$GJ.name>>？！</a></div>'
 	if $matsumoto_event_chain=10 and daily_counseling_matsumoto=0:'<div class="buttonR5"><a href="exec:daily_counseling_matsumoto=1 & gt ''matsumoto_event'',''video_call''">☎video call?！</a></div>'
+	if $TCK.available=1 and $weather='☀ Sunny' and 9<=hour and hour<=14 and $random_number>80 and tck.progress>=0:'<div class="buttonB3"><a href="exec:gt ''final_event'',''tck_encounter''"><<$TCK.name>>？！</a></div>'
 	'<div class="button"><a href="exec:minutes+=30 & gt ''residential_area''">Pass time</a></div>'
 '</div>'
 

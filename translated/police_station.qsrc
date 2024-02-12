@@ -122,7 +122,7 @@ if $ARGS[0]="pro_bono_assistance":
 		if $YDM_Event_free>=11:
 		 if $punishment_reward=0:'<div class="button"><a href="exec:gt ''police_station'',''internal_punishment''">Case: Internal punishment</a></div>'else:'<div class="buttonGn"><a href="exec:gt ''police_station'',''internal_punishment''">Closed case: internal punishment</a></div>'
 		end
-		'<div class="buttonG"><a href="exec:gt ''reward''">Old cases</a></div>'
+		!'<div class="buttonG"><a href="exec:gt ''奖励''">陈年旧案</a></div>'
 		'<div class="buttonGr"><a href="exec:gt ''police_station''">No more cases</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -217,6 +217,8 @@ if $ARGS[0]="police_officer_standing_painting":
 	 	 <source src="images\NPC\JY\vids\开幕<<$jy_num>>~1.webm" type=''video/webm;''></video></div>'
 	'</div>'
 	'<div class="button_menu">'
+		if $zm_event_chain>=2 and $JY.GO=0:'<div class="buttonG"><a href="exec:gt ''final_event'',''winter_police''">Invite to contemplate the winery</a></div>'
+		if $hb_event_chain_h=4:'<div class="buttonG"><a href="exec:a=4 & gt ''student_group_event'',''SYYY_FBI''">a Recollection: R&M nuclear leak case</a></div>'
 		if $jy_num=0:
 			if $jy.on_base=1:'<div class="buttonS"><a href="exec:gt ''police_incident'',''jy_fuck_office''">Make a shot here</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 		end
@@ -700,15 +702,16 @@ if $ARGS[0]="detention_center":
 		if $squad_leader_event_chain_b=5 or $squad_leader_event_chain_b=6:'<div class="buttonR"><a href="exec:gt ''student_group_event'',''squad_leader_b8''">interrogation<<$BZ.name>></a></div>'
 		if  $ss_arrest=1:'<div class="buttonR"><a href="exec:gt ''killer_event'',''ss_event_interrogation''">interrogation<<$SS.name>></a></div>'
 		if $the_thief_was_caught=1 or $the_thief_was_caught=2:'<div class="buttonR"><a href="exec:gt ''group_performation_event'',''group_play_fuck_thief_4''">Tell Kizakiエマ (habitual thief)</a></div>'
+		if u_disk_theft=2:'<div class="buttonR"><a href="exec:gt ''final_event'',''tck_arrested''"><<$TCK.name>></a></div>'
 		'<div class="button"><a href="exec:gt ''police_station''">Return</a></div>'
 	'</div>'
 	
 	'<div class="dialog_menu">'
 		'<p>·In the detention centers inside the police station, female suspects suspected of crimes are generally only symbolically detained for a few days as punishment.</p>'
-		'<p>·————————</p>'
-		'<p>·If the thief at home finishes the interrogation here, he will end up in (prison-with soap key-go to the arsonist interrogation room at night)</p>'
-		'<p>·I originally wanted to make a plan to catch the suspect and lock him up here for training, but there is no Internet at sea for a long time or a few KB can`t download my plan at all. The current inventory can`t support it...I can only put it on hold.</p>'
 	'</div>'
 end
+
+
+
 --- police_station ---------------------------------
 

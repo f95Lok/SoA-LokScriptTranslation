@@ -12,7 +12,7 @@ gs'menu_time_calc'
 $glz_name=$args[0]
 $glz_lv=$args[3]
 
-if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁 and $args[3]!$V55攻略解锁:$攻略进入=0 & gt'攻略赞助'
+if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁 and $args[3]!$V55攻略解锁 and $args[3]!$V60攻略解锁:$攻略进入=0 & gt'攻略赞助'
 
 
 if $args[0]='<<$YS.name>>':
@@ -828,6 +828,188 @@ if $args[0]='<<$BTH.name>>':
  '</div>'
 end
 
+if $args[0]='<<$JYB.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成期末考试</font></p>'
+            if $JYB事件链=0:'<font color="#BBFFBB">在教育部长室和她对话。</font></p>'
+            if $JYB事件链=1:'<font color="#BBFFBB">拿《一妻多夫婚姻新法》去给<<$SZ.name>>审批</font></p>'
+            if $JYB事件链=2:'<font color="#BBFFBB">回去传话</font></p>'
+            if $JYB事件链=3:'<font color="#BBFFBB">回去传话</font></p>'
+            if $JYB事件链=4:'<font color="#BBFFBB">凑齐人手，邀请<<$FXZ.name>><<$SW.name>><<$NK.name>></font></p>'
+            if $JYB事件链=5:'<font color="#BBFFBB">给<<$SZ.name>>审批翻新报表</font></p>'
+            if $JYB事件链=6:'<font color="#BBFFBB">回去传话</font></p>'
+            if $JYB事件链=7:'<font color="#BBFFBB">草拟研讨室内督促编辑性教育草案</font></p>'
+            if $JYB事件链=8:'<font color="#BBFFBB">给<<$SZ.name>>审批性教育草案</font></p>' 
+            if $JYB事件链=9:'<font color="#BBFFBB">回去传话</font></p>' 
+            if $JYB事件链=10:'<font color="#BBFFBB">前往夜色精巢邀请<<$SY.name>>做志愿服务</font></p>' 
+            if $JYB事件链=11:'<font color="#BBFFBB">去大学里监督她</font></p>' 
+            if $JYB事件链=12:'<font color="#BBFFBB">汇报情况给<<$SZ.name>></font></p>' 
+            if $JYB事件链=13:'<font color="#BBFFBB">回去传话</font></p>' 
+            if $JYB事件链=14:'<font color="#BBFFBB">回去传话</font></p>' 
+            if $JYB事件链=15:'<font color="#BBFFBB">给<<$SZ.name>>审批《一妻多夫婚姻法案》</font></p>' 
+            if $JYB事件链=16:'<font color="#BBFFBB">回去传话</font></p>' 
+            if $JYB事件链=17:'<font color="#BBFFBB">去教堂落实《一妻多夫婚姻法案》的婚礼</font></p>' 
+            if $JYB事件链>=18:'<font color="#BBFFBB">去教育部长室达成结局</font></p>' 
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SZ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成<<$JYB.name>>的全部剧情线</font></p>'
+            if $SZ事件链=0:'<font color="#BBFFBB">先完成<<$JYB.name>>的剧情线，直到市政厅出现示威者，再与她对话</font></p>'
+            if $SZ事件链=1:'<font color="#BBFFBB">周一下午1点在教堂找<<$FK.name>>对话，做出抉择</font></p>'
+            if $SZ事件链=2:'<font color="#BBFFBB">回到市政厅开启市长弹劾</font></p>'
+            if $SZ事件链=3:'<font color="#BBFFBB">她在人才公寓A501等你，需要你的帮助。</font></p>'
+            if $SZ事件链>=4 and 市长确定=0:'<font color="#BBFFBB">想办法获得政治献金。</font></p>'
+            if ZZU盘=1 and 被骗测试=0:'<font color="#BBFFBB">去人才公寓A502等她，并做出抉择。</font></p>'
+            if $SZ事件链G=1:'<font color="#BBFFBB">政治献金暂时由我保管，去市长办公室找她。</font></p>'
+            if $SZ事件链G=2:'<font color="#BBFFBB">政治献金暂时由我保管，去A501做秘密情人</font></p>'
+            if $SZ事件链G=3:'<font color="#BBFFBB">政治献金暂时由我保管，等到召开市长竞选时做出抉择</font></p>'
+            if $SZ事件链B=1:'<font color="#FF3939">政治献金被人冒名骗走了，去市长办公室找她。</font></p>'
+            if $SZ事件链B=2:'<font color="#FF3939">在她的休息室调教她</font></p>'
+            if $SZ事件链B=3:'<font color="#FF3939">去自己的按摩店培训她</font></p>'
+            if $SZ事件链B=4:'<font color="#FF3939">等到召开市长竞选时做出抉择</font></p>'
+            if 市长确定=1 and $E市长!'SZ':'<font color="#FF3939">她的休息室是她的最终结局</font></p>'
+            if 市长确定=1 and $E市长='SZ':'<font color="#BBFFBB">她在人才公寓A501等你❤</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$YXH.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成弹劾市长</font></p>'
+            if $YXH事件链>=0:'<font color="#FF0000">首先必须要拥有【政治献金】</font></p>'
+            if $YXH事件链=1:'<font color="#BBFFBB">赤色餐厅，晚上21点和她约会</font></p>'
+            if $YXH事件链=2:'<font color="#BBFFBB">去人才公寓的A503找她</font></p>'
+            if $YXH事件链=3:
+               if $MFD.GO<=1:'<font color="#BBFFBB">争取商场美发店店长的支持</font></p>'
+               if $MFD.GO>=2 and $EDM.GO<=1:'<font color="#BBFFBB">争取郊外辣妹帮二代目的支持</font></p>'
+               if $EDM.GO>=2 and $JM.GO<=1:'<font color="#BBFFBB">争取姆苟制药CEO的支持</font></p>'
+               if $JM.GO>=2 and $WQ.GO<=1:'<font color="#BBFFBB">争取海天温泉老板娘的支持</font></p>'
+               '<font color="#BBFFBB">回到人才公寓A503交差解锁新的服饰</font></p>'
+            end
+            if $YXH事件链=4:'<font color="#BBFFBB">在市长办公室与她对话去温泉</font></p>'
+            if $YXH事件链=5:'<font color="#BBFFBB">在市长办公室与她保持好感度并等待市长竞选的召开</font></p>'
+            if $YXH事件链>=0:'<font color="#FF0000">↑以上触发条件都必须要拥有【政治献金】</font></p>'
+            if $E市长='WO':'<font color="#BBFFBB">在市长办公室与她对话行使市长命令</font></p>'
+            if $E市长='YXH':'<font color="#BBFFBB">在市长办公室与她对话享受市长服务</font></p>'
+            if $E市长='SZ' or $E市长='NO':'<font color="#BBFFBB">我没有提名她…</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$SML.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：与<<$FK.name>>合作</font></p>'
+            if $FK死=1:'<font color="#FF0000">议员的屋宅被袭击了，她无法再出现在议员的屋宅中</font></p>'
+            if $SML事件链=0:'<font color="#FF0000">前往阁楼后前往会议室</font></p>'
+            if $SML事件链=1:
+			'<font color="#BBFFBB">查看人物情报，前往人才公寓A303完成任务</font></p>'
+               if $BX事件链>=6:'<font color="#BBFFBB">回去交任务</font></p>'
+            end
+            if $SML事件链=2:'<font color="#BBFFBB">达成合作，查看科技团队情报。</font></p>'
+            if $SML事件链=3:'<font color="#BBFFBB">17日17时协作迎接科技团队</font></p>'
+            if $SML事件链=4:'<font color="#BBFFBB">对话庆祝成功</font></p>'
+            if $SML事件链=5:'<font color="#BBFFBB">查看国防团队情报</font></p>'
+            if $SML事件链=6:'<font color="#BBFFBB">21日21时协作迎接国防团队</font></p>'
+            if $SML事件链=7:'<font color="#BBFFBB">对话庆祝成功</font></p>'
+            if $SML事件链=8:'<font color="#BBFFBB">可选:买下人才公寓A403，并在阁楼外出时对话</font></p>'
+            if $SML事件链=9:'<font color="#BBFFBB">去人才公寓A403找她触发结局。</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$UN.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：与<<$FK.name>>合作</font></p>'
+            if $UN事件链=0:
+              '<font color="#BBFFBB">在<<$HB.name>>的卧室里举行生日宴会后</font></p>'
+              '<font color="#BBFFBB">提升粉丝数目</font></p>'
+            end
+            if $UN事件链=1:'<font color="#BBFFBB">在卧室内原地庆祝一下</font></p>'
+            if $UN事件链=2:'<font color="#BBFFBB">拍摄下体真空的视频</font></p>'
+            if $UN事件链=3:'<font color="#BBFFBB">拍摄上下全裸的视频</font></p>'
+            if $UN事件链=4:'<font color="#BBFFBB">举行百万粉丝宴会</font></p>'
+
+            if $UN事件链=5:
+             if $HB事件链<3:'<font color="#BBFFBB">需要完成<<$HB.name>>的跟踪事件</font></p>'
+             if $HB事件链>=3:'<font color="#BBFFBB">在<<$HB.name>>的卧室内进行最后的晚宴</font></p>'
+            end
+            if $UN事件链=6:'<font color="#BBFFBB">前往<<$HB.name>>的卧室进行最终抉择</font></p>'
+            if $UN事件链=7:'<font color="#BBFFBB">达成社燕秋鸿结局</font></p>'  
+            if $UN事件链=8:'<font color="#BBFFBB">达成比翼双飞结局</font></p>'  
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$HB.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：与<<$FK.name>>合作</font></p>'
+            if $HB事件链=0:'<font color="#FF0000">摸脸对话后举行生日宴会后偷听电话</font></p>'
+            if $HB事件链=1:'<font color="#BBFFBB">星期<<UN.day>>晚上21点在赤色餐厅跟踪她</font></p>'
+            if $HB事件链=2:'<font color="#BBFFBB"><<$UN.name>>粉丝数突破700k后，星期<<UN.day>>晚上21点在赤色餐厅跟踪她出来选择三人聚餐。</font></p>'
+            if $HB事件链=3:
+             if $UN事件链<=4:'<font color="#BBFFBB">增加粉丝数，举行<<$UN.name>>百万粉丝宴会</font></p>'
+             if $UN事件链=5:'<font color="#BBFFBB">在<<$HB.name>>的卧室内进行最后的晚宴</font></p>'
+             if $UN事件链>=6:'<font color="#BBFFBB">前往<<$HB.name>>的卧室进行<<$UN.name>>最终抉择。</font></p>'
+            end
+            if $HB事件链=4:'<font color="#BBFFBB">前往<<$HB.name>>的卧室</font></p>'
+            if $HB事件链H=1:'<font color="#BBFFBB">前往教堂举办一妻多夫婚礼，选择<<$HB.name>>的婚宴</font></p>'
+            if $HB事件链H=2:'<font color="#BBFFBB">回到<<$HB.name>>的卧室</font></p>'
+            if $HB事件链H=3:'<font color="#BBFFBB">晚上23点在赤色餐厅谈谈</font></p>'
+            if $HB事件链H=4:'<font color="#BBFFBB">与<<$JY.name>>谈谈山峦R&M的核泄露事件的信息</font></p>'
+            if $HB事件链H=5:'<font color="#BBFFBB">回到<<$HB.name>>的卧室对话</font></p>'
+            if $HB事件链H=6:'<font color="#BBFFBB">去百货商店购买牛排和红酒，并带给她</font></p>'
+            if $HB事件链H=7:'<font color="#BBFFBB">晚上23点在赤色餐厅碰头</font></p>'
+            if $HB事件链H=8:'<font color="#BBFFBB">前往她的卧室，达成人物结局。</font></p>'
+            if $HB事件链B=1:'<font color="#BBFFBB">回到<<$HB.name>>的卧室，达成人物结局。</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$TCK.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：完成银行2.2亿劫案</font></p>'
+            '<font color="#BBFFBB">这个角色比较特殊，她独立调查的时候会随机出现在居民区，只能说这么多，再说就剧透了。</font></p>'
+     '</div>'
+ '</div>'
+end
 
 '<div class="options_back"><a href="exec:gt''menu_charac_nps''"><div class="settings_back_menu"></div></a></div>'
 --- 角色攻略 ---------------------------------
