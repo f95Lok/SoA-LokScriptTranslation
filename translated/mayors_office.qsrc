@@ -26,6 +26,7 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt ''mayors_office'',''wuchang_conference_room''">Wuchang Conference Room</a></div>'
 		'<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">Mayor`s Office</a></div>'
 		'<div class="button"><a href="exec:gt ''mayors_office'',''urban_construction_minister`s_office''">Urban Construction Minister`s Office</a></div>'
+		if $JYB.ok=1:'<div class="button"><a href="exec:gt ''mayors_office'',''minister_of_education`s_office''">Minister of Education`s Office</a></div>'else:'<div class="buttonGr"><a href="exec:">Minister of Education`s Office</a></div>'
 		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
@@ -42,18 +43,7 @@ if $ARGS[0]="":
 	'</div>'
 end
 
-if $ARGS[0]="mayor`s_office":
-	'<div class ="show_menu"><img src="images\place\不开放.jpg" width="854"></div>'
 
-
-	'<div class="button_menu">'
-		'<div class="buttonR2"><a href="exec:gt ''city_hall''">Leave</a></div>'
-	'</div>'
-	
-	'<div class="dialog_menu">'
-		'<p></p>'
-	'</div>'
-end
 
 if $ARGS[0]="wuchang_conference_room":
 
@@ -286,6 +276,392 @@ if $ARGS[0]="dark_council":
 		end
 	'</div>'
 end
+
+if $ARGS[0]="minister_of_education`s_office":
+	 if $prologue<=2:gt'final_event','bank_account'
+	 if $jyb_event_chain=2:gt'final_event','jyb_voyeur'
+	 if $jyb_event_chain=6:gt'final_event','jyb_voyeur_2'
+	 if $jyb_event_chain=13:gt'final_event','jyb_voyeur_3'
+	 $JYB.available=1
+	 if $jyb_event_chain>=18:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM9.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		if $jyb_event_chain<=1:'<div class="buttonGn5"><a href="exec:gt ''final_event'',''previous_summary''">Previous summary</a></div>'
+		if $jyb_event_chain<=1:'<div class="buttonR"><a href="exec:gt ''final_event'',''question''">Question her</a></div>'
+		if $jyb_event_chain=3:'<div class="buttonR"><a href="exec:gt ''final_event'',''deliver_a_message_for_the_mayor''">Deliver a message for the mayor</a></div>'
+		if $jyb_event_chain=4 and $FXZ.IN*$SW.IN*$NK.IN=1:'<div class="buttonG"><a href="exec:gt ''final_event'',''the_manpower_is_here''">Personnel are here</a></div>'
+		if $jyb_event_chain=7:'<div class="button"><a href="exec:gt ''mayors_office'',''drafting_seminar_room''">Drafting seminar room</a></div>'
+		if $jyb_event_chain=9 or $jyb_event_chain=10:'<div class="button"><a href="exec:gt ''final_event'',''deliver_a_message_for_the_mayor_2''">Deliver a message for the mayor</a></div>'
+		if $jyb_event_chain=14 or $jyb_event_chain=15:'<div class="button"><a href="exec:gt ''final_event'',''deliver_a_message_for_the_mayor_3''">Deliver a message for the mayor</a></div>'
+		if $jyb_event_chain=16 or $jyb_event_chain=17:'<div class="button"><a href="exec:gt ''final_event'',''deliver_a_message_for_the_mayor_4''">Congratulations on passing smoothly</a></div>'
+		if $jyb_event_chain>=18:
+		 '<div class="buttonPu3"><a href="exec:gt ''final_event'',''jyb_special_work''">Special work?</a></div>'
+		 '<div class="buttonG2"><a href="exec:$jyb.massage=1 & gt ''company''">Take her to a massage to relax</a></div>'
+		end
+		if insemination_room=1 and $jyb_event_chain>=7 and $jyb.insemination=0:'<div class="buttonG4"><a href="exec:$jyb.insemination=1 & gt ''company''">Invite artificial insemination</a></div>'
+		'<div class="button"><a href="exec:gt ''mayors_office''">Return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $jyb_event_chain<=3:'<p><<$JYB.name>>: Well done...220 million people in the bank were robbed, and the money was settled after I didn`t understand the account, but to my surprise...you didn`t die?</p>'
+		if $jyb_event_chain=4:
+			'<p><<$JYB.name>>: I need a university teacher of sufficient teaching age to serve as the editor-in-chief; a teacher who understands male physiological education to serve as behavioral guidance; and an excellent andrology doctor to make an evaluation and health assessment.</p>'
+			'<p>——————</p>'
+			'<p>*University teachers of sufficient teaching age serve as the editor-in-chief</p>'
+			if $FXZ.IN=1:'<p>**<<$FXZ.name>></p>'
+			'<p>*Male physiological education teachers serve as behavioral guidance</p>'
+			if $FXZ.IN=1:'<p>**<<$SW.name>></p>'
+			'<p>*Excellent andrology doctor makes a health assessment</p>'
+			if $NK.IN=1:'<p>**<<$NK.name>></p>'
+		end
+		if $jyb_event_chain>=5:'<p><<$JYB.name>>: I can assure you that I did not arrange the accident of those bank robbers.</p>'
+		if $jyb_event_chain>=5:'<p>Me: Who would it be…</p>'
+		if $jyb_event_chain=11:'<p><<$JYB.name>>: Let`s go to the university corridor to have a look<<$SY.name>>How is the implementation of sex education?…</p>'
+		if $jyb_event_chain>=18:'<p><<$JYB.name>>: Can I help you?If it`s okay, I still have a lot of special work to do❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="mayor`s_office":
+	'<div class ="show_menu"><img src="images\place\真市长室.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if $sz_event_chain>=3 and campaign_day<=0 and the_mayor_is_sure=0 and $YXH.available=1:'<div class="buttonR"><a href="exec:gt ''final_event'',''mayoral_campaign''">Mayoral election</a></div>'
+		if $sz_event_chain>=3 and $YXH.available=0:'<div class="buttonG1"><a href="exec:gt ''final_event'',''mayoral_candidate''">Mayoral candidate</a></div>'
+		if $jyb_event_chain>=1:'<div class="buttonG"><a href="exec:gt ''mayors_office'',''mayor_liyi''"><<$SZ.name>></a></div>'
+		if $YXH.available=1 and $yxh_placement=0:'<div class="buttonS3"><a href="exec:gt ''mayors_office'',''yxh_vertical_painting''"><<$YXH.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''mayors_office''">Leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·The sun shines through the window in the mayor`s office, everything is so quiet and peaceful</p>'
+		if $sz_event_chain>=3 and the_mayor_is_sure=0:'<p><B><span class =''red''>·There is still time before the next mayoral election<<campaign_day>>day</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="mayor_liyi":
+	 $SZ.available=1
+	 if $sz_event_chain>=4:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\CC.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		if $jyb_event_chain<=2:'<div class="button"><a href="exec:mayor_dialogue=1 & gt ''mayors_office'',''mayor_dialogue''">Hand out the draft</a></div>'
+		if $jyb_event_chain=5:'<div class="button"><a href="exec:mayor_dialogue=2 & gt ''mayors_office'',''mayor_dialogue''">Hand out the refurbishment report</a></div>'
+		if $jyb_event_chain=8:'<div class="button"><a href="exec:mayor_dialogue=3 & gt ''mayors_office'',''mayor_dialogue''">Hand out the draft sex education</a></div>'
+		if $jyb_event_chain=12:'<div class="button"><a href="exec:mayor_dialogue=4 & gt ''mayors_office'',''mayor_dialogue''">Feedback on volunteers</a></div>'
+		if $jyb_event_chain=15:'<div class="button"><a href="exec:mayor_dialogue=5 & gt ''mayors_office'',''mayor_dialogue''">Hand out the draft of a wife and multiple husbands</a></div>'
+		if $jyb_event_chain=19 and $sz_event_chain<2:'<div class="buttonR"><a href="exec:gt ''final_event'',''demonstrator''">Demonstrator</a></div>'
+		if cheated_test=1:
+			if $ZZ.money=0:'<div class="buttonR"><a href="exec:gt ''final_event'',''get_close_to_her_b''">Approach her</a></div>'
+			if $ZZ.money=1:'<div class="buttonS"><a href="exec:gt ''final_event'',''get_close_to_her_g''">Approach her</a></div>'
+		end
+		if $sz_event_chain<=3:'<div class="button"><a href="exec:gt ''final_event'',''mayor`s_lounge_normal''">Her lounge</a></div>'
+		if the_mayor_is_sure=0:
+			if $sz_event_chain_g>=3:'<div class="buttonS"><a href="exec:gt ''final_event'',''mayor`s_lounge_maid''">Her lounge</a></div>'
+			if $sz_event_chain_b>=2:'<div class="buttonR"><a href="exec:gt ''final_event'',''mayor`s_lounge''">Her lounge</a></div>'
+		end
+		if the_mayor_is_sure=1:
+			if $mayor_e='SZ':'<div class="buttonS"><a href="exec:gt ''final_event'',''mayor`s_lounge_maid''">㊯Her lounge</a></div>'
+			if $mayor_e='FK':'<div class="buttonR"><a href="exec:gt ''final_event'',''mayor`s_lounge_1''">㊚Her lounge</a></div>'
+			if $mayor_e!'SZ' and $mayor_e!'FK':
+				if $sz_event_chain_g>=3:'<div class="buttonS3"><a href="exec:gt ''final_event'',''mayor`s_lounge_maid''">㊯Her lounge</a></div>'else:'<div class="buttonR3"><a href="exec:gt ''final_event'',''mayor`s_lounge_debt_collection''">㊘Her lounge</a></div>'
+			end
+		end
+		
+		'<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">I`m fine</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $sz_event_chain<=3:'<p><<$SZ.name>>:Hmm?*Squinting</p>'
+		if $sz_event_chain>=4:'<p><<$SZ.name>>: Political contributions...compensation...alas...the mayor is still difficult to do…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="mayor_dialogue":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\KM1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	'<div class="button_menu">'
+		if mayor_dialogue!2:'<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">Got it</a></div>'
+		if mayor_dialogue=2:'<div class="button"><a href="exec:gt ''mayors_office'',''mayor_dialogue_2''">When you can`t do anything</a></div>'
+	'</div>'
+	
+	if mayor_dialogue=1:
+	'<div class="dialog_menu">'
+		if $jyb_event_chain=1:$jyb_event_chain=2
+		'<p>Me: This is<<$JYB.name>>The drafted `New Law on Polygamous Marriage`...please approve……</p>'
+		'<p><<$SZ.name>>: What batch?！I`m so annoying, you let her make the `Sex Education Act` for me first!This is her job!</p>'
+		'<p>Me: Ah...this……</p>'
+		'<p><<$SZ.name>>: What is this, don`t you understand people?`Sex Education Act`!Now I just want to see this!</p>'
+	'</div>'
+	end
+	
+	if mayor_dialogue=2:
+	'<div class="dialog_menu">'
+		'<p>Me: This is<<$JYB.name>>The budget report of the refurbished meeting room...please approve……</p>'
+		'<p><<$SZ.name>>: What 3 million?！You told her it was impossible.</p>'
+		'<p>Me: Ah...this……</p>'
+		'<p><<$SZ.name>>: What is this, don`t you understand people?I also want to prepare [political contributions] for the new mayor`s campaign!There is not so much budget!</p>'
+		'<p>Me: Can you help…</p>'
+		'<p><<$SZ.name>>: Can`t!Either you advance the money yourself.</p>'
+	'</div>'
+	end
+	
+	if mayor_dialogue=3:
+	 if $jyb_event_chain=8:$jyb_event_chain=9
+	'<div class="dialog_menu">'
+		'<p>Me: This is<<$JYB.name>>The drafted `Sex Education Bill`...please approve it……</p>'
+		'<p><<$SZ.name>>: Why is there still a DVD disc?Who would watch CD-ROMs for teenagers in this era!</p>'
+		'<p>Me: Ah...this……</p>'
+		'<p><<$SZ.name>>: What is this, don`t you understand people?No one can bear to watch the disc anymore!</p>'
+		'<p>Me: What should I do?</p>'
+		'<p><<$SZ.name>>: Go back and tell her!Let her find volunteers to volunteer to do new educational science!That kind of free skank should be a big hit in this city!</p>'
+	'</div>'
+	end
+	
+	if mayor_dialogue=4:
+	 if $jyb_event_chain=12:$jyb_event_chain=13
+	'<div class="dialog_menu">'
+		'<p>Me: This is<<$JYB.name>>Implementation of the draft `Sex Education Bill`...…</p>'
+		'<p><<$SZ.name>>: Very well, this draft will be passed to recognize and affirm the hard work and selfless dedication of all volunteers.</p>'
+		'<p>Me: Huh--finally passed…</p>'
+		'<p><<$SZ.name>>: Take this good news back and tell<<$JYB.name>>right!</p>'
+	'</div>'
+	end
+	if mayor_dialogue=5:
+	 if $jyb_event_chain=15:$jyb_event_chain=16
+	'<div class="dialog_menu">'
+		'<p>Me: This is<<$JYB.name>>The drafted `New Law on Polygamous Marriage`...please approve……</p>'
+		'<p><<$SZ.name>>: It seems that it won`t work if you don`t approve her this time... okay!</p>'
+		'<p>Me: Huh--finally passed…</p>'
+		'<p><<$SZ.name>>:Huh, take this good news back and tell it<<$JYB.name>>right!</p>'
+	'</div>'
+	end
+end
+
+if $ARGS[0]="mayor_dialogue_2":
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\plane.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $empire_001="【New Empire 001】":'<div class="button"><a href="exec:gt ''mayors_office'',''mayor_dialogue_3''">Take the address</a></div>'else:'<div class="button"><a href="exec: gt ''mayors_office'',''mayor`s_office''">OK?</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>: 3 million?Can`t you get it out now?It seems necessary to change the session…</p>'
+		'<p><<$SZ.name>>: I`m here to ask you to report on the Jingyuan project!I didn`t ask you to be sarcastic about me!</p>'
+		'<p><<$CT.name>>: Isn`t the Jingyuan project good news?What are you angry at me for?</p>'
+		'<p>Me: Then can you help…</p>'
+		'<p><<$CT.name>>:Let me think about it❤</p>'
+		if $empire_001="【New Empire 001】":
+			'<p><<$CT.name>>: You don`t know anything, do you?<<$protagonists_name>>He is the number one candidate for the Jingyuan project codenamed [Empire 001].</p>'
+			'<p><<$SZ.name>>: Really or not?！！You are<<$protagonists_name>>？Great, then this is a mere 3 million, just give it to you.You are a key figure who can represent the Jingyuan Project in our city!I believe she will be very happy to meet you!</p>'
+		else:
+			'<p><<$CT.name>>: I can`t find a good reason. If you can become the number one candidate for the Jingyuan project codenamed [Empire 001], I can tell you something.</p>'
+		end
+	'</div>'
+
+end
+
+if $ARGS[0]="mayor_dialogue_3":
+	if $jyb_event_chain=5:$jyb_event_chain=6
+	AW.room=1
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\gogo.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''suburbs'',''contemplation_winery''">Arrival address</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>Me: The address is in...Mountain C area?Why didn`t I know there was this place before... huh?Here is……</p>'
+	'</div>'
+
+end
+
+
+
+
+if $ARGS[0]="drafting_seminar_room":
+	 if SEX_EDU>=100:SEX_EDU=100
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\CN0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''final_event'',''look_up_at_her''">Look up at her</a></div>'
+		'<div class="buttonS2"><a href="exec:gt ''final_event'',''fxz_drafting''">Bill Editor-in-Chief<<$FXZ.name>></a></div>'
+		'<div class="buttonS3"><a href="exec:gt ''final_event'',''sw_drafting''">Physiological guidance<<$SW.name>></a></div>'
+		'<div class="buttonS4"><a href="exec:gt ''final_event'',''nk_drafting''">Health assessment<<$NK.name>></a></div>'
+		if SEX_EDU>=100:'<div class="buttonG5"><a href="exec:gt ''final_event'',''promotional_video''">Filming sex education lectures</a></div>'
+		'<div class="buttonGn2"><a href="exec:gt ''city_hall''">Leave</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>*Completion of the Sex Education Act：<<SEX_EDU>>%</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="yxh_vertical_painting":
+	 if $ZZ.money=0:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\LH0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		'<div class="button"><a href="exec: campaign_assistant_words=0 & gt ''mayors_office'',''assistant_office''">Go to her assistant</a></div>'
+          '<div class="button"><a href="exec: gt ''mayors_office''">Leave</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p>Me: Hi, is work going well?</p>'
+          '<p><<$YXH.name>>:<<$protagonists_name>>Sir, if you have something to ask my assistant, don`t bother me.</p>'
+          '<p>Me: Uh... the attitude is so bad...it`s because I don`t have a political contribution relationship, right?…</p>'
+     '</div>'
+     else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\LH1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''mayors_office'',''yxh_help''">Go over and help</a></div>'
+		'<div class="button"><a href="exec:campaign_assistant_words=0 & gt ''mayors_office'',''assistant_office''">Go to her assistant</a></div>'
+          '<div class="button"><a href="exec: gt ''mayors_office''">Leave</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p>Me: Hi, is work going well?</p>'
+          '<p><<$YXH.name>>: Suddenly unable to access the Internet，<<$yxh_name>>Can you help<<$yxh_call_her>>me?</p>'
+          '<p>Me: Oh?Know you want to help?</p>'
+     '</div>'
+     end
+end
+
+
+if $ARGS[0]="assistant_office":
+      $JXZL.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\TDZL1-<<campaign_assistant_words>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+          if campaign_assistant_words=0:'<div class="buttonP"><a href="exec:campaign_assistant_words+=1 & gt ''mayors_office'',''assistant_office''">Remember her</a></div>'
+          if campaign_assistant_words=1:'<div class="buttonP"><a href="exec:campaign_assistant_words+=1 & gt ''mayors_office'',''assistant_office''">Recovered</a></div>'
+          if campaign_assistant_words=2:'<div class="buttonS"><a href="exec:campaign_assistant_words+=1 & gt ''mayors_office'',''assistant_office''">Pick up a pen under the table</a></div>'
+          if $JXZL.bad>0:'<div class="buttonG"><a href="exec:gt ''final_event'',''yxh_assistant_job''">Auxiliary work</a></div>'
+          '<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">I`m fine</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          if campaign_assistant_words=0:
+          '<p>Me: You are<<$YXH.name>>Campaign assistant?</p>'
+          '<p><<$JXZL.name>>:Yes❤<<$protagonists_name>>Agent, how are you?</p>'
+          '<p>Me: Huh?Do I know you?</p>'
+          '<p><<$JXZL.name>>: Have you forgotten others?</p>'
+          end
+          if campaign_assistant_words=1:
+          '<p>Me: Is it at this time?</p>'
+          end
+          if campaign_assistant_words=2:
+          $JXZL.bad+=2
+          '<p>Me: I... I seem to have seen you at the Imperial Kinky Party…</p>'
+          '<p><<$JXZL.name>>:Yes❤Your memory is so good❤</p>'
+          '<p>Me: Then why are you here?</p>'
+          '<p><<$JXZL.name>>: I guess it should be<<$CT.name>>assign<<$TS.name>>When I was assigned, I was also very ignorant, and suddenly I was asked to be this campaign assistant.</p>'
+          '<p><<$JXZL.name>>: Oh, I lost my pen.</p>'    
+          end
+          if campaign_assistant_words=3:
+          '<p><<$JXZL.name>>: What`s the matter?<<$protagonists_name>>Agent, did you find my pen under the table?</p>'
+          '<p>Me: Uh...found it…</p>'
+          end
+     '</div>'
+end
+
+
+if $ARGS[0]="yxh_help":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\WDKG0-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		if $mayor_e='YXH':'<div class="buttonS"><a href="exec: gt ''final_event'',''yxh_mayor`s_privilege''">Enjoy the mayor`s service</a></div>'
+		if $mayor_e='WO':'<div class="buttonR"><a href="exec: gt ''final_event'',''yxh_mayor_command''">Exercise the mayor`s order</a></div>'
+		if $yxh_event_chain>=5:'<div class="buttonR"><a href="exec: gt ''mayors_office'',''yxh-2''">Infringe on her here</a></div>'
+		if $yxh_event_chain>=4:'<div class="buttonG1"><a href="exec:$yxh_placement=0 & gt ''final_event'',''yxh_hot_spring''">Take it to the hot spring</a></div>'
+          '<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">Leave</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+		if $yxh_event_chain=0:$yxh_event_chain=1
+          '<p>Me: Simple, the network cable plug is loose…</p>'
+          '<p><<$YXH.name>>: Thank you so much❤ You are so amazing!</p>'
+          '<p>Me: Uh... this question is too simple…</p>'
+          if $yxh_event_chain<4:
+          '<p><<$YXH.name>>: Very helpful!I`ll treat you to dinner tonight. Thank you ❤ Do you have any restaurants you want to eat?</p>'
+          '<p>Me: The red restaurant is good, see you at 21 o`clock in the evening…</p>'
+          '<p><<$YXH.name>>:Hmm❤</p>'
+          end
+          if $yxh_event_chain>=4 and $mayor_e='':
+          '<p><<$YXH.name>>: Thanks to<<$yxh_name>>The lobbying, now there is not so much pressure on the campaign, it`s time to relax ❤</p>'
+          '<p>Me: How do you want to relax?</p>'
+          '<p><<$YXH.name>>:<<$yxh_name>>You are in charge❤</p>'
+          end
+          if $mayor_e!'':
+          '<p><<$YXH.name>>: Fool, that`s what I deliberately did to get you hooked❤</p>'
+          end
+     '</div>'
+end
+
+
+if $ARGS[0]="yxh-2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\WDKG0-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		'<div class="buttonS"><a href="exec: $m_filename_reference=''YXH'' & $m=''YXH'' & $ma=$YXH.name & $m_address=''WDKG'' & Telove=$YXH.love & $Tename=''屈服'' & Tebad=$YXH.bad & gt ''universal_sex'',''DEMO''">Press on the table</a></div>'
+          '<div class="button"><a href="exec:gt ''mayors_office'',''mayor`s_office''">Let go</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p><<$YXH.name>>:<<$yxh_name>>❤Don`t do this, you will be seen by colleagues❤</p>'
+          '<p>Me: Afraid of being discovered that you are a slut?</p>'
+          '<p><<$YXH.name>>:Hmm❤People are only willing to complain to you❤</p>'
+     '</div>'
+end
+
+
+
+
+
+
+
 
 
 

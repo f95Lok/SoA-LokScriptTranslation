@@ -27,6 +27,7 @@ if  $args[0]="":
 	'<div class ="show_menu"><img src="images\place\按摩房.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
+		if $sz_event_chain_b>=3:'<div class="buttonS5"><a href="exec:gt ''massage_room'',''spa_mayor''"><<$SZ.name>></a></div>'
 		'<div class="buttonS1"><a href="exec:n=rand(1,2)& gt ''group_performation_event'',''spa_fuck_niche_massage''">Niche massage</a></div>'
 		if spa>10:'<div class="buttonS2"><a href="exec:n=rand(-1,3)& gt ''group_performation_event'',''spa_fuck_light_luxury_massage''">Light luxury massage</a></div>'else:'<div class="buttonGr"><a href="exec:">Light luxury massage</a></div>'
 		if spa>=50:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''massage_room'',''private_massage''">Private massage</a></div>'else:'<div class="buttonGr"><a href="exec:">Private massage</a></div>'
@@ -70,7 +71,7 @@ if  $args[0]="withdraw":
 	'<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=15 & money+=cmoney_massage*TXM/100  & Cmoney+=cmoney_massage/10000 & cmoney_massage=0 &  gt ''massage_room'',''withdraw''">Withdraw</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & money+=cmoney_massage/100*TXM  & Cmoney+=cmoney_massage/10000 & cmoney_massage=0 &  gt ''massage_room'',''withdraw''">Withdraw</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''company''">Leave</a></div>'
 	'</div>'
 
@@ -186,6 +187,7 @@ if  $args[0]="private_massage_5":
 	   if $swd.massage=1:'<div class="button"><a href="exec: $m_filename_reference=''SWD'' & $m=''SWD'' & $ma=$SWD.name & gt ''group_performation_event'',''massage_shop_fuck_exclusive''">②②<<$SWD.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②②？？？</a></div>'
        if $yh.massage=1:'<div class="button"><a href="exec: $m_filename_reference=''YH'' & $m=''YH'' & $ma=$YH.name & gt ''group_performation_event'',''massage_shop_fuck_exclusive''">②③<<$YH.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②③？？？</a></div>'
        if $mz.massage=1:'<div class="button"><a href="exec: $m_filename_reference=''MZ'' & $m=''MZ'' & $ma=$MZ.name & gt ''group_performation_event'',''massage_shop_fuck_exclusive''">②④<<$MZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②④？？？</a></div>'
+       if $jyb.massage=1:'<div class="button"><a href="exec: $m_filename_reference=''JYB'' & $m=''JYB'' & $ma=$JYB.name & gt ''group_performation_event'',''massage_shop_fuck_exclusive''">②⑤<<$JYB.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②⑤？？？</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -194,6 +196,29 @@ if  $args[0]="private_massage_5":
 		'<p>——————————</p>'
 		'<p>·Private massages only serve VIP customers. We keep the identity of potential customers fully confidential.</p>'
 	'</div>'
+end
+
+
+if  $args[0]="spa_mayor":
+   '<div class="show_menu">'
+        '<video preload="metadata" autoplay loop height="480">
+        <source src="images\NPC\SZ\vids\SPA0.webm" type=''video/webm;''></video></div>'
+   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''final_event'',''sz_spa_training''">Practice her ❤</a></div>'
+		if $sz_training>0:'<div class="buttonG1"><a href="exec:minutes+=15 & gt ''final_event'',''SZ_SPA1''">She can do manual work ￥10,000</a></div>'
+		if $sz_training>99:'<div class="buttonG4"><a href="exec:minutes+=15 & gt ''final_event'',''SZ_SPA2''">She can make a full set of ￥50,000</a></div>'
+		if $sz_training>400:'<div class="buttonS"><a href="exec: $m_filename_reference=''SZ'' & $m=''SZ'' & $ma=$SZ.name & $m_address=''wkend'' & Telove=$SZ.love & $Tename=''屈服'' & Tebad=$SZ.bad & gt ''universal_sex'',''DEMO''">Serve me ❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''company''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SZ.name>>: I am a dignified deputy mayor... actually doing this kind of thing…</p>'
+		'<p>Citizen: You can get it for 10,000 yuan<<$SZ.name>>Is it such a good thing to shoot you?</p>'
+		'<p>Me: If you don`t have any money, you can use the government`s nuclear radiation compensation iou to offset the bill❤</p>'
+	'</div>'
+
 end
 --- massage_room ---------------------------------
 

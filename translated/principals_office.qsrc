@@ -29,9 +29,9 @@ if $args[0]="":
 
 	'<div class="button_menu">'
 		if $XZ_Event_3t<=1:
-		'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''side_hearing''">Apply for a side hearing</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''principals_office'',''side_hearing''">Apply for an auditing pass</a></div>'
 			if $XZ_Event_3tf=1 and $XZ_Event_3ts=1 and $XZ_Event_3tx=1 :
-			'<div class="buttonR"><a href="exec:minutes+=5 & gt ''principals_office'',''reply''">On-campus picket team</a></div>'
+			'<div class="buttonR"><a href="exec:minutes+=5 & gt ''principals_office'',''reply''">School`s Internal Discipline Committee</a></div>'
 			end
 		end
 		if $SW_Event_XZ=1:'<div class="buttonB"><a href="exec:minutes+=5 & gt ''principals_office'',''curriculum_reform_proposal''">Curriculum reform proposal</a></div>'
@@ -53,10 +53,10 @@ if $args[0]="":
 	'<div class="dialog_menu">'
 		'<p><<$XZ.name>>: Can I help you?</p>'
 		if side_hearing=1:
-		'<p><On-campus picket team></p>'
+		'<p><School`s Internal Discipline Committee></p>'
 		if $fxz_event_counseling>=1 and $picket_mission=0 :'<p>She is planning<a href="exec: $picket_mission=1 & gt ''principals_office''">suppress<<$FXZ.name>></a></p>'
 		if $school_event_hope=2 and $picket_mission=0 :'<p>A letter about the abuse of the rights of pickets on campus<a href="exec: $picket_mission=1 & gt ''principals_office'',''report_letter''">Report letter</a></p>'
-		if $fxz_event_counseling>=1 and $picket_mission=1:'<p><<$XZ.name>>: I heard that you and<<$FXZ.name>>Very close?It seems that if she doesn`t punish her again, she really thinks she can take me down with that kind of boring competition?Let her know the methods of the school picket team!Gather the team members to go to her office and show her some colors!</p>'
+		if $fxz_event_counseling>=1 and $picket_mission=1:'<p><<$XZ.name>>: I heard that you and<<$FXZ.name>>Very close?It seems that if she doesn`t punish her again, she really thinks she can take me down with that kind of boring competition?Let her know the methods of the school discipline committee! Gather the team members to go to her office and show her some colors!</p>'
 		if $picket_mission=99:'<p>You reported the results of the picket again.<a href="exec: $picket_mission=0 &$XZ.love+=2 & gt ''principals_office''">  <<$XZ.name>>Very satisfied</a></p>'
 		end
 
@@ -72,16 +72,16 @@ if $args[0]="side_hearing":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">agree</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Affirmative</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>Me: I want to apply for a hearing, how do I apply?I want to learn something.</p>'
-		'<p><<$XZ.name>>: According to the [new law], the school no longer levies male students.However, there are still a few vacancies in the school picket team. If you perform well, I can give you a chance.</p>'
-		'<p>Me: Picket team on campus?</p>'
-		'<p><<$XZ.name>>: Yes, the main task of the campus picket team is to maintain the stability of the campus. When it is found that there are unstable factors in the campus, it is necessary to report to me in a timely manner, and actively take preventive measures to find improper behavior towards classmates, and stop it in time.</p>'
+		'<p>Me: I want to apply for an auditing pass. But, how do I apply for it? I would like to learn something new.</p>'
+		'<p><<$XZ.name>>: According to the [new law], the school no longer accepts male students. However, there are still a few vacancies in the school discipline committee. If you perform well, I can give you a chance.</p>'
+		'<p>Me: The school`s internal discipline committee?</p>'
+		'<p><<$XZ.name>>: That`s right. The primary task of the school`s internal discipline committee is to maintain campus order. When unstable elements are discovered on campus, it is necessary to report to me in a timely manner, and actively take preventive measures to find improper behavior towards the students, and halt it in time.</p>'
 		'<p>Me: It doesn`t sound difficult.</p>'
-		'<p><<$XZ.name>>: There is no need for waste in the team, your first task.To investigate the positions of the three “main teachers”, if the results are satisfactory, I can let you join the school picket team.</p>'
+		'<p><<$XZ.name>>: There is no place for useless members on the committee. Your first task is to investigate the positions of the three “primary professors”. If the results are satisfactory, I can let you join the school `s discipline committee.</p>'
 	'</div>'
 End
 
@@ -98,10 +98,10 @@ if $args[0]="reply":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>I：<<$sw.name>>Dissatisfied with the sharp decline in the number of boys in school，<<$XY.name>>On the surface, it is undecided, but in fact it has been<<$fxz.name>>Win over，<<$fxz.name>>Naturally, I have a grudge against you and hope to replace it.</p>'
-		'<p><<$XZ.name>>: Similar to what I expected, I really need a spy to pass me information at all times.</p>'
+		'<p>I：<<$sw.name>> is dissatisfied with the sharp decline in male enrollment at the school.<<$XY.name>> seems to be undecided on the surface, but in actuality, has been bought over by <<$fxz.name>>.<<$fxz.name>> naturally has a grudge against you and hopes to replace you.</p>'
+		'<p><<$XZ.name>>: It`s similar to what I expected. I really do need a spy to pass me information at all times.</p>'
 		'<p>Me:........</p>'
-		'<p><<$XZ.name>>: This is a good job. I now approve you to join the school picket team.</p>'
+		'<p><<$XZ.name>>: You did a good job. I now approve you to join the school`s internal discipline commitee.</p>'
 	'</div>'
 End
 

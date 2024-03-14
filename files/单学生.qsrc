@@ -1,0 +1,315 @@
+# 单学生
+cls
+a=0 & q=0
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	gs "BUG脱出"
+'</div>'
+
+
+if $args[0]="MPJ":
+	'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\MPJ.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:$m=''MPJ'' & $ma=$MPJ.name & $MPJ.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">按摩讨好</a></div>'
+		if $MPJ.love>99 and 学校cos团=1:'<div class="buttonS2"><a href="exec:MPJ_COS=1 & $m=''MPJ'' & $ma=$MPJ.name & $MPJ.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+		'<div class="buttonS4"><a href="exec:$m=''MPJ'' & $ma=$MPJ.name & love_num=$MPJ.love & $m地址=''BLC'' & gt ''截面_事件'',''泛用截面''">去来一发</a></div>'
+		if $MPJ事件链>=4:'<div class="buttonR"><a href="exec:$MPJ.love+=5 & $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & $m地址=''GLN'' & gt ''截面_事件'',''泛用截面''">戴上狗链</a></div>'else:'<div class="buttonGr"><a href="exec:">好感不足</a></div>'
+		'<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$MPJ.name>>：嘿，有什么事...？</p>'
+	'</div>'
+end
+
+
+if $args[0]="HME":
+	'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\HME.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS2"><a href="exec:$m=''HME'' & $ma=$HME.name & $HME.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">按摩讨好</a></div>'
+		if $HME.love>99 and 学校cos团=1:'<div class="buttonG3"><a href="exec:HME_COS=1 & $m=''HME'' & $ma=$HME.name & $HME.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+		'<div class="buttonGn2"><a href="exec:$m=''HME'' & $ma=$HME.name & gt ''学生群_事件'',''学生群_Fuck_自补习''">私下辅导成绩</a></div>'
+		if $HME事件链=0:'<div class="buttonS"><a href="exec:gt ''学生群_事件'',''AV面试''">陪她去</a></div>'
+		if $HME事件链=1 or $HME事件链=3:'<div class="buttonS"><a href="exec:gt ''学生群_事件'',''AV面试2''">再陪她去</a></div>'
+		if $HME事件链>=2:'<div class="buttonP"><a href="exec:gt ''学生群_事件'',''口交练习3''">去空教室口交</a></div>'
+		if $HME.love>=my.魅力*3:'<div class="buttonS"><a href="exec:gt ''学生群_事件'',''温泉33''">带她去温泉</a></div>'else:'<div class="buttonGr"><a href="exec:">温泉:好感不足<<my.魅力*3>></a></div>'
+		if $HME事件链>=5:
+			'<div class="buttonPu4"><a href="exec:gt ''学生群_事件'',''HME_AV''">陪她拍摄乱交AV</a></div>'
+			'<div class="buttonR4"><a href="exec:gt $loc,$metka">我没兴趣</a></div>'
+		end
+		'<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if $HME事件链=0:
+		'<p><<$HME.name>>：快无聊死了，你陪我去壮壮胆吧！</p>'
+		'<p>我：壮胆？你要去鬼屋吗？</p>'
+		'<p><<$HME.name>>：我要去地下AV公司投面试资料！</p>'
+		end
+		if $HME事件链=1:
+		'<p>我：怎么样？还想不想做AV女优了？</p>'
+		'<p><<$HME.name>>：我……我还是想做！你再陪我去一次吧！</p>'
+		'<p>我：看来你已经有觉悟了？</p>'
+		end
+		if $HME事件链=2:
+		'<p><<$HME.name>>：你来的正好…陪我练习口交吧！居然被那个白痴导演小瞧了！</p>'
+		'<p>我：呃……</p>'
+		end
+		if $HME事件链=3:
+		'<p><<$HME.name>>：我们再去见见那个白痴导演吧，我已经进步了！</p>'
+		'<p>我：呃……</p>'
+		end
+		if $HME事件链>=4:
+		'<p><<$HME.name>>：干嘛…是喜欢上我了？还是喜欢“上”我了？</p>'
+		'<p>我：呃……</p>'
+		end
+		if $HME事件链>=5:
+		'<p><<$HME.name>>：啊哈❤刚才导演给我打电话了，说有一场乱交戏正适合我，我怕被人肏得走不了路，要不你陪我去，结束了送我回来吧？</p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="FZL":
+	$FZL.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\FZL.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+	   
+        '<div class="buttonG2"><a href="exec:$m=''FZL'' & $ma=$FZL.name & $FZL.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">按摩讨好</a></div>'
+	   if $FZL.love>99 and 学校cos团=1:'<div class="buttonG3"><a href="exec:FZL_COS=1 & $m=''FZL'' & $ma=$FZL.name & $FZL.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        '<div class="buttonG5"><a href="exec:gt ''学生群_事件'',''FZL请客''">请客吃东西</a></div>'
+        if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $m=''FZL'' & $ma=$FZL.name & gt ''群演_事件'',''泛用_Fuck_催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$FZL.name>>：每嗰亽說謊の樣孒嘟鎈丆多，侞果伱還臉葒僦贁ㄋ。</p>'
+    '</div>'
+end
+
+
+if $args[0]="SJ":
+	$SJ.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SJ.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonG2"><a href="exec:$m=''SJ'' & $ma=$SJ.name & $SJ.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">按摩讨好</a></div>'
+        if $SJ.love>99 and 学校cos团=1:'<div class="buttonS2"><a href="exec:SJ_COS=1 & $m=''SJ'' & $ma=$SJ.name & $SJ.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        '<div class="buttonS3"><a href="exec:gt ''学生群_事件'',''书记家''">去她家</a></div>'
+        if $SJ事件链>=1:
+			if $魅魔能量>0:'<div class="buttonPu3"><a href="exec: $魅魔能量-=1 & gt ''学生群_事件'',''SJ催眠''"><font color="#FF00FF">催眠她♈❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">催眠她♈❤</a></div>'
+        end
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$SJ.name>>：哇呜❤喵喵~</p>'
+        '<p>我：你在干嘛？</p>'
+        '<p><<$SJ.name>>：模仿猫咪❤</p>'
+    '</div>'
+end
+
+
+if $args[0]="YLW":
+    $YLW.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\YLW.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonB2"><a href="exec:$m=''YLW'' & $ma=$YLW.name & $YLW.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">带去按摩放松</a></div>'
+        if $YLW事件链>=2:'<div class="buttonB3"><a href="exec:gt ''学生群_事件'',''YLW_家补''">✍家庭辅导</a></div>'
+        if $YLW.love>99 and 学校cos团=1:'<div class="buttonS2"><a href="exec:YLW_COS=1 & $m=''YLW'' & $ma=$YLW.name & $YLW.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        if 集印卡=1 and card1>0 and $YLW.love>=25:'<div class="buttonR3"><a href="exec:集印编号S=5 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤翘课出去❤</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$YLW.name>>：唉，无论怎么说父母的出发点都是好的…但父亲的严苛和母亲的期待总让我喘不过气来…</p>'
+    '</div>'
+end
+
+
+if $args[0]="SB":
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SB.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+	   if $SB.tel=1:'<div class="buttonS"><a href="exec:$m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''MBB'' & gt ''截面_事件'',''泛用截面''">强吻她</a></div>'
+        '<div class="button"><a href="exec:minutes+=5 & gt ''大学后门'',''车库''">接过钥匙</a></div>'
+        if $QH.available=0:'<div class="buttonPu5"><a href="exec:minutes+=5 & gt ''单学生'',''SB2''">深处的房间</a></div>'
+        
+    '</div>'
+    
+    '<div class="dialog_menu">'
+		if $松本事件链=6:$松本事件链=7
+        '<p><<$SB.name>>：喏，这是我车的车钥匙…哪有让女孩子开车的道理❤</p>'
+    '</div>'
+end
+
+if $args[0]="SB2":
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SB.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+	   '<div class="buttonG"><a href="exec:$QH.available=1 & gt ''大学后门''">答应承诺</a></div>'
+        '<div class="button"><a href="exec:minutes+=5 & gt ''大学后门''">算了</a></div>'
+        
+    '</div>'
+    
+    '<div class="dialog_menu">'
+	   '<p>我：那扇门后面有什么？</p>'
+        '<p><<$SB.name>>：呃…里面寓居着我的一个朋友…因为某些原因她不愿意回家，她有些抑郁的情况所以也不愿意见任何人。</p>'
+	   '<p>我：或许我能去开导开导她？</p>'
+        '<p><<$SB.name>>：可以，但你必须先答应我，如果你敢出言不逊或者伤害到她，我会恨你一辈子。*眼神凶狠</p>'
+    '</div>'
+end
+
+
+if $args[0]="SYYY":
+	$SYYY.available=1
+     '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SYYY.jpg" width="854"></div>'
+
+     '<div class="button_menu">'
+		if $SYYY事件链=5 or $SYYY事件链=6:'<div class="buttonG1"><a href="exec:gt ''单学生'',''SYYY2''">对话</a></div>'
+		if $SYYY事件链>=11:'<div class="buttonP"><a href="exec:$m=''SYYY'' & $ma=$SYYY.name & $SYYY.love+=1 & gt ''学生群_事件'',''学生群_Fuck_按摩''">去按摩放松</a></div>'
+          if $SYYY事件链>=10:'<div class="buttonGn1"><a href="exec:$m=''SYYY'' & $ma=$SYYY.name & gt ''学生群_事件'',''学生群_Fuck_自补习''">辅导成绩</a></div>'
+          if $SYYY事件链>=8:'<div class="buttonGn5"><a href="exec: gt ''学生群_事件'',''SYYY_出去玩''">出去玩</a></div>'
+          '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+     '</div>'
+     '<div class="dialog_menu">'
+          '<p><<$SYYY.name>>：什么时候才能成立一个Cosplay社团呢~</p>'
+     '</div>'
+end
+
+
+if $args[0]="SYYY2":
+	if $SYYY事件链=5:$SYYY事件链=6
+     '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\SYYY.jpg" width="854"></div>'
+
+     '<div class="button_menu">'
+          '<div class="button"><a href="exec:gt ''居民区''">我试试看</a></div>'
+     '</div>'
+     '<div class="dialog_menu">'
+          '<p><<$SYYY.name>>：找我有什么事？</p>'
+          '<p>我：也许我能帮上一点忙，比如推荐你去一些正规的摄影棚。</p>'
+          '<p><<$SYYY.name>>：啊哈？难道说你是<<$TS.name>>的星探？能帮我约一场和<<$TS.name>>的晚宴吗？我想推荐一下我自己！</p>'
+          '<p>我：我试试看吧。</p>'
+     '</div>'
+end
+
+
+
+if $args[0]="TMW":
+     $TMW.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\TMW.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if $TMW.love>99 and 学校cos团=1:'<div class="buttonG3"><a href="exec:TMW_COS=1 & $m=''TMW'' & $ma=$TMW.name & $TMW.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        if $TMW事件链=0 or $TMW事件链=3 or $TMW事件链=6 or $TMW事件链=9 or $TMW事件链=12:'<div class="buttonS2"><a href="exec:gt ''学生群_事件'',''TMW_活动策划''">策划新活动</a></div>'
+        if $TMW事件链=2 or $TMW事件链=5 or $TMW事件链=8 or $TMW事件链=11 or $TMW事件链>=17:'<div class="buttonS2"><a href="exec:a=-1 & gt ''学生群_事件'',''TMW_分钱''">赚了多少？</a></div>'
+        if $TMW事件链=14:'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''TMW_对策''">商量对策</a></div>'
+        if $TMW事件链=15:'<div class="buttonR"><a href="exec:gt ''学生群_事件'',''TMW_欠条''">欠条详情</a></div>'
+        if $TMW事件链>=17:'<div class="buttonS4"><a href="exec:gt ''学生群_事件'',''TMW_约会''">外出约会</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        if $TMW事件链<17:'<p><<$TMW.name>>：<<$主角姓名>>，你好像是个聪明人？帮我想想方法呗❤</p>'else:'<p><<$TMW.name>>：<<$主角姓名>>，我真应该什么都听你的❤</p>'
+    '</div>'
+end
+
+
+if $args[0]="CBJ":
+    $CBJ.available=1
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\CBJ.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if $CBJ.love>99 and 学校cos团=1:'<div class="buttonS1"><a href="exec:CBJ_COS=1 & $m=''CBJ'' & $ma=$CBJ.name & $CBJ.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        '<div class="buttonS3"><a href="exec:gt ''学生群_事件'',''CBJ_酒局''">参加酒局</a></div>'
+        if $CBJ.love>=50+5*my.魅力:'<div class="buttonS5"><a href="exec:gt ''学生群_事件'',''CBJ_家酒''">去她家喝</a></div>'else:'<div class="buttonGr"><a href="exec:">去她家好感需<<50+5*my.魅力>></a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$CBJ.name>>：我已经完全清醒了！正所谓酒是粮食精，越喝越年轻！</p>'
+        '<p>我：呃…</p>'
+        if $CBJ.love>=50+5*my.魅力:
+		'<p><<$CBJ.name>>：要不去我家喝？晚上回家一路上太危险了❤</p>'
+        else:
+		'<p><<$CBJ.name>>：待会我有个酒局，和我一起去吧！我肯定会喝醉的，到时候你送我回家就行。</p>'
+        end
+    '</div>'
+end
+
+
+if $args[0]="HSW":
+    $HSW.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\HSW\vids\HSWLH1-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    '<div class="button_menu">'
+	   if $松本矛盾=0:'<div class="buttonP"><a href="exec:gt ''学生群_事件'',''HSW_SB''"><<$SB.name>>来了</a></div>'
+        if $HSW.love>99 and 学校cos团=1:'<div class="buttonG2"><a href="exec:HSW_COS=1 & $m=''HSW'' & $ma=$HSW.name & $HSW.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        if $HSW事件链>=2:'<div class="buttonG4"><a href="exec:$m=''HSW'' & $ma=$HSW.name & gt ''学生群_事件'',''学生群_Fuck_自补习''">继续提升成绩</a></div>'
+        '<div class="buttonG5"><a href="exec:gt ''学生群_事件'',''HSW_车''">载她上车</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        if $HSW事件链<3:'<p><<$HSW.name>>：我能搭你的顺风车省点钱吗？我接了超级多的兼职工作，我最近的经济压力比较大…具体原因不方便说。当然，你不愿意的话就算了。</p>'
+        if $HSW事件链>=3:'<p><<$HSW.name>>：载我出去玩玩呗❤</p>'
+        '<p>我：呃…我想想。</p>'
+    '</div>'
+end
+
+if $args[0]="XMK":
+    $XMK.available=1
+     if $XMK事件链>=15:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XMK\vids\GFN0-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+		'<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\XMK.jpg" width="854"></div>'
+	end
+
+    '<div class="button_menu">'
+	   if $XMK事件链>=15:'<div class="buttonS3"><a href="exec:a=1 & gt ''学生群_事件'',''XMK_GFN''">有人来了</a></div>'
+	   if $XMK事件链>=15:'<div class="buttonGn3"><a href="exec:$m=''XMK'' & $ma=$XMK.name & gt ''学生群_事件'',''学生群_Fuck_自补习''">心不在焉的辅导</a></div>'
+        if $XMK.love>99:'<div class="buttonG2"><a href="exec:$m=''XMK'' & $ma=$XMK.name & gt ''学生群_事件'',''学生群_Fuck_按摩''">按摩解乏</a></div>'
+        if $XMK.love>99 and 学校cos团=1:'<div class="buttonS2"><a href="exec:XMK_COS=1 & $m=''XMK'' & $ma=$XMK.name & $XMK.bad+=10 &  gt ''学生群_事件'',''学生群_coser专属''">COS社团约拍</a></div>'
+        if $SB.Tel=1 and $XMK事件链<=1:'<div class="buttonR"><a href="exec:gt ''单学生'',''XMK2''">皱眉烦躁</a></div>'
+        if $XMK事件链>=2:
+			if $XMK事件链!9:'<div class="buttonGn3"><a href="exec:gt ''学生群_事件'',''XMK_同行''">陪她出去</a></div>'
+			if $XMK事件链=9:'<div class="buttonPu1"><a href="exec:gt ''学生群_事件'',''XMK_同行跟踪''">默默陪同</a></div>'
+	   end
+	   if $XMK事件链=14:'<div class="buttonS3"><a href="exec:gt ''学生群_事件'',''XMK_摊牌''">和<<$SB.name>>摊牌</a></div>'
+        '<div class="button"><a href="exec:gt $loc,$metka">返回</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+        '<p><<$XMK.name>>：想和我谈什么？</p>'
+        if $XMK事件链=9:'<p><<$XMK.name>>：走开，我们已经没关系了，我不需要你再跟着我了。</p>'
+    '</div>'
+end
+
+if $args[0]="XMK2":
+	if $XMK事件链=0:
+		$XMK事件链=1
+		$XMK.love=-99
+	end
+    '<div class ="show_menu"><img src="images\NPC\SCHOOL\pics\XMK.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="button"><a href="exec:gt $loc,$metka">落荒而逃</a></div>'
+    '</div>'
+    '<div class="dialog_menu">'
+	   '<p>我：怎么了你？看上去很不开心？</p>'
+        '<p><<$XMK.name>>：呵，你们俩又和好了是吧？</p>'
+	   '<p>我：你在说谁啊？</p>'
+        '<p><<$XMK.name>>：还能说谁啊？你那个青梅竹马一回来<<$SB.name>>天天哭丧个脸。我好不容易开导她，开车带她看清你的“渣男”面目，结果青梅竹马一走你俩又和好了？玩我呢？</p>'
+	   '<p>我：呃……</p>'
+        '<p><<$XMK.name>>：现在我给她发信息都是已读不回了，还不是因为你？！</p>'
+	   '<p>我：别生气，我这就去叫她看你的短信！</p>'
+    '</div>'
+end
+
+
+--- 单学生 ---------------------------------
+

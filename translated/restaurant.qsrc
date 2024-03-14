@@ -14,8 +14,14 @@ gs'menu_gif'
 
 if $ARGS[0] ="":
 	$random_number=rand(1,100)
-	'<div class ="show_menu"><img src="images\place\餐厅.jpg" width="854"></div>'
-
+	if $random_number>=99:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\ZAQS.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else 
+		'<div class ="show_menu"><img src="images\place\餐厅.jpg" width="854"></div>'
+	end
 
 	'<div class="button_menu">'
 		if $gun_hunting_incident_chain>=2:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''restaurant'',''bartender_liyi''">Bartender</a></div>'
@@ -45,12 +51,21 @@ if $ARGS[0] ="":
 		if $ch_event_chain>=4 and week_day=5 and hour=18:'<div class="buttonP"><a href="exec:gt ''dealer_event'',''accompany_dinner''">Accompany<<$CH.name>></a></div>'
 		if $xn.trial=1 and week_day=6 and hour=18:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''nun_event'',''xn_fuck_wife''">❐Sneaky table</a></div>'
 		
+		if $syyy_event_chain=7 and hour =19:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''syyy_dinner''">Referrals<<$SYYY.name>></a></div>'
 		
 		if $squad_leader_event_chain_b=1 and hour=17:'<div class="buttonPu3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''squad_leader_b3''"><<$BZ.name>></a></div>'
 		if $squad_leader_event_chain_b=3 and hour=17:'<div class="buttonPu4"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''in_front_of_squad_leader_b6''"><<$BZ.name>></a></div>'
 		if $ct_test_2>=1 and restaurant_management<1:'<div class="buttonG3"><a href="exec:gt ''restaurant'',''restaurant_acquisition''">Talk about acquisitions</a></div>'
 		if restaurant_management=1:'<div class="buttonG5"><a href="exec:gt ''restaurant'',''run_a_restaurant''">Run a restaurant</a></div>'
 		if restaurant_management=2:'<div class="buttonG5"><a href="exec:a=0 & q=0 & gt ''empire_event'',''empire_fuck_restaurant_situation''">Run a restaurant</a></div>'
+		
+		if $bth_event_chain=1 and hour=20 and week_day>=6:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''student_group_event'',''bth_eat''"><<$BTH.name>></a></div>'
+		
+		if $yxh_event_chain=1 and hour=21:'<div class="buttonS3"><a href="exec:a=0 & q=0 & gt ''final_event'',''yxh_eat''"><<$YXH.name>></a></div>'
+		
+		if $hb_event_chain>=1 and hour=21 and week_day=UN.day and $hb_event_chain_h<3 and $hb_event_chain_b=0:'<div class="buttonS"><a href="exec:a=0 & q=0 & gt ''final_event'',''hb_derailment''"><<$HB.name>></a></div>'
+		if $hb_event_chain_h=3 and hour=23:'<div class="buttonR"><a href="exec:a=0 & q=0 & gt ''final_event'',''hb_restaurant_2''"><<$HB.name>></a></div>'
+		if $hb_event_chain_h=7 and hour=23:'<div class="buttonR"><a href="exec:a=0 & q=0 & gt ''final_event'',''hb_china_kill''"><<$HB.name>></a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''shopping_mall''">Leave</a></div>'
 	'</div>'
 

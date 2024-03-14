@@ -10,7 +10,7 @@ a=0 & q=0
 	gs'menu_option_show'
 	'<div class="actions_menu">'
 		'<div class="action">
-			<a class="photo" data-title="本班名册" href="exec:gt ''menu_charac_学生'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
+			<a class="photo" data-title="班级名册" href="exec:gt ''menu_charac_学生'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
 		</div>'
 		if 新图书馆=1:
 		'<div class="action">
@@ -19,18 +19,40 @@ a=0 & q=0
 		end
 		if 新体育馆=1:
 		'<div class="action">
-			<a class="photo" data-title="新体育馆" href="exec:gt ''学生群_事件'',''校花F15''"><img class="img_stretch" src="images\place\体育馆_<<$times_of_day>>.jpg"></a>
-		</div>'
+			<a class="photo" data-title="新体育馆" href="exec:gt ''学生群_事件'',''校花F15''"><img class="img_stretch" src="images\place\体育馆_<<$times_of_day>>.jpg"></a>'
+			if $args[0]="后门门卫" and 后门许可=1:
+			'<a class="photo"><img class="img_stretch" src="images\place\空白.jpg"></a>
+			<a class="photo" data-title="暴力出示" href="exec:$MPJ.bad+=1 & gt ''大学后门''"><img class="img_stretch" src="images\NPC\SCHOOL\pics\ZLS<<RAND(0,2)>>.gif"></a>'
+			end
+		'</div>'
 		end
 		if 新游泳馆=1:
 		'<div class="action">
 			<a class="photo" data-title="新游泳馆" href="exec:gt ''体育馆'',''游泳馆''"><img class="img_stretch" src="images\place\游泳馆_<<$times_of_day>>.jpg"></a>
+			<a class="photo"><img class="img_stretch" src="images\place\空白.jpg"></a>
+			<a class="photo" data-title="教室后门" href="exec:gt ''三年二班'',''后门门卫''"><img class="img_stretch" src="images\place\大学_后门.jpg"></a>
 		</div>'
 		end
+		
 	'</div>'
 '</div>'
 
 
+if $args[0]="后门门卫":
+	$MPJ.available=1
+	'<div class ="show_menu"><img src="images\place\后门门卫.jpg"  height="480"></div>'
+	
+	'<div class="button_menu">'
+		if 后门许可=1:'<div class="buttonP"><a href="exec:$MPJ.love+=1 & gt ''大学后门''">友好地出示许可</a></div>'else:'<div class="buttonGr"><a href="exec:">需要<<$SB.name>>许可</a></div>'
+		if 后门许可=1:'<div class="button"><a href="exec:gt ''单学生'',''MPJ''">对话</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if 后门许可>=0:'<p><<$MPJ.name>>:喂喂，教室的后门并不是对任何人都开放的喔❤</p>'
+		if 后门许可>=1:'<p>我:<<$SB.name>>给我许可了…</p>'
+		if 后门许可>=1:'<p><<$MPJ.name>>:好嘞，那咱以后都是自己人了❤</p>'
+	'</div>'
+end
 
 
 if $args[0]="":
@@ -41,6 +63,14 @@ if $args[0]="":
 		if $松本事件链=1:'<div class="button"><a href="exec:gt ''松本_事件'',''SB_Fuck_开幕''">看向讲台</a></div>'
 		if $松本事件链=2:'<div class="button"><a href="exec:gt ''松本_事件'',''SB_Fuck_km2''">看向讲台</a></div>'
 		if $松本事件链=3:'<div class="buttonP"><a href="exec:a=6 & gt ''松本_事件'',''SB_Fuck_km2''"><<$SB.name>></a></div>'
+		if 后门许可=1 and $松本事件链=3:'<div class="buttonPu4"><a href="exec:gt ''校长_事件'',''XZ_Fuck_未来讨论''">与此同时</a></div>'
+		if $松本事件链>=4:
+			if $JYB.ok=0:'<div class="buttonR"><a href="exec:a=0 & gt ''期末考试''">期末考试</a></div>'
+			if $JYB.ok=1:'<div class="buttonGn3"><a href="exec:">全员通过</a></div>'
+			'<div class="buttonP"><a href="exec:gt ''三年二班'',''自己讲课''">由我授课</a></div>'
+			'<div class="buttonG4"><a href="exec:gt ''三年二班'',''她代课''">托人代课</a></div>'
+		end
+		if $松本事件链=13 or $松本事件链=14:'<div class="buttonB4"><a href="exec:gt ''三年二班'',''实习教师''">㊕实习教师</a></div>'
 		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -57,20 +87,218 @@ if $args[0]="":
 			if $校花事件链<=1:'<p>·最后一排：<a href="exec:gt ''学生群_事件'',''校花开幕''">-<<$XH.name>></a></p>'
 			if $校花事件链>=2:'<p>·最后一排：<a href="exec:gt ''学生群_事件'',''校花对话''">-<<$XH.name>></a></p>'
 		end
-		
+		if $SYYY事件链=4:
+			'<p>·野比小雄在这里<a href="exec:gt ''学生群_事件'',''SYYY_委托''">-查看</a></p>'
+		end
+	'</div>'
+end
+
+
+if $args[0]="实习教师":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\代课<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if SB实习日>=30:'<div class="button"><a href="exec:gt ''三年二班'',''实习期满''">实习期满</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p><<$QMZM.name>>在认真担任实习教师一职</p>'
+		'<p><<$MPJ.name>>: 老师~如果你再垫胸垫上课的话会有麻烦的喔❤</p>'
+		'<p><<$SB.name>>: 闭嘴，上课不要发出声音。</p>'
+		'<p><<$MPJ.name>>: 诶？哦哦…太反常了吧…难道 她是小姐家的亲戚？看来我得收敛一点了…</p>'
+		'<p>———实习教师守则———</p>'
+		'<p>①实习期至少30天·目前<<SB实习日>>天</p>'
+		'<p>②最终去留<<$SB.name>>拥有一票否决权</p>'
+		'<p>我: 呃…我是不是应该找她谈谈呢…</p>'
+	'</div>'
+end
+
+if $args[0]="实习期满":
+	 if $松本事件链=13:$松本事件链=14
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\FN0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''大学''">晚上见</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我: 恭喜你完成了实习任期…</p>'
+		'<p><<$QMZM.name>>: 实习工作顺利结束了呢，晚上去我家聚餐吧？</p>'
+		'<p>我: 行…</p>'
+		'<p><<$QMZM.name>>: 那我们22:00在学校门口见！</p>'
+	'</div>'
+end
+
+
+if $args[0]="自己讲课":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\PT0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if week_day=1:'<div class="buttonS1"><a href="exec:gt ''三年二班'',''自己讲课2''">周一点名</a></div>'else:'<div class="buttonGr"><a href="exec:">周一点名</a></div>'
+		if week_day=2:'<div class="buttonS2"><a href="exec:gt ''三年二班'',''自己讲课2''">周二点名</a></div>'else:'<div class="buttonGr"><a href="exec:">周二点名</a></div>'
+		if week_day=3:'<div class="buttonS3"><a href="exec:gt ''三年二班'',''自己讲课2''">周三点名</a></div>'else:'<div class="buttonGr"><a href="exec:">周三点名</a></div>'
+		if week_day=4:'<div class="buttonS4"><a href="exec:gt ''三年二班'',''自己讲课2''">周四点名</a></div>'else:'<div class="buttonGr"><a href="exec:">周四点名</a></div>'
+		if week_day=5:'<div class="buttonS5"><a href="exec:gt ''三年二班'',''自己讲课2''">周五点名</a></div>'else:'<div class="buttonGr"><a href="exec:">周五点名</a></div>'
+		if week_day>5:'<div class="buttonGr"><a href="exec:">拜托，今天是周末</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:学习前必须摄入糖分，否则你只是分子随意结合组成的惰性块！</p>'
+		'<p>———外校旁听守则———</p>'
+		'<p>①必须身着校服</p>'
+		'<p>②每天的旁听生不同</p>'
+		'<p>③授课人气越高可以开设更多座位</p>'
+	'</div>'
+end
+
+
+if $args[0]="自己讲课2":
+	if 旁听座位=0:旁听座位=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\PT1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if 旁听座位<=4:
+			if 授课人气>=旁听座位*(旁听座位*5+5)/2:'<div class="button"><a href="exec:旁听座位+=1 & gt ''三年二班'',''自己讲课''">增添座位❤<<旁听座位*(旁听座位*5+5)/2>></a></div>'else:'<div class="buttonGr"><a href="exec:">增添座位❤需<<旁听座位*(旁听座位*5+5)/2>></a></div>'
+		end
+		'<div class="button"><a href="exec:gt ''三年二班''">返回</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:谁能解答一下黑板上的问题？</p>'
+		'<p>———授课人气❤<<授课人气>>———</p>'
+		'<p>*旁听席一览*</p>'
+		if week_day=1:
+		 '<p>*第一排：<a href="exec:ma_L=$MM.bad & $m=''MM'' & $ma=$MM.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$MM.name>></a></p>'
+		 if 旁听座位>=2:'<p>*第二排：<a href="exec:ma_L=$JJ.bad & $m=''JJ'' & $ma=$JJ.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$JJ.name>></a></p>'
+		 if 旁听座位>=3:'<p>*第三排：<a href="exec:ma_L=$DZ.bad & $m=''DZ'' & $ma=$DZ.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$DZ.name>></a></p>'
+		 if 旁听座位>=4:'<p>*第四排：<a href="exec:ma_L=$BGH.bad & $m=''BGH'' & $ma=$BGH.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$BGH.name>></a></p>'
+	 	 if 旁听座位>=5:'<p>*最末排：<a href="exec:ma_L=$JM.bad & $m=''JM'' & $ma=$JM.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$JM.name>></a></p>'
+		end
+        if week_day=2:
+            '<p>*第一排：<a href="exec:ma_L=$MS.bad & $m=''MS'' & $ma=$MS.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$MS.name>></a></p>'
+            if 旁听座位>=2:'<p>*第二排：<a href="exec:ma_L=$DY.bad & $m=''DY'' & $ma=$DY.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$DY.name>></a></p>'
+            if 旁听座位>=3:'<p>*第三排：<a href="exec:ma_L=$XS.bad & $m=''XS'' & $ma=$XS.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$XS.name>></a></p>'
+            if 旁听座位>=4:'<p>*第四排：<a href="exec:ma_L=$SWD.bad & $m=''SWD'' & $ma=$SWD.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$SWD.name>></a></p>'
+            if 旁听座位>=5:'<p>*最末排：<a href="exec:ma_L=$CH.bad & $m=''CH'' & $ma=$CH.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$CH.name>></a></p>'
+        end
+        if week_day=3:
+            '<p>*第一排：<a href="exec:ma_L=$SS.bad & $m=''SS'' & $ma=$SS.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$SS.name>></a></p>'
+            if 旁听座位>=2:'<p>*第二排：<a href="exec:ma_L=$JY.bad & $m=''JY'' & $ma=$JY.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$JY.name>></a></p>'
+            if 旁听座位>=3:'<p>*第三排：<a href="exec:ma_L=$LEI.bad & $m=''LEI'' & $ma=$LEI.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$LEI.name>></a></p>'
+            if 旁听座位>=4:'<p>*第四排：<a href="exec:ma_L=$EDM.bad & $m=''EDM'' & $ma=$EDM.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$EDM.name>></a></p>'
+            if 旁听座位>=5:'<p>*最末排：<a href="exec:ma_L=99999 & $m=''ZXG'' & $ma=$ZXG.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$ZXG.name>></a></p>'
+        end
+        if week_day=4:
+            '<p>*第一排：<a href="exec:ma_L=$SY.bad & $m=''SY'' & $ma=$SY.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$SY.name>></a></p>'
+            if 旁听座位>=2:'<p>*第二排：<a href="exec:ma_L=$WH.bad & $m=''WH'' & $ma=$WH.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$WH.name>></a></p>'
+            if 旁听座位>=3:'<p>*第三排：<a href="exec:ma_L=$HS.bad & $m=''HS'' & $ma=$HS.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$HS.name>></a></p>'
+            if 旁听座位>=4:'<p>*第四排：<a href="exec:ma_L=$ZX.bad & $m=''ZX'' & $ma=$ZX.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$ZX.name>></a></p>'
+            if 旁听座位>=5:'<p>*最末排：<a href="exec:ma_L=$MMS.bad & $m=''MMS'' & $ma=$MMS.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$MMS.name>></a></p>'
+        end
+        if week_day=5:
+            '<p>*第一排：<a href="exec:ma_L=$QT.bad & $m=''QT'' & $ma=$QT.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$QT.name>></a></p>'
+            if 旁听座位>=2:'<p>*第二排：<a href="exec:ma_L=$SF.bad & $m=''SF'' & $ma=$SF.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$SF.name>></a></p>'
+            if 旁听座位>=3:'<p>*第三排：<a href="exec:ma_L=$SSYY.bad & $m=''SSYY'' & $ma=$SSYY.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$SSYY.name>></a></p>'
+            if 旁听座位>=4:'<p>*第四排：<a href="exec:ma_L=$QB.bad & $m=''QB'' & $ma=$QB.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$QB.name>></a></p>'
+            if 旁听座位>=5:'<p>*最末排：<a href="exec:ma_L=$TS.bad & $m=''TS'' & $ma=$TS.name & gt ''截面群演_事件'',''专属_Fuck_学生旁听''"><<$TS.name>></a></p>'
+        end
 	'</div>'
 end
 
 
 
+if $args[0]="她代课":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\SK1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if week_day=1:'<div class="buttonB1"><a href="exec:gt ''三年二班'',''她代课2''">㊊企业管理学 </a></div>'else:'<div class="buttonGr"><a href="exec:">㊊企业管理学 </a></div>'
+		if week_day=2:'<div class="buttonB2"><a href="exec:gt ''三年二班'',''她代课2''">㊋人际沟通学 </a></div>'else:'<div class="buttonGr"><a href="exec:">㊋人际沟通学 </a></div>'
+		if week_day=3:'<div class="buttonB3"><a href="exec:gt ''三年二班'',''她代课2''">㊌职业规划学 </a></div>'else:'<div class="buttonGr"><a href="exec:">㊌职业规划学 </a></div>'
+		if week_day=4:'<div class="buttonB4"><a href="exec:gt ''三年二班'',''她代课2''">㊍行为心理学 </a></div>'else:'<div class="buttonGr"><a href="exec:">㊍行为心理学 </a></div>'
+		if week_day=5:'<div class="buttonB5"><a href="exec:gt ''三年二班'',''她代课2''">㊎偶像经纪学 </a></div>'else:'<div class="buttonGr"><a href="exec:">㊎偶像经纪学 </a></div>'
+		if week_day>5:'<div class="buttonGr"><a href="exec:">拜托，今天是周末</a></div>'
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>我:由校外人员代课的话，<<$SB.name>>就不能肆意为难老师了…</p>'
+		'<p>———校外人员代课守则———</p>'
+		'<p>①必须身着制服</p>'
+		'<p>②每天可上的课程不同</p>'
+		'<p>③代课老师的代课费由<<$主角姓名>>承担</p>'
+	'</div>'
+end
 
 
-
-
-
-
-
-
+if $args[0]="她代课2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\SK0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if week_day=1:
+			'<div class="buttonG1"><a href="exec:ma_L=$SWD.love & $m=''SWD'' & $ma=$SWD.name & 科base=1 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">入门✉︎请<<$SWD.name>> </a></div>'
+			if day1熟>=5:'<div class="buttonG2"><a href="exec:ma_L=$CH.love & $m=''CH'' & $ma=$CH.name & 科base=3 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">熟练✉请<<$CH.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+			if day1熟>=20:'<div class="buttonG3"><a href="exec:ma_L=$RION.love & $m=''RION'' & $ma=$RION.name & 科base=7 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">精通✉请<<$RION.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+			if day1熟>=55:'<div class="buttonG4"><a href="exec:ma_L=$JM.love & $m=''JM'' & $ma=$JM.name & 科base=9 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">专家✉请<<$JM.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+			if day1熟>=100:'<div class="buttonG5"><a href="exec:ma_L=$LB.love & $m=''LB'' & $ma=$LB.name & gt ''截面群演_事件'',''专属_Fuck_校外代课''">大师✉请<<$LB.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+		end
+        if week_day=2:
+            '<div class="buttonPu1"><a href="exec:ma_L=$MMS.love & $m=''MMS'' & $ma=$MMS.name & 科base=1 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">入门✉︎请<<$MMS.name>> </a></div>'
+            if day2熟>=5:'<div class="buttonPu2"><a href="exec:ma_L=$DY.love & $m=''DY'' & $ma=$DY.name & 科base=3 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">熟练✉请<<$DY.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day2熟>=20:'<div class="buttonPu3"><a href="exec:ma_L=$EDM.love & $m=''EDM'' & $ma=$EDM.name & 科base=7 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">精通✉请<<$EDM.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day2熟>=55:'<div class="buttonPu4"><a href="exec:ma_L=$BGH.love & $m=''BGH'' & $ma=$BGH.name & 科base=9 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">专家✉请<<$BGH.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day2熟>=100:'<div class="buttonPu5"><a href="exec:ma_L=$MS.love & $m=''MS'' & $ma=$MS.name & gt ''截面群演_事件'',''专属_Fuck_校外代课''">大师✉请<<$MS.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+        end
+        if week_day=3:
+            '<div class="buttonB1"><a href="exec:ma_L=$YH.love & $m=''YH'' & $ma=$YH.name & 科base=1 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">入门✉︎请<<$YH.name>> </a></div>'
+            if day3熟>=5:'<div class="buttonB2"><a href="exec:ma_L=$QT.love & $m=''QT'' & $ma=$QT.name & 科base=3 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">熟练✉请<<$QT.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day3熟>=20:'<div class="buttonB3"><a href="exec:ma_L=$JJ.love & $m=''JJ'' & $ma=$JJ.name & 科base=7 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">精通✉请<<$JJ.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day3熟>=55:'<div class="buttonB4"><a href="exec:ma_L=$DZ.love & $m=''DZ'' & $ma=$DZ.name & 科base=9 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">专家✉请<<$DZ.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day3熟>=100:'<div class="buttonB5"><a href="exec:ma_L=$BD.love & $m=''BD'' & $ma=$BD.name & gt ''截面群演_事件'',''专属_Fuck_校外代课''">大师✉请<<$BD.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+        end
+        if week_day=4:
+            '<div class="buttonR1"><a href="exec:ma_L=$HS.love & $m=''HS'' & $ma=$HS.name & 科base=1 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">入门✉︎请<<$HS.name>> </a></div>'
+            if day4熟>=5:'<div class="buttonR2"><a href="exec:ma_L=$LY.love & $m=''LY'' & $ma=$LY.name & 科base=3 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">熟练✉请<<$LY.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day4熟>=20:'<div class="buttonR3"><a href="exec:ma_L=$ZX.love & $m=''ZX'' & $ma=$ZX.name & 科base=7 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">精通✉请<<$ZX.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day4熟>=55:'<div class="buttonR4"><a href="exec:ma_L=$DC.love & $m=''DC'' & $ma=$DC.name & 科base=9 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">专家✉请<<$DC.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day4熟>=100:'<div class="buttonR5"><a href="exec:ma_L=99999 & $m=''ZXG'' & $ma=$ZXG.name & gt ''截面群演_事件'',''专属_Fuck_校外代课''">大师✉请<<$ZXG.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+        end
+        if week_day=5:
+            '<div class="buttonS1"><a href="exec:ma_L=$SF.love & $m=''SF'' & $ma=$SF.name & 科base=1 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">入门✉︎请<<$SF.name>> </a></div>'
+            if day5熟>=5:'<div class="buttonS2"><a href="exec:ma_L=$WH.love & $m=''WH'' & $ma=$WH.name & 科base=3 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">熟练✉请<<$WH.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day5熟>=20:'<div class="buttonS3"><a href="exec:ma_L=$QB.love & $m=''QB'' & $ma=$QB.name & 科base=7 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">精通✉请<<$QB.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day5熟>=55:'<div class="buttonS4"><a href="exec:ma_L=$SSYY.love & $m=''SSYY'' & $ma=$SSYY.name & 科base=9 & gt ''截面群演_事件'',''专属_Fuck_校外代课''">专家✉请<<$SSYY.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+            if day5熟>=100:'<div class="buttonS5"><a href="exec:ma_L=$TS.love & $m=''TS'' & $ma=$TS.name & gt ''截面群演_事件'',''专属_Fuck_校外代课''">大师✉请<<$TS.name>> </a></div>'else:'<div class="buttonGr"><a href="exec:">上了也听不懂 </a></div>'
+        end
+		'<div class="button"><a href="exec:gt ''大学''">离开</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		if week_day=1:'<p>该课程熟练度为【<<day1熟>>x✉︎】</p>'
+		if week_day=2:'<p>该课程熟练度为【<<day2熟>>x✉︎】</p>'
+		if week_day=3:'<p>该课程熟练度为【<<day3熟>>x✉︎】</p>'
+		if week_day=4:'<p>该课程熟练度为【<<day4熟>>x✉︎】</p>'
+		if week_day=5:'<p>该课程熟练度为【<<day5熟>>x✉︎】</p>'
+		'<p>———校外人员代课守则———</p>'
+		'<p>①必须身着制服</p>'
+		'<p>②每天可上的课程不同</p>'
+		'<p>③代课老师的代课费由<<$主角姓名>>承担</p>'
+	'</div>'
+	
+end
 
 
 

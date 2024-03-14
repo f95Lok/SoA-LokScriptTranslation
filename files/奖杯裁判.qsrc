@@ -1,0 +1,73 @@
+# 奖杯裁判
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+if 基础欢呼=0:基础欢呼=1
+gs'menu_gif'
+'<div id="right-column">'
+	gs"精力判定"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if $奖杯数>=128*$擂台我生命上限:'<a class="photo" data-title="生命上限♟x<<128*$擂台我生命上限>>" href="exec:$奖杯数-=128*$擂台我生命上限 & $擂台我生命上限+=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\命加.jpg"></a>'else:'<a class="photo" data-title="生命上限♟x<<128*$擂台我生命上限>>" ><img class="img_stretch" src="images\videos\fighter\pics\命加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $奖杯数>=8*$擂台我护盾上限:'<a class="photo" data-title="护盾上限♟x<<8*$擂台我护盾上限>>" href="exec:$奖杯数-=8*$擂台我护盾上限 & $擂台我护盾上限+=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\盾加.jpg"></a>'else:'<a class="photo" data-title="护盾上限♟x<<8*$擂台我护盾上限>>"><img class="img_stretch" src="images\videos\fighter\pics\盾加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $奖杯数>=$擂台初始回盾*$擂台初始回盾:'<a class="photo" data-title="护盾再生1%♟x<<$擂台初始回盾*$擂台初始回盾>>" href="exec:$奖杯数-=$擂台初始回盾*$擂台初始回盾 & $擂台初始回盾+=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\盾回.jpg"></a>'else:'<a class="photo" data-title="护盾再生1%♟x<<$擂台初始回盾*$擂台初始回盾>>"><img class="img_stretch" src="images\videos\fighter\pics\盾回.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $奖杯数>=2*$擂台初始闪避:'<a class="photo" data-title="闪避几率1%♟x<<2*$擂台初始闪避>>" href="exec:$奖杯数-=2*$擂台初始闪避 & $擂台初始闪避+=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\闪加.jpg"></a>'else:'<a class="photo" data-title="闪避几率1%♟x<<2*$擂台初始闪避>>" ><img class="img_stretch" src="images\videos\fighter\pics\闪加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $奖杯数>=6:'<a class="photo" data-title="暴击几率1%♟x6" href="exec:$奖杯数-=6 & $擂台初始暴击+=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\暴加.jpg"></a>'else:'<a class="photo" data-title="暴击几率1%♟x6" ><img class="img_stretch" src="images\videos\fighter\pics\暴加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $奖杯数>=8*$灌铅骰子:'<a class="photo" data-title="灌铅骰子♟x<<8*$灌铅骰子>>" href="exec:$奖杯数-=8*$灌铅骰子 & $灌铅骰子+=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\N8.jpg"></a>'else:'<a class="photo" data-title="灌铅骰子♟x<<8*$灌铅骰子>>"><img class="img_stretch" src="images\videos\fighter\pics\N8.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $奖杯数>=基础欢呼*5:'<a class="photo" data-title="+<<基础欢呼*2>>㊔♟x<<基础欢呼*5>> " href="exec:$奖杯数-=基础欢呼*5 & 基础欢呼+=基础欢呼*2 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\欢呼.jpg"></a>'else:'<a class="photo" data-title="更多欢呼声㊔♟x<<基础欢呼*5>>"><img class="img_stretch" src="images\videos\fighter\pics\欢呼.jpg"></a>'
+		'</div>'
+		
+		
+		
+		if 战利品3=0:
+		'<div class="action">'
+			if $奖杯数>=8:'<a class="photo" data-title="更多战利品♟x8" href="exec:$奖杯数-=8 & 战利品3=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\战利品3.jpg"></a>'else:'<a class="photo" data-title="更多战利品♟x8"><img class="img_stretch" src="images\videos\fighter\pics\战利品3.jpg"></a>'
+		'</div>'
+		end
+		if 战利品4=0:
+		'<div class="action">'
+			if $奖杯数>=16:'<a class="photo" data-title="更多战利品♟x16" href="exec:$奖杯数-=16 & 战利品4=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\战利品4.jpg"></a>'else:'<a class="photo" data-title="更多战利品♟x16"><img class="img_stretch" src="images\videos\fighter\pics\战利品4.jpg"></a>'
+		'</div>'
+		end
+		if 战利品5=0:
+		'<div class="action">'
+			if $奖杯数>=32:'<a class="photo" data-title="更多战利品♟x32" href="exec:$奖杯数-=32 & 战利品5=1 & gt ''奖杯裁判''"><img class="img_stretch" src="images\videos\fighter\pics\战利品5.jpg"></a>'else:'<a class="photo" data-title="更多战利品♟x32"><img class="img_stretch" src="images\videos\fighter\pics\战利品5.jpg"></a>'
+		'</div>'
+		end
+		
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class="show_menu">'
+		'<img src="images\videos\fighter\pics\兑换0.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''夜色精巢'',''擂台区''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我拥有的参赛奖杯♟x<<$奖杯数>></p>'
+	'</div>'
+End
+--- 奖杯裁判 ---------------------------------
+

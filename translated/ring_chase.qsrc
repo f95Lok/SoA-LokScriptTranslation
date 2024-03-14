@@ -1,0 +1,60 @@
+# ring_chase
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+$ring_enemy_shield-=1
+if $ring_enemy_shield<0:$ring_enemy_shield=0
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "ring_enemy_attributes"
+		'</div>'
+		
+		'<div class="action">'
+			if sk_kneading_milk=1:'<a class="photo" data-title="Kneading breasts" href="exec:a=8 & gt ''in_the_ring''"><img class="img_stretch" src="images\videos\fighter\pics\MSK1.jpg"></a>'
+			if sk_mesh_edge=1:'<a class="photo" data-title="Net edge suppression" href="exec:a=12 & gt ''ring_net_edge''"><img class="img_stretch" src="images\videos\fighter\pics\MSK4.jpg"></a>'
+		'</div>'
+		
+		
+		'<div class="action">'
+			if sk_blowjob=1:'<a class="photo" data-title="Oral sex" href="exec:a=9 & gt ''in_the_ring''"><img class="img_stretch" src="images\videos\fighter\pics\MSK2.jpg"></a>'
+			if sk_ground=1:'<a class="photo" data-title="Ground suppression" href="exec:a=16 & gt ''ring_ground''"><img class="img_stretch" src="images\videos\fighter\pics\MSK5.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if sk_strong_plug=1:'<a class="photo" data-title="Penetrate her" href="exec:a=11 & $ring_enemy_uterus+=5 & gt ''in_the_ring''"><img class="img_stretch" src="images\videos\fighter\pics\MSK3.jpg"></a>'
+			if SKTKO=1:'<a class="photo" data-title="TKO" href="exec:a=21 & gt ''ring_tko''"><img class="img_stretch" src="images\videos\fighter\pics\MSK6.jpg"></a>'
+			'<a class="photo" data-title="Throw fight points" href="exec:a=2 & gt ''throw_points_in_the_ring''"><img class="img_stretch" src="images\videos\fighter\pics\投掷.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<ring_num>>\7.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs 'my_data_in_the_ring'
+	'</div>'
+End
+
+
+--- ring_chase ---------------------------------
+

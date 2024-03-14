@@ -36,6 +36,7 @@ if $args[0]="":
 		if  $FXZ.bad>=150:'<div class="buttonS4"><a href="exec:minutes+=15 &  gt ''副校长_事件'',''FXZ_Fuck_办公室''">干她</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
 	    if  $FXZ.bad>=330-$FXZ.love and hour=17:'<div class="buttonS5"><a href="exec:minutes+=15 &  gt ''副校长_事件'',''FXZ_Fuck_校长室''">去校长室做爱</a></div>'else:'<div class="buttonGr"><a href="exec:">？？？</a></div>'
         if 授精室=1 and $FXZ.bad>=200 and $FXZ.授精=0:'<div class="buttonS"><a href="exec:$FXZ.授精=1 & gt ''副校长室''">邀请人工授精</a></div>'
+        if $JYB事件链=4 and $FXZ.IN=0:'<div class="buttonG"><a href="exec: gt ''副校长室'',''邀请草拟''">邀请草拟教育法案</a></div>'
 
 		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">离开</a></div>'
 	'</div>'
@@ -150,5 +151,26 @@ if $args[0]="拉拢":
 	'</div>'
 End
 
+if $args[0]="邀请草拟":
+	$FXZ.IN=1 
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FXZ\vids\办公室0~1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''大学''">递出邀请函</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我：我代表<<$JYB.name>>向您发出邀请。</p>'
+		'<p><<$FXZ.name>>：*眼神古怪*<<$JYB.name>>？那可是我一直想巴结的人…</p>'
+		'<p>我：她需要一个教龄充足的大学老师担任主编，我想这个角色非你莫属了。</p>'
+		'<p><<$FXZ.name>>：当然！我非常乐意！</p>'
+		'<p>我：那我们说定了？</p>'
+		'<p><<$FXZ.name>>：没问题，我会去她的部长办公室替她草拟教育法案，顺带一提，<<$XZ.name>>没她的份吧？</p>'
+		'<p>我：当然。</p>'
+	'</div>'
+End
 --- 副校长室 ---------------------------------
 

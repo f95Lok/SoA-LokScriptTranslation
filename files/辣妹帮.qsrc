@@ -44,7 +44,8 @@ End
 if $args[0]="走廊":
 	'<div class ="show_menu"><img src="images\place\辣妹帮走廊.jpg" width="854"></div>'
 	'<div class="button_menu">'
-		if hour>=19:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''会长房间''"><<$hz.name>>的房间</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$hz.name>>的房间:上锁</a></div>'
+		if hour>=19 and $HZ.love>=150:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''会长房间''"><<$hz.name>>的房间</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$hz.name>>的房间:上锁</a></div>'
+		if $FZL.room=1:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''FZL房间''"><<$FZL.name>>的房间</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''地铁''">回城里</a></div>'
 	'</div>'
 
@@ -101,6 +102,8 @@ if $args[0]="顶层2":
 	
 	
 	'<div class="button_menu">'
+		if $YXH事件链>=3 and $EDM.love>=200:'<div class="buttonW"><a href="exec:minutes+=15 & gt ''最终_事件'',''EDM_洗澡''">陪她洗澡</a></div>'
+	
 		if $YDM_Event_free=0:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''对话''">解释</a></div>'
 		if $YDM_Event_free>0 and $格斗前置=2:'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''辣妹帮'',''格斗比赛''">格斗比赛</a></div>'
 		if $YDM_Event_free=10:'<div class="button"><a href="exec:minutes+=15 & gt ''辣妹帮'',''越狱尾款''">越狱尾款</a></div>'
@@ -336,7 +339,6 @@ if $args[0]="会长房间":
 	'</div>'
 End
 
-
 if $args[0]="会长房间药":
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
@@ -374,7 +376,24 @@ if $args[0]="会长房间过夜":
 	'</div>'
 End
 
+if $args[0]="FZL房间":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FZL\vids\ZHUR1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:$m=''FZL'' & $FZL.bad+=25 & $ma=$FZL.name & love_num=$FZL.love & $m地址=''ZHUR'' & gt ''截面_事件'',''泛用截面''">拉过来激吻</a></div>'
+		if week_day=6:'<div class="buttonS"><a href="exec: gt ''学生群_事件'',''FZLpa''">❤开淫趴❤</a></div>'else:'<div class="buttonG3"><a href="exec:a=0 & gt ''学生群_事件'',''FZL工作''">送她去实习工作</a></div>'
+		'<div class="buttonGn3"><a href="exec:$m=''FZL'' & $ma=$FZL.name & gt ''学生群_事件'',''学生群_Fuck_自补习''">辅导学习成绩</a></div>'
+	'</div>'
 
+	'<div class="dialog_menu">'
+		'<p><<$FZL.name>>:怎庅样，適里哋寰璄还芣措吧…</p>'
+		'<p>我:看来辣妹帮的住宿条件真不一般啊…</p>'
+		'<p><<$FZL.name>>:周六我们会开淫趴…你唻莋莪哋莮伴吧❤</p>'
+	'</div>'
+End
 
 
 

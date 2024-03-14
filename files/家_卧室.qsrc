@@ -4,6 +4,9 @@ $metka = $ARGS[0]
 $loc = $CURLOC
 gs'menu_gif'
 
+if $UN事件链=8:hour=8 & gt'北国'
+if $FK坏结局>0:a=0 & gt'最终_事件','逃跑'
+
 if $销售_Event_买车=1 and $销售电话1=0:gt'销售_事件','电话1'
 if  3>=XM录像带 and XM录像带>=2 and $XM录像未看天数>=14:gt'杀手_事件','电话1'
 
@@ -15,9 +18,8 @@ if  3>=XM录像带 and XM录像带>=2 and $XM录像未看天数>=14:gt'杀手_�
 	'<div class="actions_menu">'
 		'<div class="action">
 			<a class="photo" data-title="去大厅" href="exec:minutes+=5 & gt ''家''"><img class="img_stretch" src="images\place\家.jpg"></a>
-		</div>
-		
-		<div class="action">
+		</div>'
+		'<div class="action">
 			<a class="photo" data-title="电脑" href="exec:minutes+=5 & gt ''家_电脑''"><img class="img_stretch" src="images\place\电脑.jpg"></a>
 		</div>'
 		
@@ -26,7 +28,7 @@ if  3>=XM录像带 and XM录像带>=2 and $XM录像未看天数>=14:gt'杀手_�
 				<a class="photo" data-title="等离子电视机" href="exec:minutes+=5 & gt ''家_电视''"><img class="img_stretch" src="images\place\电视.jpg"></a>
 			</div>'
 		end
-		
+
 	'</div>'
 '</div>'
 
@@ -42,6 +44,12 @@ if  3>=XM录像带 and XM录像带>=2 and $XM录像未看天数>=14:gt'杀手_�
 	<div class="button"><a href="exec:minutes+=60  & a=0 & q=0 & my.精力+=12 & gt ''家_卧室''">小睡片刻 1h</a></div>
 	<div class="button"><a href="exec:minutes+=480  & gt ''睡觉''">充分睡眠 8h</a></div>'
 	if $悠亚任务=4:'<div class="button"><a href="exec:gt ''悠亚_事件'',''SSYY_Fuck_反2''">邀请<<$SSYY.name>></a></div>'
+	
+	if $SB.tel=1:
+		'<div class="buttonS"><a href="exec:$m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m地址=''YHA'' & gt ''截面_事件'',''泛用截面''">约<<$SB.name>></a></div>'
+	else:
+		if $松本事件链>=10 and $松本矛盾=0:'<div class="buttonGn4"><a href="exec:gt ''松本_事件'',''补习''">辅导<<$SB.name>></a></div>'
+	end
 '</div>'
 
 

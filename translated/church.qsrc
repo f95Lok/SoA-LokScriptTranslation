@@ -27,6 +27,7 @@ if $ARGS[0]="":
 		if $xn.trial=1:'<div class="buttonPu2"><a href="exec:minutes+=15 & gt ''nun_event'',''xn_fuck_bishop_trainee''">Bishop`s room</a></div>'
 		if $xn.trial<2:'<div class="buttonG1"><a href="exec:minutes+=15 & gt ''nun_event'',''xn_fuck_communion''">Watching the Eucharist</a></div>'
 		if $my_bishop=1:'<div class="buttonG2"><a href="exec:minutes+=15 & gt ''church'',''bishop_position''">Sit on the bishop`s seat</a></div>'
+		if $lei.finally=1:'<div class="buttonG5"><a href="exec:minutes+=15 & gt ''church'',''church_wedding''">Business: Church wedding</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''suburbs''">Leave</a></div>'
 	'</div>'
 
@@ -52,6 +53,7 @@ if $ARGS[0]="":
 	
 	'<div class="dialog_menu">'
 		'<p>·The believers knelt down on both sides, and the statue of Shimolos was enshrined in the center of the church, which represented “uncontrollable desire.”</p>'
+		if week_day=1 and hour=13 and $fk_dead=0:'<p>·Men who come every Monday<a href="exec:a=4 & gt ''church'',''GOD0''">-On the sidelines</a></p>'
 		if $xn.trial=1:'<p>· <<$XN.name>>Placed in the correctional hall in the church<a href="exec:a=4 & gt ''nun_event'',''xn_fuck_trial''">Accept purification</a></p>'
 		if $lei.finally=1:'<p><font color="#FF1493">· <<$LEI.name>>Guiding worshippers</font><a href="exec:gt ''church'',''leifinally''">-View</a></p>'
 		'<p>——————————</p>'
@@ -386,10 +388,12 @@ if $args[0]="church_wedding":
         '<div class ="show_menu2"><img src="images\NPC\XN\pics\wed (<<rand(1,7)>>).jpg" height="492"></div>'
        
         '<div class="button_menu">'
-		  '<div class="buttonS"><a href="exec: gt ''nun_event'',''XN_Fuck_WED''">Take her to your room</a></div>'
+		  '<div class="buttonP"><a href="exec: gt ''nun_event'',''XN_Fuck_WED''">Take her to your room</a></div>'
             '<div class="buttonGn3"><a href="exec: gt ''church''">Leave</a></div>'
-            if $bank_event_chain_b>=8:'<div class="buttonG4"><a href="exec: gt ''bank_event'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
+            if $jyb_event_chain>=17:'<div class="buttonS"><a href="exec: gt ''church'',''one_wife_and_multiple_husbands_wedding''">一One wife and multiple husbands wedding㊚</a></div>'
+            if $bank_event_chain_b>=8:'<div class="buttonG3"><a href="exec: gt ''bank_event'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
             if $wh.wedding_dress=1:'<div class="buttonG4"><a href="exec:gt ''net_celebrity_event'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'
+            if $bth_event_chain>=14:'<div class="buttonG5"><a href="exec:gt ''student_group_event'',''bth_wedding''">㊕<<$BTH.name>></a></div>'
         '</div>'
 
          '<div class="dialog_menu">'
@@ -401,6 +405,62 @@ if $args[0]="church_wedding":
          '</div>'
 End
 
+if $args[0]="one_wife_and_multiple_husbands_wedding":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\WEDN.webm" type=''video/webm;''></video></div>'
+        '</div>'
+       
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec: $m_filename_reference=''JYB'' & $m=''JYB'' & $ma=$JYB.name & $m_address=''HSXC'' & $Tename=''满足'' & Telove=$JYB.love & Tebad=$JYB.bad & gt ''universal_sex'',''DEMO''"><<$JYB.name>>The newlywed</a></div>'
+		  '<div class="buttonG1"><a href="exec: gt ''church'',''my_wedding''">The proposal letter I received</a></div>'
+            '<div class="buttonGn3"><a href="exec: gt ''church''">Leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 '<p>>`One-Wife Polygamy Marriage Law` One-wife polygamy System: The number of male citizens in China has plummeted. In order to ensure the fertility rate of high-quality women, a female citizen can fully enjoy the freedom of marriage and become a sexual spouse with multiple men.</p>'
+		 '<p>>1.1 Supplement to the Regulations: In order to ensure that all female citizens have the full right to choose a spouse, female spouses shall not monopolize their male spouses.</p>'
+		 '<p>>1.2 Supplement to the Regulations: In order to ensure the status of women, the relationship between sexual spouses can be terminated by the woman in the form of “divorce” at any time.</p>'
+		 '<p>>1.3 Supplementary regulations: If the relationship between husband and wife before the entry into force of the `One-wife Multi-husband Marriage Law` will be recognized as a feudal marriage, the woman may unilaterally terminate the marriage relationship, and all previous cheating, extramarital affairs, rape, and promiscuity with others will not be investigated.</p>'
+         '</div>'
+End
+
+if $args[0]="my_wedding":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\WEDN1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+       
+        '<div class="button_menu">'
+		  '<div class="buttonS"><a href="exec:gt ''final_event'',''sb_wedding''"><<$SB.name>>Letter of proposal</a></div>'
+		  if $hb_event_chain_h=1:'<div class="buttonG4"><a href="exec:gt ''final_event'',''hb_wedding''"><<$HB.name>>Letter of proposal</a></div>'
+            '<div class="buttonGn3"><a href="exec: gt ''church''">Leave</a></div>'
+        '</div>'
+
+         '<div class="dialog_menu">'
+		 '<p>>`One-Wife Polygamy Marriage Law` One-wife polygamy System: The number of male citizens in China has plummeted. In order to ensure the fertility rate of high-quality women, a female citizen can fully enjoy the freedom of marriage and become a sexual spouse with multiple men.</p>'
+		 '<p>>1.1 Supplement to the Regulations: In order to ensure that all female citizens have the full right to choose a spouse, female spouses shall not monopolize their male spouses.</p>'
+		 '<p>>1.2 Supplement to the Regulations: In order to ensure the status of women, the relationship between sexual spouses can be terminated by the woman in the form of “divorce” at any time.</p>'
+		 '<p>>1.3 Supplementary regulations: If the relationship between husband and wife before the entry into force of the `One-wife Multi-husband Marriage Law` will be recognized as a feudal marriage, the woman may unilaterally terminate the marriage relationship, and all previous cheating, extramarital affairs, rape, and promiscuity with others will not be investigated.</p>'
+		 '<p>>Me: It seems that I am still quite popular…</p>'
+         '</div>'
+End
+
+
+if $args[0]="GOD0":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XN\vids\GOD0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+        '<div class="button_menu">'
+		  if $prologue=3:'<div class="button"><a href="exec:minutes+=60 & gt ''final_event'',''frank_dialogue''">Keep up the conversation</a></div>'
+            '<div class="button"><a href="exec:minutes+=60 & gt ''church''">Ignore him</a></div>'
+        '</div>'
+        
+         '<div class="dialog_menu">'
+			  '<p>Man: It`s a pity that traditional morals rely on religion, and today, when God is dead, no one cares about the soul and the rewards and punishments after death.After losing religion, morality became a pale and weak duckweed, so I prayed to myself, only for myself.</p>'
+         '</div>'
+End
 
 
 

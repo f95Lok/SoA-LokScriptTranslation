@@ -30,11 +30,11 @@ if $args[0]="":
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>Quiet and peaceful school hallway，<a href="exec:minutes+=5 & gt ''school_corridor'',''bulletin_board''">An announcement board</a> placed in the most attention-grabbing position.</p>'
+		'<p>Quiet and peaceful school hallway，<a href="exec:minutes+=5 & gt ''school_corridor'',''bulletin_board''">A bulletin board</a> placed in the most attention-grabbing position.</p>'
 		if campusrandomnumber>=94 and $front_of_news_program=1:'<p>Expatriate reporters from the TV station are interviewing<a href="exec:minutes+=5 & gt ''school_corridor'',''news_interview''">Swimming club</a></p>'
 		if campusrandomnumber<=6 and $front_of_news_program=1:'<p>Expatriate reporters from the TV station are interviewing<a href="exec:minutes+=5 & gt ''school_corridor'',''news_interview''">Basketball club</a></p>'
 		if campusrandomnumber<=5 and hour<=15 and $school_event_hope<2:'<p>Outside the professors` office:<a href="exec:minutes+=5 & gt ''school_corridor'',''quarrel''"> Sounds of a quarrel</a></p>'
-		if campusrandomnumber<=5 and hour<=15 and $school_event_hope=2:'<p>On-campus picket team<a href="exec:minutes+=5 & gt ''group_performation_event'',''group_play_fuck_hope_a''">Collective action</a></p>'
+		if campusrandomnumber<=5 and hour<=15 and $school_event_hope=2:'<p>School`s Internal Discipline Committee<a href="exec:minutes+=5 & gt ''group_performation_event'',''group_play_fuck_hope_a''">Collective action</a></p>'
 		if campusrandomnumber<=50 and hour<=15 and $school_event_hope=3:'<p>Summon members of the picket team<a href="exec:minutes+=5 & gt ''group_performation_event'',''group_play_fuck_hope_b''">Correction report</a></p>'
 		if $ZL_Event_face=2 and hour =17:'<p><<$ZL.name>>With her friends<a href="exec:minutes+=5 & gt ''aid_event'',''study_room''">Study room</a>inside.</p>'
 		if $ZL.love>=400-$ZL.bad  and $LJ.love>=400-$LJ.bad and 13<=hour and hour<=14 :'<p><<$ZL.name>>and<<$LJ.name>>in<a href="exec:minutes+=5 & gt ''repeating_event'',''ljzl_fuck_inverse_3p''">Reading room</a>inside.</p>'
@@ -48,7 +48,8 @@ if $args[0]="":
 		if campusrandomnumber<=25 and hour=10 and $sy.pick_up_the_uniform=1:'<p>From the medical examination room<a href="exec:minutes+=5 & gt ''school_corridor'',''medical_examination_room''">Noise</a></p>'
 		if campusrandomnumber>=75 and hour>=17 and $sy.uniform>=1:'<p>In the men`s room on the second floor<a href="exec:minutes+=5 & gt ''uehara_event'',''SY_Fuck_WC''">Gathered crowd</a></p>'
 		if $LXS.bad>100 and hour>=17 and campusrandomnumber<=25:'<p>It came from the health room on the second floor<a href="exec:gt ''study_abroad_event'',''study_abroad_fuck_secretly''">Panting</a></p>'
-		
+		if school_cos_group=1 and rand(0,9)>5:'<p>·Maybe it`s a good idea to renew the Cosplay community here?<a href="exec:gt ''student_group_event'',''student_group_coser_group_front''">-Give it a try</a></p>'
+		if $jyb_event_chain>=11:'<p>Full-day sex education health experience volunteer lectures are being held<a href="exec:gt ''final_event'',''education_implementation''">Ready to hold</a></p>'
 	'</div>'
 End
 
@@ -107,7 +108,7 @@ if $args[0]="quarrel":
 		'<div class="dialog_menu">'
 			'<p>Male professor: Xiaoshi, you`ve just started working here, so if there`s anything you don`t understand, you can come and ask me. For a female teacher in this school, if you don`t take a side, it will be very dangerous…</p>'
 			'<p>Female professor: I am actually not worried about certain factional pressures or unfair treatment. I believe that as long as I teach seriously, I can help students improve their interest in learning and grades.</p>'
-			'<p>Male professor: You umm... you`re still too young... don`t make your decision too quickly. If you have any ideas, you talk to me!</p>'
+			'<p>Male professor: You umm... you`re still too young... don`t make your decision too quickly. If you have any ideas, you can talk to me!</p>'
 		'</div>'
 		$school_event_hope=1
 	end

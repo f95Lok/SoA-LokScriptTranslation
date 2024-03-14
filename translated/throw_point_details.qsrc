@@ -1,0 +1,68 @@
+# throw_point_details
+
+
+
+if ring_num<=3:
+	$enemy_throwing_points=rand(1,ring_num+2)
+else:
+	$enemy_throwing_points=rand(1,6)
+end
+
+
+
+
+$i_throw_points=99
+$dice_color="N"
+
+
+
+
+
+if $ring_dice_1>=rand(1,100):$i_throw_points=1
+if $ring_dice_2>=rand(1,100):$i_throw_points=2
+if $ring_dice_3>=rand(1,100):$i_throw_points=3
+if $ring_dice_4>=rand(1,100):$i_throw_points=4
+if $ring_dice_5>=rand(1,100):$i_throw_points=5
+if $ring_dice_6>=rand(1,100):$i_throw_points=6
+
+
+if $ring_dice_6>=100:$i_throw_points=6
+if $ring_dice_5>=100:$i_throw_points=5
+if $ring_dice_4>=100:$i_throw_points=4
+if $ring_dice_3>=100:$i_throw_points=3
+if $ring_dice_2>=100:$i_throw_points=2
+if $ring_dice_1>=100:$i_throw_points=1
+
+
+if $enemy_throwing_points=6 and $rat_dice_1>=rand(1,100):
+	$i_throw_points=7
+	$dice_color="N"
+end
+
+
+
+if $i_throw_points=99:gs'throw_point_details'
+
+
+if $dice_corrosion_rate>=rand(1,100):
+	$dice_color="F"
+end
+
+
+if dice_critical_strike_rate>=rand(1,100) and $i_throw_points<=6:
+	$dice_color="B"
+	$i_throw_points*=dice_critical_strike_multiple/100
+	if $i_throw_points>=7:$i_throw_points=6
+end
+
+
+if lead_filling_dice_activation=1:
+	$i_throw_points=8
+	$enemy_throwing_points=rand(1,5)
+	lead_filling_dice_activation=0
+	$dice_color="N"
+end
+
+if $dice_color="F":$ring_enemy_shield-=1
+--- throw_point_details ---------------------------------
+

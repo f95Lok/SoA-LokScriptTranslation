@@ -1,0 +1,49 @@
+# 擂台网边
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "擂台敌属性"
+		'</div>'
+		
+		'<div class="action">'
+			if SK网边口=1 and a=12:'<a class="photo" data-title="口交支援" href="exec:a=13 & gt ''擂台网边''"><img class="img_stretch" src="images\videos\fighter\pics\MSK7.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if SK网边贯穿=1 and a=12:'<a class="photo" data-title="贯穿支援" href="exec:a=15 & $擂台敌子宫+=5 & gt ''擂台网边''"><img class="img_stretch" src="images\videos\fighter\pics\MSK8.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if SK网边潮吹=1 and (a=13 or a=15):'<a class="photo" data-title="强制潮吹" href="exec:a=14 & $擂台敌子宫+=5 & gt ''擂台网边''"><img class="img_stretch" src="images\videos\fighter\pics\MSK9.jpg"></a>'
+			'<a class="photo" data-title="投掷拼点" href="exec:a=2 & gt ''擂台掷点''"><img class="img_stretch" src="images\videos\fighter\pics\投掷.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+End
+--- 擂台网边 ---------------------------------
+

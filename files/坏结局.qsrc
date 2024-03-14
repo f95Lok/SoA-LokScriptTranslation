@@ -1,0 +1,73 @@
+# 坏结局
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+市长确定=1
+
+if $args[0]="":
+	 if $FK坏结局=1:gt'坏结局','EVA'
+	 if $FK坏结局=2:gt'坏结局','当兵'
+end
+
+
+if $args[0]="EVA":
+	 $FK坏结局=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\AW\vids\FKHSL1-10.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=180 & gt ''坏结局'',''EVA2''">啊啊啊啊啊啊！</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>*我来驾驶！</p>'
+	'</div>'
+end
+
+
+if $args[0]="EVA2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\AW\vids\FKHSL1-11.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:">结局达成</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>*达成了结局——肩负使命的驾驶员</p>'
+		'<p>·——————————</p>'
+		'<p>*可以点击主角属性界面的按钮重置结局</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="当兵":
+	 $FK坏结局=2
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\AW\vids\FKHSL1-12.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:">结局达成</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>*达成了结局——直面前线的炮灰</p>'
+		'<p>·——————————</p>'
+		'<p>*可以点击主角属性界面的按钮重置结局</p>'
+	'</div>'
+end
+--- 坏结局 ---------------------------------
+

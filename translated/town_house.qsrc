@@ -6,7 +6,7 @@ a=0 & q=0
 $random_number=rand(0,100)
 gs'menu_gif'
 
-
+if day=25 and month=12 and $times_of_day='':gt 'group_performation_event','santa_claus'
 if $caesar_works_part_time=1 and $times_of_day='' and 50<=$random_number and $random_number<=55:gt 'task_event','huntingpassersby'
 if $have_seen_the_floor_plan=1 and $random_number<=40:gt 'widow_incident','the_second-in-command_returns'
 
@@ -50,9 +50,18 @@ if $have_seen_the_floor_plan=1 and $random_number<=40:gt 'widow_incident','the_s
 			'<a class="photo" data-title="【Lock】" href="exec:"><img class="img_stretch" src="images\place\YS家.jpg"></a>'
 			end
 		'</div>'
-			
-			
-			
+		'<div class="action">'
+			if $bth_event_chain>=3:
+				'<a class="photo" data-title="St. Benedict`s home" href="exec:gt ''student_group_event'',''bth_jia''"><img class="img_stretch" src="images\place\花家.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if $fk_event_chain>=1:
+				if $fk_dead=0:'<a class="photo" data-title="No. 1600" href="exec:gt ''fk_home'',''sml_vertical_painting''"><img class="img_stretch" src="images\NPC\JYB\pics\FK家.jpg"></a>'else:'<a class="photo" data-title="No. 1600" href="exec:gt ''fk_home_2''"><img class="img_stretch" src="images\NPC\JYB\pics\FK家2.jpg"></a>'
+			else:
+				'<a class="photo" data-title="Not qualified"><img class="img_stretch" src="images\NPC\JYB\pics\FK家.jpg"></a>'
+			end
+		'</div>'
 
 	'</div>'
 '</div>'

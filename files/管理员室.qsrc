@@ -1,0 +1,265 @@
+# 管理员室
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+minutes+=15
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	if $args[0]!"" and  $args[0]!"电脑":
+		'<div class="action">'
+			'<a class="photo" data-title="A203" href="exec:gt ''管理员室'',''播放203''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A202" href="exec:gt ''管理员室'',''播放202''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="上一层"><img class="img_stretch" src="images\place\电梯_上.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A201" href="exec:gt ''管理员室'',''播放201''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+		'<div class="action">'
+			'<a class="photo" data-title="A103" href="exec:gt ''管理员室'',''播放103''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (1).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A102" href="exec:gt ''管理员室'',''播放102''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (8).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="A101" href="exec:gt ''管理员室'',''播放101''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (9).jpg"></a>'
+		'</div>'
+		! ###############################################################
+	
+		'<div class="action">'
+			'<a class="photo" data-title="居民区" href="exec:gt ''管理员室'',''播放003''"><img class="img_stretch" src="images\place\居民区_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="公寓管理员室" href="exec:gt ''管理员室'',''门口''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (7).jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo"  ><img class="img_stretch" src="images\place\电梯.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="社区便利店" href="exec:gt ''管理员室'',''播放001''"><img class="img_stretch" src="images\place\公寓便利店小图.jpg"></a>'
+		'</div>'
+	end
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	if 管理员初次进=0:
+		'<div class ="show_menu"><img src="images\place\管理室0.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">。。。</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>女人: 恭喜你获得游戏资格。</p>'
+			'<p>男人: 嘿，老实说我也很想玩，但我有重要的工作在身，没了我整栋公寓就要乱套了。</p>'
+			'<p>我: 呃…我是不是来的不是时候？</p>'
+			'<p>女人: 当然不是。看来有人能接替你的工作了，跟我们走吧！</p>'
+			'<p>男人: 我淦！</p>'
+			'<p>*男人被押着带走了…</p>'
+			管理员初次进=1
+		'</div>'
+	else:
+		'<div class ="show_menu"><img src="images\place\管理室1.jpg" width="854"></div>'
+
+		'<div class="button_menu">'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室'',''电脑''">查看电脑</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p>·公寓管理员的宿舍，开门时门把手湿湿的…</p>'
+		'</div>'
+	end
+end
+
+if $args[0]="电脑":
+	'<div class ="show_menu"><img src="images\place\管理室电脑.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室'',''电脑2''">进入电脑</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·公寓管理员的宿舍</p>'
+		'<p>我:让我看看上任管理员给我留下了什么“惊喜”</p>'
+	'</div>'
+end
+
+if $args[0] ='电脑2':
+	$管理员口令 = $TRIM($LCASE($input('访问密码：我所做的一切，其意义是什么？')))
+	$管理员正确口令=''
+	if $管理员口令!$管理员正确口令:msg'密码错误'  & gt '管理员室','电脑'
+	'<div class ="show_menu"><img src="images\place\管理室花屏.jpg" width="854"></div>'
+	!+++++++++++++++++++↓选项↓++++++++++++++++++++++++++++++
+	'<div class="button_menu">'
+		if $管理员口令=$管理员正确口令:'<div class="button"><a href="exec:minutes+=5 & gt ''人才公寓''">离开</a></div>'
+	'</div>'
+	!+++++++++++++++++++↓对话↓+++++++++++++++++++++++++++++++++++
+	'<div class="dialog_menu">'
+		'<p>*这就是答案</p>'
+		'<p>我:让我看看上任管理员给我留下了什么“惊喜”</p>'
+	'</div>'
+End
+
+
+
+
+if $args[0]="播放203":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\ZZER2-<<rand(0,10)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+
+if $args[0]="播放202":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YY\vids\HM1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+
+if $args[0]="播放201":
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\A201.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+		'<p>？？？: 唷，我知道了。周日下午一点，老时间，我们在郊外再制点货。</p>'
+		'<p>我:这人怎么把房间搞得乌烟瘴气的……</p>'
+	'</div>'
+end
+
+if $args[0]="播放103":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\BGH\vids\TP_<<$times_of_day>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+
+if $args[0]="播放102":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFsn1-5.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+
+if $args[0]="播放101":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\TFSS2-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+
+if $args[0]="播放003":
+	if $times_of_day='':
+		'<div class ="show_menu"><img src="images\place\居民区_<<$times_of_day>>.jpg" width="854"></div>'
+	else:
+		'<div class ="show_menu"><img src="images\videos\杂\parkN<<rand(0,5)>>.jpg" width="854"></div>'
+	end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+
+if $args[0]="门口":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\lur<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''群演_事件'',''群演_Fuck_管理门口''">开门出去</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:我就说门把手怎么湿湿的…</p>'
+	'</div>'
+end
+
+if $args[0]="播放001":
+	if $times_of_day='':
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\BLDB<<rand(5,6)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\shop\WSH<<rand(3,4)>>-4.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''管理员室''">不看了</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·看来前任管理员有着极强的偷窥欲…</p>'
+	'</div>'
+end
+--- 管理员室 ---------------------------------
+

@@ -1,0 +1,73 @@
+# bad_ending
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+gs'menu_gif'
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+	'</div>'
+'</div>'
+
+the_mayor_is_sure=1
+
+if $args[0]="":
+	 if $fk_bad_ending=1:gt'bad_ending','EVA'
+	 if $fk_bad_ending=2:gt'bad_ending','be_a_soldier'
+end
+
+
+if $args[0]="EVA":
+	 $fk_bad_ending=1
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\AW\vids\FKHSL1-10.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:minutes+=180 & gt ''bad_ending'',''EVA2''">Ah ah ah ah ah ah!</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>*I`ll drive!</p>'
+	'</div>'
+end
+
+
+if $args[0]="EVA2":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\AW\vids\FKHSL1-11.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonR"><a href="exec:">The ending is achieved</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>*Reached the end-the driver who shouldered the mission</p>'
+		'<p>·——————————</p>'
+		'<p>*You can click the button in the protagonist`s attribute interface to reset the ending</p>'
+	'</div>'
+end
+
+
+
+if $args[0]="be_a_soldier":
+	 $fk_bad_ending=2
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\AW\vids\FKHSL1-12.webm" type=''video/webm;''></video></div>'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG"><a href="exec:">The ending is achieved</a></div>'
+	'</div>'
+	'<div class="dialog_menu">'
+		'<p>*Reached a conclusion-cannon fodder straight in front of the front line</p>'
+		'<p>·——————————</p>'
+		'<p>*You can click the button in the protagonist`s attribute interface to reset the ending</p>'
+	'</div>'
+end
+--- bad_ending ---------------------------------
+

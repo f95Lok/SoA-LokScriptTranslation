@@ -1,0 +1,105 @@
+# 擂台商店2
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+$擂台商店骰子1=1
+$擂台商店骰子2=2
+$擂台商店骰子3=3
+$擂台商店骰子4=4
+$擂台商店骰子5=5
+$擂台商店骰子6=6
+
+if $擂台骰子1>=100:鼠鼠开=1
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if 鼠鼠开=1:'<a class="photo" data-title="鼠鼠骰子<只赢6点><<$鼠鼠骰子1>>%""><img class="img_stretch" src="images\videos\fighter\pics\N7.jpg"></a>'
+			'<a class="photo" data-title="掷<<$擂台商店骰子1>>概率<<$擂台骰子1>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$擂台商店骰子1>>.jpg"></a>
+			<a class="photo" data-title="掷<<$擂台商店骰子2>>概率<<$擂台骰子2>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$擂台商店骰子2>>.jpg"></a>
+			<a class="photo" data-title="掷<<$擂台商店骰子3>>概率<<$擂台骰子3>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$擂台商店骰子3>>.jpg"></a>
+			<a class="photo" data-title="掷<<$擂台商店骰子4>>概率<<$擂台骰子4>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$擂台商店骰子4>>.jpg"></a>
+			<a class="photo" data-title="掷<<$擂台商店骰子5>>概率<<$擂台骰子5>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$擂台商店骰子5>>.jpg"></a>
+			<a class="photo" data-title="掷<<$擂台商店骰子6>>概率<<$擂台骰子6>>%""><img class="img_stretch" src="images\videos\fighter\pics\N<<$擂台商店骰子6>>.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			if 鼠鼠开=1:
+				if $擂台欢呼声>=6:'<a class="photo" data-title="㊔x6" a href="exec:$擂台欢呼声-=6 & TZBL=0 & $擂台骰子1-=6 & $鼠鼠骰子1+=6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x6"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			end
+			if $擂台欢呼声>=6:'<a class="photo" data-title="㊔x6" a href="exec:$擂台欢呼声-=$擂台商店骰子1*6 & TZBL=1 & $擂台骰子1+=TZBL+6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x6"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $擂台欢呼声>=12:'<a class="photo" data-title="㊔x12" a href="exec:$擂台欢呼声-=$擂台商店骰子2*6 & TZBL=1 & $擂台骰子2+=TZBL+6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x12"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $擂台欢呼声>=18:'<a class="photo" data-title="㊔x18" a href="exec:$擂台欢呼声-=$擂台商店骰子3*6 & TZBL=1 & $擂台骰子3+=TZBL+6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x18"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $擂台欢呼声>=24:'<a class="photo" data-title="㊔x24" a href="exec:$擂台欢呼声-=$擂台商店骰子4*6 & TZBL=1 & $擂台骰子4+=TZBL+6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x24"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $擂台欢呼声>=30:'<a class="photo" data-title="㊔x30" a href="exec:$擂台欢呼声-=$擂台商店骰子5*6 & TZBL=1 & $擂台骰子5+=TZBL+6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x30"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+			if $擂台欢呼声>=36:'<a class="photo" data-title="㊔x36" a href="exec:$擂台欢呼声-=$擂台商店骰子6*6 & TZBL=1 & $擂台骰子6+=TZBL+6 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'else:'<a class="photo" data-title="㊔x36"><img class="img_stretch" src="images\videos\fighter\pics\提升1.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if 鼠鼠开=1:
+				if $擂台欢呼声>=12:'<a class="photo" data-title="㊔x12" a href="exec:$擂台欢呼声-=12 & TZBL=0 & $擂台骰子1-=12 & $鼠鼠骰子1+=12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x12"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			end
+			if $擂台欢呼声>=12:'<a class="photo" data-title="㊔x12" a href="exec:$擂台欢呼声-=$擂台商店骰子1*12 & TZBL=2 & $擂台骰子1+=TZBL+12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x12"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $擂台欢呼声>=24:'<a class="photo" data-title="㊔x24" a href="exec:$擂台欢呼声-=$擂台商店骰子2*12 & TZBL=2 & $擂台骰子2+=TZBL+12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x24"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $擂台欢呼声>=36:'<a class="photo" data-title="㊔x36" a href="exec:$擂台欢呼声-=$擂台商店骰子3*12 & TZBL=2 & $擂台骰子3+=TZBL+12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x36"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $擂台欢呼声>=48:'<a class="photo" data-title="㊔x48" a href="exec:$擂台欢呼声-=$擂台商店骰子4*12 & TZBL=2 & $擂台骰子4+=TZBL+12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x48"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $擂台欢呼声>=60:'<a class="photo" data-title="㊔x60" a href="exec:$擂台欢呼声-=$擂台商店骰子5*12 & TZBL=2 & $擂台骰子5+=TZBL+12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x60"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+			if $擂台欢呼声>=72:'<a class="photo" data-title="㊔x72" a href="exec:$擂台欢呼声-=$擂台商店骰子6*12 & TZBL=2 & $擂台骰子6+=TZBL+12 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'else:'<a class="photo" data-title="㊔x72"><img class="img_stretch" src="images\videos\fighter\pics\提升2.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 鼠鼠开=1:
+				if $擂台欢呼声>=18:'<a class="photo" data-title="㊔x18" a href="exec:$擂台欢呼声-=18 & TZBL=0 & $擂台骰子1-=18 & $鼠鼠骰子1+=18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x18"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			end
+			if $擂台欢呼声>=18:'<a class="photo" data-title="㊔x18" a href="exec:$擂台欢呼声-=$擂台商店骰子1*18 & TZBL=3 & $擂台骰子1+=TZBL+18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x18"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $擂台欢呼声>=36:'<a class="photo" data-title="㊔x36" a href="exec:$擂台欢呼声-=$擂台商店骰子2*18 & TZBL=3 & $擂台骰子2+=TZBL+18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x36"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $擂台欢呼声>=54:'<a class="photo" data-title="㊔x54" a href="exec:$擂台欢呼声-=$擂台商店骰子3*18 & TZBL=3 & $擂台骰子3+=TZBL+18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x54"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $擂台欢呼声>=72:'<a class="photo" data-title="㊔x72" a href="exec:$擂台欢呼声-=$擂台商店骰子4*18 & TZBL=3 & $擂台骰子4+=TZBL+18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x72"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $擂台欢呼声>=90:'<a class="photo" data-title="㊔x90" a href="exec:$擂台欢呼声-=$擂台商店骰子5*18 & TZBL=3 & $擂台骰子5+=TZBL+18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x90"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+			if $擂台欢呼声>=108:'<a class="photo" data-title="㊔x108" a href="exec:$擂台欢呼声-=$擂台商店骰子6*18 & TZBL=3 & $擂台骰子6+=TZBL+18 & gt ''擂台商店2'',''2''"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'else:'<a class="photo" data-title="㊔x108"><img class="img_stretch" src="images\videos\fighter\pics\提升3.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+			'<img src="images\videos\fighter\pics\战利品1.jpg" width="854">'
+	'</div>'
+		
+	'<div class="button_menu">'
+			'<div class="buttonG3"><a href="exec:gt ''擂台初始''">开始下一轮</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+	q+=1
+End
+
+if $args[0] ='2':
+	$擂台骰子1-=TZBL
+	$擂台骰子2-=TZBL
+	$擂台骰子3-=TZBL
+	$擂台骰子4-=TZBL
+	$擂台骰子5-=TZBL
+	$擂台骰子6-=TZBL
+	'<div class="show_menu">'
+			'<img src="images\videos\fighter\pics\战利品1.jpg" width="854">'
+	'</div>'
+		
+	'<div class="button_menu">'
+			'<div class="buttonG3"><a href="exec:gt ''擂台初始''">开始下一轮</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+	q+=1
+End
+--- 擂台商店2 ---------------------------------
+

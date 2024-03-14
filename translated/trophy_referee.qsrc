@@ -1,0 +1,73 @@
+# trophy_referee
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+if basic_cheer=0:basic_cheer=1
+gs'menu_gif'
+'<div id="right-column">'
+	gs"energy_judgment"
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if $number_of_trophies>=128*$the_upper_limit_of_my_life_in_the_ring:'<a class="photo" data-title="Life limit♟x<<128*$the_upper_limit_of_my_life_in_the_ring>>" href="exec:$number_of_trophies-=128*$the_upper_limit_of_my_life_in_the_ring & $the_upper_limit_of_my_life_in_the_ring+=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\命加.jpg"></a>'else:'<a class="photo" data-title="Life limit♟x<<128*$the_upper_limit_of_my_life_in_the_ring>>" ><img class="img_stretch" src="images\videos\fighter\pics\命加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $number_of_trophies>=8*$the_upper_limit_of_my_shield_in_the_ring:'<a class="photo" data-title="Shield upper limit: x<<8*$the_upper_limit_of_my_shield_in_the_ring>>" href="exec:$number_of_trophies-=8*$the_upper_limit_of_my_shield_in_the_ring & $the_upper_limit_of_my_shield_in_the_ring+=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\盾加.jpg"></a>'else:'<a class="photo" data-title="Shield upper limit: x<<8*$the_upper_limit_of_my_shield_in_the_ring>>"><img class="img_stretch" src="images\videos\fighter\pics\盾加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $number_of_trophies>=$initial_return_to_the_shield_in_the_ring*$initial_return_to_the_shield_in_the_ring:'<a class="photo" data-title="Shield regenerates by 1%♟x<<$initial_return_to_the_shield_in_the_ring*$initial_return_to_the_shield_in_the_ring>>" href="exec:$number_of_trophies-=$initial_return_to_the_shield_in_the_ring*$initial_return_to_the_shield_in_the_ring & $initial_return_to_the_shield_in_the_ring+=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\盾回.jpg"></a>'else:'<a class="photo" data-title="Shield regenerates by 1%♟x<<$initial_return_to_the_shield_in_the_ring*$initial_return_to_the_shield_in_the_ring>>"><img class="img_stretch" src="images\videos\fighter\pics\盾回.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $number_of_trophies>=2*$initial_dodge_in_the_ring:'<a class="photo" data-title="Dodge chance 1%♟x<<2*$initial_dodge_in_the_ring>>" href="exec:$number_of_trophies-=2*$initial_dodge_in_the_ring & $initial_dodge_in_the_ring+=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\闪加.jpg"></a>'else:'<a class="photo" data-title="Dodge chance 1%♟x<<2*$initial_dodge_in_the_ring>>" ><img class="img_stretch" src="images\videos\fighter\pics\闪加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $number_of_trophies>=6:'<a class="photo" data-title="Critical strike chance 1% (x6" href="exec:$number_of_trophies-=6 & $initial_critical_strike_in_the_ring+=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\暴加.jpg"></a>'else:'<a class="photo" data-title="Critical strike chance 1% (x6" ><img class="img_stretch" src="images\videos\fighter\pics\暴加.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $number_of_trophies>=8*$lead_filled_dice:'<a class="photo" data-title="Lead-filled dice♟x<<8*$lead_filled_dice>>" href="exec:$number_of_trophies-=8*$lead_filled_dice & $lead_filled_dice+=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\N8.jpg"></a>'else:'<a class="photo" data-title="Lead-filled dice♟x<<8*$lead_filled_dice>>"><img class="img_stretch" src="images\videos\fighter\pics\N8.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $number_of_trophies>=basic_cheer*5:'<a class="photo" data-title="+<<basic_cheer*2>>㊔♟x<<basic_cheer*5>> " href="exec:$number_of_trophies-=basic_cheer*5 & basic_cheer+=basic_cheer*2 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\欢呼.jpg"></a>'else:'<a class="photo" data-title="More cheers㊔♟x<<basic_cheer*5>>"><img class="img_stretch" src="images\videos\fighter\pics\欢呼.jpg"></a>'
+		'</div>'
+		
+		
+		
+		if loot_3=0:
+		'<div class="action">'
+			if $number_of_trophies>=8:'<a class="photo" data-title="More loot♟x8" href="exec:$number_of_trophies-=8 & loot_3=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\战利品3.jpg"></a>'else:'<a class="photo" data-title="More loot♟x8"><img class="img_stretch" src="images\videos\fighter\pics\战利品3.jpg"></a>'
+		'</div>'
+		end
+		if loot_4=0:
+		'<div class="action">'
+			if $number_of_trophies>=16:'<a class="photo" data-title="More loot♟x16" href="exec:$number_of_trophies-=16 & loot_4=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\战利品4.jpg"></a>'else:'<a class="photo" data-title="More loot♟x16"><img class="img_stretch" src="images\videos\fighter\pics\战利品4.jpg"></a>'
+		'</div>'
+		end
+		if loot_5=0:
+		'<div class="action">'
+			if $number_of_trophies>=32:'<a class="photo" data-title="More loot♟x32" href="exec:$number_of_trophies-=32 & loot_5=1 & gt ''trophy_referee''"><img class="img_stretch" src="images\videos\fighter\pics\战利品5.jpg"></a>'else:'<a class="photo" data-title="More loot♟x32"><img class="img_stretch" src="images\videos\fighter\pics\战利品5.jpg"></a>'
+		'</div>'
+		end
+		
+	'</div>'
+'</div>'
+
+
+if $ARGS[0]="":
+	'<div class="show_menu">'
+		'<img src="images\videos\fighter\pics\兑换0.jpg" width="854">'
+	'</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''the_night_is_fine'',''ring_area''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>The trophy I have is x<<$number_of_trophies>></p>'
+	'</div>'
+End
+--- trophy_referee ---------------------------------
+

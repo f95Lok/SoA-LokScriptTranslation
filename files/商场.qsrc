@@ -40,7 +40,7 @@ minutes+=10
 '</div>'
 
 if $ARGS[0]="":
-	$商场_num=RAND(1,14)
+	$商场_num=RAND(1,16)
 	$商场_n=1
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
@@ -49,6 +49,7 @@ if $ARGS[0]="":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=30 & gt ''商场''">消磨时间</a></div>'
+		if $商场_num=15 or $商场_num=16:'<div class="buttonR"><a href="exec:gt ''商场'',''街警报''">凑近看屏幕</a></div>'
 		if $审核level>1:
 			if 8>=$商场_num and $商场_num>=6:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=1 & gt ''商场'',''尾随''">尾随她</a></div>'
 			if 10>=$商场_num and $商场_num>=9:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=2& gt ''商场'',''尾随''">尾随她</a></div>'
@@ -74,6 +75,7 @@ if $ARGS[0]="":
 		'<p>哇偶~大饱眼福！</p>'
 	'</div>'
 End
+
  
  
  
@@ -102,7 +104,22 @@ if $ARGS[0]="尾随":
 End
 
 
+if $ARGS[0]="街警报":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images/videos/杂/街警报1.webm" type=''video/webm;''></video></div>'
+	'</div>'
 
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 &  gt ''商场''">离开</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>*警告:据环太平洋地区的最新消息显示，我市可能面临着一些未知的灾害冲击，目前威胁等级不明。我们强烈建议居民要保持警惕，做好防范措施，确保自己和家人的安全。请密切关注当地政府和媒体发布的预警信息，并遵守相关的应急指南。</p>'
+		'<p>我: 未知的灾害冲击？肯定有人能挺身而出，让那些有能力的人去面对解决吧。</p>'
+	'</div>'
+End
 
 
 --- 商场 ---------------------------------

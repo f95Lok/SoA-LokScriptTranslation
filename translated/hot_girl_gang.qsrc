@@ -44,7 +44,8 @@ End
 if $args[0]="corridor":
 	'<div class ="show_menu"><img src="images\place\辣妹帮走廊.jpg" width="854"></div>'
 	'<div class="button_menu">'
-		if hour>=19:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''president`s_room''"><<$hz.name>>The room</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$hz.name>>Room: locked</a></div>'
+		if hour>=19 and $HZ.love>=150:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''president`s_room''"><<$hz.name>>The room</a></div>'else:'<div class="buttonGr"><a href="exec:"><<$hz.name>>Room: locked</a></div>'
+		if $FZL.room=1:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''fzl_room''"><<$FZL.name>>The room</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''subway''">Back to the city</a></div>'
 	'</div>'
 
@@ -101,6 +102,8 @@ if $args[0]="top_2":
 	
 	
 	'<div class="button_menu">'
+		if $yxh_event_chain>=3 and $EDM.love>=200:'<div class="buttonW"><a href="exec:minutes+=15 & gt ''final_event'',''edm_bathe''">Take a bath with her</a></div>'
+	
 		if $YDM_Event_free=0:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''dialogue''">explain</a></div>'
 		if $YDM_Event_free>0 and $fighting_front=2:'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''fighting_game''">Fighting game</a></div>'
 		if $YDM_Event_free=10:'<div class="button"><a href="exec:minutes+=15 & gt ''hot_girl_gang'',''jailbreak_balance''">Jailbreak balance</a></div>'
@@ -336,7 +339,6 @@ if $args[0]="president`s_room":
 	'</div>'
 End
 
-
 if $args[0]="president`s_room_medicine":
 	'<div class="show_menu">'
 		 '<video preload="metadata" autoplay loop height="480">
@@ -374,7 +376,24 @@ if $args[0]="overnight_in_the_president`s_room":
 	'</div>'
 End
 
+if $args[0]="fzl_room":
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\NPC\FZL\vids\ZHUR1.webm" type=''video/webm;''></video></div>'
+	'</div>'
+	
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec: $m_filename_reference=''FZL'' & $m=''FZL'' & $FZL.bad+=25 & $ma=$FZL.name & love_num=$FZL.love & $m_address=''ZHUR'' & gt ''cross_section_event'',''universal_cross_section''">Pull over and kiss</a></div>'
+		if week_day=6:'<div class="buttonS"><a href="exec: gt ''student_group_event'',''FZLpa''">❤Lewd party❤</a></div>'else:'<div class="buttonG3"><a href="exec:a=0 & gt ''student_group_event'',''fzl_work''">Send her to an internship</a></div>'
+		'<div class="buttonGn3"><a href="exec: $m_filename_reference=''FZL'' & $m=''FZL'' & $ma=$FZL.name & gt ''student_group_event'',''student_group_fuck_self-tutoring''">Tutoring academic performance</a></div>'
+	'</div>'
 
+	'<div class="dialog_menu">'
+		'<p><<$FZL.name>>: What`s the matter, Shili Huan, let`s take measures.…</p>'
+		'<p>Me: It seems that the accommodation conditions of the hot girls are really unusual.…</p>'
+		'<p><<$FZL.name>>: We will have a lewd party on Saturday... You伴伴伴伴伴❤</p>'
+	'</div>'
+End
 
 
 

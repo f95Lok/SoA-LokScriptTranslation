@@ -13,14 +13,93 @@ gs'menu_time_calc'
 	<a href="exec:gt ''menu_reportbugs''"><div class="option_rebugs"data-title="BUG上报"></div></a>
 	<a href="exec:gt ''menu_更新日志''"><div class="option_update"data-title="更新日志"></div></a>
 </div>'
-	gs'menu_act_hidden'
-	'<a href="exec:gt ''攻略赞助''"><div class="option_gonglue"data-title="内置攻略"></div></a>'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if $SB.available=1:'<a class="photo" data-title="班级名册" href="exec:gt ''menu_charac_学生'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if $FK.available*$AW.available=1:'<a class="photo" data-title="权势名单" href="exec:gt ''menu_charac_政治'',''0''"><img class="img_stretch" src="images\place\名单2.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 市长确定=1:'<a class="photo" data-title="结局重置" href="exec:gt ''结局重置''"><img class="img_stretch" src="images\place\重置.jpg"></a>'
+		'</div>'
+	'</div>'
+	'<a href="exec:$攻略进入=60 & gt ''攻略赞助''"><div class="option_gonglue"data-title="内置攻略"></div></a>'
 '</div>'
 
 
 
 '<div id="left-column">'
 	'<div class="charac_npc_list">'
+
+            
+            if $SZ.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$SZ.name>>" href="exec:gt ''通用NPC菜单'',''<<$SZ.name>>'',''<<$SZ.love>>'',''<<$SZ.bad>>'',''<<$SZ.bio>>''"><img class="img_stretch" src="images\npc_l\<<$SZ.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="我还不认识她" ><img class="img_stretch" src="images\npc_l\<<$SZ.name>>a.png"></a>'
+            '</div>'
+            end
+		
+            if $JYB.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$JYB.name>>" href="exec:gt ''通用NPC菜单'',''<<$JYB.name>>'',''<<$JYB.love>>'',''<<$JYB.bad>>'',''<<$JYB.bio>>''"><img class="img_stretch" src="images\npc_l\<<$JYB.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="我还不认识她" ><img class="img_stretch" src="images\npc_l\<<$JYB.name>>a.png"></a>'
+            '</div>'
+            end
+            if $SML.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$SML.name>>" href="exec:gt ''通用NPC菜单'',''<<$SML.name>>'',''<<$SML.love>>'',''<<$SML.bad>>'',''<<$SML.bio>>''"><img class="img_stretch" src="images\npc_l\<<$SML.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="我还不认识她" ><img class="img_stretch" src="images\npc_l\<<$SML.name>>a.png"></a>'
+            '</div>'
+            end
+
+            if $HB.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$HB.name>>" href="exec:gt ''通用NPC菜单'',''<<$HB.name>>'',''<<$HB.love>>'',''<<$HB.bad>>'',''<<$HB.bio>>''"><img class="img_stretch" src="images\npc_l\<<$HB.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="需与议员合作" ><img class="img_stretch" src="images\npc_l\<<$HB.name>>a.png"></a>'
+            '</div>'
+            end
+            if $YXH.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$YXH.name>>" href="exec:gt ''通用NPC菜单'',''<<$YXH.name>>'',''<<$YXH.love>>'',''<<$YXH.bad>>'',''<<$YXH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$YXH.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="我还不认识她" ><img class="img_stretch" src="images\npc_l\<<$YXH.name>>a.png"></a>'
+            '</div>'
+            end
+          if $TCK.available=1:
+			'<div class="charac_nps_list_foto">
+				<a class="photo" data-title="<<$TCK.name>>" href="exec:gt ''通用NPC菜单'',''<<$TCK.name>>'',''<<$TCK.love>>'',''<<$TCK.bad>>'',''<<$TCK.bio>>''"><img class="img_stretch" src="images\npc_l\<<$TCK.name>>.png"></a>'
+			'</div>'
+            end
+            if $UN.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$UN.name>>" href="exec:gt ''通用NPC菜单'',''<<$UN.name>>'',''<<$UN.love>>'',''<<$UN.bad>>'',''<<$UN.bio>>'',''<<$UN.fans>>''"><img class="img_stretch" src="images\npc_l\<<$UN.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="我还不认识她" ><img class="img_stretch" src="images\npc_l\<<$UN.name>>a.png"></a>'
+            '</div>'
+            end
+          if $ZMK.available=1:
+               '<div class="charac_nps_list_foto">
+                    <a class="photo" data-title="<<$ZMK.name>>" href="exec:gt ''通用NPC菜单'',''<<$ZMK.name>>'',''<<$ZMK.love>>'',''<<$ZMK.bad>>'',''<<$ZMK.bio>>''"><img class="img_stretch" src="images\npc_l\<<$ZMK.name>>.png"></a>'
+               '</div>'
+            end
+            
 		if $WH.available=1:
 		'<div class="charac_nps_list_foto">
 			<a class="photo" data-title="<<$WH.name>>" href="exec:gt ''通用NPC菜单'',''<<$WH.name>>'',''<<$WH.love>>'',''<<$WH.bad>>'',''<<$WH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$WH.name>>.png"></a>'
@@ -30,7 +109,7 @@ gs'menu_time_calc'
 			<a class="photo" data-title="<<$WH.name>>" href="exec:gt ''通用NPC菜单'',''<<$WH.name>>'',''<<$WH.love>>'',''<<$WH.bad>>'',''<<$WH.bio>>''"><img class="img_stretch" src="images\npc_l\<<$WH.name>>X.png"></a>'
 		'</div>'
 		end
-		
+            
             if $SB.available=1:
             '<div class="charac_nps_list_foto">
                 <a class="photo" data-title="<<$SB.name>>" href="exec:gt ''通用NPC菜单'',''<<$SB.name>>'',''<<$SB.love>>'',''<<$SB.bad>>'',''<<$SB.bio>>''"><img class="img_stretch" src="images\npc_l\<<$SB.name>>.png"></a>'

@@ -220,6 +220,13 @@ def translate(text, data_type, uncertain=False):
                 unique_translation = translation + "_" + str(count)
             translation = unique_translation
 
+        if data_type == _variables_:
+            if text[0] == '$' and translation[0] != '$':
+                translation = '$' + translation
+            elif text[0] != '$' and translation[0] == '$':
+                translation = translation[1:]
+            translation.replace("-", "_")
+
         if uncertain:
             if translation not in _uncertainties_:
                 _uncertainties_[translation] = []
@@ -237,7 +244,7 @@ def translate(text, data_type, uncertain=False):
 
 
 def update_dict(new_data, data_type, uncertain=False):
-    if type(new_data) != list:
+    if not isinstance(new_data, list):
         new_data = [new_data]
 
     for d in new_data:
@@ -626,6 +633,7 @@ def handle_stray_text(line, last_index, current_index):
 
     return line, last_index
 
+
 def needs_translation(line):
     return re.sub(regex_everything_mostly, "", line).strip() != "" and line.strip()[0] != "!"
 
@@ -638,10 +646,7 @@ def get_data(filepath):
     new_file = []
     lines = file.readlines()
     for i, line in zip(range(len(lines)), lines):
-        _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"\
-
-        if i == 78:
-            print("debug")
+        _current_line_ = "[" + filepath + "] (" + str(i + 1) + "/" + str(len(lines)) + ")"
 
         if not needs_translation(line):
             new_file.append(line)
@@ -769,7 +774,7 @@ def handle_uncertainties():
 
 
 def find_key_by_value(value, data_types):
-    if type(data_types) != list:
+    if not isinstance(data_types, list):
         data_types = [data_types]
 
     for data_type in data_types:
@@ -989,12 +994,13 @@ done_file = io.open("done.txt", 'a', encoding="utf-8")
 auto = "no"
 
 t0 = time.process_time()
-for qsrc in os.listdir("files/"):
+tr_files = os.listdir("files/")
+for qsrc, tr_index in zip(tr_files, range(len(tr_files))):
     if qsrc not in done:
         if auto == "manual":
             inp = "y"
         else:
-            inp = input("Next file: " + qsrc + ". Continue? ").lower()
+            inp = input("Next file: " + qsrc + " (" + str(tr_index) + "/" + str(len(tr_files)) + ")" + ". Continue? ").lower()
 
         if inp == "auto":
             auto = "manual"

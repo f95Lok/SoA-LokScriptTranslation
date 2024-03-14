@@ -1,0 +1,66 @@
+# 擂台掷点
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+
+
+
+
+gs'掷点详情'
+
+
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			gs "擂台敌属性"
+		'</div>'
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\女人1.jpg"></a>
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\N<<$敌投掷点数>>.jpg"></a>'
+			if 擂台闪避率>=rand(1,99) and $敌投掷点数>$我投掷点数:'<a class="photo" data-title="完美闪避" href="exec:a=2 & gt ''擂台掷点''"><img class="img_stretch" src="images\videos\fighter\pics\闪避.jpg"></a>'
+		'</div>'
+		
+		
+		'<div class="action">
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\男人1.jpg"></a>
+			<a class="photo"><img class="img_stretch" src="images\videos\fighter\pics\<<$骰子颜色>><<$我投掷点数>>.jpg"></a>'
+			if $灌铅骰子>0:'<a class="photo" data-title="灌铅骰子x<<$灌铅骰子>>" href="exec:$灌铅骰子-=1 & 灌铅骰子激活=1 & gt ''擂台掷点''"><img class="img_stretch" src="images\videos\fighter\pics\N8.jpg"></a>'
+		'</div>'
+		
+		'<div class="action">'
+			if $擂台我生命<=5:'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征<<$擂台我生命>>.jpg"></a>'
+			if $擂台我生命>=6:'<a class="photo" data-title="体力""><img class="img_stretch" src="images\videos\fighter\pics\生命体征6.jpg"></a>'
+			if $擂台我护盾<=5:'<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\C<<$擂台我护盾>>.jpg"></a>'
+			if $擂台我护盾>=6:'<a class="photo" data-title="防御""><img class="img_stretch" src="images\videos\fighter\pics\C6.jpg"></a>'
+			if $敌投掷点数>$我投掷点数:'<a class="photo" data-title="失败破防" href="exec:gt ''擂台判定'',''失败''"><img class="img_stretch" src="images\videos\fighter\pics\下一步S.jpg"></a>'
+			if $敌投掷点数=$我投掷点数:'<a class="photo" data-title="互为平局" href="exec:gt ''擂台判定'',''平局''"><img class="img_stretch" src="images\videos\fighter\pics\下一步.jpg"></a>'
+			if $敌投掷点数<$我投掷点数:'<a class="photo" data-title="破防追击" href="exec:gt ''擂台追击''"><img class="img_stretch" src="images\videos\fighter\pics\下一步Y.jpg"></a>'
+		'</div>'
+		
+	'</div>'
+'</div>'
+
+
+
+
+if $args[0] ='':
+	'<div class="show_menu">'
+		 '<video preload="metadata" autoplay loop height="480">
+		 <source src="images\videos\fighter\<<擂台num>>\<<a>>.webm" type=''video/webm;''></video></div>'
+	'</div>'
+		
+	'<div class="button_menu">'
+		!'<div class="buttonG"><a href="exec:money-=10000 & $特摄片前置=3 & gt ''夜色精巢'',''特摄剧邀演''">挑战她</a></div>'
+	'</div>'
+		
+	'<div class="dialog_menu">'
+		gs '擂台我数据'
+	'</div>'
+End
+--- 擂台掷点 ---------------------------------
+

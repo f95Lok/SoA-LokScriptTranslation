@@ -27,6 +27,7 @@ if  $args[0]="":
 	'<div class ="show_menu"><img src="images\place\按摩房.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
+		if $SZ事件链B>=3:'<div class="buttonS5"><a href="exec:gt ''按摩房'',''SPA_市长''"><<$SZ.name>></a></div>'
 		'<div class="buttonS1"><a href="exec:n=rand(1,2)& gt ''群演_事件'',''SPA_Fuck_小众按摩''">小众按摩</a></div>'
 		if spa>10:'<div class="buttonS2"><a href="exec:n=rand(-1,3)& gt ''群演_事件'',''SPA_Fuck_轻奢按摩''">轻奢按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">轻奢按摩</a></div>'
 		if spa>=50:'<div class="buttonS3"><a href="exec:minutes+=15 & gt ''按摩房'',''私人按摩''">私人按摩</a></div>'else:'<div class="buttonGr"><a href="exec:">私人按摩</a></div>'
@@ -70,7 +71,7 @@ if  $args[0]="提现":
 	'<div class ="show_menu"><img src="images\place\钱.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=15 & money+=Cmoney_按摩*TXM/100  & Cmoney+=Cmoney_按摩/10000 & Cmoney_按摩=0 &  gt ''按摩房'',''提现''">提现</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & money+=Cmoney_按摩/100*TXM  & Cmoney+=Cmoney_按摩/10000 & Cmoney_按摩=0 &  gt ''按摩房'',''提现''">提现</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
 	'</div>'
 
@@ -186,6 +187,7 @@ if  $args[0]="私人按摩5":
 	   if $SWD.按摩=1:'<div class="button"><a href="exec:$m=''SWD'' & $ma=$SWD.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②②<<$SWD.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②②？？？</a></div>'
        if $YH.按摩=1:'<div class="button"><a href="exec:$m=''YH'' & $ma=$YH.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②③<<$YH.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②③？？？</a></div>'
        if $MZ.按摩=1:'<div class="button"><a href="exec:$m=''MZ'' & $ma=$MZ.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②④<<$MZ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②④？？？</a></div>'
+       if $JYB.按摩=1:'<div class="button"><a href="exec:$m=''JYB'' & $ma=$JYB.name & gt ''群演_事件'',''按摩店_Fuck_专属''">②⑤<<$JYB.name>></a></div>'else:'<div class="buttonGr"><a href="exec:">②⑤？？？</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -194,6 +196,29 @@ if  $args[0]="私人按摩5":
 		'<p>——————————</p>'
 		'<p>·私人按摩仅接待VIP客户。我们对潜在客户的身份充分保密。</p>'
 	'</div>'
+end
+
+
+if  $args[0]="SPA_市长":
+   '<div class="show_menu">'
+        '<video preload="metadata" autoplay loop height="480">
+        <source src="images\NPC\SZ\vids\SPA0.webm" type=''video/webm;''></video></div>'
+   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''最终_事件'',''SZ_SPA培训''">操练她❤</a></div>'
+		if $SZ培训>0:'<div class="buttonG1"><a href="exec:minutes+=15 & gt ''最终_事件'',''SZ_SPA1''">她可以做手活￥10000</a></div>'
+		if $SZ培训>99:'<div class="buttonG4"><a href="exec:minutes+=15 & gt ''最终_事件'',''SZ_SPA2''">她可以做全套￥50000</a></div>'
+		if $SZ培训>400:'<div class="buttonS"><a href="exec:$m=''SZ'' & $ma=$SZ.name & $m地址=''wkend'' & Telove=$SZ.love & $Tename=''屈服'' & Tebad=$SZ.bad & gt ''泛用SEX'',''DEMO''">为我服务❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''公司''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SZ.name>>:我一个堂堂的副市长…居然做这种事…</p>'
+		'<p>市民:花1万就可以让<<$SZ.name>>给你打炮，有这种好事？</p>'
+		'<p>我:没钱的话可以用政府的核辐射赔款欠条抵账喔❤</p>'
+	'</div>'
+
 end
 --- 按摩房 ---------------------------------
 

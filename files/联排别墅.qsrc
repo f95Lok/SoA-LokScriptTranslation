@@ -6,7 +6,7 @@ a=0 & q=0
 $随机数=rand(0,100)
 gs'menu_gif'
 
-
+if day=25 and month=12 and $times_of_day='':gt '群演_事件','圣诞老人'
 if $凯撒打工=1 and $times_of_day='' and 50<=$随机数 and $随机数<=55:gt '任务_事件','狩猎路人'
 if $看过平面图=1 and $随机数<=40:gt '遗孀_事件','二把手归来'
 
@@ -50,9 +50,18 @@ if $看过平面图=1 and $随机数<=40:gt '遗孀_事件','二把手归来'
 			'<a class="photo" data-title="【锁住】" href="exec:"><img class="img_stretch" src="images\place\YS家.jpg"></a>'
 			end
 		'</div>'
-			
-			
-			
+		'<div class="action">'
+			if $BTH事件链>=3:
+				'<a class="photo" data-title="圣本尼迪克特的家" href="exec:gt ''学生群_事件'',''BTH_家''"><img class="img_stretch" src="images\place\花家.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">'
+			if $FK事件链>=1:
+				if $FK死=0:'<a class="photo" data-title="1600号" href="exec:gt ''FK家'',''SML立绘''"><img class="img_stretch" src="images\NPC\JYB\pics\FK家.jpg"></a>'else:'<a class="photo" data-title="1600号" href="exec:gt ''FK家2''"><img class="img_stretch" src="images\NPC\JYB\pics\FK家2.jpg"></a>'
+			else:
+				'<a class="photo" data-title="没有资格"><img class="img_stretch" src="images\NPC\JYB\pics\FK家.jpg"></a>'
+			end
+		'</div>'
 
 	'</div>'
 '</div>'

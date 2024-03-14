@@ -16,12 +16,20 @@ if my.basement<=0:my.basement=0
 每日调查=0
 每日股价=0
 每日魅魔=0
+每日辅导松本=0
+每日COS=0
 DCM就读=0
+if 特日电话>=2:特日电话=0
+
 
 每日_TZ_WQ=0
 
-if QT.回复>=1:QT.回复+=1
 
+
+if $BTH贞操带=1:$BTH贞操带day+=1
+
+if QT.回复>=1:QT.回复+=1
+if $公司关闭日>0:$公司关闭日-=1
 
 if XM录像带>=2:$XM录像未看天数+=1
 
@@ -32,6 +40,10 @@ if 大别墅初次>0 and $QB.love>=200: 桥本CD+=1
 if 大别墅初次>0 and $SF.love>=200: 旬果CD+=1
 if $TS.ROOM>0 and TSMM>0: 天使CD+=1
 if $MMS.love>5: 魅魔CD+=1
+
+if $SZ事件链>=3 and 市长确定=0:竞选day-=1
+
+if $FK.山峦>=50:$FK.money=1
 
 if $初次进便利店=1:
 	!if $FW.积极性>=$FW.积极性上限:$FW.积极性=$FW.积极性上限
@@ -63,7 +75,7 @@ if $初次进便利店=1:
 end
 
 
-
+if $松本事件链=13:SB实习日+=1
 
 
 KILLVAR 'day_label'

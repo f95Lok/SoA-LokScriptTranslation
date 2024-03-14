@@ -7,6 +7,10 @@ gs'menu_gif'
 
 $随机数=rand(0,100)
 
+
+if $UN事件链=8:hour=8 & gt'北国'
+if $FK坏结局>0:gt'最终_事件','逃跑'
+
 if $冠军事件链=7 and hour=16 and week_day =6:gt '冠军_事件','GJ_Fuck_旅馆'
 
 if $悠亚事件链=6  and $随机数>=70:gt'悠亚_事件','悠亚任务'
@@ -19,6 +23,7 @@ if $随机数>=95 and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事�
 if 35<=$随机数 and $随机数<=40 and 12<=hour and hour<=16:gt '任务_事件','男路人'
 if $ZX约居民区=1 and week_day >5 and 13<=hour and hour<=14 and $随机数<50:gt '整形_事件','街道偶遇'
 if $凯撒打工=1 and $times_of_day='' and 50<=$随机数 and $随机数<=55:gt '任务_事件','狩猎路人'
+
 
 
 '<div id="right-column">'
@@ -67,9 +72,6 @@ else:
 end
 
 
-
-
-
 '<div class="button_menu">'
 	if 喂猫任务=1 and hour=喂猫时间:'<div class="buttonPu1"><a href="exec:minutes+=30 & gt ''任务_事件'',''喂猫''">喵喵喵</a></div>'
 
@@ -83,6 +85,8 @@ end
 	if 集印卡=1 and hour=16 and $天气='☀晴':'<div class="buttonR3"><a href="exec:集印编号S=1 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤搭讪熟人❤</a></div>'
 	if $任务_女警外套=2 and $times_of_day!"night":'<div class="buttonPu2"><a href="exec:gt ''任务_事件'',''女警外套''">寻找女警</a></div>'
 	if hour=22 and $凯撒事件链=2:'<div class="buttonR3"><a href="exec:gt ''冠军_事件'',''GJ_Fuck_邂逅''"><<$GJ.name>>？！</a></div>'
+	if $松本事件链=10 and 每日辅导松本=0:'<div class="buttonR5"><a href="exec:每日辅导松本=1 & gt ''松本_事件'',''视频电话''">☎视频电话？！</a></div>'
+	if $TCK.available=1 and $天气='☀晴' and 9<=hour and hour<=14 and $随机数>80 and TCK.进度>=0:'<div class="buttonB3"><a href="exec:gt ''最终_事件'',''TCK_邂逅''"><<$TCK.name>>？！</a></div>'
 	'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">消磨时间</a></div>'
 '</div>'
 
@@ -90,7 +94,8 @@ end
 '<div class="dialog_menu">'
 	'<p>民风淳朴的居民区到了晚上会变成另一个样子。</p>'
 	'<p>☄</p>'
-	'<p>冷知识:<<	$冷知识>></p>'
+	'<p>冷知识:<<$冷知识>></p>'
+	if $YLW.TEL=1 and hour=17 and $随机数>80:'<p>·回家路上的女学生们<a href="exec:gt ''学生群_事件'',''YLWSJHSW''">-查看</a></p>'
 '</div>'
 
  

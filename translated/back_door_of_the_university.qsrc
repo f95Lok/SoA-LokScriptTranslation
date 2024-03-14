@@ -1,0 +1,881 @@
+# back_door_of_the_university
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+a=0 & q=0
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="Class roster" href="exec:gt ''menu_charac_student'',''0''"><img class="img_stretch" src="images\place\名单.jpg"></a>
+		</div>'
+		'<div class="action">'
+			if school_cos_group=0:'<a class="photo" data-title="Abandoned classroom A" href="exec:gt ''back_door_of_the_university'',''abandoned_classroom_a''"><img class="img_stretch" src="images\place\废弃教室.jpg"></a>'
+			if school_cos_group=1:'<a class="photo" data-title="COS club" href="exec:gt ''back_door_of_the_university'',''cos_club''"><img class="img_stretch" src="images\place\COS社团.jpg"></a>'
+		'</div>'
+		'<div class="action">
+			<a class="photo" data-title="Daughter Lounge" href="exec:gt ''back_door_of_the_university'',''daughter_lounge''"><img class="img_stretch" src="images\place\学校休息室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Activity classroom" href="exec:gt ''back_door_of_the_university'',''activity_classroom''"><img class="img_stretch" src="images\place\活动教室.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			if  8<=hour and hour<18 and week_day <6:
+			'<a class="photo" data-title="Class 3-2" href="exec:minutes+=5 & gt ''second_shift_in_three_years''"><img class="img_stretch" src="images\place\三年二班.jpg"></a>'
+			else:
+			'<a class="photo" data-title="Class 3-2" ><img class="img_stretch" src="images\place\三年二班2.jpg"></a>'
+			End
+		'</div>'
+		'<div class="action">
+			<a class="photo" data-title="Back hallway" href="exec:gt ''back_door_of_the_university''"><img class="img_stretch" src="images\place\大学_后门.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Recreation room" href="exec:gt ''back_door_of_the_university'',''recreation_room''"><img class="img_stretch" src="images\place\娱乐室.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Puff room" href="exec:gt ''back_door_of_the_university'',''puff_room''"><img class="img_stretch" src="images\place\炮房.jpg"></a>
+		</div>'
+		
+		'<div class="action">'
+			'<a class="photo" data-title="University main entrance" href="exec:minutes+=15 & gt ''university''"><img class="img_stretch" src="images\place\大学_<<$times_of_day>>.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if school_cos_support=0:
+				'<a class="photo" data-title="Abandoned classroom B" href="exec:gt ''back_door_of_the_university'',''abandoned_classroom_b''"><img class="img_stretch" src="images\place\废弃教室.jpg"></a>'
+			else:
+				'<a class="photo" data-title="Abandoned classroom B" href="exec:gt ''back_door_of_the_university'',''abandoned_classroom_b1''"><img class="img_stretch" src="images\place\废弃教室B.jpg"></a>'
+			end
+		'</div>'
+		'<div class="action">
+			<a class="photo" data-title="At the end of the back door" href="exec:gt ''back_door_of_the_university'',''end_1''"><img class="img_stretch" src="images\place\后门尽头.jpg"></a>
+		</div>'
+		'<div class="action">
+			<a class="photo" data-title="Underground garage" href="exec:gt ''back_door_of_the_university'',''garage''"><img class="img_stretch" src="images\place\车库0.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\大学_后门.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''university''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: There used to be such a long abandoned area at the back door of the classroom…</p>'
+		if $syyy_event_chain=0:'<p>·There are several bad students in the stairwell around the corner<a href="exec:gt ''student_group_event'',''syyy_opening''">-View</a></p>'
+		if $syyy_event_chain=2:'<p>·There are a few more bad students in the stairwell around the corner<a href="exec:gt ''student_group_event'',''syyy_opening_2''">-View</a></p>'
+		if $bth_event_chain<=1:'<p>·There are laughter and laughter in the upward stairwell<a href="exec:gt ''student_group_event'',''bth_opening''">-View</a></p>'
+	'</div>'
+end
+
+if $args[0]="activity_classroom":
+	'<div class ="show_menu"><img src="images\place\活动教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $tmw_event_chain!16:
+			if $tmw_event_chain>=1 and week_day=1:'<div class="buttonS1"><a href="exec:gt ''student_group_event'',''tmw_activity_monday''">Monday White Prostitute Day</a></div>'
+			if $tmw_event_chain>=4 and week_day=2:'<div class="buttonS2"><a href="exec:gt ''student_group_event'',''tmw_activity_tuesday''">Shooting and drinking day on Tuesday</a></div>'
+			if $tmw_event_chain>=7 and week_day=3:'<div class="buttonS3"><a href="exec:gt ''student_group_event'',''tmw_activity_wednesday''">Wednesday Drunk Day</a></div>'
+			if $tmw_event_chain>=10 and week_day=4:'<div class="buttonS4"><a href="exec:gt ''student_group_event'',''tmw_activity_thursday''">Sober Day on Thursday</a></div>'
+			if $tmw_event_chain=13 and week_day=5:'<div class="buttonG5"><a href="exec:gt ''student_group_event'',''tmw_activity_anti-counterfeiting''">Friday exchange day</a></div>'
+			if $tmw_friday=1 and week_day=5:'<div class="buttonS5"><a href="exec:gt ''student_group_event'',''tmw_activity_friday''">Friday Redemption Day: Group sex</a></div>'
+			if $tmw_friday=2 and week_day=5:'<div class="buttonG5"><a href="exec:gt ''student_group_event'',''tmw_activity_friday_double''">Friday Redemption Day: Shuangfei</a></div>'
+		end
+		if $bth_event_chain=2:'<div class="buttonS5"><a href="exec:gt ''student_group_event'',''bth_boyfriend''"><<$BTH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Classrooms waiting for certain activities to be carried out.</p>'
+		if $tmw_event_chain!16:'<p>· <<$TMW.name>>Often doze off here<a href="exec:gt ''back_door_of_the_university'',''tmw_vertical_painting''">-View</a></p>'
+		if $tmw_event_chain=16:'<p>· <<$TMW.name>>Not here, maybe you took the iou to ask for the bill.</p>'
+	'</div>'
+end
+
+if $args[0]="tmw_vertical_painting":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\TMW\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+     '<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''single_student'',''TMW''">Talk</a></div>'
+		if $succubus_energy>0:'<div class="buttonPu3"><a href="exec: $m_filename_reference=''TMW'' &  $m=''TMW'' & $ma=$TMW.name & gt ''group_performation_event'',''general_fuck_hypnosis''"><font color="#FF00FF">Hypnotize her❤❤</font></a></div>'else:'<div class="buttonGr"><a href="exec:">Hypnotize her❤❤</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p><<$TMW.name>>: What`s the good planning for the event classroom? It`s really a headache...I can`t work hard at all.…</p>'
+     '</div>'
+end
+
+if $args[0]="abandoned_classroom_a":
+	'<div class ="show_menu"><img src="images\place\废弃教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·A classroom that was abandoned for some reason.</p>'
+	'</div>'
+end
+
+
+if $args[0]="cos_club":
+	cos_club_num=rand(0,99)
+	if cos_club_num>=80 and daily_cos=0:
+	  daily_cos=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SYYY\vids\k<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		'<div class="button_menu">'
+			'<div class="buttonS"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$SYYY.name & love_B=$SYYY.love &  $m_address=''SBSYYY'' & gt ''cross-section_student_group_single'',''student_group_single''">Accept the test</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">escape</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$SB.name>>: Do you stick with her every day?Don`t even come to me?</p>'
+			'<p><<$SYYY.name>>: How could it be?She can`t take care of so many sisters in the COS club. How can she have time to stick with me?</p>'
+			'<p><<$SB.name>>: Come here.</p>'
+		'</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SYYY\vids\k2.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+		'<div class="button_menu">'
+			if $SYYY.TEL=1:'<div class="buttonP"><a href="exec:minutes+=5 &  gt ''back_door_of_the_university'',''cos_club_2''">Inside the room</a></div>'
+			'<div class="buttonS3"><a href="exec:minutes+=5 &  gt ''single_student'',''SYYY''">Simple chat</a></div>'
+			'<div class="buttonS5"><a href="exec:minutes+=5 &  gt ''student_group_event'',''syyy_society''">Expressed by action</a></div>'
+			if $hsw_event_chain=5:'<div class="buttonG3"><a href="exec:gt ''student_group_event'',''hsw_dialogue''">Ask for comments</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Leave</a></div>'
+		'</div>'
+
+		'<div class="dialog_menu">'
+			'<p><<$SYYY.name>>: Oh my god, the dream has come true?This is my club!I think I have to thank you again!</p>'
+			'<p>Me: For example?</p>'
+			if $SYYY.TEL=1:
+				'<p><<$SYYY.name>>: For example, I allow you to be in the back room, whatever you do with the members of the COS club ❤ I can turn a blind eye❤</p>'
+				'<p>Me: Then it seems that I have to bring more newcomers.</p>'
+			end
+		'</div>'
+	end
+end
+
+if $args[0]="cos_club_2":
+	'<div class ="show_menu"><img src="images\place\COS社团2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if SB_COS=1 and $SB.love>0:'<div class="buttonS5"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & $SB.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">①<<$SB.name>></a></div>'
+          if MPJ_COS=1:'<div class="buttonS4"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & $ma=$MPJ.name & $MPJ.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">②<<$MPJ.name>></a></div>'
+          if FZL_COS=1:'<div class="buttonS3"><a href="exec: $m_filename_reference=''FZL'' & $m=''FZL'' & $ma=$FZL.name & $FZL.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">③<<$FZL.name>></a></div>'
+          if SJ_COS=1:'<div class="buttonS2"><a href="exec: $m_filename_reference=''SJ'' & $m=''SJ'' & $ma=$SJ.name & $SJ.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">④<<$SJ.name>></a></div>'
+          if HME_COS=1:'<div class="buttonS1"><a href="exec: $m_filename_reference=''HME'' & $m=''HME'' & $ma=$HME.name & $HME.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">⑤<<$HME.name>></a></div>'
+          if YLW_COS=1:'<div class="buttonP"><a href="exec: $m_filename_reference=''YLW'' & $m=''YLW'' & $ma=$YLW.name & $YLW.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">⑥<<$YLW.name>></a></div>'
+		'<div class="buttonB1"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''cos_club_3''">Next page</a></div>'
+		'<div class="buttonB2"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 '<p><<$SYYY.name>>: Here you can do whatever you want with the members of the COS club ❤ I can turn a blind eye❤</p>'
+	 '<p>Me: Then it seems that I have to bring more newcomers.</p>'
+	'</div>'
+end
+
+if $args[0]="cos_club_3":
+	'<div class ="show_menu"><img src="images\place\COS社团2.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if CBJ_COS=1:'<div class="buttonB5"><a href="exec: $m_filename_reference=''CBJ'' & $m=''CBJ'' & $ma=$CBJ.name & $CBJ.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">⑦<<$CBJ.name>></a></div>'
+		if XMK_COS=1:'<div class="buttonB4"><a href="exec: $m_filename_reference=''XMK'' & $m=''XMK'' & $ma=$XMK.name & $XMK.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">⑧<<$XMK.name>></a></div>'
+		'<div class="buttonB3"><a href="exec: $m_filename_reference=''SYYY'' & $m=''SYYY'' & $ma=$SYYY.name & $SYYY.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">⑨<<$SYYY.name>></a></div>'
+		if HSW_COS=1:'<div class="buttonB2"><a href="exec: $m_filename_reference=''HSW'' & $m=''HSW'' & $ma=$HSW.name & $HSW.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">⑩<<$HSW.name>></a></div>'
+		if BTH_COS=1:'<div class="buttonB2"><a href="exec: $m_filename_reference=''BTH'' & $m=''BTH'' & $ma=$BTH.name & $BTH.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">①①<<$BTH.name>></a></div>'
+		if TMW_COS=1:'<div class="buttonB1"><a href="exec: $m_filename_reference=''TMW'' & $m=''TMW'' & $ma=$TMW.name & $TMW.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">①②<<$TMW.name>></a></div>'
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''cos_club_2''">Previous page</a></div>'
+		'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''cos_club_4''">Next page</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+	 '<p><<$SYYY.name>>: Here you can do whatever you want with the members of the COS club ❤ I can turn a blind eye❤</p>'
+	 '<p>Me: Then it seems that I have to bring more newcomers.</p>'
+	'</div>'
+end
+
+if $args[0]="cos_club_4":
+    '<div class ="show_menu"><img src="images\place\COS社团2.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        if COSST1=1:'<div class="buttonPu1"><a href="exec:stcosz=1 & gt ''student_group_event'',''student_group_coser_group''">`Zimao Member</a></div>'
+        if COSST2=1:'<div class="button"><a href="exec:stcosz=2 & gt ''student_group_event'',''student_group_coser_group''">Wukong White Hair Member</a></div>'
+        if COSST3=1:'<div class="buttonG3"><a href="exec:stcosz=3 & gt ''student_group_event'',''student_group_coser_group''">Wukong Huangmao Member</a></div>'
+        if COSST4=1:'<div class="buttonP"><a href="exec:stcosz=4 & gt ''student_group_event'',''student_group_coser_group''">Wukong pink hair member</a></div>'
+        if COSST5=1:'<div class="buttonG"><a href="exec:stcosz=5 & gt ''student_group_event'',''student_group_coser_group''">Wukong Golden Retriever Member</a></div>'
+        if COSST6=1:'<div class="buttonG1"><a href="exec:stcosz=6 & gt ''student_group_event'',''student_group_coser_group''">Female gray-haired member</a></div>'
+        if COSST7=1:'<div class="buttonB4"><a href="exec:stcosz=7 & gt ''student_group_event'',''student_group_coser_group''">Wukong Lanmao Member</a></div>'
+        '<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''cos_club_3''">Previous page</a></div>'
+    '</div>'
+
+    '<div class="dialog_menu">'
+      '<p><<$SYYY.name>>: If you have time, you can go to the school corridor to recruit enthusiasts from other classes❤</p>'
+      '<p>Me: Where is it?I`m blind and didn`t look at it.</p>'
+      '<p><<$SYYY.name>>: School corridor.</p>'
+    '</div>'
+end
+
+if $args[0]="abandoned_classroom_b":
+	'<div class ="show_menu"><img src="images\place\废弃教室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $hsw_event_chain>=7:'<div class="buttonS4"><a href="exec:school_cos_support=1 & gt ''back_door_of_the_university'',''abandoned_classroom_b1''">Layout the classroom</a></div>'
+		'<div class="buttonP"><a href="exec:HSW_num=0 & gt ''back_door_of_the_university'',''hsw_vertical_painting''"><<$HSW.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·A classroom that was abandoned for some reason.</p>'
+		'<p>· <<$HSW.name>>Who are you waiting for here?<a href="exec:HSW_num=0 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">-Close</a></p>'
+	'</div>'
+end
+
+if $args[0]="abandoned_classroom_b1":
+    '<div class ="show_menu"><img src="images\place\废弃教室B.jpg" width="854"></div>'
+
+    '<div class="button_menu">'
+        '<div class="buttonP"><a href="exec:HSW_num=0 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">❤<<$HSW.name>></a></div>'
+        if COSST1=1:
+            if stcosz1_F=0:'<div class="buttonPu1"><a href="exec:stcosz=1 & gt ''student_group_event'',''student_group_coser_group_2''">Sister of a member of the Purple Hair club</a></div>' else:'<div class="buttonPu1"><a href="exec:stcosz=1 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">Sister of the purple hair member❤</a></div>' 
+       end
+        if COSST2=1:
+            if stcosz2_F=0:'<div class="button"><a href="exec:stcosz=2 & gt ''student_group_event'',''student_group_coser_group_2''">The younger generation of Wukong Baimao members</a></div>'else:'<div class="button"><a href="exec:stcosz=2 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">The younger generation of Wukong Baimao members❤</a></div>'
+        end
+        if COSST3=1:
+            if stcosz3_F=0:'<div class="buttonG3"><a href="exec:stcosz=3 & gt ''student_group_event'',''student_group_coser_group_2''">Sister of Wukong Huangmao member</a></div>'else:'<div class="buttonG3"><a href="exec:stcosz=3 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">Sister of Wukong Huangmao member❤</a></div>'
+        end
+        if COSST4=1:
+            if stcosz4_F=0:'<div class="buttonP"><a href="exec:stcosz=4 & gt ''student_group_event'',''student_group_coser_group_2''">Predecessors of Wukong Fanmao members</a></div>'else:'<div class="buttonP"><a href="exec:stcosz=4 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">Seniors of Wukong Fanmao members❤</a></div>'
+        end
+        if COSST5=1:
+            if stcosz5_F=0:'<div class="buttonG"><a href="exec:stcosz=5 & gt ''student_group_event'',''student_group_coser_group_2''">Friends of Wukong Golden Retriever members</a></div>'else:'<div class="buttonG"><a href="exec:stcosz=5 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">Friends of Golden Retriever members❤</a></div>'
+        end
+        if COSST6=1:
+            if stcosz6_F=0:'<div class="buttonG1"><a href="exec:stcosz=6 & gt ''student_group_event'',''student_group_coser_group_2''">Sister of the grey-haired member</a></div>'else:'<div class="buttonG1"><a href="exec:stcosz=6 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">Sister of the grey-haired member❤</a></div>'
+        end
+        if COSST7=1:
+            if stcosz7_F=0:'<div class="buttonB4"><a href="exec:stcosz=7 & gt ''student_group_event'',''student_group_coser_group_2''">Best friend of Wukong Lanmao member</a></div>'else:'<div class="buttonB4"><a href="exec:stcosz=7 & gt ''student_group_event'',''student_group_coser_group_2''"><font color="#FF00FF">Girlfriends of blue-haired members❤</a></div>'
+        end
+    '</div>'
+
+    '<div class="dialog_menu">'
+        '<p>·I arranged this place a little bit. If I can recruit some new people in the COS club, they will recommend friends who want to make quick money to come here❤</p>'
+    '</div>'
+end
+
+if $args[0]="hsw_vertical_painting":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\HSW\vids\HSWLH1-<<HSW_num>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if HSW_num!5:
+        '<div class="button_menu">'
+            if HSW_num=0:
+			'<div class="buttonS1"><a href="exec:HSW_num=1 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">Seduce me?</a></div>'
+			'<div class="button"><a href="exec:gt ''single_student'',''HSW''">Seriously</a></div>'
+			if $hsw_event_chain=4 or $hsw_event_chain=5:'<div class="buttonG3"><a href="exec:gt ''student_group_event'',''hsw_dialogue_a''">Someone knocked on the door</a></div>'
+		  end
+            if HSW_num=1:'<div class="buttonS3"><a href="exec:HSW_num=2 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">Hard Bang Bang</a></div>'
+            if HSW_num=2:'<div class="buttonG5"><a href="exec:HSW_num=3 & money-=500 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">￥500！</a></div>'
+            if HSW_num=3:'<div class="buttonS"><a href="exec:HSW_num=4 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">Press to the end</a></div>'
+            if HSW_num=4:'<div class="buttonR"><a href="exec:HSW_num=5 & $HSW.bad+=5 & gt ''back_door_of_the_university'',''hsw_vertical_painting''">Cum in her mouth</a></div>'
+        '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''back_door_of_the_university''">Leave</a></div>'
+            '</div>'
+    end
+
+    if HSW_num=0:
+         '<div class="dialog_menu">'
+              '<p><<$HSW.name>>: Why are you staring at me?</p>'
+              '<p>Me: What are you doing here…</p>'
+              '<p><<$HSW.name>>: Seduce you ❤</p>'
+         '</div>'
+    end
+
+    if HSW_num=1:
+         '<div class="dialog_menu">'
+              '<p>Me: Seduce me?</p>'
+              '<p><<$HSW.name>>: Yeah... what I want to do... is the same as what you think in your head now❤</p>'
+         '</div>'
+    end
+    if HSW_num=2:
+         '<div class="dialog_menu">'
+              '<p><<$HSW.name>>: I heard you are very rich?I need a lot of money... can you help me?</p>'
+              '<p>Me: How can I help?</p>'
+              '<p><<$HSW.name>>: As long as ￥500❤ My mouth can help you squeeze out Jinyu agar❤</p>'
+         '</div>'
+    end
+
+    if HSW_num=3:
+		$hsw.balance+=500
+         '<div class="dialog_menu">'
+              '<p><<$HSW.name>>: Close your eyes and enjoy ❤</p>'
+              '<p>——————————</p>'
+              '<p>(Her account balance: ￥<<$hsw.balance>>）</p>'
+         '</div>'
+    end
+
+    if HSW_num=4:
+         '<div class="dialog_menu">'
+              '<p><<$HSW.name>>: <<$panting_2>></p>'
+         '</div>'
+    end
+
+
+    if HSW_num=5:
+         '<div class="dialog_menu">'
+              '<p>Me: <<$SB.name>>Will you agree to do this kind of thing?</p>'
+              '<p><<$HSW.name>>: I told her that because I have nowhere to go, the right to use this classroom belongs to me temporarily, and you don`t need to worry about it.</p>' 
+              '<p>Me: That`s it…</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="daughter_lounge":
+	QJ_suinum=rand(0,100)
+	if QJ_suinum>=80 and $SB.tel=1 and daily_counseling_matsumoto=0:gt 'matsumoto_event','during_the_raid'
+	
+	'<div class ="show_menu"><img src="images\place\学校休息室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $matsumoto_event_chain>=6:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''matsumoto_tachie''"><<$SB.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Designed for<<$SB.name>>Built-in private lounge</p>'
+		if $matsumoto_event_chain=4:'<p>·The memo not far away records 22:15 and two VIP front-row tickets for the main stage of the Night Nest, as well as super much love❤</p>'
+		if QJ_suinum>=50:'<p>· <<$SB.name>>Playing on the sofa<<$MPJ.name>><a href="exec:gt ''student_group_event'',''lesbian_mpj_sb''">-Close</a></p>'
+		if QJ_suinum<=49:'<p>· <<$SB.name>>On the sofa with<<$YLW.name>>playful<a href="exec:gt ''back_door_of_the_university'',''sofa_frolic''">-Close</a></p>'
+		if $xmk_event_chain=4:'<p>·There is a golden bracelet on the ground<a href="exec:gt ''back_door_of_the_university'',''pick_up_the_bracelet''">-Pick it up</a></p>'
+	'</div>'
+end
+
+if $args[0]="pick_up_the_bracelet":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\MN0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">OK</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if $xmk_event_chain=4:$xmk_event_chain=5
+		'<p><<$SB.name>>: This is not<<$XMK.name>>Is it a bracelet?</p>'
+		'<p>Me: Yeah... she can`t find it, she`s so anxious…</p>'
+		'<p><<$SB.name>>: How is your relationship?</p>'
+		'<p>Me: Uh... it`s still the same.</p>'
+		'<p><<$SB.name>>: Then go and give it back to her, I believe “lost and recovered” will increase your favor❤</p>'
+	'</div>'
+end
+
+
+if $args[0]="matsumoto_tachie":
+	if $matsumoto_contradiction=0:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\MN0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $xmk_event_chain=1:'<div class="buttonGn3"><a href="exec:gt ''student_group_event'',''xmk_opening''">Look at the text message</a></div>'
+		'<div class="buttonS"><a href="exec:gt ''single_student'',''SB''">Yes it is</a></div>'
+		if $matsumoto_event_chain>=7:'<div class="buttonP"><a href="exec: $m_filename_reference=''SB'' & $m=''SB'' & $ma=$SB.name & $SB.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to please</a></div>'
+		if $matsumoto_event_chain>=8 and school_cos_group=1:'<div class="buttonS2"><a href="exec:SB_COS=1 & $m_filename_reference=''SB'' &  $m=''SB'' & $ma=$SB.name & $SB.bad+=10 &  gt ''student_group_event'',''student_group_coser_exclusive''">COS club appointment</a></div>'
+		if $SB.love>=150 and 12<=hour and hour<=17:'<div class="buttonGn3"><a href="exec:a=-1 & $m_filename_reference=''SB'' &  $m=''SB'' & $ma=$SB.name & love_num=$SB.love & $m_address=''MBC'' & gt ''cross_section_event'',''universal_cross_section''">Go out for a walk</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>: What`s the matter with the Lun family alone ❤ Do you want to date me❤</p>'
+	'</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SB\vids\MN1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>: If you entangle me again, I will tell my mother.I don`t care what will happen to you then.</p>'
+	'</div>'
+	
+	end
+end
+
+
+if $args[0]="sofa_frolic":
+	 $YLW.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YLW\vids\safa1-<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $ylw_event_chain>=6:'<div class="buttonS3"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''YQB'' & gt ''cross-section_student_group_single'',''student_group_single''">Step in Shuangfei</a></div>'else:'<div class="buttonGr"><a href="exec:">Step in?？？</a></div>' 
+		if $ylw_event_chain>=8:'<div class="buttonS5"><a href="exec:$FaceName_A=$SB.name & love_A=$SB.love & $FaceName_B=$YLW.name & love_B=$YLW.love &  $m_address=''YQC'' & gt ''cross-section_student_group_single'',''student_group_single''">The best threesome</a></div>'else:'<div class="buttonGr"><a href="exec:">The best?？？</a></div>' 
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>: Wife❤Kiss me ❤Are you the best in the world with the Lun family❤</p>'
+		'<p><<$YLW.name>>:Of course ❤Mua❤</p>'
+		'<p><<$SB.name>>: Do you want to go to my house to watch a horror movie after school?</p>'
+		'<p><<$YLW.name>>:Watching horror movies?</p>'
+		'<p><<$SB.name>>: Accompany the Lun family to watch it~ the Lun family dare not watch it alone!</p>'
+		'<p><<$YLW.name>>: Okay, then you will take me there after school❤</p>'
+		'<p><<$SB.name>>: Good drop!</p>'
+		if $ylw_event_chain=0:$ylw_event_chain=1
+	'</div>'
+end
+
+if $args[0]="recreation_room":
+	'<div class ="show_menu"><img src="images\place\娱乐室.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu5"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''phone_booth''">打开Open the door↑</a></div>'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''bar_table''">→Bar counter→</a></div>'
+		'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''large_sofa''">←Big sofa←</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·There will be an entertainment room here…</p>'
+		'<p>· <<$SJ.name>>Lying on the other side playing with the phone<a href="exec:gt ''back_door_of_the_university'',''secretary_liyi_1''">-Close</a></p>'
+	'</div>'
+end
+
+if $args[0]="bar_table":
+	if $times_of_day="night":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\FZL\vids\SZG1-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''student_group_event'',''fzl_drunk''">Shake her</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Regardless of her</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: <<$FZL.name>>Fell asleep here…</p>'
+	'</div>'
+	
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\bar.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS2"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''on_the_bar''">Bartending area↑</a></div>'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''hookah_area''">Hookah area→</a></div>'
+		'<div class="buttonR4"><a href="exec: $m_filename_reference=''MPJ'' & $m=''MPJ'' & a=-1 & $ma=$MPJ.name & love_num=$MPJ.love & $m_address=''bbar'' & gt ''cross_section_event'',''universal_cross_section''">Onlookers<<$MPJ.name>>Have fun</a></div>'
+		if $HME.love>=25:'<div class="buttonG5"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$FZL.name & love_C=$FZL.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''CCSD'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">❤Tear them down❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·There is actually a bar table here…</p>'
+		'<p><<$SB.name>>: Come on!<<$MPJ.name>>Show everyone a cunt and open a beer bottle!*Heckling</p>'
+		'<p><<$FZL.name>>: Yes it is!This is your unique skill!*Heckling</p>'
+		'<p><<$HME.name>>：<<$protagonists_name>>I`m here to join you too!Don`t you perform?*Heckling</p>'
+		'<p><<$MPJ.name>>: This……</p>'
+	'</div>'
+	end
+end
+
+if $args[0]="on_the_bar":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YLW\vids\BAR0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:gt ''single_student'',''YLW''">★Dialogue and communication★</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$YLW.name>>:<<$MPJ.name>>It will spray everywhere!</p>'
+		'<p><<$SB.name>>: Honey, can you pour me a glass of champagne❤</p>'
+		'<p><<$YLW.name>>:<<$affirmative_answer>></p>'
+	'</div>'
+end
+
+
+if $args[0]="hookah_area":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SYYY\vids\SY<<rand(0,1)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if $syyy_event_chain>=5:'<div class="buttonS3"><a href="exec:gt ''single_student'',''SYYY''"><<$SYYY.name>></a></div>'
+		'<div class="buttonB3"><a href="exec:gt ''single_student'',''SJ''"><<$SJ.name>></a></div>'
+		'<div class="buttonP"><a href="exec:gt ''back_door_of_the_university'',''hsw_hookah''"><<$HSW.name>></a></div>'
+		'<div class="buttonS"><a href="exec:$FaceName_A=$SJ.name & love_A=$SJ.love & $FaceName_B=$SYYY.name & love_B=$SYYY.love & $FaceName_C=$HSW.name & love_C=$HSW.love &  $m_address=''SYSR'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Take off your pants to cheer up</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SJ.name>>:Wow, swallowing clouds ❤So cool!</p>'
+		'<p><<$SYYY.name>>: What did you say?Wine is a grain essence, and the more you drink, the younger you are.Smoke is the king of herbs❤</p>'
+		'<p><<$HSW.name>>: The more you draw, the longer you live!</p>'
+		'<p><<$SJ.name>>:Oh yeah!<<$protagonists_name>>Do you want to come and play together ❤ Help us have fun❤</p>'
+	'</div>'
+end
+
+if $args[0]="hsw_hookah":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\HSW\vids\bor.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$FaceName_A=$SJ.name & love_A=$SJ.love & $FaceName_B=$SYYY.name & love_B=$SYYY.love & $FaceName_C=$HSW.name & love_C=$HSW.love &  $m_address=''SYSR'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">Hi Pi together?</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Ok</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HSW.name>>: Please ❤ Can you give me a break?It`s rare to have a good time with our sisters. If you have something to do, go to that room and find me alone.</p>'
+		'<p>Me: OK…</p>'
+	'</div>'
+end
+
+if $args[0]="large_sofa":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SCHOOL\vids\sofa.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$FaceName_A=$MPJ.name & love_A=$MPJ.love & $FaceName_B=$HME.name & love_B=$HME.love & $FaceName_C=$YLW.name & love_C=$YLW.love & $FaceName_D=$SB.name & love_D=$SB.love & $m_address=''JSFS'' & gt ''cross-section_student_group_door_people'',''student_group_door_people''">❤Get close to them❤</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>: Go help us pour the wine!</p>'
+		'<p><<$MPJ.name>>: Miss, okay!</p>'
+		'<p>· <<$FZL.name>>Lying alone on the other side<a href="exec:a=-1 & $m_filename_reference=''FZL'' &  $m=''FZL'' & $ma=$FZL.name & love_num=$FZL.love & $m_address=''XX'' & gt ''cross_section_event'',''universal_cross_section''">-Close</a></p>'
+	'</div>'
+end
+
+if $args[0]="secretary_liyi_1":
+	 $SJ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SJ\vids\SOFA0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:gt ''single_student'',''SJ''">★In-depth communication★</a></div>'
+		'<div class="buttonS"><a href="exec: $m_filename_reference=''SJ'' & $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''SOFA'' & gt ''cross_section_event'',''universal_cross_section''">Fuck her directly</a></div>'
+		if $sj_event_chain>=2:'<div class="buttonR"><a href="exec:a=-1 & $m_filename_reference=''SJ'' &  $m=''SJ'' & $ma=$SJ.name & love_num=$SJ.love & $m_address=''XS'' & gt ''cross_section_event'',''universal_cross_section''">The body appears</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SJ.name>>: Woohoo❤ Shenyuan, start!</p>'
+	'</div>'
+end
+
+if $args[0]="puff_room":
+	'<div class ="show_menu"><img src="images\place\炮房.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The origin of the so-called puff room is that after entering, the small hole must be filled with semen into a puff shape.…</p>'
+		'<p>————</p>'
+		'<p>· <<$HME.name>>On the sofa on one side<a href="exec:gt ''back_door_of_the_university'',''black_fungus_vertical_painting''">-Talk to me</a></p>'
+		if $cbj.imprisonment!1:'<p>· <<$CBJ.name>>In the corner hangover<a href="exec:CBJ_num=0 & gt ''back_door_of_the_university'',''cbj_vertical_painting''">-View</a></p>'else:'<p>*<<$CBJ.name>>I didn`t come to school, and she didn`t go home at all yesterday. Maybe I should look for her?</p>'
+	'</div>'
+end
+
+if $args[0]="black_fungus_vertical_painting":
+	 $HME.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\HME\vids\KM.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:gt ''single_student'',''HME''">★In-depth communication★</a></div>'
+		'<div class="buttonS"><a href="exec:$HME.love+=5 & $m_filename_reference=''HME'' &  $m=''HME'' & $ma=$HME.name & love_num=$HME.love & $m_address=''zj'' & gt ''cross_section_event'',''universal_cross_section''">Show up and fuck her</a></div>'
+		'<div class="buttonR"><a href="exec:gt ''student_group_event'',''hme_puff''">Call more people</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$HME.name>>Why didn`t anyone come to fuck me, where did everyone go❤*Masturbating while playing with the phone</p>'
+	'</div>'
+end
+
+if $args[0]="cbj_vertical_painting":
+	 $CBJ.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CBJ\vids\KM<<CBJ_num>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		if CBJ_num=0:'<div class="buttonPu3"><a href="exec:CBJ_num=1 & gt ''back_door_of_the_university'',''cbj_vertical_painting''">Hey, wake up</a></div>'
+		if CBJ_num=1:
+			'<div class="buttonPu5"><a href="exec:gt ''single_student'',''CBJ''">Wake her up</a></div>'
+			'<div class="buttonB2"><a href="exec: $m_filename_reference=''CBJ'' & $m=''CBJ'' & $ma=$CBJ.name & $CBJ.love+=1 & gt ''student_group_event'',''student_group_fuck_massage''">Massage to sober up</a></div>'
+		end
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if CBJ_num=0:'<p><<$CBJ.name>>: I... I can still drink... fill me up…</p>'
+		if CBJ_num=1:'<p><<$CBJ.name>>: Hiccup, alcohol is my life... who are you... I didn`t drink too much……</p>'
+	'</div>'
+end
+
+
+if $args[0]="end_1":
+	'<div class ="show_menu"><img src="images\place\尽头1.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & a_k=0 & gt ''back_door_of_the_university'',''in-depth''">In-depth</a></div>'
+		'<div class="button"><a href="exec:gt ''single_student'',''FZL''">Talk</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$FZL.name>>:兲嘟嘟浑噩噩 but妚丢姒丢丢丢丢丢丢…</p>'
+	'</div>'
+end
+
+if $args[0]="in-depth":
+	'<div class ="show_menu"><img src="images\place\深入<<a_k>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if a_k=0:'<div class="button"><a href="exec:minutes+=5 & a_k+=1 & gt ''back_door_of_the_university'',''in-depth''">In-depth</a></div>'
+		if a_k=1:
+			'<div class="button"><a href="exec:minutes+=5 & a_k+=1 & gt ''back_door_of_the_university'',''in-depth''">In-depth</a></div>'
+			'<div class="button"><a href="exec:minutes+=5 & gt ''single_student'',''XMK''">Talk</a></div>'
+		end
+		if a_k=2:
+			if $QH.available=1:'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''exclusive_room''">open</a></div>'else:'<div class="buttonGr"><a href="exec:">open</a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a_k=0:
+			'<p>...</p>'
+		end
+		if a_k=1:
+			'<p><<$XMK.name>>: Did you come to see her too?Don`t blame me for not reminding you, if you dare to make her sad, I will find someone to beat you up.</p>'
+		end
+	'</div>'
+end
+
+if $args[0]="garage":
+	if hour=16 or hour=17:'<div class ="show_menu"><img src="images\place\车库1.jpg" width="854"></div>'else:'<div class ="show_menu"><img src="images\place\车库0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $matsumoto_event_chain>=7 and $matsumoto_contradiction=0:
+			if hour!16 and hour!17:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''matsumoto_event'',''get_in_the_car''">etc.<<$SB.name>></a></div>'
+		end
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: This kind of car is actually parked here…</p>'
+		if hour=16 or hour=17:
+			'<p><<$SB.name>>: Are you fascinated by staring at Miss Ben`s car?</p>'
+			if $ylw_event_chain>=1:
+				'<p><<$YLW.name>>: Let`s go, have you decided which horror movie to watch?</p>'
+				'<p><<$SB.name>>: Which one I didn`t finish watching last time!</p>'
+				'<p>Me: Can I go to see it together?</p>'
+				'<p><<$SB.name>>: Can`t you see that this car can only seat two people?</p>'
+				'<p><<$YLW.name>>: Let`s go together!I`m scared too, actually…</p>'
+				'<p><<$SB.name>>: Oh, count it!Let`s walk back together!Buy some more good drops on the way!<a href="exec:gt ''student_group_event'',''ylw_night_step''">-Go with them</a></p>'
+			 end
+		end
+	'</div>'
+end
+
+
+if $args[0]="exclusive_room":
+	if $qh_event_chain>=4:gt'back_door_of_the_university','exclusive_room_2'
+	if QH_num>=3 and $qh_event_chain<=1:gt'back_door_of_the_university','seven_seas_vertical_painting_2'
+	if $qh_event_chain=2:gt'back_door_of_the_university','seven_seas_vertical_painting_3'
+	'<div class ="show_menu"><img src="images\place\独家房间.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if $qh_event_chain<=2:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''back_door_of_the_university'',''seven_seas_vertical_painting''">←<<$QH.name>></a></div>'
+		if $qh_event_chain>=3:'<div class="button"><a href="exec:minutes+=5 & SF_NUM=1  & gt ''back_door_of_the_university'',''seven_seas_vertical_painting_4''">←<<$QH.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·A separate room………</p>'
+	'</div>'
+end
+
+
+if $args[0]="seven_seas_vertical_painting":
+	 QH_num+=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\A0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QH.name>>:...</p>'
+		'<p>Me: Hello!</p>'
+		'<p><<$QH.name>>:……</p>'
+		'<p>Me: Hi?Hello?</p>'
+		'<p><<$QH.name>>:………</p>'
+		'<p>*There was a trace of numbness on her face, still writing something on her notes, ignoring me</p>'
+	'</div>'
+end
+
+if $args[0]="seven_seas_vertical_painting_2":
+	 if $qh_event_chain=0:$qh_event_chain=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\A1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>: Asshole, did you make her angry?Where is she?</p>'
+		'<p>Me: I... I don`t know…</p>'
+		'<p><<$SB.name>>: She has been away for several days... I am very worried about her.</p>'
+		'<p>Me: Then where will she go?</p>'
+		'<p><<$SB.name>>: She often goes to the beach or the park, let`s split up and find it!Must be fast!</p>'
+	'</div>'
+end
+
+if $args[0]="seven_seas_vertical_painting_3":
+	 if $qh_event_chain=2:$qh_event_chain=3
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\NA.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university'',''exclusive_room''">Ok</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$SB.name>>: Great, it looks like she is safe and sound.</p>'
+		'<p>Me: What happened to her...?</p>'
+		'<p><<$SB.name>>: I don`t know much about the specific situation, but when I see my friend depressed, I will try my best to help her as much as I can, right?</p>'
+		'<p>Me: Yes…</p>'
+		'<p><<$SB.name>>: Then you have to encourage and enlighten her more!</p>'
+	'</div>'
+end
+
+if $args[0]="seven_seas_vertical_painting_4":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\A0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG1"><a href="exec:QH_num+=15 & gt ''student_group_event'',''qh_eat''">Accompany her to eat cheese pasta</a></div>'
+		if QH_num>=50:'<div class="buttonP"><a href="exec:minutes+=5 & gt ''student_group_event'',''qh_travel''">Accompany her to see the snow-capped mountains</a></div>'
+		if QH_num>=100:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''student_group_event'',''qh_sunday''">Accompany her out to bask in the sun</a></div>'
+		if QH_num>=999:'<div class="buttonG5"><a href="exec:minutes+=5 & gt ''student_group_event'',''qh_swimming''">Come out and play!</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Hi?The weather is good today.</p>'
+		'<p><<$QH.name>>: Hmm....</p>'
+		'<p>*She wrote something on the note and leaned her head to look at it</p>'
+		if QH_num>=30:'<p>*Note content: I am not sociable by nature.On most occasions, I either find the other party boring or I am afraid that the other party will find me boring.But I don`t want to endure the boredom of the other party, nor do I want to work hard to make myself interesting, it`s too tired.I am the most relaxed when I am alone, because I don`t feel boring. Even if I am boring, I can bear it by myself. It doesn`t involve others and there is no need to feel uneasy.</p>'
+		if QH_num>=50:'<p>*Note content: Life is a lonely journey.Like a train bound for the grave, there will be many stops on the road, and people will get off at each stop. Before the end, I want to see the snow-capped mountains.</p>'
+		if QH_num>=100:'<p>*Note content: The weather outside is really good, the birds and flowers are fragrant, and the air is also very fresh, but the sun never shines into my wall.</p>'
+		if QH_num>=999:'<p>*Note content: I obviously built the wall very high, but now there are always people who come to ring my doorbell justly when I am frustrated.</p>'
+	'</div>'
+end
+
+if $args[0]="exclusive_room_2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\Paradise\vids\L9.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonP"><a href="exec:QH_num+=10 & gt ''student_group_event'',''qh_eat''">Accompany her to eat cheese pasta</a></div>'
+		if QH_num>=40:'<div class="buttonG1"><a href="exec:minutes+=5 & gt ''student_group_event'',''qh_travel''">Accompany her to see the snow-capped mountains</a></div>'
+		if QH_num>=100:'<div class="buttonG3"><a href="exec:minutes+=5 & gt ''student_group_event'',''qh_sunday''">Accompany her out to bask in the sun</a></div>'
+		if QH_num>=999:'<div class="buttonG5"><a href="exec:minutes+=5 & gt ''student_group_event'',''qh_swimming''">Come out and play!</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''back_door_of_the_university''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$QH.name>>: Hi~</p>'
+		'<p>Me: Hi?I`m in a good mood today.</p>'
+		'<p>*She wrote something on the note and leaned her head to look at it</p>'
+		'<p><s>*Note content: I am not sociable by nature.On most occasions, I either find the other party boring or I am afraid that the other party will find me boring.But I don`t want to endure the boredom of the other party, nor do I want to work hard to make myself interesting, it`s too tired.I am the most relaxed when I am alone, because I don`t feel boring. Even if I am boring, I can bear it by myself. It doesn`t involve others and there is no need to feel uneasy.</s></p>'
+		'<p><s>*Note content: Life is a lonely journey.Like a train bound for the grave, there will be many stops on the road, and people will get off at each stop. Before the end, I want to see the snow-capped mountains.</s></p>'
+		'<p><s>*Note content: The weather outside is really good, the birds and flowers are fragrant, and the air is also very fresh, but the sun never shines into my wall.</s></p>'
+		'<p><s>*Note content: I obviously built the wall very high, but now there are always people who come to ring my doorbell justly when I am frustrated.</s></p>'
+		'<p><B>*Note content: Thank you to all the lights that still light up for me when it`s dark, and all the people who came to ring my doorbell when I was frustrated.</p>'
+		'<p>————</p>'
+		'<p><B><span class =''red''>Please forgive me for being despicable. I wrote a plot without astringency in a story.I don`t mean to consume the dead, I just hope that in the cold Cyberspace, I will use the pieced together fragments to create a good memory for this poor girl. ——Submitted by friends</p>'
+		'<p>She will live here forever, eating the food she likes, and having friends who care about her and are willing to play with her-every player who opens this room. ——Message from the author</p>'
+		'<p></p>'
+	'</div>'
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--- back_door_of_the_university ---------------------------------
+

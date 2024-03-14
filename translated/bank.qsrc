@@ -39,6 +39,12 @@ if $ARGS[0]="vice_president`s_office":
 	'<div class ="show_menu"><img src="images\NPC\YH\pics\副行长室.jpg" height="492"></div>'
 
 	'<div class="button_menu">'
+		if $prologue=2 and day=15 and hour=15:'<div class="buttonR"><a href="exec:gt ''final_event'',''jyb_bank''">Turn off the vault alarm</a></div>'
+		if $prologue>=3 and $TCK.available=0:'<div class="buttonR"><a href="exec:gt ''final_event'',''tck_opening''">220 million bad debts</a></div>'
+		if tck.progress=-1 and u_disk_theft!2:'<div class="buttonS"><a href="exec:gt ''final_event'',''TCK_6''">Summary of 220 million theft</a></div>'
+		if $XYXZ.available=1:'<div class="buttonG"><a href="exec:gt ''bank'',''vault_safe''">Super large new type of vault</a></div>'
+		if u_disk_theft=1:'<div class="buttonR"><a href="exec:gt ''final_event'',''internal_meeting''">Internal meeting</a></div>'
+		if u_disk_theft>=4:'<div class="buttonR"><a href="exec:gt ''final_event'',''xyxz_ending''">Summary of suspected safe theft</a></div>'
 		'<div class="button"><a href="exec:gt ''city_hall''">Leave</a></div>'
 	'</div>'
 	
@@ -242,8 +248,38 @@ if $ARGS[0]="men`s_toilet_monitor_2":
 	'</div>'
 end
 
+if $ARGS[0]="vault_safe":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XYXZ\vids\JK.webm" type=''video/webm;''></video></div>'
+        '</div>'
 
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''bank'',''aoi_liyi''"><<$XYXZ.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''city_hall'',''vice_president`s_office''">Return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>Me: It seems that the vault has been fully upgraded?</p>'
+	'</div>'
+end
 
+if $ARGS[0]="aoi_liyi":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\XYXZ\vids\KM.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG1"><a href="exec:$XYXZ.love+=1 & gt ''final_event'',''vault_function''">Introduce the function of the vault</a></div>'
+		if $XYXZ.love>0:'<div class="buttonPu3"><a href="exec:hour=22 & gt ''final_event'',''wait_until_get_off_work''">Wait until get off work</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$XYXZ.name>>: Security work must be strengthened!Everyone must work for me!If you don`t do it, some people want to do it!</p>'
+		'<p>*Scolding his subordinates</p>'
+	'</div>'
+end
 
 
 

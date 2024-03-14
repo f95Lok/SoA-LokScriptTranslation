@@ -21,7 +21,7 @@ a=0 & q=0
 	'<div class="button"><a href="exec:minutes+=15 & gt ''大学''">消磨时间</a></div>'
 '</div>'
 
-大学对话=RAND(0,9)
+大学对话=RAND(0,10)
 if $times_of_day="":
 	if 大学对话=0:
 	'<div class="dialog_menu">'
@@ -104,11 +104,20 @@ if $times_of_day="":
 		'<p>？？？：怎么可能啊！</p>'
 	'</div>'
 	end
+	
+	if 大学对话=10:
+	'<div class="dialog_menu">'
+		'<p>？？？：嘿，你的熊猫眼是怎么回事？是熬夜复习了还是被人打了？</p>'
+		'<p>？？？：呃…</p>'
+		'<p>？？？：噢！我知道了！规则一是吧？！放心，我懂的❤</p>'
+	'</div>'
+	end
 end
 
 if $times_of_day!"":
 	'<div class="dialog_menu">'
 		'<p>入夜的学校...总有那么一丝恐怖...</p>'
+		if $松本事件链=14 and hour=22:'<p>·<<$QMZM.name>>已经在等你了<a href="exec:gt ''松本_事件'',''峰回路转''">-上车</a></p>'
 	'</div>'
 	end
 end

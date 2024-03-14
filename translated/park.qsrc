@@ -75,7 +75,9 @@ if $ARGS[0]="":
 		if $random_number<=10 and $random_number>0 and $times_of_day='':'<div class="button"><a href="exec:park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
 		if $random_number=3 and  $times_of_day!'':'<div class="button"><a href="exec:park_green=$random_number+100 & gt ''park'',''help_her''">Help her</a></div>'
 		if $zx_about_the_park=1 and hour=12:'<div class="button"><a href="exec:gt ''plasticity_event'',''zx_fuck_park_field_battle''"><<$ZX.name>></a></div>'
-		
+		if $qh_event_chain=1 and $times_of_day='':'<div class="button"><a href="exec:gt ''student_group_event'',''qh_park''">Lonely figure</a></div>'
+		if $syyy_event_chain=1 and hour=14:'<div class="buttonP"><a href="exec:gt ''student_group_event'',''syyy_shot_1''"><<$SYYY.name>></a></div>'
+		if u_disk_theft=3:'<div class="buttonPu3"><a href="exec:gt ''final_event'',''tck_bench''">Drunkard & bench</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·After a lapse of several years, the City Council finally passed the `Special Park Management Law`, which promoted the development of the city`s central Park and provided a leisurely place for people`s busy and stressful lives.</p>'
@@ -210,6 +212,7 @@ if $ARGS[0]="public_toilets":
 		if week_day=7 and hour=12 and $JM.love>=300:'<div class="buttonS"><a href="exec: $m_filename_reference=''JM'' & $m=''JM'' & $ma=$JM.name & gt ''group_performation_event'',''general_fuck_public_toilet''"><<$JM.name>>inside</a></div>'
 		if week_day=1 and hour=12 and $WQ.love>=300:'<div class="buttonS"><a href="exec: $m_filename_reference=''WQ'' & $m=''WQ'' & $ma=$WQ.name & gt ''group_performation_event'',''general_fuck_public_toilet''"><<$WQ.name>>inside</a></div>'
 		if hour=21 and $imperial_swimming_coach>=1:'<div class="buttonS"><a href="exec:gt ''empire_event'',''empire_fuck_swimming_coach_toilet''">Coercion<<$YY.name>></a></div>'
+		if $bth_event_chain>=7 and hour=22:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''bth_fuck_public_toilet''"><<$BTH.name>>Waiting for you</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''park''">Back to the park</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -240,6 +243,7 @@ if $ARGS[0]="camping_area":
 	
 	'<div class="button_menu">'
 		if hour=12 or hour=18:'<div class="button"><a href="exec: gt ''group_performation_event'',''rich_woman_fuck_ck1''">Female bodhisattva</a></div>'
+		if $cbj.imprisonment=1:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''cbj_wandering''">Tramp`s garbage dump</a></div>'
 		'<div class="button"><a href="exec:gt ''park''">Return</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -268,7 +272,9 @@ if $ARGS[0]="camping_area_2":
 	'<div class ="show_menu"><img src="images\place\露营区2.jpg"  height="480"></div>'
 	
 	'<div class="button_menu">'
+		if $times_of_day="":'<div class="buttonP"><a href="exec:gt ''park'',''rich_woman''">And the female bodhisattva</a></div>'
 		if hour=16 and $LXS.love>=100:'<div class="button"><a href="exec:$international_student_tent=0 & gt ''study_abroad_event'',''tent_dating''">approximately<<$LXS.name>></a></div>'
+		if $cbj.imprisonment=1:'<div class="buttonS"><a href="exec:gt ''student_group_event'',''cbj_wandering''">Tramp`s garbage dump</a></div>'
 		'<div class="button"><a href="exec:gt ''park''">Return</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
@@ -276,6 +282,25 @@ if $ARGS[0]="camping_area_2":
 		if $camping_garbage=1 and $times_of_day="":	'<p>·Due to the trouble of garbage sorting and the careful thinking of the homeless, a large amount of flammable garbage is piled up in one corner.<a href="exec:gt ''park'',''flammable_garbage''">-Clean up</a></p>'
 	'</div>'
 end
+
+
+if $ARGS[0]="rich_woman":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\FP\vids\CK1-<<rand(0,2)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	
+	'<div class="button_menu">'
+		if $zm_event_chain>=2:'<div class="buttonS"><a href="exec:gt ''final_event'',''wining_full_woman''">Invite to contemplate the winery</a></div>'
+		'<div class="button"><a href="exec:gt ''park''">Return</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p><<$FP.name>>: Listen up, the garbage must be collected clean ❤ If you are willing to clean it up obediently, I will send it for free every day!</p>'
+		'<p>Tramp: Great!It`s time for dinner again, family!</p>'
+	'</div>'
+end
+
 
 if $ARGS[0]="flammable_garbage":
 	'<div class ="show_menu"><img src="images\task\LJN (<<rand(1,13)>>).jpg"  height="480"></div>'

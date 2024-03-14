@@ -26,6 +26,7 @@ if $ARGS[0]="":
 		'<div class="button"><a href="exec:gt ''市长办公室'',''五常会议室''">五常会议室</a></div>'
 		'<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">市长办公室</a></div>'
 		'<div class="button"><a href="exec:gt ''市长办公室'',''城建部长室''">城建部长室</a></div>'
+		if $JYB.ok=1:'<div class="button"><a href="exec:gt ''市长办公室'',''教育部长室''">教育部长室</a></div>'else:'<div class="buttonGr"><a href="exec:">教育部长室</a></div>'
 		'<div class="button"><a href="exec:gt ''市政厅''">离开</a></div>'
 	'</div>'
 	
@@ -42,18 +43,7 @@ if $ARGS[0]="":
 	'</div>'
 end
 
-if $ARGS[0]="市长室":
-	'<div class ="show_menu"><img src="images\place\不开放.jpg" width="854"></div>'
 
-
-	'<div class="button_menu">'
-		'<div class="buttonR2"><a href="exec:gt ''市政厅''">离开</a></div>'
-	'</div>'
-	
-	'<div class="dialog_menu">'
-		'<p></p>'
-	'</div>'
-end
 
 if $ARGS[0]="五常会议室":
 
@@ -286,6 +276,392 @@ if $ARGS[0]="黑暗议会":
 		end
 	'</div>'
 end
+
+if $ARGS[0]="教育部长室":
+	 if $序幕<=2:gt'最终_事件','银行序幕'
+	 if $JYB事件链=2:gt'最终_事件','JYB_偷窥'
+	 if $JYB事件链=6:gt'最终_事件','JYB_偷窥2'
+	 if $JYB事件链=13:gt'最终_事件','JYB_偷窥3'
+	 $JYB.available=1
+	 if $JYB事件链>=18:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM9.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		if $JYB事件链<=1:'<div class="buttonGn5"><a href="exec:gt ''最终_事件'',''前情提要''">前情提要</a></div>'
+		if $JYB事件链<=1:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''质问''">质问她</a></div>'
+		if $JYB事件链=3:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''替市长传话''">替市长传话</a></div>'
+		if $JYB事件链=4 and $FXZ.IN*$SW.IN*$NK.IN=1:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''人手到齐''">人员到齐</a></div>'
+		if $JYB事件链=7:'<div class="button"><a href="exec:gt ''市长办公室'',''草拟研讨室''">草拟研讨室</a></div>'
+		if $JYB事件链=9 or $JYB事件链=10:'<div class="button"><a href="exec:gt ''最终_事件'',''替市长传话2''">替市长传话</a></div>'
+		if $JYB事件链=14 or $JYB事件链=15:'<div class="button"><a href="exec:gt ''最终_事件'',''替市长传话3''">替市长传话</a></div>'
+		if $JYB事件链=16 or $JYB事件链=17:'<div class="button"><a href="exec:gt ''最终_事件'',''替市长传话4''">恭喜顺利通过</a></div>'
+		if $JYB事件链>=18:
+		 '<div class="buttonPu3"><a href="exec:gt ''最终_事件'',''JYB_特殊工作''">特殊工作？</a></div>'
+		 '<div class="buttonG2"><a href="exec:$JYB.按摩=1 & gt ''公司''">带她去按摩放松</a></div>'
+		end
+		if 授精室=1 and $JYB事件链>=7 and $JYB.授精=0:'<div class="buttonG4"><a href="exec:$JYB.授精=1 & gt ''公司''">邀请人工授精</a></div>'
+		'<div class="button"><a href="exec:gt ''市长办公室''">返回</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $JYB事件链<=3:'<p><<$JYB.name>>:做的好…银行2.2亿被劫走，钱算不明白了帐一下就平了，不过令我意外的是…你居然没死？</p>'
+		if $JYB事件链=4:
+			'<p><<$JYB.name>>:我需要一个教龄充足的大学老师担任主编；一个懂男性生理教育方面的老师担任行为指导；还需要一个出色的男科医生作出评价健康评估。</p>'
+			'<p>——————</p>'
+			'<p>*教龄充足的大学老师担任主编</p>'
+			if $FXZ.IN=1:'<p>**<<$FXZ.name>></p>'
+			'<p>*男性生理教育方面的老师担任行为指导</p>'
+			if $FXZ.IN=1:'<p>**<<$SW.name>></p>'
+			'<p>*出色的男科医生作出健康评估</p>'
+			if $NK.IN=1:'<p>**<<$NK.name>></p>'
+		end
+		if $JYB事件链>=5:'<p><<$JYB.name>>:我可以向你保证，那些银行劫匪出意外不是我安排的。</p>'
+		if $JYB事件链>=5:'<p>我:那会是谁呢…</p>'
+		if $JYB事件链=11:'<p><<$JYB.name>>:我们去大学走廊里看看<<$SY.name>>的性教育工作落实得如何…</p>'
+		if $JYB事件链>=18:'<p><<$JYB.name>>:有事吗？没事的话，我还有很多特殊工作要忙呢❤</p>'
+	'</div>'
+end
+
+if $ARGS[0]="市长室":
+	'<div class ="show_menu"><img src="images\place\真市长室.jpg" width="854"></div>'
+	'<div class="button_menu">'
+		if $SZ事件链>=3 and 竞选day<=0 and 市长确定=0 and $YXH.available=1:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''市长竞选''">换届市长竞选</a></div>'
+		if $SZ事件链>=3 and $YXH.available=0:'<div class="buttonG1"><a href="exec:gt ''最终_事件'',''市长候选人''">市长候选人</a></div>'
+		if $JYB事件链>=1:'<div class="buttonG"><a href="exec:gt ''市长办公室'',''市长立绘''"><<$SZ.name>></a></div>'
+		if $YXH.available=1 and $YXH放置=0:'<div class="buttonS3"><a href="exec:gt ''市长办公室'',''YXH立绘''"><<$YXH.name>></a></div>'
+		'<div class="button"><a href="exec:gt ''市长办公室''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>·阳光透过窗户洒落在市长办公室内，一切都是如此的静谧和安详</p>'
+		if $SZ事件链>=3 and 市长确定=0:'<p><B><span class =''red''>·距离下一次市长竞选还有<<竞选day>>天</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="市长立绘":
+	 $SZ.available=1
+	 if $SZ事件链>=4:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\CC.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\KM0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	end
+	'<div class="button_menu">'
+		if $JYB事件链<=2:'<div class="button"><a href="exec:市长对话=1 & gt ''市长办公室'',''市长对话''">递出草案</a></div>'
+		if $JYB事件链=5:'<div class="button"><a href="exec:市长对话=2 & gt ''市长办公室'',''市长对话''">递出翻新报表</a></div>'
+		if $JYB事件链=8:'<div class="button"><a href="exec:市长对话=3 & gt ''市长办公室'',''市长对话''">递出性教育草案</a></div>'
+		if $JYB事件链=12:'<div class="button"><a href="exec:市长对话=4 & gt ''市长办公室'',''市长对话''">反馈志愿者情况</a></div>'
+		if $JYB事件链=15:'<div class="button"><a href="exec:市长对话=5 & gt ''市长办公室'',''市长对话''">递出一妻多夫草案</a></div>'
+		if $JYB事件链=19 and $SZ事件链<2:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''示威的人''">示威的人</a></div>'
+		if 被骗测试=1:
+			if $ZZ.money=0:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''靠近她B''">靠近她</a></div>'
+			if $ZZ.money=1:'<div class="buttonS"><a href="exec:gt ''最终_事件'',''靠近她G''">靠近她</a></div>'
+		end
+		if $SZ事件链<=3:'<div class="button"><a href="exec:gt ''最终_事件'',''市长休息室_正常''">她的休息室</a></div>'
+		if 市长确定=0:
+			if $SZ事件链G>=3:'<div class="buttonS"><a href="exec:gt ''最终_事件'',''市长休息室_女仆''">她的休息室</a></div>'
+			if $SZ事件链B>=2:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''市长休息室_禁锢''">她的休息室</a></div>'
+		end
+		if 市长确定=1:
+			if $E市长='SZ':'<div class="buttonS"><a href="exec:gt ''最终_事件'',''市长休息室_女仆''">㊯她的休息室</a></div>'
+			if $E市长='FK':'<div class="buttonR"><a href="exec:gt ''最终_事件'',''市长休息室_男权''">㊚她的休息室</a></div>'
+			if $E市长!'SZ' and $E市长!'FK':
+				if $SZ事件链G>=3:'<div class="buttonS3"><a href="exec:gt ''最终_事件'',''市长休息室_女仆''">㊯她的休息室</a></div>'else:'<div class="buttonR3"><a href="exec:gt ''最终_事件'',''市长休息室_讨债''">㊘她的休息室</a></div>'
+			end
+		end
+		
+		'<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">没事</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		if $SZ事件链<=3:'<p><<$SZ.name>>:嗯？*斜眼看</p>'
+		if $SZ事件链>=4:'<p><<$SZ.name>>:政治献金…赔偿款…唉…市长还是难做…</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="市长对话":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\SZ\vids\KM1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+	'<div class="button_menu">'
+		if 市长对话!2:'<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">明白了</a></div>'
+		if 市长对话=2:'<div class="button"><a href="exec:gt ''市长办公室'',''市长对话2''">一筹莫展之时</a></div>'
+	'</div>'
+	
+	if 市长对话=1:
+	'<div class="dialog_menu">'
+		if $JYB事件链=1:$JYB事件链=2
+		'<p>我:这是<<$JYB.name>>草拟的《一妻多夫婚姻新法》…请您审批……</p>'
+		'<p><<$SZ.name>>:批什么批？！烦死了，你让她先把《性教育法案》先给我做出来！这才是她的分内事！</p>'
+		'<p>我:啊…这……</p>'
+		'<p><<$SZ.name>>:这什么这，你听不懂人话吗？《性教育法案》！现在我只想见到这个！</p>'
+	'</div>'
+	end
+	
+	if 市长对话=2:
+	'<div class="dialog_menu">'
+		'<p>我:这是<<$JYB.name>>的翻新会议室的预算报表…请您审批……</p>'
+		'<p><<$SZ.name>>:什么300万？！你和她说这不可能。</p>'
+		'<p>我:啊…这……</p>'
+		'<p><<$SZ.name>>:这什么这，你听不懂人话吗？我还要为新市长竞选筹备【政治献金】！没有这么多预算！</p>'
+		'<p>我:能不能帮帮忙…</p>'
+		'<p><<$SZ.name>>:不能！要么你自己把这钱垫了。</p>'
+	'</div>'
+	end
+	
+	if 市长对话=3:
+	 if $JYB事件链=8:$JYB事件链=9
+	'<div class="dialog_menu">'
+		'<p>我:这是<<$JYB.name>>草拟的《性教育法案》…请您审批……</p>'
+		'<p><<$SZ.name>>:怎么还有DVD光盘的？现在这个年代的青少年，谁还会看光盘啊！</p>'
+		'<p>我:啊…这……</p>'
+		'<p><<$SZ.name>>:这什么这，你听不懂人话吗？没人会耐得住性子看碟片了！</p>'
+		'<p>我:那怎么办？</p>'
+		'<p><<$SZ.name>>:回去告诉她！让她去找志愿者义务做新教育科普！那种免费的骚货在这座城市里应该一抓一大把！</p>'
+	'</div>'
+	end
+	
+	if 市长对话=4:
+	 if $JYB事件链=12:$JYB事件链=13
+	'<div class="dialog_menu">'
+		'<p>我:这是<<$JYB.name>>草拟的《性教育法案》…的志愿者落实情况…</p>'
+		'<p><<$SZ.name>>:很好，这个草案将会被通过，以表彰和肯定所有志愿者们的辛勤付出和无私奉献。</p>'
+		'<p>我:呼——终于通过了…</p>'
+		'<p><<$SZ.name>>:把这个好消息带回去告诉<<$JYB.name>>吧！</p>'
+	'</div>'
+	end
+	if 市长对话=5:
+	 if $JYB事件链=15:$JYB事件链=16
+	'<div class="dialog_menu">'
+		'<p>我:这是<<$JYB.name>>草拟的《一妻多夫婚姻新法》…请您审批……</p>'
+		'<p><<$SZ.name>>:看来这回不给她批也不行了…行吧！</p>'
+		'<p>我:呼——终于通过了…</p>'
+		'<p><<$SZ.name>>:哼，把这个好消息带回去告诉<<$JYB.name>>吧！</p>'
+	'</div>'
+	end
+end
+
+if $ARGS[0]="市长对话2":
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\plane.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		if $帝国001="【✭帝国001】":'<div class="button"><a href="exec:gt ''市长办公室'',''市长对话3''">接过地址</a></div>'else:'<div class="button"><a href="exec: gt ''市长办公室'',''市长室''">好吧?</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$CT.name>>:300万？现在都拿不出来了吗？看来换届很有必要…</p>'
+		'<p><<$SZ.name>>:我是来请你汇报精源项目的！不是让你来挖苦我的！</p>'
+		'<p><<$CT.name>>:精源项目难道不是好消息？冲我发什么火呢。</p>'
+		'<p>我:那你能不能帮帮忙…</p>'
+		'<p><<$CT.name>>:我想想喔❤</p>'
+		if $帝国001="【✭帝国001】":
+			'<p><<$CT.name>>:你有所不知吧？<<$主角姓名>>就是代号【帝国001】的精源项目头号人选。</p>'
+			'<p><<$SZ.name>>:真的假的？！！你就是<<$主角姓名>>？太好了，那这区区300万，批给你就是了。你可是能代表我市精源项目的关键人物！我相信她会很高兴见你的！</p>'
+		else:
+			'<p><<$CT.name>>:我找不到好的理由呢，如果你能成为代号【帝国001】的精源项目头号人选,，我倒是可以给你说说情。</p>'
+		end
+	'</div>'
+
+end
+
+if $ARGS[0]="市长对话3":
+	if $JYB事件链=5:$JYB事件链=6
+	AW.room=1
+	'<div class ="show_menu"><img src="images\NPC\CT\pics\gogo.jpg" width="854"></div>'
+	
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec: gt ''郊外'',''沉思酒庄''">抵达地址</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p>我:地址是在…山峦C区域？以前我怎么不知道有这块地方呢…嗯？这里是……</p>'
+	'</div>'
+
+end
+
+
+
+
+if $ARGS[0]="草拟研讨室":
+	 if SEX_EDU>=100:SEX_EDU=100
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\JYB\vids\CN0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+
+	'<div class="button_menu">'
+		'<div class="buttonS1"><a href="exec:gt ''最终_事件'',''抬头看她''">抬头看她</a></div>'
+		'<div class="buttonS2"><a href="exec:gt ''最终_事件'',''FXZ草拟''">法案主编<<$FXZ.name>></a></div>'
+		'<div class="buttonS3"><a href="exec:gt ''最终_事件'',''SW草拟''">生理指导<<$SW.name>></a></div>'
+		'<div class="buttonS4"><a href="exec:gt ''最终_事件'',''NK草拟''">健康评估<<$NK.name>></a></div>'
+		if SEX_EDU>=100:'<div class="buttonG5"><a href="exec:gt ''最终_事件'',''宣传片''">拍摄性教育讲座</a></div>'
+		'<div class="buttonGn2"><a href="exec:gt ''市政厅''">离开</a></div>'
+	'</div>'
+	
+	'<div class="dialog_menu">'
+		'<p>*《性教育法案》完成度：<<SEX_EDU>>%</p>'
+	'</div>'
+end
+
+
+if $ARGS[0]="YXH立绘":
+	 if $ZZ.money=0:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\LH0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		'<div class="button"><a href="exec: 竞选助理话=0 & gt ''市长办公室'',''助理室''">去她助理那边</a></div>'
+          '<div class="button"><a href="exec: gt ''市长办公室''">离开</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p>我:嗨，工作还顺利吗？</p>'
+          '<p><<$YXH.name>>:<<$主角姓名>>先生，有事找我助理，别来烦我。</p>'
+          '<p>我:呃…态度好差…是因为我没有政治献金的关系吧…</p>'
+     '</div>'
+     else:
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\LH1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''市长办公室'',''YXH帮忙''">过去帮忙</a></div>'
+		'<div class="button"><a href="exec:竞选助理话=0 & gt ''市长办公室'',''助理室''">去她助理那边</a></div>'
+          '<div class="button"><a href="exec: gt ''市长办公室''">离开</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p>我:嗨，工作还顺利吗？</p>'
+          '<p><<$YXH.name>>:突然不能上网了，<<$YXH称呼>>你能来帮帮<<$YXH称呼她>>我吗？</p>'
+          '<p>我:噢？知道要帮助了？</p>'
+     '</div>'
+     end
+end
+
+
+if $ARGS[0]="助理室":
+      $JXZL.available=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\TDZL1-<<竞选助理话>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+          if 竞选助理话=0:'<div class="buttonP"><a href="exec:竞选助理话+=1 & gt ''市长办公室'',''助理室''">回忆她</a></div>'
+          if 竞选助理话=1:'<div class="buttonP"><a href="exec:竞选助理话+=1 & gt ''市长办公室'',''助理室''">回过神</a></div>'
+          if 竞选助理话=2:'<div class="buttonS"><a href="exec:竞选助理话+=1 & gt ''市长办公室'',''助理室''">桌下捡笔</a></div>'
+          if $JXZL.bad>0:'<div class="buttonG"><a href="exec:gt ''最终_事件'',''YXH_助理工作''">辅助工作</a></div>'
+          '<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">没事</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          if 竞选助理话=0:
+          '<p>我:你就是<<$YXH.name>>的竞选助理？</p>'
+          '<p><<$JXZL.name>>:是的呢❤<<$主角姓名>>经纪人，别来无恙呀。</p>'
+          '<p>我:嗯？我认识你吗？</p>'
+          '<p><<$JXZL.name>>:你忘了人家吗？</p>'
+          end
+          if 竞选助理话=1:
+          '<p>我:是在这个时候嘛？</p>'
+          end
+          if 竞选助理话=2:
+          $JXZL.bad+=2
+          '<p>我:我…我好像在帝国淫新会上见过你…</p>'
+          '<p><<$JXZL.name>>:是呀❤您的记性可真好❤</p>'
+          '<p>我:那你怎么会在这？</p>'
+          '<p><<$JXZL.name>>:我猜呢，应该是<<$CT.name>>指派<<$TS.name>>指派的我，我也是很懵圈，突然就要我做这个竞选助理了。</p>'
+          '<p><<$JXZL.name>>:啊呀，我的笔弄掉了呢。</p>'    
+          end
+          if 竞选助理话=3:
+          '<p><<$JXZL.name>>:怎么了？<<$主角姓名>>经纪人，桌子底下我的笔找到了吗？</p>'
+          '<p>我:呃…找到了…</p>'
+          end
+     '</div>'
+end
+
+
+if $ARGS[0]="YXH帮忙":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\WDKG0-0.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		if $E市长='YXH':'<div class="buttonS"><a href="exec: gt ''最终_事件'',''YXH_市长特权''">享受市长服务</a></div>'
+		if $E市长='WO':'<div class="buttonR"><a href="exec: gt ''最终_事件'',''YXH_市长命令''">行使市长命令</a></div>'
+		if $YXH事件链>=5:'<div class="buttonR"><a href="exec: gt ''市长办公室'',''YXH帮忙2''">在这侵犯她</a></div>'
+		if $YXH事件链>=4:'<div class="buttonG1"><a href="exec:$YXH放置=0 & gt ''最终_事件'',''YXH_温泉''">带去温泉</a></div>'
+          '<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">离开</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+		if $YXH事件链=0:$YXH事件链=1
+          '<p>我:简单，是网线插头松了…</p>'
+          '<p><<$YXH.name>>:太感谢你了❤你可真厉害！</p>'
+          '<p>我:呃…是这个问题太简单了…</p>'
+          if $YXH事件链<4:
+          '<p><<$YXH.name>>:帮大忙了！我晚上请你吃顿饭感谢你吧❤你有什么想吃的餐厅嘛？</p>'
+          '<p>我:赤色餐厅就不错，晚上21点见…</p>'
+          '<p><<$YXH.name>>:嗯呐❤</p>'
+          end
+          if $YXH事件链>=4 and $E市长='':
+          '<p><<$YXH.name>>:多亏了<<$YXH称呼>>的游说，现在没那么大的竞选压力了，该去放松一下了❤</p>'
+          '<p>我:想怎么放松？</p>'
+          '<p><<$YXH.name>>:<<$YXH称呼>>你说了算❤</p>'
+          end
+          if $E市长!'':
+          '<p><<$YXH.name>>:傻瓜，那是我故意为了引你上钩的❤</p>'
+          end
+     '</div>'
+end
+
+
+if $ARGS[0]="YXH帮忙2":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YXH\vids\WDKG0-1.webm" type=''video/webm;''></video></div>'
+        '</div>'
+     
+     '<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:$m=''YXH'' & $ma=$YXH.name & $m地址=''WDKG'' & Telove=$YXH.love & $Tename=''屈服'' & Tebad=$YXH.bad & gt ''泛用SEX'',''DEMO''">按在桌上</a></div>'
+          '<div class="button"><a href="exec:gt ''市长办公室'',''市长室''">放手</a></div>'
+     '</div>'
+
+     '<div class="dialog_menu">'
+          '<p><<$YXH.name>>:<<$YXH称呼>>❤别这样，会被同事看见的❤</p>'
+          '<p>我:怕被人发现你是个骚货？</p>'
+          '<p><<$YXH.name>>:嗯❤人家只肯对你一个人发骚❤</p>'
+     '</div>'
+end
+
+
+
+
+
+
+
 
 
 

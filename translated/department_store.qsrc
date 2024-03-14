@@ -12,6 +12,20 @@ if tj_task=1:gt'executive_officer_event','executive_officer_fuck_supermarket'
 	gs'menu_status_show'
 	gs'menu_option_show'
 	'<div class="actions_menu">'
+	if $hb_event_chain_h=6:
+	     if steak_and_red_wine>=0 and money>=2000:
+		   '<div class="action">'
+		   '<a class="photo" data-title="Steak and red wine (2000￥) " href="exec:money-=2000 & steak_and_red_wine=1 & gt ''department_store'',''successful_purchase''"><img class="img_stretch" src="images\items\牛排和红酒.jpg"></a>'
+		   '</div>'
+		end
+        
+		if steak_and_red_wine>=0 and money<2000:
+		   '<div class="action">'
+		   '<a class="photo" data-title="Steak and red wine (2000￥) " href="exec:gt ''department_store'',''The purchase failed and there was not enough money.''"><img class="img_stretch" src="images\items\牛排和红酒.jpg"></a>'
+		   '</div>'
+		end
+     end
+
 
 	 if jin_kailuo>=0 and money>=500:
 		'<div class="action">'
@@ -176,7 +190,7 @@ end
 
 if $ARGS[0]="":
 '<div class="dialog_menu">'
-	'<p>Department stores, you can buy all goods!(The slogan is too exaggerated...）</p>'
+	'<p>Department stores- you can buy all sorts of goods! (The slogan is too exaggerated...）</p>'
 	'<p>————————————————————————————————</p>'
 	if $jj.event_shopping=2:
 	'<p>It took a lot of time to buy 1.1 kg of urea, 3.17 kg of general calcium, 3.17 kg of potassium sulfate, and 0.45 kg of magnesium sulfate.</p>'
@@ -201,7 +215,7 @@ end
 
 if $ARGS[0]!"":
 '<div class="dialog_menu">'
-	'<p>Department stores, you can buy all goods!(The slogan is too exaggerated...）</p>'
+	'<p>Department stores- you can buy all sorts of goods! (The slogan is too exaggerated...）</p>'
 	'<p>————————————————————————————————</p>'
 	'<p>*<<$ARGS[0]>></p>'
 	'<p>————————————————————————————————</p>'

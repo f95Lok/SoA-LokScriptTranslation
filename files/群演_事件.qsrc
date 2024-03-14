@@ -4013,8 +4013,8 @@ if $args[0]="泛用_Fuck_集印S":
 		end
 		if 集印编号S=5:
 			$集印姓名A='岬あずさ（辣妹）'
-			$集印姓名B='永瀬ゆい（辣妹）'
-			$集印对话='跟我混，姐姐带你吃遍这一带的大鸡巴！'
+			$集印姓名B='永瀬唯（乖乖女）'
+			$集印对话='喔？你们俩认识？'
 			if card1>0:集印条件=1
 		end
 
@@ -4082,8 +4082,8 @@ if $args[0]="泛用_Fuck_集印S":
 
 	if a=0:
 		 '<div class="dialog_menu">'
-			 '<p>·眼前的两个骚货是理想的集印目标…</p>'
-		 	 '<p>我：嗨！这么巧？</p>'
+			 if 集印编号S<=4:'<p>·眼前的两个骚货是理想的集印目标…</p>'
+		 	 '<p>我：嗨！这是你朋友？</p>'
 		 	 '<p><<$集印姓名A>>：<<$集印对话>></p>'
 		 	 if 集印条件=0:'<p><<$集印姓名B>>：抱歉！请不要随便搭讪我！</p>'
 		 '</div>'
@@ -4329,6 +4329,85 @@ if $args[0]="施工别墅":
 				if 施工锤子=0:'<p>·在倒塌的墙壁边有一把【大锤】<a href="exec:大锤+=1 & 施工锤子=1 &  gt ''群演_事件'',''施工别墅''">-偷走</a></p>'
 		 '</div>'
 
+End
+
+if $args[0]="群演_Fuck_管理门口":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\videos\杂\lur1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+        '<div class="button_menu">'
+            if a=0:
+            '<div class="buttonS1"><a href="exec:a=1 & gt ''群演_事件'',''群演_Fuck_管理门口''">赶走她 </a></div>'
+            '<div class="buttonS"><a href="exec:a=2 & gt ''群演_事件'',''群演_Fuck_管理门口''">让她进房间 </a></div>'
+            end
+
+            if a=1:
+            '<div class="buttonR"><a href="exec:a=1 & gt ''人才公寓''">赶走她 </a></div>'
+            '<div class="buttonS"><a href="exec:a=2 & gt ''群演_事件'',''群演_Fuck_管理门口''">让她进房间 </a></div>'
+            end
+
+            if a=2:
+            '<div class="buttonS2"><a href="exec:a=3 & gt ''群演_事件'',''群演_Fuck_管理门口''">做你想做的❤ </a></div>'
+            end
+            if 7>=a and a>=3:
+            '<div class="buttonS3"><a href="exec:a=4 & gt ''群演_事件'',''群演_Fuck_管理门口''">吹硬我 </a></div>'
+            end
+            if 7>=a and a>=4:
+            '<div class="buttonS3"><a href="exec:a=5 & gt ''群演_事件'',''群演_Fuck_管理门口''">肏穴 </a></div>'
+            end
+            if 7>=a and a>=5:
+            '<div class="buttonS3"><a href="exec:a=6 & gt ''群演_事件'',''群演_Fuck_管理门口''">换姿势 </a></div>'
+            end
+            if 7>=a and a>=6:
+            '<div class="buttonS4"><a href="exec:a=7 & gt ''群演_事件'',''群演_Fuck_管理门口''">高速冲刺 </a></div>'
+            end
+            if a=7:
+            '<div class="buttonS5"><a href="exec:a=8 & gt ''群演_事件'',''群演_Fuck_管理门口''">射精 </a></div>'
+            end
+            if a=8:
+            '<div class="buttonB5"><a href="exec:a=9 & gt ''群演_事件'',''群演_Fuck_管理门口''">对话 </a></div>'
+            end
+        '</div>'
+
+        else:
+            '<div class="button_menu">'
+                '<div class="button"><a href="exec:gt ''人才公寓''">送她离开</a></div>'
+            '</div>'
+    end
+
+
+    if a=0:
+         '<div class="dialog_menu">'
+             '<p>我:嘿，门把手上是有蜂蜜吗？</p>'  
+         '</div>'
+    end
+    if a=1:
+         '<div class="dialog_menu">'
+             '<p>女人:能让我进去吗？我的Honey❤</p>'  
+         '</div>'
+    end
+
+
+    if 8>=a and a>=2:
+         '<div class="dialog_menu">'
+             '<p>女人:好棒<<$娇喘声>></p>'
+         '</div>'
+    end
+
+
+
+
+    if a=9:
+         '<div class="dialog_menu">'
+             '<p>女人:偷窥的心理学起源可能来自于好奇与孤独感，能满足人们内心的需要。如果是针对异性的，有可能也会涉及到性相关的窥阴癖。甚至广义说来，八卦、部分小说和电影等都算对他人生活的窥探，人们爱听故事，不就是通过语言去想象和窥探了解他人的生活吗？</p>'
+             '<p>我:你为什么突然说这么深奥的话？</p>'
+             '<p>女人:又不是只有男人有贤者时间❤</p>'
+         '</div>'
+    end
+  q+=1
 End
 
 if $args[0]="泛用_Fuck_医务室":
@@ -5063,6 +5142,7 @@ if $args[0]="泛用_Fuck_Barber":
             if a=0:
             '<div class="buttonGn"><a href="exec:a=6 & gt ''群演_事件'',''泛用_Fuck_Barber''">买单</a></div>'
             if Barber=3 and $催债=1:'<div class="buttonR"><a href="exec:a=0 & q=0 & 催债编号=2 & gt ''群演_事件'',''泛用_Fuck_催债''">暴力催收</a></div>'
+            if Barber=7 and $YXH事件链>=3:'<div class="buttonS"><a href="exec:$MFD.GO+=1 & $m=''MFD'' & $ma=$MFD.name & $m地址=''MFDTG'' & Telove=$MFD.love & $Tename=''屈服'' & Tebad=$MFD.bad & gt ''泛用SEX'',''DEMO''">说服她支持</a></div>'
             end
             if a!1 and 0<=q and q<=3:
             '<div class="buttonS1"><a href="exec:a=1 & gt ''群演_事件'',''泛用_Fuck_Barber''">加钱服务</a></div>'
@@ -8891,5 +8971,28 @@ if $args[0]="便利店_Fuck_BD1":
 
   q+=1
 End
+
+if $args[0] ='圣诞老人':
+	'<div class ="show_menu"><img src="images\task\sd<<a>>.jpg" width="854"></div>'
+		
+	'<div class="button_menu">'
+		if a=0:'<div class="button"><a href="exec:a+=1 & minutes-=15 & gt ''群演_事件'',''圣诞老人''">你是快递员吗？</a></div>'
+		if a=0:'<div class="button"><a href="exec:a+=1 & minutes-=15 & gt ''群演_事件'',''圣诞老人''">你身后有个鬼？</a></div>'
+		if a=0:'<div class="button"><a href="exec:a+=1 & minutes-=15 & gt ''群演_事件'',''圣诞老人''">我也不知道</a></div>'
+		if a=1:'<div class="buttonPu4"><a href="exec:a+=1 & minutes -=15 & gt ''群演_事件'',''圣诞老人''">回过神</a></div>'
+		if a=2:'<div class="button"><a href="exec:gt ''居民区''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		if a=0:'<p>我: 今天是圣诞节吗？怎么有人cos圣诞老人…</p>'
+		if a=0:'<p>像圣诞老人一样的人: 嘿！你知道<<rand(10,19)>>区的<<rand(40,190)>>栋怎么走吗？我还有<<rand(145640,54656190)>>件礼物要送！</p>'
+		if a=1:'<p>*我正准备开口…</p>'
+		if a=1:'<p>像圣诞老人一样的人: 算了，没必要停下来浪费时间。边走边找吧！不然今天送不完了！</p>'
+		if a=2:'<p>我: 诶？人呢？消失了？</p>'
+	'</div>'
+end
+
+
+
 --- 群演_事件 ---------------------------------
 
