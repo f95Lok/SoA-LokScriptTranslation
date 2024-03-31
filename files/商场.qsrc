@@ -48,7 +48,9 @@ if $ARGS[0]="":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=30 & gt ''商场''">消磨时间</a></div>'
+		'<div class="button" id="FButton"><a href="exec:minutes+=30 "onclick="checkSeason()">消磨时间</a></div>'
+		'<div class="button" id="buttonA" style="display: none;"><a href="exec:gt $loc,$metka">消磨时间</a></div>'
+		'<div class="button" id="buttonB" style="display: none;"><a href="exec:$The_Sword_of_Damocles=4999970 & gt $loc,$metka">消磨时间</a></div>'
 		if $商场_num=15 or $商场_num=16:'<div class="buttonR"><a href="exec:gt ''商场'',''街警报''">凑近看屏幕</a></div>'
 		if $审核level>1:
 			if 8>=$商场_num and $商场_num>=6:'<div class="button"><a href="exec:minutes+=5 & $商场_nu=1 & gt ''商场'',''尾随''">尾随她</a></div>'

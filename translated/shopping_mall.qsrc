@@ -48,7 +48,9 @@ if $ARGS[0]="":
 	'</div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=30 & gt ''shopping_mall''">Pass time</a></div>'
+		'<div class="button" id="FButton"><a href="exec:minutes+=30 "onclick="checkSeason()">Pass time</a></div>'
+		'<div class="button" id="buttonA" style="display: none;"><a href="exec:gt $loc,$metka">Pass time</a></div>'
+		'<div class="button" id="buttonB" style="display: none;"><a href="exec:$The_Sword_of_Damocles=4999970 & gt $loc,$metka">Pass time</a></div>'
 		if $mall_num=15 or $mall_num=16:'<div class="buttonR"><a href="exec:gt ''shopping_mall'',''street_alarm''">Look closer at the screen</a></div>'
 		if $audit_level>1:
 			if 8>=$mall_num and $mall_num>=6:'<div class="button"><a href="exec:minutes+=5 & $shopping_mall_nu=1 & gt ''shopping_mall'',''trailing''">Follow her</a></div>'

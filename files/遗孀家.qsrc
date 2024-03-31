@@ -25,6 +25,7 @@ gs'menu_gif'
 
 if $args[0]="":
 	if $看过平面图=2: a=1 & gt'遗孀_事件','争执'
+	if $ED报复=2:gt'遗孀家','ED2'
 '<div class ="show_menu"><img src="images\place\遗孀家.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
@@ -49,6 +50,22 @@ if $args[0]="":
 		'<p>·与周围的建筑风格不同，是完全的日式风格。</p>'
 	'</div>'
 
+end
+
+if $args[0]="ED2":
+	if $ED报复=2:$ED报复=3
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\DX0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''遗孀家''">扬长而去</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*正好遇到了马冬霉出来</p>'
+		'<p>马冬霉：臭娘们，你最好说的是真的！</p>'
+		'<p>我：…………</p>'
+		'<p>马冬霉：喂喂，叫上春日二番和桐生三马，今晚我们去干票大的！*打电话中</p>'
+	'</div>'
 end
 
 if $args[0]="不能进入":
@@ -89,9 +106,6 @@ if $args[0]="卧室":
 		end
 	'</div>'
 end
-
-
-
 
 if $args[0]="客厅":
  '<div class ="show_menu"><img src="images\place\遗孀家客厅.jpg" width="854"></div>'
@@ -160,7 +174,9 @@ if $args[0]="客厅2对话2":
 	'<div class="button_menu">'
 		'<div class="buttonGn"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_沙发''">我会支持你</a></div>'
 		if $警长招呼=2 and 报复对话=2:'<div class="buttonR2"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_同警长''">报警:谎称失窃</a></div>'
-		if $主厨招呼=3:'<div class="buttonG4"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_股份''">代管她的20%股份</a></div>'
+		if $主厨招呼=3 and 报复对话=1:'<div class="buttonG4"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_股份''">代管她的20%股份</a></div>'
+		if $ED报复=3 and 报复对话=3:'<div class="buttonR"><a href="exec:gt ''最终_事件'',''FK_GDX''">通风报信</a></div>'
+		if $ED报复=4 and 报复对话=3:'<div class="buttonR"><a href="exec:a=2 & gt ''最终_事件'',''FK_GDX''">去探监</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -187,9 +203,13 @@ if $args[0]="客厅2对话2":
 		if 报复对话=3:
 		'<p><<$YS.name>>:可恶的罪魁祸首！凭什么让他新招募的马仔侵犯我！他一定是个阳痿…不…他肯定是个太监！</p>'
 		'<p>我: 你想怎么做？</p>'
-		'<p><<$YS.name>>:我要把他禁锢在地牢里…在每个我想要的夜晚尽情地凌辱他的鸡巴！</p>'
-		'<p>我: 希望你能成功……</p>'
-		'<p><B><span class =''red''>·当前版本无法完成对他的复仇</p>'
+		'<p><<$YS.name>>:我治不了他，但不代表他自己不会闯祸！</p>'
+		'<p>我: 你的意思是…</p>'
+		'<p><<$YS.name>>:马冬霉和我丈夫一样都是棒球城巨人队的死忠粉，恰巧我丈夫有全队签名的棒球帽…按他的行事风格，一定会想得到它。<B><span class =''red''>据我观察，我隔壁的1600号里住着一个议员，如果议员家发生失窃案件，他肯定会被追查到底！</s></p>'
+		'<p>我: 我该怎么协助你？</p>'
+		'<p><<$YS.name>>:我们一起去1600号送点烘焙的糕点，届时你去支开闺房里的人，而我会把棒球帽偷偷放在里面。</p>'
+		if $ED报复=4:'<p>我: 结果如你所愿呢。</p>'
+		 if $ED报复=0:$ED报复=1
 		end
 		'<p><<$YS.name>>:你会不会觉得我是个恶毒的女人？但睚眦必报是我的性格…</p>'
 	'</div>'
@@ -255,7 +275,6 @@ if $args[0]="隐藏房间2":
 		'<p>我：真有一把黄金AK啊…</p>'
 	'</div>'
 end 
-
 
 
 if $args[0]="背面":

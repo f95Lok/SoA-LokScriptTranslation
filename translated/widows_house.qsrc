@@ -25,6 +25,7 @@ gs'menu_gif'
 
 if $args[0]="":
 	if $have_seen_the_floor_plan=2: a=1 & gt'widow_incident','dispute'
+	if $ed_revenge=2:gt'widows_house','ED2'
 '<div class ="show_menu"><img src="images\place\遗孀家.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
@@ -49,6 +50,22 @@ if $args[0]="":
 		'<p>·Unlike the surrounding architectural style, it is completely Japanese style.</p>'
 	'</div>'
 
+end
+
+if $args[0]="ED2":
+	if $ed_revenge=2:$ed_revenge=3
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\DX0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''widows_house''">Go away</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>*Just happened to meet Ma Dongmao coming out</p>'
+		'<p>Ma Dongmu: Bitch, what you better say is true!</p>'
+		'<p>I：…………</p>'
+		'<p>Ma Dongmu: Hey, call Kasuga Erfan and Kiryu Sanma, let`s go to the big ticket tonight!*On the phone</p>'
+	'</div>'
 end
 
 if $args[0]="cannot_enter":
@@ -89,9 +106,6 @@ if $args[0]="bedroom":
 		end
 	'</div>'
 end
-
-
-
 
 if $args[0]="living_room":
  '<div class ="show_menu"><img src="images\place\遗孀家客厅.jpg" width="854"></div>'
@@ -160,7 +174,9 @@ if $args[0]="living_room_2_dialogue_2":
 	'<div class="button_menu">'
 		'<div class="buttonGn"><a href="exec:gt ''widow_incident'',''ys_fuck_sofa''">I will support you</a></div>'
 		if $hello_sheriff=2 and revenge_dialogue=2:'<div class="buttonR2"><a href="exec:gt ''widow_incident'',''ys_fuck_same_sheriff''">Call the police: lied about the theft</a></div>'
-		if $hello_chef=3:'<div class="buttonG4"><a href="exec:gt ''widow_incident'',''ys_fuck_shares''">Escrow 20% of her shares</a></div>'
+		if $hello_chef=3 and revenge_dialogue=1:'<div class="buttonG4"><a href="exec:gt ''widow_incident'',''ys_fuck_shares''">Escrow 20% of her shares</a></div>'
+		if $ed_revenge=3 and revenge_dialogue=3:'<div class="buttonR"><a href="exec:gt ''final_event'',''FK_GDX''">Tip off</a></div>'
+		if $ed_revenge=4 and revenge_dialogue=3:'<div class="buttonR"><a href="exec:a=2 & gt ''final_event'',''FK_GDX''">Go to visit</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -187,9 +203,13 @@ if $args[0]="living_room_2_dialogue_2":
 		if revenge_dialogue=3:
 		'<p><<$YS.name>>:The abominable culprit!Why let his newly recruited horse invade me!He must be impotent...no...he must be a eunuch!</p>'
 		'<p>Me: What do you want to do?</p>'
-		'<p><<$YS.name>>:I want to imprison him in the dungeon... humiliate his dick every night I want!</p>'
-		'<p>Me: Hope you can succeed……</p>'
-		'<p><B><span class =''red''>·The current version cannot complete the revenge on him</p>'
+		'<p><<$YS.name>>: I can`t cure him, but it doesn`t mean he won`t get into trouble himself!</p>'
+		'<p>Me: What do you mean…</p>'
+		'<p><<$YS.name>>: Ma Dongmu and my husband are both diehard fans of the Baseball City Giants. It happens that my husband has a baseball cap signed by the whole team... According to his style of behavior, he will definitely want it.<B><span class =''red''>According to my observation, there is a member of parliament living in No. 1600 next door to me. If there is a theft at the member`s house, he will definitely be traced to the end!</s></p>'
+		'<p>Me: How can I help you?</p>'
+		'<p><<$YS.name>>: Let`s go to No. 1600 to deliver some baked pastries. At that time, you will support the people in the boudoir, and I will secretly put the baseball cap in it.</p>'
+		if $ed_revenge=4:'<p>Me: The result is as you wish.</p>'
+		 if $ed_revenge=0:$ed_revenge=1
 		end
 		'<p><<$YS.name>>:Do you think I am a vicious woman?But it`s my character to be vindicated.…</p>'
 	'</div>'
@@ -255,7 +275,6 @@ if $args[0]="hidden_room_2":
 		'<p>Me: There is really a golden AK…</p>'
 	'</div>'
 end 
-
 
 
 if $args[0]="back":

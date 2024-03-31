@@ -50,7 +50,7 @@ $random_number=rand(-2,500)
 
 
 if $ARGS[0]="":
-	if  (75<=$random_number and $random_number<=80) and  (hour>=22 or hour<=4) and devils_pupil>0:gt 'task_event','succubus_incident'
+	if  (752<=$random_number) and  (hour>=22 or hour<=4) and devils_pupil>0:gt 'task_event','succubus_incident'
 	if $caesar_works_part_time=1 and $times_of_day='' and 150<=$random_number and $random_number<=180:gt 'task_event','huntingpassersby'
 
 	if $random_number<=10 and $times_of_day='':
@@ -68,7 +68,7 @@ if $ARGS[0]="":
 	
 	'<div class="button_menu">'
 		if $random_events_in_the_park=0:'<div class="button"><a href="exec:minutes+=15 & gt ''park''">Take a walk</a></div>'else:'<div class="buttonGr"><a href="exec:">Take a walk</a></div>'
-		if hour=8 and minutes<30:'<div class="button"><a href="exec:gt ''park'',''ridicule''">Ridicule</a></div>'
+		if hour=8 and $rq_event_chain<6:'<div class="buttonR"><a href="exec:gt ''park'',''ridicule''">Ridicule</a></div>'
 		if week_day=6 and hour=16:'<div class="button"><a href="exec:gt ''park'',''in_preparation_for_the_music_festival''">In preparation for the music festival</a></div>'
 		if week_day=6 and hour=21:'<div class="button"><a href="exec:gt ''park'',''music_festival''">Music festival in progress</a></div>'
 		if $times_of_day="" and $random_number>=480:'<div class="buttonS"><a href="exec:gt ''task_event'',''play_tennis''">Tennis sparring</a></div>'
@@ -133,7 +133,7 @@ if $ARGS[0]="ridicule":
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:gt ''park'',''custom_roles''">Custom roles</a></div>'
 		'<div class="button"><a href="exec:minutes+=25 & gt ''park''">Ignore him</a></div>'
-		if $bitter_master_setting=1:'<div class="button"><a href="exec:minutes+=25 & gt ''park'',''look_at_his_wife''">Look at his wife</a></div>'
+		if $bitter_master_setting=1:'<div class="buttonP"><a href="exec:minutes+=25 & gt ''park'',''look_at_his_wife''">Look at his wife</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·The other party smiled contemptuously: Yo, this is not<<$protagonists_name>>Is it?</p>'
@@ -151,7 +151,7 @@ if $ARGS[0]="custom_roles":
 	'<div class ="show_menu"><img src="images\male\maleA.jpg" height="480"></div>'
 
 $bitter_masters_surname = $TRIM($LCASE($input('The name of the opponent (bitter master) is')))
-if $bitter_masters_surname="":$bitter_masters_surname="Dongzi"
+if $bitter_masters_surname="":$bitter_masters_surname="Tumor"
 if $bitter_name="":$bitter_name="(Bitter master)"
 $name_of_the_suffering_master="<<$bitter_masters_surname>><<$bitter_name>>"
 
@@ -166,8 +166,6 @@ $name_of_the_suffering_master="<<$bitter_masters_surname>><<$bitter_name>>"
 		'<p><<$name_of_the_suffering_master>>: It`s a pity, I haven`t touched her ass for a long time* Laughing</p>'
 		'<p>I：<<$bitter_masters_surname>>...don`t go too far!</p>'
 		'<p><<$name_of_the_suffering_master>>: Haha*Laugh</p>'
-		'<p>·————————————————</p>'
-		'<p>·Picture replacement path:...\assets\standalone_content\images\maleA</p>'
 		$bitter_master_setting=1
 	'</div>'
 end
@@ -177,12 +175,16 @@ if $ARGS[0]="look_at_his_wife":
 	'<div class ="show_menu"><img src="images\NPC\RQ\pics\ET2-N6yUYAAG7Vb.jpg" height="480"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=25 & gt ''park''">Ignore him</a></div>'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''park''">I remember</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p><<$name_of_the_suffering_master>>: Are your eyes straight?！We`ve been talking for three years, you don`t have a chance to laugh</p>'
 		'<p>I：……</p>'
 		'<p><<$name_of_the_suffering_master>>: Go to my house for two drinks when you have time* Laugh</p>'
+		'<p>I：…………</p>'
+		'<p><<$name_of_the_suffering_master>>: Oh, by the way, I won`t lie to you by sending you a position like a reunion this time.We are now living in Talent apartment A301, can you afford to live * laugh</p>'
+		'<p>Me: Talent Apartment A301……</p>'
+		$RQ.available=1
 	'</div>'
 end
 

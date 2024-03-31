@@ -56,7 +56,9 @@ if $args[0] ='':
 	'<div class ="show_menu"><img src="images\place\歌舞伎町.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">消磨时间</a></div>'
+		'<div class="button" id="FButton"><a href="exec:minutes+=30 "onclick="checkSeason()">消磨时间</a></div>'
+		'<div class="button" id="buttonA" style="display: none;"><a href="exec:gt $loc,$metka">消磨时间</a></div>'
+		'<div class="button" id="buttonB" style="display: none;"><a href="exec:$The_Sword_of_Damocles=4999970 & gt $loc,$metka">消磨时间</a></div>'
 		if $摄像头_SS=1 and $JZ_Event_rape=50 and (hour>=21 or 1>=hour):	'<div class="button"><a href="exec:minutes+=15 & gt ''杀手_事件'',''指引''"><<$SS.name>>来电</a></div>'
 		if 集印卡=1 and hour=22 and week_day =6:'<div class="buttonS"><a href="exec:集印编号=6 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪路人❤</a></div>'
 		if 集印卡=1 and hour=21 and week_day =7:'<div class="buttonS"><a href="exec:集印编号=9 & gt ''群演_事件'',''泛用_Fuck_集印''">❤搭讪辣妹❤</a></div>'
@@ -124,6 +126,7 @@ if $args[0] ='龙口组':
 	'<div class="button_menu">'
 		if $看过平面图=3:'<div class="buttonR3"><a href="exec:gt ''遗孀_事件'',''YS_Fuck_仓库''">呼救声</a></div>'
 		if $TMW事件链=16:'<div class="buttonR4"><a href="exec:a=0 & gt ''学生群_事件'',''TMW_欠条2''">讨债声</a></div>'
+		!'<div class="buttonR"><a href="exec:gt ''地牢''">接管龙口组</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
 	'</div>'
 
