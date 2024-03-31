@@ -1,0 +1,111 @@
+# 地牢
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+gs'menu_gif'
+
+if 地牢开启=1:
+	步数num+=1
+	if 步数num>=12:步数num=12
+end
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if 步数num=1:'<a class="photo" data-title="基地入口" href="exec:gt ''地牢''"><img class="img_stretch" src="images\NPC\YS\pics\0_x.jpg"></a>'else:'<a class="photo" data-title="基地入口" href="exec:gt ''地牢''"><img class="img_stretch" src="images\NPC\YS\pics\0.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=2:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=3:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=4:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\7_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\7.jpg"></a>'
+		'</div>'
+		!####################
+		'<div class="action">'
+			if 步数num=8:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\10_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=7:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\2_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=6:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\2_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=5:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\8_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\8.jpg"></a>'
+		'</div>'
+		!####################
+		'<div class="action">'
+			if 步数num=9:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\9_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\9.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=10:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=11:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="通道" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if 步数num=12:'<a class="photo" data-title="基地本部【被占领】" ><img class="img_stretch" src="images\NPC\YS\pics\99_x.jpg"></a>'else:'<a class="photo" data-title="基地本部" href="exec:gt ''地牢'',''本部''"> <img class="img_stretch" src="images\NPC\YS\pics\99.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $args[0] ='':
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\in0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if 地牢介绍=0:'<div class="buttonPu2"><a href="exec:gt ''特别说明'',''说明''">有人来了？</a></div>'
+		if 地牢介绍=1:'<div class="buttonR"><a href="exec:步数num=0 & 地牢开启=1 & gt ''地牢''">开放营救</a></div>'
+		'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·在光辉未照耀的摩天大楼之下，有着逼仄潮湿而肮脏的贫民区。来大城市闯荡的女人们，逃避税收的男人们，像老鼠一样拥挤在一条条阴暗破败而混乱的深巷里。</p>'
+	'</div>'
+end
+
+
+if $args[0] ='本部':
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\99.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''地牢'',''查看手下''">查看手下</a></div>'
+		'<div class="button"><a href="exec:gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·龙口组的本部，由我主导的核心办公室，在这里可以发布命令</p>'
+	'</div>'
+end
+
+
+if $args[0] ='查看手下':
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\bro.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''地牢'',''命令''">查看手下</a></div>'
+		'<div class="button"><a href="exec:gt ''地牢'',''本部''">返回</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><B>♟<龙口组的三位精英干部>♟</p>'
+		'<p><font color="#32CD32">·☣王蟲☣:他擅长使用各种道具和机关来迷惑、欺骗和陷害他人，其手段之狡诈令人防不胜防。因为喜欢研究心理学和策略战术，所以通常会以各类痴汉的身份进行奴人实验。『☣奴x<<F1_nu>>』</p>'
+		'<p> 𓂨  </p>'
+		'<p><font color="#FF1493">·♝王犇♝:她是一个肉欲主义者，她追求肉体和感官的享受，同时也擅长利用自己的爆乳和阴道来达成目的。她的存在让人难以捉摸和理解，她的动机往往只是单纯的性饥渴。『♝奴x<<F2_nu>>』</p>'
+		'<p> 𓂨  </p>'
+		'<p><font color="#FF0000">·☠王龘☠:他是一位崇尚暴力的极端主义者，甚至在平时的生活中也展现出极端的暴力倾向。他喜欢通过暴力来展示自己的力量和控制力，享受对他人造成恐惧和痛苦的快感。『☠奴x<<F3_nu>>』</p>'
+	'</div>'
+end
+
+
+
+--- 地牢 ---------------------------------
+

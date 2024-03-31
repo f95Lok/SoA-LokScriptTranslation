@@ -126,6 +126,8 @@ if $args[0]="DEMO":
 			 if $m_address='HFFQL':'<div class="buttonB5"><a href="exec:a=0 & gt ''final_event'',''hb_cry''">Why are you crying?</a></div>'
 			 if $m_address='BEAND':'<div class="buttonB5"><a href="exec:a=0 & gt ''final_event'',''plead_for_her''">Plead for her</a></div>'
 			 if $m_address='DLDGJ':'<div class="buttonR"><a href="exec:gt ''final_event'',''see_you_in_the_attic''">She wants to drop wax</a></div>'
+			 if $m_address='RQYYG':'<div class="buttonGn"><a href="exec:a=0 & gt ''final_event'',''rq_swimming_follow-up''">When ready to leave…</a></div>'
+			 if $m_address='GDERQ':'<div class="buttonGn"><a href="exec:gt ''final_event'',''rq_church''">Behind the door</a></div>'
                 if $m_address!'ZDJL' and $m_address!'LTIME':'<div class="buttonGn5"><a href="exec:gt ''subway''">Leave</a></div>'
             '</div>'
     end
@@ -152,6 +154,10 @@ if $args[0]="DEMO":
 			 '<p>Me: Do you like me?</p>'
 		    end
               if $ma=$UN.name:'<p><<$ma>>: When I become a big star, I will make money to support you.Will you wait for me?</p>'
+              if $ma=$RQ.name:
+				if $Tename='屈服':'<p><<$ma>>: Stop...are you sure you want to do this?</p>'
+				if $Tename='满足':'<p><<$ma>>: I know this is cheating, but I forgot to use my dick for the time being.<<$name_of_the_suffering_master>>OK?</p>'
+              end
 		    '<p>Me:<<$affirmative_answer>></p>'
          '</div>'
     end
@@ -267,6 +273,47 @@ if $args[0]="DEMO":
              $UN.love+=my.charm+a
              $UN.bad+=my.charm+q
             end
+            
+            if $m_address='WKO':
+              if $rq_event_chain=3:$rq_event_chain=4
+              '<p>Me: Spare you?As long as you work here, you will be fucked by me every day!</p>'
+              '<p><<$ma>>: It seems that this job is no longer possible…</p>'
+            end
+
+            if $m_address='WKTU':
+              if $rq_event_chain=5:$rq_event_chain=6
+              '<p>Me: Is this job “comfortable”?Shall we have another shot tomorrow?</p>'
+              '<p><<$ma>>: No way...I won`t come again!</p>'
+            end
+            
+            if $m_address='WKCT':
+              if $rq_event_chain=7:$rq_event_chain=8
+              '<p>Me: Of course, in addition to me, you have to serve other guests!</p>'
+              '<p><<$ma>>: No...don`t dream!</p>'
+            end
+            
+            if $m_address='ECZA':
+              if $rq_event_chain=9:$rq_event_chain=10
+              '<p>Me: Why do you look reluctant?I will recommend a good job to you later!</p>'
+              '<p><<$ma>>: Hmm...then go back and talk about it……</p>'
+            end
+            if $m_address='RQSWD':
+              if $rq_event_chain=11:$rq_event_chain=12
+              '<p>Me: Are you doing well, do you want to work here?</p>'
+              '<p><<$ma>>:Um...please…</p>'
+            end 
+            if $m_address='RQYYL':
+              if $rq_event_chain=13:$rq_event_chain=14
+              '<p>Me: It`s a pity，<<$YZ.name>>I think there are enough nurses, you can`t work here……</p>'
+              '<p><<$ma>>:It`s okay, take care of it<<$protagonists_name>>I am very content…</p>'
+            end 
+            if $m_address='JWCRQ':
+              if $rq_event_chain=15:$rq_event_chain=16
+              '<p><<$ma>>: I made a decision…</p>'
+              '<p>Me: What decision?</p>'
+              '<p><<$ma>>: Did you know that the church has a marriage business?I voted for the resume of the emcee, I don`t want to continue to raise it here<<$name_of_the_suffering_master>>I heard that accommodation can be provided there…</p>'
+            end
+            
          '</div>'
     end
 

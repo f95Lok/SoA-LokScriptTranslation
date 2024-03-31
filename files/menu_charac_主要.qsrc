@@ -10,7 +10,7 @@ gs'menu_time_calc'
 '<div class="option_menu">
 	<a href="exec:gt ''menu_charac_gg'',''<<my.魅力>>''"><div class="option_gg"></div></a>
 	<a href="exec:gt ''menu_charac_nps'',''0''"><div class="option_nps"></div></a>
-	<a href="exec:gt ''menu_reportbugs''"><div class="option_rebugs"data-title="BUG上报"></div></a>
+	<a href="exec:gt ''menu_reportbugs''"><div class="option_rebugs"data-title="BUG修复"></div></a>
 	<a href="exec:gt ''menu_更新日志''"><div class="option_update"data-title="更新日志"></div></a>
 </div>'
 	'<div class="actions_menu">'
@@ -24,7 +24,6 @@ gs'menu_time_calc'
 			if 市长确定=1:'<a class="photo" data-title="结局重置" href="exec:gt ''结局重置''"><img class="img_stretch" src="images\place\重置.jpg"></a>'
 		'</div>'
 	'</div>'
-	'<a href="exec:$攻略进入=60 & gt ''攻略赞助''"><div class="option_gonglue"data-title="内置攻略"></div></a>'
 '</div>'
 
 
@@ -98,6 +97,16 @@ gs'menu_time_calc'
                '<div class="charac_nps_list_foto">
                     <a class="photo" data-title="<<$ZMK.name>>" href="exec:gt ''通用NPC菜单'',''<<$ZMK.name>>'',''<<$ZMK.love>>'',''<<$ZMK.bad>>'',''<<$ZMK.bio>>''"><img class="img_stretch" src="images\npc_l\<<$ZMK.name>>.png"></a>'
                '</div>'
+            end
+            
+            if $RQ.available=1:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="<<$RQ.name>>" href="exec:gt ''通用NPC菜单'',''<<$RQ.name>>'',''<<$RQ.love>>'',''<<$RQ.bad>>'',''<<$RQ.bio>>''"><img class="img_stretch" src="images\npc_l\<<$RQ.name>>.png"></a>'
+            '</div>'
+            else:
+            '<div class="charac_nps_list_foto">
+                <a class="photo" data-title="公园早上8点" ><img class="img_stretch" src="images\npc_l\<<$RQ.name>>a.png"></a>'
+            '</div>'
             end
             
 		if $WH.available=1:

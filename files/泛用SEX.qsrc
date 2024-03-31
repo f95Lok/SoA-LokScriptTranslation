@@ -126,6 +126,8 @@ if $args[0]="DEMO":
 			 if $m地址='HFFQL':'<div class="buttonB5"><a href="exec:a=0 & gt ''最终_事件'',''HB_大哭''">怎么哭了？</a></div>'
 			 if $m地址='BEAND':'<div class="buttonB5"><a href="exec:a=0 & gt ''最终_事件'',''替她求情''">替她求情</a></div>'
 			 if $m地址='DLDGJ':'<div class="buttonR"><a href="exec:gt ''最终_事件'',''阁楼见''">她要滴蜡</a></div>'
+			 if $m地址='RQYYG':'<div class="buttonGn"><a href="exec:a=0 & gt ''最终_事件'',''RQ_游泳后续''">准备离开时…</a></div>'
+			 if $m地址='GDERQ':'<div class="buttonGn"><a href="exec:gt ''最终_事件'',''RQ_教堂''">门缝之后</a></div>'
                 if $m地址!'ZDJL' and $m地址!'LTIME':'<div class="buttonGn5"><a href="exec:gt ''地铁''">离开</a></div>'
             '</div>'
     end
@@ -152,6 +154,10 @@ if $args[0]="DEMO":
 			 '<p>我:你喜欢我？</p>'
 		    end
               if $ma=$UN.name:'<p><<$ma>>:等我成了大明星，我赚钱养你。你愿意等我吗？</p>'
+              if $ma=$RQ.name:
+				if $Tename='屈服':'<p><<$ma>>:住手…你确定要这样子做吗？</p>'
+				if $Tename='满足':'<p><<$ma>>:明明知道这样是出轨，但暂时用鸡巴让我忘了<<$苦主姓名>>好吗？</p>'
+              end
 		    '<p>我:<<$肯定回答>></p>'
          '</div>'
     end
@@ -267,6 +273,47 @@ if $args[0]="DEMO":
              $UN.love+=my.魅力+a
              $UN.bad+=my.魅力+q
             end
+            
+            if $m地址='WKO':
+              if $RQ事件链=3:$RQ事件链=4
+              '<p>我:饶了你？只要你在这里工作，每天都会被我操！</p>'
+              '<p><<$ma>>:看来这份工作是不行了…</p>'
+            end
+
+            if $m地址='WKTU':
+              if $RQ事件链=5:$RQ事件链=6
+              '<p>我:这份工作“舒服”嘛？明天我们再来一发？</p>'
+              '<p><<$ma>>:不行…我不会再来了！</p>'
+            end
+            
+            if $m地址='WKCT':
+              if $RQ事件链=7:$RQ事件链=8
+              '<p>我:当然，除了我以外，你还要为别的客人服务喔！</p>'
+              '<p><<$ma>>:不…别做梦了！</p>'
+            end
+            
+            if $m地址='ECZA':
+              if $RQ事件链=9:$RQ事件链=10
+              '<p>我:干嘛一副不情愿的样子？我回头会给你推荐好工作的！</p>'
+              '<p><<$ma>>:嗯…那回去说吧……</p>'
+            end
+            if $m地址='RQSWD':
+              if $RQ事件链=11:$RQ事件链=12
+              '<p>我:表现得不错嘛，想在这里工作吗？</p>'
+              '<p><<$ma>>:嗯…拜托了…</p>'
+            end 
+            if $m地址='RQYYL':
+              if $RQ事件链=13:$RQ事件链=14
+              '<p>我:可惜，<<$YZ.name>>觉得护士的人手够了，你不能在这里工作……</p>'
+              '<p><<$ma>>:没关系，能照顾好<<$主角姓名>>我就很知足了…</p>'
+            end 
+            if $m地址='JWCRQ':
+              if $RQ事件链=15:$RQ事件链=16
+              '<p><<$ma>>:我做了个决定…</p>'
+              '<p>我:什么决定？</p>'
+              '<p><<$ma>>:你知道教堂有结婚业务吗？我投了司仪的简历，我不想在这里继续养<<$苦主姓名>>了，听说那里可以提供住宿…</p>'
+            end
+            
          '</div>'
     end
 

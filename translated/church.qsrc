@@ -389,7 +389,8 @@ if $args[0]="church_wedding":
        
         '<div class="button_menu">'
 		  '<div class="buttonP"><a href="exec: gt ''nun_event'',''XN_Fuck_WED''">Take her to your room</a></div>'
-            '<div class="buttonGn3"><a href="exec: gt ''church''">Leave</a></div>'
+		  if $rq_event_chain>=16:'<div class="buttonG2"><a href="exec:minutes+=5 & gt ''final_event'',''rq_church''">㊘<<$RQ.name>></a></div>'
+		  
             if $jyb_event_chain>=17:'<div class="buttonS"><a href="exec: gt ''church'',''one_wife_and_multiple_husbands_wedding''">一One wife and multiple husbands wedding㊚</a></div>'
             if $bank_event_chain_b>=8:'<div class="buttonG3"><a href="exec: gt ''bank_event'',''YH_Fuck_B8''">㊕<<$YH.name>></a></div>'
             if $wh.wedding_dress=1:'<div class="buttonG4"><a href="exec:gt ''net_celebrity_event'',''WH_Fuck_hun''">㊕<<$WH.name>></a></div>'

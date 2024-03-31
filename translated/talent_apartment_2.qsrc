@@ -29,28 +29,27 @@ minutes+=15
 			'<a class="photo" data-title="A403" href="exec:gt ''talent_apartment_2'',''A403''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
+			'<a class="photo" data-title="A402" href="exec:gt ''final_event'',''A402''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo"><img class="img_stretch" src="images\place\电梯.jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
+			'<a class="photo" data-title="A401" href="exec:gt ''talent_apartment_2'',''A401''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
 		'</div>'
 		! ###############################################################
 		'<div class="action">'
 			if $BX.available=1:'<a class="photo" data-title="A303" href="exec:gt ''talent_apartment_2'',''A303''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'else:'<a class="photo" data-title="A303" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
+			'<a class="photo" data-title="A302" href="exec:A302N=0 & gt ''talent_apartment_2'',''A302''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo" data-title="Next layer" href="exec:gt ''talent_apartment''"><img class="img_stretch" src="images\place\电梯_下.jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
+			if $RQ.available=1:'<a class="photo" data-title="A301" href="exec:gt ''talent_apartment_2'',''a301_door''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'else:'<a class="photo" data-title="A301" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'	
 		'</div>'
-
 	'</div>'
 '</div>'
 
@@ -175,6 +174,257 @@ if $args[0]="A403F":
 		'<p><<$SML.name>>Enjoying her little home</p>'
 	'</div>'
 end
+
+if $args[0]="a301_door":
+	if $rq_event_chain>=17:
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (6).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: No one answered the door, it should be that the rent is due……</p>'
+	'</div>'
+	
+	else:
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\M0.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG2"><a href="exec:gt ''talent_apartment_2'',''A301''">Go inside and sit down</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>Me: Hi, is it convenient to come in?</p>'
+		'<p><<$RQ.name>>:It`s okay…</p>'
+	'</div>'
+	end
+end
+
+
+if $args[0]="A301":
+		   '<div class="show_menu">'
+			   '<video preload="metadata" autoplay loop height="480">
+			   <source src="images\NPC\RQ\vids\A0.webm" type=''video/webm;''></video></div>'
+		   '</div>'
+
+	'<div class="button_menu">'
+		if $rq_event_chain<=1:'<div class="buttonR3"><a href="exec:gt ''talent_apartment_2'',''a301_woofer''">Listen to him brag</a></div>'
+		if $rq_event_chain=2 or $rq_event_chain=3:'<div class="buttonR3"><a href="exec:gt ''talent_apartment_2'',''a301_resignation''">Look at<<$RQ.name>></a></div>'
+		if 9>=$rq_event_chain and $rq_event_chain>=4:'<div class="buttonR3"><a href="exec:gt ''talent_apartment_2'',''a301_work_1''"><<$RQ.name>>lost</a></div>'
+		if 99>=$rq_event_chain and $rq_event_chain>=10:'<div class="buttonR3"><a href="exec:gt ''talent_apartment_2'',''a301_work_2''">I suggest<<$RQ.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$name_of_the_suffering_master>>: Clam, why do you really have the face to be an idiot?</p>'
+	'</div>'
+end
+
+
+if $args[0]="a301_woofer":
+	 if $rq_event_chain=0:$rq_event_chain=1
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A1.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''town_house''">Secretly write down</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$name_of_the_suffering_master>>: Do you know who lives in the talent apartment?</p>'
+		'<p>Me: Uh...who is it?Employees of the Imperial Group?</p>'
+		'<p><<$name_of_the_suffering_master>>: Talent!Idiot!You are still as stupid as when you were in school.</p>'
+		'<p>Me: Then you work for the Empire Group?</p>'
+		'<p><<$RQ.name>>: It`s me...I work for Imperial Energy，<<$NY.name>>Is my boss…</p>'
+		'<p><<$name_of_the_suffering_master>>: Cock or not, are you scared?That`s<<$NY.name>>, Look at you like you haven`t seen the world before!</p>'
+		'<p>I:………</p>'
+	'</div>'
+end
+
+
+if $args[0]="a301_resignation":
+	 if $rq_event_chain=2:$rq_event_chain=3
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A2.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''town_house''">Secretly write down</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband, which one... I resigned from Imperial Energy……</p>'
+		'<p><<$name_of_the_suffering_master>>:What?Don`t talk nonsense... that`s the job of falling pie in the sky, oh, you……</p>'
+		'<p>Me: Do you want to know what happened?</p>'
+		'<p><<$RQ.name>>: Don`t say...I...I will find a new job...I... I have a postdoctoral degree in energy... it shouldn`t be difficult to find a job as a teacher in school...Tomorrow I will go to the principal`s office to ask…</p>'
+		'<p><<$name_of_the_suffering_master>>: Also, my wife is awesome, are you scared?That`s a postdoctoral degree in energy... A wood louse like you must not even have a graduation certificate, right?*Ridicule</p>'
+		'<p>Me: I want to find a job as a teacher…</p>'
+	'</div>'
+end
+
+if $args[0]="a301_work_1":
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A2.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''town_house''">Secretly write down</a></div>'
+	'</div>'
+
+	if $rq_event_chain=4 or $rq_event_chain=5:
+		$rq_event_chain=5
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband, which one... my school job has not been won……</p>'
+		'<p><<$name_of_the_suffering_master>>: What`s the matter with this, which broken school can`t accommodate you, the big Buddha!</p>'
+		'<p>Me: Haha.</p>'
+		'<p><<$name_of_the_suffering_master>>: What qualifications do you have to laugh?Who are you?*Ridicule</p>'
+		'<p><<$RQ.name>>: Husband, I heard that there is a hot spring shop in the suburbs that is hiring people... I plan to take a look……</p>'
+		'<p><<$name_of_the_suffering_master>>: Let`s talk about it first, don`t do that kind of fueling service for others, otherwise I will cry!</p>'
+		'<p>Me: I want to find a job in a hot spring, right?……</p>'
+	'</div>'
+	end
+	if $rq_event_chain=6 or $rq_event_chain=7:
+		$rq_event_chain=7
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband, which...hot spring job is not suitable for me either…</p>'
+		'<p><<$name_of_the_suffering_master>>: Do you do that kind of fuel-pushing service for others?I don`t think it will work either!You are a good woman who guards the way of women, and I really read you right!</p>'
+		'<p><<$RQ.name>>:Ok.........* Look at me</p>'
+		'<p>Me: Looking for a job has repeatedly hit a wall... I actually have a company……</p>'
+		'<p><<$name_of_the_suffering_master>>:Yo yo yo!Don`t scare me, say that you have a company and you have a bus. It`s almost the same. Say, is that bus your girlfriend or your mother?Hahaha*laugh</p>'
+		'<p><<$RQ.name>>: I plan to go to...the red restaurant to try my luck...it shouldn`t be difficult……</p>'
+		'<p>Me: Work in the red restaurant, right?……</p>'
+	'</div>'
+	end
+	if $rq_event_chain=8 or $rq_event_chain=9:
+		$rq_event_chain=9
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband, which...restaurant job is not suitable for me either…</p>'
+		'<p><<$name_of_the_suffering_master>>: Why is my wife the kind of person who brings dishes to people!My wife is in such a good shape, she used to be a dish of heaven!Remember when you taught me to swim, touching your thighs made me get an erection❤</p>'
+		'<p><<$RQ.name>>: When swimming... why don`t I teach others to swim!</p>'
+		'<p><<$name_of_the_suffering_master>>: Yes it is!My wife will definitely do it!</p>'
+		'<p><<$RQ.name>>:Hmm!</p>'
+		'<p>Me: I had a bad nose at school before, but now I have to go to the school swimming pool to teach swimming?</p>'
+	'</div>'
+	end
+	
+	
+end
+
+if $args[0]="a301_work_2":
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A3.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		if $rq_event_chain>=14:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''talent_apartment_2'',''a301_go''">He left</a></div>'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	if $rq_event_chain=10 or $rq_event_chain=11:
+		$rq_event_chain=11
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband, which one... I think the swimming coach earns too little…</p>'
+		'<p><<$name_of_the_suffering_master>>: Then tell me, what else can you do with your skills?Waste things, I can`t find a job, I can`t understand it.</p>'
+		'<p>Me: I think you can go to the stockings store in the mall to try it…</p>'
+		'<p><<$name_of_the_suffering_master>>:What does it matter to you?You trash, get out of my house!</p>'
+	'</div>'
+	end
+	if $rq_event_chain=12 or $rq_event_chain=13:
+		$rq_event_chain=13
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband, which one... I have a lot of spare time now... I plan to read some medical books and become a doctor…</p>'
+		'<p><<$name_of_the_suffering_master>>: Doctor?Pull it down, you can`t even find a job.</p>'
+		'<p>Me: Doctors need to receive long-term higher education and professional training, and the competition for admission to medical schools is also very fierce.For some people, becoming a doctor may be an unattainable goal.</p>'
+		'<p><<$name_of_the_suffering_master>>: Look, he is right!Wait... I didn`t mean to praise you!</p>'
+		'<p>Me: Why don`t you start as a nurse first?You can better understand the roles and responsibilities of different members of the medical team, and improve your understanding of the doctor-patient relationship. These are very valuable experiences for becoming a doctor in the future.</p>'
+		'<p><<$RQ.name>>: It makes sense... I will try it!I don`t know what floor the dean`s office is on?</p>'
+	'</div>'
+	end
+	if $rq_event_chain=14 or $rq_event_chain=15 or $rq_event_chain=16:
+		$rq_event_chain=15
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>: Husband，<<$protagonists_name>>Helped me become a nurse.</p>'
+		'<p><<$name_of_the_suffering_master>>: What?How can this work?Quit this job soon, I don`t want to owe others a favor!</p>'
+		'<p><<$RQ.name>>: But……</p>'
+		'<p><<$name_of_the_suffering_master>>: But what?Do you want to see him every day without looking up or looking down?</p>'
+		'<p>Me:…………</p>'
+		'<p><<$RQ.name>>: Okay...then I`ll rest for a few days……</p>'
+		'<p><<$name_of_the_suffering_master>>: That`s right, I`ll go to the previous group of friends to get some rent, and I won`t be back tonight!</p>'
+	'</div>'
+	end
+end
+
+
+if $args[0]="a301_go":
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\GEW.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''JWCRQ'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">Go back to the house and fuck her</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$name_of_the_suffering_master>>: I really don`t know how those idiots are doing now…</p>'
+	'</div>'
+
+end
+
+
+if $args[0]="A302":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\A302-<<A302N>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+     '<div class="button_menu">'
+          if A302N=0:'<div class="buttonPu1"><a href="exec:A302N=1 & gt ''talent_apartment_2'',''A302''">Eavesdropping</a></div>'
+          if A302N=1:'<div class="buttonPu2"><a href="exec:A302N=2 & gt ''talent_apartment_2'',''A302''">Discovered</a></div>'
+          if A302N=2:
+           if place_an_order=1:'<div class="buttonS"><a href="exec:money+=10000 & $FaceName_A_filename_reference=''希志爱野'' &  $FaceName_A=''Kishi Aino'' & love_A=$BD.love & $FaceName_B_filename_reference=''柚木提娜'' &  $FaceName_B=''Teak Tina'' & love_B=$BD.love &  $m_address=''XZRIO'' & gt ''universal_sex_single'',''dou_double''">Duck King order: Door-to-door 3P service</a></div>'else:'<div class="buttonGr"><a href="exec:">Not qualified</a></div>'
+          '<div class="buttonPu4"><a href="exec:gt ''talent_apartment_2''">Leave</a></div>'
+          end
+     '</div>'
+
+     '<div class="dialog_menu">'
+          if A302N>=0:'<p>Teak Tina: After working hard for so long, can you find a time to relax?</p>'
+          if A302N>=1:'<p>Kishi Aino: Okay, okay, I`ll post an order tomorrow, and find someone with the qualifications of the duck king to serve our sisters, right?</p>'
+          if A302N=2:'<p>Me: Hi!</p>'
+          if A302N=2:'<p>Kishi Aino: Hello!Were you peeking at us just now?</p>'
+          if A302N=2 and place_an_order=1:'<p>Me: I am the one you are looking for. I have the qualifications of the duck King. Next, I will serve you and I will serve you!</p>'
+     '</div>'
+
+end
+
+if $args[0]="A401":
+	'<div class ="show_menu"><img src="images\NPC\QJ\pics\yt (<<rand(1,7)>>).jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''final_event'',''A401''">Help her clear</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>28-year-old female tenant: Hello, I heard that the apartment administrator here will provide plumbing services. Is it true?</p>'
+		'<p>Me: I don`t think the bathroom is blocked either?</p>'
+		'<p>28-year-old female tenant: Who said it was that hole?*Pointed to his cunt</p>'
+	'</div>'
+end
+
+
+
 
 
 

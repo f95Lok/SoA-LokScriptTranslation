@@ -25,7 +25,8 @@ if $args[0]="":
 
 	'<div class="button_menu">'
 		'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''sex_doll'',''pick_up''">Pick up</a></div>'
-		if set_printing_card>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''sex_doll'',''set_printing_card''">Set printing card</a></div>'
+		if set_printing_card>0 and set_printing_is_complete=0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''sex_doll'',''set_printing_card''">Set printing card</a></div>'
+		if set_printing_is_complete>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''sex_doll'',''set_printing_card''">Duck King Order</a></div>'
 		'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''kabukicho''">Get out</a></div>'
 	'</div>'
 
@@ -104,7 +105,10 @@ End
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''sex_doll''">Got it</a></div>'
 		if set_printing_is_complete=1 and duck_king_medal=0:'<div class="buttonG"><a href="exec:duck_king_medal+=1 & gt ''sex_doll''">Reward: Duck King Medal</a></div>'
-		if  duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP''">Duck King: SVIP Order</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP Order</a></div>'
+		if  duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP''">Duck King: SVIP Order㊖</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP Order㊖</a></div>'
+		if  duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP2''">Duck King: SVIP Order☎︎</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP Order☎︎</a></div>'
+		if  duck_king_medal>0:'<div class="buttonG"><a href="exec:gt ''sex_doll'',''SVIP3''">Duck King: SVIP OrderSV︎</a></div>'else:'<div class="buttonGr"><a href="exec:">Duck King: SVIP OrderSV︎</a></div>'
+		
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -130,6 +134,35 @@ if $args[0]="SVIP":
 		if hundred_days_banquet!0:'<p>·At 13:00 on the 13th of the following month [Hundred Days Banquet]-Villa area-special car transfer<a href="exec:hundred_days_banquet=0 &  gt ''sex_doll'',''SVIP''">-Chargeback</a></p>'
 	'</div>'
 End
+
+if $args[0]="SVIP2":
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Madam boss: Listen up, even if you have the qualifications of Duck King.These SVIP orders are also served to the old lady, don`t smash the old lady`s signboard!</p>'
+		if place_an_order=0:'<p>·人才︎-Talent Apartment-A302-Door-to-door service<a href="exec:place_an_order=1 &  gt ''sex_doll'',''SVIP2''">-Take orders</a></p>'
+		if place_an_order!0:'<p>·人才︎-Talent Apartment-A302-Door-to-door service<a href="exec:place_an_order=0 &  gt ''sex_doll'',''SVIP2''">-Chargeback</a></p>'
+	'</div>'
+End
+
+if $args[0]="SVIP3":
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Madam boss: Listen up, even if you have the qualifications of Duck King.These SVIP orders are also served to the old lady, don`t smash the old lady`s signboard!</p>'
+		if great_order=0:'<p>·---Night Nest-Main Stage-Sunday Carnival Night-Hunk Charge<a href="exec:great_order=1 &  gt ''sex_doll'',''SVIP3''">-Take orders</a></p>'
+		if great_order!0:'<p>·---Night Nest-Main Stage-Sunday Carnival Night-Hunk Charge<a href="exec:great_order=0 &  gt ''sex_doll'',''SVIP3''">-Chargeback</a></p>'
+	'</div>'
+End
+
 
 
 

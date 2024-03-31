@@ -56,7 +56,9 @@ if $args[0] ='':
 	'<div class ="show_menu"><img src="images\place\歌舞伎町.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">Pass time</a></div>'
+		'<div class="button" id="FButton"><a href="exec:minutes+=30 "onclick="checkSeason()">Pass time</a></div>'
+		'<div class="button" id="buttonA" style="display: none;"><a href="exec:gt $loc,$metka">Pass time</a></div>'
+		'<div class="button" id="buttonB" style="display: none;"><a href="exec:$The_Sword_of_Damocles=4999970 & gt $loc,$metka">Pass time</a></div>'
 		if $camera_ss=1 and $JZ_Event_rape=50 and (hour>=21 or 1>=hour):	'<div class="button"><a href="exec:minutes+=15 & gt ''killer_event'',''guidelines''"><<$SS.name>>Incoming call</a></div>'
 		if set_printing_card=1 and hour=22 and week_day =6:'<div class="buttonS"><a href="exec:set_printing_number=6 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with passersby❤</a></div>'
 		if set_printing_card=1 and hour=21 and week_day =7:'<div class="buttonS"><a href="exec:set_printing_number=9 & gt ''group_performation_event'',''general_fuck_jiyin''">❤Strike up a conversation with hot girls❤</a></div>'
@@ -124,6 +126,7 @@ if $args[0] ='longkou_group':
 	'<div class="button_menu">'
 		if $have_seen_the_floor_plan=3:'<div class="buttonR3"><a href="exec:gt ''widow_incident'',''ys_fuck_warehouse''">Call for help</a></div>'
 		if $tmw_event_chain=16:'<div class="buttonR4"><a href="exec:a=0 & gt ''student_group_event'',''tmw_iou_2''">Debt collection</a></div>'
+		!'<div class="buttonR"><a href="exec:gt ''地牢''">接管龙口组</a></div>'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''kabukicho''">Leave</a></div>'
 	'</div>'
 

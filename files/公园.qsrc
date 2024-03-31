@@ -50,7 +50,7 @@ $随机数=rand(-2,500)
 
 
 if $ARGS[0]="":
-	if  (75<=$随机数 and $随机数<=80) and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事件','魅魔事件'
+	if  (752<=$随机数) and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事件','魅魔事件'
 	if $凯撒打工=1 and $times_of_day='' and 150<=$随机数 and $随机数<=180:gt '任务_事件','狩猎路人'
 
 	if $随机数<=10 and $times_of_day='':
@@ -68,7 +68,7 @@ if $ARGS[0]="":
 	
 	'<div class="button_menu">'
 		if $公园随机事件=0:'<div class="button"><a href="exec:minutes+=15 & gt ''公园''">散散步</a></div>'else:'<div class="buttonGr"><a href="exec:">散散步</a></div>'
-		if hour=8 and minutes<30:'<div class="button"><a href="exec:gt ''公园'',''嘲笑声''">嘲笑声</a></div>'
+		if hour=8 and $RQ事件链<6:'<div class="buttonR"><a href="exec:gt ''公园'',''嘲笑声''">嘲笑声</a></div>'
 		if week_day=6 and hour=16:'<div class="button"><a href="exec:gt ''公园'',''音乐节筹备中''">音乐节筹备中</a></div>'
 		if week_day=6 and hour=21:'<div class="button"><a href="exec:gt ''公园'',''音乐节''">音乐节进行中</a></div>'
 		if $times_of_day="" and $随机数>=480:'<div class="buttonS"><a href="exec:gt ''任务_事件'',''打网球''">网球陪练</a></div>'
@@ -133,7 +133,7 @@ if $ARGS[0]="嘲笑声":
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:gt ''公园'',''定制角色''">定制角色</a></div>'
 		'<div class="button"><a href="exec:minutes+=25 & gt ''公园''">不理他</a></div>'
-		if $苦主设定=1:'<div class="button"><a href="exec:minutes+=25 & gt ''公园'',''看他老婆''">看他老婆</a></div>'
+		if $苦主设定=1:'<div class="buttonP"><a href="exec:minutes+=25 & gt ''公园'',''看他老婆''">看向他老婆</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p>·对方轻蔑地一笑：哟呵，这不是<<$主角姓名>>吗？</p>'
@@ -151,7 +151,7 @@ if $ARGS[0]="定制角色":
 	'<div class ="show_menu"><img src="images\male\maleA.jpg" height="480"></div>'
 
 $苦主姓 = $TRIM($LCASE($input('对方（苦主）的名字是')))
-if $苦主姓="":$苦主姓="东子"
+if $苦主姓="":$苦主姓="瘤子"
 if $苦主名="":$苦主名="(苦主)"
 $苦主姓名="<<$苦主姓>><<$苦主名>>"
 
@@ -166,8 +166,6 @@ $苦主姓名="<<$苦主姓>><<$苦主名>>"
 		'<p><<$苦主姓名>>：真是可惜，我好久没摸她的屁股了*嬉笑</p>'
 		'<p>我：<<$苦主姓>>…你别太过分了！</p>'
 		'<p><<$苦主姓名>>：哈哈*嬉笑</p>'
-		'<p>·————————————————</p>'
-		'<p>·图片替换路径：...\assets\standalone_content\images\maleA</p>'
 		$苦主设定=1
 	'</div>'
 end
@@ -177,12 +175,16 @@ if $ARGS[0]="看他老婆":
 	'<div class ="show_menu"><img src="images\NPC\RQ\pics\ET2-N6yUYAAG7Vb.jpg" height="480"></div>'
 
 	'<div class="button_menu">'
-		'<div class="button"><a href="exec:minutes+=25 & gt ''公园''">不理他</a></div>'
+		'<div class="button"><a href="exec:minutes+=25 & gt ''公园''">我记住了</a></div>'
 	'</div>'
 	'<div class="dialog_menu">'
 		'<p><<$苦主姓名>>：眼睛都看直了？！我们都已经谈了三年了，你没机会了*嬉笑</p>'
 		'<p>我：……</p>'
 		'<p><<$苦主姓名>>：有空去我家喝两杯*嬉笑</p>'
+		'<p>我：…………</p>'
+		'<p><<$苦主姓名>>：喔对了，这次不会再像同学聚会那样给你发假定位骗你了。我们现在住在人才公寓A301，你住的起么*嬉笑</p>'
+		'<p>我：人才公寓A301……</p>'
+		$RQ.available=1
 	'</div>'
 end
 

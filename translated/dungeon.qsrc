@@ -1,0 +1,111 @@
+# dungeon
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+a=0
+q=0
+gs'menu_gif'
+
+if dungeon_open=1:
+	number_of_steps_num+=1
+	if number_of_steps_num>=12:number_of_steps_num=12
+end
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if number_of_steps_num=1:'<a class="photo" data-title="Base entrance" href="exec:gt ''dungeon''"><img class="img_stretch" src="images\NPC\YS\pics\0_x.jpg"></a>'else:'<a class="photo" data-title="Base entrance" href="exec:gt ''dungeon''"><img class="img_stretch" src="images\NPC\YS\pics\0.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=2:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=3:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=4:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\7_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\7.jpg"></a>'
+		'</div>'
+		!####################
+		'<div class="action">'
+			if number_of_steps_num=8:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\10_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=7:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\2_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=6:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\2_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=5:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\8_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\8.jpg"></a>'
+		'</div>'
+		!####################
+		'<div class="action">'
+			if number_of_steps_num=9:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\9_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\9.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=10:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=11:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if number_of_steps_num=12:'<a class="photo" data-title="Base headquarters [occupied]" ><img class="img_stretch" src="images\NPC\YS\pics\99_x.jpg"></a>'else:'<a class="photo" data-title="Base headquarters" href="exec:gt ''dungeon'',''headquarters''"> <img class="img_stretch" src="images\NPC\YS\pics\99.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $args[0] ='':
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\in0.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if dungeon_introduction=0:'<div class="buttonPu2"><a href="exec:gt ''special_note'',''description''">Someone is coming?</a></div>'
+		if dungeon_introduction=1:'<div class="buttonR"><a href="exec:number_of_steps_num=0 & dungeon_open=1 & gt ''dungeon''">Open rescue</a></div>'
+		'<div class="button"><a href="exec:gt ''kabukicho''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·Beneath the shining skyscrapers, are the cramped, damp, and filthy slums. The women who came to the big cities to pursue better prospects and the men who were seeking to evade taxes were all gathered like rats in the dark, dilapidated, and messy streets.</p>'
+	'</div>'
+end
+
+
+if $args[0] ='headquarters':
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\99.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''dungeon'',''view_details''">View details</a></div>'
+		'<div class="button"><a href="exec:gt ''kabukicho''">Leave</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·The headquarters of the Longkou Group, the core office led by me, can issue orders here</p>'
+	'</div>'
+end
+
+
+if $args[0] ='view_details':
+	'<div class ="show_menu"><img src="images\NPC\YS\pics\bro.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:gt ''dungeon'',''command''">View details</a></div>'
+		'<div class="button"><a href="exec:gt ''dungeon'',''headquarters''">Return</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><B>♟<Three elite cadres of the Longkou Group>♟</p>'
+		'<p><font color="#32CD32">·King Worm: He is good at using various props and organs to confuse, deceive, and frame others. The cunning of his methods is hard to prevent.Because he likes to study psychology and strategy and tactics, he usually conducts slave experiments as various types of idiots.`Slave x<<F1_nu>>』</p>'
+		'<p> 𓂨  </p>'
+		'<p><font color="#FF1493">·`Wang Ben`: She is a carnalist. She pursues physical and sensory enjoyment, and she is also good at using her breasts and vagina to achieve her goals.Her existence is elusive and understandable, and her motivation is often just simple sexual hunger and thirst.`Slave x<<F2_nu>>』</p>'
+		'<p> 𓂨  </p>'
+		'<p><font color="#FF0000">·王Wang王:: He is an extremist who advocates violence, and even in his usual life, he shows extreme violent tendencies.He likes to show his strength and control through violence, and enjoys the pleasure of causing fear and pain to others.`Slave x<<F3_nu>>』</p>'
+	'</div>'
+end
+
+
+
+--- dungeon ---------------------------------
+

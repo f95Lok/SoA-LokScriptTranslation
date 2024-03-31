@@ -29,28 +29,27 @@ minutes+=15
 			'<a class="photo" data-title="A403" href="exec:gt ''人才公寓2'',''A403''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
+			'<a class="photo" data-title="A402" href="exec:gt ''最终_事件'',''A402''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo"><img class="img_stretch" src="images\place\电梯.jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
+			'<a class="photo" data-title="A401" href="exec:gt ''人才公寓2'',''A401''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
 		'</div>'
 		! ###############################################################
 		'<div class="action">'
 			if $BX.available=1:'<a class="photo" data-title="A303" href="exec:gt ''人才公寓2'',''A303''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'else:'<a class="photo" data-title="A303" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (4).jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
+			'<a class="photo" data-title="A302" href="exec:A302N=0 & gt ''人才公寓2'',''A302''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (0).jpg"></a>'
 		'</div>'
 		'<div class="action">'
 			'<a class="photo" data-title="下一层" href="exec:gt ''人才公寓''"><img class="img_stretch" src="images\place\电梯_下.jpg"></a>'
 		'</div>'
 		'<div class="action">'
-			'<a class="photo"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'
+			if $RQ.available=1:'<a class="photo" data-title="A301" href="exec:gt ''人才公寓2'',''A301门''"><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'else:'<a class="photo" data-title="A301" ><img class="img_stretch" src="images\NPC\BGH\pics\fl (6).jpg"></a>'	
 		'</div>'
-
 	'</div>'
 '</div>'
 
@@ -175,6 +174,257 @@ if $args[0]="A403F":
 		'<p><<$SML.name>>正享受着她的小家</p>'
 	'</div>'
 end
+
+if $args[0]="A301门":
+	if $RQ事件链>=17:
+	'<div class ="show_menu"><img src="images\NPC\BGH\pics\fl (6).jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:无人应门，应该是房租到期了……</p>'
+	'</div>'
+	
+	else:
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\M0.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonG2"><a href="exec:gt ''人才公寓2'',''A301''">进屋坐坐</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>我:嗨，方便进来吗？</p>'
+		'<p><<$RQ.name>>:没关系…</p>'
+	'</div>'
+	end
+end
+
+
+if $args[0]="A301":
+		   '<div class="show_menu">'
+			   '<video preload="metadata" autoplay loop height="480">
+			   <source src="images\NPC\RQ\vids\A0.webm" type=''video/webm;''></video></div>'
+		   '</div>'
+
+	'<div class="button_menu">'
+		if $RQ事件链<=1:'<div class="buttonR3"><a href="exec:gt ''人才公寓2'',''A301_吹嘘''">听他吹嘘</a></div>'
+		if $RQ事件链=2 or $RQ事件链=3:'<div class="buttonR3"><a href="exec:gt ''人才公寓2'',''A301_辞职''">看向<<$RQ.name>></a></div>'
+		if 9>=$RQ事件链 and $RQ事件链>=4:'<div class="buttonR3"><a href="exec:gt ''人才公寓2'',''A301_工作1''"><<$RQ.name>>失落</a></div>'
+		if 99>=$RQ事件链 and $RQ事件链>=10:'<div class="buttonR3"><a href="exec:gt ''人才公寓2'',''A301_工作2''">我建议<<$RQ.name>></a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$苦主姓名>>:蛤，你这傻逼怎么真有脸来呢？</p>'
+	'</div>'
+end
+
+
+if $args[0]="A301_吹嘘":
+	 if $RQ事件链=0:$RQ事件链=1
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A1.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''联排别墅''">暗自记下</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$苦主姓名>>:你知道人才公寓是什么人住的不？</p>'
+		'<p>我:呃……什么人？帝国集团的员工？</p>'
+		'<p><<$苦主姓名>>:人才啊！蠢货！你还是和上学时候一样蠢。</p>'
+		'<p>我:那你在帝国集团工作？</p>'
+		'<p><<$RQ.name>>:是我…我在帝国能源工作，<<$NY.name>>是我的上司…</p>'
+		'<p><<$苦主姓名>>:屌不屌，吓到了吧？那可是<<$NY.name>>，瞧你这没见过世面的样子！</p>'
+		'<p>我:………</p>'
+	'</div>'
+end
+
+
+if $args[0]="A301_辞职":
+	 if $RQ事件链=2:$RQ事件链=3
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A2.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''联排别墅''">暗自记下</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，哪个…我从帝国能源辞职了……</p>'
+		'<p><<$苦主姓名>>:啥？你可别胡说…那可是天上掉馅饼的工作，啊呀呀，你这……</p>'
+		'<p>我:想知道发生了什么嘛？</p>'
+		'<p><<$RQ.name>>:别说……我…我会去找新工作的…我…我有能源博士后的学历……在学校里找个老师的工作应该不难…明天我去校长室问问…</p>'
+		'<p><<$苦主姓名>>:也是，我老婆就是牛逼，吓到了吧？那可是能源博士后的学历…你这种土鳖肯定连毕业证书都没吧？*嘲笑</p>'
+		'<p>我:想找个老师的工作嘛…</p>'
+	'</div>'
+end
+
+if $args[0]="A301_工作1":
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A2.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''联排别墅''">暗自记下</a></div>'
+	'</div>'
+
+	if $RQ事件链=4 or $RQ事件链=5:
+		$RQ事件链=5
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，哪个…我学校的工作没有拿下……</p>'
+		'<p><<$苦主姓名>>:这有啥，哪个破学校可容不下你这尊大佛！</p>'
+		'<p>我:哈哈。</p>'
+		'<p><<$苦主姓名>>:你有什么资格笑啊？你算老几啊？*嘲笑</p>'
+		'<p><<$RQ.name>>:老公，我听说郊外有个温泉店在招人…我打算去看看……</p>'
+		'<p><<$苦主姓名>>:先说好，可别去给别人做那种不三不四的推油服务，不然我要哭的！</p>'
+		'<p>我:想在温泉找个工作是吧……</p>'
+	'</div>'
+	end
+	if $RQ事件链=6 or $RQ事件链=7:
+		$RQ事件链=7
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，哪个…温泉的工作也不适合我…</p>'
+		'<p><<$苦主姓名>>:是不是给别人做那种不三不四的推油服务？我看也不行！你是个守妇道的好女人，我果然没看错你！</p>'
+		'<p><<$RQ.name>>:嗯………*看着我</p>'
+		'<p>我:找工作也屡屡碰壁呢…我其实有个公……</p>'
+		'<p><<$苦主姓名>>:哟哟哟！你可别吓我，说你有个公司，你有辆公交车还差不多，说，那辆公交车是你女朋友还是你老妈？哈哈哈*嘲笑</p>'
+		'<p><<$RQ.name>>:我打算去…赤色餐厅碰碰运气…应该没有难度……</p>'
+		'<p>我:赤色餐厅的工作是吧……</p>'
+	'</div>'
+	end
+	if $RQ事件链=8 or $RQ事件链=9:
+		$RQ事件链=9
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，哪个…餐厅的工作也不适合我…</p>'
+		'<p><<$苦主姓名>>:我老婆怎么是那种给人端盘子的呢！我老婆身材这么好，放以前可是天菜啊！还记得你当时教我游泳的时候，摸你的大腿都让我勃起了呢❤</p>'
+		'<p><<$RQ.name>>:游泳的时候…不如我去教别人游泳吧！</p>'
+		'<p><<$苦主姓名>>:可以啊！我老婆肯定行的！</p>'
+		'<p><<$RQ.name>>:嗯嗯！</p>'
+		'<p>我:之前在学校碰一鼻子灰了，现在还要去学校游泳馆教游泳？</p>'
+	'</div>'
+	end
+	
+	
+end
+
+if $args[0]="A301_工作2":
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\A3.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		if $RQ事件链>=14:'<div class="buttonPu1"><a href="exec:minutes+=5 & gt ''人才公寓2'',''A301_走''">他离开了</a></div>'
+		'<div class="buttonPu3"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	if $RQ事件链=10 or $RQ事件链=11:
+		$RQ事件链=11
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，哪个…我觉得游泳教练赚的太少了…</p>'
+		'<p><<$苦主姓名>>:那你说说，就你那点本事还能干嘛？废物东西，找个工作都找不明白。</p>'
+		'<p>我:我觉得你可以去商场的丝袜专卖店试试看…</p>'
+		'<p><<$苦主姓名>>:管你什么事呢？你这个垃圾，快滚出我的家！</p>'
+	'</div>'
+	end
+	if $RQ事件链=12 or $RQ事件链=13:
+		$RQ事件链=13
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，哪个…我现在有很多课余时间了…我打算读一些医学书籍，成为一名医生…</p>'
+		'<p><<$苦主姓名>>:医生？拉倒吧，你找个工作都找不明白。</p>'
+		'<p>我:医生需要接受长期的高等教育和专业培训，而且医学院的入学竞争也非常激烈。对于一些人来说，成为一名医生可能会是一个遥不可及的目标。</p>'
+		'<p><<$苦主姓名>>:你看看，他说的多对！等等…我没有夸奖你的意思！</p>'
+		'<p>我:不如先作为一名护士开始？你可以更好地了解医疗团队中不同成员的角色和职责，增进对医患关系的理解，这些对于日后成为一名医生都是非常有价值的经验。</p>'
+		'<p><<$RQ.name>>:有道理…我会去试试的！不知道院长室在几楼呢？</p>'
+	'</div>'
+	end
+	if $RQ事件链=14 or $RQ事件链=15 or $RQ事件链=16:
+		$RQ事件链=15
+	'<div class="dialog_menu">'
+		'<p><<$RQ.name>>:老公，<<$主角姓名>>帮助我成为了一名护士。</p>'
+		'<p><<$苦主姓名>>:什么？这怎么行呢？快把这工作辞了，我可不想欠他人情！</p>'
+		'<p><<$RQ.name>>:可是……</p>'
+		'<p><<$苦主姓名>>:可是什么？难道你想每天和他抬头不见低头见？</p>'
+		'<p>我:…………</p>'
+		'<p><<$RQ.name>>:好吧…那我先休息几天吧……</p>'
+		'<p><<$苦主姓名>>:这就对了，我先去找之前的那帮狐朋狗友凑点房租，今晚不回来了！</p>'
+	'</div>'
+	end
+end
+
+
+if $args[0]="A301_走":
+	   '<div class="show_menu">'
+		   '<video preload="metadata" autoplay loop height="480">
+		   <source src="images\NPC\RQ\vids\GEW.webm" type=''video/webm;''></video></div>'
+	   '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:a=0 & $m=''RQ'' & $ma=$RQ.name & $m地址=''JWCRQ'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''泛用SEX'',''DEMO''">回屋操她</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><<$苦主姓名>>:真不知道那几个傻逼现在混的怎么样了…</p>'
+	'</div>'
+
+end
+
+
+if $args[0]="A302":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\A302-<<A302N>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+     '<div class="button_menu">'
+          if A302N=0:'<div class="buttonPu1"><a href="exec:A302N=1 & gt ''人才公寓2'',''A302''">偷听</a></div>'
+          if A302N=1:'<div class="buttonPu2"><a href="exec:A302N=2 & gt ''人才公寓2'',''A302''">被发现了</a></div>'
+          if A302N=2:
+           if RIO订单=1:'<div class="buttonS"><a href="exec:money+=10000 & $FaceName_A=''希志爱野'' & love_A=$BD.love & $FaceName_B=''柚木提娜'' & love_B=$BD.love &  $m地址=''XZRIO'' & gt ''泛用SEX_双人'',''DOU_双人''">鸭王订单:上门3P服侍</a></div>'else:'<div class="buttonGr"><a href="exec:">没有资格</a></div>'
+          '<div class="buttonPu4"><a href="exec:gt ''人才公寓2''">离开</a></div>'
+          end
+     '</div>'
+
+     '<div class="dialog_menu">'
+          if A302N>=0:'<p>柚木提娜:辛苦工作了这么久，找个时间放松一下吧？</p>'
+          if A302N>=1:'<p>希志爱野:好呀好呀，我明天去发布个订单，找个有鸭王的资质来伺候我们姐妹俩吧？</p>'
+          if A302N=2:'<p>我:嗨！</p>'
+          if A302N=2:'<p>希志爱野:喂！你刚才在偷看我们吧？</p>'
+          if A302N=2 and RIO订单=1:'<p>我:我就是你们找的有鸭王的资质，接下来由我为你们而我服务！</p>'
+     '</div>'
+
+end
+
+if $args[0]="A401":
+	'<div class ="show_menu"><img src="images\NPC\QJ\pics\yt (<<rand(1,7)>>).jpg" height="492"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:minutes+=5 & gt ''最终_事件'',''A401''">帮她疏通</a></div>'
+		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>28岁女房客:你好，听说这里的公寓管理员会提供疏通管道的服务，是真的吗？</p>'
+		'<p>我:我看卫生间也没堵住啊？</p>'
+		'<p>28岁女房客:谁说是那个洞了？*指了指自己的屄</p>'
+	'</div>'
+end
+
+
+
 
 
 

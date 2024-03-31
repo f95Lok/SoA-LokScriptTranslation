@@ -240,7 +240,6 @@ if $args[0]="fk_vertical_painting":
 	'</div>'
 end
 
-
 if $args[0]="EVA":
 	'<div class ="show_menu"><img src="images\NPC\JYB\pics\e1.jpg" width="854"></div>'
 
@@ -266,8 +265,6 @@ if $args[0]="EVA2":
 		'<p>*Case description: Due to brain damage caused by a sudden accident, he was urgently sent to the hospital for rescue.However, medical staff were unable to respond quickly due to human interference, which delayed the first aid time, causing the patient`s brain to be hypoxic for too long and eventually entered a coma.</p>'
 	'</div>'
 end
-
-
 
 if $args[0]="attic":
 	'<div class ="show_menu"><img src="images\NPC\JYB\pics\11.jpg" width="854"></div>'
@@ -299,7 +296,7 @@ if $args[0]="security_door":
 	'<div class ="show_menu"><img src="images\NPC\JYB\pics\34.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $fk.mountains>=100:'<div class="buttonGn3"><a href="exec:gt ''final_event'',''underground_passage''">open</a></div>'else:'<div class="buttonGr"><a href="exec:">open</a></div>'
+		if $fk.mountains>=100:'<div class="buttonGn3"><a href="exec:gt ''final_event'',''underground_passage''">open</a></div>'else:'<div class="buttonGr"><a href="exec:">open>>><<$fk.mountains>>%</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''town_house''">Leave</a></div>'
 	'</div>'
 
@@ -342,9 +339,14 @@ if $args[0]="sml_vertical_painting":
 	'<div class="dialog_menu">'
 		if $sml_event_chain<2:'<p><<$SML.name>>:Hello，<<$protagonists_name>>Sir, according to the regulations, I need to register your personal information.</p>'
 		if $sml_event_chain>=2:'<p><<$SML.name>>: I think the magnetic fields of the two of us are the same. They are two of the same kind that attract each other. We can fight side by side❤</p>'
+		if $ed_revenge=1:
+			'<p><B><span class =''red''><<$YS.name>>: Hello, this is a chocolate cake I baked by myself. I want to try it for my good neighbor.</p>'
+			'<p><<$SML.name>>:Chocolate cake?Great, I think except<<$HB.name>>In addition to dieting to stay in shape, several other adopted daughters will like it.Please follow me.</p>'
+			'<p><<$YS.name>>:Oops?Why don`t you take me to the toilet first and let<<$protagonists_name>>Send it up, right?</p>'
+			'<p><<$SML.name>>: Ok.</p>'
+		end
 	'</div>'
 end
-
 
 if $args[0]="bx_information":
 	'<div class="show_menu">'
@@ -419,7 +421,10 @@ if $args[0]="fk_home_xn":
 
     if a_x!6:
          '<div class="button_menu">'
-           if a_x=0:'<div class="buttonS2"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">What are you hiding?</a></div>'
+           if a_x=0:
+			'<div class="buttonS2"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">What are you hiding?</a></div>'
+			if $ed_revenge=1:'<div class="buttonG3"><a href="exec:gt ''final_event'',''fk_xn_hot_spring''">Take out the chocolate cake</a></div>'
+           end
            if a_x=1:'<div class="buttonP"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">I heard the sound!</a></div>'
            if a_x=2:'<div class="buttonR4"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">Someone is coming</a></div>'
            if a_x=3:'<div class="buttonG2"><a href="exec:a_x+=1 & gt ''fk_home'',''fk_home_xn''">Think of a punishment</a></div>'
@@ -485,7 +490,10 @@ if $args[0]="fk_home_dn":
 
     if a_y!8:
          '<div class="button_menu">'
-           if a_y=0:'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Say hello</a></div>'
+           if a_y=0:
+			'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Say hello</a></div>'
+			if $ed_revenge=1:'<div class="buttonPu5"><a href="exec:gt ''final_event'',''fk_dn_hot_spring''">Take out the chocolate cake</a></div>'
+           end
            if a_y=1:'<div class="buttonP"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Someone is looking for her</a></div>'
            if a_y=2:'<div class="buttonR4"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Special training time</a></div>'
            if a_y=3:'<div class="buttonG2"><a href="exec:a_y+=1 & gt ''fk_home'',''fk_home_dn''">Watch special training</a></div>'
