@@ -19,8 +19,8 @@ if 5<= $督察事件链 and $督察事件链<=6 and hour>=21 and $随机数>=50:
 
 if $随机数<=4 and 8<=hour and hour<=15:gt '任务_事件','女警外套'
 if 10<=$随机数 and $随机数<=15 and 7<=hour and hour<=12:gt '任务_事件','肥臀肛塞'
-if $随机数>=95 and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事件','魅魔事件'
-if 35<=$随机数 and $随机数<=40 and 12<=hour and hour<=16:gt '任务_事件','男路人'
+if $随机数>=199 and  (hour>=22 or hour<=4) and 魔王之瞳>0:gt '任务_事件','魅魔事件'
+if 37<=$随机数 and $随机数<=40 and 12<=hour and hour<=16:gt '任务_事件','男路人'
 if $ZX约居民区=1 and week_day >5 and 13<=hour and hour<=14 and $随机数<50:gt '整形_事件','街道偶遇'
 if $凯撒打工=1 and $times_of_day='' and 50<=$随机数 and $随机数<=55:gt '任务_事件','狩猎路人'
 
@@ -86,8 +86,10 @@ end
 	if $任务_女警外套=2 and $times_of_day!"night":'<div class="buttonPu2"><a href="exec:gt ''任务_事件'',''女警外套''">寻找女警</a></div>'
 	if hour=22 and $凯撒事件链=2:'<div class="buttonR3"><a href="exec:gt ''冠军_事件'',''GJ_Fuck_邂逅''"><<$GJ.name>>？！</a></div>'
 	if $松本事件链=10 and 每日辅导松本=0:'<div class="buttonR5"><a href="exec:每日辅导松本=1 & gt ''松本_事件'',''视频电话''">☎视频电话？！</a></div>'
-	if $TCK.available=1 and $天气='☀晴' and 9<=hour and hour<=14 and $随机数>80 and TCK.进度>=0:'<div class="buttonB3"><a href="exec:gt ''最终_事件'',''TCK_邂逅''"><<$TCK.name>>？！</a></div>'
-	'<div class="button"><a href="exec:minutes+=30 & gt ''居民区''">消磨时间</a></div>'
+	if $TCK.available=1 and $天气='☁云' and 9<=hour and hour<=12 and $随机数>80 and TCK.进度>=0:'<div class="buttonB3"><a href="exec:gt ''最终_事件'',''TCK_邂逅''"><<$TCK.name>>？！</a></div>'
+	'<div class="button" id="FButton"><a href="exec:minutes+=30 "onclick="checkSeason()">消磨时间</a></div>'
+	'<div class="button" id="buttonA" style="display: none;"><a href="exec:gt $loc,$metka">消磨时间</a></div>'
+	'<div class="button" id="buttonB" style="display: none;"><a href="exec:$The_Sword_of_Damocles=4999970 & gt $loc,$metka">消磨时间</a></div>'
 '</div>'
 
 
@@ -95,7 +97,7 @@ end
 	'<p>民风淳朴的居民区到了晚上会变成另一个样子。</p>'
 	'<p>☄</p>'
 	'<p>冷知识:<<$冷知识>></p>'
-	if $YLW.TEL=1 and hour=17 and $随机数>80:'<p>·回家路上的女学生们<a href="exec:gt ''学生群_事件'',''YLWSJHSW''">-查看</a></p>'
+	if $YLW.TEL=1 and hour=17 and $随机数>70:'<p>·回家路上的女学生们<a href="exec:gt ''学生群_事件'',''YLWSJHSW''">-查看</a></p>'
 '</div>'
 
  

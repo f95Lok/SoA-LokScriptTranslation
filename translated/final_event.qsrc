@@ -51,6 +51,48 @@ if $args[0]="bank_account":
 	end
 End
 
+if $args[0]="sunday_carnival":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\AW\vids\pttm1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!9:
+         '<div class="button_menu">'
+           if a>=0:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''sunday_carnival''">Party Time❤</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonP"><a href="exec:a=0 & $m_filename_reference=''AW'' &  $m=''AW'' & $ma=''Yukura Yuna'' & $m_address=''ppma'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">←Go with her←</a></div>'
+                '<div class="buttonPu2"><a href="exec:a=0 & $m_filename_reference=''AW'' &  $m=''AW'' & $ma=''Toda Makoto Qin'' & $m_address=''fbmb'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">→Go with her→</a></div>'
+            '</div>'
+    end
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>*Sunday Carnival Night Party</p>'
+         '</div>'
+    end
+    if a>=1: 
+         '<div class="dialog_menu">'
+         	  '<p>*Sunday Carnival Night Party</p>'
+         	  if a<=5:
+              '<p>Me:?？？</p>'
+              '<p>Girl: Wow, is this the Duck King?*She stared at the man in the audience like a cheetah staring at a rabbit</p>'
+              '<p>Me: This is my job, I don`t mind letting you take advantage of that little bargain ❤</p>'
+              end
+         	  if a=6 or a=7:
+              '<p>Girl: Then I`ll enjoy it<<$words>></p>'
+              end
+         	  if a>=8:
+              '<p>Girl: I`m next ❤ Handsome guy, let`s go to a cleaner place, right?</p>'
+              end
+         	  if a>=9:
+              '<p>Girl: Wait a minute ❤ Jimei?！Do you want to use the bus for private use?Don`t go too far?</p>'
+              end
+         '</div>'
+    end
+End
+
 if $args[0]="black_umbrella":
 	 minutes+=180
 	 if $prologue=1:$prologue=2
@@ -7482,7 +7524,7 @@ if $args[0]="nominate_yourself":
 	'</div>'
 	
 	'<div class="button_menu">'
-		'<div class="buttonG3"><a href="exec:gt ''residential_area''">Become mayor</a></div>'
+		'<div class="buttonG3"><a href="exec:a=-1 & gt ''ceremony'',''start''">Become mayor</a></div>'
 	'</div>'
 
 	 '<div class="dialog_menu">' 
@@ -7512,7 +7554,789 @@ if $args[0]="anarchism":
 	 '</div>'
 End
 
+if $args[0]="wife`s_office":
+     $RQ.BAD+=1
+     $RQ.love-=1
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\KKM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
 
+    if a<11:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR1"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">I am a fine cow</a></div>'
+           if a=1:'<div class="buttonR1"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Call<<$NY.name>></a></div>'
+           if a=2:'<div class="buttonR1"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Forcibly provide services</a></div>'
+           if a=3:'<div class="buttonR1"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Helpless blowjob</a></div>'
+           if a=4:'<div class="buttonR1"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Wet her</a></div>'
+           if a=5:'<div class="buttonR2"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">She doesn`t want to be fucked</a></div>'
+           if a=6:'<div class="buttonR2"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Forcibly inserted</a></div>'
+           if a=7:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Thrusting her hard</a></div>'
+           if a=8:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">Ejaculation</a></div>'
+           if a=9:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">She was very disappointed</a></div>'
+           if a=10:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''wife`s_office''">She organizes things</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonR"><a href="exec:gt ''residential_area''">She resigned</a></div>'
+            '</div>'
+    end
 
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: As a newcomer, I should perform well and strive to get it<<$NY.NAME>>Favor and promotion… </p>'
+              '<p>Me: Hi!</p>'
+              '<p>*<<$RQ.name>>Ignore me </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hi!I am M<<empire_level>>Grade fine cattle, I can provide you with services in accordance with company regulations.</p>'
+              '<p><<$RQ.name>>: M<<empire_level>>Grade fine cattle?What the hell is that?I`m not interested! </p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p><<$NY.NAME>>:<<$protagonists_name>>It is indeed an indispensable part of our group.<<empire_level>>Grade fine cattle... please repeat what you just said!</p>'
+              '<p><<$RQ.name>>: Sorry, I`m new here, I`m not familiar with what M is yet<<empire_level>>Grade fine cattle… </p>'
+              '<p><<$NY.NAME>>: How can this be!This is our excellent corporate culture!You must experience it for yourself once!</p>'
+              '<p><<$RQ.name>>: Sorry… </p>'
+         '</div>'
+    end
+
+    if a=3: 
+         '<div class="dialog_menu">'
+              '<p>Me: Come on, hold it for me!</p>'
+              '<p><<$RQ.name>>: No, I don`t want to give you a mouth.</p>'
+              '<p><<$NY.NAME>>:Asshole!Are you a spy sent by another company?！</p>'
+         '</div>'
+    end
+    if a=4 or a=5: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>:do not<<$panting_2>></p>'
+         '</div>'
+    end
+    if a=6: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: Okay, I probably know what service it is……</p>'
+              '<p><<$NY.NAME>>:Go to the end for me!</p>'
+         '</div>'
+    end
+    if a=7 or a=8: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>:<<$protagonists_name>>do not<<$words>></p>'
+         '</div>'
+    end
+    if a=9: 
+         '<div class="dialog_menu">'
+              '<p><<$NY.NAME>>:Very good!In the future, you will have to receive Jingniu service at least 8 times a day!</p>'
+              '<p><<$RQ.name>>: How can this be...it`s too much…………</p>'
+         '</div>'
+    end
+    if a=10: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: Leader...I have something to say!！</p>'
+         '</div>'
+    end
+    if a=11: 
+         if $rq_event_chain=1:$rq_event_chain=2
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: I am disappointed in your corporate culture, I find it very disgusting!I want to resign!</p>'
+              '<p><<$NY.NAME>>: Okay, if you don`t do it, some people will do it!Get out of here as soon as possible!</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="rq_school":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\WKO0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''rq_school''">Call<<$XZ.name>></a></div>'
+           if a=1:
+            if $XZ.bad>=100+my.charm*10:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''rq_school''">Negotiate privately</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Insufficient depravity<<100+my.charm*10>></a></div>'
+           end
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''rq_school''">Fuck her</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''WKO'' & Telove=$RQ.love & $Tename=''屈服'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">find<<$RQ.name>>trouble</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>:Ahem...The so-called energy refers to substances or natural phenomena that can produce energy in the form of machinery, heat, light, etc., which can be used to drive machines, generate electricity, heat, lighting, etc. </p>'
+              '<p>Me: Hi!</p>'
+              '<p>*<<$RQ.name>>Ignore me </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$XZ.name>>: <<$protagonists_name>>, what do you want me to do?</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me: Do me a favor!I don`t want to<<$RQ.name>>Work here.</p>'
+              '<p><<$XZ.name>>: OK<<$protagonists_name>><<$words>></p>'
+         '</div>'
+    end
+
+    if a=3: 
+          $RQ.BAD+=my.charm
+		$RQ.love-=my.charm
+         '<div class="dialog_menu">'
+              '<p><<$XZ.name>>: If you want to fuck her here, I`ll go outside and help you take the wind❤</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="rq_hot_spring":
+     $RQ.BAD+=my.charm/2
+     $RQ.love-=my.charm/2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\WKTU0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''rq_hot_spring''">Call<<$WQ.name>></a></div>'
+           if a=1:
+            if $WQ.bad>=100+my.charm*10:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''rq_hot_spring''">Fuck first</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Insufficient depravity<<100+my.charm*10>></a></div>'
+           end
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''rq_hot_spring''">Convince her</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''WKTU'' & Telove=$RQ.love & $Tename=''屈服'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">find<<$RQ.name>>trouble</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: Work part-time here first... I plan to find a high-paying job later. </p>'
+              '<p>Me: Hi!</p>'
+              '<p>*<<$RQ.name>>Ignore me again </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$WQ.name>>: <<$protagonists_name>>, are you looking for me?</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hey honey, do you miss me?</p>'
+              '<p><<$WQ.name>>:Hmm<<$protagonists_name>><<$words>></p>'
+         '</div>'
+    end
+
+    if a=3: 
+         '<div class="dialog_menu">'
+              '<p><<$WQ.name>>: What do you want to do❤</p>'
+              '<p>Me: I have a personal grudge with the part-time worker. Can I take care of her?</p>'  
+              '<p><<$WQ.name>>: ............ Whatever you want……</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="rq_restaurant":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\WKCT0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:
+            if $QJ.available=1:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''rq_restaurant''">Call<<$QJ.name>></a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Don`t know yet<<$QJ.name>></a></div>'
+           end
+           if a=1:
+            if $QJ.bad>=100+my.charm*10:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''rq_restaurant''">Waiter demonstration</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Insufficient depravity<<100+my.charm*10>></a></div>'
+           end
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''rq_restaurant''">Shoot her inside</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''WKCT'' & Telove=$RQ.love & $Tename=''屈服'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">Same requirement<<$RQ.name>></a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: Work part-time here first... I plan to find a high-paying job later. </p>'
+              '<p>Me: Hi!</p>'
+              '<p>*<<$RQ.name>>Ignore me again </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$QJ.name>>: <<$protagonists_name>>, Do you have anything to do with me❤</p>'
+              '<p>Me: Can I explain customer service to the new waiter?</p>'
+              '<p><<$QJ.name>>: Of course ❤</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hey, are you still happy at work?</p>'
+              '<p><<$LY.name>>:Hmm<<$protagonists_name>><<$words>></p>'
+         '</div>'
+    end
+
+    if a=3: 
+          $RQ.BAD+=my.charm
+		$RQ.love-=my.charm
+         '<div class="dialog_menu">'
+              '<p>Me: Shot!</p>'  
+         '</div>'
+    end
+End
+
+if $args[0]="rq_swimming":
+     $RQ.BAD+=my.charm/2
+     $RQ.love-=my.charm/2
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\RQYYG0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''rq_swimming''">Call<<$FXZ.name>></a></div>'
+           if a=1:
+            if $FXZ.bad>=100+my.charm*10:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''rq_swimming''">Convince her</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Insufficient depravity<<100+my.charm*10>></a></div>'
+           end
+           if a=2:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''rq_swimming''">Ejaculation persuasion</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''RQYYG'' & Telove=$RQ.love & $Tename=''屈服'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">Getting started guide<<$RQ.name>></a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hi!</p>'
+              '<p><<$RQ.name>>:Ugh............ Why are you everywhere. </p>'
+              '<p>*<<$RQ.name>>Talked to me…… </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$FXZ.name>>: baby<<$protagonists_name>>, are you looking for me?</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me: Hey, I have something to ask for!</p>'
+              '<p><<$FXZ.name>>: Wait a minute<<$words>></p>'
+         '</div>'
+    end
+
+    if a=3: 
+         '<div class="dialog_menu">'
+              '<p><<$FXZ.name>>: What do you want to do❤</p>'
+              '<p>Me: I think the woman who came to interview for the swimming coach`s movements are not very standard. Can I personally guide her?</p>'  
+              '<p><<$FXZ.name>>: Whatever you want……</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="rq_swimming_follow-up":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\KMTS1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR2"><a href="exec:a+=1 & gt ''final_event'',''rq_swimming_follow-up''">Scolded and cried</a></div>'
+           if a=1:'<div class="buttonPu3"><a href="exec:a+=1 & gt ''final_event'',''rq_swimming_follow-up''">Can`t cry</a></div>'
+           if a=2:'<div class="buttonPu4"><a href="exec:a+=1 & gt ''final_event'',''rq_swimming_follow-up''">Give her a chance</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''ECZA'' & Telove=$RQ.love & $Tename=''屈服'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">Grasp it!</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$name_of_the_suffering_master>>: Hello!How is work?</p>'
+              '<p><<$RQ.name>>: Oh...it looks yellow again…… </p>'
+              '<p><<$name_of_the_suffering_master>>: What?My god, you are such a fucking waste, I really can`t understand how such a simple thing can get into your hands and how it can be so difficult.</p>'
+              '<p><<$RQ.name>>: Don`t talk about me like that… </p>' 
+         '</div>'
+    end
+
+    if a=1: 
+		$RQ.love=0
+         '<div class="dialog_menu">'
+              '<p><<$name_of_the_suffering_master>>: Don`t say who are you talking about?Like an imbecile, make plans for yourself every day, and then what?Which job is done?If it weren`t for the time<<$protagonists_name>>Yes, I`m going to scold you a long time ago!</p>'
+              '<p><<$RQ.name>>: No...someone is making trouble…… </p>'
+              '<p><<$name_of_the_suffering_master>>: Don`t fucking find a reason, you are a stupid woman.</p>'
+              '<p><<$RQ.name>>:Woohoo...It`s too much, obviously you didn`t do anything at home… </p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: What the hell should I do... If I don`t work anymore, I won`t be able to pay the rent for the talent apartment.…… </p>'
+         '</div>'
+    end
+    if a=3: 
+         '<div class="dialog_menu">'
+              '<p><<$protagonists_name>>: Why don`t you go home?Work is blowing again.</p>'
+              '<p><<$RQ.name>>: I want to try again… </p>'
+              '<p><<$protagonists_name>>: Then I`ll give you another chance?You want…</p>'  
+         '</div>'
+    end
+End
+
+if $args[0]="rq_stockings":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\RQSWD0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''rq_stockings''">Look at<<$SWD.name>></a></div>'
+           if a=1:
+            if $SWD.bad>=100+my.charm*10:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''rq_stockings''">Talking while fucking</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Insufficient depravity<<100+my.charm*10>></a></div>'
+           end
+           if a=2:'<div class="buttonGn"><a href="exec:a+=1 & gt ''final_event'',''rq_stockings''">Convince her</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''RQSWD'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">To take care of<<$RQ.name>></a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: Cashier work is not very difficult... There is plenty of time to learn some common nurses `Clinical Nursing Techniques` and reference books❤</p>'
+              '<p>Me: Hi!</p>'
+              '<p><<$RQ.name>>:Hi! </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$SWD.name>>: <<$protagonists_name>>, what do you want me to do?</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me:<<$RQ.name>>How are you doing?</p>'
+              '<p><<$SWD.name>>: Pretty good<<$protagonists_name>><<$words>></p>'
+         '</div>'
+    end
+
+    if a=3: 
+          $RQ.BAD+=my.charm
+          $RQ.love+=my.charm*2
+         '<div class="dialog_menu">'
+              '<p>Me: I want her to work here permanently, okay?</p>'
+              '<p><<$SWD.name>>: You shot it like this... I can only listen to you❤</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="rq_nurse":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\RQYYL0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<3:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''rq_nurse''">Talk<<$YZ.name>></a></div>'
+           if a=1:
+            if $YZ.bad>=100+my.charm*10:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''rq_nurse''">Kneel down and mouth me</a></div>'else:'<div class="buttonGr"><a href="exec:gt ''residential_area''">Insufficient depravity<<100+my.charm*10>></a></div>'
+           end
+           if a=2:'<div class="buttonGn"><a href="exec:a+=1 & gt ''final_event'',''rq_nurse''">Can you stay?</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                '<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''RQYYL'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">Personally review<<$RQ.name>></a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>:<<$protagonists_name>>！welcome!</p>'
+              '<p>Me: Hi!</p>'
+              '<p><<$RQ.name>>:Hi!*She is getting more and more active </p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$YZ.name>>: <<$protagonists_name>>, what do you want me to do?</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me:<<$RQ.name>>How are you doing?</p>'
+              '<p><<$YZ.name>>: Pretty good<<$protagonists_name>><<$words>></p>'
+         '</div>'
+    end
+
+    if a=3: 
+          $RQ.BAD+=my.charm
+          $RQ.love+=my.charm*2
+         '<div class="dialog_menu">'
+              '<p>Me: I want her to work here permanently, okay?</p>'
+              '<p><<$YZ.name>>: It`s a bit difficult... In fact, we are not short of people……</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="rq_church":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\RQ\vids\GDERQ0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a<2:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''rq_church''"><<$name_of_the_suffering_master>>Door-to-door</a></div>'
+           if a=1:'<div class="buttonS4"><a href="exec:a+=1 & gt ''final_event'',''rq_church''">I don`t know either</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+                if a=2:'<div class="buttonS"><a href="exec:a=0 & $m_filename_reference=''RQ'' &  $m=''RQ'' & $ma=$RQ.name & $m_address=''GDERQ'' & Telove=$RQ.love & $Tename=''满足'' & Tebad=$RQ.bad & gt ''universal_sex'',''DEMO''">Drive him away</a></div>'
+                if a=8:'<div class="buttonR3"><a href="exec:a+=1 & gt ''church''">end</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>:<<$protagonists_name>>...You are so amazing. You seem to be involved in all the industries in this city... You are really an excellent man with everything.</p>'
+              '<p>Me: That`s because I`m not proficient in all aspects, I just understand a little bit.</p>'
+              '<p><<$RQ.name>>: I am very satisfied to work here…</p>' 
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'
+              '<p><<$name_of_the_suffering_master>>: Hey hey<<$protagonists_name>>！Why did my wife disappear as soon as I got home?She said she was coming to the church to find a job as an emcee. Have you seen her?</p>'
+         '</div>'
+    end
+
+    if a=2: 
+         '<div class="dialog_menu">'
+              '<p>Me: I don`t know, why is your own wife asking me? </p>'
+              '<p><<$name_of_the_suffering_master>>: I was kicked out of the talent apartment!Asshole!Do you know that I have no place to live now?</p>'
+              '<p>Me: Oh, that`s none of my business? </p>'
+         '</div>'
+    end
+    if a=8: 
+		if $rq_event_chain=16:$rq_event_chain=17
+         '<div class="dialog_menu">'
+              '<p><<$RQ.name>>: Big cock husband<<$panting_2>> </p>'
+              '<p><<$protagonists_name>>: What should you call me?</p>'  
+              '<p><<$name_of_the_suffering_master>>: What... are you kidding me... actually with<<$protagonists_name>>Having sex……</p>'
+              '<p>·———————————— </p>'
+              '<p>*This is the end of the character plot</p>'  
+         '</div>'
+    end
+End
+
+if $args[0]="A402":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\A402-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!15:
+         '<div class="button_menu">'
+           if a=0:
+            if but_the_arena_is_endless=1:'<div class="buttonS1"><a href="exec:a+=1 & gt ''final_event'',''A402''">Get close to them</a></div>'else:'<div class="buttonGr"><a href="exec:">Not qualified</a></div>'
+            '<div class="buttonGn"><a href="exec:a+=1 & gt ''residential_area''">Leave</a></div>'
+           end
+           if a=1 or a=14:
+            '<div class="buttonS2"><a href="exec:a=2 & gt ''final_event'',''A402''">Let the mouth on the left me</a></div>'
+            '<div class="buttonS"><a href="exec:a=6 & gt ''final_event'',''A402''">Let me in the middle of the mouth</a></div>'
+            '<div class="buttonS2"><a href="exec:a=10 & gt ''final_event'',''A402''">Let the mouth on the right me</a></div>'
+           end
+
+           if a=2 or a=6 or a=10:'<div class="buttonS3"><a href="exec:a+=1 & gt ''final_event'',''A402''">Plug her cunt</a></div>'
+           if a=3 or a=7 or a=11:'<div class="buttonS4"><a href="exec:a+=1 & gt ''final_event'',''A402''">Speed up the thrusting</a></div>'
+           if a=4 or a=8 or a=12:'<div class="buttonS5"><a href="exec:a+=1 & gt ''final_event'',''A402''">Facial ejaculation</a></div>'
+           if a=5 or a=9 or a=13:
+            '<div class="buttonG3"><a href="exec:a=14 & gt ''final_event'',''A402''">Blow me hard together</a></div>'
+            if q>=12:'<div class="buttonS"><a href="exec:a=15 & gt ''final_event'',''A402''">They are satisfied</a></div>'
+           end
+         '</div>'
+        else:
+            '<div class="button_menu">'
+               '<div class="buttonG"><a href="exec:gt ''talent_apartment''">Satisfied to leave</a></div>'
+            '</div>'
+    end
+    if a=0: 
+         '<div class="dialog_menu">'
+               '<p>Me: Wow…</p>'
+               '<p>Woman A: I really want a muscular hunk to satisfy me.…</p>'
+               '<p>Woman B: Yes... it`s best to be a fierce brother with hard power like a boxing champion❤</p>'
+               '<p>Woman C: Muscle brother is okay❤</p>'
+         '</div>'
+    end
+
+    if a=1: 
+         '<div class="dialog_menu">'  
+               '<p>Me: I think I am qualified, and the champion of the boxing competition is me!</p>' 
+               '<p>Woman A: Brother is great…</p>'
+               '<p>Woman B: Yes... fortunately, there is hard power❤</p>'
+               '<p>Woman C: It`s my brother❤</p>'
+               '<p>*All touted</p>'
+         '</div>'
+    end
+    if 14>=a and a>=2 : 
+         '<div class="dialog_menu">'  
+               '<p>Me: Do you like my big meat stick?</p>' 
+               '<p>Woman A: Like<<$panting_2>></p>'
+               '<p>Woman B: Can you shoot me in the face ❤</p>'
+               '<p>Woman C: I want it too<<$panting_3>>❤</p>'
+               '<p>*All touted</p>'
+         '</div>'
+    end
+    if a=15: 
+          money+=30000
+         '<div class="dialog_menu">' 
+               '<p>*All women are immersed in sex clothes❤</p>'
+               '<p>*As expected, they got a generous tip of ￥30,000❤</p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="A401":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\A401-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!6:
+         '<div class="button_menu">'
+           if a=7:'<div class="buttonS1"><a href="exec:a=0 & gt ''final_event'',''A401''">Rhythm thrusting</a></div>'
+           if a=0:'<div class="buttonS2"><a href="exec:a+=1 & gt ''final_event'',''A401''">Slightly accelerated</a></div>'
+           if a=1:'<div class="buttonS3"><a href="exec:a+=1 & gt ''final_event'',''A401''">Fuck out of the water</a></div>'
+           if a=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''A401''">Pull out the squirting</a></div>'
+           if a=3:'<div class="buttonS1"><a href="exec:a+=1 & gt ''final_event'',''A401''">Reinsert</a></div>'
+           if a=4:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''A401''">Vigorously fuck</a></div>'
+           if a=5:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''A401''">Creampie</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+               '<div class="buttonS1"><a href="exec:a=7 & gt ''final_event'',''A401''">Let her continue to orgasm</a></div>'
+               if q>=8:'<div class="buttonG"><a href="exec:gt ''talent_apartment''">She is completely satisfied</a></div>'
+            '</div>'
+    end
+    if a>=0: 
+         '<div class="dialog_menu">'
+               '<p>Me: My pleasure…</p>'
+               '<p>28-year-old female tenant: So cool<<$words>></p>'
+         '</div>'
+    end
+    q+=1
+End
+
+if $args[0]="fk_xn_hot_spring":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\EHSEX0-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!8:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonG2"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Take her to the hot spring</a></div>'
+           if a=1:'<div class="buttonS3"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Hand me the switch</a></div>'
+           if a=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Tease her in the car</a></div>'
+           if a=3:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Blowjob for me</a></div>'
+           if a=4:'<div class="buttonG"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Praise her</a></div>'
+           if a=5:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Ejaculation</a></div>'
+           if a=6:'<div class="buttonR"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">Go to the hot spring</a></div>'
+           if a=7:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''fk_xn_hot_spring''">She wants to do it again</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+               '<div class="buttonW"><a href="exec:a=0 & $m_filename_reference=''QJ'' &  $m=''QJ'' & $ma=''Adopted daughter'' & $m_address=''EHSEX'' & Telove=$JM.love & $Tename=''满足'' & Tebad=$JM.bad & gt ''universal_sex'',''DEMO''">Open a room to have sex</a></div>'
+            '</div>'
+    end
+    if a=0: 
+         '<div class="dialog_menu">'
+               '<p>Me: I brought you chocolate cake!</p>'
+               '<p>Adopted daughter: Wow, it looks good…</p>'
+               '<p>I: ..................* No, I have to find a way to support her.</p>'
+               '<p>Adopted daughter: Big brother, I`ve eaten it all... The water heater at home is still broken.…</p>'
+               '<p>Me: Got it!How about taking you to a comfortable open-air hot spring?！</p>'
+               '<p>Adopted daughter: Okay!</p>'
+         '</div>'
+    end
+    if a=1: 
+         '<div class="dialog_menu">'
+               '<p>Me: It`s been a long time since you went out, right?</p>'
+               '<p>Adopted daughter: It`s broken, I forgot to put the toys at home…</p>'
+               '<p>Me: What toy?</p>'
+         '</div>'
+    end
+    if a=2: 
+         '<div class="dialog_menu">'
+               '<p>Me: Do you always take it with you?</p>'
+               '<p>Adopted daughter: Hmm❤</p>'
+         '</div>'
+    end
+    if 6>=a and a>=3: 
+         '<div class="dialog_menu">'
+               '<p>Adopted daughter: I really want it<<$panting_3>></p>'
+               if a=5:'<p>Me: Your oral work is awesome!</p>'
+         '</div>'
+    end
+    if a=7: 
+         '<div class="dialog_menu">'
+               '<p>Me: Huh--it`s still comfortable in the hot spring, right?</p>'
+               '<p>Adopted daughter: Yes ❤</p>'
+         '</div>'
+    end
+    if a=8: 
+          my.energy+=50
+          if $ed_revenge=1:$ed_revenge=2
+         '<div class="dialog_menu">'
+               '<p>Me: Hello?Is your libido so strong?</p>'
+               '<p>Adopted daughter: My father didn`t let me have sex with boys before I got married. I can only use my hands every day... But I want it❤</p>'
+               '<p><B><span class =''red''>*Mobile phone information (<<$YS.name>>>>Where are you?I have put away the baseball cap, and when you come back, I will meet at my house.）</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="fk_dn_hot_spring":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\QJ\vids\EFSEX1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!17:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonG2"><a href="exec:a+=1 & gt ''final_event'',''fk_dn_hot_spring''">Accompany her to actual combat training</a></div>'
+           if a=1:'<div class="buttonS3"><a href="exec:a+=1 & gt ''final_event'',''fk_dn_hot_spring''">Get off and set off</a></div>'
+           if a=2:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''fk_dn_hot_spring''">Encourage her</a></div>'
+           if a=3:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''fk_dn_hot_spring''">Arrive at the actual combat field</a></div>'
+           if 15>=a and a>=4:'<div class="buttonS"><a href="exec:a+=1 & gt ''final_event'',''fk_dn_hot_spring''">Observe actual combat training</a></div>'
+           if a=16:'<div class="buttonG"><a href="exec:a+=1 & gt ''final_event'',''fk_dn_hot_spring''">She is very satisfied</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+               '<div class="buttonW"><a href="exec: gt ''residential_area''">Go home</a></div>'
+            '</div>'
+    end
+    if a=0: 
+         '<div class="dialog_menu">'
+               '<p>Me: I brought you chocolate cake!</p>'
+               '<p>Adopted daughter: I don`t have time to eat this food. I`m going to actual combat training soon.…</p>'
+               '<p>Me: That`s great............* There is no need to think of a way to support her.</p>'
+               '<p>Adopted daughter: What?</p>'
+               '<p>Me: Let me go with you!</p>'
+         '</div>'
+    end
+    if a=1: 
+         '<div class="dialog_menu">'
+               '<p>Me: It`s been a long time since you went out, right?</p>'
+               '<p>Adopted daughter: Whatever you do…</p>'
+         '</div>'
+    end
+    if a=2: 
+         '<div class="dialog_menu">'
+               '<p>Adopted daughter: It`s so cold, am I wearing too little?</p>'
+         '</div>'
+    end
+    if a=3: 
+         '<div class="dialog_menu">'
+               '<p>Me: Relax, you are the best.</p>'
+               '<p>Adopted daughter: Don`t be long-winded.</p>'
+         '</div>'
+    end
+    if a=4: 
+         '<div class="dialog_menu">'
+               '<p>？？？: Brothers, today is a secret actual combat training.</p>'
+               '<p>Adopted daughter: This matter must be kept secret. I don`t want to be returned by the prince!</p>'
+               '<p>？？？: Don`t worry, we are professional in sex practice!</p>'
+         '</div>'
+    end
+    if 16>=a and a>=5: 
+         '<div class="dialog_menu">'
+               '<p>？？？: Brothers go!</p>'
+               '<p>Adopted daughter: Come on<<$panting_2>></p>'
+               if a>=6:'<p>？？？: Brothers go!Brothers go!Brothers, go up, go up!</p>'
+               if a>=7:'<p>Adopted daughter: Don`t stop<<$words_2>></p>'  
+         '</div>'
+    end
+    if a=17: 
+          if $ed_revenge=1:$ed_revenge=2
+         '<div class="dialog_menu">'
+               '<p>Me: Huh---- It looks like it`s finally over, it`s really hard training…</p>'
+               '<p><B><span class =''red''>*Mobile phone information (<<$YS.name>>>>Where are you?I have put away the baseball cap, and when you come back, I will meet at my house.）</p>'
+         '</div>'
+    end
+End
+
+if $args[0]="FK_GDX":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\YS\vids\EDD1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!2:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonR2"><a href="exec:a+=1 & gt ''final_event'',''FK_GDX''">Direct arrest</a></div>'
+           if a=1:'<div class="buttonR3"><a href="exec:a+=1 & gt ''final_event'',''FK_GDX''">Detention and admission</a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+               '<div class="buttonR"><a href="exec: gt ''residential_area''">Life imprisonment</a></div>'
+            '</div>'
+    end
+    if a=0: 
+         '<div class="dialog_menu">'
+               '<p>Me: I have a baseball cap that I left at your house. Can you keep it for me?</p>'
+               '<p><<$FK.name>>: Okay, I will take strict care of it.</p>'
+               '<p>·——————————</p>'    
+               '<p>Ma Dongmu: Hey, Kasuga Erfan!How do you drive!</p>'
+               '<p><<$FK.name>>: What`s the sound, go and have a look?！</p>'
+               '<p>Bodyguard: Yes, Congressman…</p>'
+               '<p>Kiryu Sanma: Not good, the car tire exploded!</p>'
+         '</div>'
+    end
+    if a=1: 
+         '<div class="dialog_menu">'
+               '<p>Ma Dongmao: Damn it……</p>'
+         '</div>'
+    end
+    if a=2: 
+          if $ed_revenge=3:$ed_revenge=4
+         '<div class="dialog_menu">'
+               '<p>Ma Dongmu: Damn it... let me out!When I go out, I will definitely kill your whole family!You fucking bastard!You pissed me off!<end></p>'
+         '</div>'
+    end
+
+End
 --- final_event ---------------------------------
 

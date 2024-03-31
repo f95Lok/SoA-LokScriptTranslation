@@ -240,7 +240,6 @@ if $args[0]="FK立绘":
 	'</div>'
 end
 
-
 if $args[0]="EVA":
 	'<div class ="show_menu"><img src="images\NPC\JYB\pics\e1.jpg" width="854"></div>'
 
@@ -266,8 +265,6 @@ if $args[0]="EVA2":
 		'<p>*病例说明:因为突发意外事件导致脑部损伤，被紧急送往医院进行抢救。然而医护人员由于人为干涉原因无法迅速做出反应，延误了急救时间，导致患者脑部缺氧时间过长，最终进入昏迷状态。</p>'
 	'</div>'
 end
-
-
 
 if $args[0]="阁楼":
 	'<div class ="show_menu"><img src="images\NPC\JYB\pics\11.jpg" width="854"></div>'
@@ -299,12 +296,12 @@ if $args[0]="安全门":
 	'<div class ="show_menu"><img src="images\NPC\JYB\pics\34.jpg" width="854"></div>'
 
 	'<div class="button_menu">'
-		if $FK.山峦>=100:'<div class="buttonGn3"><a href="exec:gt ''最终_事件'',''地下通道''">打开</a></div>'else:'<div class="buttonGr"><a href="exec:">打开</a></div>'
+		if $FK.山峦>=100:'<div class="buttonGn3"><a href="exec:gt ''最终_事件'',''地下通道''">打开</a></div>'else:'<div class="buttonGr"><a href="exec:">打开>>><<$FK.山峦>>%</a></div>'
 		'<div class="button"><a href="exec:minutes+=5 & gt ''联排别墅''">离开</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
-		'<p>·在不起眼的角落，隐藏着一扇异常厚重的门，这应该是此处安全等级最高的地方了。</p>'
+		'<p>·在不起眼的角落，隐藏着一扇异常厚重的门，这应该是此处安全等级最高的地方。</p>'
 		'<p>·当被<<$FK.name>>充分信任时可以打开。</p>'
 	'</div>'
 end
@@ -342,9 +339,14 @@ if $args[0]="SML立绘":
 	'<div class="dialog_menu">'
 		if $SML事件链<2:'<p><<$SML.name>>:您好，<<$主角姓名>>先生，按照规定，我需要登记您的个人信息。</p>'
 		if $SML事件链>=2:'<p><<$SML.name>>:我想我们两个的磁场一致，是互相吸引的两个同类，我们可以并肩作战❤</p>'
+		if $ED报复=1:
+			'<p><B><span class =''red''><<$YS.name>>:您好，这是我自己烘焙的巧克力蛋糕，想给我的好邻居尝尝。</p>'
+			'<p><<$SML.name>>:巧克力蛋糕?太好了，我想除了<<$HB.name>>需要节食保持身材外，另外几位养女都会喜欢的。请跟我来。</p>'
+			'<p><<$YS.name>>:啊呀？不如你先带我去厕所，让<<$主角姓名>>送上去吧？</p>'
+			'<p><<$SML.name>>:好的。</p>'
+		end
 	'</div>'
 end
-
 
 if $args[0]="BX资料":
 	'<div class="show_menu">'
@@ -419,7 +421,10 @@ if $args[0]="FK家XN":
 
     if a_x!6:
          '<div class="button_menu">'
-           if a_x=0:'<div class="buttonS2"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">藏什么了？</a></div>'
+           if a_x=0:
+			'<div class="buttonS2"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">藏什么了？</a></div>'
+			if $ED报复=1:'<div class="buttonG3"><a href="exec:gt ''最终_事件'',''FK_XN温泉''">拿出巧克力蛋糕</a></div>'
+           end
            if a_x=1:'<div class="buttonP"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">我都听见声音了！</a></div>'
            if a_x=2:'<div class="buttonR4"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">有人来了</a></div>'
            if a_x=3:'<div class="buttonG2"><a href="exec:a_x+=1 & gt ''FK家'',''FK家XN''">想个惩罚</a></div>'
@@ -485,7 +490,10 @@ if $args[0]="FK家DN":
 
     if a_y!8:
          '<div class="button_menu">'
-           if a_y=0:'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">打招呼</a></div>'
+           if a_y=0:
+			'<div class="buttonS2"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">打招呼</a></div>'
+			if $ED报复=1:'<div class="buttonPu5"><a href="exec:gt ''最终_事件'',''FK_DN温泉''">拿出巧克力蛋糕</a></div>'
+           end
            if a_y=1:'<div class="buttonP"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">有人找她</a></div>'
            if a_y=2:'<div class="buttonR4"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">特训时间</a></div>'
            if a_y=3:'<div class="buttonG2"><a href="exec:a_y+=1 & gt ''FK家'',''FK家DN''">观看特训</a></div>'

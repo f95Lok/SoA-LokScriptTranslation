@@ -12,7 +12,7 @@ gs'menu_time_calc'
 $glz_name=$args[0]
 $glz_lv=$args[3]
 
-if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁 and $args[3]!$V55攻略解锁 and $args[3]!$V60攻略解锁:$攻略进入=0 & gt'攻略赞助'
+if $args[3]>$攻略解锁 and $args[3]>$V48攻略解锁 and $args[3]!$V55攻略解锁 and $args[3]!$V60攻略解锁:$攻略进入=0 & gt $loc,$metka
 
 
 if $args[0]='<<$YS.name>>':
@@ -44,7 +44,7 @@ if $args[0]='<<$YS.name>>':
 			'·在客厅中与之对话，可以选择三个报复目标</p>'
 			'①主厨：去餐厅与他对话，回到她的别墅触发剧情，随后可以代管其股份(备注：她有20%；主厨前妻的40%可以去人才公寓获得托管)</p>'
 			'②局长：去警局与她串通，回到她的别墅触发剧情，怒气全消后可以3P</p>'
-			'③马东霉：目前无法报复</p>'
+			'③马东霉：前往1600号，任选养女房间，完成后回到她的别墅触发剧情</p>'
 			'·以上就是全部剧情内容</p>'
 			end
 	 '</div>'
@@ -1007,6 +1007,36 @@ if $args[0]='<<$TCK.name>>':
             '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
             '<font color="#FFE4B5">前置：完成银行2.2亿劫案</font></p>'
             '<font color="#BBFFBB">这个角色比较特殊，她独立调查的时候会随机出现在居民区，只能说这么多，再说就剧透了。</font></p>'
+     '</div>'
+ '</div>'
+end
+
+if $args[0]='<<$RQ.name>>':
+ '<div class="charac_nps_info999">'
+     '<div class="charac_gg_foto"><img class="img_stretch" src="images\npc_l\<<$args[0]>>L.png"></div>'
+     '<div id="left-column999">'
+            '<p><span class="bold"><font color="#FF8888">✎名字:<<$args[0]>></font></p>'
+            '<span class="bold"><font color="#FF3939">♕好感度:<<$args[1]>></font>'
+            '<span class="bold"><font color="#FF00D2">♝堕落度:<<$args[2]>></font></p>'
+            '<font color="#FFE4B5">前置：8点公园相遇</font></p>'
+            if $RQ事件链=0:'<font color="#FF0000">前往人才公寓A301 </font></p>'
+            if $RQ事件链=1:'<font color="#BBFFBB">前往帝国能源</font></p>'
+            if $RQ事件链=2:'<font color="#BBFFBB">返回人才公寓A301 </font></p>'
+            if $RQ事件链=3:'<font color="#FF0000">前往大学校长室 </font></p>'
+            if $RQ事件链=4:'<font color="#BBFFBB">返回人才公寓A301 </font></p>'
+            if $RQ事件链=5:'<font color="#BBFFBB">前往郊外温泉 </font></p>'
+            if $RQ事件链=6:'<font color="#FF0000">返回人才公寓A301 </font></p>'
+            if $RQ事件链=7:'<font color="#BBFFBB">前往商场的赤色餐厅 </font></p>'
+            if $RQ事件链=8:'<font color="#BBFFBB">返回人才公寓A301 </font></p>'
+            if $RQ事件链=9:'<font color="#FF0000">前往学校游泳馆（前置为<<$SB.name>>的除名任务） </font></p>'
+            if $RQ事件链=10:'<font color="#BBFFBB">返回人才公寓A301 </font></p>'
+            if $RQ事件链=11:'<font color="#BBFFBB">前往商场的丝袜专卖店 </font></p>'
+            if $RQ事件链=12:'<font color="#BBFFBB">返回人才公寓A301 </font></p>'
+            if $RQ事件链=13:'<font color="#FF0000">前往医院的院长室 </font></p>'
+            if $RQ事件链=14:'<font color="#BBFFBB">返回人才公寓A301 </font></p>'
+            if $RQ事件链=15:'<font color="#BBFFBB">待他离开后回屋操她 </font></p>'
+            if $RQ事件链=16:'<font color="#FF0000">前往教堂的婚礼业务(前置为成为主教完成<<$LEI.name>>任务) </font></p>'
+            if $RQ事件链=17:'<font color="#BBFFBB">已达成角色终点 </font></p>'
      '</div>'
  '</div>'
 end

@@ -1,0 +1,167 @@
+# special_note
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+q+=1
+if a>0:
+	if q>=8:q=8
+end
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_hidden'
+	gs'menu_option_hidden'
+	'<div class="actions_menu">'
+		'<div class="action">'
+			if q=1:'<a class="photo" data-title="Base entrance" ><img class="img_stretch" src="images\NPC\YS\pics\0_x.jpg"></a>'else:'<a class="photo" data-title="Base entrance"><img class="img_stretch" src="images\NPC\YS\pics\0.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if q=2:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if q=3:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if q=4:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\7_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\7.jpg"></a>'
+		'</div>'
+		!####################
+		'<div class="action">'
+			'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\10.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			if a<5:'<a class="photo" data-title="channel" href="exec:a+=1 & gt ''special_note'',''description''"><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+			if a=5:'<a class="photo" data-title="channel" href="exec:a+=1 & gt ''special_note'',''description''"><img class="img_stretch" src="images\NPC\YS\pics\1_2.jpg"></a>'
+			if a=6:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1_1.jpg"></a>'
+
+			if a>=7:
+				'<a class="photo" data-title="channel"><img class="img_stretch" src="images\NPC\YS\pics\00.jpg"></a>'
+			end
+			
+		'</div>'
+		'<div class="action">'
+			if a=6 or a=5 or a=4:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\8_x.jpg"></a>'else:'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\8.jpg"></a>'
+		'</div>'
+		!####################
+		'<div class="action">'
+			'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\9.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="channel" ><img class="img_stretch" src="images\NPC\YS\pics\1.jpg"></a>'
+		'</div>'
+		'<div class="action">'
+			'<a class="photo" data-title="Base headquarters" > <img class="img_stretch" src="images\NPC\YS\pics\99.jpg"></a>'
+		'</div>'
+	'</div>'
+'</div>'
+
+
+if $args[0]="description":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\AW\vids\SQKM1-<<a>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+    if a!13:
+         '<div class="button_menu">'
+           if a=0:'<div class="buttonG1"><a href="exec:a+=1 & gt ''special_note'',''description''">Is it her?</a></div>'
+           if a=1:'<div class="buttonG2"><a href="exec:a+=1 & gt ''special_note'',''description''">Talk</a></div>'
+           if a=2:'<div class="buttonG3"><a href="exec:a+=1 & gt ''special_note'',''description''">Surprised</a></div>'
+           if a=3:'<div class="buttonG4"><a href="exec:a+=1 & gt ''special_note'',''description''">What to do</a></div>'
+           if a=4:'<div class="buttonG5"><a href="exec:a+=1 & gt ''special_note'',''description''">Make up your mind</a></div>'
+           if a=6:'<div class="buttonR"><a href="exec:a+=1 & gt ''special_note'',''description''">Wait for </a></div>'
+           if a=7:'<div class="buttonS"><a href="exec:a+=1 & gt ''special_note'',''description''">Train her</a></div>'
+           if a=8:'<div class="buttonR"><a href="exec:a+=1 & gt ''special_note'',''description''">Pull out the squirting</a></div>'
+           if a=9:'<div class="buttonS"><a href="exec:a+=1 & gt ''special_note'',''description''">Change the thick one</a></div>'
+           if a=10:'<div class="buttonR"><a href="exec:a+=1 & gt ''special_note'',''description''">Gun machine her</a></div>'
+           if a=11:
+           '<div class="buttonS"><a href="exec:a=8 & gt ''special_note'',''description''">Reinsert</a></div>'
+           '<div class="buttonR"><a href="exec:a+=1 & gt ''special_note'',''description''">She can`t do it anymore</a></div>'
+           end
+           if a=12:'<div class="buttonG"><a href="exec:a+=1 & gt ''special_note'',''description''">Talk<<$JZ.name>></a></div>'
+         '</div>'
+        else:
+            '<div class="button_menu">'
+               '<div class="button"><a href="exec:dungeon_introduction=1 & F1_nu=1  & gt ''dungeon''">Got it</a></div>'
+            '</div>'
+    end
+
+    if a=0: 
+         '<div class="dialog_menu">'
+              '<p>*Someone is coming</p>'
+         '</div>'
+    end
+
+
+    if 3>=a and a>=1: 
+         '<div class="dialog_menu">'
+              '<p><<$JZ.name>>: <<$protagonists_name>>, how are you.</p>'
+              '<p>Me: Master Chief, come to a place like this alone?What can I do for you?</p>'
+              if a>=2:'<p><<$JZ.name>>: A special team has been sent from the central government. I am worried that my right to speak in the police station is threatened.So I arranged a special task for that team.</p>'
+              if a>=2:'<p>Me: What special task?</p>'
+              if a>=3:'<p><<$JZ.name>>: Let them clean up the Longkou Group!</p>'
+         '</div>'
+    end
+
+    if a=4: 
+         '<div class="dialog_menu">'
+              '<p>Me: What?Let them clean up the Longkou Group?Are you kidding me?I just took over the Longkou Group……</p>'
+              '<p><<$JZ.name>>: Isn`t that just right?I, the chief of police, will be your internal response!We will let them come and go!</p>'
+         '</div>'
+    end
+
+    if a=5: 
+         '<div class="dialog_menu">'
+              '<p>Me: What do you want to do?</p>'
+              '<p><<$JZ.name>>: You see, someone has already invaded the monitor on the minimap. If you guessed it correctly, who is the operation captain of this special team.</p>'
+              '<p>Me: Action captain?</p>'
+              '<p><<$JZ.name>>: Yes, the weakness of this woman is that she does things hastily, and she is easy to act impulsively and make irrational decisions.So I just angered her a little bit, and she planned to take the credit of the Longkou Group alone.</p>'
+              '<p>Me: What should I do?She is coming soon?</p>'
+              '<p><<$JZ.name>>: Don`t worry, just try to add a little `hindrance` to her.</p>'
+         '</div>'
+    end
+
+    if a=6: 
+         '<div class="dialog_menu">'
+              '<p>Ze village Rayon イ u(action captain): Ah Ah Ah...across the obstacle of time how it will be in a rope trap……</p>'
+         '</div>'
+    end
+
+    if a=7: 
+         '<div class="dialog_menu">'
+              '<p>Sawamuraレコ (Operation Captain): Who are you... Let me go, I`m the special operations captain……</p>'
+         '</div>'
+    end
+
+    if 11>=a and a>=8: 
+         '<div class="dialog_menu">'
+              '<p>Sawamura Reiko (Action Captain): Ah ah ah ah ah... wait ah ah ah... listen to me……<<$panting_2>></p>'
+         '</div>'
+    end
+
+    if a=12: 
+         '<div class="dialog_menu">'
+              '<p>Sawamuraレコ (Action Captain): Hoo-hoo-hoo-you... you wait for me, my team members will definitely rescue me!</p>'
+         '</div>'
+    end
+
+    if a=13: 
+         '<div class="dialog_menu">'
+              '<p><<$JZ.name>>: Don`t worry, I will let her team members come to Huludwa one by one to save Grandpa.</p>'
+              '<p>Me: It doesn`t seem difficult?</p>'
+              '<p><<$JZ.name>>: Finally, I will tell you a few more words…</p>'
+              '<p><<$JZ.name>>: ① I will turn a blind eye to your subordinates. Even if they are arrested, I will only lock them up for 10 days.</p>'
+              '<p><<$JZ.name>>: ② I will send you the information of every teammate who comes to the rescue. You have to set up an `obstacle` preparation.</p>'
+              '<p><<$JZ.name>>:如果If your headquarters is captured, then I can`t help it.</p>'
+         '</div>'
+    end
+
+End
+--- special_note ---------------------------------
+

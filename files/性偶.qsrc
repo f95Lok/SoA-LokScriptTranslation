@@ -25,7 +25,8 @@ if $args[0]="":
 
 	'<div class="button_menu">'
 		'<div class="buttonS1"><a href="exec:minutes+=15 & gt ''性偶'',''接客''">接客</a></div>'
-		if 集印卡>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''性偶'',''集印卡''">集印卡</a></div>'
+		if 集印卡>0 and 集印完成=0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''性偶'',''集印卡''">集印卡</a></div>'
+		if 集印完成>0:'<div class="buttonS"><a href="exec:minutes+=15 &  gt ''性偶'',''集印卡''">鸭王订单</a></div>'
 		'<div class="buttonR4"><a href="exec:minutes+=15 & gt ''歌舞伎町''">滚出去</a></div>'
 	'</div>'
 
@@ -104,7 +105,10 @@ End
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''性偶''">明白了</a></div>'
 		if 集印完成=1 and 鸭王勋章=0:'<div class="buttonG"><a href="exec:鸭王勋章+=1 & gt ''性偶''">奖励：鸭王勋章</a></div>'
-		if  鸭王勋章>0:'<div class="buttonG"><a href="exec:gt ''性偶'',''SVIP''">鸭王：SVIP订单</a></div>'else:'<div class="buttonGr"><a href="exec:">鸭王：SVIP订单</a></div>'
+		if  鸭王勋章>0:'<div class="buttonG"><a href="exec:gt ''性偶'',''SVIP''">鸭王：SVIP订单㊖</a></div>'else:'<div class="buttonGr"><a href="exec:">鸭王：SVIP订单㊖</a></div>'
+		if  鸭王勋章>0:'<div class="buttonG"><a href="exec:gt ''性偶'',''SVIP2''">鸭王：SVIP订单☎︎</a></div>'else:'<div class="buttonGr"><a href="exec:">鸭王：SVIP订单☎︎</a></div>'
+		if  鸭王勋章>0:'<div class="buttonG"><a href="exec:gt ''性偶'',''SVIP3''">鸭王：SVIP订单♚︎</a></div>'else:'<div class="buttonGr"><a href="exec:">鸭王：SVIP订单♚︎</a></div>'
+		
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -130,6 +134,35 @@ if $args[0]="SVIP":
 		if 百日宴!0:'<p>·㊖次月13日13时【百日宴】-别墅区-专车接送<a href="exec:百日宴=0 &  gt ''性偶'',''SVIP''">-退单</a></p>'
 	'</div>'
 End
+
+if $args[0]="SVIP2":
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·老板娘:听好了，就算你有鸭王的资质。这些SVIP订单也给老娘伺候好了，可别砸了老娘的招牌！</p>'
+		if RIO订单=0:'<p>·☎︎-人才公寓-A302-上门服侍<a href="exec:RIO订单=1 &  gt ''性偶'',''SVIP2''">-接单</a></p>'
+		if RIO订单!0:'<p>·☎︎-人才公寓-A302-上门服侍<a href="exec:RIO订单=0 &  gt ''性偶'',''SVIP2''">-退单</a></p>'
+	'</div>'
+End
+
+if $args[0]="SVIP3":
+	'<div class ="show_menu"><img src="images\place\性偶接客.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="button"><a href="exec:minutes+=15 & gt ''歌舞伎町''">离开</a></div>'
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·老板娘:听好了，就算你有鸭王的资质。这些SVIP订单也给老娘伺候好了，可别砸了老娘的招牌！</p>'
+		if 大绝订单=0:'<p>·♚︎-夜色精巢-主舞台-周日狂欢夜-猛男充场<a href="exec:大绝订单=1 &  gt ''性偶'',''SVIP3''">-接单</a></p>'
+		if 大绝订单!0:'<p>·♚︎-夜色精巢-主舞台-周日狂欢夜-猛男充场<a href="exec:大绝订单=0 &  gt ''性偶'',''SVIP3''">-退单</a></p>'
+	'</div>'
+End
+
 
 
 

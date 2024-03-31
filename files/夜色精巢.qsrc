@@ -37,7 +37,6 @@ if $ARGS[0]="":
 
 
 	'<div class="button_menu">'
-	
 		'<div class="buttonS"><a href="exec:minutes+=15 & gt ''夜色精巢'',''主舞台''">看向主舞台</a></div>'
 		if $OX.available=1 and $JZ_Event_rape=0: '<div class="button"><a href="exec:minutes+=15 & gt ''杀手_事件'',''SS_Event_酒吧''">调查：失踪案 <<$JZ_Event_rape>>﹪</a></div>'
 		if  $JZ_Event_rape=15: '<div class="button"><a href="exec:minutes+=15 & gt ''杀手_事件'',''SS_Event_车牌''">调查：车牌 <<$JZ_Event_rape>>﹪</a></div>'
@@ -48,7 +47,9 @@ if $ARGS[0]="":
 		if rand(0,100)>=90 and $魅魔风俗=1:'<div class="buttonPu3"><a href="exec:gt ''魅魔_事件'',''魅魔_Fuck_夜店''"><<$MMS.name>>的身影</a></div>'
 		if $LB.available>0:'<div class="buttonR"><a href="exec:gt ''夜色精巢'',''私人办公室''">『私人办公室』</a></div>'
 		if $松本事件链=5 and hour>=21:'<div class="buttonG"><a href="exec:gt ''松本_事件'',''SB_B1''"><<$SB.name>></a></div>'
-		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">消磨时间</a></div>'
+		'<div class="button" id="FButton"><a href="exec:minutes+=30 "onclick="checkSeason()">消磨时间</a></div>'
+		'<div class="button" id="buttonA" style="display: none;"><a href="exec:gt $loc,$metka">消磨时间</a></div>'
+		'<div class="button" id="buttonB" style="display: none;"><a href="exec:$The_Sword_of_Damocles=4999970 & gt $loc,$metka">消磨时间</a></div>'
 	'</div>'
 
 	'<div class="dialog_menu">'
@@ -168,12 +169,13 @@ if $ARGS[0]="主舞台":
 
 	'<div class="button_menu">'
 		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢'',''主舞台''">消磨时间</a></div>'
+		if 大绝订单=1 and  week_day =7 and hour>=21:'<div class="buttonG4"><a href="exec:gt ''最终_事件'',''周日狂欢''">周日狂欢夜</a></div>'
 		if $松本事件链=4 and hour=22 and minutes=15:'<div class="buttonPu4"><a href="exec:gt ''松本_事件'',''SB_A1''">？争执的身影？</a></div>'
 		if 集印卡=1 and hour=2 and week_day =6:'<div class="buttonR3"><a href="exec:集印编号S=3 & gt ''群演_事件'',''泛用_Fuck_集印S''">❤搭讪熟人❤</a></div>'
 		if $BGH.夜色>=1 and hour=22 and week_day =3:'<div class="buttonS3"><a href="exec:gt ''夜色精巢'',''找BGH''">找<<$BGH.name>></a></div>'
 		if rand(0,100)>=90 and $魅魔风俗=1:'<div class="buttonPu3"><a href="exec:gt ''魅魔_事件'',''魅魔_Fuck_夜店''"><<$MMS.name>>的身影</a></div>'
-		if $ZX约俱乐部=1 and (hour>=22 or hour<=3):'<div class="buttonS"><a href="exec:minutes+=15 & gt ''整形_事件'',''俱乐部''"><<$ZX.name>></a></div>'
-		if $XN.服务生=1:'<div class="buttonS"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_夜色2''">找<<$XN.name>></a></div>'
+		if $ZX约俱乐部=1 and (hour>=22 or hour<=3):'<div class="buttonS4"><a href="exec:minutes+=15 & gt ''整形_事件'',''俱乐部''"><<$ZX.name>></a></div>'
+		if $XN.服务生=1:'<div class="buttonS5"><a href="exec:minutes+=15 & gt ''修女_事件'',''XN_Fuck_夜色2''">找<<$XN.name>></a></div>'
 		
 		'<div class="button"><a href="exec:minutes+=15 & gt ''夜色精巢''">返回</a></div>'
 	'</div>'

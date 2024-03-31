@@ -333,6 +333,7 @@ end
 if $ARGS[0]="mayor`s_office":
 	'<div class ="show_menu"><img src="images\place\真市长室.jpg" width="854"></div>'
 	'<div class="button_menu">'
+		if $mayor_e='WO':'<div class="buttonW"><a href="exec:gt ''ceremony'',''start''">`Mayor`s Privilege`</a></div>' 
 		if $sz_event_chain>=3 and campaign_day<=0 and the_mayor_is_sure=0 and $YXH.available=1:'<div class="buttonR"><a href="exec:gt ''final_event'',''mayoral_campaign''">Mayoral election</a></div>'
 		if $sz_event_chain>=3 and $YXH.available=0:'<div class="buttonG1"><a href="exec:gt ''final_event'',''mayoral_candidate''">Mayoral candidate</a></div>'
 		if $jyb_event_chain>=1:'<div class="buttonG"><a href="exec:gt ''mayors_office'',''mayor_liyi''"><<$SZ.name>></a></div>'
