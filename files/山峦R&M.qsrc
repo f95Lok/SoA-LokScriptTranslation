@@ -1,0 +1,98 @@
+# 山峦R&M
+cls
+$metka = $ARGS[0]   
+$loc = $CURLOC
+gs'menu_gif'
+gs "精力判定"
+
+if plant_num>=100:
+	plant+=1
+	plant_num=0
+end
+
+'<div id="right-column">'
+	gs'menu_time'
+	gs'menu_status_show'
+	gs'menu_option_show'
+	'<div class="actions_menu">'
+		'<div class="action">
+			<a class="photo" data-title="郊外" href="exec:minutes+=30 & gt ''郊外''"><img class="img_stretch" src="images\place\郊外_<<$times_of_day>>.jpg"></a>
+		</div>'
+	'</div>'
+'</div>'
+
+
+if $args[0]="":
+	'<div class ="show_menu"><img src="images\place\山峦R&M_<<$times_of_day>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonB3"><a href="exec:minutes+=120 & plant_num+=RAND(15,25) & my.精力-=RAND(15,25) & gt ''山峦R&M''">浇水 2h</a></div>'
+		'<div class="buttonR3"><a href="exec:minutes+=180 & plant_num+=RAND(20,40) & my.精力-=RAND(20,35) & gt ''山峦R&M''">除虫 3h</a></div>'
+		if 金坷垃>0:
+		'<div class="buttonG3"><a href="exec:minutes+=240 & 金坷垃-=1 & plant_num+=RAND(49,79) & my.精力-=RAND(20,35) & gt ''山峦R&M''">施肥 4h 【金坷垃！】</a></div>'
+		end
+		if 异色植物种子>0:'<div class="buttonGn3"><a href="exec:gt ''山峦R&M'',''培育异色植物''">培育异色植物</a></div>'
+	'</div>'
+
+
+	'<div class="dialog_menu">'
+		'<p><font color="#99CC33">☣☣山峦R&M区域☣☣</font></p>'
+		'<p></p>'
+		'<p>成熟度：<<plant_num>> %</p>'
+		'<p></p>'
+		'<p>当前成熟果实：<<plant>> 个</p>'
+		'<p></p>'
+		'<p>究竟是什么导致了植被的变异呢？</p>'
+		'<p>·——————</p>'
+		'<p>我的土地所有权：<<100-$FK.山峦>>%</p>'
+	'</div>'
+end
+
+
+if $args[0]="培育异色植物":
+	
+	'<div class ="show_menu"><img src="images\place\异色<<rand(0,4)>>.jpg" width="854"></div>'
+
+	'<div class="button_menu">'
+		if plantYS_num>=50:'<div class="buttonS"><a href="exec:gt ''山峦R&M'',''看向四周''">看向附近</a></div>'
+		if hour=12 and $MS.bad>=200:'<div class="buttonG3"><a href="exec:a=0 & q=0 & gt ''秘书_事件'',''秘书_Fuck_山里搞''">有闯入者</a></div>'
+		'<div class="buttonB3"><a href="exec:minutes+=120 &  plantYS_num+=RAND(10,20) & my.精力-=RAND(20,35) & gt ''山峦R&M'',''培育异色植物''">浇水 2h</a></div>'
+		if plantYS_num>=100:'<div class="buttonGn4"><a href="exec:plantYS_num=0 & 异色植物幼苗+=1 & gt ''山峦R&M'',''培育异色植物''">收割植物幼苗</a></div>'
+
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p><font color="#00ff00">☣☣你将培养皿倒扣在土地上，令人惊讶的一幕出现了☣☣</font></p>'
+		'<p>四周的空气开始燥热起来，你不自觉地感觉心里有一团无名的欲火</p>'
+		'<p>·————————</p>'
+		'<p>成熟度：<<plantYS_num>> %</p>'
+	'</div>'
+end
+
+
+if $args[0]="看向四周":
+        '<div class="show_menu">'
+             '<video preload="metadata" autoplay loop height="480">
+             <source src="images\NPC\CT\vids\YZD1-<<rand(0,5)>>.webm" type=''video/webm;''></video></div>'
+        '</div>'
+
+	'<div class="button_menu">'
+		'<div class="buttonS"><a href="exec:gt ''山峦R&M'',''看向四周''">看向附近</a></div>'
+		'<div class="buttonGn1"><a href="exec:gt ''山峦R&M'',''培育异色植物''">返回</a></div>'
+		
+		
+	'</div>'
+
+	'<div class="dialog_menu">'
+		'<p>·附近来野炊的男男女女变得好奇怪，难道是受了那株植物的影响？</p>'
+	'</div>'
+end
+
+
+
+
+
+
+
+
+--- 山峦R&M ---------------------------------
